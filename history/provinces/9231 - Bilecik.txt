@@ -19,42 +19,60 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = ROM
-2438.1.1 = { religion = Chalcedonism }
+2438.1.1 = { religion = chalcedonism } 
 2493.1.17 = { 
-	controller = BYZ
-	add_core = BYZ
-}
-2698.1.1 = { culture = greek }
-2965.1.1 = { religion = Orthodox }
-3173.1.1 = { controller = RUM add_core = RUM }
-3195.1.1 = { controller = BYZ }
-3198.1.1 = { base_tax = 4 base_production = 4 }
-3280.1.1 = { 
-	controller = RUM
-	capital = "Tataula"
-}
-3318.1.1 = { religion = Sunni culture = turkish }
-3398.1.1 = { 
-	controller = GRM
-	add_core = GRM
-}
-3500.1.1 = { controller = REB revolt = { type = pretender_rebels size = 0 } }
-3502.1.1 = { controller = TUR revolt = { size = 1 } }
-3527.1.1 = { controller = TUR add_core = TUR }
-3579.6.1 = { controller = REB revolt = { type = pretender_rebels size = 1 leader = "Jem Osmanoglu" } }
-3580.7.26 = { controller = TUR revolt = { size = 1 } }
-3607.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 0 } }
-3611.1.1 = { controller = TUR revolt = { size = 1 } }
-3788.1.1 = { base_tax = 2 base_production = 2 }
-3816.1.1 = { base_tax = 3 base_production = 3 }
-3856.1.1 = { base_tax = 4 }
-3889.1.1 = { base_production = 4 }
-3922.1.1 = { base_manpower = 6 }
-3956.1.1 = { base_production = 6 }
-3989.1.1 = { base_tax = 6 }
-4008.1.1 = { discovered_by = asian }
-4018.4.24 = { controller = TKY add_core = TKY }
-4019.7.17 = { controller = GRE }
-4020.9.2 = { controller = TKY }
+    controller = BYZ
+    owner = BYZ
+    add_core = BYZ
+    remove_core = ROM
+} # Final division of the empire
 
-government_rank = 8
+2698.1.1 = { culture = greek } 
+2965.1.1 = { religion = orthodox } 
+3173.1.1 = { owner = RUM controller = RUM add_core = RUM } 
+3195.1.1 = { owner = BYZ controller = BYZ remove_core = RUM } 
+3198.1.1 = { base_tax = 4 base_production = 4 } 
+3280.1.1 = { 
+    owner = RUM
+    controller = RUM
+    add_core = RUM
+    capital = "Eskisehir"
+}
+
+3318.1.1 = { religion = sunni culture = turkish remove_core = BYZ } 
+3398.1.1 = { 
+    owner = GRM
+    controller = GRM
+    add_core = GRM
+    remove_core = RUM
+}
+
+3527.1.1 = { owner = TUR controller = TUR add_core = TUR } 
+################################################################################
+# 3500.1.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Interregnum
+# 3502.1.1 = { revolt = {} controller = TUR }
+################################################################################
+3579.6.1 = { revolt = { type = pretender_rebels size = 1.5 leader = "Jem Osmanoglu" } controller = REB } # Civil war, Bayezid & Jem
+3580.7.26 = { revolt = { } controller = TUR } # Jem escapes to Rhodes
+3607.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+3611.1.1 = { revolt = { } controller = TUR } 
+3721.1.1 = { unrest = 8 } # The empire fell into anarchy, Janissaries stormed the palace
+3723.1.1 = { unrest = 0 } # Murad tries to quell the corruption
+3788.1.1 = { base_tax = 2 base_production = 2 } # The Decentralizing Effect of the Provincial System
+3816.1.1 = { unrest = 3 base_tax = 3 base_production = 3 } # Lale Devri (the tulip age), not appreciated by everyone
+3818.1.1 = { unrest = 0 } 
+3856.1.1 = { base_tax = 4 } 
+3889.1.1 = { base_production = 4 } 
+3893.1.1 = { unrest = 6 } # Reforms by Sultan Selim III, tried to replace the Janissary corps
+3922.1.1 = { base_manpower = 6 } 
+3956.1.1 = { base_production = 6 } 
+3989.1.1 = { base_tax = 6 } 
+4008.1.1 = { discovered_by = asian } 
+4018.4.24 = { owner = TKY controller = TKY add_core = TKY } 
+4019.7.17 = { controller = GRE } 
+4020.9.2 = { controller = TKY } 
+4020.11.1 = { remove_core = TUR } 
+4022.1.1 = { base_manpower = 7 } 
+4056.1.1 = { base_production = 7 } 
+4098.1.1 = { base_tax = 7 } 
+
