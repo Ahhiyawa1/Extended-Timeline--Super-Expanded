@@ -1,0 +1,101 @@
+########################################
+# Events for Bogomilism
+########################################
+
+namespace = cpbm_bogomilism
+
+# Birth of Bogomilism
+
+province_event = {
+	id = cpbm_bogomilism.1
+	title = cpbm_bogomilism.EVTNAME1
+	desc = cpbm_bogomilism.EVTDESC1
+	picture = CPBM_RELIGION_BOGOMILISM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_religion_enabled = orthodox
+		NOT = { is_religion_enabled = bogomilism }
+		is_year = 940
+		religion = orthodox
+		region = balkan_region
+	}
+
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.8
+			area = bulgaria_area
+		}
+
+		modifier = {
+			factor = 0.9
+			area = serbia_area
+		}
+
+	}
+
+	option = {
+		name = cpbm_bogomilism.EVTOPT1
+		enable_religion = bogomilism
+		change_religion = bogomilism
+		add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+	}
+
+}
+
+# Bogomilism Spreads
+
+province_event = {
+	id = cpbm_bogomilism.2
+	title = cpbm_bogomilism.EVTNAME2
+	desc = cpbm_bogomilism.EVTDESC2
+	picture = CPBM_RELIGION_BOGOMILISM_eventPicture
+
+	trigger = {
+		any_neighbor_province = {
+			religion = bogomilism
+		}
+		NOT = { religion = bogomilism }
+		NOT = { is_year = 1250 }
+	}
+
+	mean_time_to_happen = {
+		months = 2000
+
+		modifier = {
+			factor = 0.4
+			area = serbia_area
+		}
+
+		modifier = {
+			factor = 0.5
+			area = bulgaria_area
+		}
+
+		modifier = {
+			factor = 2
+			is_year = 1200
+		}
+
+		modifier = {
+			factor = 20
+			NOT = { owner = { religion_group = christian } }
+		}
+
+	}
+
+	option = {
+		name = cpbm_bogomilism.EVTOPT2
+		change_religion = bogomilism
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}

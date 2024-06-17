@@ -1,0 +1,162 @@
+country_decisions = {
+
+	chile_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CHL }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_la_plata = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = northern_chile_area 
+						area = central_chile_area 
+						area = southern_chile_area 
+					}
+				}
+				capital = 782
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 787	# Picunmapu
+		}
+		effect = {
+			change_tag = CHL
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_la_plata = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CHL
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	chili_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CH3 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_la_plata = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = northern_chile_area 
+						area = central_chile_area 
+						area = southern_chile_area 
+					}
+				}
+				capital = 782
+			}
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 787	# Picunmapu
+		}
+		effect = {
+			change_tag = CH3
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_la_plata = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CH3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tchili_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = TC0 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_la_plata = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = northern_chile_area 
+						area = central_chile_area 
+						area = southern_chile_area 
+					}
+				}
+				capital = 782
+			}
+			culture_group = germanic
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 787	# Picunmapu
+		}
+		effect = {
+			change_tag = TC0 
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_la_plata = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TC0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

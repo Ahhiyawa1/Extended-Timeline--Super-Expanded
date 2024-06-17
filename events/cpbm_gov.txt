@@ -1,0 +1,271 @@
+namespace = cpbm_gov
+
+# Force event
+country_event = {
+	id = cpbm_gov.1
+	title = cpbm_gov.1.t
+	desc = cpbm_gov.1.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		religion = secular
+		NOT = { religion = secular }
+	}
+	
+	option = {
+		name = cpbm_gov.1.a
+		change_government = monarchy
+		set_legacy_government = constitutional_monarchy
+		define_ruler = {
+			claim = 100
+		}
+	}
+	
+	option = {
+		name = cpbm_gov.1.b
+		change_government = republic
+		set_legacy_government = constitutional_republic
+		remove_government_reform = dictatorial_rule
+		remove_government_reform = communist_government
+		remove_government_reform = fascist_government
+	}
+	
+	option = {
+		name = cpbm_gov.1.c
+		change_government = republic
+		set_legacy_government = communist_dictatorship
+		add_government_reform = dictatorial_rule
+		add_government_reform = communist_government
+		remove_government_reform = fascist_government
+	}
+	
+	option = {
+		name = cpbm_gov.1.e
+		change_government = republic
+		set_legacy_government = fascist_dictatorship
+		add_government_reform = dictatorial_rule
+		add_government_reform = fascist_government
+		remove_government_reform = communist_government
+	}
+	
+	option = {
+		name = cpbm_gov.1.f
+	}
+}
+
+
+country_event = {
+	id = cpbm_gov.2
+	title = cpbm_gov.2.t
+	desc = cpbm_gov.2.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		religion = secular
+		NOT = { religion = secular }
+	}
+	
+	option = {
+		name = "Join 1"
+		join_all_defensive_wars_of = HLR
+		join_all_offensive_wars_of = HLR
+	}
+	
+	option = {
+		name = "Join 2"
+		join_all_defensive_wars_of = IR7
+		join_all_offensive_wars_of = IR7
+	}
+	
+	option = {
+		name = "Join 3"
+		join_all_defensive_wars_of = MOS
+		join_all_offensive_wars_of = MOS
+	}
+	
+	option = {
+		name = "Join 4"
+		join_all_defensive_wars_of = KHI
+		join_all_offensive_wars_of = KHI
+	}
+	
+	option = {
+		name = "OOPS"
+	}
+}
+
+
+country_event = {
+	id = cpbm_gov.3
+	title = cpbm_gov.3.t
+	desc = cpbm_gov.3.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		religion = secular
+		NOT = { religion = secular }
+	}
+	
+	option = {
+		name = cpbm_gov.3.a
+		change_tag = GER
+	}
+	
+	option = {
+		name = cpbm_gov.3.a
+		capital_scope = { owner = { change_primary_culture = PREV change_religion = PREV } }
+	}
+	
+	option = {
+		name = cpbm_gov.3.a
+		change_tag = KA2
+	}
+	
+	option = {
+		name = cpbm_gov.3.c
+	}
+}
+
+
+country_event = {
+	id = cpbm_gov.4
+	title = cpbm_gov.4.t
+	desc = cpbm_gov.4.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		religion = secular
+		NOT = { religion = secular }
+	}
+	
+	option = {
+		name = "UK"
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					superregion = india_superregion
+					region = khorasan_region
+					region = burma_region
+				}
+			}
+			add_core = INI
+			cede_province = INI
+		}
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					region = malaya_region 
+					region = indonesia_region 
+				}
+			}
+			add_core = MLA
+			cede_province = MLA
+		}
+	}
+	
+	option = {
+		name = "Dutch"
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					region = malaya_region 
+					region = moluccas_region 
+					region = indonesia_region 
+				}
+			}
+			add_core = IDN
+			cede_province = IDN
+		}
+	}
+	
+	option = {
+		name = "Spain"
+		every_owned_province = { 
+			limit = { 
+				region = moluccas_region 
+			}
+			add_core = PHI
+			cede_province = PHI
+		}
+	}
+	
+	option = {
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					region = france_region 
+					region = iberia_region
+				}
+			}
+			add_core = PRO
+			cede_province = PRO
+		}
+	}
+	
+	option = {
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 115
+					province_id = 117
+					province_id = 1247
+					province_id = 127
+					province_id = 2986
+				}
+			}
+			add_core = PIS
+			cede_province = PIS
+		}
+	}
+	
+	option = {
+		name = "Cancel"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

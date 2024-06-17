@@ -1,0 +1,1038 @@
+country_decisions = {
+	refresh_missions = {
+		major = yes
+		potential = {
+			ai = no
+		}
+		allow = {
+			ai = no
+		}
+		effect = {
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	claim_our_purple = {
+		major = yes
+		potential = {
+			has_country_flag = BYZ_justinians_empire_decision_flag
+			mission_completed = crw_italy_rebuild
+		}
+		provinces_to_highlight = {
+			BYZ_roman_empire_decision_trigger = yes
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		allow = {
+			mission_completed = crw_italy_rebuild
+			num_of_owned_provinces_with = {
+				custom_trigger_tooltip = {
+					tooltip = BYZ_highlighted_by_decision
+					BYZ_roman_empire_decision_trigger = yes
+				}
+				value = 150
+			}
+		}
+		effect = {
+			override_country_name = BYZ_eastern_roman_empire
+			set_country_flag = is_BYZ_eastern_roman_empire_flag
+			clr_country_flag = BYZ_justinians_empire_decision_flag
+			custom_tooltip = ""
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+				}
+				add_splendor = 400
+				add_prestige_or_monarch_power = {
+					amount = 25
+				}
+			}
+			else = {
+				add_prestige_or_monarch_power = {
+					amount = 60
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	claim_empire = {
+		potential = {
+			OR = {
+				tag = ROM
+				tag = BYZ
+				tag = ROW
+			}
+			NOT = {
+				has_country_modifier = byz_ancestors
+			}
+			OR = {
+				NOT = {
+					owns = 118
+				}
+				NOT = {
+					owns = 112
+				}
+				NOT = {
+					owns = 113
+				}
+				NOT = {
+					owns = 101
+				}
+				NOT = {
+					owns = 358
+				}
+				NOT = {
+					owns = 146
+				}
+				NOT = {
+					owns = 341
+				}
+				NOT = {
+					owns = 121
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				NOT = {
+					owns = 118
+				}
+				NOT = {
+					owns = 112
+				}
+				NOT = {
+					owns = 113
+				}
+				NOT = {
+					owns = 101
+				}
+				NOT = {
+					owns = 358
+				}
+				NOT = {
+					owns = 146
+				}
+				NOT = {
+					owns = 341
+				}
+				NOT = {
+					owns = 121
+				}
+			}
+			NOT = {
+				has_country_modifier = byz_ancestors
+			}
+			stability = 1
+			prestige = 100
+			is_monarch_leader = yes
+			dip_power = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = "byz_ancestors"
+				duration = -1
+			}
+			add_permanent_claim = 118
+			add_permanent_claim = 112
+			add_permanent_claim = 113
+			add_permanent_claim = 101
+			add_permanent_claim = 358
+			add_permanent_claim = 146
+			add_permanent_claim = 341
+			add_permanent_claim = 121
+			add_dip_power = -100
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	byz_reclaim_east = {
+		potential = {
+			tag = BYZ
+			ai = yes
+			NOT = {
+				has_ruler_modifier = byz_claimed_east
+			}
+		}
+		allow = {
+			mil = 6
+		}
+		effect = {
+			anatolia_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			balkan_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			egypt_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			mashriq_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_ruler_modifier = {
+				name = "byz_claimed_east"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	byz_western = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				technology_group = western
+			}
+			NOT = {
+				has_country_modifier = byz_westernised
+			}
+			adm_tech = 32
+		}
+		allow = {
+			adm_power = 500
+			stability = 3
+			adm_tech = 32
+			treasury = 500
+			is_at_war = no
+		}
+		effect = {
+			add_stability = -3
+			add_treasury = -500
+			add_adm_power = -500
+			add_country_modifier = {
+				name = "byz_westernised"
+				duration = 3650
+			}
+			add_ruler_modifier = {
+				name = "byz_reformer"
+				duration = -1
+			}
+			random_list = {
+				25 = {
+					country_event = {
+						id = byz_westernized.2
+					}
+					change_technology_group = western
+					change_unit_type = western
+					add_stability = -2
+					add_prestige = -40
+					add_adm_power = -200
+					capital_scope = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 3
+						}
+					}
+				}
+				50 = {
+					country_event = {
+						id = byz_westernized.3
+					}
+					add_stability = -3
+					add_prestige = -50
+					add_adm_power = -300
+					change_technology_group = western
+					change_unit_type = western
+					capital_scope = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 3
+						}
+					}
+				}
+				25 = {
+					country_event = {
+						id = byz_westernized.4
+					}
+					add_inflation = 15
+					add_stability = -3
+					add_prestige = -70
+					add_adm_power = -400
+					change_technology_group = western
+					change_unit_type = western
+					capital_scope = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 3
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	roman_tech = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+				tag = SOI
+			}
+			NOT = {
+				technology_group = roman_group
+			}
+			NOT = {
+				adm_tech = 32
+			}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			change_technology_group = roman_group
+			change_unit_type = roman_group
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	join_byzuniver = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_foruniver
+			}
+		}
+		allow = {
+			NOT = {
+				has_ruler_modifier = byz_foruniver
+			}
+			has_country_modifier = byz_uni
+			is_at_war = no
+			stability = 1
+			has_regency = no
+			treasury = 80
+		}
+		effect = {
+			country_event = {
+				id = byz_main.4
+			}
+			add_treasury = -80
+			add_ruler_modifier = {
+				name = "byz_foruniver"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	join_byzsenate = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_forsenate
+			}
+		}
+		allow = {
+			NOT = {
+				has_ruler_modifier = byz_forsenate
+			}
+			has_country_modifier = byz_senate
+			is_at_war = no
+			stability = 1
+			has_regency = no
+			treasury = 80
+		}
+		effect = {
+			country_event = {
+				id = byz_main.5
+			}
+			add_treasury = -80
+			add_ruler_modifier = {
+				name = "byz_forsenate"
+				duration = -1
+			}
+			if = {
+				limit = {
+					has_factions = no
+				}
+				add_faction = byzreds
+				add_faction = byzwhite
+				add_faction = byzblue
+				add_faction = byzgreen
+				add_faction = byzpink
+				add_faction = byzgold
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	byz_establish_barbarium = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+		}
+		allow = {
+			NOT = {
+				has_country_modifier = byz_barbarium
+			}
+			has_regency = no
+			years_of_income = 0.1
+		}
+		effect = {
+			add_years_of_income = -0.1
+			add_adm_power = -50
+			add_country_modifier = {
+				name = "byz_barbarium"
+				duration = 1825
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	byz_establish_callsenate = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+		}
+		allow = {
+			NOT = {
+				has_country_modifier = byz_callsenate
+			}
+			has_regency = no
+			years_of_income = 0.15
+		}
+		effect = {
+			add_years_of_income = -0.15
+			add_dip_power = -50
+			add_country_modifier = {
+				name = "byz_callsenate"
+				duration = 3650
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	byz_thegreat = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+		}
+		allow = {
+			NOT = {
+				has_ruler_modifier = byz_forgreat
+			}
+			has_regency = no
+			OR = {
+				mil = 8
+				dip = 8
+				adm = 8
+			}
+			years_of_income = 0.15
+		}
+		effect = {
+			add_years_of_income = -0.15
+			add_dip_power = -10
+			add_ruler_modifier = {
+				name = "byz_forgreat"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	byz_palaceofficial = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_parakoimomenos
+			}
+			NOT = {
+				has_ruler_modifier = byz_protovestiarios
+			}
+			NOT = {
+				has_ruler_modifier = byz_pinkernes
+			}
+			NOT = {
+				has_ruler_modifier = byz_kanikleios
+			}
+			NOT = {
+				has_ruler_modifier = byz_trapezes
+			}
+		}
+		allow = {
+			stability = 0
+			has_regency = no
+		}
+		effect = {
+			country_event = {
+				id = byz_main.34
+			}
+			add_treasury = -80
+			add_dip_power = -20
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	byz_miliofficial = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_domestikos
+			}
+			NOT = {
+				has_ruler_modifier = byz_strategos
+			}
+			NOT = {
+				has_ruler_modifier = byz_protostrator
+			}
+			NOT = {
+				has_ruler_modifier = byz_megasdoux
+			}
+			NOT = {
+				has_ruler_modifier = byz_ethnarches
+			}
+		}
+		allow = {
+			stability = 0
+			has_regency = no
+		}
+		effect = {
+			country_event = {
+				id = byz_main.35
+			}
+			add_treasury = -80
+			add_mil_power = -20
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	byz_admofficial = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_protasekretis
+			}
+			NOT = {
+				has_ruler_modifier = byz_genikou
+			}
+			NOT = {
+				has_ruler_modifier = byz_dromou
+			}
+			NOT = {
+				has_ruler_modifier = byz_stratiotikou
+			}
+			NOT = {
+				has_ruler_modifier = byz_sakellarios
+			}
+		}
+		allow = {
+			stability = 0
+			has_regency = no
+		}
+		effect = {
+			country_event = {
+				id = byz_main.36
+			}
+			add_treasury = -80
+			add_adm_power = -20
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	establish_monastery = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_country_modifier = byz_monastery
+			}
+		}
+		allow = {
+			at_war_with_religious_enemy = yes
+			dip_power = 30
+			legitimacy = 80
+			OR = {
+				dominant_religion = orthodox
+				dominant_religion = chalcedonism
+				dominant_religion = reformed_chalcedonism
+			}
+			has_regency = no
+		}
+		effect = {
+			add_stability = -1
+			add_years_of_income = 1
+			add_dip_power = -30
+			add_country_modifier = {
+				name = "byz_monastery"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	establish_games = {
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			NOT = {
+				has_ruler_modifier = byz_games
+			}
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+			years_of_income = 0.2
+		}
+		effect = {
+			add_years_of_income = -0.2
+			country_event = {
+				id = byz_main.38
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	reform_roman_government_empire = {
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			NOT = {
+				has_reform = roman_imperial_reform
+			}
+			NOT = {
+				has_reform = roman_constitutional_reform
+			}
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+		}
+		effect = {
+			add_government_reform = roman_imperial_reform
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	crown_west_roman = {
+		major = yes
+		potential = {
+			tag = ROW
+			NOT = {
+				has_country_modifier = crown_as_emperor_of_the_west
+			}
+			religion = catholic
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+			is_papal_controller = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "crown_as_emperor_of_the_west"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	romanization_of_culture = {
+		potential = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+			primary_culture = roman
+			NOT = {
+				has_country_modifier = culture_romanization
+			}
+		}
+		allow = {
+			any_owned_province = {
+				NOT = {
+					culture = roman
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = culture_romanization
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	eternal_peace_byz_sas = {
+		major = yes
+		potential = {
+			tag = BYZ
+			exists = ERS
+		}
+		allow = {
+			war_with = ERS
+			has_dlc = "Art of War"
+		}
+		effect = {
+			country_event = {
+				id = byz_main.64
+				days = 1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adm_reforms_for_the_empire = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			OR = {
+				NOT = {
+					has_reform = roman_constitutional_reform
+				}
+				NOT = {
+					has_country_modifier = adm2_reform
+				}
+				NOT = {
+					has_country_modifier = adm3_reform
+				}
+				NOT = {
+					has_country_modifier = adm4_reform
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+			has_ruler_modifier = byz_foruniver
+			has_country_modifier = byz_callsenate
+			has_ruler_modifier = byz_forsenate
+			has_ruler_modifier = byz_forgreat
+			stability = 3
+			prestige = 100
+			legitimacy = 100
+			adm_power = 400
+		}
+		effect = {
+			add_adm_power = -400
+			country_event = {
+				id = byz_reform.1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	dip_reforms_for_the_empire = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			OR = {
+				NOT = {
+					has_country_modifier = dip1_reform
+				}
+				NOT = {
+					has_country_modifier = dip2_reform
+				}
+				NOT = {
+					has_country_modifier = dip3_reform
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+			has_ruler_modifier = byz_foruniver
+			has_country_modifier = byz_callsenate
+			has_ruler_modifier = byz_forsenate
+			has_ruler_modifier = byz_forgreat
+			stability = 3
+			prestige = 100
+			legitimacy = 100
+			dip_power = 400
+		}
+		effect = {
+			add_dip_power = -400
+			country_event = {
+				id = byz_reform.2
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	mil_reforms_for_the_empire = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			OR = {
+				NOT = {
+					has_country_modifier = mil1_reform
+				}
+				NOT = {
+					has_country_modifier = mil2_reform
+				}
+				NOT = {
+					has_country_modifier = mil3_reform
+				}
+				NOT = {
+					has_country_modifier = mil4_reform
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			has_regency = no
+			has_ruler_modifier = byz_foruniver
+			has_country_modifier = byz_callsenate
+			has_ruler_modifier = byz_forsenate
+			has_ruler_modifier = byz_forgreat
+			stability = 3
+			prestige = 100
+			legitimacy = 100
+			mil_power = 400
+		}
+		effect = {
+			add_mil_power = -400
+			country_event = {
+				id = byz_reform.3
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	reopen_rosia_montana = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			1951 = {
+				NOT = {
+					trade_goods = gold
+				}
+			}
+		}
+		allow = {
+			owns_core_province = 1951
+			has_country_modifier = adm3_reform			#Monetary Reform
+			1951 = {
+				NOT = {
+					trade_goods = gold
+				}
+			}
+		}
+		effect = {
+			1951 = {
+				change_trade_goods = gold
+				add_permanent_province_modifier = {
+					name = ROM_goldmines
+					duration = -1
+				}
+				change_culture = ROOT
+				add_base_production = 3
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	reopen_metula = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = ROW
+			}
+			4558 = {
+				NOT = {
+					trade_goods = gold
+				}
+			}
+		}
+		allow = {
+			owns_core_province = 4558
+			has_country_modifier = adm3_reform			#Monetary Reform
+			4558 = {
+				NOT = {
+					trade_goods = gold
+				}
+			}
+		}
+		effect = {
+			4558 = {
+				change_trade_goods = gold
+				add_permanent_province_modifier = {
+					name = ROM_goldmines
+					duration = -1
+				}
+				rename_capital = Orellán
+				change_culture = ROOT
+				add_base_production = 3
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	run_to_britannia = {
+		major = yes
+		potential = {
+			tag = ROW
+			owns = 236
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			country_event = {
+				id = byz_main.69
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

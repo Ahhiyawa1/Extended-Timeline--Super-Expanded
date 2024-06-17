@@ -1,0 +1,52 @@
+country_decisions = {
+ 
+	corrupt_inves = {
+		major = yes
+		potential = {
+			corruption = 0.01
+		}
+		allow = {
+			NOT = { 
+				has_country_modifier = investigated
+			}
+			corruption = 1
+			years_of_income = 0.33
+		}
+		effect = {
+			add_years_of_income = -0.33
+			add_country_modifier = {
+				name = "investigated"
+				duration = 3650
+			}
+			country_event  = { id = byz_main.77 }
+		}
+		ai_importance = 800
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { corruption = 5 }
+			}
+			modifier = {
+				factor = 2
+				corruption = 10
+			}
+			modifier = {
+				factor = 3
+				corruption = 15
+			}
+			modifier = {
+				factor = 4
+				corruption = 20
+			}
+			modifier = {
+				factor = 5
+				corruption = 25
+			}
+			modifier = {
+				factor = 6
+				corruption = 30
+			}
+		}
+	}
+}

@@ -1,0 +1,419 @@
+namespace = utp
+
+# Two headed Eagle - war approval
+country_event = {
+	id = utp.6
+	title = orthodox_flavor.6.t
+	desc = orthodox_flavor.6.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+		at_war_with_religious_enemy = yes
+		NOT = { has_country_modifier = war_approval }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = orthodox_flavor.6.a
+		add_country_modifier = {
+			name = war_approval
+			duration = 1825
+		}
+	}
+}
+# Two headed Eagle
+country_event = {
+	id = utp.8
+	title = orthodox_flavor.8.t
+	desc = orthodox_flavor.8.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+		OR = {
+			average_unrest = 5
+			is_bankrupt = yes
+			war_exhaustion = 6
+		}
+		NOT = { has_country_modifier = two_headed_eagle }
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+	
+	option = {
+		name = orthodox_flavor.8.a
+		add_adm_power = 25
+		add_country_modifier = {
+			name = two_headed_eagle
+			duration = -1
+		}
+	}
+}
+#Fervour and Fury
+province_event = {
+	id = utp.9
+	title = orthodox_flavor.9.t
+	desc = orthodox_flavor.9.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	is_triggered_only = yes 
+	
+	trigger = {
+		any_neighbor_province = {
+			owner = {
+				OR = {
+					NOT = { religion = orthodox }
+					NOT = { religion = chalcedonism }
+					NOT = {religion = reformed_chalcedonism}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 7300
+	}
+	
+	option = {
+		name = orthodox_flavor.9.a
+		random_neighbor_province = {
+			remove_loot = {
+				who = ROOT
+				amount = 20
+			}
+			add_devastation = 20
+		}
+	}
+}
+#New Icon
+country_event = {
+	id = utp.10
+	title = orthodox_flavor.10.t
+	desc = orthodox_flavor.10.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = orthodox_flavor.10.a
+		add_stability_or_adm_power = yes
+		add_prestige = 10
+	}
+}
+#Ascetic Prophecy
+country_event = {
+	id = utp.11
+	title = orthodox_flavor.11.t
+	desc = orthodox_flavor.11.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+		NOT = {
+			legitimacy = 91
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	option = {
+		name = orthodox_flavor.11.a
+		add_legitimacy = 10
+	}
+}
+#Miraculous Icon
+country_event = {
+	id = utp.12
+	title = orthodox_flavor.12.t
+	desc = orthodox_flavor.12.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+		NOT = { has_country_modifier = miraculous_icon }
+		had_recent_war = 50
+		war_exhaustion = 5
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+	
+	option = {
+		name = orthodox_flavor.12.a
+		add_country_modifier = {
+			name = "miraculous_icon"
+			duration = 36500
+		}
+	}
+}
+
+
+
+#Khevsur Warriors
+country_event = {
+	id = utp.13
+	title = orthodox_flavor.13.t
+	desc = orthodox_flavor.13.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	
+	trigger = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+		tag = GEO
+		at_war_with_religious_enemy = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = orthodox_flavor.13.a
+		add_manpower = 5
+	}
+}
+
+#Theodosian Walls
+country_event = {
+	id = utp.14
+	title = orthodox_flavor.14.t
+	desc = orthodox_flavor.14.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = orthodox_flavor.14.a
+		add_inflation = 25
+		set_country_flag = has_theodosian_walls
+		ai_chance = { factor = 25 }
+		151 = {
+			add_province_modifier = {
+				name = theodosian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.14.b
+		ai_chance = { factor = 25 }
+		add_manpower = -8
+		set_country_flag = has_theodosian_walls
+		151 = {
+			add_province_modifier = {
+				name = theodosian_walls
+				duration = -1
+			}
+			add_province_modifier = {
+				name = drained_resources
+				duration = 10000
+			}
+			add_devastation = 80
+		}
+	}
+	option = {
+		name = orthodox_flavor.14.c
+		ai_chance = { factor = 25 }
+		add_stability = -2
+		set_country_flag = has_theodosian_walls
+		add_legitimacy = -100
+		add_prestige = -100
+		set_ruler_religion = catholic
+		set_heir_religion = catholic
+		set_consort_religion = catholic
+		add_heir_claim = -100
+		151 = {
+			add_province_modifier = {
+				name = theodosian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.14.e
+		ai_chance = { factor = 25 }
+		set_country_flag = has_theodosian_walls
+		add_prestige = -100
+		add_stability = -2
+		add_mil_power = -75
+		add_adm_power = -75
+		add_dip_power = -75
+		inherit = ATH
+		151 = {
+			add_province_modifier = {
+				name = theodosian_walls
+				duration = -1
+			}
+		}
+		146 = {
+			add_base_tax = -3
+			add_base_manpower = -3
+			add_base_production = -3
+			add_devastation = 100
+			add_province_modifier = {
+				name = latin_massacre
+				duration = 36000
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.14.f
+		trigger = {
+			treasury = 3500
+		}
+		ai_chance = { factor = 20 }
+		set_country_flag = theodosian_walls
+		add_treasury = -3500
+		151 = {
+			add_province_modifier = {
+				name = theodosian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.14.g
+		add_prestige = -1
+	}
+}
+
+#Justinian Walls
+country_event = {
+	id = utp.20
+	title = orthodox_flavor.20.t
+	desc = orthodox_flavor.20.d
+	picture = DEATH_TO_THE_WORLD_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = orthodox_flavor.20.a
+		add_inflation = 25
+		set_country_flag = has_justinian_walls
+		ai_chance = { factor = 20 }
+		118 = {
+			add_province_modifier = {
+				name = justinian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.20.b
+		ai_chance = { factor = 20 }
+		add_manpower = -8
+		set_country_flag = has_justinian_walls
+		118 = {
+			add_province_modifier = {
+				name = justinian_walls
+				duration = -1
+			}
+			add_province_modifier = {
+				name = drained_resources
+				duration = 10000
+			}
+			add_devastation = 80
+		}
+	}
+	option = {
+		name = orthodox_flavor.20.c
+		ai_chance = { factor = 20 }
+		add_stability = -2
+		set_country_flag = has_justinian_walls
+		add_legitimacy = -100
+		add_prestige = -100
+		set_ruler_religion = catholic
+		set_heir_religion = catholic
+		set_consort_religion = catholic
+		add_heir_claim = -100
+		118 = {
+			add_province_modifier = {
+				name = justinian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.20.e
+		ai_chance = { factor = 20 }
+		set_country_flag = has_justinian_walls
+		add_prestige = -100
+		add_stability = -2
+		add_mil_power = -75
+		add_adm_power = -75
+		add_dip_power = -75
+		inherit = ATH
+		118 = {
+			add_province_modifier = {
+				name = justinian_walls
+				duration = -1
+			}
+		}
+		146 = {
+			add_base_tax = -3
+			add_base_manpower = -3
+			add_base_production = -3
+			add_devastation = 100
+			add_province_modifier = {
+				name = latin_massacre
+				duration = 36000
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.20.f
+		trigger = {
+			treasury = 3500
+		}
+		ai_chance = { factor = 20 }
+		set_country_flag = has_justinian_walls
+		add_treasury = -3500
+		118 = {
+			add_province_modifier = {
+				name = justinian_walls
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = orthodox_flavor.20.g
+		add_prestige = -1
+	}
+}
+

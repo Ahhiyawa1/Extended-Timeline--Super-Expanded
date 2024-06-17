@@ -1,0 +1,1079 @@
+namespace = cpbm_history_asia
+
+#################
+##### YEMEN #####
+#################
+
+#Roman Christian Envoy Sent
+country_event = {
+	id = cpbm_history_asia.1
+	title = cpbm_history_asia.1.t
+	desc = cpbm_history_asia.1.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = { tag = ROM tag = ROW tag = BYZ }
+		OR = { ruler_religion = chalcedonism ruler_religion = arianism }
+		any_neighbor_country = { 
+			OR = {
+				religion = chalcedonism 
+				religion = arianism 
+			}
+		}
+		is_year = 300
+		NOT = { is_year = 400 }
+		has_discovered = 387
+		NOT = { owns = 387 }
+		387 = { owner = { NOT = { religion_group = christian } } }
+		NOT = { has_country_flag = sent_christian_envoy_to_yemen }
+	}
+	
+	mean_time_to_happen = {
+		years = 40
+
+		modifier = {
+			factor = 0.5
+			OR = { religion = chalcedonism religion = arianism }
+		}		
+	}
+	
+	option = {
+		name = cpbm_history_asia.1.a
+		set_country_flag = sent_christian_envoy_to_yemen
+		add_years_of_income = -0.1
+		every_owned_province = {
+			limit = { religion_group = hellenic }
+			add_province_modifier = {
+				name = "population_unrest"
+				duration = 1825
+			}
+		}
+		random_country = {
+			limit = { owns = 387 }
+			country_event = { id = cpbm_history_asia.2 }
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.1.b
+		add_prestige = 5
+		add_dip_power = -100
+		random_owned_province = {
+			limit = { 
+				OR = {
+					province_id = 365
+					province_id = 3263
+					province_id = 2321
+					province_id = 2320
+					province_id = 2315
+					province_id = 4268
+				} 
+			}
+    			ROOT = { transport = PREV }
+		} 	
+	}
+}
+
+#Roman Christian Envoy Received
+country_event = {
+	id = cpbm_history_asia.2
+	title = cpbm_history_asia.2.t
+	desc = cpbm_history_asia.2.d
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { war_with = FROM }
+	}
+	
+	option = {
+		name = cpbm_history_asia.2.a
+		random_country = {
+			limit = { has_country_flag = sent_christian_envoy_to_yemen }
+			country_event = { id = cpbm_history_asia.3 }
+		}
+		random_list = {
+			95 = {
+				add_ruler_modifier = {
+					name = the_anti_christian_edict
+				}
+			}
+			5 = {
+				kill_ruler = yes
+				change_religion = chalcedonism
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.2.b
+		change_religion = chalcedonism
+		random_country = {
+			limit = { has_country_flag = sent_christian_envoy_to_yemen }
+			country_event = { id = cpbm_history_asia.4 }
+			create_alliance = PREV
+		}
+		387 = { change_religion = chalcedonism }
+	}
+}
+
+#Roman Christian Envoy (notification of negative reply)
+country_event = {
+	id = cpbm_history_asia.3
+	title = cpbm_history_asia.3.t
+	desc = cpbm_history_asia.3.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_history_asia.3.a
+		add_prestige = -10
+	}
+}
+
+#Roman Christian Envoy (notification of positive reply)
+country_event = {
+	id = cpbm_history_asia.4
+	title = cpbm_history_asia.4.t
+	desc = cpbm_history_asia.4.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_history_asia.4.a
+		if = {
+			limit = {
+				has_estate = estate_church
+			}
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+		}
+	}
+}
+
+#Yemeni States ft. Ziyadid and Yufirid
+country_event = {
+	id = cpbm_history_asia.5
+	title = cpbm_history_asia.5.t
+	desc = cpbm_history_asia.5.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		OR = { owns = 4279 owns = 390 owns = 4283 owns = 4284 }
+		is_year = 800
+		NOT = { is_year = 900 }
+		NOT = { culture = yemeni_culture }
+		NOT = {
+			OR = {
+				tag = YEM
+				tag = AF2
+				tag = SA1
+				tag = HDR
+				tag = MHR
+			}
+		}
+		NOT = { has_country_flag = yemeni_states_breakaway }
+	}
+	
+	mean_time_to_happen = {
+		years = 50	
+		modifier = {
+			factor = 1.5
+			accepted_culture = yemeni_culture
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { culture_group = turko_semitic }
+		}	
+	}
+	
+	option = {
+		name = cpbm_history_asia.5.a
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 387
+					province_id = 388
+					province_id = 2346
+					province_id = 4279
+					province_id = 4280
+				}
+				owner = {
+					NOT = { primary_culture = PREV }
+				} 
+			}
+			cede_province = YEM
+			add_core = YEM
+		}
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 390
+					province_id = 2345
+					province_id = 2344
+					province_id = 4281
+				}
+				owner = {
+					NOT = { primary_culture = PREV }
+				} 
+			}
+			cede_province = SA1
+			add_core = SA1
+		}
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 389
+					province_id = 2343
+					province_id = 4283
+				}
+				owner = {
+					NOT = { primary_culture = PREV }
+				} 
+			}
+			cede_province = HDR
+			add_core = HDR
+		}
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 401
+					province_id = 402
+					province_id = 1099
+					province_id = 4284
+				}
+				owner = {
+					NOT = { primary_culture = PREV }
+				} 
+			}
+			cede_province = MHR
+			add_core = MHR
+		}
+		YEM = {
+			define_ruler = {
+				name = "Muhammad"
+				dynasty = "Ziyadid"
+				adm = 4
+				dip = 0
+				mil = 2
+			}
+			set_capital = 4279
+			every_neighbor_country = { add_truce_with = YEM }
+		}
+		SA1 = {
+			define_ruler = {
+				name = "Yu'fir"
+				dynasty = "Yufirid"
+				adm = 4
+				dip = 1
+				mil = 0
+			}
+			set_capital = 390
+			every_neighbor_country = { add_truce_with = SA1 }
+		}
+		HDR = { every_neighbor_country = { add_truce_with = HDR } }
+		MHR = { every_neighbor_country = { add_truce_with = MHR } }
+		arabia_region = {
+			discover_country = YEM
+			discover_country = SA1
+			discover_country = HDR
+			discover_country = MHR
+		}
+		horn_of_africa_region = {
+			discover_country = YEM
+			discover_country = SA1
+			discover_country = HDR
+			discover_country = MHR
+		}
+		arabian_sea_region = {
+			discover_country = YEM
+			discover_country = SA1
+			discover_country = HDR
+			discover_country = MHR
+		}
+		set_country_flag = yemeni_states_breakaway
+	}
+	
+	option = {
+		name = cpbm_history_asia.5.b
+		if = {
+			limit = {
+				AND = { owns = 4279 owns = 390 owns = 4283 owns = 4284 }
+			}
+			add_years_of_income = -5
+		}
+		else = { add_years_of_income = -2 }
+		set_country_flag = yemeni_states_breakaway
+	}
+	
+	option = {
+		name = cpbm_history_asia.5.c
+		every_owned_province = { 
+			limit = { culture = yemeni_culture }
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+		set_country_flag = yemeni_states_breakaway
+	}
+}
+
+#Rassids
+country_event = {
+	id = cpbm_history_asia.6
+	title = cpbm_history_asia.6.t
+	desc = cpbm_history_asia.6.d
+	picture = BORDER_TENSION_eventPicture
+
+	trigger = {
+		OR = { owns = 386 owns = 391 owns = 4282 }
+		is_year = 850
+		NOT = { is_year = 1350 }
+		any_owned_province = {
+			AND = {
+				area = asir_area }
+				religion = shiite
+			}
+		}
+		NOT = { religion = shiite }
+		capital_scope = { NOT = { area = asir_area } }
+		NOT = { tag = RAS }
+		NOT = { has_country_flag = rassids_rebelled }
+	}
+	
+	mean_time_to_happen = {
+		years = 50	
+	}
+	
+	option = {
+		name = cpbm_history_asia.6.a
+		add_legitimacy = -20
+		every_owned_province = { 
+			limit = { area = asir_area }
+			cede_province = RAS
+			add_core = RAS
+		}
+		RAS = {
+			define_ruler = { dynasty = "Rassid" }
+			change_religion = shiite
+			every_neighbor_country = { add_truce_with = RAS }
+		}
+		arabia_region = { discover_country = RAS }
+		set_country_flag = rassids_rebelled
+	}
+	
+	option = {
+		name = cpbm_history_asia.6.b
+		every_owned_province = { 
+			limit = { area = asir_area }
+			spawn_rebels = {
+    				type = religious_rebels
+    				size = 3
+			}
+		}
+		set_country_flag = rassids_rebelled
+	}
+}
+
+#Aden
+country_event = {
+	id = cpbm_history_asia.7
+	title = cpbm_history_asia.7.t
+	desc = cpbm_history_asia.7.d
+	picture = MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 388
+		is_year = 1050
+		NOT = { is_year = 1150 }
+		capital_scope = { NOT = { area = yemen_area } }
+		NOT = { tag = ADE }
+	}
+	
+	mean_time_to_happen = {
+		years = 50	
+	}
+	
+	option = {
+		name = cpbm_history_asia.7.a
+		add_treasury = 200
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 388
+					province_id = 4280
+				}
+			}
+			cede_province = ADE
+			add_core = ADE
+		}
+		ADE = { 
+			define_ruler = { dynasty = "Zurayid" }
+			change_religion = shiite 
+			every_neighbor_country = { add_truce_with = ADE }
+		}
+		arabia_region = { discover_country = ADE }
+		arabian_sea_region = { discover_country = ADE }
+	}
+	
+	option = {
+		name = cpbm_history_asia.7.b
+		add_prestige = 20
+		add_treasury = -200
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					province_id = 388
+					province_id = 4280
+				} 
+			}
+			add_core = ADE
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+	}
+}
+
+#Rasulid Yemen
+country_event = {
+	id = cpbm_history_asia.8
+	title = cpbm_history_asia.8.t
+	desc = cpbm_history_asia.8.d
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4280
+		is_year = 1225
+		NOT = { is_year = 1230 }
+		NOT = { tag = YEM }
+		NOT = { tag = AF2 }
+		NOT = { culture = yemeni_culture }
+		capital_scope = { 
+			NOT = { 
+				OR = {
+					area = tihama_al_yemen_area 
+					area = upper_yemen_area 
+					area = yemen_area 
+					area = hadramut_area 
+					area = mahra_area 
+				} 
+			} 
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = cpbm_history_asia.8.a
+		add_manpower = 20
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = tihama_al_yemen_area 
+					area = upper_yemen_area 
+					area = yemen_area 
+					area = hadramut_area 
+					area = mahra_area 
+				}
+			}
+			cede_province = YEM
+			add_core = YEM
+		}
+		YEM = { 
+			define_ruler = { 
+				name = "al-Mansur Umar I"
+				dynasty = "Rasulid"
+				adm = 3
+				dip = 2
+				mil = 0
+			}
+			every_neighbor_country = { add_truce_with = YEM }
+		}
+		arabia_region = { discover_country = YEM }
+		arabian_sea_region = { discover_country = YEM }
+		horn_of_africa_region = { discover_country = YEM }
+	}
+	
+	option = {
+		name = cpbm_history_asia.8.b
+		add_prestige = 20
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = tihama_al_yemen_area 
+					area = upper_yemen_area 
+					area = yemen_area 
+					area = hadramut_area 
+					area = mahra_area 
+				}
+			}
+			add_core = YEM
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+	}
+}
+
+#Kathiris
+country_event = {
+	id = cpbm_history_asia.9
+	title = cpbm_history_asia.9.t
+	desc = cpbm_history_asia.9.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 389
+		is_year = 1300
+		NOT = { is_year = 1500 }
+		NOT = { tag = HDR }
+		capital_scope = { NOT = { area = hadramut_area } } 
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.5
+			is_year = 1400
+		}
+		modifier = {
+			factor = 0.5
+			is_year = 1450
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.9.a
+		add_stability = -1
+		every_owned_province = { 
+			limit = { area = hadramut_area }
+			cede_province = HDR
+			add_core = HDR
+		}
+		HDR = { 
+			define_ruler = { dynasty = "Al Kathiri" }
+			every_neighbor_country = { add_truce_with = HDR }
+		}
+		hadramut_area = {
+			limit = {
+				NOT = { is_core = HDR }
+				NOT = { is_permanent_claim = HDR }
+			}
+			add_permanent_claim = HDR
+		}
+		arabia_region = { discover_country = HDR }
+		arabian_sea_region = { discover_country = HDR }
+	}
+	
+	option = {
+		name = cpbm_history_asia.9.b
+		random_list = {
+			90 = {
+				every_owned_province = {
+					limit = { area = hadramut_area }
+					add_core = HDR
+					spawn_rebels = {
+    						type = nationalist_rebels
+    						size = 2
+					}
+				}
+			}
+			10 = {
+				kill_ruler = yes
+			}
+		}
+	}
+}
+
+#Rise of the Tahirids
+country_event = {
+	id = cpbm_history_asia.10
+	title = cpbm_history_asia.10.t
+	desc = cpbm_history_asia.10.d
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			OR = { tag = YEM tag = AF2 }
+			AND = {	
+				capital_scope = { 
+					OR = {
+						area = tihama_al_yemen_area 
+						area = upper_yemen_area 
+						area = yemen_area 
+						area = hadramut_area 
+						area = mahra_area 
+					} 
+				} 
+				owns = 4281 #Dhamar
+			}
+		}
+		is_year = 1420
+		NOT = { is_year = 1466 }
+		NOT = { dynasty = "Tahirid" }
+		NOT = { legitimacy = 70 }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = cpbm_history_asia.10.a
+		add_adm_power = -50
+		add_dip_power = -50
+		every_owned_province = {
+			add_unrest = 1
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.10.b
+		add_stability = 1
+		capital_scope = {
+			add_unrest = -2
+		}
+		define_ruler = {
+			name = "Sal h ad-Din 'Amir I"
+			dynasty = "Tahirid"
+			adm = 4
+			dip = 4
+			mil = 4
+		}
+		define_heir = {
+			name = "'Al "
+			dynasty = "Tahirid"
+			birth_date = 3518.1.1
+			claim = 95
+			adm = 1
+			dip = 1
+			mil = 3
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.10.c
+		highlight = yes
+		trigger = { adm = 4 }
+		add_years_of_income = -1
+	}
+}
+
+#Zaidi State
+country_event = {
+	id = cpbm_history_asia.11
+	title = cpbm_history_asia.11.t
+	desc = cpbm_history_asia.11.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { tag = YEM }
+		NOT = { tag = AF2 }
+		NOT = { tag = RAS }
+		NOT = { culture = yemeni_culture }
+		capital_scope = { 
+			NOT = { 
+				OR = {
+					area = tihama_al_yemen_area 
+					area = upper_yemen_area 
+					area = yemen_area 
+					area = hadramut_area 
+					area = mahra_area 
+				} 
+			} 
+		}
+		OR = { owns = 4282 owns = 390 owns = 4279 owns = 4280 }
+		is_year = 1580
+		NOT = { is_year = 1635 }
+		NOT = { prestige = 50 }
+	}
+	
+	mean_time_to_happen = {
+		years = 50
+	}
+	
+	option = {
+		name = cpbm_history_asia.11.a
+		add_prestige = -10
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					culture = yemeni_culture
+					OR = {
+						area = tihama_al_yemen_area 
+						area = upper_yemen_area 
+						area = yemen_area 
+						area = hadramut_area 
+						area = mahra_area 
+					}
+				}
+			}
+			cede_province = RAS
+			add_core = RAS
+			remove_core = ROOT 
+		}
+		RAS = { 
+			set_capital = 4282 
+			set_dynasty = "Rassid"
+			every_neighbor_country = { add_truce_with = RAS } 
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.11.b
+		add_adm_power = -500
+		add_years_of_income = -2
+		add_estate_loyalty = {
+    			estate = estate_nobles
+   			loyalty = 20
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 7300
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.11.c
+		add_dip_power = -500
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					culture = yemeni_culture
+					OR = {
+						area = tihama_al_yemen_area 
+						area = upper_yemen_area 
+						area = yemen_area 
+						area = hadramut_area 
+						area = mahra_area 
+					}
+				}
+			}
+			cede_province = YEM
+			add_core = YEM
+			remove_core = ROOT 
+		}
+		YEM = { set_capital = 4282 }
+		create_union = YEM
+	}
+	
+	option = {
+		name = cpbm_history_asia.11.dd
+		add_mil_power = -500
+		add_stability = -1
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					culture = yemeni_culture
+					OR = {
+						area = tihama_al_yemen_area 
+						area = upper_yemen_area 
+						area = yemen_area 
+						area = hadramut_area 
+						area = mahra_area 
+					}
+				}
+			}
+			cede_province = RAS
+			add_core = RAS
+		}
+		RAS = { 
+			set_capital = 4282 
+			set_dynasty = "Rassid"
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			add_country_modifier = {
+				name = good_discipline
+				duration = 1825
+			}
+		}
+		hidden_effect = {
+			RAS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+	}
+}
+
+#Lahej (Aden) State
+country_event = {
+	id = cpbm_history_asia.12
+	title = cpbm_history_asia.12.t
+	desc = cpbm_history_asia.12.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 388
+		is_year = 1700
+		NOT = { is_year = 1840 }
+		war_exhaustion = 4
+		NOT = { stability = 1 }
+		NOT = { exists = ADE }
+		NOT = { 
+			OR = {
+				capital = 388
+				capital = 2345
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+
+		modifier = {
+			factor = 0.5
+			388 = { unrest = 1 }
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.12.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 3650
+			}
+		}
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 388
+					province_id = 2345
+				}
+			}
+			cede_province = ADE
+			add_core = ADE
+			remove_core = ROOT 
+		}
+		ADE = { 
+			set_capital = 388
+			set_dynasty = "Abdali"
+		}
+		vassalize = ADE
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_asia.12.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 388
+					province_id = 2345
+				}
+			}
+			cede_province = ADE
+			add_core = ADE
+			remove_core = ROOT 
+		}
+		ADE = { 
+			set_capital = 388
+			set_dynasty = "Abdali"
+			every_neighbor_country = { add_truce_with = ADE } 
+		}
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = cpbm_history_asia.12.c
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 3650
+			}
+		}
+		add_years_of_income = -2
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_asia.12.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 388
+					province_id = 2345
+				}
+			}
+			cede_province = ADE
+			add_core = ADE
+		}
+		ADE = { 
+			set_capital = 388
+			set_dynasty = "Abdali"
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		hidden_effect = {
+			ADE = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_asia.12.e
+		highlight = yes
+		trigger = { mil = 5 }
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 388
+					province_id = 2345
+				}
+			}
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 3650
+			}	
+		}
+		ai_chance = { factor = 10 }
+	}
+}
+
+
+
+#########################
+##### RUSSIA (ASIA) #####
+#########################
+
+#Udege Breakaway
+country_event = {
+	id = cpbm_history_asia.13
+	title = cpbm_history_asia.13.t
+	desc = cpbm_history_asia.13.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4216
+		is_year = 600
+		NOT = { is_year = 1600 }
+	}
+	
+	mean_time_to_happen = {
+		years = 500
+	}
+
+	option = {
+		name = cpbm_history_asia.13.a
+		ai_chance = { factor = 1 }
+		add_legitimacy = -5
+		every_owned_province = { 
+			limit = {
+				OR = {
+					province_id = 729
+					province_id = 1850
+					province_id = 2186
+					province_id = 4216
+					province_id = 4217
+					province_id = 4655
+					province_id = 4656
+				}
+			}
+			cede_province = EJZ
+			add_core = EJZ
+			remove_core = ROOT
+		}
+		if = { 
+			limit = { tag = HSM }
+			change_tag = MYR
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.13.b
+		ai_chance = { factor = 1 }
+		add_adm_power = -500
+		add_dip_power = -500
+		add_mil_power = -500
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 729
+					province_id = 1850
+					province_id = 2186
+					province_id = 4216
+					province_id = 4217
+					province_id = 4655
+					province_id = 4656
+				}
+			}
+			add_unrest = 5
+			add_core = EJZ
+		}
+	}
+	
+	option = {
+		name = cpbm_history_asia.13.c
+		highlight = yes
+		ai_chance = { factor = 10 }
+		trigger = { dip = 5 }
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 729
+					province_id = 1850
+					province_id = 2186
+					province_id = 4216
+					province_id = 4217
+					province_id = 4655
+					province_id = 4656
+				}
+			}
+			add_core = EJZ	
+		}
+	}
+}

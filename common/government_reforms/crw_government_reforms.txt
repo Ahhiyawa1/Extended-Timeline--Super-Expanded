@@ -1,0 +1,144 @@
+roman_imperial = {
+	icon = "king"
+	monarchy = yes
+	legacy_government = yes
+	valid_for_new_country = no
+	allow_normal_conversion = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	modifiers = {
+		land_morale = 0.05
+		global_autonomy = -0.2
+		development_cost = -0.4
+		max_absolutism = 10
+		province_warscore_cost = -0.15
+		governing_capacity = 200
+	}
+	fixed_rank = 3
+	factions = {
+		byzreds
+		byzgreen
+		byzblue
+		byzwhite
+		byzpink
+		byzgold
+	}
+}
+
+roman_imperial_reform = {
+	icon = "king"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			tag = ROW
+			tag = BYZ
+			tag = ROM
+		}
+		has_reform = roman_imperial_reform
+	}
+	fixed_rank = 3
+	legacy_equivalent = roman_imperial
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	lock_level_when_selected = yes
+	modifiers = {
+		land_morale = 0.05
+		global_autonomy = -0.2
+		development_cost = -0.4
+		max_absolutism = 10
+		province_warscore_cost = -0.15
+		governing_capacity = 200
+	}
+	factions = {
+		byzreds
+		byzgreen
+		byzblue
+		byzwhite
+		byzpink
+		byzgold
+	}
+}
+
+roman_constitutional = {
+	icon = "parliament"
+	monarchy = yes
+	legacy_government = yes
+	valid_for_new_country = no
+	allow_normal_conversion = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	modifiers = {
+		land_morale = 0.1
+		global_autonomy = -0.2
+		development_cost = -0.4
+		governing_capacity = 200
+		global_unrest = -2
+		core_creation = -0.1
+		monarch_admin_power = 1
+		monarch_diplomatic_power = 1
+		monarch_military_power = 1
+	}
+	factions = {
+		byzreds
+		byzgreen
+		byzblue
+		byzwhite
+		byzpink
+		byzgold
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+}
+
+roman_constitutional_reform = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			tag = ROW
+			tag = BYZ
+			tag = ROM
+		}
+		has_reform = roman_constitutional_reform
+	}
+	fixed_rank = 3
+	legacy_equivalent = roman_constitutional
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	lock_level_when_selected = yes
+	modifiers = {
+		land_morale = 0.1
+		global_autonomy = -0.2
+		development_cost = -0.4
+		governing_capacity = 200
+		global_unrest = -2
+		core_creation = -0.1
+		monarch_admin_power = 1
+		monarch_diplomatic_power = 1
+		monarch_military_power = 1
+	}
+	factions = {
+		byzreds
+		byzgreen
+		byzblue
+		byzwhite
+		byzpink
+		byzgold
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mandate of Heaven"
+		}
+		allow_banners = yes
+	}
+}

@@ -1,0 +1,288 @@
+country_decisions = {
+
+	alaska_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = ALA }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			culture_group = british
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = ALA 
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	vastkust_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = VA1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			culture_group = scandinavian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = VA1 
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pacifico_norte_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = PN0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			culture_group = iberian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = PN0 
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	arktis_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AR7 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			culture_group = germanic
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = AR7
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	alyeska_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AL1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			culture_group = east_slavic
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = AL1
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	qalatjamilah_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = QJ0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = west_alaska_area
+					area = east_alaska_area
+				}
+				is_core = ROOT
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 978
+				owns_core_province = 2613
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = QJ0 
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -1,0 +1,7128 @@
+namespace = cpbm_independence_west_asia
+
+##########################
+###MODERN NATION STATES###
+##########################
+
+#Russia
+country_event = {
+	id = cpbm_independence_west_asia.1
+	title = cpbm_independence_west_asia.1.t
+	desc = cpbm_independence_west_asia.1.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.1.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = russia_region
+                    region = ural_region
+				}
+			}
+			cede_province = RUS
+			add_core = RUS
+			remove_core = ROOT 
+		}
+		vassalize = RUS
+		RUS = { set_capital = 295 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.1.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = russia_region
+                    region = ural_region
+				}
+			}
+			cede_province = RUS
+			add_core = RUS
+			remove_core = ROOT 
+		}
+		RUS = { 
+			every_neighbor_country = { add_truce_with = RUS } 
+			set_capital = 295
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.1.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = russia_region
+                    region = ural_region
+				}
+			}
+			add_unrest = 5
+			add_core = RUS
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.1.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = russia_region
+                    region = ural_region
+				}
+			}
+			cede_province = RUS
+			add_core = RUS
+		}
+		RUS = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 295
+		}
+		hidden_effect = {
+			RUS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 295 = { every_core_country = { limit = { tag = RUS } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		RUS = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kazakh
+country_event = {
+	id = cpbm_independence_west_asia.2
+	title = cpbm_independence_west_asia.2.t
+	desc = cpbm_independence_west_asia.2.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.2.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kazakhstan_area
+                    area = balchasj_area
+                    area = syr_darya_area
+                    area = nogai_area
+                    area = jetysuu_area
+                    area = kyzylkum_area
+                    area = lower_yik_area
+					province_id = 439
+					province_id = 443
+					province_id = 457
+					province_id = 2118
+					province_id = 2356
+					province_id = 2370
+					province_id = 4684
+				}
+			}
+			cede_province = KZH
+			add_core = KZH
+			remove_core = ROOT 
+		}
+		vassalize = KZH
+		KZH = { set_capital = 476 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.2.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kazakhstan_area
+                    area = balchasj_area
+                    area = syr_darya_area
+                    area = nogai_area
+                    area = jetysuu_area
+                    area = kyzylkum_area
+                    area = lower_yik_area
+					province_id = 439
+					province_id = 443
+					province_id = 457
+					province_id = 2118
+					province_id = 2356
+					province_id = 2370
+					province_id = 4684
+				}
+			}
+			cede_province = KZH
+			add_core = KZH
+			remove_core = ROOT 
+		}
+		KZH = { 
+			every_neighbor_country = { add_truce_with = KZH } 
+			set_capital = 476
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.2.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kazakhstan_area
+                    area = balchasj_area
+                    area = syr_darya_area
+                    area = nogai_area
+                    area = jetysuu_area
+                    area = kyzylkum_area
+                    area = lower_yik_area
+					province_id = 439
+					province_id = 443
+					province_id = 457
+					province_id = 2118
+					province_id = 2356
+					province_id = 2370
+					province_id = 4684
+				}
+			}
+			add_unrest = 5
+			add_core = KZH
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.2.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kazakhstan_area
+                    area = balchasj_area
+                    area = syr_darya_area
+                    area = nogai_area
+                    area = jetysuu_area
+                    area = kyzylkum_area
+                    area = lower_yik_area
+					province_id = 439
+					province_id = 443
+					province_id = 457
+					province_id = 2118
+					province_id = 2356
+					province_id = 2370
+					province_id = 4684
+				}
+			}
+			cede_province = KZH
+			add_core = KZH
+		}
+		KZH = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 476
+		}
+		hidden_effect = {
+			KZH = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 476 = { every_core_country = { limit = { tag = KZH } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KZH = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Ottomans
+country_event = {
+	id = cpbm_independence_west_asia.3
+	title = cpbm_independence_west_asia.3.t
+	desc = cpbm_independence_west_asia.3.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.3.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = anatolia_region }
+			cede_province = TUR
+			add_core = TUR
+			remove_core = ROOT 
+		}
+		vassalize = TUR
+		TUR = { set_capital = 326 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.3.b
+		every_owned_province = { 
+			limit = { region = anatolia_region }
+			cede_province = TUR
+			add_core = TUR
+			remove_core = ROOT 
+		}
+		TUR = { 
+			every_neighbor_country = { add_truce_with = TUR } 
+			set_capital = 326
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.3.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = anatolia_region }
+			add_unrest = 5
+			add_core = TUR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.3.dd
+		every_owned_province = { 
+			limit = { region = anatolia_region }
+			cede_province = TUR
+			add_core = TUR
+		}
+		TUR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 326
+		}
+		hidden_effect = {
+			TUR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		326 = { every_core_country = { limit = { tag = TUR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TUR = { 
+			if = { limit = { government = monarchy culture_group = oghuz } set_dynasty = "Osmanoglu" }
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Armenia
+country_event = {
+	id = cpbm_independence_west_asia.4
+	title = cpbm_independence_west_asia.4.t
+	desc = cpbm_independence_west_asia.4.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.4.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = armenia_area
+					province_id = 424
+					province_id = 2204
+					province_id = 4302
+					province_id = 4303
+					province_id = 4340
+				}
+			}
+			cede_province = ARM
+			add_core = ARM
+			remove_core = ROOT 
+		}
+		vassalize = ARM
+		ARM = { set_capital = 419 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.4.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = armenia_area
+					province_id = 424
+					province_id = 2204
+					province_id = 4302
+					province_id = 4303
+					province_id = 4340
+				}
+			}
+			cede_province = ARM
+			add_core = ARM
+			remove_core = ROOT 
+		}
+		ARM = { 
+			every_neighbor_country = { add_truce_with = ARM } 
+			set_capital = 419
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.4.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = armenia_area
+					province_id = 424
+					province_id = 2204
+					province_id = 4302
+					province_id = 4303
+					province_id = 4340
+				}
+			}
+			add_unrest = 5
+			add_core = ARM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.4.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = armenia_area
+					province_id = 424
+					province_id = 2204
+					province_id = 4302
+					province_id = 4303
+					province_id = 4340
+				}
+			}
+			cede_province = ARM
+			add_core = ARM
+		}
+		ARM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 419
+		}
+		hidden_effect = {
+			ARM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 419 = { every_core_country = { limit = { tag = ARM } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ARM = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Georgia
+country_event = {
+	id = cpbm_independence_west_asia.5
+	title = cpbm_independence_west_asia.5.t
+	desc = cpbm_independence_west_asia.5.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.5.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kartli_kakheti_area
+                    area = imereti_area
+                    area = armenia_area
+					province_id = 2196
+					province_id = 2204
+					province_id = 4303
+					province_id = 4305
+				}
+			}
+			cede_province = GEO
+			add_core = GEO
+			remove_core = ROOT 
+		}
+		vassalize = GEO
+		GEO = { set_capital = 423 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.5.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kartli_kakheti_area
+                    area = imereti_area
+                    area = armenia_area
+					province_id = 2196
+					province_id = 2204
+					province_id = 4303
+					province_id = 4305
+				}
+			}
+			cede_province = GEO
+			add_core = GEO
+			remove_core = ROOT 
+		}
+		GEO = { 
+			every_neighbor_country = { add_truce_with = GEO } 
+			set_capital = 423
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.5.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kartli_kakheti_area
+                    area = imereti_area
+                    area = armenia_area
+					province_id = 2196
+					province_id = 2204
+					province_id = 4303
+					province_id = 4305
+				}
+			}
+			add_unrest = 5
+			add_core = GEO
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.5.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kartli_kakheti_area
+                    area = imereti_area
+                    area = armenia_area
+					province_id = 2196
+					province_id = 2204
+					province_id = 4303
+					province_id = 4305
+				}
+			}
+			cede_province = GEO
+			add_core = GEO
+		}
+		GEO = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 423
+		}
+		hidden_effect = {
+			GEO = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 423 = { every_core_country = { limit = { tag = GEO } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		GEO = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Azerbaijan
+country_event = {
+	id = cpbm_independence_west_asia.6
+	title = cpbm_independence_west_asia.6.t
+	desc = cpbm_independence_west_asia.6.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.6.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = shirvan_area
+					province_id = 420
+					province_id = 2202
+					province_id = 2205
+					province_id = 3243
+				}
+			}
+			cede_province = AZE
+			add_core = AZE
+			remove_core = ROOT 
+		}
+		vassalize = AZE
+		AZE = { set_capital = 421 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.6.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = shirvan_area
+					province_id = 420
+					province_id = 2202
+					province_id = 2205
+					province_id = 3243
+				}
+			}
+			cede_province = AZE
+			add_core = AZE
+			remove_core = ROOT 
+		}
+		AZE = { 
+			every_neighbor_country = { add_truce_with = AZE } 
+			set_capital = 421
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.6.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = shirvan_area
+					province_id = 420
+					province_id = 2202
+					province_id = 2205
+					province_id = 3243
+				}
+			}
+			add_unrest = 5
+			add_core = AZE
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.6.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = shirvan_area
+					province_id = 420
+					province_id = 2202
+					province_id = 2205
+					province_id = 3243
+				}
+			}
+			cede_province = AZE
+			add_core = AZE
+		}
+		AZE = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 421
+		}
+		hidden_effect = {
+			AZE = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 421 = { every_core_country = { limit = { tag = AZE } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		AZE = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Syria
+country_event = {
+	id = cpbm_independence_west_asia.7
+	title = cpbm_independence_west_asia.7.t
+	desc = cpbm_independence_west_asia.7.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.7.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = syria_area
+                    area = aleppo_area
+					province_id = 381
+					province_id = 405
+					province_id = 407
+					province_id = 2314
+					province_id = 4271
+					province_id = 4292
+				}
+			}
+			cede_province = SYR
+			add_core = SYR
+			remove_core = ROOT 
+		}
+		vassalize = SYR
+		SYR = { set_capital = 382 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.7.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = syria_area
+                    area = aleppo_area
+					province_id = 381
+					province_id = 405
+					province_id = 407
+					province_id = 2314
+					province_id = 4271
+					province_id = 4292
+				}
+			}
+			cede_province = SYR
+			add_core = SYR
+			remove_core = ROOT 
+		}
+		SYR = { 
+			every_neighbor_country = { add_truce_with = SYR } 
+			set_capital = 382
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.7.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = syria_area
+                    area = aleppo_area
+					province_id = 381
+					province_id = 405
+					province_id = 407
+					province_id = 2314
+					province_id = 4271
+					province_id = 4292
+				}
+			}
+			add_unrest = 5
+			add_core = SYR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.7.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = syria_area
+                    area = aleppo_area
+					province_id = 381
+					province_id = 405
+					province_id = 407
+					province_id = 2314
+					province_id = 4271
+					province_id = 4292
+				}
+			}
+			cede_province = SYR
+			add_core = SYR
+		}
+		SYR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 382
+		}
+		hidden_effect = {
+			SYR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 382 = { every_core_country = { limit = { tag = SYR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SYR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Lebanon
+country_event = {
+	id = cpbm_independence_west_asia.8
+	title = cpbm_independence_west_asia.8.t
+	desc = cpbm_independence_west_asia.8.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.8.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 378
+					province_id = 1855
+				}
+			}
+			cede_province = LEB
+			add_core = LEB
+			remove_core = ROOT 
+		}
+		vassalize = LEB
+		LEB = { set_capital = 378 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.8.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 378
+					province_id = 1855
+				}
+			}
+			cede_province = LEB
+			add_core = LEB
+			remove_core = ROOT 
+		}
+		LEB = { 
+			every_neighbor_country = { add_truce_with = LEB } 
+			set_capital = 378
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.8.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 378
+					province_id = 1855
+				}
+			}
+			add_unrest = 5
+			add_core = LEB
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.8.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 378
+					province_id = 1855
+				}
+			}
+			cede_province = LEB
+			add_core = LEB
+		}
+		LEB = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 378
+		}
+		hidden_effect = {
+			LEB = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 378 = { every_core_country = { limit = { tag = LEB } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		LEB = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Israel
+country_event = {
+	id = cpbm_independence_west_asia.9
+	title = cpbm_independence_west_asia.9.t
+	desc = cpbm_independence_west_asia.9.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.9.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = palestine_area
+					province_id = 380
+					province_id = 381
+					province_id = 1855
+				}
+			}
+			cede_province = ISR
+			add_core = ISR
+			remove_core = ROOT 
+		}
+		vassalize = ISR
+		ISR = { set_capital = 379 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.9.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = palestine_area
+					province_id = 380
+					province_id = 381
+					province_id = 1855
+				}
+			}
+			cede_province = ISR
+			add_core = ISR
+			remove_core = ROOT 
+		}
+		ISR = { 
+			every_neighbor_country = { add_truce_with = ISR } 
+			set_capital = 379
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.9.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = palestine_area
+					province_id = 380
+					province_id = 381
+					province_id = 1855
+				}
+			}
+			add_unrest = 5
+			add_core = ISR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.9.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = palestine_area
+					province_id = 380
+					province_id = 381
+					province_id = 1855
+				}
+			}
+			cede_province = ISR
+			add_core = ISR
+		}
+		ISR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 379
+		}
+		hidden_effect = {
+			ISR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 379 = { every_core_country = { limit = { tag = ISR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ISR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Jordan
+country_event = {
+	id = cpbm_independence_west_asia.10
+	title = cpbm_independence_west_asia.10.t
+	desc = cpbm_independence_west_asia.10.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.10.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = trans_jordan_area
+					province_id = 3263
+					province_id = 4270
+				}
+			}
+			cede_province = JOR
+			add_core = JOR
+			remove_core = ROOT 
+		}
+		vassalize = JOR
+		JOR = { set_capital = 381 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.10.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = trans_jordan_area
+					province_id = 3263
+					province_id = 4270
+				}
+			}
+			cede_province = JOR
+			add_core = JOR
+			remove_core = ROOT 
+		}
+		JOR = { 
+			every_neighbor_country = { add_truce_with = JOR } 
+			set_capital = 381
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.10.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = trans_jordan_area
+					province_id = 3263
+					province_id = 4270
+				}
+			}
+			add_unrest = 5
+			add_core = JOR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.10.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = trans_jordan_area
+					province_id = 3263
+					province_id = 4270
+				}
+			}
+			cede_province = JOR
+			add_core = JOR
+		}
+		JOR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 381
+		}
+		hidden_effect = {
+			JOR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 381 = { every_core_country = { limit = { tag = JOR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		JOR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Iran
+country_event = {
+	id = cpbm_independence_west_asia.11
+	title = cpbm_independence_west_asia.11.t
+	desc = cpbm_independence_west_asia.11.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.11.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { superregion = persia_superregion }
+			cede_province = PER
+			add_core = PER
+			remove_core = ROOT 
+		}
+		vassalize = PER
+		PER = { set_capital = 428 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.11.b
+		every_owned_province = { 
+			limit = { superregion = persia_superregion }
+			cede_province = PER
+			add_core = PER
+			remove_core = ROOT 
+		}
+		PER = { 
+			every_neighbor_country = { add_truce_with = PER } 
+			set_capital = 428
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.11.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { superregion = persia_superregion }
+			add_unrest = 5
+			add_core = PER
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.11.dd
+		every_owned_province = { 
+			limit = { superregion = persia_superregion }
+			cede_province = PER
+			add_core = PER
+		}
+		PER = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 428
+		}
+		hidden_effect = {
+			PER = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 428 = { every_core_country = { limit = { tag = PER } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PER = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Iraq
+country_event = {
+	id = cpbm_independence_west_asia.12
+	title = cpbm_independence_west_asia.12.t
+	desc = cpbm_independence_west_asia.12.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.12.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = basra_area
+					province_id = 411
+					province_id = 2309
+					province_id = 2334
+				}
+			}
+			cede_province = IRQ
+			add_core = IRQ
+			remove_core = ROOT 
+		}
+		vassalize = IRQ
+		IRQ = { set_capital = 410 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.12.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = basra_area
+					province_id = 411
+					province_id = 2309
+					province_id = 2334
+				}
+			}
+			cede_province = IRQ
+			add_core = IRQ
+			remove_core = ROOT 
+		}
+		IRQ = { 
+			every_neighbor_country = { add_truce_with = IRQ } 
+			set_capital = 410
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.12.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = basra_area
+					province_id = 411
+					province_id = 2309
+					province_id = 2334
+				}
+			}
+			add_unrest = 5
+			add_core = IRQ
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.12.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = basra_area
+					province_id = 411
+					province_id = 2309
+					province_id = 2334
+				}
+			}
+			cede_province = IRQ
+			add_core = IRQ
+		}
+		IRQ = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 410
+		}
+		hidden_effect = {
+			IRQ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 410 = { every_core_country = { limit = { tag = IRQ } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		IRQ = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kuwait
+country_event = {
+	id = cpbm_independence_west_asia.13
+	title = cpbm_independence_west_asia.13.t
+	desc = cpbm_independence_west_asia.13.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.13.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 2340 }
+			cede_province = KUW
+			add_core = KUW
+			remove_core = ROOT 
+		}
+		vassalize = KUW
+		KUW = { set_capital = 2340 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.13.b
+		every_owned_province = { 
+			limit = { province_id = 2340 }
+			cede_province = KUW
+			add_core = KUW
+			remove_core = ROOT 
+		}
+		KUW = { 
+			every_neighbor_country = { add_truce_with = KUW } 
+			set_capital = 2340
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.13.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 2340 }
+			add_unrest = 5
+			add_core = KUW
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.13.dd
+		every_owned_province = { 
+			limit = { province_id = 2340 }
+			cede_province = KUW
+			add_core = KUW
+		}
+		KUW = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2340
+		}
+		hidden_effect = {
+			KUW = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2340 = { every_core_country = { limit = { tag = KUW } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KUW = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Arabia
+country_event = {
+	id = cpbm_independence_west_asia.14
+	title = cpbm_independence_west_asia.14.t
+	desc = cpbm_independence_west_asia.14.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.14.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = arabia_region }
+			cede_province = ARB
+			add_core = ARB
+			remove_core = ROOT 
+		}
+		vassalize = ARB
+		ARB = { set_capital = 385 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.14.b
+		every_owned_province = { 
+			limit = { region = arabia_region }
+			cede_province = ARB
+			add_core = ARB
+			remove_core = ROOT 
+		}
+		ARB = { 
+			every_neighbor_country = { add_truce_with = ARB } 
+			set_capital = 385
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.14.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = arabia_region }
+			add_unrest = 5
+			add_core = ARB
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.14.dd
+		every_owned_province = { 
+			limit = { region = arabia_region }
+			cede_province = ARB
+			add_core = ARB
+		}
+		ARB = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 385
+		}
+		hidden_effect = {
+			ARB = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 385 = { every_core_country = { limit = { tag = ARB } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ARB = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Bahrain
+country_event = {
+	id = cpbm_independence_west_asia.15
+	title = cpbm_independence_west_asia.15.t
+	desc = cpbm_independence_west_asia.15.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.15.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 395
+					province_id = 396
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = BHR
+			add_core = BHR
+			remove_core = ROOT 
+		}
+		vassalize = BHR
+		BHR = { set_capital = 396 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.15.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 395
+					province_id = 396
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = BHR
+			add_core = BHR
+			remove_core = ROOT 
+		}
+		BHR = { 
+			every_neighbor_country = { add_truce_with = BHR } 
+			set_capital = 396
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.15.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 395
+					province_id = 396
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			add_unrest = 5
+			add_core = BHR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.15.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 395
+					province_id = 396
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = BHR
+			add_core = BHR
+		}
+		BHR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 396
+		}
+		hidden_effect = {
+			BHR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 396 = { every_core_country = { limit = { tag = BHR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BHR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Qatar
+country_event = {
+	id = cpbm_independence_west_asia.16
+	title = cpbm_independence_west_asia.16.t
+	desc = cpbm_independence_west_asia.16.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.16.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 395 }
+			cede_province = QTR
+			add_core = QTR
+			remove_core = ROOT 
+		}
+		vassalize = QTR
+		QTR = { set_capital = 395 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.16.b
+		every_owned_province = { 
+			limit = { province_id = 395 }
+			cede_province = QTR
+			add_core = QTR
+			remove_core = ROOT 
+		}
+		QTR = { 
+			every_neighbor_country = { add_truce_with = QTR } 
+			set_capital = 395
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.16.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 395 }
+			add_unrest = 5
+			add_core = QTR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.16.dd
+		every_owned_province = { 
+			limit = { province_id = 395 }
+			cede_province = QTR
+			add_core = QTR
+		}
+		QTR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 395
+		}
+		hidden_effect = {
+			QTR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 395 = { every_core_country = { limit = { tag = QTR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		QTR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#United Arab Emirates / UAE
+country_event = {
+	id = cpbm_independence_west_asia.17
+	title = cpbm_independence_west_asia.17.t
+	desc = cpbm_independence_west_asia.17.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.17.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 397
+					province_id = 398
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = UAE
+			add_core = UAE
+			remove_core = ROOT 
+		}
+		vassalize = UAE
+		UAE = { set_capital = 2333 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.17.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 397
+					province_id = 398
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = UAE
+			add_core = UAE
+			remove_core = ROOT 
+		}
+		UAE = { 
+			every_neighbor_country = { add_truce_with = UAE } 
+			set_capital = 2333
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.17.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 397
+					province_id = 398
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			add_unrest = 5
+			add_core = UAE
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.17.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 397
+					province_id = 398
+					province_id = 404
+					province_id = 2333
+				}
+			}
+			cede_province = UAE
+			add_core = UAE
+		}
+		UAE = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2333
+		}
+		hidden_effect = {
+			UAE = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2333 = { every_core_country = { limit = { tag = UAE } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		UAE = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Oman
+country_event = {
+	id = cpbm_independence_west_asia.18
+	title = cpbm_independence_west_asia.18.t
+	desc = cpbm_independence_west_asia.18.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.18.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mascat_area
+                    area = oman_area
+                    area = dhofar_area
+					province_id = 397
+					province_id = 398
+				}
+			}
+			cede_province = OMA
+			add_core = OMA
+			remove_core = ROOT 
+		}
+		vassalize = OMA
+		OMA = { set_capital = 400 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.18.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mascat_area
+                    area = oman_area
+                    area = dhofar_area
+					province_id = 397
+					province_id = 398
+				}
+			}
+			cede_province = OMA
+			add_core = OMA
+			remove_core = ROOT 
+		}
+		OMA = { 
+			every_neighbor_country = { add_truce_with = OMA } 
+			set_capital = 400
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.18.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mascat_area
+                    area = oman_area
+                    area = dhofar_area
+					province_id = 397
+					province_id = 398
+				}
+			}
+			add_unrest = 5
+			add_core = OMA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.18.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mascat_area
+                    area = oman_area
+                    area = dhofar_area
+					province_id = 397
+					province_id = 398
+				}
+			}
+			cede_province = OMA
+			add_core = OMA
+		}
+		OMA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 400
+		}
+		hidden_effect = {
+			OMA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 400 = { every_core_country = { limit = { tag = OMA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		OMA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Yemen
+country_event = {
+	id = cpbm_independence_west_asia.19
+	title = cpbm_independence_west_asia.19.t
+	desc = cpbm_independence_west_asia.19.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.19.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = upper_yemen_area 
+                    area = yemen_area
+                    area = hadramut_area
+                    area = mahra_area
+                    area = tihama_al_yemen_area
+                    area = asir_area
+					province_id = 4278
+				}
+			}
+			cede_province = YEM
+			add_core = YEM
+			remove_core = ROOT 
+		}
+		vassalize = YEM
+		YEM = { set_capital = 390 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.19.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = upper_yemen_area 
+                    area = yemen_area
+                    area = hadramut_area
+                    area = mahra_area
+                    area = tihama_al_yemen_area
+                    area = asir_area
+					province_id = 4278
+				}
+			}
+			cede_province = YEM
+			add_core = YEM
+			remove_core = ROOT 
+		}
+		YEM = { 
+			every_neighbor_country = { add_truce_with = YEM } 
+			set_capital = 390
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.19.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = upper_yemen_area 
+                    area = yemen_area
+                    area = hadramut_area
+                    area = mahra_area
+                    area = tihama_al_yemen_area
+                    area = asir_area
+					province_id = 4278
+				}
+			}
+			add_unrest = 5
+			add_core = YEM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.19.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = upper_yemen_area 
+                    area = yemen_area
+                    area = hadramut_area
+                    area = mahra_area
+                    area = tihama_al_yemen_area
+                    area = asir_area
+					province_id = 4278
+				}
+			}
+			cede_province = YEM
+			add_core = YEM
+		}
+		YEM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 390
+		}
+		hidden_effect = {
+			YEM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 390 = { every_core_country = { limit = { tag = YEM } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		YEM = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Turkmenistan
+country_event = {
+	id = cpbm_independence_west_asia.20
+	title = cpbm_independence_west_asia.20.t
+	desc = cpbm_independence_west_asia.20.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.20.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = merv_area 
+                    area = mashhad_area
+                    area = herat_area
+                    area = birjand_area
+					province_id = 437
+					province_id = 438
+					province_id = 441
+					province_id = 2224
+					province_id = 2349
+					province_id = 2362
+				}
+			}
+			cede_province = TRK
+			add_core = TRK
+			remove_core = ROOT 
+		}
+		vassalize = TRK
+		TRK = { set_capital = 2350 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.20.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = merv_area 
+                    area = mashhad_area
+                    area = herat_area
+                    area = birjand_area
+					province_id = 437
+					province_id = 438
+					province_id = 441
+					province_id = 2224
+					province_id = 2349
+					province_id = 2362
+				}
+			}
+			cede_province = TRK
+			add_core = TRK
+			remove_core = ROOT 
+		}
+		TRK = { 
+			every_neighbor_country = { add_truce_with = TRK } 
+			set_capital = 2350
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.20.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = merv_area 
+                    area = mashhad_area
+                    area = herat_area
+                    area = birjand_area
+					province_id = 437
+					province_id = 438
+					province_id = 441
+					province_id = 2224
+					province_id = 2349
+					province_id = 2362
+				}
+			}
+			add_unrest = 5
+			add_core = TRK
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.20.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = merv_area 
+                    area = mashhad_area
+                    area = herat_area
+                    area = birjand_area
+					province_id = 437
+					province_id = 438
+					province_id = 441
+					province_id = 2224
+					province_id = 2349
+					province_id = 2362
+				}
+			}
+			cede_province = TRK
+			add_core = TRK
+		}
+		TRK = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2350
+		}
+		hidden_effect = {
+			TRK = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2350 = { every_core_country = { limit = { tag = TRK } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TRK = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Afghanistan
+country_event = {
+	id = cpbm_independence_west_asia.21
+	title = cpbm_independence_west_asia.21.t
+	desc = cpbm_independence_west_asia.21.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.21.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kabulistan_area
+                    area = balkh_area
+                    area = ghor_area
+					province_id = 435
+					province_id = 446
+					province_id = 577
+					province_id = 2068
+					province_id = 2224
+					province_id = 2229
+					province_id = 4324
+					province_id = 4328
+				}
+			}
+			cede_province = AFG
+			add_core = AFG
+			remove_core = ROOT 
+		}
+		vassalize = AFG
+		AFG = { set_capital = 451 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.21.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kabulistan_area
+                    area = balkh_area
+                    area = ghor_area
+					province_id = 435
+					province_id = 446
+					province_id = 577
+					province_id = 2068
+					province_id = 2224
+					province_id = 2229
+					province_id = 4324
+					province_id = 4328
+				}
+			}
+			cede_province = AFG
+			add_core = AFG
+			remove_core = ROOT 
+		}
+		AFG = { 
+			every_neighbor_country = { add_truce_with = AFG } 
+			set_capital = 451
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.21.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kabulistan_area
+                    area = balkh_area
+                    area = ghor_area
+					province_id = 435
+					province_id = 446
+					province_id = 577
+					province_id = 2068
+					province_id = 2224
+					province_id = 2229
+					province_id = 4324
+					province_id = 4328
+				}
+			}
+			add_unrest = 5
+			add_core = AFG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.21.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kabulistan_area
+                    area = balkh_area
+                    area = ghor_area
+					province_id = 435
+					province_id = 446
+					province_id = 577
+					province_id = 2068
+					province_id = 2224
+					province_id = 2229
+					province_id = 4324
+					province_id = 4328
+				}
+			}
+			cede_province = AFG
+			add_core = AFG
+		}
+		AFG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 451
+		}
+		hidden_effect = {
+			AFG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 451 = { every_core_country = { limit = { tag = AFG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		AFG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Tajikistan
+country_event = {
+	id = cpbm_independence_west_asia.22
+	title = cpbm_independence_west_asia.22.t
+	desc = cpbm_independence_west_asia.22.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.22.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = transoxiana_area
+                    area = kashgaria_area
+                    area = ferghana_area
+                    area = arys_area
+                    area = kyzylkum_area
+                    area = jetysuu_area
+					province_id = 456
+					province_id = 710
+					province_id = 711
+					province_id = 712
+					province_id = 1969
+					province_id = 2121
+					province_id = 4693
+				}
+			}
+			cede_province = TJK
+			add_core = TJK
+			remove_core = ROOT 
+		}
+		vassalize = TJK
+		TJK = { set_capital = 1968 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.22.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = transoxiana_area
+                    area = kashgaria_area
+                    area = ferghana_area
+                    area = arys_area
+                    area = kyzylkum_area
+                    area = jetysuu_area
+					province_id = 456
+					province_id = 710
+					province_id = 711
+					province_id = 712
+					province_id = 1969
+					province_id = 2121
+					province_id = 4693
+				}
+			}
+			cede_province = TJK
+			add_core = TJK
+			remove_core = ROOT 
+		}
+		TJK = { 
+			every_neighbor_country = { add_truce_with = TJK } 
+			set_capital = 1968
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.22.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = transoxiana_area
+                    area = kashgaria_area
+                    area = ferghana_area
+                    area = arys_area
+                    area = kyzylkum_area
+                    area = jetysuu_area
+					province_id = 456
+					province_id = 710
+					province_id = 711
+					province_id = 712
+					province_id = 1969
+					province_id = 2121
+					province_id = 4693
+				}
+			}
+			add_unrest = 5
+			add_core = TJK
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.22.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = transoxiana_area
+                    area = kashgaria_area
+                    area = ferghana_area
+                    area = arys_area
+                    area = kyzylkum_area
+                    area = jetysuu_area
+					province_id = 456
+					province_id = 710
+					province_id = 711
+					province_id = 712
+					province_id = 1969
+					province_id = 2121
+					province_id = 4693
+				}
+			}
+			cede_province = TJK
+			add_core = TJK
+		}
+		TJK = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1968
+		}
+		hidden_effect = {
+			TJK = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1968 = { every_core_country = { limit = { tag = TJK } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TJK = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Uzbek
+country_event = {
+	id = cpbm_independence_west_asia.23
+	title = cpbm_independence_west_asia.23.t
+	desc = cpbm_independence_west_asia.23.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.23.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kyzylkum_area
+					province_id = 440
+					province_id = 442
+					province_id = 453
+					province_id = 454
+					province_id = 456
+					province_id = 457
+					province_id = 458
+					province_id = 1969
+					province_id = 1973
+					province_id = 2356
+					province_id = 2361
+					province_id = 2370
+					province_id = 4344
+				}
+			}
+			cede_province = UZB
+			add_core = UZB
+			remove_core = ROOT 
+		}
+		vassalize = UZB
+		UZB = { set_capital = 457 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.23.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kyzylkum_area
+					province_id = 440
+					province_id = 442
+					province_id = 453
+					province_id = 454
+					province_id = 456
+					province_id = 457
+					province_id = 458
+					province_id = 1969
+					province_id = 1973
+					province_id = 2356
+					province_id = 2361
+					province_id = 2370
+					province_id = 4344
+				}
+			}
+			cede_province = UZB
+			add_core = UZB
+			remove_core = ROOT 
+		}
+		UZB = { 
+			every_neighbor_country = { add_truce_with = UZB } 
+			set_capital = 457
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.23.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kyzylkum_area
+					province_id = 440
+					province_id = 442
+					province_id = 453
+					province_id = 454
+					province_id = 456
+					province_id = 457
+					province_id = 458
+					province_id = 1969
+					province_id = 1973
+					province_id = 2356
+					province_id = 2361
+					province_id = 2370
+					province_id = 4344
+				}
+			}
+			add_unrest = 5
+			add_core = UZB
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.23.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = kyzylkum_area
+					province_id = 440
+					province_id = 442
+					province_id = 453
+					province_id = 454
+					province_id = 456
+					province_id = 457
+					province_id = 458
+					province_id = 1969
+					province_id = 1973
+					province_id = 2356
+					province_id = 2361
+					province_id = 2370
+					province_id = 4344
+				}
+			}
+			cede_province = UZB
+			add_core = UZB
+		}
+		UZB = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 457
+		}
+		hidden_effect = {
+			UZB = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 457 = { every_core_country = { limit = { tag = UZB } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		UZB = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kyrgyzstan
+country_event = {
+	id = cpbm_independence_west_asia.24
+	title = cpbm_independence_west_asia.24.t
+	desc = cpbm_independence_west_asia.24.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.24.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = jetysuu_area
+                    area = arys_area
+                    area = ferghana_area
+                    area = syr_darya_area
+                    area = kyzylkum_area
+                    area = kazakhstan_area
+                    area = nogai_area
+					province_id = 477
+					province_id = 2360
+					province_id = 4685
+					province_id = 478
+					province_id = 454
+					province_id = 453
+					province_id = 2370
+					province_id = 443
+					province_id = 439
+					province_id = 2367
+					province_id = 474
+				}
+			}
+			cede_province = KYR
+			add_core = KYR
+			remove_core = ROOT 
+		}
+		vassalize = KYR
+		KYR = { set_capital = 2126 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.24.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = jetysuu_area
+                    area = arys_area
+                    area = ferghana_area
+                    area = syr_darya_area
+                    area = kyzylkum_area
+                    area = kazakhstan_area
+                    area = nogai_area
+					province_id = 477
+					province_id = 2360
+					province_id = 4685
+					province_id = 478
+					province_id = 454
+					province_id = 453
+					province_id = 2370
+					province_id = 443
+					province_id = 439
+					province_id = 2367
+					province_id = 474
+				}
+			}
+			cede_province = KYR
+			add_core = KYR
+			remove_core = ROOT 
+		}
+		KYR = { 
+			every_neighbor_country = { add_truce_with = KYR } 
+			set_capital = 2126
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.24.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = jetysuu_area
+                    area = arys_area
+                    area = ferghana_area
+                    area = syr_darya_area
+                    area = kyzylkum_area
+                    area = kazakhstan_area
+                    area = nogai_area
+					province_id = 477
+					province_id = 2360
+					province_id = 4685
+					province_id = 478
+					province_id = 454
+					province_id = 453
+					province_id = 2370
+					province_id = 443
+					province_id = 439
+					province_id = 2367
+					province_id = 474
+				}
+			}
+			add_unrest = 5
+			add_core = KYR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.24.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = jetysuu_area
+                    area = arys_area
+                    area = ferghana_area
+                    area = syr_darya_area
+                    area = kyzylkum_area
+                    area = kazakhstan_area
+                    area = nogai_area
+					province_id = 477
+					province_id = 2360
+					province_id = 4685
+					province_id = 478
+					province_id = 454
+					province_id = 453
+					province_id = 2370
+					province_id = 443
+					province_id = 439
+					province_id = 2367
+					province_id = 474
+				}
+			}
+			cede_province = KYR
+			add_core = KYR
+		}
+		KYR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2126
+		}
+		hidden_effect = {
+			KYR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2126 = { every_core_country = { limit = { tag = KYR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KYR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#######################
+###ADDITIONAL STATES###
+#######################
+
+#Crimea
+country_event = {
+	id = cpbm_independence_west_asia.25
+	title = cpbm_independence_west_asia.25.t
+	desc = cpbm_independence_west_asia.25.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.25.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = crimea_region }
+			cede_province = CRI
+			add_core = CRI
+			remove_core = ROOT 
+		}
+		vassalize = CRI
+		CRI = { set_capital = 284 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.25.b
+		every_owned_province = { 
+			limit = { region = crimea_region }
+			cede_province = CRI
+			add_core = CRI
+			remove_core = ROOT 
+		}
+		CRI = { 
+			every_neighbor_country = { add_truce_with = CRI } 
+			set_capital = 284
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.25.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = crimea_region }
+			add_unrest = 5
+			add_core = CRI
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.25.dd
+		every_owned_province = { 
+			limit = { region = crimea_region }
+			cede_province = CRI
+			add_core = CRI
+		}
+		CRI = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 284
+		}
+		hidden_effect = {
+			CRI = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 284 = { every_core_country = { limit = { tag = CRI } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		CRI = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Ural
+country_event = {
+	id = cpbm_independence_west_asia.26
+	title = cpbm_independence_west_asia.26.t
+	desc = cpbm_independence_west_asia.26.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.26.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = ural_region }
+			cede_province = UR0
+			add_core = UR0
+			remove_core = ROOT 
+		}
+		vassalize = UR0
+		UR0 = { set_capital = 1082 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.26.b
+		every_owned_province = { 
+			limit = { region = ural_region }
+			cede_province = UR0
+			add_core = UR0
+			remove_core = ROOT 
+		}
+		UR0 = { 
+			every_neighbor_country = { add_truce_with = UR0 } 
+			set_capital = 1082
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.26.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = ural_region }
+			add_unrest = 5
+			add_core = UR0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.26.dd
+		every_owned_province = { 
+			limit = { region = ural_region }
+			cede_province = UR0
+			add_core = UR0
+		}
+		UR0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1082
+		}
+		hidden_effect = {
+			UR0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1082 = { every_core_country = { limit = { tag = UR0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		UR0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Sibir
+country_event = {
+	id = cpbm_independence_west_asia.27
+	title = cpbm_independence_west_asia.27.t
+	desc = cpbm_independence_west_asia.27.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.27.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = west_siberia_region }
+			cede_province = SIB
+			add_core = SIB
+			remove_core = ROOT 
+		}
+		vassalize = SIB
+		SIB = { set_capital = 1074 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.27.b
+		every_owned_province = { 
+			limit = { region = west_siberia_region }
+			cede_province = SIB
+			add_core = SIB
+			remove_core = ROOT 
+		}
+		SIB = { 
+			every_neighbor_country = { add_truce_with = SIB } 
+			set_capital = 1074
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.27.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = west_siberia_region }
+			add_unrest = 5
+			add_core = SIB
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.27.dd
+		every_owned_province = { 
+			limit = { region = west_siberia_region }
+			cede_province = SIB
+			add_core = SIB
+		}
+		SIB = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1074
+		}
+		hidden_effect = {
+			SIB = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1074 = { every_core_country = { limit = { tag = SIB } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SIB = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Buryatia / East Siberia
+country_event = {
+	id = cpbm_independence_west_asia.28
+	title = cpbm_independence_west_asia.28.t
+	desc = cpbm_independence_west_asia.28.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.28.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = east_siberia_region }
+			cede_province = BRT
+			add_core = BRT
+			remove_core = ROOT 
+		}
+		vassalize = BRT
+		BRT = { set_capital = 1057 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.28.b
+		every_owned_province = { 
+			limit = { region = east_siberia_region }
+			cede_province = BRT
+			add_core = BRT
+			remove_core = ROOT 
+		}
+		BRT = { 
+			every_neighbor_country = { add_truce_with = BRT } 
+			set_capital = 1057
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.28.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = east_siberia_region }
+			add_unrest = 5
+			add_core = BRT
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.28.dd
+		every_owned_province = { 
+			limit = { region = east_siberia_region }
+			cede_province = BRT
+			add_core = BRT
+		}
+		BRT = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1057
+		}
+		hidden_effect = {
+			BRT = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1057 = { every_core_country = { limit = { tag = BRT } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BRT = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Pskov
+country_event = {
+	id = cpbm_independence_west_asia.29
+	title = cpbm_independence_west_asia.29.t
+	desc = cpbm_independence_west_asia.29.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.29.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = pskov_area }
+			cede_province = PSK
+			add_core = PSK
+			remove_core = ROOT 
+		}
+		vassalize = PSK
+		PSK = { set_capital = 274 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.29.b
+		every_owned_province = { 
+			limit = { area = pskov_area }
+			cede_province = PSK
+			add_core = PSK
+			remove_core = ROOT 
+		}
+		PSK = { 
+			every_neighbor_country = { add_truce_with = PSK } 
+			set_capital = 274
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.29.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = pskov_area }
+			add_unrest = 5
+			add_core = PSK
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.29.dd
+		every_owned_province = { 
+			limit = { area = pskov_area }
+			cede_province = PSK
+			add_core = PSK
+		}
+		PSK = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 274
+		}
+		hidden_effect = {
+			PSK = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 274 = { every_core_country = { limit = { tag = PSK } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PSK = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Novgorod
+country_event = {
+	id = cpbm_independence_west_asia.30
+	title = cpbm_independence_west_asia.30.t
+	desc = cpbm_independence_west_asia.30.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.30.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = novgorod_area
+                    area = tver_area
+                    area = pskov_area
+                    area = beloozero_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 314
+					province_id = 1961
+					province_id = 2749
+					province_id = 4262
+					province_id = 4263
+				}
+			}
+			cede_province = NOV
+			add_core = NOV
+			remove_core = ROOT 
+		}
+		vassalize = NOV
+		NOV = { set_capital = 310 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.30.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = novgorod_area
+                    area = tver_area
+                    area = pskov_area
+                    area = beloozero_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 314
+					province_id = 1961
+					province_id = 2749
+					province_id = 4262
+					province_id = 4263
+				}
+			}
+			cede_province = NOV
+			add_core = NOV
+			remove_core = ROOT 
+		}
+		NOV = { 
+			every_neighbor_country = { add_truce_with = NOV } 
+			set_capital = 310
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.30.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = novgorod_area
+                    area = tver_area
+                    area = pskov_area
+                    area = beloozero_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 314
+					province_id = 1961
+					province_id = 2749
+					province_id = 4262
+					province_id = 4263
+				}
+			}
+			add_unrest = 5
+			add_core = NOV
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.30.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = novgorod_area
+                    area = tver_area
+                    area = pskov_area
+                    area = beloozero_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 314
+					province_id = 1961
+					province_id = 2749
+					province_id = 4262
+					province_id = 4263
+				}
+			}
+			cede_province = NOV
+			add_core = NOV
+		}
+		NOV = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 310
+		}
+		hidden_effect = {
+			NOV = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 310 = { every_core_country = { limit = { tag = NOV } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		NOV = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Trebizond
+country_event = {
+	id = cpbm_independence_west_asia.31
+	title = cpbm_independence_west_asia.31.t
+	desc = cpbm_independence_west_asia.31.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.31.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 328
+					province_id = 330
+					province_id = 2304
+				}
+			}
+			cede_province = TRE
+			add_core = TRE
+			remove_core = ROOT 
+		}
+		vassalize = TRE
+		TRE = { set_capital = 330 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.31.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 328
+					province_id = 330
+					province_id = 2304
+				}
+			}
+			cede_province = TRE
+			add_core = TRE
+			remove_core = ROOT 
+		}
+		TRE = { 
+			every_neighbor_country = { add_truce_with = TRE } 
+			set_capital = 330
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.31.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 328
+					province_id = 330
+					province_id = 2304
+				}
+			}
+			add_unrest = 5
+			add_core = TRE
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.31.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 328
+					province_id = 330
+					province_id = 2304
+				}
+			}
+			cede_province = TRE
+			add_core = TRE
+		}
+		TRE = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 330
+		}
+		hidden_effect = {
+			TRE = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 330 = { every_core_country = { limit = { tag = TRE } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TRE = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Imereti
+country_event = {
+	id = cpbm_independence_west_asia.32
+	title = cpbm_independence_west_asia.32.t
+	desc = cpbm_independence_west_asia.32.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.32.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = imereti_area
+					province_id = 2196
+					province_id = 4301
+				}
+			}
+			cede_province = IME
+			add_core = IME
+			remove_core = ROOT 
+		}
+		vassalize = IME
+		IME = { set_capital = 422 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.32.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = imereti_area
+					province_id = 2196
+					province_id = 4301
+				}
+			}
+			cede_province = IME
+			add_core = IME
+			remove_core = ROOT 
+		}
+		IME = { 
+			every_neighbor_country = { add_truce_with = IME } 
+			set_capital = 422
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.32.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = imereti_area
+					province_id = 2196
+					province_id = 4301
+				}
+			}
+			add_unrest = 5
+			add_core = IME
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.32.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = imereti_area
+					province_id = 2196
+					province_id = 4301
+				}
+			}
+			cede_province = IME
+			add_core = IME
+		}
+		IME = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 422
+		}
+		hidden_effect = {
+			IME = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 422 = { every_core_country = { limit = { tag = IME } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		IME = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Hadhramaut
+country_event = {
+	id = cpbm_independence_west_asia.33
+	title = cpbm_independence_west_asia.33.t
+	desc = cpbm_independence_west_asia.33.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.33.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = hadramut_area }
+			cede_province = HDR
+			add_core = HDR
+			remove_core = ROOT 
+		}
+		vassalize = HDR
+		HDR = { set_capital = 2343 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.33.b
+		every_owned_province = { 
+			limit = { area = hadramut_area }
+			cede_province = HDR
+			add_core = HDR
+			remove_core = ROOT 
+		}
+		HDR = { 
+			every_neighbor_country = { add_truce_with = HDR } 
+			set_capital = 2343
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.33.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = hadramut_area }
+			add_unrest = 5
+			add_core = HDR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.33.dd
+		every_owned_province = { 
+			limit = { area = hadramut_area }
+			cede_province = HDR
+			add_core = HDR
+		}
+		HDR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2343
+		}
+		hidden_effect = {
+			HDR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2343 = { every_core_country = { limit = { tag = HDR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		HDR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Ajam / Qom
+country_event = {
+	id = cpbm_independence_west_asia.34
+	title = cpbm_independence_west_asia.34.t
+	desc = cpbm_independence_west_asia.34.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.34.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_e_ajam_area
+                    area = azerbaijan_area
+                    area = luristan_area
+                    area = isfahan_area
+                    area = farsistan_area
+                    area = persian_gulf_coast
+					province_id = 2211
+					province_id = 2234
+					province_id = 4294
+					province_id = 4345
+				}
+			}
+			cede_province = QOM
+			add_core = QOM
+			remove_core = ROOT 
+		}
+		vassalize = QOM
+		QOM = { set_capital = 422 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.34.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_e_ajam_area
+                    area = azerbaijan_area
+                    area = luristan_area
+                    area = isfahan_area
+                    area = farsistan_area
+                    area = persian_gulf_coast
+					province_id = 2211
+					province_id = 2234
+					province_id = 4294
+					province_id = 4345
+				}
+			}
+			cede_province = QOM
+			add_core = QOM
+			remove_core = ROOT 
+		}
+		QOM = { 
+			every_neighbor_country = { add_truce_with = QOM } 
+			set_capital = 422
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.34.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_e_ajam_area
+                    area = azerbaijan_area
+                    area = luristan_area
+                    area = isfahan_area
+                    area = farsistan_area
+                    area = persian_gulf_coast
+					province_id = 2211
+					province_id = 2234
+					province_id = 4294
+					province_id = 4345
+				}
+			}
+			add_unrest = 5
+			add_core = QOM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.34.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_e_ajam_area
+                    area = azerbaijan_area
+                    area = luristan_area
+                    area = isfahan_area
+                    area = farsistan_area
+                    area = persian_gulf_coast
+					province_id = 2211
+					province_id = 2234
+					province_id = 4294
+					province_id = 4345
+				}
+			}
+			cede_province = QOM
+			add_core = QOM
+		}
+		QOM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 422
+		}
+		hidden_effect = {
+			QOM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 422 = { every_core_country = { limit = { tag = QOM } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		QOM = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Khorasan
+country_event = {
+	id = cpbm_independence_west_asia.35
+	title = cpbm_independence_west_asia.35.t
+	desc = cpbm_independence_west_asia.35.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.35.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = khorasan_region }
+			cede_province = KHO
+			add_core = KHO
+			remove_core = ROOT 
+		}
+		vassalize = KHO
+		KHO = { set_capital = 446 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.35.b
+		every_owned_province = { 
+			limit = { region = khorasan_region }
+			cede_province = KHO
+			add_core = KHO
+			remove_core = ROOT 
+		}
+		KHO = { 
+			every_neighbor_country = { add_truce_with = KHO } 
+			set_capital = 446
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.35.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = khorasan_region }
+			add_unrest = 5
+			add_core = KHO
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.35.dd
+		every_owned_province = { 
+			limit = { region = khorasan_region }
+			cede_province = KHO
+			add_core = KHO
+		}
+		KHO = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 446
+		}
+		hidden_effect = {
+			KHO = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 446 = { every_core_country = { limit = { tag = KHO } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KHO = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Ryazan
+country_event = {
+	id = cpbm_independence_west_asia.36
+	title = cpbm_independence_west_asia.36.t
+	desc = cpbm_independence_west_asia.36.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.36.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = ryazan_area
+					province_id = 300
+					province_id = 2408
+				}
+			}
+			cede_province = RYA
+			add_core = RYA
+			remove_core = ROOT 
+		}
+		vassalize = RYA
+		RYA = { set_capital = 301 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.36.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = ryazan_area
+					province_id = 300
+					province_id = 2408
+				}
+			}
+			cede_province = RYA
+			add_core = RYA
+			remove_core = ROOT 
+		}
+		RYA = { 
+			every_neighbor_country = { add_truce_with = RYA } 
+			set_capital = 301
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.36.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = ryazan_area
+					province_id = 300
+					province_id = 2408
+				}
+			}
+			add_unrest = 5
+			add_core = RYA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.36.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = ryazan_area
+					province_id = 300
+					province_id = 2408
+				}
+			}
+			cede_province = RYA
+			add_core = RYA
+		}
+		RYA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 301
+		}
+		hidden_effect = {
+			RYA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 301 = { every_core_country = { limit = { tag = RYA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		RYA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Hejaz
+country_event = {
+	id = cpbm_independence_west_asia.37
+	title = cpbm_independence_west_asia.37.t
+	desc = cpbm_independence_west_asia.37.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.37.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mecca_area
+                    area = medina_area
+                    area = tabuk_area
+				}
+			}
+			cede_province = HED
+			add_core = HED
+			remove_core = ROOT 
+		}
+		vassalize = HED
+		HED = { set_capital = 385 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.37.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mecca_area
+                    area = medina_area
+                    area = tabuk_area
+				}
+			}
+			cede_province = HED
+			add_core = HED
+			remove_core = ROOT 
+		}
+		HED = { 
+			every_neighbor_country = { add_truce_with = HED } 
+			set_capital = 385
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.37.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mecca_area
+                    area = medina_area
+                    area = tabuk_area
+				}
+			}
+			add_unrest = 5
+			add_core = HED
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.37.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = mecca_area
+                    area = medina_area
+                    area = tabuk_area
+				}
+			}
+			cede_province = HED
+			add_core = HED
+		}
+		HED = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 385
+		}
+		hidden_effect = {
+			HED = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 385 = { every_core_country = { limit = { tag = HED } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		HED = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Abbasids
+country_event = {
+	id = cpbm_independence_west_asia.38
+	title = cpbm_independence_west_asia.38.t
+	desc = cpbm_independence_west_asia.38.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.38.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = ABA
+			add_core = ABA
+			remove_core = ROOT 
+		}
+		vassalize = ABA
+		ABA = { set_capital = 410 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.38.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = ABA
+			add_core = ABA
+			remove_core = ROOT 
+		}
+		ABA = { 
+			every_neighbor_country = { add_truce_with = ABA } 
+			set_capital = 410
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.38.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			add_unrest = 5
+			add_core = ABA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.38.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = ABA
+			add_core = ABA
+		}
+		ABA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 410
+		}
+		hidden_effect = {
+			ABA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		410 = { every_core_country = { limit = { tag = ABA } change_primary_culture = PREV change_religion = PREV change_government = monarchy } }
+		ABA = { 
+			set_dynasty = "Abbasid"
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Najd
+country_event = {
+	id = cpbm_independence_west_asia.39
+	title = cpbm_independence_west_asia.39.t
+	desc = cpbm_independence_west_asia.39.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.39.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = qasim_area
+                    area = yamamah_area
+                    area = nafud_area
+					province_id = 394
+					province_id = 2347
+				}
+			}
+			cede_province = NAJ
+			add_core = NAJ
+			remove_core = ROOT 
+		}
+		vassalize = NAJ
+		NAJ = { set_capital = 392 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.39.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = qasim_area
+                    area = yamamah_area
+                    area = nafud_area
+					province_id = 394
+					province_id = 2347
+				}
+			}
+			cede_province = NAJ
+			add_core = NAJ
+			remove_core = ROOT 
+		}
+		NAJ = { 
+			every_neighbor_country = { add_truce_with = NAJ } 
+			set_capital = 392
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.39.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = qasim_area
+                    area = yamamah_area
+                    area = nafud_area
+					province_id = 394
+					province_id = 2347
+				}
+			}
+			add_unrest = 5
+			add_core = NAJ
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.39.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = qasim_area
+                    area = yamamah_area
+                    area = nafud_area
+					province_id = 394
+					province_id = 2347
+				}
+			}
+			cede_province = NAJ
+			add_core = NAJ
+		}
+		NAJ = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 392
+		}
+		hidden_effect = {
+			NAJ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 392 = { every_core_country = { limit = { tag = NAJ } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		NAJ = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Umayyad
+country_event = {
+	id = cpbm_independence_west_asia.40
+	title = cpbm_independence_west_asia.40.t
+	desc = cpbm_independence_west_asia.40.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.40.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = UMA
+			add_core = UMA
+			remove_core = ROOT 
+		}
+		vassalize = UMA
+		UMA = { set_capital = 382 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.40.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = UMA
+			add_core = UMA
+			remove_core = ROOT 
+		}
+		UMA = { 
+			every_neighbor_country = { add_truce_with = UMA } 
+			set_capital = 382
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.40.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			add_unrest = 5
+			add_core = UMA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.40.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = mashriq_region
+                    region = arabia_region
+				}
+			}
+			cede_province = UMA
+			add_core = UMA
+		}
+		UMA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 382
+		}
+		hidden_effect = {
+			UMA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		382 = { every_core_country = { limit = { tag = UMA } change_primary_culture = PREV change_religion = PREV change_government = monarchy } }
+		UMA = { 
+			set_dynasty = "Umayyad"
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Mecca
+country_event = {
+	id = cpbm_independence_west_asia.41
+	title = cpbm_independence_west_asia.41.t
+	desc = cpbm_independence_west_asia.41.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.41.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 385
+					province_id = 2331
+					province_id = 4277
+					province_id = 4278
+				}
+			}
+			cede_province = ME4
+			add_core = ME4
+			remove_core = ROOT 
+		}
+		vassalize = ME4
+		ME4 = { set_capital = 385 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.41.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 385
+					province_id = 2331
+					province_id = 4277
+					province_id = 4278
+				}
+			}
+			cede_province = ME4
+			add_core = ME4
+			remove_core = ROOT 
+		}
+		ME4 = { 
+			every_neighbor_country = { add_truce_with = ME4 } 
+			set_capital = 385
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.41.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 385
+					province_id = 2331
+					province_id = 4277
+					province_id = 4278
+				}
+			}
+			add_unrest = 5
+			add_core = ME4
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.41.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 385
+					province_id = 2331
+					province_id = 4277
+					province_id = 4278
+				}
+			}
+			cede_province = ME4
+			add_core = ME4
+		}
+		ME4 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 385
+		}
+		hidden_effect = {
+			ME4 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 385 = { every_core_country = { limit = { tag = ME4 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ME4 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Angora
+country_event = {
+	id = cpbm_independence_west_asia.42
+	title = cpbm_independence_west_asia.42.t
+	desc = cpbm_independence_west_asia.42.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.42.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 326 }
+			cede_province = ANG
+			add_core = ANG
+			remove_core = ROOT 
+		}
+		vassalize = ANG
+		ANG = { set_capital = 326 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.42.b
+		every_owned_province = { 
+			limit = { province_id = 326 }
+			cede_province = ANG
+			add_core = ANG
+			remove_core = ROOT 
+		}
+		ANG = { 
+			every_neighbor_country = { add_truce_with = ANG } 
+			set_capital = 326
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.42.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 326 }
+			add_unrest = 5
+			add_core = ANG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.42.dd
+		every_owned_province = { 
+			limit = { province_id = 326 }
+			cede_province = ANG
+			add_core = ANG
+		}
+		ANG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 326
+		}
+		hidden_effect = {
+			ANG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 326 = { every_core_country = { limit = { tag = ANG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ANG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Muscovy
+country_event = {
+	id = cpbm_independence_west_asia.43
+	title = cpbm_independence_west_asia.43.t
+	desc = cpbm_independence_west_asia.43.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.43.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = moscow_area
+                    area = vladimir_area
+                    area = yaroslavl_area
+                    area = suzdal_area
+                    area = vologda_area
+                    area = beloozero_area
+                    area = MOSgorod_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 294
+					province_id = 296
+					province_id = 1752
+					province_id = 1961
+					province_id = 2749
+					province_id = 4148
+					province_id = 4248
+					province_id = 4249
+				}
+			}
+			cede_province = MOS
+			add_core = MOS
+			remove_core = ROOT 
+		}
+		vassalize = MOS
+		MOS = { set_capital = 295 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.43.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = moscow_area
+                    area = vladimir_area
+                    area = yaroslavl_area
+                    area = suzdal_area
+                    area = vologda_area
+                    area = beloozero_area
+                    area = MOSgorod_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 294
+					province_id = 296
+					province_id = 1752
+					province_id = 1961
+					province_id = 2749
+					province_id = 4148
+					province_id = 4248
+					province_id = 4249
+				}
+			}
+			cede_province = MOS
+			add_core = MOS
+			remove_core = ROOT 
+		}
+		MOS = { 
+			every_neighbor_country = { add_truce_with = MOS } 
+			set_capital = 295
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.43.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = moscow_area
+                    area = vladimir_area
+                    area = yaroslavl_area
+                    area = suzdal_area
+                    area = vologda_area
+                    area = beloozero_area
+                    area = MOSgorod_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 294
+					province_id = 296
+					province_id = 1752
+					province_id = 1961
+					province_id = 2749
+					province_id = 4148
+					province_id = 4248
+					province_id = 4249
+				}
+			}
+			add_unrest = 5
+			add_core = MOS
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.43.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = moscow_area
+                    area = vladimir_area
+                    area = yaroslavl_area
+                    area = suzdal_area
+                    area = vologda_area
+                    area = beloozero_area
+                    area = MOSgorod_area
+                    area = pomor_area
+                    area = arkhangelsk_area
+                    area = north_karelia
+					province_id = 33
+					province_id = 34
+					province_id = 294
+					province_id = 296
+					province_id = 1752
+					province_id = 1961
+					province_id = 2749
+					province_id = 4148
+					province_id = 4248
+					province_id = 4249
+				}
+			}
+			cede_province = MOS
+			add_core = MOS
+		}
+		MOS = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 295
+		}
+		hidden_effect = {
+			MOS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 295 = { every_core_country = { limit = { tag = MOS } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		MOS = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Rum
+country_event = {
+	id = cpbm_independence_west_asia.44
+	title = cpbm_independence_west_asia.44.t
+	desc = cpbm_independence_west_asia.44.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.44.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = karaman_area
+                    area = ankara_area
+                    area = germiyan_area
+                    area = aydin_area
+                    area = rum_area
+                    area = kastamonu_area
+                    province_id = 316
+                    province_id = 317
+                    province_id = 327
+                    province_id = 332
+                    province_id = 2302
+                    province_id = 2303
+				}
+			}
+			cede_province = RUM
+			add_core = RUM
+			remove_core = ROOT 
+		}
+		vassalize = RUM
+		RUM = { set_capital = 323 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.44.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = karaman_area
+                    area = ankara_area
+                    area = germiyan_area
+                    area = aydin_area
+                    area = rum_area
+                    area = kastamonu_area
+                    province_id = 316
+                    province_id = 317
+                    province_id = 327
+                    province_id = 332
+                    province_id = 2302
+                    province_id = 2303
+				}
+			}
+			cede_province = RUM
+			add_core = RUM
+			remove_core = ROOT 
+		}
+		RUM = { 
+			every_neighbor_country = { add_truce_with = RUM } 
+			set_capital = 323
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.44.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = karaman_area
+                    area = ankara_area
+                    area = germiyan_area
+                    area = aydin_area
+                    area = rum_area
+                    area = kastamonu_area
+                    province_id = 316
+                    province_id = 317
+                    province_id = 327
+                    province_id = 332
+                    province_id = 2302
+                    province_id = 2303
+				}
+			}
+			add_unrest = 5
+			add_core = RUM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.44.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = karaman_area
+                    area = ankara_area
+                    area = germiyan_area
+                    area = aydin_area
+                    area = rum_area
+                    area = kastamonu_area
+                    province_id = 316
+                    province_id = 317
+                    province_id = 327
+                    province_id = 332
+                    province_id = 2302
+                    province_id = 2303
+				}
+			}
+			cede_province = RUM
+			add_core = RUM
+		}
+		RUM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 323
+		}
+		hidden_effect = {
+			RUM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		323 = { every_core_country = { limit = { tag = RUM } change_primary_culture = PREV change_religion = PREV change_government = monarchy } }
+		RUM = { 
+			set_dynasty = "Seljuq"
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Riyadh
+country_event = {
+	id = cpbm_independence_west_asia.45
+	title = cpbm_independence_west_asia.45.t
+	desc = cpbm_independence_west_asia.45.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.45.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 392
+					province_id = 2335
+					province_id = 2336
+					province_id = 4273
+					province_id = 4274
+					province_id = 4275
+				}
+			}
+			cede_province = RI1
+			add_core = RI1
+			remove_core = ROOT 
+		}
+		vassalize = RI1
+		RI1 = { set_capital = 392 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.45.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 392
+					province_id = 2335
+					province_id = 2336
+					province_id = 4273
+					province_id = 4274
+					province_id = 4275
+				}
+			}
+			cede_province = RI1
+			add_core = RI1
+			remove_core = ROOT 
+		}
+		RI1 = { 
+			every_neighbor_country = { add_truce_with = RI1 } 
+			set_capital = 392
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.45.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 392
+					province_id = 2335
+					province_id = 2336
+					province_id = 4273
+					province_id = 4274
+					province_id = 4275
+				}
+			}
+			add_unrest = 5
+			add_core = RI1
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.45.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 392
+					province_id = 2335
+					province_id = 2336
+					province_id = 4273
+					province_id = 4274
+					province_id = 4275
+				}
+			}
+			cede_province = RI1
+			add_core = RI1
+		}
+		RI1 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 392
+		}
+		hidden_effect = {
+			RI1 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 392 = { every_core_country = { limit = { tag = RI1 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		RI1 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kuban
+country_event = {
+	id = cpbm_independence_west_asia.46
+	title = cpbm_independence_west_asia.46.t
+	desc = cpbm_independence_west_asia.46.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.46.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 287
+					province_id = 463
+					province_id = 2195
+					province_id = 2447
+				}
+			}
+			cede_province = KU1
+			add_core = KU1
+			remove_core = ROOT 
+		}
+		vassalize = KU1
+		KU1 = { set_capital = 287 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.46.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 287
+					province_id = 463
+					province_id = 2195
+					province_id = 2447
+				}
+			}
+			cede_province = KU1
+			add_core = KU1
+			remove_core = ROOT 
+		}
+		KU1 = { 
+			every_neighbor_country = { add_truce_with = KU1 } 
+			set_capital = 287
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.46.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 287
+					province_id = 463
+					province_id = 2195
+					province_id = 2447
+				}
+			}
+			add_unrest = 5
+			add_core = KU1
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.46.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 287
+					province_id = 463
+					province_id = 2195
+					province_id = 2447
+				}
+			}
+			cede_province = KU1
+			add_core = KU1
+		}
+		KU1 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 287
+		}
+		hidden_effect = {
+			KU1 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 287 = { every_core_country = { limit = { tag = KU1 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KU1 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Ingria/Saint Petersburg/Petrograd
+country_event = {
+	id = cpbm_independence_west_asia.47
+	title = cpbm_independence_west_asia.47.t
+	desc = cpbm_independence_west_asia.47.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.47.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = karelia_area }
+			cede_province = IN1
+			add_core = IN1
+			remove_core = ROOT 
+		}
+		vassalize = IN1
+		IN1 = { set_capital = 33 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.47.b
+		every_owned_province = { 
+			limit = { area = karelia_area }
+			cede_province = IN1
+			add_core = IN1
+			remove_core = ROOT 
+		}
+		IN1 = { 
+			every_neighbor_country = { add_truce_with = IN1 } 
+			set_capital = 33
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.47.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = karelia_area }
+			add_unrest = 5
+			add_core = IN1
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.47.dd
+		every_owned_province = { 
+			limit = { area = karelia_area }
+			cede_province = IN1
+			add_core = IN1
+		}
+		IN1 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 33
+		}
+		hidden_effect = {
+			IN1 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 33 = { every_core_country = { limit = { tag = IN1 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		IN1 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Smyrna
+country_event = {
+	id = cpbm_independence_west_asia.48
+	title = cpbm_independence_west_asia.48.t
+	desc = cpbm_independence_west_asia.48.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.48.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 318 }
+			cede_province = SM0
+			add_core = SM0
+			remove_core = ROOT 
+		}
+		vassalize = SM0
+		SM0 = { set_capital = 318 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.48.b
+		every_owned_province = { 
+			limit = { province_id = 318 }
+			cede_province = SM0
+			add_core = SM0
+			remove_core = ROOT 
+		}
+		SM0 = { 
+			every_neighbor_country = { add_truce_with = SM0 } 
+			set_capital = 318
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.48.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 318 }
+			add_unrest = 5
+			add_core = SM0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.48.dd
+		every_owned_province = { 
+			limit = { province_id = 318 }
+			cede_province = SM0
+			add_core = SM0
+		}
+		SM0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 318
+		}
+		hidden_effect = {
+			SM0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 318 = { every_core_country = { limit = { tag = SM0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SM0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Yekaterinburg
+country_event = {
+	id = cpbm_independence_west_asia.49
+	title = cpbm_independence_west_asia.49.t
+	desc = cpbm_independence_west_asia.49.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.49.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1078
+					province_id = 1080
+					province_id = 2427
+				}
+			}
+			cede_province = YE0
+			add_core = YE0
+			remove_core = ROOT 
+		}
+		vassalize = YE0
+		YE0 = { set_capital = 1078 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.49.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1078
+					province_id = 1080
+					province_id = 2427
+				}
+			}
+			cede_province = YE0
+			add_core = YE0
+			remove_core = ROOT 
+		}
+		YE0 = { 
+			every_neighbor_country = { add_truce_with = YE0 } 
+			set_capital = 1078
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.49.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1078
+					province_id = 1080
+					province_id = 2427
+				}
+			}
+			add_unrest = 5
+			add_core = YE0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.49.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1078
+					province_id = 1080
+					province_id = 2427
+				}
+			}
+			cede_province = YE0
+			add_core = YE0
+		}
+		YE0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1078
+		}
+		hidden_effect = {
+			YE0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1078 = { every_core_country = { limit = { tag = YE0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		YE0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Bursa
+country_event = {
+	id = cpbm_independence_west_asia.50
+	title = cpbm_independence_west_asia.50.t
+	desc = cpbm_independence_west_asia.50.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.50.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 317 }
+			cede_province = BU2
+			add_core = BU2
+			remove_core = ROOT 
+		}
+		vassalize = BU2
+		BU2 = { set_capital = 317 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.50.b
+		every_owned_province = { 
+			limit = { province_id = 317 }
+			cede_province = BU2
+			add_core = BU2
+			remove_core = ROOT 
+		}
+		BU2 = { 
+			every_neighbor_country = { add_truce_with = BU2 } 
+			set_capital = 317
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.50.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 317 }
+			add_unrest = 5
+			add_core = BU2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.50.dd
+		every_owned_province = { 
+			limit = { province_id = 317 }
+			cede_province = BU2
+			add_core = BU2
+		}
+		BU2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 317
+		}
+		hidden_effect = {
+			BU2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 317 = { every_core_country = { limit = { tag = BU2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BU2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Cilicia
+country_event = {
+	id = cpbm_independence_west_asia.51
+	title = cpbm_independence_west_asia.51.t
+	desc = cpbm_independence_west_asia.51.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.51.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 327
+					province_id = 2302
+				}
+			}
+			cede_province = CIL
+			add_core = CIL
+			remove_core = ROOT 
+		}
+		vassalize = CIL
+		CIL = { set_capital = 327 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.51.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 327
+					province_id = 2302
+				}
+			}
+			cede_province = CIL
+			add_core = CIL
+			remove_core = ROOT 
+		}
+		CIL = { 
+			every_neighbor_country = { add_truce_with = CIL } 
+			set_capital = 327
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.51.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 327
+					province_id = 2302
+				}
+			}
+			add_unrest = 5
+			add_core = CIL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.51.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 327
+					province_id = 2302
+				}
+			}
+			cede_province = CIL
+			add_core = CIL
+		}
+		CIL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 327
+		}
+		hidden_effect = {
+			CIL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 327 = { every_core_country = { limit = { tag = CIL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		CIL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Rostov-on-Don
+country_event = {
+	id = cpbm_independence_west_asia.52
+	title = cpbm_independence_west_asia.52.t
+	desc = cpbm_independence_west_asia.52.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.52.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 286
+					province_id = 288
+					province_id = 468
+					province_id = 2414
+				}
+			}
+			cede_province = RO2
+			add_core = RO2
+			remove_core = ROOT 
+		}
+		vassalize = RO2
+		RO2 = { set_capital = 286 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.52.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 286
+					province_id = 288
+					province_id = 468
+					province_id = 2414
+				}
+			}
+			cede_province = RO2
+			add_core = RO2
+			remove_core = ROOT 
+		}
+		RO2 = { 
+			every_neighbor_country = { add_truce_with = RO2 } 
+			set_capital = 286
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.52.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 286
+					province_id = 288
+					province_id = 468
+					province_id = 2414
+				}
+			}
+			add_unrest = 5
+			add_core = RO2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.52.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 286
+					province_id = 288
+					province_id = 468
+					province_id = 2414
+				}
+			}
+			cede_province = RO2
+			add_core = RO2
+		}
+		RO2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 286
+		}
+		hidden_effect = {
+			RO2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 286 = { every_core_country = { limit = { tag = RO2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		RO2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Bashkiria
+country_event = {
+	id = cpbm_independence_west_asia.53
+	title = cpbm_independence_west_asia.53.t
+	desc = cpbm_independence_west_asia.53.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.53.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 475
+					province_id = 2420
+					province_id = 2441
+					province_id = 2444
+					province_id = 4265
+				}
+			}
+			cede_province = BSH
+			add_core = BSH
+			remove_core = ROOT 
+		}
+		vassalize = BSH
+		BSH = { set_capital = 475 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.53.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 475
+					province_id = 2420
+					province_id = 2441
+					province_id = 2444
+					province_id = 4265
+				}
+			}
+			cede_province = BSH
+			add_core = BSH
+			remove_core = ROOT 
+		}
+		BSH = { 
+			every_neighbor_country = { add_truce_with = BSH } 
+			set_capital = 475
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.53.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 475
+					province_id = 2420
+					province_id = 2441
+					province_id = 2444
+					province_id = 4265
+				}
+			}
+			add_unrest = 5
+			add_core = BSH
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.53.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 475
+					province_id = 2420
+					province_id = 2441
+					province_id = 2444
+					province_id = 4265
+				}
+			}
+			cede_province = BSH
+			add_core = BSH
+		}
+		BSH = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 475
+		}
+		hidden_effect = {
+			BSH = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 475 = { every_core_country = { limit = { tag = BSH } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BSH = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Tatarstan
+country_event = {
+	id = cpbm_independence_west_asia.54
+	title = cpbm_independence_west_asia.54.t
+	desc = cpbm_independence_west_asia.54.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.54.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1082
+					province_id = 2421
+					province_id = 4264
+					province_id = 4265
+				}
+			}
+			cede_province = TA3
+			add_core = TA3
+			remove_core = ROOT 
+		}
+		vassalize = TA3
+		TA3 = { set_capital = 1082 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.54.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1082
+					province_id = 2421
+					province_id = 4264
+					province_id = 4265
+				}
+			}
+			cede_province = TA3
+			add_core = TA3
+			remove_core = ROOT 
+		}
+		TA3 = { 
+			every_neighbor_country = { add_truce_with = TA3 } 
+			set_capital = 1082
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.54.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1082
+					province_id = 2421
+					province_id = 4264
+					province_id = 4265
+				}
+			}
+			add_unrest = 5
+			add_core = TA3
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.54.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 1082
+					province_id = 2421
+					province_id = 4264
+					province_id = 4265
+				}
+			}
+			cede_province = TA3
+			add_core = TA3
+		}
+		TA3 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1082
+		}
+		hidden_effect = {
+			TA3 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1082 = { every_core_country = { limit = { tag = TA3 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TA3 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Tehran
+country_event = {
+	id = cpbm_independence_west_asia.55
+	title = cpbm_independence_west_asia.55.t
+	desc = cpbm_independence_west_asia.55.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.55.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 428 }
+			cede_province = TE5
+			add_core = TE5
+			remove_core = ROOT 
+		}
+		vassalize = TE5
+		TE5 = { set_capital = 428 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.55.b
+		every_owned_province = { 
+			limit = { province_id = 428 }
+			cede_province = TE5
+			add_core = TE5
+			remove_core = ROOT 
+		}
+		TE5 = { 
+			every_neighbor_country = { add_truce_with = TE5 } 
+			set_capital = 428
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.55.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 428 }
+			add_unrest = 5
+			add_core = TE5
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.55.dd
+		every_owned_province = { 
+			limit = { province_id = 428 }
+			cede_province = TE5
+			add_core = TE5
+		}
+		TE5 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 428
+		}
+		hidden_effect = {
+			TE5 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 428 = { every_core_country = { limit = { tag = TE5 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TE5 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Chelyabinsk
+country_event = {
+	id = cpbm_independence_west_asia.56
+	title = cpbm_independence_west_asia.56.t
+	desc = cpbm_independence_west_asia.56.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.56.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1966 }
+			cede_province = CE2
+			add_core = CE2
+			remove_core = ROOT 
+		}
+		vassalize = CE2
+		CE2 = { set_capital = 1966 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.56.b
+		every_owned_province = { 
+			limit = { province_id = 1966 }
+			cede_province = CE2
+			add_core = CE2
+			remove_core = ROOT 
+		}
+		CE2 = { 
+			every_neighbor_country = { add_truce_with = CE2 } 
+			set_capital = 1966
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.56.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1966 }
+			add_unrest = 5
+			add_core = CE2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.56.dd
+		every_owned_province = { 
+			limit = { province_id = 1966 }
+			cede_province = CE2
+			add_core = CE2
+		}
+		CE2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1966
+		}
+		hidden_effect = {
+			CE2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1966 = { every_core_country = { limit = { tag = CE2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		CE2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Dagestan
+country_event = {
+	id = cpbm_independence_west_asia.57
+	title = cpbm_independence_west_asia.57.t
+	desc = cpbm_independence_west_asia.57.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.57.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 425
+					province_id = 2199
+					province_id = 2208
+					province_id = 4306
+				}
+			}
+			cede_province = DA2
+			add_core = DA2
+			remove_core = ROOT 
+		}
+		vassalize = DA2
+		DA2 = { set_capital = 2199 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.57.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 425
+					province_id = 2199
+					province_id = 2208
+					province_id = 4306
+				}
+			}
+			cede_province = DA2
+			add_core = DA2
+			remove_core = ROOT 
+		}
+		DA2 = { 
+			every_neighbor_country = { add_truce_with = DA2 } 
+			set_capital = 2199
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.57.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 425
+					province_id = 2199
+					province_id = 2208
+					province_id = 4306
+				}
+			}
+			add_unrest = 5
+			add_core = DA2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.57.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 425
+					province_id = 2199
+					province_id = 2208
+					province_id = 4306
+				}
+			}
+			cede_province = DA2
+			add_core = DA2
+		}
+		DA2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2199
+		}
+		hidden_effect = {
+			DA2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2199 = { every_core_country = { limit = { tag = DA2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		DA2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Aintab
+country_event = {
+	id = cpbm_independence_west_asia.58
+	title = cpbm_independence_west_asia.58.t
+	desc = cpbm_independence_west_asia.58.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.58.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 4298 }
+			cede_province = AT2
+			add_core = AT2
+			remove_core = ROOT 
+		}
+		vassalize = AT2
+		AT2 = { set_capital = 4298 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.58.b
+		every_owned_province = { 
+			limit = { province_id = 4298 }
+			cede_province = AT2
+			add_core = AT2
+			remove_core = ROOT 
+		}
+		AT2 = { 
+			every_neighbor_country = { add_truce_with = AT2 } 
+			set_capital = 4298
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.58.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 4298 }
+			add_unrest = 5
+			add_core = AT2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.58.dd
+		every_owned_province = { 
+			limit = { province_id = 4298 }
+			cede_province = AT2
+			add_core = AT2
+		}
+		AT2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 4298
+		}
+		hidden_effect = {
+			AT2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 4298 = { every_core_country = { limit = { tag = AT2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		AT2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Samara
+country_event = {
+	id = cpbm_independence_west_asia.59
+	title = cpbm_independence_west_asia.59.t
+	desc = cpbm_independence_west_asia.59.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.59.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 473
+					province_id = 4267
+				}
+			}
+			cede_province = SM1
+			add_core = SM1
+			remove_core = ROOT 
+		}
+		vassalize = SM1
+		SM1 = { set_capital = 473 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.59.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 473
+					province_id = 4267
+				}
+			}
+			cede_province = SM1
+			add_core = SM1
+			remove_core = ROOT 
+		}
+		SM1 = { 
+			every_neighbor_country = { add_truce_with = SM1 } 
+			set_capital = 473
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.59.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 473
+					province_id = 4267
+				}
+			}
+			add_unrest = 5
+			add_core = SM1
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.59.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 473
+					province_id = 4267
+				}
+			}
+			cede_province = SM1
+			add_core = SM1
+		}
+		SM1 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 473
+		}
+		hidden_effect = {
+			SM1 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 473 = { every_core_country = { limit = { tag = SM1 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SM1 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Konya
+country_event = {
+	id = cpbm_independence_west_asia.60
+	title = cpbm_independence_west_asia.60.t
+	desc = cpbm_independence_west_asia.60.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.60.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 323
+					province_id = 4307
+				}
+			}
+			cede_province = KNY
+			add_core = KNY
+			remove_core = ROOT 
+		}
+		vassalize = KNY
+		KNY = { set_capital = 323 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.60.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 323
+					province_id = 4307
+				}
+			}
+			cede_province = KNY
+			add_core = KNY
+			remove_core = ROOT 
+		}
+		KNY = { 
+			every_neighbor_country = { add_truce_with = KNY } 
+			set_capital = 323
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.60.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 323
+					province_id = 4307
+				}
+			}
+			add_unrest = 5
+			add_core = KNY
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.60.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 323
+					province_id = 4307
+				}
+			}
+			cede_province = KNY
+			add_core = KNY
+		}
+		KNY = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 323
+		}
+		hidden_effect = {
+			KNY = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 323 = { every_core_country = { limit = { tag = KNY } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KNY = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Teke
+country_event = {
+	id = cpbm_independence_west_asia.61
+	title = cpbm_independence_west_asia.61.t
+	desc = cpbm_independence_west_asia.61.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.61.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 2298 }
+			cede_province = TEK
+			add_core = TEK
+			remove_core = ROOT 
+		}
+		vassalize = TEK
+		TEK = { set_capital = 2298 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.61.b
+		every_owned_province = { 
+			limit = { province_id = 2298 }
+			cede_province = TEK
+			add_core = TEK
+			remove_core = ROOT 
+		}
+		TEK = { 
+			every_neighbor_country = { add_truce_with = TEK } 
+			set_capital = 2298
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.61.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 2298 }
+			add_unrest = 5
+			add_core = TEK
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.61.dd
+		every_owned_province = { 
+			limit = { province_id = 2298 }
+			cede_province = TEK
+			add_core = TEK
+		}
+		TEK = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2298
+		}
+		hidden_effect = {
+			TEK = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2298 = { every_core_country = { limit = { tag = TEK } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TEK = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Jalayirid
+country_event = {
+	id = cpbm_independence_west_asia.62
+	title = cpbm_independence_west_asia.62.t
+	desc = cpbm_independence_west_asia.62.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.62.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = al_jazira_area
+                    province_id = 408
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 4288
+				}
+			}
+			cede_province = JAL
+			add_core = JAL
+			remove_core = ROOT 
+		}
+		vassalize = JAL
+		JAL = { set_capital = 410 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.62.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = al_jazira_area
+                    province_id = 408
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 4288
+				}
+			}
+			cede_province = JAL
+			add_core = JAL
+			remove_core = ROOT 
+		}
+		JAL = { 
+			every_neighbor_country = { add_truce_with = JAL } 
+			set_capital = 410
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.62.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = al_jazira_area
+                    province_id = 408
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 4288
+				}
+			}
+			add_unrest = 5
+			add_core = JAL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.62.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = iraq_arabi_area
+                    area = al_jazira_area
+                    province_id = 408
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 4288
+				}
+			}
+			cede_province = JAL
+			add_core = JAL
+		}
+		JAL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 410
+		}
+		hidden_effect = {
+			JAL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		410 = { every_core_country = { limit = { tag = JAL } change_primary_culture = PREV change_religion = PREV change_government = monarchy } }
+		JAL = { 
+			set_dynasty = "Jalayirid"
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Sassanids (Sasanian Dynasty)
+country_event = {
+	id = cpbm_independence_west_asia.63
+	title = cpbm_independence_west_asia.63.t
+	desc = cpbm_independence_west_asia.63.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_west_asia.63.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = persia_region
+                    area = iraq_arabi_area
+                    area = kartli_kakheti_area
+                    area = mashhad_area
+                    area = birjand_area
+                    area = sistan_area
+                    area = makran_area
+                    area = herat_area
+                    area = ghor_area
+                    area = bahrain_area
+                    area = mascat_area
+                    province_id = 397
+                    province_id = 398
+                    province_id = 408
+                    province_id = 411
+                    province_id = 419
+                    province_id = 421
+                    province_id = 422
+                    province_id = 424
+                    province_id = 425
+                    province_id = 445
+                    province_id = 450
+                    province_id = 576
+                    province_id = 577
+                    province_id = 2202
+                    province_id = 2204
+                    province_id = 2205
+                    province_id = 2228
+                    province_id = 2309
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 2333
+                    province_id = 2341
+                    province_id = 2350
+                    province_id = 3243
+                    province_id = 4287
+                    province_id = 4288
+                    province_id = 4302
+                    province_id = 4303
+                    province_id = 4340
+                    province_id = 4343
+				}
+			}
+			cede_province = ERS
+			add_core = ERS
+			remove_core = ROOT 
+		}
+		vassalize = ERS
+		ERS = { set_capital = 410 }
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.63.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = persia_region
+                    area = iraq_arabi_area
+                    area = kartli_kakheti_area
+                    area = mashhad_area
+                    area = birjand_area
+                    area = sistan_area
+                    area = makran_area
+                    area = herat_area
+                    area = ghor_area
+                    area = bahrain_area
+                    area = mascat_area
+                    province_id = 397
+                    province_id = 398
+                    province_id = 408
+                    province_id = 411
+                    province_id = 419
+                    province_id = 421
+                    province_id = 422
+                    province_id = 424
+                    province_id = 425
+                    province_id = 445
+                    province_id = 450
+                    province_id = 576
+                    province_id = 577
+                    province_id = 2202
+                    province_id = 2204
+                    province_id = 2205
+                    province_id = 2228
+                    province_id = 2309
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 2333
+                    province_id = 2341
+                    province_id = 2350
+                    province_id = 3243
+                    province_id = 4287
+                    province_id = 4288
+                    province_id = 4302
+                    province_id = 4303
+                    province_id = 4340
+                    province_id = 4343
+				}
+			}
+			cede_province = ERS
+			add_core = ERS
+			remove_core = ROOT 
+		}
+		ERS = { 
+			every_neighbor_country = { add_truce_with = ERS } 
+			set_capital = 410
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.63.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = persia_region
+                    area = iraq_arabi_area
+                    area = kartli_kakheti_area
+                    area = mashhad_area
+                    area = birjand_area
+                    area = sistan_area
+                    area = makran_area
+                    area = herat_area
+                    area = ghor_area
+                    area = bahrain_area
+                    area = mascat_area
+                    province_id = 397
+                    province_id = 398
+                    province_id = 408
+                    province_id = 411
+                    province_id = 419
+                    province_id = 421
+                    province_id = 422
+                    province_id = 424
+                    province_id = 425
+                    province_id = 445
+                    province_id = 450
+                    province_id = 576
+                    province_id = 577
+                    province_id = 2202
+                    province_id = 2204
+                    province_id = 2205
+                    province_id = 2228
+                    province_id = 2309
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 2333
+                    province_id = 2341
+                    province_id = 2350
+                    province_id = 3243
+                    province_id = 4287
+                    province_id = 4288
+                    province_id = 4302
+                    province_id = 4303
+                    province_id = 4340
+                    province_id = 4343
+				}
+			}
+			add_unrest = 5
+			add_core = ERS
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_west_asia.63.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    region = persia_region
+                    area = iraq_arabi_area
+                    area = kartli_kakheti_area
+                    area = mashhad_area
+                    area = birjand_area
+                    area = sistan_area
+                    area = makran_area
+                    area = herat_area
+                    area = ghor_area
+                    area = bahrain_area
+                    area = mascat_area
+                    province_id = 397
+                    province_id = 398
+                    province_id = 408
+                    province_id = 411
+                    province_id = 419
+                    province_id = 421
+                    province_id = 422
+                    province_id = 424
+                    province_id = 425
+                    province_id = 445
+                    province_id = 450
+                    province_id = 576
+                    province_id = 577
+                    province_id = 2202
+                    province_id = 2204
+                    province_id = 2205
+                    province_id = 2228
+                    province_id = 2309
+                    province_id = 2311
+                    province_id = 2312
+                    province_id = 2333
+                    province_id = 2341
+                    province_id = 2350
+                    province_id = 3243
+                    province_id = 4287
+                    province_id = 4288
+                    province_id = 4302
+                    province_id = 4303
+                    province_id = 4340
+                    province_id = 4343
+				}
+			}
+			cede_province = ERS
+			add_core = ERS
+		}
+		ERS = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 410
+		}
+		hidden_effect = {
+			ERS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 
+		410 = { every_core_country = { limit = { tag = ERS } change_primary_culture = PREV change_religion = PREV change_government = monarchy } }
+		ERS = { 
+			set_dynasty = "Jalayirid"
+            every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+			every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}

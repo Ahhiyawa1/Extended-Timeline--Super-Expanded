@@ -1,0 +1,90 @@
+#450 - Balkh
+
+owner = KUS
+controller = KUS
+culture = bactrian
+religion = mahayana
+capital = "Balkh"
+trade_goods = cotton
+hre = no
+discovered_by = nomad_group
+discovered_by = eastern_nomad_group
+discovered_by = western_nomad_group
+discovered_by = indian
+discovered_by = asian
+discovered_by = early_indian
+discovered_by = ottoman
+discovered_by = middle_eastern
+discovered_by = muslim
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+add_core = KUS
+
+2118.1.1 = { culture = afghani }
+2328.1.1 = { owner = KSA controller = KSA add_core = KSA remove_core = KUS }
+2448.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KSA }
+2528.1.1 = { owner = HEP controller = HEP add_core = HEP remove_core = KDT }
+2658.1.1 = { owner = ERS controller = ERS add_core = ERS }
+2677.1.1 = { owner = CGN controller = CGN add_core = CGN remove_core = ERS }
+2723.1.1 = { owner = TKA controller = TKA add_core = TKA remove_core = CGN }
+2761.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = TKA }
+2787.1.1 = { owner = HEP controller = HEP add_core = HEP }
+2808.1.1 = { owner = UMA controller = UMA remove_core = HEP }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2917.1.1 = { owner = SOG controller = SOG add_core = SOG remove_core = ABA }
+2940.1.1 = { owner = KOK controller = KOK add_core = KOK }
+2946.1.1 = { owner = AFG controller = AFG add_core = AFG remove_core = KOK }
+2978.1.1 = { religion = sunni }
+3006.1.1 = { owner = BUK controller = BUK add_core = BUK }
+3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = BUK }
+3138.5.23 = { owner = SEL controller = SEL add_core = SEL remove_core = GHZ } #Battle of Dandanaqan
+3250.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = SEL }
+3305.1.1 = { owner = KHW controller = KHW add_core = AFG remove_core = GHU }
+3318.1.1 = { owner = KHA controller = KHA add_core = KHA }
+3358.1.1 = { owner = CGT controller = CGT add_core = CGT remove_core = KHA }
+3360.1.1 = { owner = AFG controller = AFG add_core = AFG }
+3445.1.1 = { remove_core = CGT }
+3468.1.1 = { owner = TIM controller = TIM add_core = TIM }
+
+3547.2.1 = { #Conquered by Babur bin Baysunkur
+	owner = KHO
+	controller = KHO
+	add_core = KHO
+	remove_core = TIM
+}
+3555.7.19 = { controller = TIM }
+3555.8.30 = { owner = TIM add_core = TIM remove_core = KHO }
+3600.1.1 = {
+	owner = KHO
+	controller = KHO
+	add_core = KHO
+} # The end of the Timurids in Samarkand
+3605.7.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+} # Kabul falls to Babur
+3624.4.21 = {
+	owner = MUG
+	controller = MUG
+	add_core = MUG
+	remove_core = TIM 
+} #Battle of Panipat
+3664.1.1 = { revolt = { type = nationalist_rebels size = 0 name = "Hakim Timurid's Faction" } controller = REB }	#Hakim, should be pretender that declares independence
+3664.6.1 = { revolt = { } owner = AFG controller = AFG } #Independent of the Mughal empire
+3683.1.1 = { controller = BUK owner = BUK add_core = BUK remove_core = MUG }	# Man Singh occupies Kabulistan after death of Mirza Hakim, Balkh generally falls under Uzbekh controll after this point
+3698.1.1 = { discovered_by = TUR }
+3771.1.1 = { discovered_by = ENG }
+3775.1.1 = { discovered_by = FRA }
+3805.5.12 = { discovered_by = GBR }
+3835.1.1 = { owner = PER controller = PER } #Conquered by Nadir Shah
+3846.1.1 = { owner = BUK controller = BUK }
+3849.1.1 = { owner = AFG controller = AFG } # Added to Afghan Empire
+
+3968.1.1   = { capital = "Mazar-i-Sharif" }
+4096.8.14  = { revolt = { type = fanatic_rebels size = 0 } controller = REB }
+4099.11.10 = { revolt = {} controller = AFG }
+4119.8.13  = { revolt = { type = fanatic_rebels size = 0 } controller = REB }
+4119.8.19  = { revolt = {} controller = AFG }

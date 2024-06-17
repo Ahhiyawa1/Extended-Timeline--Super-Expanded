@@ -1,0 +1,41 @@
+#10706 - Kayes
+
+culture = mali
+base_manpower = 2
+religion = shamanism
+capital = "Kayes"
+trade_goods = unknown
+hre = no
+discovered_by = sub_saharan
+base_tax = 3
+base_production = 3
+native_size = 50
+native_ferocity = 4.5
+native_hostileness = 9
+
+2898.1.1 = { owner = KAG controller = KAG add_core = KAG is_city = yes trade_goods = gold }
+3098.1.1 = { base_tax = 4 base_production = 4 }
+3198.1.1 = { base_tax = 5 base_production = 5 }
+3298.1.1 = { base_tax = 6 base_production = 6 }
+3328.1.1 = { owner = MAL controller = MAL add_core = MAL remove_core = KAG }
+
+3633.1.1 = { owner = FUL controller = FUL add_core = FUL } #Fulani raids cut off Mali from its coastal provinces
+3723.1.1 = { native_size = 80 } #collapse of Mali results in decline of gold mining activity, population decline
+3851.1.1 = { owner = SOF controller = SOF add_core = SOF remove_core = FUL }  #Migration of the Massasi clan of Bambara Kings brings region into the Bambara orbit as rival kingdom of Kaarta
+3854.1.1 = { unrest = 9 } # Denkoro seizes power in wake of father Mamali's death, civil war
+3859.1.1 = { unrest = 0 } # Sira Bo Kulibali restores Massasi authority in Kaarta
+3867.1.1 = { unrest = 5 } # Sira Bo Kulibali expands power base, challenging direct control from Segu in region
+3873.1.1 = { unrest = 7 } # Sira Bo Kulibali expands power base, challenging direct control from Segu in region
+3889.1.1 = { unrest = 10 } # Kaarta rebels against Segu domination, sparking civil war in wake of Ngolo Diarra's death
+
+3898.1.1   = { base_tax = 2 base_production = 2 base_manpower = 1 }
+3928.1.1   = { religion = sunni }
+3958.1.1   = { discovered_by = western }
+3988.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
+4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
+4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4058.6.20  = { owner = MAL controller = MAL add_core = MAL remove_core = FR2 remove_core = SOF }
+
+
+

@@ -1,0 +1,417 @@
+namespace = et_tradegoods
+
+# Oil discovered
+province_event = {
+	id = et_tradegoods.1
+	title = "et.EVTNAME46"
+	desc = "et.EVTDESC46"
+	picture = TRADEGOODS_eventPicture
+	
+	trigger = {
+		owner = { dip_tech = 81 }
+		NOT = { trade_goods = oil }
+		OR = {
+			province_id = 23
+			province_id = 24
+			province_id = 251
+			province_id = 355
+			province_id = 392
+			province_id = 393
+			province_id = 394
+			province_id = 395
+			province_id = 396
+			province_id = 397
+			province_id = 398
+			province_id = 399
+			province_id = 408
+			province_id = 410
+			province_id = 412
+			province_id = 413
+			province_id = 415
+			province_id = 421
+			province_id = 465
+			province_id = 727
+			province_id = 763
+			province_id = 830
+			province_id = 845
+			province_id = 848
+			province_id = 868
+			province_id = 870
+			province_id = 882
+			province_id = 887
+			province_id = 888
+			province_id = 893
+			province_id = 980
+			province_id = 1070
+			province_id = 1072
+			province_id = 1073
+			province_id = 1074
+			province_id = 1082
+			province_id = 1147
+			province_id = 1167
+			province_id = 1779
+			province_id = 1810
+			province_id = 2052
+			province_id = 2094
+			province_id = 2130
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1600
+		modifier = {
+			factor = 0.5
+			owner = { adm_tech = 85 }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { adm_tech = 88 }
+		}
+	}
+
+	option = {
+		name = "et.EVTOPTA46"
+		change_trade_goods = oil
+	}
+}
+
+country_event = {
+	id = et_tradegoods.2
+	title = "et.EVTNAME96"
+	desc = "et.EVTDESC96"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		is_year = 1980
+		any_owned_province = { trade_goods = fur }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et.EVTOPTA96"
+		change_price = {
+			trade_goods = fur
+			key = ANIMAL_RIGHTS_MOVEMENT
+			value = -0.25
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = et_tradegoods.3
+	title = "et.EVTNAME97"
+	desc = "et.EVTDESC97"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		is_year = 1930
+		any_owned_province = { trade_goods = fur }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et.EVTOPTA97"
+		change_price = {
+			trade_goods = fur
+			key = FAKE_FUR
+			value = -0.25
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = et_tradegoods.4
+	title = "et.EVTNAME98"
+	desc = "et.EVTDESC98"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		is_year = 1990
+		technology_group = western
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et.EVTOPTA98"
+		change_price = {
+			trade_goods = ivory
+			key = IVORY_BAN
+			value = -0.5
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = et_tradegoods.5
+	title = "et_tradegoods.5.t"
+	desc = "et_tradegoods.5.d"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		has_institution = electrification
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et_tradegoods.5.a"
+		change_price = {
+			trade_goods = copper
+			key = GOOD_CONDUCTOR
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = et_tradegoods.6
+	title = "et_tradegoods.6.t"
+	desc = "et_tradegoods.6.d"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		has_institution = internet
+		is_year = 2005
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et_tradegoods.6.a"
+		change_price = {
+			trade_goods = paper
+			key = DIGITALIZATION
+			value = -0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = electronics
+			key = DIGITALIZATION
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = et_tradegoods.7
+	title = "et_tradegoods.7.t"
+	desc = "et_tradegoods.7.d"
+	picture = TRADEGOODS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		is_year = 2010
+		technology_group = western
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "et_tradegoods.7.a"
+		change_price = {
+			trade_goods = coal
+			key = ENVIRONMENTALISM
+			value = -0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = oil
+			key = ENVIRONMENTALISM
+			value = -0.1
+			duration = -1
+		}
+	}
+}
+
+province_event = {
+	id = et_tradegoods.11
+	title = "et_tradegoods.11.t"
+	desc = "et_tradegoods.11.d"
+	picture = TRADEGOODS_eventPicture
+	
+	trigger = {
+		NOT = { has_global_flag = et_cars_distributed }
+		owner = {
+			dip_tech = 83
+			years_of_income = 0.25
+			adm_power = 50
+		}
+		development = 40
+		NOT = { trade_goods = cars }
+		NOT = { trade_goods = oil }
+		NOT = { trade_goods = coal }
+		NOT = { trade_goods = uranium }
+		NOT = { trade_goods = aluminum }
+		NOT = { trade_goods = electronics }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_province = {
+						trade_goods = cars
+					}
+					amount = 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_province = {
+						trade_goods = cars
+					}
+					amount = 20
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "et_tradegoods.10.a"
+		owner = {
+			add_years_of_income = -0.25
+			add_adm_power = -50
+		}
+		change_trade_goods = cars
+		add_base_production = 2
+		if = {
+            limit = {
+                calc_true_if = {
+                    all_province = { trade_goods = cars }
+                    amount = 40
+                }
+            }
+            set_global_flag = et_cars_distributed
+        }
+	}
+	option = {
+		name = "et_tradegoods.10.b"
+		add_prestige = -5
+	}
+}
+
+province_event = {
+	id = et_tradegoods.12
+	title = "et_tradegoods.12.t"
+	desc = "et_tradegoods.12.d"
+	picture = TRADEGOODS_eventPicture
+	
+	trigger = {
+		NOT = { has_global_flag = et_electronics_distributed }
+		owner = {
+			dip_tech = 88
+			years_of_income = 0.25
+			adm_power = 50
+		}
+		OR = {
+			development = 60
+			AND = {
+				is_capital = yes
+				development = 40
+			}
+		}
+		NOT = { trade_goods = cars }
+		NOT = { trade_goods = oil }
+		NOT = { trade_goods = coal }
+		NOT = { trade_goods = uranium }
+		NOT = { trade_goods = aluminum }
+		NOT = { trade_goods = electronics }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_province = {
+						trade_goods = electronics
+					}
+					amount = 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_province = {
+						trade_goods = electronics
+					}
+					amount = 20
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "et_tradegoods.10.a"
+		owner = {
+			add_years_of_income = -0.25
+			add_adm_power = -50
+		}
+		change_trade_goods = electronics
+		add_base_production = 2
+		if = {
+            limit = {
+                calc_true_if = {
+                    all_province = { trade_goods = electronics }
+                    amount = 40
+                }
+            }
+            set_global_flag = et_electronics_distributed
+        }
+	}
+	option = {
+		name = "et_tradegoods.10.b"
+		add_prestige = -5
+	}
+}

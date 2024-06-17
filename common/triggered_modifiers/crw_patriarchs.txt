@@ -1,0 +1,22 @@
+patriarchate = {
+	potential = {
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			religion = reformed_chalcedonism
+		}
+	}
+	trigger = {
+		any_owned_province = {
+			or = {
+				has_province_modifier = autocephalous_patriarch
+				has_province_modifier = patriarchate_of_rome
+				has_province_modifier = patriarchate_of_jerusalem
+				has_province_modifier = patriarchate_of_antioch
+				has_province_modifier = patriarchate_of_alexandria
+				has_province_modifier = patriarchate_of_constantinople
+			}
+		}
+	}
+	global_heretic_missionary_strength = 0.02
+}

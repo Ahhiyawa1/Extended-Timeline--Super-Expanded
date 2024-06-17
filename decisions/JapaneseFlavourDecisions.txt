@@ -1,0 +1,67 @@
+country_decisions = {
+
+	chinese_language = {
+		potential = {
+			culture_group = japanese_g
+			is_year = 600 
+			NOT = { is_year = 900 }
+			NOT = { has_country_flag = chinese_alphabet }
+		}
+		allow = {
+			num_of_cities = 24
+			NOT = { 
+				AND = {
+					any_rival_country = { 
+						culture_group = east_asian
+					}
+					any_rival_country = { 
+						culture_group = korean_g
+					}
+				}
+			}
+			adm_tech = 21
+			legitimacy = 50
+		}
+		effect = {
+			add_dip_power = -200
+			add_legitimacy = -20
+			add_country_modifier = {
+				name = "chinese_language"
+				duration = 73000 
+			} 
+			every_known_country = {
+				limit = {
+					OR = {
+						culture_group = east_asian
+						culture_group = korean_g 
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = chinese_language
+				}
+			}
+			set_country_flag = chinese_alphabet
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				num_of_cities = 3
+			}
+			modifier = {
+				factor = 0
+				NOT = { adm = 2 }
+			}
+			modifier = { 
+				factor = 0.5
+				NOT = { adm = 3 }
+ 			}
+			modifier = {
+				factor = 0.2
+				is_at_war = yes
+			}
+		}
+	}
+		
+}

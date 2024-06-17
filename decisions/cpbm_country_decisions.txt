@@ -1,0 +1,276 @@
+country_decisions = {
+
+	deseret_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = DE0 }
+			NOT = { exists = DE0 }
+			religion = mormon
+			is_colonial_nation = no
+			capital_scope = { continent = north_america }
+		}
+		allow = {
+			stability = 2
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			all_owned_province = { religion = mormon }
+		}
+		effect = {
+			change_tag = DE0
+			every_owned_province = { add_permanent_claim = DE0 }
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	carthage_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = CT0 }
+			NOT = { tag = PH0 }
+			NOT = { tag = ROM }
+			NOT = { tag = ROW }
+			NOT = { tag = BYZ }
+			NOT = { tag = BY8 }
+			NOT = { tag = BY7 }
+			NOT = { tag = BY6 }
+			owns_core_province = 341
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			religion = canaanite_religion
+		}
+		allow = {
+			NOT = { exists = CT0 }
+			owns_core_province = 341			# Carthage
+			all_owned_province = { religion = canaanite_religion }
+			stability = 2
+			is_nomad = no
+			is_subject = no
+			is_at_war = no
+			is_tribal = no
+		}
+		effect = {
+			change_tag = CT0
+			CT0 = {
+				set_capital = 341	# Carthage
+			}
+			341 = { change_province_name = Carthage rename_capital = Carthage }
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			if = {
+				limit = { government = tribal }
+				change_government = monarchy   #Desert tribes settling down, theocracies become monarchies.
+			}
+			341 = {	# Carthage
+				add_permanent_claim = CT0
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 400 
+		}
+	}	
+
+	phoenician_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = CT0 }
+			NOT = { tag = PH0 }
+			NOT = { tag = ROM }
+			NOT = { tag = ROW }
+			NOT = { tag = BYZ }
+			NOT = { tag = BY8 }
+			NOT = { tag = BY7 }
+			NOT = { tag = BY6 }
+			owns_core_province = 1855
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			religion = canaanite_religion
+		}
+		allow = {
+			NOT = { exists = PH0 }
+			owns_core_province = 1855			# Sidon
+			owns_core_province = 378			# Beirut
+			all_owned_province = { religion = canaanite_religion }
+			stability = 2
+			is_nomad = no
+			is_subject = no
+			is_at_war = no
+			is_tribal = no
+		}
+		effect = {
+			change_tag = PH0
+			PH0 = {
+				set_capital = 1855	# Sidon
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			if = {
+				limit = { government = tribal }
+				change_government = monarchy   #Desert tribes settling down, theocracies become monarchies.
+			}
+			1855 = {	# Sidon
+				add_permanent_claim = PH0
+			}
+			378 = {		# Beirut
+				add_permanent_claim = PH0
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 400 
+		}
+	}	
+
+	cultural_shift_to_phoenician = {
+		major = yes
+		potential = {
+			OR = {
+				tag = CT0
+				tag = PH0
+			}
+			religion = canaanite_religion
+			NOT = { culture = phoenician }
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+		}
+		effect = {
+			change_primary_culture = phoenician
+			add_stability = -1
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { dominant_culture = phoenician }
+			}
+		}
+	}
+
+	world_discovery = {
+		major = yes
+		potential = {
+			is_year = 1850
+			NOT = { has_country_flag = world_discovery }
+			}
+		allow = {
+			is_year = 1850
+		}
+		effect = {
+			set_country_flag = world_discovery
+			india_superregion = {
+				discover_country = ROOT
+			}
+			east_indies_superregion = {
+				discover_country = ROOT
+			}
+			oceania_superregion = {
+				discover_country = ROOT
+			}
+			china_superregion = {
+				discover_country = ROOT
+			}
+			europe_superregion = {
+				discover_country = ROOT
+			}
+			eastern_europe_superregion = {
+				discover_country = ROOT
+			}
+			tartary_superregion = {
+				discover_country = ROOT
+			}
+			far_east_superregion = {
+				discover_country = ROOT
+			}
+			africa_superregion = {
+				discover_country = ROOT
+			}
+			southern_africa_superregion = {
+				discover_country = ROOT
+			}
+			south_america_superregion = {
+				discover_country = ROOT
+			}
+			andes_superregion = {
+				discover_country = ROOT
+			}
+			north_america_superregion = {
+				discover_country = ROOT
+			}
+			central_america_superregion = {
+				discover_country = ROOT
+			}
+			near_east_superregion = {
+				discover_country = ROOT
+			}
+			persia_superregion = {
+				discover_country = ROOT
+			}
+			new_world_superregion = {
+				discover_country = ROOT
+			}
+			west_american_sea_superregion = {
+				discover_country = ROOT
+			}
+			east_american_sea_superregion = {
+				discover_country = ROOT
+			}
+			north_european_sea_superregion = {
+				discover_country = ROOT
+			}
+			south_european_sea_superregion = {
+				discover_country = ROOT
+			}
+			west_african_sea_superregion = {
+				discover_country = ROOT
+			}
+			east_african_sea_superregion = {
+				discover_country = ROOT
+			}
+			indian_pacific_sea_superregion = {
+				discover_country = ROOT
+			}
+			north_pacific_sea_superregion = {
+				discover_country = ROOT
+			}
+			rio_grande_region = {
+				discover_country = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

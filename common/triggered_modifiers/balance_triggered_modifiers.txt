@@ -1,0 +1,510 @@
+###########################################
+# Great Khan
+###########################################
+Khan_9 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 9
+	}
+	land_morale = 0.25
+	#icon = 3
+}
+Khan_8 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 8
+		NOT = { mil = 9 }
+	}
+	land_morale = 0.20
+	#icon = 3
+}
+Khan_7 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 7
+		NOT = { mil = 8 }
+	}
+	land_morale = 0.15
+	#icon = 3
+}
+Khan_6 = {
+	potential = {
+		has_reform = steppe_horde
+		}
+	trigger = {
+		mil = 6
+		NOT = { mil = 7 }
+	}
+	land_morale = 0.10
+	#icon = 3
+}
+
+Khan_5 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 5
+		NOT = { mil = 6 }
+	}
+	land_morale = 0.10
+	discipline = -0.025
+	#icon = 3
+}
+
+Khan_4 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 4
+		NOT = { mil = 5 }
+	}
+	land_morale = 0.05
+	discipline = -0.025
+	#icon = 3
+}
+
+Khan_3 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 3
+		NOT = { mil = 4 }
+	}
+	discipline = -0.025
+	#icon = 3
+}
+
+Khan_2 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 2
+		NOT = { mil = 3 }
+	}
+	land_morale = -0.05
+	discipline = -0.025
+	#icon = 3
+}
+
+Khan_1 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		mil = 1
+		NOT = { mil = 2 }
+	}
+	land_morale = -0.05
+	discipline = -0.05
+	#icon = 3
+}
+
+Khan_0 = {
+	potential = {
+		has_reform = steppe_horde
+	}
+	trigger = {
+		NOT = { mil = 1 }
+	}
+	land_morale = -0.10
+	discipline = -0.05
+	#icon = 3
+}
+
+###########################################
+# Ai Help
+###########################################
+ai_inflation_help_6 = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 10
+		NOT = { inflation = 20 }
+	}
+	inflation_reduction = 4
+}
+
+ai_inflation_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 20
+		NOT = { inflation = 30 }
+	}
+	inflation_reduction = 5
+}
+
+ai_inflation_2_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 30
+		NOT = { inflation = 40 }
+	}
+	inflation_reduction = 6
+}
+
+ai_inflation_3_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 40
+		NOT = { inflation = 50 }
+	}
+	inflation_reduction = 8
+}
+
+ai_inflation_4_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 50
+		NOT = { inflation = 60 }
+	}
+	inflation_reduction = 10
+}
+
+ai_inflation_5_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		inflation = 60 #If higher...let it die!
+	}
+	inflation_reduction = 20
+}
+
+ai_colony_help = { 
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		OR = {
+			AND = {
+				is_year = 1490
+				NOT = { is_year = 1540 }
+				OR = { 
+					tag = POR 
+					tag = CAS
+					tag = SPA
+				}
+			}
+			AND = {
+				is_year = 1600
+				NOT = { is_year = 1650 }
+				OR = { 
+					tag = ENG
+					tag = FRA
+					tag = GBR
+					tag = NED
+				}
+			}
+		}
+		
+	}
+	global_colonial_growth = 25
+}
+
+###########################################
+# Education 
+###########################################
+university_1 = {
+	potential = {
+		adm_tech = 62
+		NOT = {
+			OR = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 2
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 25 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 4
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 50 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 6
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 100 }
+				}
+				num_of_owned_provinces_with = {
+					value = 8
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 1
+			AND = {
+				has_building = university
+				is_overseas = no
+				is_core = ROOT 
+			}
+		}
+	}
+	global_institution_spread = 0.1
+	idea_cost = -0.025
+
+
+	#icon = 3
+}
+
+university_2 = {
+	potential = {
+		adm_tech = 62
+		NOT = {
+			OR = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 4
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 25 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 8
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 50 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 12
+						AND = {
+							has_building = university
+							is_overseas = no
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 100 }
+				}
+				num_of_owned_provinces_with = {
+					value = 16
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 2
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 25 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 4
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 50 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 6
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 100 }
+			}
+			num_of_owned_provinces_with = {
+				value = 8
+				AND = {
+					has_building = university
+					is_overseas = no
+					is_core = ROOT 
+				}
+			}
+		}
+		
+	}
+	global_institution_spread = 0.2
+	idea_cost = -0.05
+	#icon = 3
+}
+
+university_3 = {
+	potential = {
+		adm_tech = 62 
+	}
+	trigger = {
+		OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 4
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 25 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 8
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 50 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 12
+					AND = {
+						has_building = university
+						is_overseas = no
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 100 }
+			}
+			num_of_owned_provinces_with = {
+				value = 16
+				AND = {
+					has_building = university
+					is_overseas = no
+					is_core = ROOT 
+				}
+			}
+		}
+		
+	}
+	global_institution_spread = 0.3
+	idea_cost = -0.075
+	#icon = 3
+}
+###########################################
+# India
+###########################################
+
+indian_dominance = {
+	potential = {
+		tag = MUG
+	}
+	trigger = {
+		num_of_cities = 40
+		owns = 522
+	}
+	diplomatic_upkeep = 4
+	land_morale = 0.15
+	#icon = 3
+}
+###########################################
+# AI Rome
+###########################################
+ai_rome_can_survive = {
+	potential = {
+		OR = {
+			tag = ROM
+			tag = ROW
+			tag = BYZ
+		}
+		ai = yes
+	}
+	trigger = {
+		NOT  = { is_year = 330 }
+	}
+	global_unrest = -20
+	tolerance_heathen = 10
+	tolerance_heretic = 10
+	core_creation = -2
+	land_forcelimit = 300
+	land_forcelimit_modifier = 3.0
+	administrative_efficiency = 100000.1
+	#icon = 3
+
+
+}
+
+ai_rome_can_survive2 = {
+	potential = {
+		OR = {
+			tag = ROW
+			tag = BYZ
+		}
+		ai = yes
+	}
+	trigger = {
+		NOT  = { is_year = 476 }
+	}
+	global_unrest = -20
+	tolerance_heathen = 10
+	tolerance_heretic = 10
+	core_creation = -2
+	land_forcelimit = 300
+	land_forcelimit_modifier = 3.0
+	administrative_efficiency = 100000.1
+	#icon = 3
+
+
+}

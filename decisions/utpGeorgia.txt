@@ -1,0 +1,41 @@
+country_decisions = {
+	#Georgian Sadrosho districts
+	expand_sadrosho_districts = {
+		potential = {
+			tag = GEO
+			any_owned_province = {
+				culture = georgian
+				has_owner_religion = yes
+				region = caucasia_region
+				NOT = { has_province_modifier = sadrosho_districts_modifier }
+			}
+		}
+		
+		allow = {
+			tag = GEO
+			mil_power = 25
+			any_owned_province = {
+				culture = georgian
+				has_owner_religion = yes
+				region = caucasia_region
+				NOT = { has_province_modifier = sadrosho_districts_modifier }
+			}
+		}
+		
+		effect = {
+			add_mil_power = -25
+			random_owned_province = {
+				limit = {	
+					culture = georgian
+					has_owner_religion = yes
+					region = caucasia_region
+					NOT = { has_province_modifier = sadrosho_districts_modifier }
+				}
+				add_province_modifier = {
+					name = sadrosho_districts_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+}

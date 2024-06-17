@@ -1,0 +1,679 @@
+# Return to the Orthodox Church
+
+namespace = orthodox_spread
+
+# Catholic to Orthodox
+province_event = {
+	id = orthodox_spread.1
+	title = "orthodox_spread.EVTNAME1"
+	desc = "orthodox_spread.EVTDESC1"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		religion = catholic
+		118 = { religion = orthodox }
+		151 = { religion = orthodox }
+		377 = { religion = orthodox }
+		379 = { religion = orthodox }
+		358 = { religion = orthodox }
+		any_neighbor_province = {
+			religion = orthodox
+		}
+		NOT = { owner = {
+			tag = PAP
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+
+		# Positive modifiers
+		modifier = {
+			factor = 0.75
+			owner = {
+				NOT = {
+					adm = 3
+				}
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = {
+				adm = 5
+				religion = orthodox
+			}
+		}
+		modifier = {
+			factor = 0.7
+			any_neighbor_province = {
+				religion = orthodox
+				culture_group = ROOT
+			}
+		}
+	
+		modifier = {
+			factor = 0.75
+			has_province_modifier = "heresy"
+		}
+		modifier = {
+			factor = 0.75
+			owner = { 
+				religion = catholic 
+				orthodox = 0 
+			} # Tolerance to Orthodox
+		}
+		
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = orthodox
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 0.5
+			owner = { 
+				religion = protestant
+			}
+			any_neighbor_province = {
+				religion = protestant
+			}
+		}	
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = orthodox
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = {
+				has_idea_group = innovativeness_ideas
+			}
+		}
+
+		# Negative modifiers
+
+		modifier = {
+			factor = 1.25
+			is_year = 1500
+		}
+		modifier = {
+			factor = 1.5
+			is_year = 1525
+		}
+		modifier = {
+			factor = 1.75
+			is_year = 1550
+		}
+		modifier = {
+			factor = 2
+			is_year = 1575
+		}
+		modifier = {
+			factor = 2.25
+			is_year = 1600
+		}
+		modifier = {
+			factor = 2.5
+			is_year = 1625
+		}
+		modifier = {
+			factor = 2.75
+			is_year = 1650
+		}
+		modifier = {
+			factor = 3
+			is_year = 1675
+		}
+		modifier = {
+			factor = 3.25
+			is_year = 1700
+		}
+		modifier = {
+			factor = 3.5
+			is_year = 1725
+		}
+		modifier = {
+			factor = 3.75
+			is_year = 1750
+		}
+		modifier = {
+			factor = 4
+			is_year = 1775
+		}		
+		modifier = {
+			factor = 5
+			is_year = 1800
+		}
+		
+		modifier = {
+			factor = 3
+			owner = { 
+				NOT = { religion = orthodox }
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = { 
+				NOT = { religion = orthodox }
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				NOT = { religion = orthodox }
+				government = theocracy
+			}
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { owner = { religion_group = christian } }
+		}
+		modifier = {
+			factor = 4.0
+			owner = { tag = PAP }
+		}
+		modifier = {
+			factor = 4.0
+			owner = { religion = reformed }
+		}
+		
+		modifier = {
+			factor = 3.0
+			owner = { num_of_cardinals = 1 }
+		}
+		modifier = {
+			factor = 5.0
+			owner = { num_of_cardinals = 2 }
+		}
+		modifier = {
+			factor = 10.0
+			owner = { num_of_cardinals = 3 }
+		}		
+		modifier = {
+			factor = 4.0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { has_country_modifier = counter_reformation }
+		}
+	}
+	
+
+	option = {
+		name = "orthodox_spread.EVTOPTA1"
+		change_religion = orthodox
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 9000
+		}
+	}
+}
+
+# Protestant to Orthodox
+province_event = {
+	id = orthodox_spread.2
+	title = "orthodox_spread.EVTNAME2"
+	desc = "orthodox_spread.EVTDESC2"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		religion = protestant
+		118 = { religion = orthodox }
+		151 = { religion = orthodox }
+		377 = { religion = orthodox }
+		379 = { religion = orthodox }
+		358 = { religion = orthodox }
+		any_neighbor_province = {
+			religion = orthodox
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+
+		# Positive modifiers
+		modifier = {
+			factor = 0.75
+			owner = {
+				NOT = {
+					adm = 3
+				}
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = {
+				adm = 5
+				religion = orthodox
+			}
+		}
+		modifier = {
+			factor = 0.7
+			any_neighbor_province = {
+				religion = orthodox
+				culture_group = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_province_modifier = "heresy"
+		}		
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = orthodox
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = orthodox
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = { 
+				religion = protestant 
+				orthodox = 0 
+			} # Tolerance to Orthodox
+		}
+		
+		modifier = {
+			factor = 2
+			owner = { 
+				NOT = { religion = orthodox }
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 2
+			owner = { 
+				NOT = { religion = orthodox }
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				NOT = { religion = orthodox }
+				has_reform = theocracy_mechanic
+			}
+		}
+		modifier = {
+			factor = 4.0
+			owner = { 
+				religion = protestant
+			}
+		}
+		modifier = {
+			factor = 4.0
+			owner = { religion = reformed }
+		}
+		modifier = {
+			factor = 2.0
+			owner = { has_country_modifier = counter_reformation }
+		}
+	}
+
+	option = {
+		name = "orthodox_spread.EVTOPTA2"
+		change_religion = orthodox
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 9000
+		}
+	}	
+}
+
+# Catholic to Chalcedonism
+province_event = {
+	id = orthodox_spread.3
+	title = "orthodox_spread.EVTNAME1"
+	desc = "orthodox_spread.EVTDESC1"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		religion = catholic
+		118 = { religion = chalcedonism }
+		151 = { religion = chalcedonism }
+		377 = { religion = chalcedonism }
+		379 = { religion = chalcedonism }
+		358 = { religion = chalcedonism }
+		any_neighbor_province = {
+			religion = chalcedonism
+		}
+		NOT = { owner = {
+			tag = PAP
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+
+		# Positive modifiers
+		modifier = {
+			factor = 0.75
+			owner = {
+				NOT = {
+					adm = 3
+				}
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = {
+				adm = 5
+				religion = chalcedonism
+			}
+		}
+		modifier = {
+			factor = 0.7
+			any_neighbor_province = {
+				religion = chalcedonism
+				culture_group = ROOT
+			}
+		}
+	
+		modifier = {
+			factor = 0.75
+			has_province_modifier = "heresy"
+		}
+		modifier = {
+			factor = 0.75
+			owner = { 
+				religion = catholic 
+				tolerance_to_this = 0
+			} # Tolerance to chalcedonism
+		}
+		
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = chalcedonism
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 0.5
+			owner = { 
+				religion = protestant
+			}
+			any_neighbor_province = {
+				religion = protestant
+			}
+		}	
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = chalcedonism
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 0.9
+			owner = {
+				has_idea_group = innovativeness_ideas
+			}
+		}
+
+		# Negative modifiers
+
+		modifier = {
+			factor = 1.25
+			is_year = 1500
+		}
+		modifier = {
+			factor = 1.5
+			is_year = 1525
+		}
+		modifier = {
+			factor = 1.75
+			is_year = 1550
+		}
+		modifier = {
+			factor = 2
+			is_year = 1575
+		}
+		modifier = {
+			factor = 2.25
+			is_year = 1600
+		}
+		modifier = {
+			factor = 2.5
+			is_year = 1625
+		}
+		modifier = {
+			factor = 2.75
+			is_year = 1650
+		}
+		modifier = {
+			factor = 3
+			is_year = 1675
+		}
+		modifier = {
+			factor = 3.25
+			is_year = 1700
+		}
+		modifier = {
+			factor = 3.5
+			is_year = 1725
+		}
+		modifier = {
+			factor = 3.75
+			is_year = 1750
+		}
+		modifier = {
+			factor = 4
+			is_year = 1775
+		}		
+		modifier = {
+			factor = 5
+			is_year = 1800
+		}
+		
+		modifier = {
+			factor = 3
+			owner = { 
+				NOT = { religion = chalcedonism }
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = { 
+				NOT = { religion = chalcedonism }
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				NOT = { religion = chalcedonism }
+				has_reform = theocracy_mechanic 
+			}
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { owner = { religion_group = christian } }
+		}
+		modifier = {
+			factor = 4.0
+			owner = { tag = PAP }
+		}
+		modifier = {
+			factor = 4.0
+			owner = { religion = reformed }
+		}
+		
+		modifier = {
+			factor = 3.0
+			owner = { num_of_cardinals = 1 }
+		}
+		modifier = {
+			factor = 5.0
+			owner = { num_of_cardinals = 2 }
+		}
+		modifier = {
+			factor = 10.0
+			owner = { num_of_cardinals = 3 }
+		}		
+		modifier = {
+			factor = 4.0
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { has_country_modifier = counter_reformation }
+		}
+	}
+	
+
+	option = {
+		name = "orthodox_spread.EVTOPTA1"
+		change_religion = chalcedonism
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 9000
+		}
+	}
+}
+
+# Protestant to chalcedonism
+province_event = {
+	id = orthodox_spread.4
+	title = "orthodox_spread.EVTNAME2"
+	desc = "orthodox_spread.EVTDESC2"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		religion = protestant
+		118 = { religion = chalcedonism }
+		151 = { religion = chalcedonism }
+		377 = { religion = chalcedonism }
+		379 = { religion = chalcedonism }
+		358 = { religion = chalcedonism }
+		any_neighbor_province = {
+			religion = chalcedonism
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+
+		# Positive modifiers
+		modifier = {
+			factor = 0.75
+			owner = {
+				NOT = {
+					adm = 3
+				}
+				religion = catholic
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = {
+				adm = 5
+				religion = chalcedonism
+			}
+		}
+		modifier = {
+			factor = 0.7
+			any_neighbor_province = {
+				religion = chalcedonism
+				culture_group = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_province_modifier = "heresy"
+		}		
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = chalcedonism
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 0.8
+			owner = { 
+				religion = chalcedonism
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 0.75
+			owner = { 
+				religion = protestant 
+				tolerance_to_this = 0 
+			} # Tolerance to chalcedonism
+		}
+		
+		modifier = {
+			factor = 2
+			owner = { 
+				NOT = { religion = chalcedonism }
+				has_idea_group = religious_ideas
+			}
+		}
+		modifier = {
+			factor = 2
+			owner = { 
+				NOT = { religion = chalcedonism }
+				is_defender_of_faith = yes
+			}
+		}
+		modifier = {
+			factor = 2.0
+			owner = { 
+				NOT = { religion = chalcedonism }
+				has_reform = theocracy_mechanic 
+			}
+		}
+		modifier = {
+			factor = 4.0
+			owner = { 
+				religion = protestant
+			}
+		}
+		modifier = {
+			factor = 4.0
+			owner = { religion = reformed }
+		}
+		modifier = {
+			factor = 2.0
+			owner = { has_country_modifier = counter_reformation }
+		}
+	}
+
+	option = {
+		name = "orthodox_spread.EVTOPTA2"
+		change_religion = chalcedonism
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 9000
+		}
+	}	
+}

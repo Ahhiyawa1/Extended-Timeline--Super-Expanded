@@ -1,0 +1,486 @@
+country_decisions = {
+
+	florida_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = FLO }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			culture_group = british
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = FLO
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	blomsterland_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = BL1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			culture_group = scandinavian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = BL1
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	floride_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = FL0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			culture_group = french
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = FL0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	la_florida_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LF0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			culture_group = iberian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = LF0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	fiori_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = FI2 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			culture_group = latin
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = FI2
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	al_zuhur_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AZ0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = {
+				OR = {
+					area = florida_area 
+					area = north_florida_area
+					area = west_florida_area 
+				}
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 927
+				owns_core_province = 928
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			change_tag = AZ0 
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

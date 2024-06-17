@@ -1,0 +1,241 @@
+########################################
+# Events for Tjukurpa
+########################################
+
+namespace = cpbm_tjukurpa
+
+# Introduction: The Dreamtime
+
+country_event = {
+	id = cpbm_tjukurpa.1
+	title = cpbm_tjukurpa.EVTNAME1
+	desc = cpbm_tjukurpa.EVTDESC1
+	picture = CPBM_ABORIGINAL_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = tjukurpa
+		ai = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT1
+	}
+}
+
+# The Walkabout
+
+country_event = {
+	id = cpbm_tjukurpa.2
+	title = cpbm_tjukurpa.EVTNAME2
+	desc = cpbm_tjukurpa.EVTDESC2
+	picture = CPBM_KANGAROO_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = tjukurpa
+		ruler_age = 16
+		NOT = { has_ruler_modifier = walkabout }
+		NOT = { has_ruler_modifier = no_walkabout }
+	}
+
+	mean_time_to_happen = {
+		months = 80
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT2A
+		ai_chance = { factor = 80 }
+		hidden_effect = {
+			random_list = {
+				75 = {
+					country_event = {
+						id = cpbm_tjukurpa.3
+						days = 180
+					}
+				}
+				25 = {
+					country_event = {
+						id = cpbm_tjukurpa.4
+						days = 240
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_tjukurpa.EVTOPT2B
+		ai_chance = { factor = 20 }
+		add_ruler_modifier = {
+			name = no_walkabout
+			duration = -1
+		}
+	}
+}
+
+# The Walkabout - Leader Came Back
+
+country_event = {
+	id = cpbm_tjukurpa.3
+	title = cpbm_tjukurpa.EVTNAME3
+	desc = cpbm_tjukurpa.EVTDESC3
+	picture = CPBM_KANGAROO_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT3
+		add_ruler_modifier = {
+			name = walkabout
+			duration = -1
+		}
+	}
+}
+
+# The Walkabout - Leader Kinda Dead...
+
+country_event = {
+	id = cpbm_tjukurpa.4
+	title = cpbm_tjukurpa.EVTNAME4
+	desc = cpbm_tjukurpa.EVTDESC4
+	picture = CPBM_KANGAROO_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT4
+		kill_ruler = yes
+	}
+}
+
+# The Corroboree
+
+province_event = {
+	id = cpbm_tjukurpa.5
+	title = cpbm_tjukurpa.EVTNAME5
+	desc = cpbm_tjukurpa.EVTDESC5
+	picture = CPBM_CORROBOREE_eventPicture
+
+	trigger = {
+		religion = tjukurpa
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+		
+		modifier = {
+			factor = 3
+			NOT = { region = australia_region }
+		}
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT5
+		add_province_modifier = {
+			name = corroboree
+			duration = 1825
+		}
+	}
+}
+
+# Owning Uluru
+
+country_event = {
+	id = cpbm_tjukurpa.6
+	title = cpbm_tjukurpa.EVTNAME6
+	desc = cpbm_tjukurpa.EVTDESC6
+	picture = CPBM_ULURU_eventPicture
+
+	trigger = {
+		religion = tjukurpa
+		primary_culture = aboriginal
+		owns = 3054
+		NOT = { has_country_modifier = owns_uluru }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT6
+		add_stability = 1
+		add_country_modifier = {
+			name = owns_uluru
+			duration = -1
+		}
+	}
+}
+
+# Losing Uluru
+
+country_event = {
+	id = cpbm_tjukurpa.7
+	title = cpbm_tjukurpa.EVTNAME7
+	desc = cpbm_tjukurpa.EVTDESC7
+	picture = CPBM_ULURU_eventPicture
+
+	trigger = {
+		religion = tjukurpa
+		primary_culture = aboriginal
+		NOT = { owns = 3054 }
+		has_country_modifier = owns_uluru
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT7
+		add_stability = -1
+		remove_country_modifier = owns_uluru
+	}
+}
+
+# Contact With Colonists
+
+province_event = {
+	id = cpbm_tjukurpa.8
+	title = cpbm_tjukurpa.EVTNAME8
+	desc = cpbm_tjukurpa.EVTDESC8
+	picture = CPBM_RELIGION_TJUKURPA_eventPicture
+
+	trigger = {
+		religion = tjukurpa
+		culture = aboriginal
+		any_neighbor_province = {
+			is_colony = yes
+			NOT = { culture = aboriginal }
+		}
+		NOT = { has_province_modifier = friendly_tjukurpa }
+		NOT = { has_province_modifier = hostile_tjukurpa }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = cpbm_tjukurpa.EVTOPT8A
+		add_province_modifier = {
+			name = friendly_tjukurpa
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = cpbm_tjukurpa.EVTOPT8B
+		add_province_modifier = {
+			name = hostile_tjukurpa
+			duration = 3650
+		}
+	}
+}

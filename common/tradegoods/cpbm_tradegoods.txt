@@ -1,0 +1,773 @@
+# Corn (Color: Maize)
+
+corn = {
+	color = { 0.98 0.92 0.36 } 
+	modifier = {
+		recover_army_morale_speed = 0.05
+	}
+	province = {
+		local_manpower_modifier = 0.25
+	}
+	chance = {
+		factor = 40
+		modifier = {
+			factor = 0
+			OR = {
+				continent = europe
+				continent = africa
+				continent = asia
+				continent = oceania
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_terrain = desert
+				has_terrain = glacier
+				has_terrain = coastline
+				has_terrain = jungle
+				has_climate = arctic
+			}
+		}
+		modifier = {
+			factor = 0.1
+			OR = {
+				has_terrain = mountain
+				has_terrain = coastal_desert
+				has_terrain = forest
+				has_terrain = woods
+				has_terrain = hills
+			}
+		}
+		modifier = {
+			factor = 0.2
+			OR = {
+				region = hudson_bay_region
+				region = carribeans_region
+				
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				has_terrain = highlands
+				has_terrain = marsh
+			}
+		}
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_climate = arid
+				has_climate = tropical
+				
+			}
+		}
+		modifier = {
+			factor = 0.9
+			OR = {
+				has_terrain = drylands
+				has_terrain = savannah
+				has_terrain = steppe
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_winter = severe_winter
+		}
+		modifier = {
+			factor = 0.85
+			has_winter = normal_winter
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = farmlands
+		}
+		modifier = {
+			factor = 3
+			region = great_lakes_region
+		}
+		modifier = {
+			factor = 6
+			region = great_plains_region
+		}
+	}
+}
+
+# Rice (Color: Teal Deer)
+
+rice = {
+	color = { 0.6 0.9 0.7 } 
+	modifier = {
+		global_manpower_modifier = 0.05
+	}
+	province = {
+		local_regiment_cost = -0.2
+	}
+	chance = {
+		factor = 35
+		modifier = {
+			factor = 0
+			NOT = { continent = asia }
+		}
+		modifier = {
+			factor = 0
+			has_climate = arid
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				region = central_asia_region
+				region = ural_region
+				region = west_siberia_region
+				region = east_siberia_region
+				region = arabia_region
+				region = khorasan_region
+				region = baluchistan_region
+				region = tibet_region
+				region = rajputana_region
+				region = mongolia_region
+			}
+		}
+		modifier = {
+			factor = 0.15
+			OR = {
+				has_terrain = mountain
+				has_terrain = coastal_desert
+				has_terrain = forest
+				has_terrain = woods
+				has_terrain = highlands
+			}
+		}
+		modifier = {
+			factor = 0.6
+			OR = {
+				has_terrain = drylands
+				has_terrain = savannah
+				has_terrain = steppe
+			}
+		}
+		modifier = {
+			factor = 0.2
+			has_winter = severe_winter
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = farmlands
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				region = coromandel_region
+				region = burma_region
+				region = korea_region
+				region = indonesia_region
+			}
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				region = bengal_region
+				region = japan_region
+				region = south_china_region
+				region = north_china_region
+			}
+		}
+	}
+}
+
+# Pearls (Color: Periwinkle)
+
+pearl = {
+	color = { 0.8 0.8 1.0 } 
+	modifier = {
+		diplomatic_reputation = 1
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { has_port = yes }
+		}
+		modifier = {
+			factor = 0
+			NOT = { region = australia_region }
+			NOT = { region = japan_region }
+			NOT = { region = south_china_region }
+			NOT = { region = coromandel_region }
+			NOT = { region = arabia_region }
+			NOT = { region = persia_region }
+			NOT = { region = oceanea_region }
+			NOT = { region = indonesia_region }
+			NOT = { region = moluccas_region }
+			NOT = { region = malaya_region }
+		}
+		modifier = {
+			factor = 0.2
+			has_terrain = glacier
+		}
+		modifier = {
+			factor = 1.1
+			region = japan_region
+		}
+		modifier = {
+			factor = 1.4
+			region = south_china_region
+		}
+		modifier = {
+			factor = 1.5
+			area = north_australia_area
+		}
+		modifier = {
+			factor = 1.6
+			region = oceanea_region
+		}
+		modifier = {
+			factor = 1.3
+			OR = {
+				has_terrain = coastline
+				has_terrain = coastal_desert
+			}
+		}
+	}
+}
+
+# Amber (Color: Amber)
+
+amber = {
+	color = { 1.0 0.75 0.01 } 
+	modifier = {
+		prestige_decay = -0.01
+	}
+	province = {
+		province_trade_power_modifier = 0.2
+	}
+	chance = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { region = baltic_region }
+			NOT = { region = scandinavia_region }
+			NOT = { region = carribeans_region }
+			NOT = { region = central_america_region }
+			NOT = { region = mashriq_region }
+		}
+		modifier = {
+			factor = 0
+			area = greater_antilles_area
+		}
+		modifier = {
+			factor = 0.8
+			region = scandinavia_region
+		}
+		modifier = {
+			factor = 1.5
+			region = central_america_region
+		}
+		modifier = {
+			factor = 1.6
+			region = carribeans_region
+		}
+		modifier = {
+			factor = 2
+			region = baltic_region
+		}
+		modifier = {
+			factor = 5
+			area = east_prussia_area
+		}
+		modifier = {
+			factor = 1.3
+			OR = {
+				has_terrain = coastline
+				has_terrain = coastal_desert
+			}
+		}
+	}
+}
+
+# Rhum (Color: Ruddy Brown)
+
+rhum = {
+	color = { 0.73 0.4 0.16 } 
+	modifier = {
+		recover_navy_morale_speed = 0.1
+	}
+	province = {
+		local_sailors_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Marble (Color: Gainsboro)
+
+marble = {
+	color = { 0.86 0.86 0.86 } 
+	modifier = {
+		core_creation = -0.2
+	}
+	province = {
+		local_tax_modifier = 0.1
+	}
+	chance = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_terrain = hills }
+			NOT = { has_terrain = mountain }
+			NOT = { has_terrain = impassable_mountains }
+			NOT = { has_terrain = coastal_desert }
+			NOT = { has_terrain = highlands }
+		}
+		modifier = {
+			factor = 0
+			has_climate = arctic
+		}
+		modifier = {
+			factor = 0.6
+			has_terrain = impassable_mountains
+		}
+		modifier = {
+			factor = 1.2
+			has_terrain = hills
+		}
+		modifier = {
+			factor = 1.5
+			has_terrain = highlands
+		}
+		modifier = {
+			factor = 2
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				area = morea_area
+				area = aegean_archipelago_area
+				area = cukurova_area
+				area = said_area
+			}
+		}
+	}
+}
+
+# Cranberry (Color: Carnelian)
+
+cranberry = {
+	color = { 0.70 0.11 0.11 } 
+	modifier = {
+		land_attrition = -0.2
+	}
+	province = {
+		supply_limit_modifier = 0.25
+	}
+	chance = {
+		factor = 15
+		modifier = {
+			factor = 0
+			NOT = { continent = north_america }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				region = california_region
+				region = mexico_region
+				region = mississippi_region
+				region = southeast_america_region
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_terrain = desert
+				has_terrain = glacier
+				has_terrain = jungle
+				has_climate = arctic
+			}
+		}
+		modifier = {
+			factor = 0.6
+			OR = {
+				has_terrain = forest
+				has_terrain = woods
+				has_terrain = mountain
+			}
+		}
+		modifier = {
+			factor = 1.3
+			region = great_lakes_region
+		}
+		modifier = {
+			factor = 1.7
+			region = northeast_america_region
+		}
+		modifier = {
+			factor = 2
+			region = canada_region
+		}
+		modifier = {
+			factor = 2.5
+			OR = {
+				area = oregon_area
+				area = salish_sea_area
+				area = massachusetts_bay_area
+				area = upper_acadia_area
+			}
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				area = wisconsin_area
+				area = upper_canada_area
+			}
+		}
+	}
+}
+
+# Wood (Color: Lincoln Green)
+
+wood = {
+	color = { 0.1 0.35 0.02 } 
+	modifier = {
+		fort_maintenance_modifier = -0.2
+	}
+	province = {
+		local_build_cost = -0.2
+	}
+	chance = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_terrain = woods }
+			NOT = { has_terrain = forest }
+			NOT = { has_terrain = marsh }
+			NOT = { has_terrain = hills }
+			NOT = { has_terrain = mountain }
+			NOT = { has_terrain = highlands }			
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				continent = south_america
+				continent = africa
+				superregion = central_america_superregion
+				superregion = near_east_superregion
+				superregion = persia_superregion
+				superregion = india_superregion
+				superregion = china_superregion
+				superregion = east_indies_superregion
+				superregion = far_east_superregion
+			}
+		}
+		modifier = {
+			factor = 0
+			development = 15
+		}
+		modifier = {
+			factor = 0.1
+			development = 10
+		}
+		modifier = {
+			factor = 0.2
+			has_terrain = marsh
+		}
+		modifier = {
+			factor = 0.6
+			has_terrain = mountain
+		}
+		modifier = {
+			factor = 0.7
+			OR = {
+				has_terrain = hills
+				has_terrain = highlands
+			}
+		}
+		modifier = {
+			factor = 0.8
+			has_winter = mild_winter
+		}
+		modifier = {
+			factor = 1.1
+			has_winter = normal_winter
+		}
+		modifier = {
+			factor = 2.5
+			has_terrain = forest
+		}
+	}
+}
+
+# Jewelry (Color: Pansy Purple)
+
+jewelry = {
+	color = { 0.47 0.09 0.29 } 
+	modifier = {
+		trade_range_modifier = 0.25
+	}
+	province = {
+		local_development_cost = -0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Potatoes (Color: Potato Skin)
+
+potato = {
+	color = { 0.72 0.58 0.42 } 
+	modifier = {
+		land_forcelimit_modifier = 0.1
+	}
+	province = {
+		supply_limit_modifier = 0.2
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 0
+			NOT = { area = chimor_area }
+			NOT = { area = huanuco_area }
+			NOT = { area = peruan_coast }
+			NOT = { area = cajamarca_area }
+			NOT = { area = kuntisuyu_area }
+		}
+		modifier = {
+			factor = 0
+			calc_true_if = {
+				all_province = {
+				region = ROOT
+				trade_goods = potato
+				}
+				amount = 3
+			}
+		}
+	}
+}
+
+# Rubber (Color: Charleston Green)
+
+rubber = {
+	color = { 0.14 0.17 0.17 } 
+	modifier = {
+		ship_durability = 0.1
+	}
+	province = {
+		local_tax_modifier = 0.1
+	}
+	chance = {
+		factor = 15
+		modifier = {
+			factor = 0
+			NOT = { region = amazon_region }
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_terrain = jungle }
+			NOT = { has_climate = tropical }
+		}
+		modifier = {
+			factor = 1.5
+			area = amazon_area
+		}
+	}
+}
+
+# Natural Gas (Color: Picton Blue)
+
+natural_gas = {
+	color = { 0.27 0.69 0.91 } 
+	modifier = {
+		stability_cost_modifier = -0.1
+	}
+	province = {
+		local_production_efficiency = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Books (Color: Magenta Haze)
+
+books = {
+	color = { 0.62 0.27 0.46 } 
+	modifier = {
+		culture_conversion_cost = -0.25
+	}
+	province = {
+		local_institution_spread = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Akvavit (Color: Aquavit)
+
+akvavit = {
+	color = { 0.47 0.76 0.77 } 
+	modifier = {
+		sailor_maintenance_modifer = -0.1
+	}
+	province = {
+		local_tax_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Cinnamon (Color: Cinnamon Orange)
+
+cinnamon = {
+	color = { 0.47 0.31 0 } 
+	modifier = {
+		envoy_travel_time = -0.2
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Pepper (Color: Pepper Stem)
+
+pepper = {
+	color = { 0.55 0.58 0.25 } 
+	modifier = {
+		province_warscore_cost = -0.2
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Vanilla (Color: Vanilla)
+
+vanilla = {
+	color = { 0.95 0.9 0.67 } 
+	modifier = {
+		improve_relation_modifier = 0.2
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Fruit (Color: Apple Green)
+
+fruit = {
+	color = { 0.55 0.71 0 } 
+	modifier = {
+		inflation_reduction = 0.1
+	}
+	province = {
+		local_manpower_modifier = 0.2
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Citrus (Color: Lemon Yellow)
+
+citrus = {
+	color = { 1 0.96 0.31 } 
+	modifier = {
+		naval_attrition = -0.1
+	}
+	province = {
+		local_tax_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Exotic Fruit (Color: Deep Safron)
+
+exotic_fruit = {
+	color = { 0.99 0.59 0.23 } 
+	modifier = {
+		global_foreign_trade_power = 0.1
+	}
+	province = {
+		garrison_growth = 0.05
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Cheese (Color: Cheese)
+
+cheese = {
+	color = { 1 0.65 0 } 
+	modifier = {
+		land_attrition = -0.1
+	}
+	province = {
+		local_monthly_devastation = -0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Honey (Color: Dutch Boy Honey)
+
+honey = {
+	color = { 0.92 0.69 0.3 } 
+	modifier = {
+		religious_unity = 0.5
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Roses (Color: Rose Red)
+
+roses = {
+	color = { 1 0.01 0.24 } 
+	modifier = {
+		diplomatic_upkeep = 1
+	}
+	province = {
+		trade_value_modifier = 0.1
+	}
+	chance = {
+		factor = 0
+	}
+}
+
+# Toilet Paper lol (Color: New Hope Gray)
+
+toilet_paper = {
+	color = { 0.62 0.66 0.71 } 
+	modifier = {
+		stability_cost_modifier = -0.1
+	}
+	province = {
+		local_unrest = -1
+	}
+	chance = {
+		factor = 0
+	}
+}

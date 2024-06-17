@@ -1,0 +1,508 @@
+########################################
+# Events for Mormonism
+########################################
+
+namespace = cpbm_mormon
+
+# Mormons settle down... somewhere West of the Mississippi
+
+province_event = {
+	id = cpbm_mormon.1
+	title = cpbm_mormon.EVTNAME1
+	desc = cpbm_mormon.EVTDESC1
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_religion_enabled = protestant
+		NOT = { is_religion_enabled = mormon }
+		exists = USA
+		is_year = 1830
+		is_colony = yes
+		religion_group = christian
+		OR = {
+			region = california_region
+			region = great_plains_region
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 20
+		modifier = {
+			factor = 0.4
+			area = great_basin_area
+		}
+		modifier = {
+			factor = 0.1
+			province_id = 2490
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT1
+		enable_religion = mormon
+		change_religion = mormon
+		add_colonysize = 400
+		add_province_modifier = {
+				name = "religious_migration"
+				duration = 8760
+			}
+	}
+}
+
+# Mormonism Spreads
+
+province_event = {
+	id = cpbm_mormon.2
+	title = cpbm_mormon.EVTNAME2
+	desc = cpbm_mormon.EVTDESC2
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		any_neighbor_province = { religion = mormon }
+		NOT = { religion = mormon }
+		any_country = {	NOT = {	adm_tech = 79 }	}
+	}
+
+	mean_time_to_happen = {
+		months = 400
+		modifier = {
+			factor = 0.2
+			area = great_basin_area
+		}
+		modifier = {
+			factor = 0.5
+			area = high_plains_area
+		}
+		modifier = {
+			factor = 3
+			NOT = { owner = { religion_group = christian } }
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT2
+		change_religion = mormon
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}
+
+# Creation of Deseret
+
+country_event = {
+	id = cpbm_mormon.3
+	title = cpbm_mormon.EVTNAME3
+	desc = cpbm_mormon.EVTDESC3
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_year = 1850
+		NOT = { stability = 1 }
+		NOT = { exists = DE0 }
+		any_owned_province = { religion = mormon }
+	}
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 2
+			stability = 0
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { stability = -2 }
+		}
+	}
+	
+	option = {
+		name = cpbm_mormon.EVTOPT3
+		add_stability = -2
+		every_owned_province = {
+			limit = { religion = mormon }
+			add_core = DE0
+			nationalist_rebels = 1
+			change_siege = 20
+		}
+	}
+}
+
+# A new core for Deseret
+
+province_event = {
+	id = cpbm_mormon.4
+	title = cpbm_mormon.EVTNAME4
+	desc = cpbm_mormon.EVTDESC4
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		religion = mormon
+		DE0 = {	religion = mormon }
+		NOT = { owner = { religion = mormon } }
+		NOT = { is_core = DE0 }
+		any_neighbor_province = { is_core = DE0 }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+		modifier = {
+			factor = 0.5
+			area = great_basin_area
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { owner = { religion_group = christian } }
+		}
+	}
+
+	hidden_effect = {
+		immediate = {
+			DE0 = {
+				country_event = { id = cpbm_mormon.5 }
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT4
+		add_core = DE0
+	}
+}
+
+# A new core for Deseret: Deseret's Happy!
+
+province_event = {
+	id = cpbm_mormon.5
+	title = cpbm_mormon.EVTNAME5
+	desc = cpbm_mormon.EVTDESC5
+	picture = CPBM_RELIGION_MORMON_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_mormon.EVTOPT5
+		add_prestige = 5
+		add_devotion = 5
+	}
+}
+
+# Deseret loses a core because the province is not Mormon anymore
+
+province_event = {
+	id = cpbm_mormon.6
+	title = cpbm_mormon.EVTNAME6
+	desc = cpbm_mormon.EVTDESC6
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		NOT = { religion = mormon }
+		NOT = { owner = { religion = mormon } }
+		NOT = { tag = DE0 }
+		is_core = DE0
+	}
+
+	mean_time_to_happen = {
+		months = 400
+	}
+
+	hidden_effect = {
+		immediate = {
+			DE0 = {
+				country_event = { id = cpbm_mormon.7 }
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT6
+		remove_core = DE0
+	}
+}
+
+# Deseret loses a core: Deseret... well... doesn't care!
+
+country_event = {
+	id = cpbm_mormon.7
+	title = cpbm_mormon.EVTNAME7
+	desc = cpbm_mormon.EVTDESC7
+	picture = CPBM_RELIGION_MORMON_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_mormon.EVTOPT7
+		add_prestige = -5
+	}
+}
+
+# The Deseret Alphabet
+
+country_event = {
+	id = cpbm_mormon.8
+	title = cpbm_mormon.EVTNAME8
+	desc = cpbm_mormon.EVTDESC8
+	picture = CPBM_DESERET_ALPHABET_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = mormon
+		is_at_war = no
+		adm_power = 100
+		stability = 2
+	}
+
+	mean_time_to_happen = {
+		months = 1525
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT8A
+		add_treasury = -1000
+		add_adm_power = -100
+		add_country_modifier = {
+			name = alphabet_reform_under_way
+			duration = 3650
+		}
+		add_country_modifier = {
+			name = deseret_alphabet
+			duration = -1
+		}
+	}
+	option = {
+		name = cpbm_mormon.EVTOPT8B
+		add_prestige = -5
+	}
+}
+
+# A distinguished Elder
+
+country_event = {
+	id = cpbm_mormon.9
+	title = cpbm_mormon.EVTNAME9
+	desc = cpbm_mormon.EVTDESC9
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = mormon
+	}
+
+	mean_time_to_happen = {
+		months = 2050
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT9A
+		define_advisor = {
+ 			type = theologian
+ 			skill = 3
+		}
+	}
+	option = {
+		name = cpbm_mormon.EVTOPT9B
+		add_adm_power = 100
+	}
+}
+
+# Gathering
+
+province_event = {
+	id = cpbm_mormon.10
+	title = cpbm_mormon.EVTNAME10
+	desc = cpbm_mormon.EVTDESC10
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		religion = mormon
+		owner = { religion = mormon }
+	}
+
+	mean_time_to_happen = {
+		years = 90
+		modifier = {
+			factor = 0.8
+			owner = { religion = mormon }
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT10
+		add_province_modifier = {
+			name = mormon_gathering
+			duration = 3650
+		}
+	}
+}
+
+# Construction of Great Temple
+
+province_event = {
+	id = cpbm_mormon.11
+	title = cpbm_mormon.EVTNAME11
+	desc = cpbm_mormon.EVTDESC11
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		religion = mormon
+		owner = { religion = mormon }
+		NOT = { has_building = cathedral }
+	}
+
+	mean_time_to_happen = {
+		years = 170
+		modifier = {
+			factor = 0.78
+			has_building = temple
+		}
+		modifier = {
+			factor = 0.7
+			owner = { stability = 2 }
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT11A
+		add_building = cathedral
+		}
+	option = {
+		name = cpbm_mormon.EVTOPT11B
+		add_treasury = 300
+	}
+}
+
+# Devout Mormon community abroad
+
+province_event = {
+	id = cpbm_mormon.12
+	title = cpbm_mormon.EVTNAME12
+	desc = cpbm_mormon.EVTDESC12
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	trigger = {
+		religion = mormon
+		NOT = { owner = { religion = mormon } }
+	}
+
+	mean_time_to_happen = {
+		years = 120
+		modifier = {
+			factor = 0.7
+			NOT = { owner = { stability = -1 } }
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT12
+		add_province_modifier = {
+			name = devout_mormon_community
+			duration = 18250
+		}
+	}
+}
+
+# Choose the Right
+
+country_event = {
+	id = cpbm_mormon.13
+	title = cpbm_mormon.EVTNAME13
+	desc = cpbm_mormon.EVTDESC13
+	picture = CPBM_CTR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = mormon
+		stability = 1
+	}
+
+	mean_time_to_happen = {
+		years = 152
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT13
+		add_mercantilism = 0.05
+	}
+}
+
+# Save The Best for Last: Polygamy! (Encourage polygamy or let people marry who they want)
+
+country_event = {
+	id = cpbm_mormon.14
+	title = cpbm_mormon.EVTNAME14
+	desc = cpbm_mormon.EVTDESC14
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = mormon
+		NOT = { has_ruler_modifier = mormon_polygamy }
+		NOT = { has_ruler_modifier = marital_freedom }
+	}
+
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.8
+			stability = 1
+		}
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT14A
+		add_ruler_modifier = {
+			name = mormon_polygamy
+			duration = -1
+		}
+	}
+	option = {
+		name = cpbm_mormon.EVTOPT14B
+		add_ruler_modifier = {
+			name = marital_freedom
+			duration = -1
+		}
+	}
+}
+
+# Introduction
+
+country_event = {
+	id = cpbm_mormon.15
+	title = cpbm_mormon.EVTNAME15
+	desc = cpbm_mormon.EVTDESC15
+	picture = CPBM_RELIGION_MORMON_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = mormon
+		ai = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = cpbm_mormon.EVTOPT15
+	}
+}

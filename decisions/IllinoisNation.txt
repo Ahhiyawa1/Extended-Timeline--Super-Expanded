@@ -1,0 +1,203 @@
+country_decisions = {
+
+	illinois_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = IL1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_louisiana = {
+				owned_by = ROOT
+			}			
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			capital_scope = { 
+				OR = {
+					area = illinois_country_area
+					area = southern_illinois_area
+				}
+			}
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 917
+				owns_core_province = 4903
+			}
+		}
+		effect = {
+			change_tag = IL1
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ilinueses_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = IL0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_louisiana = {
+				owned_by = ROOT
+			}			
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			capital_scope = { 
+				OR = {
+					area = illinois_country_area
+					area = southern_illinois_area
+				}
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 917
+				owns_core_province = 4903
+			}
+		}
+		effect = {
+			change_tag = IL0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ilineu_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = IL4 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_louisiana = {
+				owned_by = ROOT
+			}			
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			capital_scope = { 
+				OR = {
+					area = illinois_country_area
+					area = southern_illinois_area
+				}
+			}
+			culture_group = germanic
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 917
+				owns_core_province = 4903
+			}
+		}
+		effect = {
+			change_tag = IL4
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

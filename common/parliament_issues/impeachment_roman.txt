@@ -1,0 +1,48 @@
+impeachment_roman_monarch = {
+	category = 4
+	allow = {
+		OR = {
+			NOT = {
+				ADM = 3
+			}
+			NOT = {
+				DIP = 3
+			}
+			NOT = {
+				MIL = 3
+			}
+		}
+		has_reform = roman_constitutional_reform
+		has_regency = no
+	}
+	on_issue_taken = {
+	}
+	effect = {
+		country_event = {
+			id = byz_constitutional.1
+		}
+	}
+	modifier = {
+		legitimacy = 1
+	}
+	chance = {
+		factor = 1000 #Always available if needed.
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			OR = {
+				NOT = {
+					ADM = 2
+				}
+				NOT = {
+					DIP = 2
+				}
+				NOT = {
+					MIL = 2
+				}
+			}
+		}
+	}
+}

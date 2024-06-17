@@ -1,0 +1,345 @@
+country_decisions = {
+
+	cascadia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CSC }
+			was_never_end_game_tag_trigger = yes
+			is_nomad = no
+			is_random_new_world = no
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			AND = {
+				NOT = {
+					OR = {
+						technology_group = north_american
+						technology_group = mesoamerican
+						technology_group = andean
+						technology_group = high_american
+						technology_group = south_american
+
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_california
+					is_core = ROOT
+				}
+			}
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = columbia_river_area
+						area = salish_sea_area
+						area = oregon_area
+					}
+				}
+				capital = 2603
+			}
+			culture_group = british
+		}
+		provinces_to_highlight = {
+			colonial_region = colonial_california
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			AND = {
+				owns_core_province = 873
+				owns_core_province = 874
+				owns_core_province = 972
+				owns_core_province = 973
+				owns_core_province = 2482
+				owns_core_province = 2485
+			}
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+				}
+			}
+			change_tag = CSC
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CSC
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kaskadien_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KS0 }
+			was_never_end_game_tag_trigger = yes
+			is_nomad = no
+			is_random_new_world = no
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			AND = {
+				NOT = {
+					OR = {
+						technology_group = north_american
+						technology_group = mesoamerican
+						technology_group = andean
+						technology_group = high_american
+						technology_group = south_american
+
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_california
+					is_core = ROOT
+				}
+			}
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = columbia_river_area
+						area = salish_sea_area
+						area = oregon_area
+					}
+				}
+				capital = 2603
+			}
+			culture_group = germanic
+		}
+		provinces_to_highlight = {
+			colonial_region = colonial_california
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			AND = {
+				owns_core_province = 873
+				owns_core_province = 874
+				owns_core_province = 972
+				owns_core_province = 973
+				owns_core_province = 2482
+				owns_core_province = 2485
+			}
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+				}
+			}
+			change_tag = KS0
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KS0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	nutca_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NU3 }
+			was_never_end_game_tag_trigger = yes
+			is_nomad = no
+			is_random_new_world = no
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			AND = {
+				NOT = {
+					OR = {
+						technology_group = north_american
+						technology_group = mesoamerican
+						technology_group = andean
+						technology_group = high_american
+						technology_group = south_american
+
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_california
+					is_core = ROOT
+				}
+			}
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = columbia_river_area
+						area = salish_sea_area
+						area = oregon_area
+					}
+				}
+				capital = 2603
+			}
+			culture_group = iberian
+		}
+		provinces_to_highlight = {
+			colonial_region = colonial_california
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			AND = {
+				owns_core_province = 873
+				owns_core_province = 874
+				owns_core_province = 972
+				owns_core_province = 973
+				owns_core_province = 2482
+				owns_core_province = 2485
+			}
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { is_former_colonial_nation = yes }
+					}
+					ROOT = { save_event_target_as = old_tag_target }
+				}
+			}
+			change_tag = NU3
+			if = {
+				limit = {
+					NOT = { is_former_colonial_nation = yes }
+				}
+				restore_old_nation_on_formation_effect = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NU3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

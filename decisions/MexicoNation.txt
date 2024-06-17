@@ -1,0 +1,356 @@
+country_decisions = {
+
+	mexico_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = MEX }
+			NOT = { exists = ME6 }
+			NOT = { exists = ME7 }
+			NOT = { exists = ME9 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_mexico
+					region = california_region
+				}
+				NOT = {
+					area = guatemala_area
+					area = honduras_area
+					area = nicaragua_area
+					area = panama_area
+					area = guatemala_lowlands_area
+				}
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 852
+		}
+		effect = {
+			change_tag = MEX
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MEX
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	mesoamerika_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = MA2 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_mexico
+					region = california_region
+				}
+				NOT = {
+					area = guatemala_area
+					area = honduras_area
+					area = nicaragua_area
+					area = panama_area
+					area = guatemala_lowlands_area
+				}
+			}
+			culture_group = scandinavian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 852
+		}
+		effect = {
+			change_tag = MA2
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MA2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	mexican_states_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = MS0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_mexico
+					region = california_region
+				}
+				NOT = {
+					area = guatemala_area
+					area = honduras_area
+					area = nicaragua_area
+					area = panama_area
+					area = guatemala_lowlands_area
+				}
+			}
+			culture_group = british
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 852
+		}
+		effect = {
+			change_tag = MS0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MS0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	messico_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = ME5 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_mexico
+					region = california_region
+				}
+				NOT = {
+					area = guatemala_area
+					area = honduras_area
+					area = nicaragua_area
+					area = panama_area
+					area = guatemala_lowlands_area
+				}
+			}
+			culture_group = latin
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 852
+		}
+		effect = {
+			change_tag = ME5
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ME5
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	al_maksik_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AM4 }	
+			is_nomad = no
+			is_random_new_world = no		
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_mexico
+					region = california_region
+				}
+				NOT = {
+					area = guatemala_area
+					area = honduras_area
+					area = nicaragua_area
+					area = panama_area
+					area = guatemala_lowlands_area
+				}
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 852
+		}
+		effect = {
+			change_tag = AM4
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AM4
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

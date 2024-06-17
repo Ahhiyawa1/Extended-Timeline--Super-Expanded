@@ -1,0 +1,83 @@
+########################################
+# Events for Hussitism
+########################################
+
+namespace = cpbm_hussitism
+
+# Birth of Hussitism
+
+province_event = {
+	id = cpbm_hussitism.1
+	title = cpbm_hussitism.EVTNAME1
+	desc = cpbm_hussitism.EVTDESC1
+	picture = CPBM_RELIGION_HUSSITE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_religion_enabled = catholic
+		NOT = { is_religion_enabled = hussitism }
+		is_year = 1400
+		OR = {
+			area = bohemia_area
+			area = lower_bavaria_area
+		}
+		religion = catholic
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = {
+		name = cpbm_hussitism.EVTOPT1
+		enable_religion = hussitism
+		change_religion = hussitism
+		add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+	}
+
+}
+
+# Hussitism Spreads
+
+province_event = {
+	id = cpbm_hussitism.2
+	title = cpbm_hussitism.EVTNAME2
+	desc = cpbm_hussitism.EVTDESC2
+	picture = CPBM_RELIGION_HUSSITE_eventPicture
+
+	trigger = {
+		any_neighbor_province = {
+			religion = hussitism
+		}
+		NOT = { religion = hussitism }
+		NOT = { is_year = 1510 }
+	}
+
+	mean_time_to_happen = {
+		months = 1800
+
+		modifier = {
+			factor = 0.5
+			area = bohemia_area
+		}
+
+		modifier = {
+			factor = 3
+			NOT = { owner = { religion_group = christian } }
+		}
+
+	}
+
+	option = {
+		name = cpbm_hussitism.EVTOPT2
+		change_religion = hussitism
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}

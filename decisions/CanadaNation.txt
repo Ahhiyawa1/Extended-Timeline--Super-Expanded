@@ -1,0 +1,416 @@
+country_decisions = {
+
+	canada_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CAN }	
+			NOT = { exists = CA6 }	
+			NOT = { exists = CA7 }
+			NOT = { exists = CA9 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}		
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = yukon_area
+					}
+				}
+				capital = 2003
+			}
+			NOT = { capital_scope = { area = greenland_area } }
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 2670
+				owns_core_province = 4892
+			}		
+		}
+		effect = {
+			change_tag = CAN
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CAN
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	vinland_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = VI0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = yukon_area
+					}
+				}
+				capital = 2003
+			}
+			NOT = { capital_scope = { area = greenland_area } }
+			culture_group = scandinavian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 2670
+				owns_core_province = 4892
+			}		
+		}
+		effect = {
+			change_tag = VI0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = VI0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	french_canada_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CA1 }	
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}		
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = yukon_area
+					}
+				}
+				capital = 2003
+			}
+			NOT = { capital_scope = { area = greenland_area } }
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 2670
+				owns_core_province = 4892
+			}		
+		}
+		effect = {
+			change_tag = CA1
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CA1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kanada_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KA2 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}		
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = yukon_area
+					}
+				}
+				capital = 2003
+			}
+			NOT = { capital_scope = { area = greenland_area } }
+			culture_group = germanic
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 2670
+				owns_core_province = 4892
+			}		
+		}
+		effect = {
+			change_tag = KA2
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KA2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	borealia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = BO2 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}		
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						area = interior_plateau_area
+						area = hecate_strait_area 
+						area = straits_of_georgia_area
+						area = yukon_area
+					}
+				}
+				capital = 2003
+			}
+			NOT = { capital_scope = { area = greenland_area } }
+			culture_group = latin
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 2670
+				owns_core_province = 4892
+			}		
+		}
+		effect = {
+			change_tag = BO2
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BO2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

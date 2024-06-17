@@ -1,0 +1,1477 @@
+crw_byz_pp_balkans_north_italy = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = {
+		 
+	}
+	potential = {
+		tag = BYZ
+		 
+		NOT = {
+			map_setup = map_setup_random
+		}
+		NOT = {
+			started_in = 3302.1.1
+		}
+	}
+	has_country_shield = yes
+	crw_recover_western_balkans = {
+		icon = mission_pf_cross
+		required_missions = {
+		}
+		#None
+		provinces_to_highlight = {
+			OR = {
+				area = east_adriatic_coast_area
+				area = rascia_area
+				area = serbia_area
+				area = bosnia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			east_adriatic_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rascia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			serbia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = carinthia_area
+			}
+			give_claims = {
+				area = croatia_area
+			}
+			add_country_modifier = {
+				name = "balkan_empire"
+				duration = 5475
+			}
+		}
+	}
+	crw_recover_northern_balkans = {
+		#Replaces Istria
+		icon = mission_conquer_5_states
+		required_missions = {
+			crw_recover_western_balkans
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = carinthia_area
+				area = croatia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = venetia_area
+			}
+		}
+	}
+}
+
+crw_byz_pp_italian = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = {
+		 
+	}
+	potential = {
+		tag = BYZ
+		 
+		NOT = {
+			map_setup = map_setup_random
+		}
+		NOT = {
+			started_in = 3302.1.1
+		}
+	}
+	has_country_shield = yes
+	crw_recover_south_italy = {
+		icon = mission_italian_condottiere
+		provinces_to_highlight = {
+			OR = {
+				area = apulia_area
+				area = calabria_area
+				area = naples_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			naples_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			give_claims = {
+				area = lazio_area
+			}
+			give_claims = {
+				area = western_sicily_area
+			}
+			add_permanent_claim = 124
+			add_permanent_claim = 2982
+		}
+		ai_weight = {
+			factor = 500			#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	crw_recover_sicily = {
+		icon = mission_sea_battles
+		required_missions = {
+			crw_recover_south_italy
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = western_sicily_area
+				province_id = 124
+				province_id = 2982
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			western_sicily_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 124
+			owns_or_non_sovereign_subject_of = 2982
+		}
+		effect = {
+			add_country_modifier = {
+				name = "theme_of_sicily"
+				duration = 5475
+			}
+		}
+		ai_weight = {
+			factor = 500			#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	crw_recover_rome_pp = {
+		icon = mission_pf_cross
+		required_missions = {
+			crw_recover_sicily
+		}
+		provinces_to_highlight = {
+			province_id = 118
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			owns = 118
+		}
+		effect = {
+			add_country_modifier = {
+				name = "roman_italy"
+				duration = 5475
+			}
+			give_claims = {
+				area = tuscany_area
+			}
+			give_claims = {
+				area = emilia_romagna_area
+			}
+			give_claims = {
+				area = central_italy_area
+			}
+		}
+	}
+	crw_recover_north_italy = {
+		icon = mission_pf_map_table
+		required_missions = {
+			crw_recover_rome_pp
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tuscany_area
+				area = emilia_romagna_area
+				area = central_italy_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			tuscany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tuscany_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			central_italy_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			emilia_romagna_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			give_claims = {
+				area = lombardy_area
+			}
+			give_claims = {
+				area = po_valley_area
+			}
+			give_claims = {
+				area = piedmont_area
+			}
+			give_claims = {
+				area = liguria_area
+			}
+		}
+	}
+	crw_recover_lombardia = {
+		icon = mission_empire
+		required_missions = {
+			crw_recover_north_italy
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lombardy_area
+				area = po_valley_area
+				area = piedmont_area
+				area = liguria_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lombardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			po_valley_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			piedmont_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			liguria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "byzantine_unification_of_italy"
+				duration = 7300
+			}
+		}
+	}
+	crw_rebuild_infresctuture = {
+		icon = mission_empire
+		required_missions = {
+			crw_recover_north_italy
+		}
+		trigger = {
+			owns = 118
+		}
+		effect = {
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+		}
+	}
+	crw_italy_rebuild = {
+		icon = mission_empire
+		required_missions = {
+			crw_rebuild_infresctuture
+		}
+		trigger = {
+			italy_region = {
+				type = all
+				OR = {
+					owned_by = ROOT
+					owner = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			calc_true_if = {
+				all_owned_province = {
+					region = italy_region
+					OR = {
+						has_building = marketplace
+						has_building = trade_post
+						has_building = trade_depot
+						has_building = treasury_office
+						has_building = stock_exchange
+						has_building = storehouse
+						has_building = windmill
+						has_building = workshop
+						has_building = counting_house
+						has_building = factory
+						has_building = coal_plant
+						has_building = nuclear_plant
+						has_building = fusion_reactor
+					}
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				amount = 10
+			}
+		}
+		effect = {
+			country_event_with_effect_insight = {
+				id = MEE_Byzantine_Events.4
+				effect = "custom_tooltip = BYZ_unlock_justinians_empire_decision 
+					
+					custom_tooltip = \" \" 
+				
+					add_permanent_power_projection = {
+						type = byz_permanent_power_projection
+						amount = 5
+					}
+					
+					if = {
+						limit = {
+							BYZ_has_rights_of_man = yes
+						}
+						custom_tooltip = \" \"
+						custom_tooltip = BYZ_double_conquer_chance
+					}
+				"
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			give_claims = {
+				area = savoy_dauphine_area
+			}
+			give_claims = {
+				area = bourgogne_area
+			}
+			give_claims = {
+				area = provence_area
+			}
+			give_claims = {
+				area = romandie_area
+			}
+			give_claims = {
+				area = switzerland_area
+			}
+		}
+	}
+}
+
+crw_reforms = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		 
+	}
+	potential = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = ROW
+		}
+		 
+		NOT = {
+			map_setup = map_setup_random
+		}
+	}
+	has_country_shield = yes
+	crw_make_reforms = {
+		icon = mission_invade_island
+		trigger = {
+			has_reform = roman_constitutional_reform
+			has_country_modifier = adm2_reform
+			has_country_modifier = adm3_reform
+			has_country_modifier = adm4_reform
+			has_country_modifier = dip1_reform
+			has_country_modifier = dip2_reform
+			has_country_modifier = dip3_reform
+			has_country_modifier = mil1_reform
+			has_country_modifier = mil2_reform
+			has_country_modifier = mil3_reform
+			has_country_modifier = mil4_reform
+		}
+		effect = {
+			add_country_modifier = {
+				name = BYZ_reversal_of_downfall
+				duration = 10950
+			}
+			add_power_projection_mission = {
+				amount = 25
+			}
+		}
+	}
+}
+
+row_hispania = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = BYZ
+		 
+	}
+	has_country_shield = yes
+	crw_recover_west_islands = {
+		icon = mission_invade_island
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				province_id = 126
+				province_id = 333
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			126 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = tripolitania_area
+			}
+			give_claims = {
+				area = djerba_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_tripolitania_tunisia_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			crw_recover_west_islands
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = tripolitania_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = northern_morocco_area
+			}
+			give_claims = {
+				area = western_morocco_area
+			}
+			give_claims = {
+				area = fez_area
+			}
+			give_claims = {
+				area = algiers_area
+			}
+			give_claims = {
+				area = marrekesh_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_mauritania_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_tripolitania_tunisia_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = northern_morocco_area
+				area = western_morocco_area
+				area = fez_area
+				area = algiers_area
+				area = marrekesh_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			fez_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			marrekesh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = lower_andalucia_area
+			}
+			give_claims = {
+				area = upper_andalucia_area
+			}
+			give_claims = {
+				area = alentejo_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_andalucia_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_mauritania_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lower_andalucia_area
+				area = upper_andalucia_area
+				area = alentejo_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lower_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			alentejo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = toledo_area
+			}
+			give_claims = {
+				area = beieras_area
+			}
+			give_claims = {
+				area = leon_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_central_iberia_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_andalucia_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = beieras_area
+				area = toledo_area
+				area = leon_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			toledo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = aragon_area
+			}
+			give_claims = {
+				area = valencia_area
+			}
+			give_claims = {
+				area = catalonia_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_east_iberia_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_central_iberia_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+				area = valencia_area
+				area = catalonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			aragon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			valencia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = asturias_area
+			}
+			give_claims = {
+				area = castille_area
+			}
+			give_claims = {
+				area = basque_country
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+		}
+	}
+	recover_north_iberia_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_east_iberia_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = asturias_area
+				area = castille_area
+				area = basque_country
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			asturias_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			castille_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			basque_country = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 25
+			}
+			add_army_tradition_or_mil_power = {
+				amount = 25
+			}
+			asturias_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			castille_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			basque_country = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = savoy_dauphine_area
+			}
+			give_claims = {
+				area = bourgogne_area
+			}
+			give_claims = {
+				area = provence_area
+			}
+			give_claims = {
+				area = romandie_area
+			}
+			give_claims = {
+				area = switzerland_area
+			}
+		}
+	}
+	romanization_of_hispania_byz = {
+		icon = mission_have_two_subjects
+		required_missions = {
+			recover_north_iberia_byz
+		}
+		provinces_to_highlight = {
+			region = iberia_region
+			NOT = {
+				culture = ROOT
+			}
+		}
+		trigger = {
+			iberia_region = {
+				type = all
+				culture = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "romanization_iberia"
+				duration = -1
+			}
+		}
+	}
+}
+
+crw_byz_germany = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = BYZ
+		 
+	}
+	has_country_shield = yes
+	recover_south_west_germany_byz = {
+		icon = mission_pf_soldier
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = romandie_area
+				area = switzerland_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			romandie_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			switzerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = tirol_area
+			}
+			give_claims = {
+				area = carinthia_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			if = {
+				limit = {
+					128 = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+				128 = {
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	recover_south_east_germany_byz = {
+		icon = mission_pf_cross
+		required_missions = {
+			recover_south_west_germany_byz
+		}
+		#None
+		provinces_to_highlight = {
+			OR = {
+				area = tirol_area
+				area = carinthia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			tirol_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			128 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = lower_rhineland_area
+			}
+			give_claims = {
+				area = upper_rhineland_area
+			}
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			if = {
+				limit = {
+					1761 = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+				1761 = {
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	recover_rhine_germany_byz = {
+		#Replaces Istria
+		icon = mission_conquer_5_states
+		required_missions = {
+			recover_south_east_germany_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lower_rhineland_area
+				area = upper_rhineland_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lower_rhineland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_rhineland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1761 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = luxemburg_liege_area
+			}
+			give_claims = {
+				area = wallonia_area
+			}
+			give_claims = {
+				area = flanders_area
+			}
+			give_claims = {
+				area = netherlands_area
+			}
+		}
+	}
+	recovery_lower_countries_byz = {
+		#New
+		icon = mission_conquer_50_development
+		required_missions = {
+			recover_rhine_germany_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = luxemburg_liege_area
+				area = wallonia_area
+				area = flanders_area
+				area = netherlands_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			luxemburg_liege_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			wallonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			flanders_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			netherlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = wessex_area
+			}
+			give_claims = {
+				area = east_anglia_area
+			}
+			give_claims = {
+				area = home_counties_area
+			}
+			give_claims = {
+				area = east_midlands_area
+			}
+		}
+	}
+	recover_south_britain_byz = {
+		icon = mission_pf_cross
+		required_missions = {
+			recovery_lower_countries_byz
+			recover_north_france_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = wessex_area
+				area = east_anglia_area
+				area = home_counties_area
+				area = east_midlands_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			wessex_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_anglia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			home_counties_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_midlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = west_midlands_area
+			}
+			give_claims = {
+				area = wales_area
+			}
+			give_claims = {
+				area = yorkshire_area
+			}
+			give_claims = {
+				area = scottish_marches_area
+			}
+		}
+	}
+	recovery_north_britain_byz = {
+		icon = mission_conquer_50_development
+		required_missions = {
+			recover_south_britain_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = scottish_marches_area
+				area = wales_area
+				area = yorkshire_area
+				area = west_midlands_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			scottish_marches_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			wales_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yorkshire_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_midlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			scottish_marches_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			wales_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			yorkshire_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			west_midlands_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+
+crw_byz_france = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = BYZ
+		 
+	}
+	has_country_shield = yes
+	recover_east_france_byz = {
+		position = 1
+		icon = mission_pf_cross
+		provinces_to_highlight = {
+			OR = {
+				area = savoy_dauphine_area
+				area = bourgogne_area
+				area = provence_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			savoy_dauphine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bourgogne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			provence_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			186 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = pyrenees_area
+			}
+			give_claims = {
+				area = languedoc_area
+			}
+			give_claims = {
+				area = guyenne_area
+			}
+		}
+	}
+	recover_south_france_byz = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_east_france_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = pyrenees_area
+				area = languedoc_area
+				area = guyenne_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			
+			pyrenees_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			languedoc_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guyenne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = massif_central_area
+			}
+			give_claims = {
+				area = loire_area
+			}
+			give_claims = {
+				area = brittany_area
+			}
+			if = {
+				limit = {
+					185 = {
+						NOT = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+				185 = {
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	recover_central_france_byz = {
+		icon = mission_empire
+		required_missions = {
+			recover_south_france_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = massif_central_area
+				area = loire_area
+				area = brittany_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			massif_central_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			loire_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			brittany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			185 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			give_claims = {
+				area = normandy_area
+			}
+			give_claims = {
+				area = lorraine_area
+			}
+			give_claims = {
+				area = picardy_area
+			}
+			183 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	recover_north_france_byz = {
+		icon = mission_empire
+		required_missions = {
+			recover_central_france_byz
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = normandy_area
+				area = lorraine_area
+				area = picardy_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			normandy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lorraine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			picardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			183 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "BYZ_reconquista"
+				duration = 5475
+			}
+			normandy_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			lorraine_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			picardy_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+		}
+	}
+	romanization_of_galia_byz = {
+		icon = mission_have_two_subjects
+		required_missions = {
+			recover_north_france_byz
+		}
+		provinces_to_highlight = {
+			region = france_region
+			NOT = {
+				culture = ROOT
+			}
+		}
+		trigger = {
+			france_region = {
+				type = all
+				culture = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "romanization_galia"
+				duration = -1
+			}
+		}
+	}
+}

@@ -1,0 +1,294 @@
+########################################
+# Events for Yoruba
+########################################
+
+namespace = cpbm_yoruba
+
+# Introduction
+
+country_event = {
+	id = cpbm_yoruba.1
+	title = cpbm_yoruba.EVTNAME1
+	desc = cpbm_yoruba.EVTDESC1
+	picture = CPBM_RELIGION_ITAN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = itan
+		ai = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT1
+	}
+}
+
+# Consulting the Babalawo
+
+country_event = {
+	id = cpbm_yoruba.2
+	title = cpbm_yoruba.EVTNAME2
+	desc = cpbm_yoruba.EVTDESC2
+	picture = CPBM_RELIGION_ITAN_eventPicture
+
+	trigger = {
+		religion = itan
+		NOT = { has_ruler_modifier = yoruba_good_fortune }
+		NOT = { has_ruler_modifier = yoruba_bad_fortune }
+	}
+
+	mean_time_to_happen = {
+		months = 720
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT2A
+		hidden_effect = {
+			random_list = {
+				20 = {
+					country_event = {
+						id = cpbm_yoruba.3
+						days = 15
+					}
+				}
+				20 = {
+					country_event = {
+						id = cpbm_yoruba.4
+						days = 15
+					}
+				}
+				60 = {
+					country_event = {
+						id = cpbm_yoruba.5
+						days = 15
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT2B
+		add_prestige = -1
+	}
+}
+
+# Consulting the Babalawo - Good Fortune
+
+country_event = {
+	id = cpbm_yoruba.3
+	title = cpbm_yoruba.EVTNAME3
+	desc = cpbm_yoruba.EVTDESC3
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_yoruba.EVTOPT3
+		add_ruler_modifier = {
+			name = yoruba_good_fortune
+			duration = 3650
+		}
+	}
+}
+
+# Consulting the Babalawo - Bad Fortune
+
+country_event = {
+	id = cpbm_yoruba.4
+	title = cpbm_yoruba.EVTNAME4
+	desc = cpbm_yoruba.EVTDESC4
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_yoruba.EVTOPT4
+		add_ruler_modifier = {
+			name = yoruba_bad_fortune
+			duration = 3650
+		}
+	}
+}
+
+# Consulting the Babalawo - Meh!
+
+country_event = {
+	id = cpbm_yoruba.5
+	title = cpbm_yoruba.EVTNAME5
+	desc = cpbm_yoruba.EVTDESC5
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_yoruba.EVTOPT5
+	}
+}
+
+# Someone Becomes an Orisha
+
+country_event = {
+	id = cpbm_yoruba.6
+	title = cpbm_yoruba.EVTNAME6
+	desc = cpbm_yoruba.EVTDESC6
+	picture = CPBM_RELIGION_ITAN_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = itan
+	}
+
+	mean_time_to_happen = {
+		months = 2050
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT6A
+		add_country_modifier = {
+			name = new_orisha
+			duration = 3650
+		}
+	}
+	option = {
+		name = cpbm_yoruba.EVTOPT6B
+		add_prestige = 5
+	}
+}
+
+# Twins (Development boost for the province?)
+
+province_event = {
+	id = cpbm_yoruba.7
+	title = cpbm_yoruba.EVTNAME7
+	desc = cpbm_yoruba.EVTDESC7
+	picture = CPBM_AFRICAN_VILLAGE_eventPicture
+
+	trigger = {
+		religion = itan
+	}
+
+	mean_time_to_happen = {
+		years = 190
+		modifier = {
+			factor = 0.75
+			owner = { religion = itan }
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT7
+		add_province_modifier = {
+			name = yoruba_twins
+			duration = 3650
+		}
+	}
+}
+
+# Descendent of Oduduwa
+
+country_event = {
+	id = cpbm_yoruba.8
+	title = cpbm_yoruba.EVTNAME8
+	desc = cpbm_yoruba.EVTDESC8
+	picture = CPBM_RELIGION_ITAN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = itan
+		stability = 1
+	}
+
+	mean_time_to_happen = {
+		years = 600
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT8
+		change_adm = 6
+		add_years_of_income = 0.25
+		set_dynasty = "Oduduwa"
+	}
+}
+
+# Transe During Ceremony
+
+province_event = {
+	id = cpbm_yoruba.9
+	title = cpbm_yoruba.EVTNAME9
+	desc = cpbm_yoruba.EVTDESC9
+	picture = CPBM_AFRICAN_VILLAGE_eventPicture
+
+	trigger = {
+		religion = itan
+		owner = { religion = itan }
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+		
+		modifier = {
+			factor = 3
+			NOT = { continent = africa }
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT9
+		add_province_modifier = {
+			name = yoruba_transe
+			duration = 1825
+		}
+	}
+}
+
+# Shrine of Moremi Ajasoro
+
+country_event = {
+	id = cpbm_yoruba.10
+	title = cpbm_yoruba.EVTNAME10
+	desc = cpbm_yoruba.EVTDESC10
+	picture = CPBM_MOREMI_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = itan
+		owns = 1146
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT10A
+		add_years_of_income = -1.5
+		add_country_modifier = {
+			name = shrine_moremi
+			duration = -1
+		}
+	}
+
+	option = {
+		name = cpbm_yoruba.EVTOPT10B
+		add_prestige = -5
+	}
+}
+
+# Development of Santeria in the New World (Trade Slave Flag + owner is a colony + coffe/cotton/cocoa as trade good + Maybe a Yoruba Province still somewhere?)

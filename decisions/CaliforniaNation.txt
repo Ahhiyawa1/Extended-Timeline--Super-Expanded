@@ -1,0 +1,539 @@
+country_decisions = {
+
+	california_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CAL }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_california = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = british
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			change_tag = CAL
+			remove_non_electors_emperors_from_empire_effect = yes
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CAL
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	californie_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CA0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = french
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = CA0 
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CA0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	alta_california_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AC0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = iberian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = AC0
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AC0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kalifornien_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KL0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = germanic
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = KL0
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KL0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	califfornia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CL1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = latin
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = CL1
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CL1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kalifornija_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KA6 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = baltic
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = KA6
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KA6
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	khalifah_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KH0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = KH0
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KH0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	jinshan_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = JS1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = east_asian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = JS1
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = JS1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kalifia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = KA1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_california = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = { owns_core_province = 852 }
+			capital_scope = {
+				OR = {
+					area = california_area 
+					area = central_valley_area 
+					area = baja_california_area
+				}
+			}
+			culture_group = malay
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 868
+				owns_core_province = 2479
+			}
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = KA1
+			colonial_california = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = KA1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,552 @@
+country_decisions = {
+
+	zealandia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NZL }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = british
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZL
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZL
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZL
+			}
+			add_prestige = 25
+			change_tag = NZL
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	menapii_nuadh_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = MN0 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			OR = { culture_group = gaelic culture_group = celtic }
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MN0
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MN0
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MN0
+			}
+			add_prestige = 25
+			change_tag = MN0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	nueva_zelanda_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NZ1 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = iberian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ1
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ1
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ1
+			}
+			add_prestige = 25
+			change_tag = NZ1
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	nova_zeelandia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NZ0 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = germanic
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ0
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ0
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZ0
+			}
+			add_prestige = 25
+			change_tag = NZ0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	nuova_liguria_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NL0 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = latin
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NL0
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NL0
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NL0
+			}
+			add_prestige = 25
+			change_tag = NL0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	gilane_jadid_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = GJ1 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = iranian
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GJ1
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GJ1
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GJ1
+			}
+			add_prestige = 25
+			change_tag = GJ1
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	thmei_sihanouk_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = TS0 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = southeastasian_group
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TS0
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TS0
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TS0
+			}
+			add_prestige = 25
+			change_tag = TS0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	lapitabaru_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LB0 }
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+			}
+			culture_group = malay
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 1107
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LB0
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LB0
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LB0
+			}
+			add_prestige = 25
+			change_tag = LB0
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	aotearoa_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			culture_group = pacific
+			capital_scope = {
+				colonial_region = colonial_oceania
+				is_core = ROOT
+			}
+			colonial_oceania = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2737
+				province_id = 1107
+				province_id = 1109
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				colonial_region = colonial_oceania
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 7
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = AOT }
+		}
+		effect = {
+			change_tag = AOT
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = maori_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,85 @@
+########################################
+# Events for Mutazila
+########################################
+
+namespace = cpbm_mutazila
+
+# Birth of Mutazila
+
+province_event = {
+	id = cpbm_mutazila.1
+	title = cpbm_mutazila.EVTNAME1
+	desc = cpbm_mutazila.EVTDESC1
+	picture = CPBM_RELIGION_MUTAZILA_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_religion_enabled = sunni
+		NOT = { is_religion_enabled = mutazila }
+		is_year = 700
+		region = persia_region
+		religion_group = muslim
+	}
+
+	mean_time_to_happen = {
+		years = 100
+	}
+
+	option = {
+		name = cpbm_mutazila.EVTOPT1
+		enable_religion = mutazila
+		change_religion = mutazila
+		add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+	}
+
+}
+
+# Mutazila Spreads
+
+province_event = {
+	id = cpbm_mutazila.2
+	title = cpbm_mutazila.EVTNAME2
+	desc = cpbm_mutazila.EVTDESC2
+	picture = CPBM_RELIGION_MUTAZILA_eventPicture
+
+	trigger = {
+		any_neighbor_province = {
+			religion = mutazila
+		}
+		NOT = { religion = mutazila }
+		NOT = { is_year = 1250 }
+	}
+
+	mean_time_to_happen = {
+		months = 2500
+
+		modifier = {
+			factor = 0.25
+			area = iraq_e_ajam_area
+		}
+
+		modifier = {
+			factor = 0.8
+			religion_group = muslim
+		}
+
+		modifier = {
+			factor = 2
+			is_year = 1000
+		}
+
+	}
+
+	option = {
+		name = cpbm_mutazila.EVTOPT2
+		change_religion = mutazila
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}

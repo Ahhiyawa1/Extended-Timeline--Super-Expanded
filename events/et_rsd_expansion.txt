@@ -1,0 +1,40 @@
+namespace = et
+#Province defects to Caliphate
+
+#Province defects to Caliphate
+country_event = {
+	id = et.33
+	title = "et.EVTNAME33"
+	desc = "et.EVTDESC33"
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "et.EVTOPTA33"
+		ai_chance = { 
+			factor = 100
+		}
+		add_prestige = 10
+		FROM = {
+			add_territorial_core = ROOT
+			cede_province = ROOT
+		}
+		if = {
+			limit = { 
+				religion = islam 
+				FROM = { 
+					culture_group = turko_semitic 
+				} 
+			}
+			change_religion = islam
+		}
+	}
+	option = {
+		name = "et.EVTOPTB33"
+		ai_chance = { 
+			factor = 0
+		}
+		add_prestige = 1
+	}
+}

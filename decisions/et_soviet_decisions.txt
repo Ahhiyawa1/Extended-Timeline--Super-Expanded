@@ -1,0 +1,91 @@
+country_decisions = {
+
+	form_soviet_union = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RUS tag = RU6 tag = RU8 }
+			NOT = { exists = SOV }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SOV
+			swap_free_idea_group = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	end_of_soviet_union = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			tag = SOV
+			NOT = { exists = RUS }
+			NOT = { exists = RU6 }
+			NOT = { exists = RU8 }
+			NOT = {	has_reform = communist_dictatorship }
+			NOT = {	has_reform = socialist_republic }
+			NOT = {	has_reform = communist_government }
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			NOT = {	has_reform = communist_dictatorship }
+			NOT = {	has_reform = socialist_republic }
+			NOT = {	has_reform = communist_government }
+		}
+		effect = {
+			add_prestige = 20
+			if = {
+				limit = {
+					government = monarchy
+				}
+				change_tag = RUS
+				swap_free_idea_group = yes
+			}
+			if = {
+				limit = {
+					government = republic
+					NOT = {
+						OR = {
+							has_reform = fascist_dictatorship
+							has_reform = fascist_government
+							has_reform = dictatorial_rule 
+						}
+					}
+				}
+				change_tag = RU8
+			}
+			if = {
+				limit = {
+					government = republic
+					OR = {
+						has_reform = fascist_dictatorship
+						has_reform = fascist_government
+						has_reform = dictatorial_rule 
+					}
+				}
+				change_tag = RU6
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

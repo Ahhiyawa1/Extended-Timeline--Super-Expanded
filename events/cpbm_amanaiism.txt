@@ -1,0 +1,478 @@
+########################################
+# Events for Amanaiism / Amazigh
+########################################
+
+namespace = cpbm_amanaiism
+
+# Introduction
+
+country_event = {
+	id = cpbm_amanaiism.1
+	title = cpbm_amanaiism.EVTNAME1
+	desc = cpbm_amanaiism.EVTDESC1
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = amanaiism
+		ai = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT1
+	}
+}
+
+# Festivities of Yennayer
+
+country_event = {
+	id = cpbm_amanaiism.2
+	title = cpbm_amanaiism.EVTNAME2
+	desc = cpbm_amanaiism.EVTDESC2
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	trigger = {
+		religion = amanaiism
+		is_month = 1
+		NOT = { has_country_modifier = yennayer_done1 }
+		NOT = { has_country_modifier = yennayer_done2 }
+		NOT = { has_country_modifier = yennayer_done3 }
+		NOT = { has_country_modifier = yennayer_done4 }
+		NOT = { has_country_modifier = yennayer_not_done }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = cpbm_amanaiism.EVTOPT2A
+		add_adm_power = -25
+		hidden_effect = {
+			random_list = {
+				55 = {
+					add_country_modifier = {
+					name = yennayer_done1
+					duration = 365
+					}
+				}
+				15 = {
+					add_country_modifier = {
+					name = yennayer_done2
+					duration = 365
+					}
+				}
+				15 = {
+					add_country_modifier = {
+					name = yennayer_done3
+					duration = 365
+					}
+				}
+				15 = {
+					add_country_modifier = {
+					name = yennayer_done4
+					duration = 365
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT2B
+		hidden_effect = {
+			random_list = {
+				80 = {
+					add_country_modifier = {
+					name = yennayer_not_done
+					duration = 365
+					}
+				}
+				20 = {
+					add_stability = -1
+					add_country_modifier = {
+					name = yennayer_not_done
+					duration = 365
+					}
+				}
+			}
+		}
+	}
+}
+
+# The Legacy of Shoshenq I
+
+country_event = {
+	id = cpbm_amanaiism.3
+	title = cpbm_amanaiism.EVTNAME3
+	desc = cpbm_amanaiism.EVTDESC3
+	picture = CPBM_PHARAOH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = amanaiism
+		primary_culture = berber
+		owns = 361
+		NOT = { capital = 361 }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT3A
+		set_capital = 361
+		every_province = {
+			limit = {
+				OR = {
+					area = said_area
+					area = vostani_area
+					area = bahari_area
+					area = delta_area
+					area = al_wahat_area
+				}
+			}
+			add_core = ROOT
+		}
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT3B
+		add_prestige = 20
+	}
+}
+
+# Madghacen
+
+country_event = {
+	id = cpbm_amanaiism.4
+	title = cpbm_amanaiism.EVTNAME4
+	desc = cpbm_amanaiism.EVTDESC4
+	picture = CPBM_TUMULUS_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = amanaiism
+		owns = 2458
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT4A
+		add_years_of_income = -1.5
+		add_country_modifier = {
+			name = restored_mzora
+			duration = -1
+		}
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT4B
+		add_prestige = -5
+	}
+}
+
+# Construction of a Pyramid
+
+country_event = {
+	id = cpbm_amanaiism.5
+	title = cpbm_amanaiism.EVTNAME5
+	desc = cpbm_amanaiism.EVTDESC5
+	picture = CPBM_TUMULUS2_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = amanaiism
+		OR = {
+			government = monarchy
+			government = theocracy
+		}
+		ruler_age = 40
+		legitimacy = 90
+		OR = {
+			adm = 3
+			dip = 3
+			mil = 3
+		}
+		NOT = { has_ruler_modifier = berber_pyramid_built }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT5A
+		add_ruler_modifier = {
+			name = berber_pyramid_built
+			duration = -1
+		}
+		random_owned_province = {
+			limit = { religion = amanaiism }
+			add_province_modifier = {
+				name = berber_pyramid
+				duration = 73000
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT5B
+		add_prestige = -5
+	}
+}
+
+# Tislit n Anzar
+
+province_event = {
+	id = cpbm_amanaiism.6
+	title = cpbm_amanaiism.EVTNAME6
+	desc = cpbm_amanaiism.EVTDESC6
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	trigger = {
+		religion = amanaiism
+		owner = { religion = amanaiism }
+		has_climate = arid
+		NOT = { has_province_modifier = tislit_anzar }
+	}
+
+	mean_time_to_happen = {
+		months = 400
+
+		modifier = {
+			factor = 0.6
+			owner = { has_personal_deity = amaz_anzar }
+		}
+
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT6A
+		add_adm_power = -50
+		add_province_modifier = {
+			name = tislit_anzar
+			duration = 365
+		}
+	}
+	
+	option = {
+		name = cpbm_amanaiism.EVTOPT6B
+	}
+}
+
+# A Night With the (Not Walking) Dead
+
+country_event = {
+	id = cpbm_amanaiism.7
+	title = cpbm_amanaiism.EVTNAME7
+	desc = cpbm_amanaiism.EVTDESC7
+	picture = CPBM_TUMULUS2_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = amanaiism
+	}
+
+	mean_time_to_happen = {
+		months = 900
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT7A
+		hidden_effect = {
+			random_list = {
+				50 = {
+					country_event = {
+						id = cpbm_amanaiism.8
+						days = 5
+					}
+				}
+				45 = {
+					country_event = {
+						id = cpbm_amanaiism.9
+						days = 5
+					}
+				}
+				5 = {
+					country_event = {
+						id = cpbm_amanaiism.10
+						days = 5
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cpbm_amanaiism.EVTOPT7B
+	}
+}
+
+# A Night With the Dead: Cold
+
+country_event = {
+	id = cpbm_amanaiism.8
+	title = cpbm_amanaiism.EVTNAME8
+	desc = cpbm_amanaiism.EVTDESC8
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT8
+		add_legitimacy = 5
+	}
+}
+
+# A Night With the Dead: Knowledge
+
+country_event = {
+	id = cpbm_amanaiism.9
+	title = cpbm_amanaiism.EVTNAME9
+	desc = cpbm_amanaiism.EVTDESC9
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT9
+		random_list = {
+			30 = { add_legitimacy = 10 }
+			15 = { add_adm_power = 100 }
+			15 = { add_dip_power = 100 }
+			15 = { add_mil_power = 100 }
+			8 = { change_adm = 1 }
+			8 = { change_dip = 1 }
+			8 = { change_mil = 1 }
+			1 = { change_adm = 1 change_dip = 1 change_mil = 1 }
+		}
+	}
+}
+
+# A Night With the Dead: Death (Mwhahahaha!)
+
+country_event = {
+	id = cpbm_amanaiism.10
+	title = cpbm_amanaiism.EVTNAME10
+	desc = cpbm_amanaiism.EVTDESC10
+	picture = DEATH_OF_HEIR_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT10
+		kill_ruler = yes
+	}
+}
+
+# Affinities With Hellenism
+
+country_event = {
+	id = cpbm_amanaiism.11
+	title = cpbm_amanaiism.EVTNAME11
+	desc = cpbm_amanaiism.EVTDESC11
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	trigger = {
+		religion = amanaiism
+		has_personal_deity = amaz_sufax
+		any_known_country = {
+				is_neighbor_of = ROOT
+				religion = hellenism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1600
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT11
+		add_dip_power = 10
+		random_country = {
+			limit = { is_neighbor_of = ROOT religion = hellenism }
+			add_opinion = { who = ROOT modifier = opinion_improved_relations }
+		}
+	}
+}
+
+# Affinities With Canaanism
+
+country_event = {
+	id = cpbm_amanaiism.12
+	title = cpbm_amanaiism.EVTNAME12
+	desc = cpbm_amanaiism.EVTDESC12
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	trigger = {
+		religion = amanaiism
+		OR = {
+			has_personal_deity = amaz_tanit
+			has_personal_deity = amaz_baal
+		}
+		any_known_country = {
+				is_neighbor_of = ROOT
+				religion = canaanite_religion
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1600
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT12
+		add_dip_power = 10
+		random_country = {
+			limit = { is_neighbor_of = ROOT religion = canaanite_religion }
+			add_opinion = { who = ROOT modifier = opinion_improved_relations }
+		}
+	}
+}
+
+# Affinities With Pesedjet
+
+country_event = {
+	id = cpbm_amanaiism.13
+	title = cpbm_amanaiism.EVTNAME13
+	desc = cpbm_amanaiism.EVTDESC13
+	picture = CPBM_RELIGION_AMAZIGH_eventPicture
+
+	trigger = {
+		religion = amanaiism
+		OR = {
+			has_personal_deity = amaz_baal
+			has_personal_deity = amaz_gurzil
+		}
+		any_known_country = {
+				is_neighbor_of = ROOT
+				religion = egyptian
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1600
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT13
+		add_dip_power = 10
+		random_country = {
+			limit = { is_neighbor_of = ROOT religion = egyptian }
+			add_opinion = { who = ROOT modifier = opinion_improved_relations }
+		}
+	}
+}

@@ -1,0 +1,73 @@
+##from Byzantine Mod##
+war_goal_roman_rivalry = {
+	type = superiority
+	attacker = {
+		badboy_factor = 0
+		prestige_factor = 3
+		peace_cost_factor = 0.5
+		peace_options = {
+			po_revoke_cores
+			po_gold
+			po_concede_defeat
+		}
+	}
+	defender = {
+		badboy_factor = 0
+		prestige_factor = 3
+		peace_cost_factor = 0.5
+		peace_options = {
+			po_revoke_cores
+			po_gold
+			po_concede_defeat
+		}
+	}
+	war_name = ROMAN_RIVALRY_WAR_NAME
+}
+
+war_goal_roman_convert = {
+	type = superiority
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 2
+		peace_cost_factor = 0.25
+		peace_options = {
+			po_change_religion
+		}
+	}
+	defender = {
+		badboy_factor = 0
+		prestige_factor = 3
+		peace_cost_factor = 0.5
+		peace_options = {
+			po_change_religion
+			po_gold
+			po_concede_defeat
+		}
+	}
+	war_name = BYZ_CONVERT_WAR_NAME
+}
+
+war_goal_roman_unify = {
+	type = take_capital
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.25
+		peace_options = {
+			po_form_personal_union
+			po_demand_provinces
+			po_become_vassal
+		}
+	}
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.25
+		peace_options = {
+			po_change_religion
+			po_gold
+			po_concede_defeat
+		}
+	}
+	war_name = ROMAN_UNIFY_WAR_NAME
+}

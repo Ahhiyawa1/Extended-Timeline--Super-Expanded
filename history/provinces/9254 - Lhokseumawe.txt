@@ -1,0 +1,53 @@
+#9254 - Lhokseumawe
+
+culture = acehnese
+religion = animism
+capital = "Lhokseumawe"
+trade_goods = unknown
+hre = no
+discovered_by = chinese
+discovered_by = asian
+discovered_by = early_chinese
+discovered_by = indian
+discovered_by = early_indian
+base_tax = 4
+base_production = 4
+base_manpower = 2
+native_size = 40
+native_ferocity = 2
+native_hostileness = 7
+center_of_trade = 2
+
+2648.1.1 = { religion = hinduism }
+2698.1.1 = { owner = LAM controller = LAM add_core = LAM is_city = yes trade_goods = spices }
+2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
+2978.1.1 = { owner = SRI controller = SRI add_core = SRI }
+3123.1.1 = { owner = LAM controller = LAM add_core = LAM remove_core = SRI } #Chola invasion of Srivijaya
+3198.1.1 = { base_tax = 5 base_production = 5 }
+3298.1.1 = { base_manpower = 3 }
+3365.1.1 = { owner = PSA controller = PSA add_core = PSA remove_core = LAM religion = sunni }
+3398.1.1 = { base_tax = 6 base_production = 6 }
+
+3503.1.1 = { discovered_by = MNG }
+3569.1.1 = { add_core = ATJ }
+3607.1.1 = { discovered_by = POR }
+3619.1.1 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	remove_core = PSA
+} # Portugal conquered Pasai
+3629.1.1 = {
+	owner = ATJ
+	controller = ATJ
+	remove_core = POR
+}
+
+4001.1.10  = { owner = NED controller = NED add_core = NED }
+4008.1.1 = { discovered_by = western discovered_by = eastern }
+4010.9.10  = { add_core = IDN remove_core = ATJ }
+4040.2.1   = { controller = JAP }
+4040.3.9   = { owner = JAP controller = JAP }
+4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
+4043.8.17  = { owner = IDN revolt = {} controller = IDN }
+4047.12.27 = { remove_core = NED }

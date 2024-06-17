@@ -1,0 +1,381 @@
+########################################
+# Events for Canaanism
+########################################
+
+namespace = cpbm_canaanism
+
+# Introduction
+
+country_event = {
+	id = cpbm_canaanism.1
+	title = cpbm_canaanism.EVTNAME1
+	desc = cpbm_canaanism.EVTDESC1
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = canaanite_religion
+		ai = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT1
+	}
+}
+
+# Conquest of Carthage
+
+country_event = {
+	id = cpbm_canaanism.2
+	title = cpbm_canaanism.EVTNAME2
+	desc = cpbm_canaanism.EVTDESC2
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		ai = no
+		religion = canaanite_religion
+		owns = 341
+		NOT = { tag = CT0 }
+		NOT = { tag = PH0 }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT2
+		add_prestige = 5
+	}
+}
+
+# Conquest of Phoenicia
+
+country_event = {
+	id = cpbm_canaanism.3
+	title = cpbm_canaanism.EVTNAME3
+	desc = cpbm_canaanism.EVTDESC3
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		ai = no
+		religion = canaanite_religion
+		owns = 1855
+		NOT = { tag = CT0 }
+		NOT = { tag = PH0 }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT3
+		add_prestige = 5
+	}
+}
+
+# Temple of Bel (Palmyra - 405)
+
+country_event = {
+	id = cpbm_canaanism.4
+	title = cpbm_canaanism.EVTNAME4
+	desc = cpbm_canaanism.EVTDESC4
+	picture = CPBM_TEMPLE_OF_BAAL_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = canaanite_religion
+		owns = 405
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT4A
+		add_years_of_income = -1.5
+		add_country_modifier = {
+			name = restored_bel
+			duration = -1
+		}
+	}
+
+	option = {
+		name = cpbm_amanaiism.EVTOPT4B
+		add_prestige = -5
+	}
+}
+
+# Return to Phoenician Culture
+
+province_event = {
+	id = cpbm_canaanism.5
+	title = cpbm_canaanism.EVTNAME5
+	desc = cpbm_canaanism.EVTDESC5
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	trigger = {
+		religion = canaanite_religion
+		owner = { religion = canaanite_religion }
+		NOT = { culture = phoenician }
+		OR = {
+			owner = { tag = CT0 }
+			owner = { tag = PH0 }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 150
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT5
+		change_culture = phoenician
+	}
+}
+
+# Troubles for Canaanites in Christian Nations
+
+province_event = {
+	id = cpbm_canaanism.6
+	title = cpbm_canaanism.EVTNAME6
+	desc = cpbm_canaanism.EVTDESC6
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	trigger = {
+		religion = canaanite_religion
+		owner = { religion_group = christian }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+		modifier = {
+			factor = 0.7
+			NOT = { owner = { stability = -1 } }
+		}
+		modifier = {
+			factor = 4
+			is_year = 1000
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT6
+		add_province_modifier = {
+			name = canaanite_trouble
+			duration = 3650
+		}
+	}
+}
+
+# Sanctuary to Protect the Province (province bordering another nation)
+
+province_event = {
+	id = cpbm_canaanism.7
+	title = cpbm_canaanism.EVTNAME7
+	desc = cpbm_canaanism.EVTDESC7
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	trigger = {
+		religion = canaanite_religion
+		owner = { religion = canaanite_religion }
+		owner = { adm_power = 100 }
+		NOT = { has_building = cathedral }
+		any_neighbor_province = {
+				NOT = { owned_by = ROOT }
+				NOT = { religion = canaanite_religion }
+			}
+	}
+
+	mean_time_to_happen = {
+		years = 200
+		modifier = {
+			factor = 0.76
+			has_building = temple
+		}
+		modifier = {
+			factor = 0.7
+			owner = { stability = 2 }
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT7A
+		add_building = cathedral
+		owner = { add_adm_power = -100 }
+		}
+	option = {
+		name = cpbm_canaanism.EVTOPT7B
+	}
+}
+
+# The Phoenician Legacy (canaanist nation + new world idea)
+
+country_event = {
+	id = cpbm_canaanism.8
+	title = cpbm_canaanism.EVTNAME8
+	desc = cpbm_canaanism.EVTDESC8
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+	
+	trigger = {
+		religion = canaanite_religion
+		has_idea = quest_for_the_new_world
+		NOT =  { has_country_modifier = phoenician_heritage }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.5
+			tag = PH0
+		}
+		modifier = {
+			factor = 0.75
+			tag = CT0
+		}
+		modifier = {
+			factor = 0.8
+			primary_culture = phoenician
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = -1 }
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT8
+		add_country_modifier = {
+			name = "phoenician_heritage"
+			duration = 1825
+		}
+	}
+}
+
+# Khmn Sacrifices (canaanist nation)
+
+country_event = {
+	id = cpbm_canaanism.9
+	title = cpbm_canaanism.EVTNAME9
+	desc = cpbm_canaanism.EVTDESC9
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = canaanite_religion
+		NOT = { has_country_modifier = small_sacrifice }
+		NOT = { has_country_modifier = animal_sacrifice }
+		NOT = { has_country_modifier = no_sacrifice }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT9A
+		add_years_of_income = -0.5
+		add_country_modifier = {
+			name = small_sacrifice
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT9B
+		add_country_modifier = {
+			name = animal_sacrifice
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT9C
+		add_country_modifier = {
+			name = no_sacrifice
+			duration = 1825
+		}
+	}
+}
+
+# The Molk (canaanist nation, at_war and losing it)
+
+country_event = {
+	id = cpbm_canaanism.10
+	title = cpbm_canaanism.EVTNAME10
+	desc = cpbm_canaanism.EVTDESC10
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	fire_only_once = no
+
+	trigger = {
+		religion = canaanite_religion
+		is_at_war = yes
+		NOT = { war_score = -30 }
+		NOT = { has_country_modifier = molk }
+		NOT = { has_country_modifier = no_molk }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT10A
+		add_country_modifier = {
+			name = molk
+			duration = 365
+		}
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT10B
+		add_country_modifier = {
+			name = no_molk
+			duration = 3650
+		}
+	}
+}
+
+# Spread of Canaanism
+
+province_event = {
+	id = cpbm_canaanism.11
+	title = cpbm_canaanism.EVTNAME11
+	desc = cpbm_canaanism.EVTDESC11
+	picture = CPBM_RELIGION_CANAANISM_eventPicture
+
+	trigger = {
+		NOT = { religion = canaanite_religion }
+		OR = { 
+			culture = phoenician
+			culture = punic 
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {
+		name = cpbm_canaanism.EVTOPT11
+		change_religion = canaanite_religion
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 3650
+		}
+	}
+}

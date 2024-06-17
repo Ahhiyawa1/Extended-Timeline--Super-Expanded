@@ -1,0 +1,165 @@
+country_decisions = {
+
+	croatian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = HR8 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR6 }
+			NOT = { tag = PAP }
+			NOT = { tag = YUG }
+			NOT = { tag = ILY }
+			OR = {
+				AND = {
+					culture_group = western_balkan
+					NOT = { religion_group = hellenic }
+					NOT = { exists = BR4 }
+				}
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { exists = DAL }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { religion_group = hellenic }
+					NOT = { exists = IL3 }
+				}
+				AND = {
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = CRO }
+				}
+			}
+                        capital_scope = {
+                                OR = {
+                                    area = croatia_area
+                                    area = slavonia_area
+                                    area = bosnia_area
+                                    area = east_adriatic_coast_area
+                                }
+                        }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 131
+			capital_scope = { culture = ROOT }
+		}
+		effect = {
+			add_prestige = 25
+			131 = { # Zagreb
+				move_capital_effect = yes
+			}
+			if = {
+				limit = { 
+					culture_group = western_balkan
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = BR4
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+				}
+				change_tag = DAL
+			}
+			if = {
+				limit = { 
+					culture_group = germanic
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = IL3
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = CRO
+			}
+			on_change_tag_effect = yes
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_accepted_culture_or_dip_power = {
+				culture = dalmatian
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					culture = ROOT
+					continent = europe
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { area = east_adriatic_coast_area }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					government = republic
+				}
+				change_government = monarchy
+				#set_legacy_government = feudal_monarchy
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
