@@ -1,0 +1,40 @@
+guiTypes = {
+	windowType = { # Copied and adjusted from government_interaction_type, visible as the interaction specifies this, has cost_type specified to the power, and the power doesn't have a UI
+		name = "mandala_domination_gov_mech"
+		size = { x = 300 y = 50 }
+		backGround = ""
+        moveable = 0
+        dontRender = ""
+        horizontalBorder = ""
+		
+		# bar and frame for the power type associated with this interaction (if it's unique to the interaction - if not, these will be hidden)
+		iconType = { 
+			name = "government_power_bar"
+			spriteType = "GFX_mandala_system_power_bar"
+			position = { x = 24 y = 16 }
+		}	
+
+		# Frame
+		iconType = {
+			name = "government_power_bar_frame"
+			spriteType = "GFX_mandala_progressbar_frame"
+			position = { x = 8 y = 0 }
+			alwaystransparent = yes
+		}
+	}
+
+	windowType = {
+        name = "mandala_domination_interaction_mech"
+        size = { x = 100 y = 66 }
+        moveable = 0
+		
+		### interaction button
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_mandala_tribute_button"
+			position = { x = 10 y = -5 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+	}
+}
