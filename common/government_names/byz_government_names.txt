@@ -1,0 +1,132 @@
+##
+roman_empire_modern = {
+	rank = {
+		1 = IMPERIUM
+		2 = IMPERIUM
+		3 = IMPERIUM
+		4 = IMPERIUM
+		5 = IMPERIUM
+		6 = IMPERIUM
+		7 = IMPERIUM
+		8 = IMPERIUM
+		9 = IMPERIUM
+		10 = IMPERIUM
+	}	
+
+	ruler_male = {
+		1 = AUGUSTOS
+		2 = AUGUSTOS
+		3 = AUGUSTOS
+		4 = AUGUSTOS
+		5 = AUGUSTOS
+		6 = AUGUSTOS
+		7 = AUGUSTOS
+		8 = AUGUSTOS
+		9 = AUGUSTOS
+		10 = AUGUSTOS
+	}
+
+	ruler_female = {
+		1 = AUGUSTA
+		2 = AUGUSTA
+		3 = AUGUSTA
+		4 = AUGUSTA
+		5 = AUGUSTA
+		6 = AUGUSTA
+		7 = AUGUSTA
+		8 = AUGUSTA
+		9 = AUGUSTA
+		10 = AUGUSTA
+	}
+	
+	consort_male = {
+		1 = CAESAR
+		2 = CAESAR
+		3 = CAESAR
+		4 = CAESAR
+		5 = CAESAR
+		6 = CAESAR
+		7 = CAESAR
+		8 = CAESAR
+		9 = CAESAR
+		10 = CAESAR
+	}
+
+	consort_female = {
+		1 = CESARISSA
+		2 = CESARISSA
+		3 = CESARISSA
+		4 = CESARISSA
+		5 = CESARISSA
+		6 = CESARISSA
+		7 = CESARISSA
+		8 = CESARISSA
+		9 = CESARISSA
+		10 = CESARISSA
+	}
+	
+	trigger = {
+		OR = {
+			tag = ROM 
+			tag = ROW
+		}
+		has_reform = roman_imperial_reform
+	}
+}
+spqr_republic_names = {
+	rank = {
+		1 = SPQR
+		2 = SPQR
+		3 = SPQR
+	}	
+
+	ruler_male = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = CONSUL
+	}
+
+	ruler_female = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = CONSUL
+	}
+	
+	trigger = {
+		tag = PQR
+	}
+}
+
+pagan_roman_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = CHIEF
+		2 = REX
+		3 = IMPERATOR
+	}
+
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = REGINA
+		3 = IMPERATRIX
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			AND = {
+				culture_group = latin
+				religion = hellenism
+			}
+			AND = {
+				primary_culture = roman
+				NOT = { has_reform = roman_imperial_reform }
+			}
+		}
+	}
+}
