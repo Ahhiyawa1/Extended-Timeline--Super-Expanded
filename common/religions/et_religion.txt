@@ -1,3 +1,10 @@
+# CPBM - BEST TO COMPARE PREV ET TO NEW ET AND REFLECT CHANGES
+# Shifts, added religions, and changing icon IDs
+# Shifts: druidism under celtic_pagan, suomenusko under finnic_pagan
+# Added religions: imperialcult to dodecatheism, vedism, freemasonry (+group), pajelanca to nazca, heros_karabazmos, bird_figure, amanaiism to santeria, yazdanism to natib_quadish, manaism to razana, jainko (+group), fantasy_pagan group, wicca (+group)
+# Icons: armenian_religion 112, georgian_religion 53, irreligious 123, dreamtime 58
+# MMETR additions (Find)
+
 # If you add religions, and use those tags, do not change them without changing everywhere they are used.
 
 # Uses all 'modifiers' possible thats exported as a Modifier.
@@ -25,26 +32,6 @@ hellenic = {
 		personal_deity = yes
 
 		heretic = { SERAPIS }
-	}
-	
-	druidism = {
-		color = { 100 200 20 }
-		icon = 27
-		province = {
-			local_missionary_strength = 0.02
-		}
-		country = {
-			tolerance_own = 1
-			global_unrest = -1
-		}
-		country_as_secondary = {
-			tolerance_own = 1
-			global_unrest = -1
-		}
-
-		personal_deity = yes
-		
-		heretic = { GOAT_SKULL }
 	}
 
 	zamolxism = {
@@ -84,6 +71,116 @@ hellenic = {
 
 		heretic = { SERAPIS }
 	}
+
+	imperialcult  = {
+		color = { 0.55 0.1 0.3 }
+		icon = 62
+		province = {
+			local_unrest = -1
+			local_tax_modifier = 0.1
+		}
+		country = {
+			missionaries = 1
+			prestige_decay = -0.05
+			tolerance_heathen = 4
+			religious_unity = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_tax_modifier = 0.1
+		}
+		can_have_secondary_religion = yes
+		heretic = { SERAPIS }
+	}
+
+	mithraic  = {
+		color = { 0.62 0.05 0.25 }
+		icon = 84
+		allowed_conversion = {
+			hellenism
+		}
+		country = {
+			tolerance_own = 1
+			infantry_cost = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_tax_modifier = 0.1
+		}
+		on_convert = {
+			change_religion = mithraic
+			add_stability = -3
+		}
+		heretic = { SERAPIS }
+		date = 120.1.1
+	}
+
+	numenism  = {
+		color = { 0.5 0.08 0.32 }
+		icon = 85
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			tolerance_heathen = 1
+			religious_unity = 0.5
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_heathen = 1
+		}
+		heretic = { SERAPIS }
+	}
+
+	neoplatonism  = {
+		color = { 0.57 0.15 0.23 }
+		icon = 86
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			idea_cost = -0.1
+			advisor_pool = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			advisor_pool = 1
+		}
+		heretic = { SERAPIS }
+		date = 268.1.1
+	}
+
+	hermeticism  = {
+		color = { 0.59 0.51 0.92 }
+		icon = 90
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			technology_cost = -0.05
+			advisor_cost = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			advisor_cost = -0.1
+		}
+		heretic = { SERAPIS }
+	}
+
+	dodecatheism  = {
+		color = { 0.47 0.11 0.97 }
+		icon = 107
+		country = {
+			tolerance_heathen = 2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_unrest = -1
+		}
+		heretic = { SERAPIS }
+		date = 1997.1.1
+	}
 	
 	harmonized_modifier = harmonized_hellenic
 	
@@ -98,6 +195,9 @@ zoroastrian_group = {
 	zoroastrian = {
 		icon = 21
 		color = { 127 178 51 }
+		allowed_conversion = {	#New added in MMETR
+			mithraic
+		}
 		province = {
 			local_missionary_strength = -0.01
 		}
@@ -147,12 +247,12 @@ zoroastrian_group = {
 
 		heretic = { MAZDAKI }
 
-		date = 2338.1.1
+		date = 240.1.1
 	}
 	
 	armenian_religion = {
 		color = { 200 140 140 }
-		icon = 51
+		icon = 112
 		province = {
 			local_missionary_strength = 0.01
 		}
@@ -172,7 +272,7 @@ zoroastrian_group = {
 	
 	georgian_religion = {
 		color = { 160 60 60 }
-		icon = 52
+		icon = 53
 		province = {
 			local_missionary_strength = 0.01
 		}
@@ -186,6 +286,38 @@ zoroastrian_group = {
 		}
 		
 		personal_deity = yes
+		
+		heretic = { MAZDAKI }
+	}
+
+	vedism  = {
+		color = { 0.99 0.29 0.01 }
+		icon = 83
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			tolerance_heathen = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_heathen = 2
+		}
+		heretic = { MAZDAKI }
+	}
+	
+	#New MMETR
+	
+	#Sarmatian / Scythian religion
+	heptadic = {
+		color = { 219 155 76 }
+		icon = 129
+		country = {
+			cav_to_inf_ratio = 0.25
+			tolerance_heathen = 1
+		}
+		can_have_secondary_religion = yes
 		
 		heretic = { MAZDAKI }
 	}
@@ -346,7 +478,7 @@ secular = {
 
 	irreligious = {
 		color = { 0 0 0 }
-		icon = 60
+		icon = 123
 		country = {
 			global_tax_modifier = -1
 			land_morale = -1
@@ -357,6 +489,31 @@ secular = {
 	
 	harmonized_modifier = harmonized_irreligious
 
+	crusade_name = CRUSADE
+}
+
+freemason = {
+
+	freemasonry  = {
+		color = { 0.2 0.2 0.2 }
+		icon = 63
+		province = {
+			local_tax_modifier = 0.3
+		}
+		country = {
+			tolerance_heathen = 2
+			technology_cost = -0.1
+		}
+		country_as_secondary = {
+			advisor_pool = 1
+			tolerance_heathen = 2
+		}
+		can_have_secondary_religion = yes
+		heretic = { ATHEIST }
+		date = 1717.6.24
+	}
+
+	harmonized_modifier = harmonized_freemason
 	crusade_name = CRUSADE
 }
 
@@ -469,9 +626,278 @@ american_pagan = {
 		
 		heretic = { INTI_HERETIC }	
 	}
+
+	pajelanca = {
+		color = { 0.0 0.3 0.2 }
+		icon = 56
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			land_attrition = -0.2
+			enemy_core_creation = 0.2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			land_attrition = -0.2
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	angakkunngurniq = {
+		color = { 0.7 0.9 0.9 }
+		icon = 57
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			hostile_attrition = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			hostile_attrition = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	chiminigagua  = {
+		color = { 0.83 0.69 0.21 }
+		icon = 64
+		country = {
+			land_maintenance_modifier = -0.10
+			global_tax_modifier = 0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			land_maintenance_modifier = -0.10
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	kachina  = {
+		color = { 0.38 0.75 0.79 }
+		icon = 65
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			culture_conversion_cost = -0.2
+			tolerance_own = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			culture_conversion_cost = -0.2
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	mahoma  = {
+		color = { 0.95 0.48 0.4 }
+		icon = 66
+		country = {
+			discipline = 0.05
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			discipline = 0.05
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	midewiwin  = {
+		color = { 0.67 0.16 0.13 }
+		icon = 67
+		country = {
+			same_culture_advisor_cost = -0.5
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			same_culture_advisor_cost = -0.5
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	orenda   = {
+		color = { 0.46 0.41 0.6 }
+		icon = 68
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			defensiveness = 0.1
+			enemy_core_creation = 0.2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			defensiveness = 0.1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	wakan_tanka  = {
+		color = { 0.62 0.33 0.12 }
+		icon = 69
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			cavalry_cost = -0.2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			cavalry_cost = -0.2
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	pohakantenna  = {
+		color = { 0.52 0.43 0.3 }
+		icon = 70
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			cavalry_power = 0.1
+			hostile_attrition = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			hostile_attrition = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	southern_cult  = {
+		color = { 0.34 0.51 0.01 }
+		icon = 71
+		country = {
+			trade_efficiency = 0.05
+			tolerance_heretic = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_efficiency = 0.05
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	witran_mapu  = {
+		color = { 0.02 0.54 0.6 }
+		icon = 72
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			tolerance_heathen = 1
+			culture_conversion_cost = -0.25
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			culture_conversion_cost = -0.25
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	zemiism  = {
+		color = { 0.49 0.35 0.21 }
+		icon = 73
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			tolerance_own = 1
+			trade_efficiency = 0.05
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_efficiency = 0.05
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	sgaanaang  = {
+		color = { 0.89 0.15 0.21 }
+		icon = 74
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			trade_range_modifier = 0.5
+			land_attrition = -0.2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_range_modifier = 0.5
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	wakanda  = {
+		color = { 0.44 0.21 0.26 }
+		icon = 116
+		country = {
+			trade_efficiency = 0.05
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_efficiency = 0.05
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	nazca = {
+		color = { 0.79 0.63 0.21 }
+		icon = 117
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			hostile_attrition = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			hostile_attrition = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
 	
 	harmonized_modifier = harmonized_american
 
+	crusade_name = CRUSADE
+}
+
+celtic_pagan = {
+
+	flags_with_emblem_percentage = 10
+	flag_emblem_index_range = { 83 96 }
+
+	druidism = {
+		color = { 0.4 0.9 0.1 }
+		icon = 27
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+
+		personal_deity = yes
+		
+		heretic = { GOAT_SKULL }
+	}
+
+	harmonized_modifier = harmonized_celtic
 	crusade_name = CRUSADE
 }
 
@@ -519,6 +945,50 @@ slavic_pagan = {
 		
 		heretic = { BEAR_SPIRIT SNAKE_CLAN }
 	}
+
+	heros_karabazmos  = {
+		color = { 0.34 0.45 0.6 }
+		icon = 101
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			cavalry_power = 0.1
+			tolerance_heretic = 1
+		}
+		country_as_secondary = {
+			hostile_attrition = 1
+			tolerance_heretic = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	bird_figure  = {
+		color = { 0.01 0.54 0.6 }
+		icon = 110
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			tolerance_own = 1
+			defensiveness = 0.2
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+	
+	harmonized_modifier = harmonized_north_european
+
+	crusade_name = CRUSADE
+}
+
+finnic_pagan = {
+
+	flags_with_emblem_percentage = 10
+	flag_emblem_index_range = { 83 96 }
 	
 	suomenusko = {
 		color = { 120 100 0 }
@@ -539,9 +1009,9 @@ slavic_pagan = {
 		
 		heretic = { BEAR_SPIRIT SNAKE_CLAN }
 	}
-	
-	harmonized_modifier = harmonized_north_european
 
+	harmonized_modifier = harmonized_north_european
+	
 	crusade_name = CRUSADE
 }
 
@@ -640,6 +1110,341 @@ african_pagan = {
 		fetishist_cult = yes
 		heretic = { GOAT_SKULL }
 	}
+
+	amanaiism  = {
+		color = { 0.58 0.5 0.17 }
+		icon = 88
+		province = {
+			local_missionary_strength = 0.03
+		}
+		country = {
+			tolerance_heretic = 1
+			land_attrition = -0.15
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			land_attrition = -0.15
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	kemitism  = {
+		color = { 0.96 0.88 0.41 }
+		icon = 89
+		country = {
+			tolerance_heathen = 2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_unrest = -1
+		}
+		
+		fetishist_cult = yes
+		heretic = { ATHEIST }
+		date = 1970.1.1
+	}
+
+	odinani  = {
+		color = { 0.09 0.66 0.47 }
+		icon = 91
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			trade_efficiency = 0.05
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			land_attrition = -0.15
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	amatongo  = {
+		color = { 0.31 0.24 0.15 }
+		icon = 93
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			infantry_power = 0.1
+			war_exhaustion = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			war_exhaustion = -0.1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	bumuntu  = {
+		color = { 0.74 0.2 0.26 }
+		icon = 94
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			army_tradition_decay = -0.01
+			land_morale = 0.10
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			army_tradition_decay = -0.01
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	canaanite_religion  = {
+		color = { 0.54 0.2 0.14 }
+		icon = 95
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			trade_range_modifier = 0.25
+			global_tax_modifier = 0.05
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_range_modifier = 0.25
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN CULT_OF_YARHIBOL CULT_OF_ALLAT CULT_OF_POSEIDON }
+	}
+
+	fat_roog  = {
+		color = { 0.45 0.74 0.32 }
+		icon = 97
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			advisor_pool = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			advisor_pool = 1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	itan  = {   # Yoruba
+		color = { 0.68 0.39 0.17 }
+		icon = 98
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			prestige_decay = -0.01
+			heir_chance = 0.5
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			heir_chance = 0.5
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	laiboni  = {
+		color = { 0.81 0.04 0.11 }
+		icon = 99
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			global_manpower_modifier = 0.1
+			culture_conversion_cost = -0.2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_manpower_modifier = 0.1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	num_faith  = {
+		color = { 0.99 0.37 0.3 }
+		icon = 102
+		province = {
+			local_missionary_strength = 0.03
+		}
+		country = {
+			land_attrition = -0.15
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			land_attrition = -0.15
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	nzambiism  = {
+		color = { 0.43 0.04 0.08 }
+		icon = 103
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_own = 1
+			infantry_cost = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			infantry_cost = -0.1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	voodoo  = {
+		color = { 0.27 0.25 0.19 }
+		icon = 104
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			hostile_attrition = 1
+			global_missionary_strength = 0.01
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			hostile_attrition = 1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	onyamesom  = {
+		color = { 0.9 0.66 0.33 }
+		icon = 105
+		country = {
+			war_exhaustion_cost = -0.2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			war_exhaustion_cost = -0.2
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	byeri  = {
+		color = { 0.61 0.48 0.22 }
+		icon = 113
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			advisor_pool = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			advisor_pool = 1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	imohag  = {
+		color = { 0.45 0.66 0.76 }
+		icon = 115
+		province = {
+			local_missionary_strength = 0.04
+		}
+		country = {
+			trade_efficiency = 0.05
+			land_attrition = -0.15
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			trade_efficiency = 0.05
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	mwari  = {
+		color = { 0.91 0.01 0.05 }
+		icon = 120
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			army_tradition_decay = -0.01
+			land_morale = 0.10
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			army_tradition_decay = -0.01
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+	
+	santeria  = {
+		color = { 0.58 0.01 0.1 }
+		icon = 81
+		country = {
+			tolerance_heretic = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			tolerance_heretic = 1
+			stability_cost_modifier = -0.1
+		}
+		
+		fetishist_cult = yes
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+	
+	#New added in MMETR
+	
+	waaqism = {
+		color = { 0 110 85 }
+		icon = 128
+		country = {
+			trade_efficiency = 0.1
+			tolerance_own = 1
+		}
+		province = {
+			local_missionary_strength = 0.03
+		}
+		country_as_secondary = {
+			trade_efficiency = 0.1
+			tolerance_heathen = 1
+		}
+		
+		heretic = { NIDARISM }
+	}
 	
 	harmonized_modifier = harmonized_african
 
@@ -694,8 +1499,302 @@ mesopotamian = {
 		
 		annex = yes
 	}
+
+	yazdanism  = {
+		color = { 0.66 0.69 0.12 }
+		icon = 87
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			tolerance_heretic = 1
+			culture_conversion_cost = -0.2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			culture_conversion_cost = -0.2
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+		date = 410.1.1
+	}
+
+	akattu  = {
+		color = { 0.68 0.65 0.48 }
+		icon = 96
+		province = {
+			local_missionary_strength = 0.04
+		}
+		country = {
+			tolerance_own = 1
+			religious_unity = 0.5
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_own = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	natib_quadish  = {
+		color = { 0.57 0.43 0.15 }
+		icon = 106
+		country = {
+			tolerance_heathen = 2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_unrest = -1
+		}		
+		heretic = { ATHEIST }
+	}
 	
 	harmonized_modifier = harmonized_mesopotamian
 
+	crusade_name = CRUSADE
+}
+
+pacific_pagan = {	
+
+	dreamtime = {
+		icon = 58
+		color = { 197 133 43 }
+		country = {
+			shock_damage_received = -0.05
+			diplomatic_reputation = 1
+		}
+		country_as_secondary = {
+			shock_damage = 0.1
+			hostile_attrition = 2
+		}
+		
+		fetishist_cult = yes
+		heretic = { WAGYLKOOP MOORAMOORA GINGARRURNDE }
+	}
+
+	manaism  = {
+		color = { 0.1 0.75 0.75 }
+		icon = 59
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			transport_cost = -0.2
+			naval_attrition = -0.25
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			naval_attrition = -0.25
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	puata_tupuna  = {
+		color = { 0.7 0.5 0.2 }
+		icon = 60
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			ship_durability = 0.1
+			naval_attrition = -0.25
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			ship_durability = 0.1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	moai  = {
+		color = { 0.82 0.74 0.66 }
+		icon = 114
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			trade_range_modifier = 0.5
+			naval_attrition = -0.4
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			naval_attrition = -0.4
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	satsana_phi  = {
+		color = { 0.73 0.27 0.33 }
+		icon = 80
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			diplomatic_upkeep = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			diplomatic_upkeep = 1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	razana  = {
+		color = { 0.53 0.26 0.11 }
+		icon = 82
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			religious_unity = 0.5
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_unrest = -1
+		}
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+	
+	harmonized_modifier = harmonized_pacific
+	crusade_name = CRUSADE
+}
+
+jainko_group = {
+
+	jainko  = {
+		color = { 0.22 0.43 0.28 }
+		icon = 111
+		province = {
+			local_missionary_strength = -0.03
+		}
+		country = {
+			tolerance_heathen = 1
+			religious_unity = 0.5
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_heathen = 1
+		}
+		heretic = { SERAPIS }
+	}
+
+	harmonized_modifier = harmonized_jainko
+	crusade_name = CRUSADE
+}
+
+fantasy_pagan = {
+
+	yevon = {
+		color = { 0.35 0.3 0.55 }
+		icon = 52
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			tolerance_heathen = -1
+			religious_unity = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_unrest = -1
+		}
+		personal_deity = yes
+		heretic = { ATHEIST }
+	}
+
+	okami = {
+		color = { 0.95 0.2 0.15 }
+		icon = 54
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			tolerance_own = 2
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_own = 2
+		}
+		heretic = { ATHEIST }
+	}
+
+	penguin = {
+		color = { 0.85 0.85 0.85 }
+		icon = 55
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			technology_cost = -0.05
+			idea_cost = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			idea_cost = -0.1
+		}
+		heretic = { ATHEIST }
+	}
+
+	jediism = {
+		color = { 0.25 0.29 0.3 }
+		icon = 121
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			technology_cost = -0.05
+			idea_cost = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			technology_cost = -0.05
+		}
+		heretic = { ATHEIST }
+	}
+
+	cthulhu = {
+		color = { 0.01 0.25 0.25 }
+		icon = 122
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country = {
+			tolerance_own = 2
+			defensiveness = 0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			defensiveness = 0.1
+		}
+		heretic = { ATHEIST }
+	}
+
+	harmonized_modifier = harmonized_fantasy
+	crusade_name = CRUSADE
+}
+
+wiccan = {
+
+	wicca  = {
+		color = { 0.92 0.92 0.92 }
+		icon = 108
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			reinforce_speed = 0.25
+			tolerance_heathen = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			reinforce_speed = 0.25
+		}
+		heretic = { ATHEIST }
+	}
+
+	harmonized_modifier = harmonized_wicca
 	crusade_name = CRUSADE
 }

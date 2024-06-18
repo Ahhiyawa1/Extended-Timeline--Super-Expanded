@@ -1,3 +1,4 @@
+#CPBM EDITS - Add CPBM OR CLAUSE sections below
 
 barbarian_reform = {
 	icon = "horde_riding"
@@ -36,7 +37,7 @@ caliphate_reform = {
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
-	fixed_rank = 3
+	fixed_rank = 10
 
 	nation_designer_trigger = {
 		religion_group = muslim
@@ -78,7 +79,7 @@ caliphate_theocratic_reform = {
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
-	fixed_rank = 3
+	fixed_rank = 10
 
 	nation_designer_trigger = {
 		religion_group = muslim
@@ -109,7 +110,7 @@ roman_empire_reform = {
 	potential = {
 		has_reform = roman_empire_reform
 	}
-	fixed_rank = 3
+	fixed_rank = 10
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
 	lock_level_when_selected = yes
@@ -139,7 +140,7 @@ roman_republic_reform = {
 	potential = {
 		has_reform = roman_republic_reform
 	}
-	fixed_rank = 3
+	fixed_rank = 10
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
 
@@ -224,7 +225,7 @@ feudal_empire_reform = {
 		owns = 1020
 	}
 	legacy_equivalent = feudal_monarchy
-	fixed_rank = 3
+	fixed_rank = 10
 	maintain_dynasty = yes
 	allow_vassal_war = yes
 	allow_vassal_alliance = yes
@@ -258,7 +259,7 @@ grand_principality = {
 			}
 		}
 	}
-	fixed_rank = 2
+	fixed_rank = 6
 	legacy_equivalent = principality_legacy
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -389,7 +390,7 @@ parthian_reform = {
 	icon = "parthian_reform"
 	allow_normal_conversion = no
 	potential = {
-		religion_group = zoroastrian_group
+		religion_group = zoroastrian_group		
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 15
@@ -737,6 +738,16 @@ communist_government = {
 				NOT = { has_global_flag = extended_timeline_mod }
 			}
 		}
+		#CPBM OR CLAUSE
+		OR = {
+			NOT = { stability = 0 }
+			corruption = 10
+			NOT = { legitimacy_equivalent = 50 }
+			ruler_has_personality = malevolent_personality
+			war_exhaustion = 10
+			average_unrest = 5
+			has_reform = communist_government
+		}
 	}
 	modifiers = {
 		land_forcelimit_modifier = 0.5
@@ -768,6 +779,16 @@ fascist_government = {
 			hidden_trigger = {
 				NOT = { has_global_flag = extended_timeline_mod }
 			}
+		}
+		#CPBM OR CLAUSE
+		OR = {
+			NOT = { stability = 0 }
+			corruption = 10
+			NOT = { legitimacy_equivalent = 30 }
+			ruler_has_personality = malevolent_personality
+			war_exhaustion = 8
+			average_unrest = 5
+			has_reform = fascist_government
 		}
 	}
 	modifiers = {

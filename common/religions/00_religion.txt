@@ -1,3 +1,9 @@
+# CPBM - BEST TO COMPARE PREV ET TO NEW ET AND REFLECT CHANGES
+# Added religions and changing icon IDs
+# Shifts: dreamtime to pacific_pagan in et_religion
+# Added religions: Baptist, Mandaenism, Ahmadiyya, Mutazila, Shaivism, Shaktism
+# Added MMETR sections (Find)
+
 # If you add religions, and use those tags, do not change them without changing everywhere they are used.
 
 # Uses all 'modifiers' possible thats exported as a Modifier.
@@ -346,12 +352,12 @@ christian = {
 			}
 		}
 
-		date = 2965.1.1
+		date = 867.1.1
 	}
 	
 	anglican = {
 		color = { 135 77 255 }
-		icon = 50
+		icon = 92
 		allow_female_defenders_of_the_faith = yes
 
 		allowed_center_conversion = {
@@ -384,12 +390,12 @@ christian = {
 		
 		heretic = { PENTECOSTAL PURITAN CONGREGATIONALIST }
 		
-		date = 3632.11.3 # act of supremacy
+		date = 1534.11.3 # act of supremacy
 	}
 	
 	cathar = {
 		color = { 90 90 240 }
-		icon = 57
+		icon = 49
 		
 		allowed_center_conversion = {
 			catholic
@@ -422,12 +428,12 @@ christian = {
 
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI LOLLARD SOCINIAN }
 		
-		date = 3241.1.1
+		date = 1143.1.1
 	}
 	
 	hussite = {
 		color = { 244 55 9 }
-		icon = 53
+		icon = 76
 
 		allowed_center_conversion = {
 			catholic
@@ -460,7 +466,7 @@ christian = {
 		
 		heretic = { TABORITE UTRAQUIST ORPHAN }
 		
-		date = 3513.7.6
+		date = 1415.7.6
 	}
 	
 	protestant = {
@@ -603,7 +609,7 @@ christian = {
 		
 		heretic = { PENTECOSTAL PURITAN CONGREGATIONALIST }
 		
-		date = 3615.10.31
+		date = 1517.10.31
 	}
 
 	reformed = {
@@ -721,7 +727,7 @@ christian = {
 		
 		heretic = { METHODIST BAPTIST QUAKER }
 		
-		date = 3634.5.1
+		date = 1536.5.1
 		
 		fervor = yes
 	}
@@ -880,7 +886,7 @@ christian = {
 							amount = 5
 						}
 					}
-				}
+				}	
 			}
 			
 			#New added in mod
@@ -929,7 +935,7 @@ christian = {
 			}
 		}
 
-		date = 2965.1.1
+		date = 867.1.1
 	}
 	
 	coptic = {
@@ -976,7 +982,7 @@ christian = {
 			will_of_the_martyrs
 		}
 
-		date = 2549.11.1
+		date = 451.11.1
 	}
 
 	nestorian = {
@@ -1014,7 +1020,7 @@ christian = {
 			promote_religious_education
 		}
 
-		date = 2529.7.1
+		date = 431.7.1
 	}
 
 	arianism = {
@@ -1042,7 +1048,7 @@ christian = {
 		
 		has_patriarchs = yes		# Uses patriarch authority
 
-		date = 2423.1.1
+		date = 325.1.1
 		
 		orthodox_icons = {
 			# If no icon has ai_will_do above 1 - <current patriarch authority> , the AI will not enact it. (60% PA = 0.6 -> ai_will_do has to be at least 0.4)
@@ -1159,10 +1165,36 @@ christian = {
 			}
 		}
 	}
+
+	baptist = {
+		color = { 0.8 0.2 0.2 }
+		icon = 50
+		allowed_conversion = {
+			reformed
+			protestant
+		}
+		country = {
+			tolerance_own = 1
+			global_missionary_strength = 0.05
+		}
+		country_as_secondary = {
+			global_tax_modifier = 0.1
+			global_missionary_strength = 0.02
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		on_convert = {
+			change_religion = baptist
+			add_stability = -3
+		}
+		heretic = { METHODIST QUAKER }
+		date = 1734.1.1
+	}
 	
 	mormon = {
 		color = { 175 198 235 }
-		icon = 58
+		icon = 51
 		allowed_conversion = {
 			catholic
 			protestant
@@ -1186,12 +1218,12 @@ christian = {
 
 		heretic = { FUNDAMENTALIST LIBERAL }
 		fervor = yes
-		date = 3928.3.1
+		date = 1830.3.1
 	}
 	
 	reformed_chalcedonism = {
 		color = { 220 180 70 }
-		icon = 59
+		icon = 125
 		allowed_conversion = {
 		}
 		country = {
@@ -1224,7 +1256,7 @@ christian = {
 
 	bogomilism = {
 		color = { 170 0 0 }
-		icon = 61
+		icon = 75
 		allowed_conversion = {
 		}
 		country = {
@@ -1246,12 +1278,39 @@ christian = {
 
 		heretic = { WALDENSIAN FRATICELLI HUSSITE LOLLARD SOCINIAN }
 
-		date = 3038.1.1
+		date = 940.1.1
+	}
+
+	mandaenism  = {
+		color = { 0.91 0.91 0.59 }
+		icon = 100
+		allowed_conversion = {
+			chalcedonism
+			nestorian
+			arianism
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		country = {
+			tolerance_heretic = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			global_tax_modifier = 0.1
+		}	
+		on_convert = {
+			change_religion = mandaenism
+			add_stability = -3
+		}	
+		heretic = { ATHEIST }
+		date = 280.1.1
 	}
 
 	waldensian = {
 		color = { 215 255 90 }
-		icon = 62
+		icon = 118
 		allowed_conversion = {
 			catholic
 			hussite
@@ -1284,12 +1343,12 @@ christian = {
 
 		heretic = { BOGOMILIST FRATICELLI LOLLARD SOCINIAN }
 
-		date = 3271.1.1
+		date = 1173.1.1
 	}
 
 	lollard = {
 		color = { 215 70 235 }
-		icon = 63
+		icon = 126
 		allowed_conversion = {
 			catholic
 			anglican
@@ -1384,9 +1443,9 @@ christian = {
 
 		heretic = { BOGOMILIST FRATICELLI WALDENSIAN SOCINIAN }
 
-		date = 3475.1.1
+		date = 1377.1.1
 	}
-
+	
 	harmonized_modifier = harmonized_christian
 	
 	crusade_name = CRUSADE
@@ -2027,11 +2086,79 @@ muslim = {
 
 			infantry_power = 0.10
 		}
+		
+		#Added in MMETR - Qarmatian revolutionary school
+		qarmati_school = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+					tag = QRM
+				}
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = no_scholar_adm_cost }
+					}
+					adm_power_cost = 50
+				}
+				if = {
+					limit = {
+						NOT = { religion = shiite }
+					}
+					NOT = { piety = -0.5 }
+				}
+				reverse_has_opinion = { who = FROM value = 150 }
+				OR = {
+					alliance_with = FROM
+					is_subject_of = FROM
+					overlord_of = FROM
+				}
+				hidden_progressive_opinion_for_scholar_trigger = yes
+				if = {
+					limit = {
+						ai = yes
+					}
+					NOT = { has_country_modifier = has_invited_scholar_recently }
+				}
+				NOT = { has_country_modifier = qarmati_scholar_modifier }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = no_scholar_adm_cost }
+					}
+					adm_power_cost = 50
+				}
+				clear_religious_scholar_modifiers_effect = yes
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = qarmati_scholar_modifier duration = 7300 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					add_country_modifier = { name = has_invited_scholar_recently duration = 7300 hidden = yes }
+				}
+			}
+			
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = qarmati_scholar_modifier
+
+			picture = "GFX_icon_muslim_school_qarmatian"
+
+			#cavalry_power = 0.1
+			may_perform_slave_raid_on_same_religion = yes		#limit to one bonus
+			#tolerance_heretic = -2
+		}
 	}
 	
 	islam = {
 		color = { 0 178 0 }
-		icon = 55
+		icon = 109
 		country = {
 			heir_chance = 1.0
 		}
@@ -2047,7 +2174,7 @@ muslim = {
 	
 		uses_piety = yes				# Uses piety mechanics
 
-		date = 2725.1.1
+		date = 627.1.1
 	}
 	
 	sunni = {
@@ -2073,7 +2200,7 @@ muslim = {
 		
 		uses_piety = yes				# Uses piety mechanics
 
-		date = 2759.7.28
+		date = 661.7.28
 	}
 
 	shiite = {
@@ -2099,7 +2226,7 @@ muslim = {
 		
 		uses_piety = yes				# Uses piety mechanics
 		
-		date = 2759.7.28
+		date = 661.7.28
 	}
 	
 	ibadi = {
@@ -2125,7 +2252,37 @@ muslim = {
 		
 		uses_piety = yes				# Uses piety mechanics
 
-		date = 2788.1.1
+		date = 690.1.1
+	}
+
+	ahmadiyya = {
+		color = { 0.5 0.7 0.2 }
+		icon = 61
+		country = {
+			tolerance_heathen = 1
+			stability_cost_modifier = -0.1
+		}
+		country_as_secondary = {
+			trade_efficiency = 0.1
+			stability_cost_modifier = -0.1
+		}
+		heretic = { BEKTASHI ZIKRI YAZIDI }
+		date = 1889.1.1
+	}
+
+	mutazila  = {
+		color = { 0.49 0.98 0.01 }
+		icon = 77
+		country = {
+			idea_cost = -0.1
+			diplomatic_upkeep = 1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			diplomatic_upkeep = 1
+		}		
+		heretic = { BEKTASHI ZIKRI YAZIDI }
+		date = 740.1.1
 	}
 	
 	harmonized_modifier = harmonized_muslim
@@ -2196,7 +2353,7 @@ buddhic = {
 		
 		uses_karma = yes
 
-		date = 2728.1.1
+		date = 630.1.1
 	}
 	
 	mahayana = {
@@ -2304,7 +2461,7 @@ dharmic = {
 
 		heretic = { MASANDIS }
 
-		date = 3597.01.01
+		date = 1499.01.01
 
 		gurus = {
 			guru_nanak = {
@@ -2340,7 +2497,7 @@ dharmic = {
 			}
 			guru_angad = {
 				trigger = {
-					is_year = 3637
+					is_year = 1539
 					is_month = 9
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2348,23 +2505,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3638
+						is_year = 1540
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3639
+						is_year = 1541
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3640
+						is_year = 1542
 					}
 					modifier = {
 						factor = 2
-						is_year = 3641
+						is_year = 1543
 					}
 					modifier = {
 						factor = 2
-						is_year = 3642
+						is_year = 1544
 					}
 				}
 				modifier = {
@@ -2393,7 +2550,7 @@ dharmic = {
 			}
 			guru_amar_das = {
 				trigger = {
-					is_year = 3650
+					is_year = 1552
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2401,23 +2558,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3651
+						is_year = 1553
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3652
+						is_year = 1554
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3653
+						is_year = 1555
 					}
 					modifier = {
 						factor = 2
-						is_year = 3654
+						is_year = 1556
 					}
 					modifier = {
 						factor = 2
-						is_year = 3655
+						is_year = 1557
 					}
 				}
 				modifier = {
@@ -2448,7 +2605,7 @@ dharmic = {
 			}
 			guru_ram_das = {
 				trigger = {
-					is_year = 3672
+					is_year = 1574
 					is_month = 9
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2456,23 +2613,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3673
+						is_year = 1575
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3674
+						is_year = 1576
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3675
+						is_year = 1577
 					}
 					modifier = {
 						factor = 2
-						is_year = 3676
+						is_year = 1578
 					}
 					modifier = {
 						factor = 2
-						is_year = 3677
+						is_year = 1579
 					}
 				}
 				modifier = {
@@ -2505,7 +2662,7 @@ dharmic = {
 			}
 			guru_arjan = {
 				trigger = {
-					is_year = 3679
+					is_year = 1581
 					is_month = 9
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2513,23 +2670,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3680
+						is_year = 1582
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3681
+						is_year = 1583
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3682
+						is_year = 1584
 					}
 					modifier = {
 						factor = 2
-						is_year = 3683
+						is_year = 1585
 					}
 					modifier = {
 						factor = 2
-						is_year = 3684
+						is_year = 1586
 					}
 				}
 				modifier = {
@@ -2558,7 +2715,7 @@ dharmic = {
 			}
 			guru_hargobind = {
 				trigger = {
-					is_year = 3704
+					is_year = 1606
 					is_month = 6
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2566,23 +2723,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3705
+						is_year = 1607
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3706
+						is_year = 1608
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3707
+						is_year = 1609
 					}
 					modifier = {
 						factor = 2
-						is_year = 3708
+						is_year = 1610
 					}
 					modifier = {
 						factor = 2
-						is_year = 3709
+						is_year = 1611
 					}
 				}
 				modifier = {
@@ -2615,7 +2772,7 @@ dharmic = {
 			}
 			guru_har_rai = {
 				trigger = {
-					is_year = 3742
+					is_year = 1644
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2623,23 +2780,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3743
+						is_year = 1645
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3744
+						is_year = 1646
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3745
+						is_year = 1647
 					}
 					modifier = {
 						factor = 2
-						is_year = 3746
+						is_year = 1648
 					}
 					modifier = {
 						factor = 2
-						is_year = 3747
+						is_year = 1649
 					}
 				}
 				modifier = {
@@ -2670,7 +2827,7 @@ dharmic = {
 			}
 			guru_har_krishan = {
 				trigger = {
-					is_year = 3759
+					is_year = 1661
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2678,23 +2835,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3760
+						is_year = 1662
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3761
+						is_year = 1663
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3762
+						is_year = 1664
 					}
 					modifier = {
 						factor = 2
-						is_year = 3763
+						is_year = 1665
 					}
 					modifier = {
 						factor = 2
-						is_year = 3764
+						is_year = 1666
 					}
 				}
 				modifier = {
@@ -2723,7 +2880,7 @@ dharmic = {
 			}
 			guru_tegh_bahadur = {
 				trigger = {
-					is_year = 3763
+					is_year = 1665
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2731,23 +2888,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3764
+						is_year = 1666
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3765
+						is_year = 1667
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3766
+						is_year = 1668
 					}
 					modifier = {
 						factor = 2
-						is_year = 3767
+						is_year = 1669
 					}
 					modifier = {
 						factor = 2
-						is_year = 3768
+						is_year = 1670
 					}
 				}
 				modifier = {
@@ -2776,7 +2933,7 @@ dharmic = {
 			}
 			guru_gobind_singh = {
 				trigger = {
-					is_year = 3773
+					is_year = 1675
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2784,23 +2941,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3774
+						is_year = 1676
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3775
+						is_year = 1677
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3776
+						is_year = 1678
 					}
 					modifier = {
 						factor = 2
-						is_year = 3777
+						is_year = 1679
 					}
 					modifier = {
 						factor = 2
-						is_year = 3778
+						is_year = 1680
 					}
 				}
 				modifier = {
@@ -2829,7 +2986,7 @@ dharmic = {
 			}
 			guru_granth_sahib = {
 				trigger = {
-					is_year = 3806
+					is_year = 1708
 					is_month = 3
 					NOT = { has_global_flag = guru_event_happening }
 				}
@@ -2837,23 +2994,23 @@ dharmic = {
 					factor = 5
 					modifier = {
 						factor = 1.5
-						is_year = 3807
+						is_year = 1709
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3808
+						is_year = 1710
 					}
 					modifier = {
 						factor = 1.5
-						is_year = 3809
+						is_year = 1711
 					}
 					modifier = {
 						factor = 2
-						is_year = 3810
+						is_year = 1712
 					}
 					modifier = {
 						factor = 2
-						is_year = 3811
+						is_year = 1713
 					}
 				}
 				modifier = {
@@ -2944,7 +3101,7 @@ dharmic = {
 	
 	sanamahism = {
 		color = { 160 90 180 }
-		icon = 49
+		icon = 124
 		province = {
 			local_missionary_strength = 0.01
 		}
@@ -2961,6 +3118,48 @@ dharmic = {
 
 		heretic = { BHAKTI }
 	}
+
+	shaivism  = {
+		color = { 0.63 0.02 0.52 }
+		icon = 78
+		allowed_conversion = {
+			hinduism
+		}
+		country = {
+			enemy_core_creation = 0.2
+			war_exhaustion = -0.1
+		}
+		country_as_secondary = {
+			tolerance_heretic = 1
+			war_exhaustion = -0.1
+		}
+		on_convert = {
+			change_religion = shaivism
+			add_stability = -3
+		}			
+		heretic = { BHAKTI }
+	}
+
+	shaktism  = {
+		color = { 0.01 0.47 0.43 }
+		icon = 79
+		allowed_conversion = {
+			hinduism
+		}
+		country = {
+			infantry_power = 0.1
+			heir_chance = 1.0
+		}
+		country_as_secondary = {
+			tolerance_heretic = 1
+			heir_chance = 1.0
+		}
+		on_convert = {
+			change_religion = shaktism
+			add_stability = -3
+		}
+		heretic = { BHAKTI }
+	}
 	
 	harmonized_modifier = harmonized_dharmic
 
@@ -2975,6 +3174,9 @@ eastern = {
 	confucianism = {
 		color = { 214 229 140 }
 		icon = 15
+		allowed_conversion = {		#new added in MMETR
+			daoism
+		}
 		country = {
 			tolerance_heretic = 2
 			adm_tech_cost_modifier = -0.1
@@ -2983,8 +3185,16 @@ eastern = {
 			adm_tech_cost_modifier = -0.1
 			stability_cost_modifier = -0.1
 		}
+		
+		on_convert = {		#new added in MMETR
+			change_religion = confucianism
+			add_stability = -3
+		}
+		
 		heretic = { TAOIST }
 		uses_harmony = yes
+		
+		harmonized_modifier = harmonized_confucianism		#added MMETR, since can now be harmonized by daoism
 	}
 
 	shinto = {
@@ -3044,8 +3254,45 @@ eastern = {
 			loot_amount = 0.25
 		}
 		
+		#New Kut aspects added in MMETR
+		uses_anglican_power = yes				# Uses church power/aspect mechanics
+		
+		aspects_name = MUISM_ASPECTS
+		
+		aspects = {
+			hwanin_kut_aspect
+			dangun_kut_aspect
+			munsin_kut_aspect
+			yeongdeung_kut_aspect
+			samsin_halmeoni_kut_aspect
+			bari_gongju_kut_aspect
+			naerim_kut_aspect
+			sinjang_kut_aspect
+			sansin_kut_aspect
+			buddha_kut_aspect
+			jade_emperor_aspect
+			tengri_kut_aspect
+			indra_kut_aspect
+		}
+		
 		harmonized_modifier = harmonized_muism
 		
+		heretic = { TAOIST }
+	}
+
+	moism = {
+		color = { 0.84 0.09 0.4 }
+		icon = 119
+		country = {
+			tolerance_heretic = 1
+			tolerance_heathen = 2
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			tolerance_heretic = 1
+		}
+		
+		harmonized_modifier = harmonized_moism
 		heretic = { TAOIST }
 	}
 	
@@ -3081,6 +3328,34 @@ eastern = {
 		harmonized_modifier = harmonized_satsana_phi
 		
 		heretic = { SNAKE_CLAN }
+	}
+	
+	#New added in MMETR
+	daoism = {
+		color = { 196 146 36 }
+		icon = 127				#since left is blank for irreligious, is 60 out of 61 as of adding this
+		allowed_conversion = {
+			confucianism
+		}
+		country = {
+			tolerance_heretic = 2
+			manpower_recovery_speed = 0.1
+		}
+		country_as_secondary = {
+			stability_cost_modifier = -0.1
+			manpower_recovery_speed = 0.1
+		}
+		
+		on_convert = {		#new added in MMETR
+			change_religion = daoism
+			add_stability = -3
+		}
+		
+		heretic = { TIANSHIDAO WUDOUMIDAO ZHENGYIDAO  }
+		
+		uses_harmony = yes
+		
+		harmonized_modifier = harmonized_daoism		#added MMETR, since can now be harmonized by confucianism
 	}
 	
 	crusade_name = CRUSADE
@@ -3124,22 +3399,6 @@ pagan = {
 			loot_amount = 0.25
 		}
 		heretic = { GOAT_SKULL }
-	}
-	
-	dreamtime = {
-		icon = 56
-		color = { 197 133 43 }
-		country = {
-			shock_damage_received = -0.05
-			diplomatic_reputation = 1
-		}
-		country_as_secondary = {
-			shock_damage = 0.1
-			hostile_attrition = 2
-		}
-		
-		fetishist_cult = yes
-		heretic = { WAGYLKOOP MOORAMOORA GINGARRURNDE }
 	}
 	
 	harmonized_modifier = harmonized_pagan

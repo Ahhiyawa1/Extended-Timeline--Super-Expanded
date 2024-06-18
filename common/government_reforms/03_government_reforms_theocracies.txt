@@ -66,7 +66,7 @@ monastic_order_reform = {
 	allow_normal_conversion = yes
 	legacy_equivalent = monastic_order_government
 	monastic = yes
-	fixed_rank = 1
+	fixed_rank = 7 #MOD 1
 	custom_attributes = {
 		monastic_order = yes
 	}
@@ -102,7 +102,7 @@ crusading_kingdom_reform = {
 	custom_attributes = {
 		monastic_order = yes
 	}
-	fixed_rank = 2
+	fixed_rank = 8
 }
 
 teutonic_bishopric_reform = {
@@ -319,7 +319,7 @@ holy_horde_reform = {
 		}
 		raze_province = yes
 	}
-	fixed_rank = 3
+	fixed_rank = 10
 	custom_attributes = {
 		enables_horde_idea_group = yes
 		monastic_order = yes
@@ -511,7 +511,7 @@ papacy_reform = {
 	papacy = yes
 	allow_convert = no
 	lock_level_when_selected = yes
-	fixed_rank = 2
+	fixed_rank = 8
 
 	custom_attributes = {
 		locked_government_type = yes
@@ -573,14 +573,14 @@ tibetan_dual_government_reform = {
 		}
 	}
 	trigger = {
-		religion_group = buddhic
+		religion_group = eastern
 		OR = {
 			primary_culture = tibetan
 			culture_group = tibetan_group
 		}
 	}
 	nation_designer_trigger = {
-		religion_group = buddhic
+		religion_group = eastern
 		OR = {
 			primary_culture = tibetan
 			culture_group = tibetan_group
@@ -709,10 +709,7 @@ dutch_theocracy_reform = {
 	}
 	conditional = {
 		allow = {
-			or = {
-				has_dlc = "Res Publica"
-				has_dlc = "Winds of Change"
-			}
+			has_dlc = "Res Publica"
 		}
 		queen = no
 		heir = no
@@ -1099,7 +1096,7 @@ kingdom_of_god_reform = {
 	}
 	allow_normal_conversion = yes
 	lock_level_when_selected = yes
-	fixed_rank = 3
+	fixed_rank = 10
 	custom_attributes = {
 		education_focus_enabled = yes
 	}
@@ -1508,7 +1505,6 @@ pursuit_of_knowledge_reform = {
 
 clerical_commission_reform = {
 	icon = "clergyman"
-	fixed_rank = 0
 	allow_normal_conversion = yes
 	modifiers = {
 		global_unrest = -1
@@ -1539,7 +1535,6 @@ divine_guidance_reform = {
 
 theocratic_democracy_reform = {
 	icon = "ballot_box"
-	fixed_rank = 0
 	modifiers = {
 		global_unrest = -1
 	}
@@ -1612,7 +1607,6 @@ theocratic_democracy_reform = {
 constitional_theocracy_reform = {
 	icon = "assembly_hall"
 	allow_normal_conversion = yes
-	fixed_rank = 0
 	modifiers = {
 		years_of_nationalism = -10
 	}
@@ -1625,7 +1619,6 @@ constitional_theocracy_reform = {
 regionally_elected_commanders = {
 	icon = "regionally_elected_commanders"
 	allow_normal_conversion = yes
-	fixed_rank = 0
 	modifiers = {
 		global_unrest = -1
 	}
@@ -1699,7 +1692,6 @@ regionally_elected_commanders = {
 monastic_elections_reform = {
 	icon = "monastic_elections_reform"
 	allow_normal_conversion = yes
-	fixed_rank = 0
 	modifiers = {
 		stability_cost_modifier = -0.15
 	}
@@ -1738,7 +1730,6 @@ monastic_elections_reform = {
 commander_king_reform = {
 	icon = "commander_king_reform"
 	allow_normal_conversion = yes
-	fixed_rank = 0
 	
 	potential = {
 		NOT = { has_reform = papacy_reform }
@@ -1763,7 +1754,6 @@ commander_king_reform = {
 admiral_king_reform = {
 	icon = "admiral_king_reform"
 	allow_normal_conversion = yes
-	fixed_rank = 0
 	
 	potential = {
 		NOT = { has_reform = papacy_reform }

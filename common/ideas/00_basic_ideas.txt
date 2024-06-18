@@ -1,3 +1,5 @@
+# CPBM - Changes to ai_will_do for exploration and expansion
+
 # Do not change tags in here without changing every other reference to them.
 # Do not change tags in here without changing every other reference to them.
 # If adding new groups or ideas, make sure they are unique.
@@ -352,7 +354,7 @@ innovativeness_ideas = {
 		modifier = {
 			factor = 1.25
 			innovativeness = 40
-			NOT = { is_year = 3748 }
+			NOT = { is_year = 1650 }
 		}
 		modifier = {
 			factor = 1.25
@@ -377,7 +379,7 @@ innovativeness_ideas = {
 		modifier = {
 			factor = 0
 			OR = {
-				is_year = 3798 
+				is_year = 1700 
 				innovativeness = 80
 			}
 		}
@@ -999,14 +1001,14 @@ exploration_ideas = {
 		naval_attrition = -0.1
 	}
 	colonial_ventures = {
-		colonists = 3
+		colonists = 1
 		effect = { remove_temporary_colonist = yes }
 	}
 	overseas_exploration = {
 		range = 0.5
 	}
 	land_of_opportunity = {
-		global_colonial_growth = 200
+		global_colonial_growth = 10
 	}
 	factories = {
 		trade_company_governing_cost = -0.1
@@ -1021,144 +1023,313 @@ exploration_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 1
+		factor = 10
 		modifier = {
-			factor = 0
-			is_colonial_nation = yes
+			factor = 0.1
+			NOT = { dip = 1 }
+		}
+		modifier = {
+			factor = 0.3
+			NOT = { dip = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { dip = 3 }
+		}
+		modifier = {
+			factor = 2
+			dip = 3
+		}
+		modifier = {
+			factor = 2
+			dip = 4
+		}
+		modifier = {
+			factor = 2
+			dip = 5
+		}
+		modifier = {
+			factor = 2
+			dip = 6
 		}
 		modifier = {
 			factor = 0
-			is_tribal = yes
-		}
-		modifier = {
-			factor = 0
-			is_subject = yes
-		}		
-		modifier = {
-			factor = 0
-			primitives = yes
-		}
-		modifier = {
-			factor = 0
-			current_age = age_of_revolutions #too late
-		}
-		modifier = {
-			factor = 0
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						NOT = { area = eastern_mediterrenean_area }
-					}
-				}
+			OR = {
+				is_colonial_nation = yes
+				is_former_colonial_nation = yes
+				is_vassal = yes
+				is_lesser_in_union = yes
 			}
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { num_of_ports = 3 }
+				NOT = { monthly_income = 10 }
 			}
 		}
 		modifier = {
 			factor = 0.5
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						OR = {
-							NOT = { region = mediterrenean_region }
-							province_id = 1293 #Gibraltar
-							province_id = 1294 #Almeria
-						}
-						NOT = { area = red_sea_area }
-						NOT = { area = baltic_area }
-					}
-				}
-			}
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
-			}
+			personality = ai_militarist
 		}
 		modifier = {
-			factor = 0.1
-			NOT = { num_of_ports = 3 }
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				}
-			}
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { has_institution = renaissance }
-			NOT = { tag = POR }
-			NOT = { tag = CAS }
-		}
-		modifier = {
-			factor = 0.1
-			capital_scope = {
-				NOT = {
-					region = france_region
-					region = iberia_region
-					region = british_isles_region
-					region = low_countries_region
-				}
-			}
-			NOT = { technology_group = high_american }
-		}
-		modifier = {
-			factor = 0.5
-			tag = ARA
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { is_year = 3588 }
-			capital_scope = {
-				NOT = {
-					region = iberia_region
-				}
+			factor = 3
+			any_rival_country = {
+				has_idea_group = exploration_ideas
 			}
 		}
 		modifier = {
 			factor = 10
-			technology_group = high_american
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 5
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 10
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 15
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 20
-		}
-		modifier = {
-			factor = 1000
+			NOT = { adm_tech = 52 }
+			technology_group = western
+			NOT = { personality = ai_militarist }
+			NOT = { any_known_country = { has_idea_group = exploration_ideas }}
 			OR = {
-				tag = POR
-				tag = CAS
-				tag = SPA
+				any_province = {
+						range = ROOT
+						is_empty = yes
+						NOT = { has_climate = arctic }
+						NOT = { any_neighbor_province = { owned_by = ROOT } }
+				}
+				calc_true_if = {
+						owns_all_provinces = {
+							has_port = yes
+							OR = {
+								region = british_isles_region
+								region = france_region
+								region = iberia_region
+								region = low_countries_region
+							}
+						}
+						amount = 5
+				}
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
+			NOT = {
+				any_province = {
+					range = ROOT
+					is_empty = yes
+					NOT = { has_climate = arctic }
+					NOT = { any_neighbor_province = { owned_by = ROOT } }
+				}
+			}
+		}
+		modifier = {
+			factor = 50
 			OR = {
-				tag = GBR
-				tag = NED
-				tag = ENG
-				tag = FRA
-				tag = KUR
+				technology_group = western
+				technology_group = high_american
+				technology_group = eastern
+			}
+			monthly_income = 12.5
+			OR = {
+				has_idea_group = maritime_ideas
+				has_idea_group = naval_ideas
+				any_province = {
+					range = ROOT
+					is_empty = yes
+					NOT = { has_climate = arctic }
+					NOT = { any_neighbor_province = { owned_by = ROOT } }
+				}
+				calc_true_if = {
+					owns_all_provinces = {
+						has_port = yes
+						OR = {
+							region = british_isles_region
+							region = france_region
+							region = iberia_region
+							region = low_countries_region
+						}
+					}
+					amount = 5
+				}
+			}
+		}
+		modifier = {
+			factor = 25
+			OR = {
+				technology_group = ottoman
+				technology_group = muslim
+			}
+			num_of_ports = 8
+			monthly_income = 30
+			OR = {
+				has_idea_group = maritime_ideas
+				has_idea_group = naval_ideas
+				any_province = {
+					range = ROOT
+					is_empty = yes
+					NOT = { has_climate = arctic }
+					NOT = { any_neighbor_province = { owned_by = ROOT } }
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 20
+			NOR = {
+				technology_group = western
+				technology_group = high_american
+				technology_group = eastern
+				technology_group = ottoman
+				technology_group = muslim
+			}
+			num_of_ports = 12
+			monthly_income = 30
+			OR = {
+				has_idea_group = maritime_ideas
+				has_idea_group = naval_ideas
+				any_province = {
+					range = ROOT
+					is_empty = yes
+					NOT = { has_climate = arctic }
+					NOT = { any_neighbor_province = { owned_by = ROOT } }
+				}
+			}
+		}	
+		
+		modifier = {
+			modifier = 0
+			OR = {
+				AND = {
+					calc_true_if = {
+						all_country = {
+							has_idea_group = exploration_ideas
+							num_of_ports = 5
+							technology_group = western
+						}
+						amount = 5
+					}
+					technology_group = western
+					NOT = {
+						any_rival_country = { has_idea_group = exploration_ideas }
+						OR = {
+							has_idea_group = maritime_ideas
+							has_idea_group = naval_ideas
+						}
+						monthly_income = 30
+						num_of_ports = 5
+						calc_true_if = {
+							all_province = {
+								range = ROOT
+								is_empty = yes
+								NOT = { has_climate = arctic }
+								NOT = { any_neighbor_province = { owned_by = ROOT } }
+							}
+							amount = 7
+						}
+					}
+				}
+				AND = {
+					calc_true_if = {
+						all_country = {
+							has_idea_group = exploration_ideas
+							num_of_ports = 5
+							NOT = { technology_group = western }
+						}
+						amount = 5
+					}
+					NOT = { technology_group = western }
+					NOT = {
+						any_rival_country = { has_idea_group = exploration_ideas }
+						OR = {
+							has_idea_group = maritime_ideas
+							has_idea_group = naval_ideas
+						}
+						monthly_income = 40
+						num_of_ports = 12
+						calc_true_if = {
+							all_province = {
+								range = ROOT
+								is_empty = yes
+								NOT = { has_climate = arctic }
+								NOT = { any_neighbor_province = { owned_by = ROOT } }
+							}
+							amount = 12
+						}
+					}
+				}
+				AND = {
+					calc_true_if = {
+							all_province = {
+								range = ROOT
+								is_empty = yes
+								has_port = yes
+								NOT = { has_climate = arctic }
+								NOT = { any_neighbor_province = { owned_by = ROOT } }
+							}
+							amount = 30
+					}
+				}
+				AND = {
+					calc_true_if = {
+							all_country = {
+								has_idea_group = exploration_ideas
+								num_of_ports = 3
+							}
+							amount = 8
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			personality = ai_militarist
+			NOT = { has_idea_group = aristocracy_ideas }
+			NOT = { has_idea_group = plutocracy_ideas }
+			NOT = { has_idea_group = offensive_ideas }
+			NOT = { has_idea_group = defensive_ideas }
+			NOT = { has_idea_group = quality_ideas }
+			NOT = { has_idea_group = quantity_ideas }
+			NOT = { has_idea_group = naval_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = spy_ideas 
+			NOT = { full_idea_group = spy_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = diplomatic_ideas 
+			NOT = { full_idea_group = diplomatic_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = trade_ideas 
+			NOT = { full_idea_group = trade_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = exploration_ideas 
+			NOT = { full_idea_group = exploration_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = maritime_ideas 
+			NOT = { full_idea_group = maritime_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = influence_ideas 
+			NOT = { full_idea_group = influence_ideas }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				capital_scope = {
+					OR = {
+						superregion = europe_superregion
+						superregion = eastern_europe_superregion
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			capital_scope = {
+				superregion = east_indies_superregion
 			}
 		}
 	}
@@ -1461,14 +1632,14 @@ expansion_ideas = {
 	}
 
 	additional_colonists = {
-		colonists = 2
+		colonists = 1
 		effect = { remove_temporary_colonist = yes }
 	}
 	additional_merchants = {
 		merchants = 1
 	}
 	faster_colonists = {
-		global_colonial_growth = 200
+		global_colonial_growth = 20
 	}
 	vice_roys  = {
 		global_tariffs = 0.10
@@ -1479,7 +1650,7 @@ expansion_ideas = {
 		reduced_liberty_desire_on_other_continent = 5
 	}
 	general_colonization_law  = {
-		colonists = 2
+		colonists = 1
 		colonist_placement_chance = 0.05
 		effect = { remove_temporary_colonist = yes }
 	}
@@ -1488,35 +1659,56 @@ expansion_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.5
+		factor = 10
 		modifier = {
-			factor = 10
-			OR = {
-				has_idea_group = exploration_ideas
-				is_colonial_nation = yes
-			}
+			factor = 0.1
+			NOT = { adm = 1 }
 		}
 		modifier = {
-			factor = 5
-			OR = {
-				tag = CAS
-				tag = POR
-				tag = SPA
-			}
+			factor = 0.3
+			NOT = { adm = 2 }
 		}
 		modifier = {
-			factor = 10
-			NOT = { has_dlc = "Third Rome" } # Has siberian frontier instead
-			tag = RUS
-			num_of_cities = 20
-			any_owned_province = {
-				has_empty_adjacent_province = yes
-			}
+			factor = 0.5
+			NOT = { adm = 3 }
+		}
+		modifier = {
+			factor = 2
+			adm = 3
+		}
+		modifier = {
+			factor = 2
+			adm = 4
+		}
+		modifier = {
+			factor = 2
+			adm = 5
+		}
+		modifier = {
+			factor = 2
+			adm = 6
 		}
 		modifier = {
 			factor = 0
-			NOT = { has_idea_group = exploration_ideas }
+			NOT = { monthly_income = 7.5 }
 			NOT = { is_colonial_nation = yes }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { monthly_income = 13.5 }
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				calc_true_if = {
+					all_province = {
+						is_empty = yes
+						has_port = yes
+						NOT = { has_climate = arctic }
+					}
+					amount = 40
+				}
+			}
 			NOT = {
 				any_owned_province = {
 					has_empty_adjacent_province = yes
@@ -1524,11 +1716,130 @@ expansion_ideas = {
 			}
 		}
 		modifier = {
+			factor = 20
+			monthly_income = 10
+			OR = {
+				AND = {
+					any_owned_province = {
+							NOT = { continent = africa }
+							NOT = { region = indonesia_region }
+							NOT = { region = indo_china_region }
+							has_empty_adjacent_province = yes
+					}
+					NOT = { has_idea_group = exploration_ideas }
+				}
+				AND = {
+					any_owned_province = {
+							has_empty_adjacent_province = yes
+					}
+					OR = {
+						has_idea_group = maritime_ideas
+						has_idea_group = naval_ideas
+					}
+					NOT = { has_idea_group = exploration_ideas }
+					
+				}
+				personality = ai_colonialist
+				AND = {
+					any_province = {
+						has_discovered = ROOT
+						range = ROOT
+						is_empty = yes
+						NOT = { has_climate = arctic }
+					}
+					OR = {
+						technology_group = western
+						technology_group = high_american
+						has_idea_group = maritime_ideas
+						has_idea_group = naval_ideas
+						capital_scope = { region = japan_region }
+					}
+					NOT = { has_idea_group = exploration_ideas }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				any_owned_province = {
+						has_empty_adjacent_province = yes
+				}
+				AND = {
+					OR = {
+						has_idea_group = maritime_ideas
+						has_idea_group = naval_ideas
+						technology_group = western
+						technology_group = eastern
+						technology_group = high_american
+						capital_scope = { region = japan_region }
+					}
+					num_of_ports = 1
+					any_province = {
+						has_discovered = ROOT
+						range = ROOT
+						is_empty = yes
+						NOT = { has_climate = arctic }
+					}
+				}
+			}
+			
+		}
+		modifier = {
 			factor = 0.1
+			has_idea_group = innovativeness_ideas 
+			NOT = { full_idea_group = innovativeness_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = religious_ideas 
+			NOT = { full_idea_group = religious_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = economic_ideas 
+			NOT = { full_idea_group = economic_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = administrative_ideas 
+			NOT = { full_idea_group = administrative_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = humanist_ideas 
+			NOT = { full_idea_group = humanist_ideas }
+		}
+		modifier = {
+			factor = 0.1
+			has_idea_group = expansion_ideas 
+			NOT = { full_idea_group = expansion_ideas }
+		}
+		modifier = {
+			factor = 0
+			personality = ai_militarist
+			NOT = { has_idea_group = aristocracy_ideas }
+			NOT = { has_idea_group = plutocracy_ideas }
+			NOT = { has_idea_group = offensive_ideas }
+			NOT = { has_idea_group = defensive_ideas }
+			NOT = { has_idea_group = quality_ideas }
+			NOT = { has_idea_group = quantity_ideas }
+			NOT = { has_idea_group = naval_ideas }
+		}
+		modifier = {
+			factor = 0.5
 			NOT = {
-				technology_group = western
-				technology_group = eastern
-				technology_group = muslim
+				capital_scope = {
+					OR = {
+						superregion = europe_superregion
+						superregion = eastern_europe_superregion
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			capital_scope = {
+				superregion = east_indies_superregion
 			}
 		}
 	}
