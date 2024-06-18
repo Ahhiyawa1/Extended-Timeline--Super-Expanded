@@ -1,0 +1,680 @@
+# For specific combinations of culture, religion and other such triggers
+# Will pick the first valid one it finds in list
+
+#Heir and consort titles are generally kept simple for clarity unless there is something special in particular that can be used.
+
+#Timurid Emirate
+gov_timurid_emirate = {
+	rank = {
+		1 = EMIRATE
+		2 = EMIRATE
+		3 = EMIRATE
+	}
+	
+	ruler_male = {
+		1 = EMIR
+		2 = EMIR
+		3 = EMIR
+	}
+	
+	ruler_female = {
+		1 = EMIRA
+		2 = EMIRA
+		3 = EMIRA
+	}
+	
+	consort_male = {
+		1 = EMIR_CONSORT
+		2 = EMIR_CONSORT
+		3 = EMIR_CONSORT
+	}
+
+	consort_female = {
+		1 = EMIRA
+		2 = EMIRA
+		3 = EMIRA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		has_reform = timurid_emirate_reform
+	}
+}
+
+#Charter Company, like East India Company
+gov_charter_company = {
+	rank = {
+		1 = CHARTER_COMPANY
+		2 = CHARTER_COMPANY
+		3 = CHARTER_COMPANY
+	}
+	
+	ruler_male = {
+		1 = GOVERNOR_GENERAL
+		2 = GOVERNOR_GENERAL
+		3 = GOVERNOR_GENERAL
+	}
+	
+	ruler_female = {
+		1 = GOVERNOR_GENERAL
+		2 = GOVERNOR_GENERAL
+		3 = GOVERNOR_GENERAL
+	}
+	
+	trigger = {
+		has_reform = trade_company_government
+	}
+}
+
+#Anglo-Saxon Monarchy
+gov_anglo_saxon_monarchy = {
+	rank = {
+		1 = KINGDOM
+		2 = KINGDOM
+		3 = KINGDOM
+	}
+	
+	ruler_male = {
+		1 = KING
+		2 = KING
+		3 = KING
+	}
+	
+	ruler_female = {
+		1 = QUEEN
+		2 = QUEEN
+		3 = QUEEN
+	}
+	
+	consort_male = {
+		1 = KING_CONSORT
+		2 = KING_CONSORT
+		3 = KING_CONSORT
+	}
+
+	consort_female = {
+		1 = QUEEN
+		2 = QUEEN
+		3 = QUEEN
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		has_reform = anglo_saxon_monarchy_reform
+	}
+}
+
+#Paternal Monarchy, Sukhothai under Pho Kun Ramkhamhaeng
+gov_paternal_monarchy = {
+	rank = {
+		1 = KINGDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = PHO_KHUN
+		2 = PHO_KHUN
+		3 = PHO_KHUN
+	}
+	
+	ruler_female = {
+		1 = NANG
+		2 = NANG
+		3 = NANG
+	}
+	
+	consort_female = {
+		1 = NANG
+		2 = NANG
+		3 = NANG
+	}
+	
+	trigger = {
+		has_reform = paternal_monarchy_reform
+	}
+}
+
+#Shaman Monarchy, Yamatai (Kyushu in ET) under Shamaness-Queen Himiko
+gov_shaman_monarchy = {
+	rank = {
+		1 = SHAMAN_KINGDOM
+		2 = SHAMAN_KINGDOM
+		3 = SHAMAN_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = SHAMAN_KING
+		2 = SHAMAN_KING
+		3 = SHAMAN_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = SHAMANESS_QUEEN
+		2 = SHAMANESS_QUEEN
+		3 = SHAMANESS_EMPRESS
+	}
+	
+	trigger = {
+		has_reform = shaman_monarchy_reform
+	}
+}
+
+#Samurai Republic of Ezo
+gov_samurai_republic = {
+	rank = {
+		1 = SAMURAI_REPUBLIC
+		2 = SAMURAI_REPUBLIC
+		3 = SAMURAI_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = SOSAI
+		2 = SOSAI
+		3 = SOSAI
+	}
+	
+	ruler_female = {
+		1 = SOSAI
+		2 = SOSAI
+		3 = SOSAI
+	}
+	
+	trigger = {
+		has_reform = samurai_republic_government_reform
+	}
+}
+
+#Tanist Monarchy IF is Irish
+gov_tanist_kingdom_irish = {
+	rank = {
+		1 = KINGDOM
+		2 = HIGH_KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = KING		#rank 1 are over-kings of smaller petty kings of local clans
+		2 = HIGH_KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = QUEEN
+		2 = HIGH_QUEEN
+		3 = EMPRESS
+	}
+
+	consort_male = {
+		1 = KING
+		2 = KING
+		3 = EMPEROR
+	}
+
+	consort_female = {
+		1 = QUEEN
+		2 = QUEEN
+		3 = EMPRESS
+	}
+	
+	heir_male = {
+		1 = TANIST
+		2 = TANIST
+		3 = TANIST
+	}
+	
+	heir_female = {
+		1 = TANIST
+		2 = TANIST
+		3 = TANIST
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = tanist_monarchy_reform
+		primary_culture = irish
+	}
+}
+
+#Kampaku Imperial Regent title
+gov_kampaku_title = {
+	rank = {
+		1 = IMPERIAL_REGENCY
+		2 = IMPERIAL_REGENCY
+		3 = IMPERIAL_REGENCY
+	}
+	
+	ruler_male = {
+		1 = KAMPAKU
+		2 = KAMPAKU
+		3 = KAMPAKU
+	}
+
+	ruler_female = {
+		1 = KAMPAKU
+		2 = KAMPAKU
+		3 = KAMPAKU
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+	}
+
+	trigger = {
+		has_country_flag = unlocked_imperial_regent_kampaku_ruler_title
+	}
+}
+
+#Kemetic Theocratic Monarchy
+gov_kemetic_egyptian_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = NOMARCH
+		2 = PHARAOH
+		3 = GREAT_PHARAOH
+	}
+
+	ruler_female = {
+		1 = NOMARCH
+		2 = PHARAOH_fem
+		3 = GREAT_PHARAOH_fem
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = KING_CONSORT
+		3 = KING_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN
+		3 = QUEEN
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		has_reform = kemetic_monarchy_reform
+	}
+}
+
+#Austrian Dual Monarchy
+gov_austrian_dual_monarchy = {
+	rank = {
+		1 = DUAL_MONARCHY
+		2 = DUAL_MONARCHY
+		3 = DUAL_MONARCHY
+	}
+
+	ruler_male = {
+		1 = ARCHDUKE
+		2 = KING
+		3 = EMPEROR_KING
+	}
+
+	ruler_female = {
+		1 = ARCHDUCHESS
+		2 = QUEEN
+		3 = EMPRESS_QUEEN
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = KING_CONSORT
+		3 = KING_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = CROWN_PRINCE
+		3 = CROWN_PRINCE	#Archduke of Austria was not always heir presumptive
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		has_reform = austria_dual_monarchy
+	}
+}
+
+#Maratha Confederation / Maratha Empire
+gov_maratha_confederation_reform = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = RAJA
+		2 = CHHATRAPATI		#changed, replaces Maharaja for vanilla
+		3 = CHHATRAPATI		#Same as Bharat titles in Vanilla, title historically created by first emperor of Marathas
+	}
+
+	ruler_female = {
+		1 = RANI
+		2 = CHHATRAPATI		#changed, replaces Maharaja for vanilla
+		3 = CHHATRAPATI
+	}
+	
+	consort_male = {
+		1 = RAJA
+		2 = MAHARAJA
+		3 = CHHATRAPATI
+	}
+
+	consort_female = {
+		1 = RANI
+		2 = MAHARANI
+		3 = CHHATRAPATI
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+	}
+
+	trigger = {
+		has_reform = maratha_confederation_reform
+	}
+}
+
+#Kushite Monarchy
+gov_kushite_monarchy = {
+	rank = {
+		1 = KINGDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = QORE
+		2 = QORE
+		3 = QORE
+	}
+	
+	ruler_female = {
+		1 = KDWE	#Kandake 
+		2 = KDWE
+		3 = KDWE
+	}
+	
+	consort_male = {
+		1 = QORE
+		2 = QORE
+		3 = QORE
+	}
+
+	consort_female = {
+		1 = KDWE
+		2 = KDWE
+		3 = KDWE
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		tag = MEO
+		NOT = { has_reform = kemetic_monarchy_reform }	#changes if adopt Egyptian government as Pharaoh
+	}
+}
+
+#Pisan Consulate
+gov_pisan_consulate_reform = {
+	rank = {
+		1 = CONSULATE
+		2 = CONSULATE
+		3 = GRAND_CONSULATE
+	}
+
+	ruler_male = {
+		1 = CONSOLE
+		2 = CONSOLE
+		3 = CONSOLE
+	}
+
+	ruler_female = {
+		1 = CONSOLE
+		2 = CONSOLE
+		3 = CONSOLE
+	}
+
+	trigger = {
+		has_reform = pisan_consulate_reform
+	}
+}
+
+#Pisan Consulate
+gov_pisan_podesteria_reform = {
+	rank = {
+		1 = PODESTERIA
+		2 = PODESTERIA
+		3 = PODESTERIA
+	}
+
+	ruler_male = {
+		1 = PODESTA
+		2 = PODESTA
+		3 = PODESTA
+	}
+
+	ruler_female = {
+		1 = PODESTA
+		2 = PODESTA
+		3 = PODESTA
+	}
+
+	trigger = {
+		has_reform = pisan_podesteria_reform
+	}
+}
+
+#Judean Monarchy
+gov_judean_monarchy_reform = {
+	rank = {
+		1 = KINGDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = BASILEUS
+		2 = BASILEUS
+		3 = BASILEUS
+	}
+	
+	ruler_female = {
+		1 = BASILISSA
+		2 = BASILISSA
+		3 = BASILISSA
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+	}
+
+	consort_female = {
+		1 = BASILISSA
+		2 = BASILISSA
+		3 = BASILISSA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		tag = JUD
+		has_reform = judean_monarchy_reform
+	}
+}
+
+#Daoist Theocracy
+gov_daoist_theocracy_name = {
+	rank = {
+		1 = DAOIST_ORDER
+		2 = DAOIST_ORDER
+		3 = DAOIST_ORDER
+	}
+	
+	ruler_male = {
+		1 = TIANSHI		#Celestial Master
+		2 = TIANSHI
+		3 = TIANSHI
+	}
+	
+	ruler_female = {
+		1 = TIANSHI
+		2 = TIANSHI
+		3 = TIANSHI
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		religion = daoism
+		government = theocracy
+	}
+}
+
+#Taewang Great King Emperor name for Goguryeo mission tree, etc.
+gov_taewang_name = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = PRINCE
+		2 = TAEWANG		#Great King / Emperor
+		3 = TAEWANG
+	}
+	
+	ruler_female = {
+		1 = PRINCESS
+		2 = HWANGHU		#Empress in Korean
+		3 = HWANGHU
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
+	trigger = {
+		has_country_flag = taewang_ruler_title_flag
+	}
+}
