@@ -4119,11 +4119,11 @@ country_event = {
 		clr_country_flag = feudal_split_in_country
 		set_country_flag = feudal_split_finished
 		if = {
-			limit = { government_rank = 10 }
-			set_government_rank = 8
+			limit = { government_rank = 3 }
+			set_government_rank = 2
 		}
 		if = {
-			limit = { NOT = { government_rank = 10 } NOT = { government_rank = 4 } }
+			limit = { NOT = { government_rank = 3 } NOT = { government_rank = 1 } }
 			set_government_rank = 1 
 		}
 	}

@@ -10,15 +10,13 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { exists = YUA }
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = YUA } 
 			NOT = { tag = KHA }
-			NOT = { tag = MO8 }
-			NOT = { tag = MO7 }
-			NOT = { tag = MO6 }
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = QNG }
 			NOT = { tag = MNG }
 			NOT = { tag = MCH }
@@ -98,7 +96,7 @@ country_decisions = {
 				limit = {
 					has_dlc = "Common Sense"
 				}
-				government_rank = 10
+				government_rank = 3
 			}
 			else = {
 				total_development = 1000
@@ -164,7 +162,6 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
-	
 	hordes_restore_yuan = {
 		potential = {
 			has_country_flag = hordes_yuan_restoration

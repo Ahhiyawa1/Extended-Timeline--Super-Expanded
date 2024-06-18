@@ -17,29 +17,12 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { tag = PER }
-			NOT = { tag = IRA }
-			NOT = { tag = PE6 }
-			NOT = { tag = PE7 }
-			NOT = { tag = ILK }
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = TUR }
-			NOT = { tag = OT6 }
-			NOT = { tag = OT7 }
-			NOT = { tag = TKY }
-			NOT = { tag = AN1 }
-			NOT = { tag = GA1 }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
+			NOT = { tag = IRA }
 			OR = {
 				NOT = { exists = MUG }
-				NOT = { exists = MU6 }
-				NOT = { exists = MU7 }
-				NOT = { exists = MU8 }
 				ai = no
 			}
 			OR = {
@@ -79,9 +62,6 @@ country_decisions = {
 		allow = {
 			religion_group = muslim
 			NOT = { exists = MUG }
-			NOT = { exists = MU6 }
-			NOT = { exists = MU7 }
-			NOT = { exists = MU8 }
 			adm_tech = 40
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
@@ -105,7 +85,7 @@ country_decisions = {
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			change_primary_culture = kanauji
-			set_government_rank = 10
+			set_government_rank = 3
 			522 = {
 			 	add_base_tax = 1
 				add_base_production = 1
@@ -133,7 +113,6 @@ country_decisions = {
 				}
 				change_government = monarchy
 			}
-												  
 			if = {
 				limit = {
 					has_dlc = "Dharma"
@@ -219,10 +198,6 @@ country_decisions = {
 				factor = 0
 				NOT = { tag = TIM }
 				NOT = { tag = AFG }
-				NOT = { tag = AF8 }
-				NOT = { tag = AF7 }
-				NOT = { tag = AF6 }
-				NOT = { tag = SHH }
 				NOT = { tag = BAL }
 				NOT = { total_development = 350 }
 			}

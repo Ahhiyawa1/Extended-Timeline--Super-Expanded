@@ -1,0 +1,77 @@
+country_decisions = {
+	gran_colombia_nation = {
+		major = yes
+		potential = {
+			OR = {
+				tag = COL
+				tag = VNZ
+				tag = ECU
+				tag = PNM
+				primary_culture = iberian_colombian
+				AND = {
+					is_former_colonial_nation = yes
+					primary_culture = iberian_colombian
+				}
+			}
+			NOT = { exists = GC0 }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { has_country_flag = grancolombiaformed }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 825 # Bogota, Colombia
+				province_id = 831 # Caracas, Venezuela
+				province_id = 820 # Quito, Ecuador
+				province_id = 835 # Panama
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 2
+			owns_core_province = 825 # Bogota, Colombia
+			owns_core_province = 831 # Caracas, Venezuela
+			owns_core_province = 820 # Quito, Ecuador
+			owns_core_province = 835 # Panama
+		}
+		effect = {
+			change_tag = GC0
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			hidden_effect = {
+				set_country_flag = grancolombiaformed
+			}
+			add_prestige = 15
+			capital_scope = {
+				add_base_tax = 1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+	 			factor = 2
+	 			OR = {
+					tag = COL
+					tag = VNZ
+				}
+			}
+		}
+		ai_importance = 200
+	}
+}

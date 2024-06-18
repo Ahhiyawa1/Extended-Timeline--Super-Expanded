@@ -1,0 +1,76 @@
+country_decisions = {
+	holy_oriental_empire_nation = {
+		major = yes
+		potential = {
+			OR = {
+				tag = KOJ
+				AND = {
+					government = monarchy
+					religion = catholic
+					is_emperor = no
+					capital_scope = { 
+						NOT = { superregion = europe_superregion }
+					}
+					151= {
+						has_discovered = ROOT
+					}
+					379= {
+						has_discovered = ROOT
+					}
+				}
+			}
+			religion = catholic
+			NOT = { exists = HOE }
+			NOT = { tag = LAT }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { has_country_flag = holyorientalempireformed }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151		#Constantinople
+				province_id = 379		#Jerusalem
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 2
+			religion = catholic
+			is_excommunicated = no
+			capital = 151
+			owns_core_province = 151
+			owns_core_province = 379
+		}
+		effect = {
+			change_tag = HOE
+			set_government_rank = 3
+			hidden_effect = {
+				set_country_flag = holyorientalempireformed
+			}
+			add_prestige = 30
+			add_papal_influence = 40
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+	 			factor = 0
+	 			OR = {
+					tag = FRA
+					tag = ENG
+					tag = GBR
+					tag = SPA
+					tag = POR
+				}
+			}
+		}
+		ai_importance = 200
+	}
+}

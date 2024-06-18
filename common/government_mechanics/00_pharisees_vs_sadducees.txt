@@ -1,0 +1,51 @@
+pharisees_vs_sadducees_mechanic = {
+	available = {
+		always = yes
+	}
+
+	powers = {
+		governmental_power = {
+			gui = pharisees_vs_sadducees_gov_mech
+			max = 100	#Sadducees direction
+			min = -100	#Pharisees direction
+			base_monthly_growth = 0
+			scaled_modifier = {		#Sadducees
+				trigger = {
+					has_government_power = { 
+						mechanic_type = pharisees_vs_sadducees_mechanic
+						power_type = governmental_power
+						value = 0
+					}
+				}
+				modifier = {
+					global_autonomy = -0.2
+					nobles_loyalty_modifier = 0.1
+					church_influence_modifier = 0.1
+				}
+			}
+			reverse_scaled_modifier = {		#Pharisees
+				trigger = {
+					NOT = {
+						has_government_power = { 
+							mechanic_type = pharisees_vs_sadducees_mechanic
+							power_type = governmental_power
+							value = 0
+						}
+					}
+				}
+				modifier = {
+					global_unrest = -4
+					church_influence_modifier = 0.1
+				}
+			}
+			on_max_reached = {
+				custom_tooltip = pharisees_vs_sadducees_mechanic_sad_tt
+				
+			}
+			on_min_reached = {
+				custom_tooltip = pharisees_vs_sadducees_mechanic_phar_tt
+				
+			}
+		}
+	}
+}

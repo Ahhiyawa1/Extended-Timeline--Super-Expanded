@@ -125,7 +125,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				OR = { tag = SWI tag = HE2 }
+				tag = SWI
 				NOT = { inflation = 1 }
 			}
 			modifier = {
@@ -179,7 +179,7 @@ country_decisions = {
 					set_in_empire = no
 				}
 			}
-			set_government_rank = 8
+			set_government_rank = 2
 		}
 		ai_will_do = {
 			factor = 1
@@ -233,7 +233,7 @@ country_decisions = {
 	
 	adopt_the_euro = {
 		potential = {
-			is_year = 1999
+			is_year = 4097
 			has_country_modifier = european_union
 			NOT = { has_country_modifier = monetary_union }
 		}
@@ -257,13 +257,7 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0
-				OR = {
-					tag = GBR
-					tag = GB8
-					tag = GB7
-					tag = GB6
-					tag = RBR
-				}
+				tag = GBR
 				NOT = { inflation = 1 }
 			}
 		}

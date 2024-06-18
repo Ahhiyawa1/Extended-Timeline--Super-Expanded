@@ -15,8 +15,8 @@ country_event = {
 
 	trigger = {
 		owns = 17
-		is_year = 700
-		NOT = { is_year = 900 }
+		is_year = 2798
+		NOT = { is_year = 2998 }
 		OR = {
 			1978 = { is_empty = yes }
 			1979 = { is_empty = yes }
@@ -57,8 +57,8 @@ country_event = {
 
 	trigger = {
 		owns = 1979
-		is_year = 800
-		NOT = { is_year = 1000 }
+		is_year = 2898
+		NOT = { is_year = 3098 }
 		OR = {
 			370 = { is_empty = yes }
 			371 = { is_empty = yes }
@@ -143,8 +143,8 @@ country_event = {
 
 	trigger = {
 		owns = 17
-		is_year = 900
-		NOT = { is_year = 1100 }
+		is_year = 2998
+		NOT = { is_year = 3198 }
 		OR = {
 			1104 = { is_empty = yes }
 			1105 = { is_empty = yes }
@@ -186,8 +186,8 @@ country_event = {
 
 	trigger = {
 		owns = 23
-		is_year = 1300
-		NOT = { is_year = 1400 }
+		is_year = 3398
+		NOT = { is_year = 3498 }
 		exists = HSA
 		NOT = { tag = HSA }
 		23 = { NOT = { has_building = trade_post } }
@@ -234,8 +234,8 @@ country_event = {
 
 	trigger = {
 		capital = 20
-		is_year = 900
-		NOT = { is_year = 1100 }
+		is_year = 2998
+		NOT = { is_year = 3198 }
 		religion_group = german_pagan
 	}
 	
@@ -286,7 +286,7 @@ country_event = {
 
 	trigger = {
 		owns = 17
-		is_year = 1800
+		is_year = 3898
 		war_exhaustion = 4
 		NOT = { stability = 1 }
 		NOT = { culture = norwegian }
@@ -534,7 +534,7 @@ country_event = {
 	trigger = {
 		OR = { tag = NOR tag = NO8 tag = NO7 tag = NO6 }
 		owns = 17
-		is_year = 1885
+		is_year = 3983
 		is_lesser_in_union = yes
 		overlord = {
 			NOT = {
@@ -715,7 +715,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = { 
-		NOT = { is_year = 1319 } 
+		NOT = { is_year = 3417 } 
 		NOT = { dynasty = "Fairhair" }
 		NOT = { dynasty = "Hardrada" }
 		NOT = { dynasty = "Gille" }
@@ -732,15 +732,15 @@ country_event = {
 	option = {
 		name = cpbm_history_europe.9.b
 		if = {
-			limit = { NOT = { is_year = 1046 } }
+			limit = { NOT = { is_year = 3144 } }
 			set_dynasty = "Fairhair"
 		}
 		else_if = {
-			limit = { NOT = { is_year = 1130 } }
+			limit = { NOT = { is_year = 3228 } }
 			set_dynasty = "Hardrada"
 		}
 		else_if = {
-			limit = { NOT = { is_year = 1184 } }
+			limit = { NOT = { is_year = 3282 } }
 			set_dynasty = "Gille"
 		}
 		else = { set_dynasty = "Sverre" }
@@ -767,8 +767,8 @@ province_event = {
 		owner = {
 			religion = catholic 
 		} 
-		is_year = 1220
-		NOT = { is_year = 1250 }
+		is_year = 3318
+		NOT = { is_year = 3348 }
 	}
 	
 	mean_time_to_happen = {
@@ -794,7 +794,7 @@ province_event = {
 	trigger = {
 		province_id = 28
 		owner = { primary_culture = swedish } 
-		is_year = 1500
+		is_year = 3598
 	}
 	
 	mean_time_to_happen = {
@@ -876,8 +876,8 @@ province_event = {
 			area = norrland_area
 		}
 		owner = { NOT = { has_country_flag = great_famine } } 
-		is_year = 1695
-		NOT = { is_year = 1699 }
+		is_year = 3793
+		NOT = { is_year = 3797 }
 	}
 	
 	mean_time_to_happen = {
@@ -945,7 +945,7 @@ country_event = {
 
 	trigger = {
 		AND = { owns = 27 owns = 28 owns = 29 owns = 31 owns = 4123 }
-		is_year = 1900
+		is_year = 3998
 		NOT = { culture_group = finno_ugric }
 		NOT = { OR = { exists = FIN exists = SU4 exists = FI3 } }
 		corruption = 1
@@ -1083,8 +1083,8 @@ country_event = {
 
 	trigger = {
 		owns = 2199
-		is_year = 450
-		NOT = { is_year = 950 }
+		is_year = 2548
+		NOT = { is_year = 3048 }
 		NOT = { culture_group = oghur }
 		NOT = { exists = KHZ }
 		2199 = { culture_group = oghur }
@@ -1226,7 +1226,7 @@ country_event = {
 	
 	trigger = {
 		OR = { tag = HNS culture_group = oghur }
-		NOT = { is_year = 550 }
+		NOT = { is_year = 2648 }
 		NOT = { religious_unity = 0.60 }
 	}
 
@@ -1325,8 +1325,8 @@ country_event = {
 	trigger = {
 		NOT = { OR = { exists = NOV exists = NV9 exists = NV7 exists = NV6 } }
 		owns = 310
-		is_year = 800
-		NOT = { is_year = 1000 }
+		is_year = 2898
+		NOT = { is_year = 3098 }
 		NOT = { religion_group = christian }
 		capital_scope = { region = russia_region }
 	}
@@ -1630,7 +1630,7 @@ country_event = {
 		owns = 280
 		culture_group = east_slavic
 		religion = slavic
-		is_year = 500
+		is_year = 2598
 	}
 	
 	mean_time_to_happen = {
@@ -1916,7 +1916,7 @@ country_event = {
 		owns = 463 #Armavir
 		NOT = { capital_scope = { area = circassia_area } }
 		NOT = { primary_culture = circassian }
-		is_year = 900
+		is_year = 2998
 	}
 	
 	mean_time_to_happen = {
@@ -2283,8 +2283,8 @@ country_event = {
 		NOT = { exists = RY7 }
 		NOT = { exists = RY6 }
 		NOT = { OR = { adm = 3 dip = 3 mil = 3 } }
-		is_year = 1050
-		NOT = { is_year = 1550 }
+		is_year = 3148
+		NOT = { is_year = 3648 }
 	}
 	
 	mean_time_to_happen = {
@@ -2436,8 +2436,8 @@ country_event = {
 
 	trigger = {
 		owns = 274
-		is_year = 800
-		NOT = { is_year = 1600 }
+		is_year = 2898
+		NOT = { is_year = 3698 }
 	}
 	
 	mean_time_to_happen = {

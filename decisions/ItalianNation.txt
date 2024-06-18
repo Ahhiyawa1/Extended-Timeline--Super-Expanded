@@ -10,18 +10,16 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = ITA }
-			NOT = { exists = IT6 }
-			NOT = { exists = IT7 }
-			NOT = { exists = IT8 }
 			NOT = { exists = ROM }
 			NOT = { exists = ROW }
 			NOT = { tag = PAP }
 			NOT = { tag = EUR }
 			NOT = { tag = HLR }
-			NOT = { tag = HR8 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR6 }
 			culture_group = latin
 			OR = {
 				ai = no
@@ -38,7 +36,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			capital_scope = { region = italy_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -102,7 +99,7 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
 				hidden_effect = {
 					set_in_empire = no
@@ -111,7 +108,7 @@ country_decisions = {
 					limit = {
 						NOT = { is_part_of_hre = yes } #for tooltip purposes
 					}
-					set_government_rank = 8
+					set_government_rank = 2
 				}
 			}
 			change_tag = ITA
@@ -176,11 +173,11 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = ITA }
-			NOT = { exists = IT6 }
-			NOT = { exists = IT7 }
-			NOT = { exists = IT8 }
-			NOT = { exists = ROM }
 			tag = PAP
 			NOT = { has_country_flag = is_kingdom_of_god_flag }
 			OR = {

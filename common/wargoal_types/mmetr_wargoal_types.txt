@@ -1,0 +1,36 @@
+civil_war_wargoal = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 0.1
+		prestige_factor = 1.0
+		peace_cost_factor = 0.1
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			#cannot take provinces or make vassal, since civil wars would not involve negotiation between two equal powers
+			po_conclude_civil_war		#New in ET
+		}
+	}
+	
+	defender = {
+		badboy_factor = 0.1
+		prestige_factor = 1.5
+		peace_cost_factor = 0.1
+		
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_demand_provinces		#defender can take more provinces
+			
+			#Defender does NOT have po_conclude_civil_war if they did not initiate the war, to avoid CSA annexing USA, Gallia annexing Rome, etc.
+		}
+	}
+	
+	war_name = CIVIL_WAR_NAME
+}

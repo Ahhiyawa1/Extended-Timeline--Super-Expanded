@@ -1,0 +1,181 @@
+country_decisions = {
+	
+	estate_eunuchs_tutor_heir_adm_decision = {
+		potential = {
+			has_estate_privilege = estate_eunuchs_royal_tutor
+			NOT = { has_ruler_flag = eunuchs_tutored_heir }
+		}
+		allow = {
+			adm_power = 100
+			has_heir = yes
+			NOT = { heir_age = 20 }
+			NOT = { heir_adm = 4 }
+		}
+		effect = {
+			change_heir_adm = 1
+			add_adm_power = -100
+			add_estate_influence_modifier = {
+				estate = estate_eunuchs
+				 desc = EST_EUNUCHS_TUTORED_HEIR_DECISION
+				influence = 10
+				duration = 7300
+			}
+			set_ruler_flag = eunuchs_tutored_heir
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	estate_holy_orders_invite_holy_orders_decision = {
+		potential = {
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+			}
+			adm_tech = 35
+			NOT = { has_estate = estate_holy_orders }
+			NOT = { has_country_flag = enabled_holy_orders_estate_flag }
+			is_nomad = no
+			is_colonial_nation = no
+			OR = {
+				capital_scope = {
+					region = iberia_region		#can be expanded upon later
+				}
+			}
+		}
+		allow = {
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+			}
+			adm_tech = 36		#Monastery technology level - 35 is Theocracy
+			religious_unity = 0.5
+			prestige = 20
+		}
+		effect = {
+			set_country_flag = enabled_holy_orders_estate_flag
+			custom_tooltip = estate_holy_orders_invite_holy_orders_decision.tt
+			add_papal_influence = 10
+			country_event = {
+				id = mmetr_estate_events.1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	estate_church_send_son_to_monastery_decision = {
+		color = { 200 150 0 }
+		potential = {
+			has_estate_privilege = estate_royal_abbots_francia
+			has_reform = salic_reform
+		}
+		allow = {
+			has_reform = salic_reform
+			stability = 0
+			OR = {
+				has_country_modifier = two_sons
+				has_country_modifier = three_sons
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_estate_events.2
+			}
+			tooltip = {
+				add_prestige = -70
+				add_stability = -2
+				if = {
+					limit = {
+						remove_country_modifier = three_sons
+					}
+					remove_country_modifier = three_sons
+				}
+				else = {
+					remove_country_modifier = two_sons
+				}
+			}
+			custom_tooltip = estate_church_send_son_to_monastery_decision.tt
+			
+			#set_country_flag = estate_church_sent_son_to_monastery_flag		#potential to trigger pretender rebels upon monarch death; whether or not rebels spawn, the on_action must remove this flag anyways
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	estate_nobles_marry_consort_from_servant_class_decision = {
+		color = { 200 0 50 }
+		potential = {
+			has_estate_privilege = estate_queens_once_slaves_francia
+			government = monarchy
+		}
+		allow = {
+			has_consort = no
+			has_regency = no
+		}
+		effect = {
+			custom_tooltip = estate_nobles_marry_consort_from_servant_class_decision.tt
+			add_legitimacy = -10
+			hidden_effect = {
+				random_list = {
+					20 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							adm = 4
+						}
+					}
+					20 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							adm = 5
+						}
+					}
+					10 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							adm = 6
+						}
+					}
+					20 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							dip = 4
+						}
+					}
+					20 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							dip = 5
+						}
+					}
+					10 = {
+						define_consort = {
+							country_of_origin = ROOT
+							religion = ROOT
+							culture = ROOT
+							dip = 6
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+}

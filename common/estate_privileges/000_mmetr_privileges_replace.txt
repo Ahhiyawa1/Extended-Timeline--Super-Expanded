@@ -1,0 +1,287 @@
+# replaces specific privilege(s) without overwriting main file, may cause error log entry but is safe
+# if you want to replace the whole file, just put this instead of the specific vanilla privilege(s)
+
+#Removed 1.36 privileges for Byzantium for start dates in which they historically do not apply
+
+estate_burghers_reliance_on_republics = {
+	icon = estate_burghers_reliance_on_republics
+	loyalty = -0.05
+	influence = 0
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	is_valid = {
+		OR = {
+			tag = BYZ
+			has_estate_privilege = estate_burghers_reliance_on_republics
+		}
+		NOT = { has_country_flag = estate_burghers_reliance_on_republics_removed }
+		#added
+		started_in = 1285.1.1	#Andronikos II Palaiologos dismantles the Byzantine fleet, now dependent on Venice and Genoa
+	}
+	can_revoke = {
+		num_of_ports = 8
+	}
+	on_granted = {
+		custom_tooltip = BYZ_how_to_bring_it_down
+		custom_tooltip = BYZ_no_more_burgher_loans
+	}
+	on_revoked = {
+		set_country_flag = estate_burghers_reliance_on_republics_removed
+		custom_tooltip = BYZ_can_have_burgher_loans
+	}
+	penalties = {
+		#naval_forcelimit = -2
+	}
+	conditional_modifier = {
+		trigger = {
+			NOT = {
+				OR = {
+					reverse_has_opinion = {
+						who = GEN
+						value = 50
+					}
+					reverse_has_opinion = {
+						who = VEN
+						value = 50
+					}
+				}
+			}
+		}
+		is_bad = yes
+		modifier = {
+			global_ship_recruit_speed = 2
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			OR = {
+				reverse_has_opinion = {
+					who = GEN
+					value = 50
+				}
+				reverse_has_opinion = {
+					who = VEN
+					value = 50
+				}
+			}
+			NOT = {
+				AND = {
+					reverse_has_opinion = {
+						who = GEN
+						value = 50
+					}
+					reverse_has_opinion = {
+						who = VEN
+						value = 50
+					}
+				}
+			}
+		}
+		is_bad = yes
+		modifier = {
+			global_ship_recruit_speed = 1
+		}
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_burghers_exkousseiai_for_latins = {
+	icon = estate_burghers_exkousseiai_for_latins
+	loyalty = -0.1
+	influence = -0.05
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	is_valid = {
+		OR = {
+			tag = BYZ
+			has_estate_privilege = estate_burghers_exkousseiai_for_latins
+		}
+		NOT = { has_country_flag = estate_burghers_exkousseiai_for_latins_removed }
+		#added
+		started_in = 1400.1.1		#placeholder for now
+	}
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = BYZ_revokable_via_decision
+			always = no
+		}
+	}
+	penalties = {
+		trade_efficiency = -0.1
+		global_trade_power = -0.1
+	}
+	benefits = {
+		mercenary_cost = -0.25
+	}
+	
+	conditional_modifier = {
+		trigger = {
+			has_country_flag = BYZ_kommerkion_will_give_5_less_loyalty_flag
+		}
+		modifier = {
+			burghers_loyalty_modifier = -0.05
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			has_country_flag = BYZ_kommerkion_will_give_5_less_trade_eff_flag
+		}
+		modifier = {
+			trade_efficiency = -0.05
+		}
+	}
+	
+	on_revoked = {
+		add_country_modifier = {
+			name = BYZ_alienation_of_western_merchants
+			duration = 10950
+		}
+		
+		set_country_flag = estate_burghers_exkousseiai_for_latins_removed
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_church_union_of_the_churches = {
+	icon = estate_church_union_of_the_churches
+	loyalty = -0.1
+	influence = 0
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	is_valid = {
+		OR = {
+			tag = BYZ
+			has_estate_privilege = estate_church_union_of_the_churches
+		}
+		NOT = { has_country_flag = estate_church_union_of_the_churches_removed }
+		#added
+		started_in = 1431.1.1		#Council of Florence
+	}
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = BYZ_revokable_via_decision
+			always = no
+		}
+	}
+	on_granted = {
+		# custom_tooltip = BYZ_may_not_convert_catholics
+		
+		# custom_tooltip = " "
+		
+		custom_tooltip = BYZ_may_cause_unionist_revolts
+		
+		hidden_effect = {
+			PAP = {
+				add_opinion = {
+					who = ROOT
+					modifier = BYZ_union_of_the_churches_op
+				}
+			}
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			religion = orthodox
+		}
+		modifier = {
+			tolerance_heretic = 1
+			tolerance_own = -4
+			global_heretic_missionary_strength = -0.1
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			religion = catholic
+		}
+		modifier = {
+			tolerance_heretic = -4
+			tolerance_own = -1
+			global_heretic_missionary_strength = -0.03
+		}
+	}
+	benefits = {
+		
+	}
+	penalties = {
+		
+	}
+	conditional_modifier = {
+		trigger = {
+			has_country_modifier = BYZ_extra_mercenary_cost_for_union
+		}
+		modifier = {
+			mercenary_cost = -0.15
+		}
+	}
+	on_revoked = {
+		PAP = {
+			remove_opinion = {
+				who = ROOT
+				modifier = BYZ_union_of_the_churches_op
+			}
+		}
+		set_country_flag = estate_church_union_of_the_churches_removed
+	}	
+	on_invalid = {
+		PAP = {
+			remove_opinion = {
+				who = ROOT
+				modifier = BYZ_union_of_the_churches_op
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_nobles_deteriorating_army = {
+	icon = estate_nobles_deteriorating_army
+	loyalty = -0.05
+	influence = 0.1
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	is_valid = {
+		OR = {
+			tag = BYZ
+			has_estate_privilege = estate_nobles_deteriorating_army
+		}
+		NOT = { has_country_flag = estate_nobles_deteriorating_army_removed }
+		started_in = 1341.1.1		#Civil War of 1341-47 accelerates martial decline with only 4,000 troops left in the army by 1320s, that started after reign of Basil II
+	}
+	can_revoke = {
+		custom_trigger_tooltip = {
+			tooltip = BYZ_revokable_via_decision
+			always = no
+		}
+	}
+	on_granted = {
+	}
+	on_revoked = {
+		set_country_flag = estate_nobles_deteriorating_army_removed
+	}
+	benefits = {
+		
+	}
+	penalties = {
+		assault_fort_ability = -0.75
+		reinforce_speed = -0.1
+		army_tradition_decay = 0.01
+	}
+	conditional_modifier = {
+		trigger = {
+			has_dlc = "King of Kings"
+		}
+		is_bad = yes
+		modifier = {
+			land_morale = -0.15 #this is counteracted by the +10.0% from the mission tree and events
+		}
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}

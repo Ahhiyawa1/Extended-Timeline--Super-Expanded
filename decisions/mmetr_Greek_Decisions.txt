@@ -1,0 +1,81 @@
+country_decisions = {
+
+	mmetr_form_ancient_macedonia_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_ancient_macedonia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				NOT = { exists = MC1 }
+			}
+			NOT = { tag = MC1 }
+			NOT = { tag = PER }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = ROW }
+			NOT = { tag = BYZ }
+			NOT = { tag = PRT }
+			OR = {
+				culture_group = byzantine
+				tag = IGR
+				tag = GRB	#Greco-Bactria
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			NOT = { started_in = 476.9.4 }	#Fall of Rome, rough beginning of Middle Ages
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 148
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			culture_group = byzantine
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			NOT = { exists = MC1 }
+			owns_core_province = 148	#Thessalonica / Salonica
+			capital_scope = {
+				area = macedonia_area
+			}
+		}
+		effect = {
+			change_tag = MC1
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+					set_government_rank = 2
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 20
+			set_country_flag = formed_ancient_macedonia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+}

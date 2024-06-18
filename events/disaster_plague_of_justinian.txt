@@ -1,0 +1,216 @@
+###########################################################
+# Events for Pleague of Justinian Disaster
+###########################################################
+
+namespace = plague_of_justinian
+
+# Mysterious Blight in [151.GetName]
+country_event = {
+	id = plague_of_justinian.1
+	title = "plague_of_justinian.1.t"
+	desc = "plague_of_justinian.1.desc"
+	picture = PLAGUE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 151
+		OR = {
+			tag = ROM
+			tag = BYZ
+			was_tag = BYZ
+		}
+		is_year = 2578
+		NOT = { started_in = 600.1.1 }
+		OR = {
+			num_of_cities = 100
+			total_development = 500
+		}
+		
+		has_any_disaster = no
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = plague_of_justinian_disaster_start_flag
+		}
+	}
+	
+	option = {
+		name = "plague_of_justinian.1.a"
+		
+		add_stability = -1
+		
+		151 = {
+			add_devastation = 25
+			if = {
+				limit = { base_tax = 2 NOT = { base_tax = 7 } }
+				add_base_tax = -1
+			}
+			if = {
+				limit = { base_tax = 8 NOT = { base_tax = 11 } }
+				add_base_tax = -2
+			}
+			if = {
+				limit = { base_tax = 12 }
+				add_base_tax = -3
+			}
+			if = {
+				limit = { base_production = 2 NOT = { base_production = 7 } }
+				add_base_production = -1
+			}
+			if = {
+				limit = { base_production = 8 NOT = { base_production = 11 } }
+				add_base_production = -2
+			}
+			if = {
+				limit = { base_production = 12 }
+				add_base_production = -3
+			}
+			if = {
+				limit = { base_manpower = 2 NOT = { base_manpower = 7 } }
+				add_base_manpower = -1
+			}
+			if = {
+				limit = { base_manpower = 8 NOT = { base_manpower = 11 } }
+				add_base_manpower = -2
+			}
+			if = {
+				limit = { base_manpower = 12 }
+				add_base_manpower = -3
+			}
+			add_province_modifier = {
+				name = plague_of_justinian_province
+				duration = 1825
+			}
+			set_province_flag = had_plague_of_justinian_province_flag
+		}
+	}
+}
+
+# The Plague of [Root.Monarch.GetName]
+country_event = {
+	id = plague_of_justinian.2
+	title = "plague_of_justinian.2.t"
+	desc = "plague_of_justinian.2.desc"
+	picture = PLAGUE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "plague_of_justinian.2.a"
+		
+		custom_tooltip = plague_of_justinian.2.tt
+	}
+}
+
+# The Plague of [Root.Monarch.GetName] Ends
+country_event = {
+	id = plague_of_justinian.3
+	title = "plague_of_justinian.3.t"
+	desc = "plague_of_justinian.3.desc"
+	picture = PLAGUE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "plague_of_justinian.3.a"
+		
+		hidden_effect = {
+			set_country_flag = plague_of_justinian_disaster_end_flag
+			every_owned_province = {
+				limit = { 
+					has_province_flag = had_plague_of_justinian
+				}
+				clr_province_flag = had_plague_of_justinian
+			}
+		}
+	}
+}
+
+# Plague Spreads in [Root.GetName]
+province_event = {
+	id = plague_of_justinian.4
+	title = "plague_of_justinian.4.t"
+	desc = "plague_of_justinian.4.desc"
+	picture = PLAGUE_eventPicture
+	
+	trigger = {
+		owner = { has_disaster = plague_of_justinian }
+		NOT = { has_province_flag = had_plague_of_justinian_province_flag }
+		OR = {
+			development = 12
+			province_has_center_of_trade_of_level = 1
+		}
+		OR = {
+			any_neighbor_province = { has_province_modifier = plague_of_justinian_province }
+			AND = { 
+				has_port = yes
+				any_province = { 
+					region = ROOT
+					has_province_modifier = plague_of_justinian_province
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 0.5
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			development = 25
+		}
+		modifier = {
+			factor = 0.5
+			development = 30
+		}
+	}
+	
+	option = {
+		name = "plague_of_justinian.4.a"
+		set_province_flag = had_plague_of_justinian_province_flag
+		add_devastation = 25
+		if = {
+			limit = { base_tax = 2 NOT = { base_tax = 8 } }
+			add_base_tax = -1
+		}
+		if = {
+			limit = { base_tax = 8 }
+			add_base_tax = -2
+		}
+		if = {
+			limit = { base_production = 2 NOT = { base_production = 8 } }
+			add_base_production = -1
+		}
+		if = {
+			limit = { base_production = 8 }
+			add_base_production = -2
+		}
+		if = {
+			limit = { base_manpower = 2 NOT = { base_manpower = 8 } }
+			add_base_manpower = -1
+		}
+		if = {
+			limit = { base_manpower = 8 }
+			add_base_manpower = -2
+		}
+		add_province_modifier = {
+			name = plague_of_justinian_province
+			duration = 1825
+		}
+	}
+}
+

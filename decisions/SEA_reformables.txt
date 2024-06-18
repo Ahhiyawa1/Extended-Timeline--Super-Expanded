@@ -15,8 +15,6 @@ country_decisions = {
 			}
 			NOT = { tag = DAI }
 			NOT = { exists = VTN }
-			NOT = { exists = VI7 }
-			NOT = { exists = VI6 }
 			OR = {
 				ai = no
 				AND = {
@@ -25,9 +23,6 @@ country_decisions = {
 				}
 			}
 			NOT = { tag = HLR }
-			NOT = { tag = HR8 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR6 }
 			NOT = { tag = PAP }
 			primary_culture = vietnamese
 			is_colonial_nation = no
@@ -91,8 +86,8 @@ country_decisions = {
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

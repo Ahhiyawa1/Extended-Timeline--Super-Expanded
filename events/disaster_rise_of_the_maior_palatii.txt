@@ -1,0 +1,281 @@
+###########################################################
+# Events for Estate Disasters
+###########################################################
+
+namespace = rise_of_the_maior_palatii
+
+# Rise of the Mayor of the Palace
+country_event = {
+	id = rise_of_the_maior_palatii.1
+	title = "rise_of_the_maior_palatii.1.t"
+	desc = "rise_of_the_maior_palatii.1.desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	major = yes		#makes notification pop up for others
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = rise_of_the_maior_palatii_happened
+		}
+	}
+	
+	option = {
+		name = "rise_of_the_maior_palatii.1.a"
+		
+		add_stability = -2
+	}
+}
+
+# Control of the Realm Restored
+country_event = {
+	id = rise_of_the_maior_palatii.2
+	title = "rise_of_the_maior_palatii.2.t"
+	desc = "rise_of_the_maior_palatii.2.desc"
+	picture = MMETR_ANGLO_SAXON_COURT_eventPicture
+	
+	major = yes		#makes notification pop up for others
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "rise_of_the_maior_palatii.2.a"
+		
+		custom_tooltip = rise_of_the_maior_palatii.2.tt
+	}
+}
+
+# Maneuvers of the Mayor
+country_event = {
+	id = rise_of_the_maior_palatii.3
+	title = "rise_of_the_maior_palatii.3.t"
+	desc = "rise_of_the_maior_palatii.3.desc"
+	picture = MMETR_ANGLO_SAXON_COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "rise_of_the_maior_palatii.3.a"
+		
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+}
+
+# Carolingians Contact Rome
+country_event = {
+	id = rise_of_the_maior_palatii.4
+	title = "rise_of_the_maior_palatii.4.t"
+	desc = "rise_of_the_maior_palatii.4.desc"
+	picture = POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = rise_of_the_maior_palatii_happened
+			days = 1825		#disaster has gone on for 5 years
+		}
+		has_country_flag = grimoalds_coup_failed_flag		#Grimoald has attempted to take control of the realm and failed
+	}
+	
+	option = {
+		name = "rise_of_the_maior_palatii.4.a"
+		
+		hidden_effect = {
+			country_event = {
+				id = rise_of_the_maior_palatii.5
+				days = 60
+				random = 15
+			}
+		}
+	}
+}
+
+# The Pope Grants the Carolingians Authority!
+country_event = {
+	id = rise_of_the_maior_palatii.5
+	title = "rise_of_the_maior_palatii.5.t"
+	desc = "rise_of_the_maior_palatii.5.desc"
+	picture = POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "rise_of_the_maior_palatii.5.a"
+		
+		define_ruler = {
+			name = "Pepin"
+			dynasty = "Carolingian"
+			male = yes
+			age = 35
+			claim = 80
+		}
+		kill_heir = { allow_new_heir = yes }
+		
+		custom_tooltip = rise_of_the_maior_palatii.5.tt
+		
+		end_disaster = rise_of_the_maior_palatii		#Ends Disaster by Surrender to Carolingians
+		
+	}
+}
+
+# Mayor Appoints New Bishops
+country_event = {
+	id = rise_of_the_maior_palatii.6
+	title = "rise_of_the_maior_palatii.6.t"
+	desc = "rise_of_the_maior_palatii.6.desc"
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "rise_of_the_maior_palatii.6.a"
+		
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+	}
+}
+
+# Grimoald's Coup
+country_event = {
+	id = rise_of_the_maior_palatii.7
+	title = "rise_of_the_maior_palatii.7.t"
+	desc = "rise_of_the_maior_palatii.7.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = rise_of_the_maior_palatii_happened
+			days = 365
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					any_owned_province = {
+						is_core = ROOT
+						is_capital = no
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_core = ROOT 
+						is_capital = no
+					}
+					spawn_rebels = {
+						type = pretender_rebels
+						religion = ROOT
+						size = 3
+						leader = "Grimoald"
+						leader_dynasty = "Carolingian"
+						win = yes
+					}
+					add_local_autonomy = 25
+				}
+			}
+			else = {
+				capital_scope = {
+					spawn_rebels = {
+						type = pretender_rebels
+						religion = ROOT
+						size = 3
+						leader = "Grimoald"
+						leader_dynasty = "Carolingian"
+					}
+				}
+			}
+			set_country_flag = grimoalds_coup_started_flag
+		}
+	}
+	
+	option = {
+		name = "rise_of_the_maior_palatii.7.a"
+		
+		add_manpower = -1
+		add_prestige = -10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -5
+		}
+	}
+}
+
+# Grimoald's Coup Crushed
+country_event = {
+	id = rise_of_the_maior_palatii.8
+	title = "rise_of_the_maior_palatii.8.t"
+	desc = "rise_of_the_maior_palatii.8.desc"
+	picture = MMETR_BATTLEFIELD_AFTERMATH_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = grimoalds_coup_started_flag
+		NOT = {
+			has_spawned_rebels = pretender_rebels
+		}
+		NOT = {
+			dynasty = "Carolingian"		#Grimoald has lost
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = grimoalds_coup_failed_flag
+		}
+	}
+	
+	option = {
+		name = "rise_of_the_maior_palatii.8.a"
+		
+		
+	}
+}
+
+# A Carolingian Seizes the Throne
+country_event = {
+	id = rise_of_the_maior_palatii.9
+	title = "rise_of_the_maior_palatii.9.t"
+	desc = "rise_of_the_maior_palatii.9.desc"
+	picture = MMETR_BATTLEFIELD_AFTERMATH_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = grimoalds_coup_started_flag
+		NOT = {
+			has_spawned_rebels = pretender_rebels
+		}
+		dynasty = "Carolingian"		#Grimoald has won
+	}
+	
+	option = {
+		name = "rise_of_the_maior_palatii.9.a"
+		
+		custom_tooltip = rise_of_the_maior_palatii.5.tt
+		
+		end_disaster = rise_of_the_maior_palatii		#Ends Disaster by Surrender to Carolingians
+	}
+}

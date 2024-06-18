@@ -1,69 +1,5 @@
 country_decisions = {
 
-	form_roman_empire_byz = {
-		major = yes
-		potential = {
-			OR = {
-				tag = BYZ
-				tag = BY6
-				tag = BY7
-				tag = BY8
-				tag = LAE
-			}
-			NOT = { exists = ROM }
-		}
-		allow = {
-			NOT = { exists = ROW }
-			owns_core_province = 118
-			owns_core_province = 121
-			owns_core_province = 124
-			owns_core_province = 104
-			owns_core_province = 136
-		}
-		effect = {
-			change_tag = ROM
-			restore_country_name = yes
-			add_prestige = 50
-			set_country_flag = rome_formed
-			swap_free_idea_group = yes
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	form_roman_empire_row = {
-		major = yes
-		potential = {
-			tag = ROW
-			NOT = { exists = ROM }
-		}
-		allow = {
-			NOT = { exists = BYZ }
-			NOT = { exists = BY6 }
-			NOT = { exists = BY7 }
-			NOT = { exists = BY8 }
-			NOT = { exists = LAE }
-			is_subject = no
-			is_at_war = no
-			owns_core_province = 118
-			owns_core_province = 121
-			owns_core_province = 124
-			owns_core_province = 151
-			owns_core_province = 149
-			owns_core_province = 146
-		}
-		effect = {
-			change_tag = ROM
-			restore_country_name = yes
-			add_prestige = 50
-			set_country_flag = rome_formed
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
 	form_west_rome = {
 		major = yes
 		potential = {
@@ -79,8 +15,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = ROW
-			restore_country_name = yes
-			add_prestige = 50			
+			add_prestige = 50
+			
 		}
 		ai_will_do = {
 			factor = 1
@@ -209,10 +145,6 @@ country_decisions = {
 			is_at_war = no
 			NOT = { exists = ROW }
 			NOT = { exists = BYZ }
-			NOT = { exists = BY6 }
-			NOT = { exists = BY7 }
-			NOT = { exists = BY8 }
-			NOT = { exists = LAE }
 		}
 		effect = {
 			add_stability = 1
@@ -353,7 +285,7 @@ country_decisions = {
 			factor = 0
 		}
 	}
-	
+
 	roman_technology_reform = {
 		major = yes
 		potential = {
@@ -428,9 +360,6 @@ country_decisions = {
 				tag = ROM
 				tag = ROW
 				tag = BYZ
-				tag = BY6
-				tag = BY7
-				tag = BY8
 			}
 			religion = hellenism
 			NOT = { has_country_modifier = christianity_banned }

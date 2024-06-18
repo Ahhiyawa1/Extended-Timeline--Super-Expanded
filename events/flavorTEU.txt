@@ -14,8 +14,8 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		is_year = 1460
-		NOT = { is_year = 1500 }
+		is_year = 3558
+		NOT = { is_year = 3598 }
 		tag = TEU
 		NOT = { has_country_flag = pru_confederation_curtailed }
 		NOT = { has_country_flag = pru_confederation_happened }
@@ -49,7 +49,7 @@ country_event = {
 		months = 6
 		modifier = {
 			factor = 0.1
-			is_year = 1466
+			is_year = 3564
 		}
 	}
 	
@@ -463,8 +463,8 @@ country_event = {
 	picture = SEJM_eventPicture
 	
 	trigger = {
-		is_year = 1460
-		NOT = { is_year = 1500 }
+		is_year = 3558
+		NOT = { is_year = 3598 }
 		tag = TEU
 		NOT = { has_country_flag = pru_confederation_curtailed }
 		NOT = { has_country_flag = pru_danzig_victory_happend }
@@ -1550,8 +1550,8 @@ country_event = {
 		}
 		add_government_reform = prussian_monarchy_base
 		if = {
-			limit = { NOT = { government_rank = 8 } }
-			set_government_rank = 8
+			limit = { NOT = { government_rank = 2 } }
+			set_government_rank = 2
 		}
 		add_prestige = 25
 		ai_chance = {
@@ -2045,11 +2045,11 @@ country_event = {
 		}
 		else = {
 			tooltip = {
-				set_government_rank = 10
+				set_government_rank = 3
 			}
 		}
 		hidden_effect = {
-			GER = { set_government_rank = 10 }
+			GER = { set_government_rank = 3 }
 		}
 		north_german_region = {
 			limit = {

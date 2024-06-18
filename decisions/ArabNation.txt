@@ -7,19 +7,27 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_arabia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = ARB }
-			NOT = { exists = UA6 }
-			NOT = { exists = UA7 }
-			NOT = { exists = UA8 }
-			NOT = { exists = SAU }
-			NOT = { exists = AA3 }
 			NOT = { tag = HLR }
-			NOT = { tag = HR8 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR6 }
 			NOT = { tag = PAP }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
 			culture_group = turko_semitic #Arabic
-			capital_scope = { region = arabia_region }
+			NOT = { primary_culture = turkish }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -46,7 +54,13 @@ country_decisions = {
 		allow = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			adm_tech = 55
+			if = {
+				limit = {
+					not = { has_country_flag = free_arabia_forming_flag }
+				}
+				adm_tech = 55
+			}
+			religion_group = muslim
 			owns_core_province = 358			#Alexandria
 			owns_core_province = 361			#Cairo
 			owns_core_province = 377			#Aleppo
@@ -67,9 +81,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 10 }
+					NOT = { government_rank = 3 }
 				}
-				set_government_rank = 10
+				set_government_rank = 3
 			}
 			mashriq_region = {
 				limit = {

@@ -79,16 +79,20 @@ plutocratic_reform = {
 	potential = {
 		OR = {
 			technology_group = indian
+			technology_group = early_indian
 			technology_group = muslim
 			technology_group = chinese
+			technology_group = early_chinese
 			technology_group = east_african
 		}
 	}
 	nation_designer_trigger = {
 		OR = {
 			technology_group = indian
+			technology_group = early_indian
 			technology_group = muslim
 			technology_group = chinese
+			technology_group = early_chinese
 			technology_group = east_african
 		}
 	}
@@ -154,7 +158,6 @@ austrian_archduchy_reform = {
 			primary_culture = austrian
 		}
 	}
-	fixed_rank = 7 #MOD
 	nation_designer_cost = 0
 	modifiers = {
 		liberty_desire_from_subject_development = -0.33
@@ -176,18 +179,15 @@ grand_duchy_reform = {
 				tag = LIT
 				NOT = { map_setup = map_setup_random }
 			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = grand_duchy_reform
-			}
+			has_reform = grand_duchy_reform
 		}
 	}
 	legacy_equivalent = despotic_monarchy
-	fixed_rank = 6
+	fixed_rank = 1
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	modifiers = {
-		governing_capacity = 200
+		governing_capacity = 100
 	}
 }
 
@@ -218,12 +218,7 @@ indian_sultanate_reform = {
 	}
 
 	conditional = {
-		allow = {
-			OR = {
-				has_dlc = "Cradle of Civilization"
-				has_dlc = "Winds of Change"
-			}
-		}
+		allow = { has_dlc = "Cradle of Civilization" }
 		government_abilities = {
 			iqta_mechanic
 		}
@@ -234,19 +229,15 @@ shogunate = {
 	icon = "shogunate"
 	allow_normal_conversion = yes
 	potential = {
-		NOT = { has_country_flag = formed_japan_flag }
 		OR = {
 			AND = {
 				capital_scope = {
 					province_id = 1020
 				}
 				culture_group = japanese_g
-				NOT = { exists = JAP }
+				NOT = { any_country = { has_reform = shogunate } }
 			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = shogunate
-			}
+			has_reform = shogunate
 		}
 	}
 	valid_for_nation_designer = yes
@@ -258,7 +249,7 @@ shogunate = {
 		owns = 1020
 	}
 	legacy_equivalent = shogunate_legacy
-	fixed_rank = 8
+	fixed_rank = 2
 	maintain_dynasty = yes
 	allow_vassal_war = yes
 	allow_vassal_alliance = yes
@@ -289,12 +280,11 @@ daimyo = {
 	icon = "daimyo"
 	allow_normal_conversion = no
 	potential = {
-		NOT = { has_country_flag = formed_japan_flag }
 		overlord = { has_reform = shogunate }
 	}
 	replacement_on_independence_war = indep_daimyo
 	legacy_equivalent = daimyo_legacy
-	fixed_rank = 4
+	fixed_rank = 1
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
@@ -327,7 +317,7 @@ feudal_france_reform = {
 			}
 		}
 	}
-	fixed_rank = 8
+	fixed_rank = 2
 	lock_level_when_selected = yes
 
 	modifiers = {
@@ -351,7 +341,7 @@ appanage_reform = {
 		is_subject_of_type = appanage
 	}
 	replacement_on_independence_war = feudalism_reform
-	fixed_rank = 4
+	fixed_rank = 1
 	maintain_dynasty = yes
 	valid_for_nation_designer = no
 	lock_level_when_selected = yes
@@ -436,10 +426,7 @@ indep_daimyo = {
 				capital_scope = { region = japan_region }
 				culture_group = japanese_g
 			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = indep_daimyo
-			}
+			has_reform = indep_daimyo
 		}
 	}
 	valid_for_nation_designer = yes
@@ -484,7 +471,6 @@ celestial_empire = {
 		NOT = { has_global_flag = empire_of_china_dismantled }
 	}
 	legacy_equivalent = celestial_empire_legacy
-	maintain_dynasty = yes
 	allow_force_tributary = no
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -506,7 +492,7 @@ celestial_empire = {
 		bureaucrats
 	}
 
-	fixed_rank = 10
+	fixed_rank = 3
 	start_territory_to_estates = 0.9
 
 	modifiers = {
@@ -608,6 +594,7 @@ chinese_warlord = {
 	allow_force_tributary = no
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
+	lock_level_when_selected = yes
 	nation_designer_trigger = {
 		OR = {
 			primary_culture = bai
@@ -638,11 +625,11 @@ chinese_warlord = {
 			}
 		}
 	}
-	fixed_rank = 8
+	fixed_rank = 2
 
 	modifiers = {
 		manpower_recovery_speed = 0.25
-		governing_capacity = 500
+		governing_capacity = 100
 		liberty_desire = 50
 	}
 	
@@ -804,10 +791,8 @@ english_monarchy = {
 	allow_normal_conversion = no
 	potential = {
 		OR = {
+			has_reform = english_monarchy
 			have_had_reform = english_monarchy
-			tag = ENG
-			was_tag = ENG
-			tag = GBR
 		}
 	}
 	lock_level_when_selected = yes
@@ -1000,9 +985,10 @@ ottoman_government = {
 				NOT = { map_setup = map_setup_random }
 			}
 			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = ottoman_government
+				tag = RUM
+				NOT = { map_setup = map_setup_random }
 			}
+			has_reform = ottoman_government
 		}
 	}
 	valid_for_nation_designer = yes
@@ -1063,12 +1049,12 @@ ottoman_government = {
 byzantine_autocracy_reform = {
 	icon = "king"
 	allow_normal_conversion = yes
-	lock_level_when_selected = yes
 	valid_for_nation_designer = no
 	potential = {
 		OR = {
 			has_reform = byzantine_autocracy_reform
 			have_had_reform = byzantine_autocracy_reform
+			tag = BYZ
 		}
 	}
 	modifiers = {
@@ -1087,7 +1073,6 @@ byzantine_autocracy_reform = {
 reformed_byzantine_monarchy_reform = {
 	icon = "byzantine_rule"
 	allow_normal_conversion = yes
-	lock_level_when_selected = yes
 	potential = {
 		OR = {
 			has_reform = reformed_byzantine_monarchy_reform
@@ -1121,30 +1106,6 @@ reformed_byzantine_monarchy_reform = {
 	}
 }
 
-margraviate_reform = {
-	icon = "soldiers_2"
-	allow_normal_conversion = yes
-	potential = {
-		has_dlc = "Domination"
-		have_had_reform = margraviate_reform
-	}
-	trigger = {
-		is_part_of_hre = yes
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
-	nation_designer_trigger = {
-		is_part_of_hre = yes
-	}
-	modifiers = {
-		fort_maintenance_modifier = -0.2
-		defensiveness = 0.1
-	}
-	ai = {
-		factor = 1
-	}
-}
-
 serbian_despotate_reform = {
 	icon = "king"
 	allow_normal_conversion = yes
@@ -1155,13 +1116,7 @@ serbian_despotate_reform = {
 		}
 	}
 	trigger = {
-		if = {
-			limit = { has_updated_culture = { culture = slavic } }
-			primary_culture = serbian_new
-		}
-		else = {
-			primary_culture = serbian
-		}
+		primary_culture = serbian
 	}
 	nation_designer_trigger = {
 		primary_culture = serbian
@@ -1193,20 +1148,11 @@ bulgarian_tsardom_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		OR = {
-			primary_culture = bulgarian
-			primary_culture = bulgarian_new
-		}
+		primary_culture = bulgarian
 	}
 	trigger = {
 		religion = orthodox
-		if = {
-			limit = { has_updated_culture = { culture = slavic } }
-			primary_culture = bulgarian_new
-		}
-		else = {
-			primary_culture = bulgarian
-		}
+		primary_culture = bulgarian
 	}
 	nation_designer_trigger = {
 		has_dlc = "Domination"
@@ -1220,7 +1166,7 @@ bulgarian_tsardom_reform = {
 		can_claim_states = yes 
 		harsh_treatment_cost = -0.25
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	ai = {
 		factor = 100
 	}
@@ -1378,50 +1324,6 @@ sharifate_reform = {
 	}
 }
 
-caliphate_reform = {
-	icon = "caliphate"
-	allow_normal_conversion = yes
-	potential = {
-		OR = {
-			has_reform = caliphate_reform
-			have_had_reform = caliphate_reform
-			has_unlocked_government_reform = {
-				government_reform = caliphate_reform
-			}
-		}
-	}
-	trigger = {
-		religion_group = muslim
-	}
-	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		religion_group = muslim
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 50
-	modifiers = {
-		warscore_cost_vs_other_religion = -0.1
-		tolerance_own = 3
-		legitimacy = 1
-		governing_capacity = 100
-		missionaries = 1
-		global_missionary_strength = 0.02
-	}
-	custom_attributes = {
-		enables_divine_idea_group = yes
-		enables_aristocratic_idea_group = no
-	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
-	ai = {
-		factor = 1
-	}
-}
-
 league_of_lezhe_reform = {
 	icon = "giga_chad"
 	allow_normal_conversion = yes
@@ -1450,12 +1352,10 @@ barbary_sultanate_reform = {
 	icon = "barbary_eyalet_government"
 	allow_normal_conversion = yes
 	potential = {
-		religion_group = muslim
 		culture_group = maghrebi
 	}
 	queen = no
 	nation_designer_trigger = {
-		religion_group = muslim
 		culture_group = maghrebi
 	}
 	valid_for_nation_designer = yes
@@ -1482,45 +1382,6 @@ barbary_sultanate_reform = {
 	}
 }
 
-roman_empire_reform = {
-	icon = "roman_empire"
-	allow_normal_conversion = yes
-	potential = {
-		has_dlc = "Domination"
-		primary_culture = roman
-	}
-	nation_designer_trigger = {
-		primary_culture = roman
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 100
-	modifiers = {
-		administrative_efficiency = 0.05
-		max_absolutism = 10
-		culture_conversion_cost = -0.25
-		culture_conversion_time = -0.1
-	}
-	fixed_rank = 10
-	conditional = {
-		allow = {
-			OR = {
-				has_dlc = "Common Sense"
-				has_dlc = "Domination"
-			}
-		}
-		has_parliament = yes
-	}
-	conditional = {
-		allow = { has_dlc = "King of Kings" }
-		custom_attributes = {
-			enables_pronoias = yes 
-		}
-	}
-	ai = {
-		factor = 1
-	}
-}
-
 persian_government_reform = {
 	icon = "persian_sultanate"
 	allow_normal_conversion = yes
@@ -1536,16 +1397,15 @@ persian_government_reform = {
 				is_playing_custom_nation = yes
 			}
 		}
-		OR = {
-			NOT = { religion_group = zoroastrian_group }
-			is_playing_custom_nation = yes
-		}
+		NOT = { religion_group = zoroastrian_group }
 	}
 	trigger = {
-		OR = {
-			NOT = { religion_group = zoroastrian_group }
-			is_playing_custom_nation = yes
-		}
+		primary_culture = persian
+		NOT = { religion_group = zoroastrian_group }
+	}
+	nation_designer_trigger = {
+		primary_culture = persian
+		NOT = { religion_group = zoroastrian_group }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
@@ -1591,9 +1451,11 @@ zoroastrian_persian_government_reform = {
 		religion_group = zoroastrian_group
 	}
 	trigger = {
+		primary_culture = persian
 		religion_group = zoroastrian_group
 	}
 	nation_designer_trigger = {
+		primary_culture = persian
 		religion_group = zoroastrian_group
 	}
 	valid_for_nation_designer = yes
@@ -1603,7 +1465,6 @@ zoroastrian_persian_government_reform = {
 		global_missionary_strength = 0.01
 		tolerance_own = 2
 		development_cost = -0.05
-		monarch_admin_power = 2
 	}
 	custom_attributes = {
 		enables_divine_idea_group = yes
@@ -1714,17 +1575,10 @@ bohemian_elective_kingdom_reform = {
 	icon = "bohemian_monarchy"
 	allow_normal_conversion = yes
 	potential = {
-		OR = {
-			primary_culture = czech
-			primary_culture = czech_new
-		}
-		NOT = { has_country_flag = bohemia_abolished }
+		primary_culture = czech
 	}
 	nation_designer_trigger = {
-		OR = {
-			primary_culture = czech
-			primary_culture = czech_new
-		}
+		primary_culture = czech
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -2450,12 +2304,6 @@ austrian_dual_monarchy = {
 		monarch_diplomatic_power = 2
 		promote_culture_cost = -0.33
 	}
-	effect = {
-		change_dip = 2
-	}
-	removed_effect = {
-		change_dip = -2
-	}
 }
 
 principality = {
@@ -2463,31 +2311,29 @@ principality = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_reform = tsardom }
+		NOT = { have_had_reform = tsardom }
 		religion = orthodox
 		OR = {
 			culture_group = east_slavic
-			culture_group = slavic
+			has_reform = principality
 			AND = {
 				is_playing_custom_nation = yes
 				have_had_reform = principality
 			}
 		}
 	}
-	fixed_rank = 5
+	fixed_rank = 1
 	legacy_equivalent = principality_legacy
 	valid_for_nation_designer = yes
 	nation_designer_cost = 5
 	nation_designer_trigger = {
-		OR = {
-			culture_group = east_slavic
-			culture_group = slavic
-		}
+		culture_group = east_slavic
 		religion = orthodox
 	}
 	modifiers = {
 		global_unrest = -1
 		global_regiment_cost = -0.05
-		governing_capacity = 200
+		governing_capacity = 100
 		has_streltsy = yes
 		allowed_streltsy_fraction = 0.1
 	}
@@ -2512,10 +2358,7 @@ tsardom = {
 	allow_normal_conversion = yes
 	potential = {
 		religion = orthodox
-		OR = {
-			culture_group = east_slavic
-			culture_group = slavic
-		}
+		culture_group = east_slavic
 		NOT = { primary_culture = ruthenian }
 		NOT = { primary_culture = byelorussian }
 		OR = {
@@ -2523,26 +2366,16 @@ tsardom = {
 				tag = RUS
 				NOT = { map_setup = map_setup_random }
 			}
-			AND = {
-				tag = UKR
-				NOT = { map_setup = map_setup_random }
-			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = tsardom
-			}
+			has_reform = tsardom
 		}
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	legacy_equivalent = tsardom_legacy
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
 
 	nation_designer_trigger = {
-		OR = {
-			culture_group = east_slavic
-			culture_group = slavic
-		}
+		culture_group = east_slavic
 		NOT = { primary_culture = ruthenian }
 		NOT = { primary_culture = byelorussian }
 		religion = orthodox
@@ -2552,7 +2385,7 @@ tsardom = {
 		global_manpower_modifier = 0.20
 		yearly_absolutism = 0.5
 		global_autonomy = -0.05
-		governing_capacity = 350
+		governing_capacity = 250
 		has_streltsy = yes
 		allowed_streltsy_fraction = 0.2
 	}
@@ -2587,28 +2420,21 @@ ruthenian_tsardom = {
 		OR = {
 			primary_culture = ruthenian
 			primary_culture = byelorussian
-			primary_culture = ruthenian_new
-			primary_culture = byelorussian_new
 		}
 		OR = {
 			AND = {
 				tag = UKR
 				NOT = { map_setup = map_setup_random }
 			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = ruthenian_tsardom
-			}
+			has_reform = ruthenian_tsardom
 		}
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	nation_designer_trigger = {
 		religion = orthodox
 		OR = {
 			primary_culture = ruthenian
 			primary_culture = byelorussian
-			primary_culture = ruthenian_new
-			primary_culture = byelorussian_new
 		}
 	}
 	valid_for_nation_designer = yes
@@ -2618,8 +2444,6 @@ ruthenian_tsardom = {
 		OR = {
 			primary_culture = ruthenian
 			primary_culture = byelorussian
-			primary_culture = ruthenian_new
-			primary_culture = byelorussian_new
 		}
 		religion = orthodox
 	}
@@ -2628,7 +2452,7 @@ ruthenian_tsardom = {
 		manpower_in_true_faith_provinces = 0.2
 		max_absolutism = 5
 		reform_progress_growth = 0.2
-		governing_capacity = 350
+		governing_capacity = 250
 		has_streltsy = yes
 		allowed_streltsy_fraction = 0.2
 	}
@@ -2655,7 +2479,7 @@ russian_empire_reform = {
 			}
 		}
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
 
@@ -2690,6 +2514,7 @@ mamluk_government = {
 				tag = MAM
 				NOT = { map_setup = map_setup_random }
 			}
+			has_reform = mamluk_government
 			have_had_reform = mamluk_government
 		}
 	}
@@ -2735,10 +2560,7 @@ feudal_theocracy = {
 					have_had_reform = feudal_theocracy
 				}
 			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = feudal_theocracy
-			}
+			has_reform = feudal_theocracy
 		}
 	}
 	nation_designer_trigger = {
@@ -2755,7 +2577,6 @@ feudal_theocracy = {
 		brahmins_hindu_loyalty_modifier = 0.05
 		church_loyalty_modifier = 0.05
 	}
-	maintain_dynasty = yes
 
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
@@ -2794,238 +2615,156 @@ mughal_government = {
 	assimilation_cultures = {
 		altaic = {
 			artillery_cost = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		baltic = {
 			naval_forcelimit_modifier = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		}
+		basque_group = {
+			defensiveness = 0.1
 		}
 		british = {
 			ship_durability = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		burman = {
 			free_leader_pool = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		byzantine = {
 			legitimacy = 0.25
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
-		}
-		carpathian = {
-			mercenary_cost = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		caucasian = {
 			mercenary_discipline = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		gaelic = {
 			shock_damage = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		central_indic = {
 			land_attrition = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		east_asian = {
 			state_maintenance_modifier = -0.2
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		kongo_group = {
 			heir_chance = 0.5
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		cushitic = {
 			missionaries = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		dravidian = {
 			global_trade_goods_size_modifier = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		african = {
 			global_tax_income = 10
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		east_slavic = {
 			land_forcelimit_modifier = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		eastern_aryan = {
 			production_efficiency = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		}
+		eastern_balkan = {
+			shock_damage_received = -0.05
 		}
 		evenks = {
 			cavalry_flanking = 0.2
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		}
+		finno_ugric = {
+			land_attrition = -0.15
 		}
 		french = {
 			diplomats = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		germanic = {
 			global_institution_spread = 0.15
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		great_lakes_group = {
 			loot_amount = 0.5
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		hindusthani = {
 			core_creation = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		iberian = {
 			global_colonial_growth = 10
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		iranian = {
 			advisor_cost = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		japanese_g = {
 			land_morale = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
-		}
-		kamchatkan_g = {
-			hostile_attrition = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		korean_g = {
 			idea_cost = -0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		latin = {
 			embracement_cost = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		lost_cultures_group = {
 			discipline = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		turko_semitic = {
 			cavalry_power = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		maghrebi = {
 			privateer_efficiency = 0.25
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		malay = {
 			merchants = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		mande = {
 			tolerance_heretic = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		}
+		mongolic = {
+			cavalry_fire = 0.25
+		}
+		oghur = {
+			mercenary_cost = -0.1
+		}
+		oghuz = {
+			loot_amount = 0.10
 		}
 		pacific = {
 			global_sailors_modifier = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		sahelian = {
 			movement_speed = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		scandinavian = {
 			mil_advisor_cost = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
-		}
-		southeastasian_group = {
-			development_cost = -0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		south_slavic = {
 			warscore_cost_vs_other_religion = -0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		}
+		southeastasian_group = {
+			build_cost = -0.05
 		}
 		southern_african = {
 			inflation_reduction = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		sudanese = {
 			caravan_power = 0.1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		tartar = {
 			cavalry_cost = -0.15
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		thai_group = {
-			build_cost = -0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+			development_cost = -0.05
 		}
 		tibetan_group = {
 			prestige_per_development_from_conversion = 0.5
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		finno_ugric = {
 			prestige_decay = -0.01
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		west_african = {
 			global_autonomy = -0.01
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		west_slavic = {
 			leader_land_fire = 1
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
 		western_aryan = {
 			trade_efficiency = 0.05
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
 		}
-		slavic = {
-			province_warscore_cost = -0.15
-			effect = { hidden_effect = { change_variable = { which = cultures_assimilated value = 1 } } }
-			removed_effect = { hidden_effect = { subtract_variable = { which = cultures_assimilated value = 1 } } }
+		western_balkan = {
+			infantry_power = 0.05
 		}
 	}
 }
@@ -3042,7 +2781,7 @@ revolutionary_empire_reform = {
 	uses_revolutionary_zeal = yes
 	revolutionary = yes
 	is_eligible_for_hre_emperor = no
-	fixed_rank = 10
+	fixed_rank = 3
 	modifiers = {
 		global_manpower_modifier = 0.25
 		land_morale = 0.10
@@ -3122,10 +2861,14 @@ mandala_reform = {
 		OR = {
 			religion_group = eastern
 			religion_group = dharmic
+			religion_group = buddhic
 			religion_group = muslim
 			religion = animism
 		}
-		technology_group = chinese
+		OR = {
+			technology_group = chinese
+			technology_group = early_chinese
+		}
 		OR = {
 			has_dlc = "Leviathan"
 			has_dlc = "Dharma"
@@ -3139,6 +2882,7 @@ mandala_reform = {
 		OR = {
 			religion_group = eastern
 			religion_group = dharmic
+			religion_group = buddhic
 			religion_group = muslim
 		}
 		technology_group = chinese
@@ -3151,6 +2895,7 @@ mandala_reform = {
 	modifiers = {
 		vassal_income = 0.15
 		vassal_forcelimit_bonus = 1
+		governing_capacity_modifier = -0.33
 	}
 	free_concentrate_development = yes
 }
@@ -3160,12 +2905,13 @@ nayankara_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Dharma"
-		technology_group = indian
+		OR = {
+			technology_group = early_indian
+			technology_group = indian
+		}
 		OR = {
 			religion_group = dharmic
-			religion = buddhism
-			religion = vajrayana
-			religion = mahayana
+			religion_group = buddhic
 		}
 		OR = {
 			culture_group = dravidian
@@ -3177,12 +2923,13 @@ nayankara_reform = {
 	nation_designer_cost = 10
 	legacy_equivalent = feudal_monarchy
 	nation_designer_trigger = {
-		technology_group = indian
+		OR = {
+			technology_group = early_indian
+			technology_group = indian
+		}
 		OR = {
 			religion_group = dharmic
-			religion = buddhism
-			religion = vajrayana
-			religion = mahayana
+			religion_group = buddhic
 
 		}
 		OR = {
@@ -3272,14 +3019,12 @@ confucian_bureaucracy = {
 		OR = {
 			religion = confucianism
 			primary_culture = vietnamese
-			primary_culture = vietnamese_new
 		}
 	}
 	potential = {
 		OR = {
 			religion = confucianism
 			primary_culture = vietnamese
-			primary_culture = vietnamese_new
 		}
 	}
 	modifiers = {
@@ -3296,16 +3041,10 @@ korean_monarchy = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 20
 	nation_designer_trigger = {
-		OR = {
-			primary_culture = korean
-			primary_culture = korean_new
-		}
+		primary_culture = korean
 	}
 	potential = {
-		OR = {
-			primary_culture = korean
-			primary_culture = korean_new
-		}
+		primary_culture = korean
 	}
 	modifiers = {
 		development_cost_in_primary_culture = -0.1
@@ -3467,7 +3206,7 @@ solomonic_empire = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 50
 	legacy_equivalent = solomonic_empire_legacy
-	fixed_rank = 10
+	fixed_rank = 3
 
 	modifiers = {
 		tolerance_own = 2
@@ -3788,7 +3527,7 @@ lithuanian_grand_kingdom = {
 		}
 	}
 	legacy_equivalent = despotic_monarchy
-	fixed_rank = 9
+	fixed_rank = 2
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
 	modifiers = {
@@ -3815,7 +3554,7 @@ lithuanian_grand_empire = {
 		}
 	}
 	legacy_equivalent = despotic_monarchy
-	fixed_rank = 10
+	fixed_rank = 3
 	valid_for_nation_designer = yes
 	nation_designer_cost = 55
 	modifiers = {
@@ -3910,7 +3649,8 @@ livonian_naval_monarchy = {
 		development_cost = -0.1
 		allowed_marine_fraction = 0.5
 		monarch_diplomatic_power = 2
-		burghers_loyalty_modifier = 0.1		
+		burghers_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.5		
 	}
 	
 	removed_effect = {
@@ -3978,6 +3718,7 @@ livonian_trade_monarchy = {
 		global_ship_trade_power = 0.25
 		global_trade_goods_size_modifier = 0.15
 		burghers_influence_modifier = 0.05
+		governing_capacity_modifier = -0.5		
 	}
 	custom_attributes = {
 		enables_plutocratic_idea_group = yes
@@ -4563,6 +4304,7 @@ livonian_enlightened_monarchy = {
 		monarch_diplomatic_power = 1
 		monarch_military_power = 1
 		legitimacy = 1
+		governing_capacity_modifier = -0.5
 	}
 }
 
@@ -4700,7 +4442,7 @@ andean_empire_reform = {
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 60
-	fixed_rank = 10
+	fixed_rank = 3
 	modifiers = {
 		global_unrest = -2
 		max_absolutism_effect = 0.1
@@ -4723,7 +4465,7 @@ aztec_empire_reform = {
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 60
-	fixed_rank = 10
+	fixed_rank = 3
 	modifiers = {
 		reduced_liberty_desire = 10
 	}
@@ -4846,7 +4588,6 @@ quash_noble_power_reform = {
 		nobles_influence_modifier = -0.1
 		maratha_exclusive_influence_modifier = -0.1
 		rajput_exclusive_influence_modifier = -0.1
-		#parliament_effect_duration = -2
 	}
 	ai = {
 		factor = 1
@@ -5135,7 +4876,10 @@ deccani_society_reform = {
 	potential = {
 		has_dlc = "Dharma"
 		is_revolutionary = no
-		technology_group = indian
+		OR = {
+			technology_group = indian
+			technology_group = early_indian
+		}
 		religion_group = muslim
 		OR = {
 			culture_group = dravidian
@@ -5154,15 +4898,10 @@ black_army_reform = {
 	icon = "black_army_reform"
 	allow_normal_conversion = yes
 	potential = {
-		OR = {
-			AND = {
-				is_or_was_tag = {
-					tag = HUN
-				}
-				has_country_flag = black_army_reform_flag
-			}
-			tag = AUH
+		is_or_was_tag = {
+			tag = HUN
 		}
+		has_country_flag = black_army_reform_flag
 		is_revolutionary = no
 	}
 	modifiers = {
@@ -5338,7 +5077,7 @@ pronoiar_monarchy_reform = {
 	icon = "pronoiar_monarchy_reform"
 	allow_normal_conversion = yes
 	potential = {
-		or = {
+		OR = {
 			AND = {
 				is_playing_custom_nation = yes
 				has_reform = pronoiar_monarchy_reform
@@ -5781,7 +5520,6 @@ examination_system_reform = {
 		OR = {
 			religion = confucianism
 			primary_culture = vietnamese
-			primary_culture = vietnamese_new
 		}
 	}
 	trigger = {
@@ -7119,7 +6857,7 @@ absolute_shogunate_reform = {
 	nation_designer_trigger = {
 		capital_scope = { region = japan_region } 
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	maintain_dynasty = yes
 	modifiers = {
 		can_transfer_vassal_wargoal = yes
@@ -7173,7 +6911,7 @@ japanese_divine_empire = {
 	nation_designer_trigger = {
 		capital_scope = { region = japan_region } 
 	}
-	fixed_rank = 10
+	fixed_rank = 3
 	maintain_dynasty = yes
 	modifiers = {
 		all_estate_possible_privileges = 1
@@ -7214,7 +6952,7 @@ land_christian_sun_reform = {
 		capital_scope = { region = japan_region } 
 	}
 	heir = no
-	fixed_rank = 10
+	fixed_rank = 3
 	modifiers = {
 		manpower_recovery_speed = 0.15
 		cb_on_religious_enemies = yes 

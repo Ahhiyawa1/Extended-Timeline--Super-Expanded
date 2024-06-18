@@ -10,38 +10,19 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = TUR }
 			NOT = { tag = TKY }
-			NOT = { tag = OT6 }
-			NOT = { tag = OT7 }
-			NOT = { tag = AN1 }
-			NOT = { tag = GA1 }
 			NOT = { exists = RUM }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			NOT = { tag = PAP }
 			NOT = { tag = BYZ }
-			NOT = { tag = BY6 }
-			NOT = { tag = BY7 }
-			NOT = { tag = BY8 }
-			NOT = { tag = LAE }
 			NOT = { tag = RUS }
-			NOT = { tag = SOV }
-			NOT = { tag = RU6 }
-			NOT = { tag = RU8 }
-			NOT = { tag = KRU }
-			NOT = { tag = KR6 }
-			NOT = { tag = KR7 }
-			NOT = { tag = KR8 }
-			NOT = { tag = RU0 }
-			NOT = { tag = VE5 }
 			NOT = { tag = PRU }
 			NOT = { tag = ENG }
-			NOT = { tag = EN6 }
-			NOT = { tag = EN7 }
-			NOT = { tag = EN8 }
 			is_emperor_of_china = no
 			primary_culture = turkish
 			is_colonial_nation = no
@@ -77,16 +58,7 @@ country_decisions = {
 			religion_group = muslim
 			NOT = { exists = RUM }
 			NOT = { exists = TUR }
-			NOT = { exists = OT6 }
-			NOT = { exists = OT7 }
-			NOT = { exists = TKY }
-			NOT = { exists = AN1 }
-			NOT = { exists = GA1 }
 			NOT = { exists = BYZ }
-			NOT = { exists = BY6 }
-			NOT = { exists = BY7 }
-			NOT = { exists = BY8 }
-			NOT = { exists = LAE }
 			owns_core_province = 151		# Constantinople
 			owns_core_province = 316		# Iznik
 			owns_core_province = 323		# Konya
@@ -114,9 +86,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			anatolia_region = {
 				limit = {

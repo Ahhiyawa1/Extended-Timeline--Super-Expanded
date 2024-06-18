@@ -1,80 +1,5 @@
 namespace = et_tradegoods
 
-# Oil discovered
-province_event = {
-	id = et_tradegoods.1
-	title = "et.EVTNAME46"
-	desc = "et.EVTDESC46"
-	picture = TRADEGOODS_eventPicture
-	
-	trigger = {
-		owner = { dip_tech = 81 }
-		NOT = { trade_goods = oil }
-		OR = {
-			province_id = 23
-			province_id = 24
-			province_id = 251
-			province_id = 355
-			province_id = 392
-			province_id = 393
-			province_id = 394
-			province_id = 395
-			province_id = 396
-			province_id = 397
-			province_id = 398
-			province_id = 399
-			province_id = 408
-			province_id = 410
-			province_id = 412
-			province_id = 413
-			province_id = 415
-			province_id = 421
-			province_id = 465
-			province_id = 727
-			province_id = 763
-			province_id = 830
-			province_id = 845
-			province_id = 848
-			province_id = 868
-			province_id = 870
-			province_id = 882
-			province_id = 887
-			province_id = 888
-			province_id = 893
-			province_id = 980
-			province_id = 1070
-			province_id = 1072
-			province_id = 1073
-			province_id = 1074
-			province_id = 1082
-			province_id = 1147
-			province_id = 1167
-			province_id = 1779
-			province_id = 1810
-			province_id = 2052
-			province_id = 2094
-			province_id = 2130
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 1600
-		modifier = {
-			factor = 0.5
-			owner = { adm_tech = 85 }
-		}
-		modifier = {
-			factor = 0.5
-			owner = { adm_tech = 88 }
-		}
-	}
-
-	option = {
-		name = "et.EVTOPTA46"
-		change_trade_goods = oil
-	}
-}
-
 country_event = {
 	id = et_tradegoods.2
 	title = "et.EVTNAME96"
@@ -86,7 +11,7 @@ country_event = {
 	major = yes
 	
 	trigger = {
-		is_year = 1980
+		is_year = 4078
 		any_owned_province = { trade_goods = fur }
 	}
 
@@ -116,7 +41,7 @@ country_event = {
 	major = yes
 	
 	trigger = {
-		is_year = 1930
+		is_year = 4028
 		any_owned_province = { trade_goods = fur }
 	}
 
@@ -146,7 +71,7 @@ country_event = {
 	major = yes
 	
 	trigger = {
-		is_year = 1990
+		is_year = 4088
 		technology_group = western
 	}
 
@@ -206,7 +131,7 @@ country_event = {
 	
 	trigger = {
 		has_institution = internet
-		is_year = 2005
+		is_year = 4103
 	}
 
 	mean_time_to_happen = {
@@ -241,7 +166,7 @@ country_event = {
 	major = yes
 	
 	trigger = {
-		is_year = 2010
+		is_year = 4108
 		technology_group = western
 	}
 
@@ -334,7 +259,7 @@ province_event = {
 	}
 	option = {
 		name = "et_tradegoods.10.b"
-		add_prestige = -5
+		owner = { add_prestige = -5 }
 	}
 }
 
@@ -412,6 +337,6 @@ province_event = {
 	}
 	option = {
 		name = "et_tradegoods.10.b"
-		add_prestige = -5
+		owner = { add_prestige = -5 }
 	}
 }

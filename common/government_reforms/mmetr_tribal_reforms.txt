@@ -1,0 +1,153 @@
+##################################################################################
+# Antiquity
+##################################################################################
+yuezhi_confederation_reform = {		#Monarchy
+	icon = "horde_riding"
+	monarchy = yes			#is not fully tribal / nomadic, instead a hybrid form of a monarchy
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = yuezhi_confederation_restored
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	lock_level_when_selected = no	#can switch back to autocracy in monarchy tier
+	
+	raze_province = yes
+	
+	modifiers = {
+		cav_to_inf_ratio = 0.25
+		movement_speed = 0.2
+		cavalry_cost = -0.1
+		loot_amount = 0.2
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+	}
+}
+
+sinicized_horde_reform = {		#Tribal
+	icon = "manchu_warrior"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = sinicized_horde_reform
+		}
+		NOT = { has_reform = great_mongol_state_reform }
+	}
+	
+	nomad = yes
+	raze_province = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		technology_group = nomad_group
+	}
+
+	lock_level_when_selected = yes
+
+	start_territory_to_estates = 0.5
+
+	modifiers = {
+		state_governing_cost = -0.05
+		global_institution_spread = -0.05		#better institution spread than steppe horde at -0.15
+		loot_amount = 0.50
+		cav_to_inf_ratio = 0.25
+		movement_speed = 0.2
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
+		years_of_nationalism = -5
+		reinforce_cost_modifier = -0.5
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+	}
+}
+
+semi_nomadic_empire_reform = {		#Monarchy
+	icon = "celestial_empire"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = semi_nomadic_empire_reform
+		}
+		NOT = { has_reform = great_mongol_state_reform }
+	}
+	
+	monarchy = yes			#is not fully tribal, uses Legitimacy
+	
+	raze_province = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		
+	}
+
+	modifiers = {
+		cav_to_inf_ratio = 0.2
+		movement_speed = 0.2
+		move_capital_cost_modifier = -0.25
+		governing_capacity = 350
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+	}
+}
+
+hunnic_confederation_reform = {
+	icon = "hunnic_confederation"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = hunnic_confederation_reform
+			tag = HNS
+			primary_culture = hunnic
+		}
+	}
+	
+	nomad = yes
+	raze_province = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		primary_culture = hunnic
+		technology_group = nomad_group
+	}
+	
+	lock_level_when_selected = yes
+	
+	start_territory_to_estates = 0.5
+
+	modifiers = {
+		oot_amount = 0.50
+		global_institution_spread = -0.15
+		cav_to_inf_ratio = 0.25
+		movement_speed = 0.2
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
+		years_of_nationalism = -5
+		reinforce_cost_modifier = -0.5
+		
+		num_accepted_cultures = 2
+	}
+	custom_attributes = {
+		enables_horde_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	
+	government_abilities = {
+		hunnic_confederation_mechanic
+	}
+	
+	ai = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			NOT = {
+				tag = HNS
+				was_tag = HNS
+			}
+		}
+	}
+}
+

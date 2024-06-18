@@ -12,7 +12,7 @@ country_event = {
 	picture = FEAST_eventPicture
 
 	trigger = {
-		religion_group = african_pagan
+		religion = shamanism
 		culture_group = maghrebi
 		is_month = 1
 		NOT = { has_country_modifier = yennayer_done1 }
@@ -150,7 +150,7 @@ country_event = {
 			duration = -1
 		}
 		random_owned_province = {
-			limit = { religion_group = african_pagan }
+			limit = { religion = shamanism }
 			add_province_modifier = {
 				name = berber_pyramid
 				duration = 73000
@@ -172,11 +172,11 @@ province_event = {
 	picture = FEAST_eventPicture
 
 	trigger = {
-		religion_group = african_pagan
+		religion = shamanism
 		culture_group = maghrebi
 		has_climate = arid
 		owner = { 
-			religion_group = african_pagan 
+			religion = shamanism 
 			culture_group = maghrebi
 		}
 		NOT = { has_province_modifier = tislit_anzar }
@@ -371,7 +371,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		religion_group = african_pagan
+		religion = shamanism
 		NOT = { has_unlocked_cult = hellenism_cult }
 		OR = {
 			any_neighbor_country = {
@@ -402,7 +402,7 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		religion_group = african_pagan
+		religion = shamanism
 		NOT = { has_unlocked_cult = egyptian_cult }
 		OR = {
 			any_neighbor_country = {

@@ -22,9 +22,6 @@ country_decisions = {
 				}
 			}
 			NOT = { tag = HLR }
-			NOT = { tag = HL8 }
-			NOT = { tag = HL7 }
-			NOT = { tag = HL6 }
 			NOT = { tag = PAP }
 			primary_culture = kongolese
 			is_colonial_nation = no
@@ -53,9 +50,7 @@ country_decisions = {
 			NOT = { exists = KON }
 			OR = {
 				NOT = { exists = CNG }
-				NOT = { exists = TYO }
 				tag = CNG
-				tag = TYO
 			}
 			OR = {
 				NOT = { exists = DRC }
@@ -76,7 +71,6 @@ country_decisions = {
 				limit = {
 					OR = {
 						tag = CNG
-						tag = TYO
 						tag = DRC
 					}
 				}
@@ -84,8 +78,8 @@ country_decisions = {
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			set_capital = 1170
 			kongo_area = {

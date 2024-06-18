@@ -13,37 +13,37 @@ imperialism = {
 	
 	trade_company_efficiency = 2.0
 	
-	historical_start_date = 3848.1.1
+	historical_start_date = 1750.1.1
 	historical_start_province = 236 #London
 
 	history = {
 		OR = {
 			AND = {
-				is_year = 1750
+				is_year = 3848
 				continent = europe
 				owner = { num_of_cities = 50 }
 			}
 			AND = {
-				is_year = 1800
+				is_year = 3898
 				owner = { technology_group = western }
 			}
 			AND = {
-				is_year = 1850
+				is_year = 3948
 				owner = { capital_scope = { continent = europe } }
 			}
 			AND = {
-				is_year = 1900
+				is_year = 3998
 				culture = japanese
 			}
 			AND = {
-				is_year = 1945
+				is_year = 4043
 				always = yes
 			}
 		}
 	}
 	
 	can_start = {
-		is_year = 1750
+		is_year = 3848
 		
 		is_island = no
 		is_capital = yes
@@ -196,27 +196,27 @@ industrialization = {
 	
 	trade_company_efficiency = 2.0
 	
-	historical_start_date = 3898.1.1
+	historical_start_date = 1800.1.1
 	historical_start_province = 240 #Birmingham
 
 	history = {
 		OR = {
 			AND = {
-				is_year = 1820
+				is_year = 3918
 				owner = { technology_group = western }
 				development = 30
 			}
 			AND = {
-				is_year = 1850
+				is_year = 3948
 				owner = { technology_group = western }
 				development = 20
 			}
 			AND = {
-				is_year = 1900
+				is_year = 3998
 				development = 30
 			}
 			AND = {
-				is_year = 1950
+				is_year = 4048
 				OR = {
 					development = 20
 					continent = europe
@@ -224,15 +224,15 @@ industrialization = {
 				}
 			}
 			AND = {
-				is_year = 1980
+				is_year = 4078
 				development = 12
 			}
-			is_year = 2000
+			is_year = 4098
 		}
 	}
 	
 	can_start = {
-		is_year = 1800
+		is_year = 3898
 		is_in_capital_area = yes
 		is_island = no
 		is_state = yes
@@ -242,7 +242,7 @@ industrialization = {
 		if = {
 			limit = {
 				has_dlc = "Rule Britannia"
-				NOT = { is_year = 1820 } #just in case no one develops their coal provinces
+				NOT = { is_year = 3918 } #just in case no one develops their coal provinces
 			}
 			has_building = furnace
 			owner = {
@@ -257,12 +257,12 @@ industrialization = {
 						trade_goods = coal
 					}
 					num_of_trading_bonuses = 3
-					is_year = 1770 #fallback
+					is_year = 3868 #fallback
 				}
 			}
 			OR = {
 				highest_value_trade_node = yes
-				is_year = 1810 #fallback
+				is_year = 3908 #fallback
 			}
 		}
 		else = {
@@ -279,12 +279,12 @@ industrialization = {
 						trade_goods = cloth
 					}
 					num_of_trading_bonuses = 3
-					is_year = 1825 #fallback
+					is_year = 3923 #fallback
 				}
 			}
 			OR = {
 				highest_value_trade_node = yes
-				is_year = 1810 #fallback
+				is_year = 3908 #fallback
 			}
 		}
 	}
@@ -865,32 +865,32 @@ nationalism_institution = {
 	
 	trade_company_efficiency = 2.0
 
-	historical_start_date = 3948.1.1
+	historical_start_date = 1850.1.1
 	historical_start_province = 236 #London
 
 	history = {
 		OR = {
 			AND = {
-				is_year = 1850
+				is_year = 3948
 				continent = europe
 				is_capital = yes
 			}
 			AND = {
-				is_year = 1880
+				is_year = 3978
 				owner = { technology_group = western }
 				owner = { primary_culture = ROOT }
 				development = 20
 			}
 			AND = {
-				is_year = 1900
+				is_year = 3998
 				owner = { technology_group = western }
 			}
-			is_year = 1960
+			is_year = 4058
 		}
 	}
 	
 	can_start = {
-		is_year = 1850
+		is_year = 3948
 		
 		is_island = no
 		is_in_capital_area = yes
@@ -1029,22 +1029,22 @@ electrification = {
 	
 	trade_company_efficiency = 2.0
 
-	historical_start_date = 3998.1.1
+	historical_start_date = 1900.1.1
 	historical_start_province = 236 #London
 
 	history = {
 		OR = {
 			AND = {
-				is_year = 1900
+				is_year = 3998
 				owner = { technology_group = western }
 				development = 40
 			}
 			AND = {
-				is_year = 1940
+				is_year = 4038
 				development = 30
 			}
 			AND = {
-				is_year = 1980
+				is_year = 4078
 				OR = {
 					continent = europe
 					development = 15
@@ -1054,7 +1054,7 @@ electrification = {
 	}
 	
 	can_start = {
-		is_year = 1900
+		is_year = 3998
 		
 		is_island = no
 		is_state = yes
@@ -1195,13 +1195,13 @@ globalization = {
 	
 	trade_company_efficiency = 2.0
 
-	historical_start_date = 4048.1.1
+	historical_start_date = 1950.1.1
 	historical_start_province = 965 #New York
 
 	history = {
 		OR = {
 			AND = {
-				is_year = 1950
+				is_year = 4048
 				OR = {
 					continent = europe
 					owner = { tag = USA }
@@ -1209,18 +1209,18 @@ globalization = {
 				owner = { technology_group = western }
 			}
 			AND = {
-				is_year = 1970
+				is_year = 4068
 				owner = { technology_group = western }
 			}
 			AND = {
-				is_year = 2000
+				is_year = 4098
 				development = 20
 			}
 		}
 	}
 	
 	can_start = {
-		is_year = 1950
+		is_year = 4048
 		
 		is_island = no
 		is_state = yes
@@ -1361,11 +1361,11 @@ internet = {
 	
 	trade_company_efficiency = 2.0
 
-	historical_start_date = 4098.1.1
+	historical_start_date = 2000.1.1
 	historical_start_province = 1867 #CERN
 
 	history = {
-		is_year = 2000
+		is_year = 4098
 		owner = { has_institution = electrification }
 		OR = {
 			development = 6
@@ -1374,7 +1374,7 @@ internet = {
 	}
 	
 	can_start = {
-		is_year = 2000
+		is_year = 4098
 		
 		is_island = no
 		is_state = yes

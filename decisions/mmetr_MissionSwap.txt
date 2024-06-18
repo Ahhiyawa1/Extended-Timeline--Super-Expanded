@@ -1,0 +1,23 @@
+country_decisions = {
+	
+	uma_swap_missions_decision = {
+		major = yes
+		potential = {
+			was_tag = RSD
+			tag = UMA
+			NOT = { has_country_flag = adopted_uma_missions_flag }
+		}
+		allow = {
+			tag = UMA
+			was_tag = RSD
+		}
+		effect = {
+			swap_non_generic_missions = yes
+			set_country_flag = adopted_uma_missions_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

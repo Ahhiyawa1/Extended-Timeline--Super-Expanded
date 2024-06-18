@@ -1,0 +1,105 @@
+presidential_doctrines_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 17
+	available = {
+		always = yes
+	}
+	
+	#based on Perfectionism for Korean reform from Domination
+	
+	interactions = {
+		expansionist_doctrine_us = {
+			icon = GFX_expansionist_doctrine_us_button
+			trigger = {
+			}
+			effect = {
+				hidden_effect = {
+					remove_country_modifier = govmod_expansionist_doctrine_us
+					remove_country_modifier = govmod_internationalist_doctrine_us
+					remove_country_modifier = govmod_non_interventionist_doctrine_us
+				}
+				add_ruler_modifier = {		#changed to ruler modifier to end after a president's term
+					name = govmod_expansionist_doctrine_us
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 4
+			cooldown_token = presidential_doctrines_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+		internationalist_doctrine_us = {
+			icon = GFX_internationalist_doctrine_us_button
+			trigger = { 
+			}
+			effect = { 
+				hidden_effect = {
+					remove_country_modifier = govmod_expansionist_doctrine_us
+					remove_country_modifier = govmod_internationalist_doctrine_us
+					remove_country_modifier = govmod_non_interventionist_doctrine_us
+				}
+				add_ruler_modifier = {		#changed to ruler modifier to end after a president's term
+					name = govmod_internationalist_doctrine_us
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 4
+			cooldown_token = presidential_doctrines_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+		non_interventionist_doctrine_us = {
+			icon = GFX_non_interventionist_doctrine_us_button
+			trigger = {
+			}
+			effect = { 
+				hidden_effect = {
+					remove_country_modifier = govmod_expansionist_doctrine_us
+					remove_country_modifier = govmod_internationalist_doctrine_us
+					remove_country_modifier = govmod_non_interventionist_doctrine_us
+				}
+				add_ruler_modifier = {		#changed to ruler modifier to end after a president's term
+					name = govmod_non_interventionist_doctrine_us
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 4
+			cooldown_token = presidential_doctrines_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+	}
+}

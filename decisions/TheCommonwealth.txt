@@ -10,14 +10,12 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = PLC }
-			NOT = { exists = PL6 }
-			NOT = { exists = PL7 }
-			NOT = { exists = PL8 }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			tag = POL
 			LIT = {
 				exists = yes
@@ -83,8 +81,8 @@ country_decisions = {
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			if = {
 				limit = {
@@ -140,6 +138,19 @@ country_decisions = {
 			}
 			set_country_flag = formed_plc_flag
 			add_prestige = 25
+			if = { 
+				limit = { 
+					has_dlc = "Lions of the North"
+					NOT = { has_estate_privilege = estate_nobles_golden_liberty }
+				}
+				complete_mission = pol_leverage_magnates
+				complete_mission = pol_great_sejm
+				complete_mission = plc_articles_agreement
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			} 
 		}
 		ai_will_do = {
 			factor = 1
@@ -158,14 +169,12 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = PLC }
-			NOT = { exists = PL6 }
-			NOT = { exists = PL7 }
-			NOT = { exists = PL8 }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			tag = LIT
 			POL = {
 				exists = yes
@@ -236,8 +245,8 @@ country_decisions = {
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			if = {
 				limit = {
@@ -323,9 +332,6 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { exists = PLC }
-			NOT = { exists = PL6 }
-			NOT = { exists = PL7 }
-			NOT = { exists = PL8 }
 			LIT = {
 				NOT = { senior_union_with = POL }
 				NOT = { junior_union_with = POL }
@@ -394,8 +400,8 @@ country_decisions = {
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				PLC = { set_government_rank = 8 }
+				limit = { NOT = { government_rank = 2 } }
+				PLC = { set_government_rank = 2 }
 			}
 			if = {
 				limit = {
@@ -483,5 +489,5 @@ country_decisions = {
 			factor = 1
 		}
 		ai_importance = 200
-	}	
+	}
 }

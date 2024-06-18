@@ -10,27 +10,16 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = HLR }
-			NOT = { tag = HL8 }
-			NOT = { tag = HL7 }
-			NOT = { tag = HL6 }
-			NOT = { exists = FRA }
+			NOT = { tag = FRA }
 			NOT = { exists = FR2 }
-			NOT = { exists = FR7 }
-			NOT = { exists = FRV }
-			NOT = { exists = GLL }
 			NOT = { tag = PAP }
 			NOT = { tag = SPA }		# Basque is a valid culture for both FRA and SPA
-			NOT = { tag = SP6 }
-			NOT = { tag = SP7 }
-			NOT = { tag = SP8 }
-			NOT = { tag = ADU }
-			NOT = { tag = AD8 }
-			NOT = { tag = AD7 }
-			NOT = { tag = AD6 }
-			NOT = { tag = HC0 }
 			NOT = { tag = FR2 }
-			NOT = { tag = FR7 }
 			NOT = { tag = FRV }
 			NOT = { tag = FRK }
 			NOT = { tag = EUR }
@@ -69,8 +58,8 @@ country_decisions = {
 						owns_core_province = 186
 					}
 				}
-				province_id = 183	#  le-de-France
-				province_id = 184	# Orl annais				
+				province_id = 183	# Île-de-France
+				province_id = 184	# Orléannais
 				province_id = 186	# Champagne
 			}
 			OR = {
@@ -82,14 +71,13 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no			
-			NOT = { exists = FRA }	
-			NOT = { exists = FR2 }	
-			NOT = { exists = FR7 }	
-			NOT = { exists = FRV }	
-			NOT = { exists = GLL }
-			owns_core_province = 183	#  le-de-France
-			owns_core_province = 184	# Orl annais
+			NOT = { exists = FRA }
+			owns_core_province = 184	# Orléannais
 			owns_core_province = 186	# Champagne
+			owns_core_province = 183	# Île-de-France
+			183 = { 					# Île-de-France / Paris
+				is_state = yes
+			}
 			num_of_owned_provinces_with = {
 				value = 15
 				region = france_region
@@ -107,9 +95,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			france_region = {
 				limit = {
@@ -134,12 +122,9 @@ country_decisions = {
 			factor = 1
 			modifier = {
 	 			factor = 0
-	 			OR = {
-					dynasty = "Carolingian"		#New added in MMETR, prevents West Francia from always forming France
-					dynasty = "Merovingian"		#prevents Franks/Neustria/Austrasia/Soissons from always forming France
-					religion_group = german_pagan
-				}
+	 			dynasty = "Carolingian"		#prevents West Francia from always forming France
 			}
 		}
 	}
+	
 }

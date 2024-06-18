@@ -10,20 +10,15 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = PAP }
-			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }	
-			NOT = { tag = EUR }			
-			NOT = { exists = KIE }		
-			NOT = { exists = UKR }
-			NOT = { exists = UK7 }
-			NOT = { exists = UK6 }
 			NOT = { exists = KRU }
-			NOT = { exists = KR6 }
-			NOT = { exists = KR7 }
-			NOT = { exists = KR8 }
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }	
+			NOT = { tag = EUR }			
+			NOT = { exists = UKR }
 			OR = {
 				primary_culture = byelorussian
 				primary_culture = ruthenian
@@ -73,7 +68,7 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			primary_culture = ruthenian
+			
 			OR = {
 				#owns everything
 				AND = {
@@ -126,7 +121,7 @@ country_decisions = {
 				change_unit_type = eastern
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
-			set_government_rank = 10
+			set_government_rank = 3
 			if = {
 				limit = { is_revolutionary = no government = monarchy }
 				add_government_reform = ruthenian_tsardom

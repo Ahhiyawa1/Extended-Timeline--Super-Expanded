@@ -1,7 +1,7 @@
 ########################################
 # Flavor Events for Brandenburg - Prussia
 #
-# written by Sara Wendel-Örtqvist
+# written by Sara Wendel-Ã–rtqvist
 ########################################
 
 namespace = flavor_brapru
@@ -58,8 +58,8 @@ country_event = {
 			AND = {
 				NOT = { has_dlc = "Emperor" }
 				tag = BRA
-				is_year = 1600
-				NOT = { is_year = 1700 }
+				is_year = 3698
+				NOT = { is_year = 3798 }
 			}
 		}
 	}
@@ -139,8 +139,8 @@ country_event = {
 	
 	trigger = {
 		tag = PRU
-		is_year = 1781
-		NOT = { is_year = 1800 }
+		is_year = 3879
+		NOT = { is_year = 3898 }
 		has_country_flag = has_konigsberg_university
 	}
 	
@@ -179,8 +179,8 @@ country_event = {
 			AND = {
 				NOT = { has_dlc = "Emperor" }
 				tag = PRU
-				is_year = 1713
-				NOT = { is_year = 1765 }
+				is_year = 3811
+				NOT = { is_year = 3863 }
 				government = monarchy
 				is_free_or_tributary_trigger = yes
 			}
@@ -222,7 +222,7 @@ country_event = {
 				NOT = { has_mission = teu_pru_army_reforms }
 				NOT = { has_mission = emp_brapru_army_reforms_2 }
 				tag = PRU
-				is_year = 1700
+				is_year = 3798
 			}
 		}
 	}
@@ -262,7 +262,7 @@ country_event = {
 	
 	trigger = {
 		tag = PRU
-		is_year = 1700
+		is_year = 3798
 		has_regency = no
 		OR = {
 			DIP = 6
@@ -306,7 +306,7 @@ country_event = {
 	trigger = {
 		tag = PRU
 		NOT = { exists =  BRA }
-		is_year = 1800
+		is_year = 3898
 	}
 	
 	mean_time_to_happen = {
@@ -342,8 +342,8 @@ country_event = {
 			tag = PRU
 		}
 		owns = 50	# Berlin
-		is_year = 1448
-		NOT = { is_year = 1475 }
+		is_year = 3546
+		NOT = { is_year = 3573 }
 		has_regency = no
 	}
 	
@@ -372,8 +372,8 @@ country_event = {
 	
 	trigger = {
 		tag = BRA
-		is_year = 1480
-		NOT = { is_year = 1505 }
+		is_year = 3578
+		NOT = { is_year = 3603 }
 		religion = catholic
 		has_regency = no
 	}
@@ -393,7 +393,7 @@ country_event = {
 	}
 }
 
-# University of Königsberg
+# University of KÃ¶nigsberg
 country_event = {
 	id = flavor_brapru.11
 	title = "flavor_brapru.EVTNAME3"
@@ -414,7 +414,7 @@ country_event = {
 					tag = HLR
 				}
 				owns = 41
-				is_year = 1540
+				is_year = 3638
 			}
 		}
 	}
@@ -468,8 +468,8 @@ country_event = {
 	
 	trigger = {
 		tag = BRA
-		is_year = 1545
-		NOT = { is_year = 1570 }
+		is_year = 3643
+		NOT = { is_year = 3668 }
 		is_free_or_tributary_trigger = yes
 		has_regency = no
 		inflation = 1
@@ -502,8 +502,8 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		is_year = 1550
-		NOT = { is_year = 1595 }
+		is_year = 3648
+		NOT = { is_year = 3693 }
 		tag = BRA
 	}
 	
@@ -540,7 +540,7 @@ country_event = {
 	trigger = {
 		tag = PRU
 		has_institution = printing_press
-		NOT = { is_year = 1580 }
+		NOT = { is_year = 3678 }
 		has_regency = no
 	}
 	
@@ -591,7 +591,7 @@ country_event = {
 			NOT = { owns = 2995 } #Stolp
 		}
 		NOT = { war_with = TEU }
-		NOT = { is_year = 1466 }
+		NOT = { is_year = 3564 }
 	}
 	
 	mean_time_to_happen = {
@@ -675,7 +675,7 @@ country_event = {
 	}
 }
 
-#Treaty of Cölln
+#Treaty of CÃ¶lln
 country_event = {
 	id = flavor_brapru.17
 	title = "flavor_brapru.17.t"
@@ -809,8 +809,8 @@ country_event = {
 					tag = PRU
 				}
 				capital = 50
-				is_year = 1650
-				NOT = { is_year = 1710 }
+				is_year = 3748
+				NOT = { is_year = 3808 }
 				adm_tech = 20
 				years_of_income = 0.2
 			}
@@ -1095,7 +1095,7 @@ country_event = {
 			}
 		}
 	}
-	option = {  #This is only a problem in families that don’t stick together.
+	option = {  #This is only a problem in families that donÂ’t stick together.
 		name = flavor_brapru.25.b
 		ai_chance = { factor = 50 }
 		#Keep union over Ansbach and suffer internal instability OR you dont have Ansbach and your choice is the modifier above or a stab/prestige bonus instead. Emperor will dislike you regardless.
@@ -1168,8 +1168,8 @@ country_event = {
 			tag = PRU
 			tag = BRA
 		}
-		is_year = 1740
-		NOT = { is_year = 1760 }
+		is_year = 3838
+		NOT = { is_year = 3858 }
 	}
 
 	mean_time_to_happen = {
@@ -1215,8 +1215,8 @@ country_event = {
 					tag = GER
 					tag = HLR
 				}
-				is_year = 1730
-				NOT = { is_year = 1790 }
+				is_year = 3828
+				NOT = { is_year = 3888 }
 			}
 		}
 	}
@@ -1233,7 +1233,7 @@ country_event = {
 		hidden_effect = { set_country_flag = pru_legal_reforms_flag }
 	}
 	
-	option = { #Yes! Start in God’s name!
+	option = { #Yes! Start in GodÂ’s name!
 		name = flavor_brapru.27.a
 		ai_chance = {
 			factor = 75
@@ -1250,7 +1250,7 @@ country_event = {
 			duration = -1
 		}
 	}
-	option = { #We have no time for legal Procedure and other formalities…
+	option = { #We have no time for legal Procedure and other formalitiesÂ…
 		name = flavor_brapru.27.b
 		ai_chance = {
 			factor = 25
@@ -1279,8 +1279,8 @@ country_event = {
 					tag = BRA
 				}
 				is_at_war = no
-				is_year = 1650
-				NOT = { is_year = 1700 }
+				is_year = 3748
+				NOT = { is_year = 3798 }
 				OR = {
 					religion = protestant
 					religion = reformed
@@ -1384,7 +1384,7 @@ country_event = {
 					tag = PRU
 					tag = BRA
 				}
-				is_year = 1790
+				is_year = 3888
 				has_mil_advisor = yes
 				has_regency = no
 				has_consort_regency = no
@@ -1432,7 +1432,7 @@ country_event = {
 	}
 }
 
-# The Burghers of Königsberg (Hieronymus Roth)
+# The Burghers of KÃ¶nigsberg (Hieronymus Roth)
 country_event = {
 	id = flavor_brapru.30
 	title = flavor_brapru.30.t
@@ -1450,8 +1450,8 @@ country_event = {
 		has_regency = no
 		has_consort_regency = no
 		owns = 41
-		is_year = 1660
-		#NOT = { is_year = 1690 }
+		is_year = 3758
+		#NOT = { is_year = 3788 }
 		any_country = {
 			NOT = { reverse_has_opinion = { who = ROOT value = 0 } }
 			NOT = { war_with = ROOT }
@@ -1516,7 +1516,7 @@ country_event = {
 			tag = PRU
 		}
 		owns = 1759
-		is_year = 1730
+		is_year = 3828
 		has_institution = enlightenment
 		has_regency = no
 		has_consort_regency = no
@@ -1604,8 +1604,8 @@ country_event = {
 			tag = PRU
 		}
 		government = monarchy
-		is_year = 1650
-		NOT = { is_year = 1700 }
+		is_year = 3748
+		NOT = { is_year = 3798 }
 		OR = {
 			has_regency = no
 			has_consort_regency = yes
@@ -1737,7 +1737,7 @@ country_event = {
 	}
 }
 
-# Construction of Canals to Berlin-Cölln has run out of funding
+# Construction of Canals to Berlin-CÃ¶lln has run out of funding
 country_event = {
 	id = flavor_brapru.34
 	title = "flavor_brapru.34.t"
@@ -1754,8 +1754,8 @@ country_event = {
 		government = monarchy
 		owns = 50
 		is_at_war = no
-		is_year = 1500
-		NOT = { is_year = 1600 }
+		is_year = 3598
+		NOT = { is_year = 3698 }
 		OR = {
 			has_regency = no
 			has_consort_regency = yes
@@ -1839,8 +1839,8 @@ country_event = {
 		tag = BRA
 		owns = 50
 		religion = protestant
-		is_year = 1635
-		NOT = { is_year = 1700 }
+		is_year = 3733
+		NOT = { is_year = 3798 }
 	}
 	
 	mean_time_to_happen = {
@@ -1852,7 +1852,7 @@ country_event = {
 		add_prestige = 10
 		define_advisor = {
 			type = artist
-			name = "Johann Crüger"
+			name = "Johann CrÃ¼ger"
 			skill = 3
 			discount = yes
 		}
@@ -1874,8 +1874,8 @@ country_event = {
 		government = monarchy
 
 		MIL = 5
-		is_year = 1700
-		NOT = { is_year = 1800 }
+		is_year = 3798
+		NOT = { is_year = 3898 }
 	}
 	
 	mean_time_to_happen = {
@@ -1926,8 +1926,8 @@ country_event = {
 	
 	trigger = {
 		tag = PRU
-		is_year = 1730
-		NOT = { is_year = 1760 }
+		is_year = 3828
+		NOT = { is_year = 3858 }
 	}
 
 	immediate = {
@@ -1970,8 +1970,8 @@ country_event = {
 		}
 		government = monarchy
 		owns = 51
-		is_year = 1500
-		NOT = { is_year = 1530 }
+		is_year = 3598
+		NOT = { is_year = 3628 }
 	}
 	
 	mean_time_to_happen = {
@@ -2004,8 +2004,8 @@ country_event = {
 		}
 		government = monarchy
 		religion = protestant
-		is_year = 1539
-		NOT = { is_year = 1560 }
+		is_year = 3637
+		NOT = { is_year = 3658 }
 	}
 	
 	mean_time_to_happen = {
@@ -2058,8 +2058,8 @@ country_event = {
 		}
 		num_of_cities = 5
 		government = monarchy
-		is_year = 1500
-		NOT = { is_year = 1550 }
+		is_year = 3598
+		NOT = { is_year = 3648 }
 	}
 	
 	mean_time_to_happen = {
@@ -2143,8 +2143,8 @@ country_event = {
 		tag = BRA
 		num_of_cities = 5
 		government = monarchy
-		is_year = 1550
-		NOT = { is_year = 1600 }
+		is_year = 3648
+		NOT = { is_year = 3698 }
 	}
 	
 	mean_time_to_happen = {
@@ -2400,7 +2400,7 @@ country_event = {
 	picture = ADVISOR_eventPicture
 
 	trigger = {
-		is_year = 1650 
+		is_year = 3748 
 		OR = { 
 			tag = BRA 
 			tag = PRU 
@@ -2461,7 +2461,7 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	fire_only_once = yes 
 	trigger = {
-		is_year = 1500
+		is_year = 3598
 		OR = { 
 			tag = PRU 
 			tag = BRA 

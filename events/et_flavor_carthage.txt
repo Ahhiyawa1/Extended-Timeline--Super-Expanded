@@ -9,7 +9,7 @@ province_event = {
 
 	trigger = {
 		NOT = {
-			is_year = 500
+			is_year = 2598
 		}
 		OR = {
 			province_id = 1882
@@ -39,51 +39,6 @@ province_event = {
 	option = {
 		name = "carthage.EVTOPTA1"
 		change_culture = punic
-		if = { 
-			limit = { base_tax = 2 }
-			add_base_tax = -1
-		}
-		if = { 
-			limit = { base_production = 2 }
-			add_base_production = -1
-		}
-		if = { 
-			limit = { base_manpower = 2 }
-			add_base_manpower = -1
-		}
-	}
-}
-
-province_event = {
-
-	id = carthage.2
-	title = "carthage.EVTNAME2"
-	desc = "carthage.EVTDESC2"
-	picture = FAMINE_eventPicture
-
-	trigger = {
-		NOT = {
-			is_year = 500
-		}
-		area = { tunisia_area }
-		NOT = {
-			OR = {
-				owned_by = ROM
-				owned_by = ROW
-				owned_by = BYZ
-			}
-		}
-		NOT = {
-			culture = phoenician
-		}
-	}
-	mean_time_to_happen = {
-		months = 4800
-	}
-
-	option = {
-		name = "carthage.EVTOPTA1"
-		change_culture = phoenician
 		if = { 
 			limit = { base_tax = 2 }
 			add_base_tax = -1

@@ -16,12 +16,7 @@ country_decisions = {
 			}
 			OR = {
 				ai = no
-				AND = {
-					NOT = { exists = PER }
-					NOT = { exists = IRA }
-					NOT = { exists = PE7 }
-					NOT = { exists = PE6 }
-				}
+				NOT = { exists = PER }
 			}
 			if = {
 				limit = {
@@ -36,36 +31,16 @@ country_decisions = {
 				has_country_flag = turkoman_can_form_persia
 			}
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = TIM }
 			NOT = { tag = IRA }
 			NOT = { tag = PER }
-			NOT = { tag = PE6 }
-			NOT = { tag = PE7 }
 			NOT = { tag = ERS }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
-			NOT = { tag = TKY }
-			NOT = { tag = OT7 }
-			NOT = { tag = OT6 }
-			NOT = { tag = AN1 }
-			NOT = { tag = GA1 }
 			NOT = { tag = BYZ }
-			NOT = { tag = BY6 }
-			NOT = { tag = BY7 }
-			NOT = { tag = BY8 }
-			NOT = { tag = LAE }
-			NOT = { tag = IS1 }
 			NOT = { tag = ARB }
-			NOT = { tag = UA6 }
-			NOT = { tag = UA7 }
-			NOT = { tag = UA8 }
-			NOT = { tag = SAU }
-			NOT = { tag = AA3 }
 			NOT = { religion = zoroastrian }
 			OR = {
 				culture_group = iranian
@@ -122,9 +97,6 @@ country_decisions = {
 			is_at_war = no
 			is_tribal = no
 			NOT = { exists = PER }
-			NOT = { exists = IRA }
-			NOT = { exists = PE7 }
-			NOT = { exists = PE6 }
 			NOT = { exists = ERS }
 			owns_core_province = 414		# Hamadan
 			owns_core_province = 429		# Isfahan
@@ -146,10 +118,6 @@ country_decisions = {
 				}
 				not = { exists = TRS }
 				not = { exists = AFG }
-				not = { exists = AF8 }
-				not = { exists = AF7 }
-				not = { exists = AF6 }
-				not = { exists = SHH }
 				not = { exists = SIS }
 				not = { exists = FRS }
 				not = { exists = KHO }
@@ -170,7 +138,7 @@ country_decisions = {
 				}
 				change_government = monarchy
 			}
-			set_government_rank = 10
+			set_government_rank = 3
 			if = {
 				limit = { is_revolutionary = no NOT = { religion_group = zoroastrian_group } }
 				add_government_reform = persian_government_reform
@@ -227,13 +195,7 @@ country_decisions = {
 					tag = ILK
 					tag = KHW
 					tag = PRT
-					tag = TRK
 					tag = ASY
-					tag = AS4
-					tag = IRQ
-					tag = IR6
-					tag = IR7
-					tag = IR8
 					tag = BAB
 				}
 			}

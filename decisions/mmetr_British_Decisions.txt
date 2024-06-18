@@ -1,0 +1,319 @@
+country_decisions = {
+
+	united_kingdom_nation = {
+		major = yes
+		potential = {
+			tag = GBR	#always appears for Great Britain
+			NOT = { has_country_flag = formed_united_kingdom_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 236		# London
+				province_id = 237		# Oxfordshire
+				province_id = 234		# Wessex
+				province_id = 235		# Kent
+				province_id = 238		# East Anglia
+				province_id = 251		# Aberdeen
+				area = munster_area
+				area = connacht_area
+				area = leinster_area
+				area = ulster_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 75			#around year 1805
+			custom_trigger_tooltip = {
+				tooltip = formed_united_kingdom_flag.tt
+				NOT = {
+					any_country = {
+						has_country_flag = formed_united_kingdom_flag
+						NOT = { num_of_provinces_in_states = 1 }
+						NOT = { num_of_provinces_in_territories = 1 }
+					}
+				}
+			}
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 237		# Oxfordshire
+			owns_core_province = 234		# Wessex
+			owns_core_province = 248		# Lothian
+			owns_core_province = 251		# Aberdeen
+			owns_core_province = 236		# London
+			236 = {							# London
+				is_state = yes
+			}
+			munster_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			connacht_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			leinster_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			ulster_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			OR = {
+				NOT = { exists = IRE }
+				IRE = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			override_country_name = UNITED_KINGDOM_COUNTRY_NAME
+			add_adm_power = 50
+			add_prestige = 15
+			
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			british_isles_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			set_country_flag = formed_united_kingdom_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	release_british_east_india_company_decision = {
+		major = yes
+		potential = {
+			tag = GBR
+			num_of_owned_provinces_with = {
+				value = 1
+				superregion = india_superregion
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				superregion = india_superregion
+			}
+			OR = {
+				owned_by = ROOT
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 10
+				superregion = india_superregion
+			}
+		}
+		effect = {
+			india_superregion = {
+				limit = {
+					owned_by = ROOT
+				}
+				cede_province = EIC
+				add_core = EIC
+				remove_core = ROOT
+			}
+			create_subject = {
+				subject_type = trade_company_subject		#NEW mod subject type
+				subject = EIC
+			}
+			EIC = {
+				set_legacy_government = trade_company_government_legacy
+				add_government_reform = trade_company_government
+			}
+			hidden_effect = {
+				EIC = {
+					add_treasury = 100
+				}
+				every_province = {
+					limit = {
+						has_discovered = ROOT		#Shares Map with Subject
+					}
+					discover_country = EIC
+				}
+			}
+			EIC = {
+				random_province = {
+					limit = {
+						is_capital_of = EIC
+					}
+					build_to_forcelimit = {
+						infantry = 1.2
+						artillery = 0.5
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						heavy_ship = 0.3
+						light_ship = 0.5
+						transport = 0.2
+					}
+				}
+			}
+			
+			country_event = {
+				id = releasable_nations_event_mmetr.1
+			}
+		}
+		ai_will_do = {
+			factor = 0			#AI will never do
+		}
+		ai_importance = 400
+	}
+	
+	dual_monarchy_england_nation = {	#English version of Dual Monarchy formable
+		major = yes
+		potential = {
+			OR = {
+				tag = ENG
+				tag = GBR
+			}
+			NOT = { exists = DM1 }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 236	# London
+				province_id = 183	# Paris
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			government = monarchy
+			NOT = { exists = DM1 }
+			NOT = { exists = FRA }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 236	# London
+					province_id = 183	# Paris
+				}
+			}
+			owns_core_province = 236	# London
+			owns_core_province = 183	# Paris
+			183 = {						# Paris
+				is_state = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = france_region
+			}
+		}
+		effect = {
+			change_tag = DM1
+			add_prestige = 20
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			france_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+	dual_monarchy_france_nation = {		#French	version of Dual Monarchy formable
+		major = yes
+		potential = {
+			OR = {
+				tag = FRA
+			}
+			NOT = { exists = DM2 }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 236	# London
+				province_id = 183	# Paris
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			government = monarchy
+			NOT = { exists = DM2 }
+			NOT = { exists = ENG }
+			NOT = { exists = GBR }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					province_id = 236	# London
+					province_id = 183	# Paris
+				}
+			}
+			owns_core_province = 236	# London
+			owns_core_province = 183	# Paris
+			236 = {						# London
+				is_state = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = british_isles_region
+			}
+		}
+		effect = {
+			change_tag = DM2
+			add_prestige = 20
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			british_isles_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+	
+	
+	
+}

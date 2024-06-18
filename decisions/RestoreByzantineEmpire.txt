@@ -3,142 +3,72 @@ country_decisions = {
 	restore_byzantine_empire = {
 		major = yes
 		potential = {
-			OR = {
-				was_never_end_game_tag_trigger = yes
-				AND = {
-					was_tag = BYZ
-					tag = MOE
-					has_country_flag = BYZ_accepted_ottoman_threat
-				}
-			}
 			normal_or_historical_nations = yes
-			NOT = { has_country_flag = formed_byzantium_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { exists = BYZ }
-			NOT = { exists = BY6 }
-			NOT = { exists = BY7 }
-			NOT = { exists = BY8 }
-			NOT = { exists = LAE }
-			NOT = { exists = IS1 }
-			NOT = { exists = GRE }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			NOT = { tag = TUR }
-			NOT = { tag = TKY }
-			NOT = { tag = OT7 }
-			NOT = { tag = OT6 }
-			NOT = { tag = GA1 }
 			NOT = { tag = ROM }
 			NOT = { tag = ROW }
 			NOT = { tag = EUR }
 			OR = {
 				primary_culture = greek
 				primary_culture = pontic_greek
-				AND = {
-					has_idea = MFA_byzantine_claimants
-					dynasty = "Palaiologos"
-				}
 			}
-			OR = {
-				religion = orthodox
-				has_idea = MFA_byzantine_claimants
-			}
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 151 # Constantinople
-				province_id = 149	# Edirne
-				province_id = 144  # Epiros
-				province_id = 147	# Salonica
-				province_id = 148	# Macedonia
-				province_id = 146	# Athens
-				province_id = 145	# Morea
-				province_id = 1773	# Achea
-				province_id = 316	# Bithynia
-				province_id = 317	# Bursa
-				province_id = 318	# Smyrna
-				province_id = 1853	# Kozani
-				province_id = 2296	# Biga
-			}
-			NOT = { owned_by = ROOT }
+			religion = orthodox
 		}
 		allow = {
-			NOT = { exists = BYZ }
-			NOT = { exists = LAE }
 			owns = 151 # Constantinople
-			OR = {
-				tag = NCA
-				tag = TRE
-				tag = THS
-				tag = EPI
-				tag = MOE
-				AND = {
-					owns = 149	# Edirne
-					owns = 144  # Epiros
-					owns = 147	# Salonica
-					owns = 148	# Macedonia
-					owns = 146	# Athens
-					owns = 145	# Morea
-					owns = 1773	# Achea
-					owns = 316	# Bithynia
-					owns = 317	# Bursa
-					owns = 318	# Smyrna
-					owns = 1853	# Kozani
-					owns = 2296	# Biga
-				}
-			}
-			151 = {		# Constantinople
-				is_state = yes
-			}
+			owns = 149	# Edirne
+			owns = 144  # Epiros
+			owns = 147	# Salonica
+			owns = 148	# Macedonia
+			owns = 146	# Athens
+			owns = 145	# Morea
+			owns = 1773	# Achea
+			owns = 316	# Bithynia
+			owns = 317	# Bursa
+			owns = 318	# Smyrna
+			owns = 1853	# Kozani
+			owns = 2296	# Biga
 			is_at_war = no
-			is_free_or_tributary_trigger = yes
+			is_subject = no
 			is_nomad = no
 		}
 		effect = {
-			151 = {
-				move_capital_effect = yes
-			}
 			change_tag = BYZ
-			on_change_tag_effect = yes
-			restore_country_name = yes
-			if = {
-				limit = {
-					NOT = { culture_group = byzantine }
-					NOT = { accepted_culture = greek }
-				}
-				add_accepted_culture = greek
-			}
 			swap_non_generic_missions = yes
+			swap_free_idea_group = yes
+			add_government_reform = roman_imperial_reform
 			every_province = {
 				limit = {
 					OR = {
-						area = aydin_area
-						area = ankara_area
-						area = germiyan_area
-						area = karaman_area
-						area = cukurova_area
-						area = rum_area
-						area = kastamonu_area
-						area = hudavendigar_area
-						area = dulkadir_area
 						province_id = 149	# Edirne
 						province_id = 147	# Salonica
 						province_id = 148	# Macedonia
 						province_id = 146	# Athens
 						province_id = 145	# Morea
 						province_id = 1773	# Achea
+						province_id = 316	# Bithynia
+						province_id = 317	# Bursa
+						province_id = 318	# Smyrna
 						province_id = 163	# Crete
 						province_id = 164	# Naxos
 						province_id = 320	# Rhodes
+						province_id = 321	# Cyprus
+						province_id = 322	# Anatolia
+						province_id = 323	# Konya
+						province_id = 319	# Antalya
+						province_id = 329	# Sivas
+						province_id = 324	# Karaman
+						province_id = 325	# Kastamon
+						province_id = 326	# Angora
+						province_id = 327	# Adana
+						province_id = 332	# Mus
+						province_id = 328	# Sinope
 						province_id = 330	# Trebizon
 						province_id = 285	# Kaffa
 						province_id = 142	# Corfu
@@ -148,11 +78,21 @@ country_decisions = {
 						province_id = 150	# Bulgaria
 						province_id = 1764	# Burgas
 						province_id = 159	# Silistria
+						province_id = 1846	# Yazgod
+						province_id = 1848	# Hamid
 						province_id = 1853	# Kozani
-						province_id = 2348	# Chios
-						province_id = 2410	# Theodoro
-						province_id = 2750	# Plovdiv
-						province_id = 4298	# Ayntab
+						province_id = 2296	# Biga
+						province_id = 2297	# Saruhan 
+						province_id = 2298	# Tekke
+						province_id = 2299	# Bolu
+						province_id = 2300	# Bozok
+						province_id = 2301	# Kayseri 
+						province_id = 2302	# Icel 
+						province_id = 2303	# Malatya
+						province_id = 2304	# Canik
+						province_id = 2125	# Chios x
+						province_id = 2608	# Theodoro x
+						province_id = 2604	# Plovdiv x
 					}
 					NOT = { is_core = BYZ }
 				}
@@ -172,6 +112,7 @@ country_decisions = {
 			}
 			add_prestige = 10
 			BYZ = {
+				set_capital = 151 # Constantinople
 				add_core = 151 # Constantinople
 			}
 			if = {
@@ -193,54 +134,14 @@ country_decisions = {
 				show_ambient_object = hagia_sophia
 				hide_ambient_object = hagia_sophia_minarets
 			}
-			if = {
-				limit = { government = tribal }
-				change_government = monarchy
-			}
-			set_government_rank = 10
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
-			set_country_flag = formed_byzantium_flag
-			if = {
-				limit = { has_country_flag = feo_byzantium_formation_stats_flag }
-				change_ruler_stat = {
-					type = adm
-					amount = 1
-				}
-				change_ruler_stat = {
-					type = dip
-					amount = 1
-				}
-				change_ruler_stat = {
-					type = mil
-					amount = 1
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = BYZ_accepted_ottoman_threat
-				}
-				clr_country_flag = BYZ_accepted_ottoman_threat 
-			}
-			if = {
-				limit = {
-					has_country_flag = tre_byzantium_forming_bonus_mana
-				}
-				add_adm_power = 100
-				add_dip_power = 100
-				add_mil_power = 100
-			}
+			set_government_rank = 3
+			
+			country_event = { id = ideagroups.1 } #Swap Ideas
 		}
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				factor = 0
-				tag = GRE
-				adm_tech = 78
-			}
 		}
 	}
+	
 	
 }

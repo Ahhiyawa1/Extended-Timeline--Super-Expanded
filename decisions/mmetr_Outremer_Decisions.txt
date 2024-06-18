@@ -1,0 +1,277 @@
+country_decisions = {
+
+	latin_empire_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = BYZ }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			OR = {
+				tag = LAE	#now starts as historical name of Constantinople
+				tag = THS	#Latin Empire vassals - Thessaloniki, Athens, Achaea
+				tag = ATH
+				tag = ACH
+				AND = {
+					religion = catholic
+					capital_scope = {
+						OR = {
+							area = macedonia_area
+							area = northern_greece_area
+							area = morea_area
+							area = thrace_area
+							area = albania_area
+							area = aegean_archipelago_area
+							area = central_greece_area
+							area = bulgaria_area
+							region = anatolia_region
+						}
+					}
+				}
+			}
+			NOT = { has_country_flag = declared_latin_empire_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151 		#Constantinople
+				province_id = 149 		#Adrianople / Edirne
+				province_id = 148 		#Thessaloniki / Salonica
+				province_id = 317 		#Nicaea
+				province_id = 316 		#Nicomedia
+				province_id = 318 		#Smyrna
+				province_id = 146 		#Athens
+				province_id = 145 		#Morea
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			religion = catholic
+			capital = 151
+			owns_core_province = 151 		#Constantinople
+			owns_core_province = 149 		#Adrianople / Edirne
+			owns_core_province = 148 		#Thessaloniki / Salonica
+			owns_core_province = 317 		#Nicaea
+			owns_core_province = 316 		#Nicomedia
+			owns_core_province = 318 		#Smyrna
+			owns_core_province = 146 		#Athens
+			owns_core_province = 145 		#Morea
+			NOT = { exists = BYZ }
+			if = {
+				limit = {
+					NOT = {
+						tag = LAE
+					}
+				}
+				NOT = { exists = LAE }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { tag = LAE }
+				}
+				change_tag = LAE
+			}
+			override_country_name = LATIN_EMPIRE_COUNTRY_NAME
+			if = {
+				limit = {
+					NOT = { has_reform = latin_empire_monarchy_reform }
+				}
+				add_government_reform = latin_empire_monarchy_reform
+			}
+			add_prestige = 25
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			set_country_flag = declared_latin_empire_flag
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			germiyan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			cukurova_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			148 = {	# Macedonia
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			145 = {	# Morea
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1773 = {	# Achea
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			163 = {	# Crete
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			164	= {# Naxos
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			320 = {	# Rhodes
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			330 = {	# Trebizon
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			285 = {	# Kaffa
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			142 = {	# Corfu
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			143 = {	# Albania
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			144 = {	# Janina
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1765 = {	# Nis
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			150 = {	# Bulgaria
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1764 = {	# Burgas
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			159 = {	# Silistria
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1853 = {	# Kozani
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2348 = {	# Chios
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2410 = {	# Theodoro
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2750 = {	# Plovdiv
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			4298 = {	# Ayntab
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+}

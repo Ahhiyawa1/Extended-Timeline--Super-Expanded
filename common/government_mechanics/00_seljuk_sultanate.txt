@@ -1,0 +1,116 @@
+seljuk_sultanate_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 3
+	available = {
+		always = yes
+	}
+	
+	interactions = {
+		seljuk_reorganize_supreme_diwan = {
+			icon = GFX_seljuk_reorganize_supreme_diwan_button
+			trigger = {
+				adm_power_cost = 50
+			}
+			effect = {
+				adm_power_cost = 50
+				add_country_modifier = {
+					name = "gov_reorganized_bureaucracy_of_the_diwan"
+					duration = 7300
+				}
+			}
+			cooldown_years = 20
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 100
+					overextension_percentage = 0.01
+				}
+				modifier = {
+					factor = 20
+					personality = ai_militarist
+				}
+				modifier = {
+					factor = 0
+					is_at_war = no
+					NOT = { overextension_percentage = 0.01 }
+					NOT = {
+						any_owned_province = {
+							NOT = { religion_group = ROOT }
+							local_autonomy_above_min = 10
+						}
+					}
+				}
+				modifier = {
+					factor = 15
+					is_at_war = no
+					NOT = { overextension_percentage = 0.01 }
+					any_owned_province = {
+						NOT = { religion_group = ROOT }
+						local_autonomy_above_min = 10
+					}
+					monthly_adm = 8
+				}
+			}
+		}
+		seljuk_appoint_a_new_vizier = {
+			icon = GFX_seljuk_appoint_a_new_vizier_button
+			trigger = { 
+				dip_power_cost = 50
+			}
+			effect = { 
+				dip_power_cost = 50
+				define_advisor = {
+					type = statesman
+					skill = 3
+					cost_multiplier = 0.67
+				}
+				add_country_modifier = {
+					name = "gov_associates_of_the_vizier"
+					duration = 7300
+				}
+			}
+			cooldown_years = 20
+			ai_chance = {
+				factor = 10
+			}
+		}
+		seljuk_call_upon_the_dynasts = {
+			icon = GFX_seljuk_call_upon_the_dynasts_button
+			trigger = {
+				mil_power_cost = 50
+				num_of_states = 3
+			}
+			effect = { 
+				mil_power_cost = 50
+				add_country_modifier = {
+					name = "gov_recruited_turkmen"
+					duration = 7300
+				}
+			}
+			cooldown_years = 20
+			ai_chance = {
+				factor = 100
+				modifier = {
+					factor = 20
+					not = { manpower_percentage = 0.3 }
+				}
+				modifier = {
+					factor = 20
+					not = { manpower_percentage = 0.2 }
+				}
+				modifier = {
+					factor = 20
+					not = { manpower_percentage = 0.1 }
+				}
+				modifier = {
+					factor = 100
+					is_in_important_war = yes
+				}
+				modifier = {
+					factor = 0
+					is_at_war = no
+				}
+			}
+		}
+	}
+}

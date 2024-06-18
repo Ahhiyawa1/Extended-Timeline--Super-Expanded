@@ -12,37 +12,23 @@ country_decisions = {
 			}
 			OR = {
 				NOT = { exists = NED }
-				NOT = { exists = NE8 }
-				NOT = { exists = NE7 }
-				NOT = { exists = NE6 }
+				ai = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
 				ai = no
 			}
 			NOT = { tag = PAP }
 			NOT = { tag = NED }
-			NOT = { tag = NE8 }
-			NOT = { tag = NE7 }
-			NOT = { tag = NE6 }
 			NOT = { tag = HLR }
 			NOT = { tag = BEL }
-			NOT = { tag = BL0 }
 			NOT = { tag = EUR }
-			NOT = {	tag = BR6 }
-			NOT = {	tag = BR7 }
-			NOT = {	tag = BR8 }
 			OR = {
 				primary_culture = dutch
 				primary_culture = flemish
 				primary_culture = frisian
 				tag = BUR
 			}
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
-					num_of_cities = 3
-				}
-			}
-			capital_scope = { region = low_countries_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -85,14 +71,11 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			NOT = { exists = NED }
-			NOT = { exists = NE8 }
-			NOT = { exists = NE7 }
-			NOT = { exists = NE6 }
 			owns_core_province = 95 # Breda
-			owns_core_province = 97 # Amsterdam
 			owns_core_province = 98 # Utrecht
 			owns_core_province = 99 # Gelre
 			owns_core_province = 4383 # Den Haag
+			owns_core_province = 97 # Amsterdam
 			97 = {
 				is_state = yes
 			}
@@ -132,7 +115,7 @@ country_decisions = {
 			}
 	  		if = {
 	  			limit = {
-					tag = BUR
+	  				tag = BUR
 	  			}
 	  			change_primary_culture = dutch
 				97 = {
@@ -201,7 +184,7 @@ country_decisions = {
 					}
 					is_part_of_hre = no
 				}
-				NED = { set_government_rank = 8 }
+				NED = { set_government_rank = 2 }
 			}
 			set_country_flag = formed_netherlands_flag
 			add_prestige = 25
@@ -222,10 +205,7 @@ country_decisions = {
 			modifier = {
 				factor = 0
 				tag = BUR
-				tag = BR6
-				tag = BR7
-				tag = BR8
-				NOT = { is_year = 1500 }
+				NOT = { is_year = 3598 }
 			}
 			modifier = {
 				factor = 0

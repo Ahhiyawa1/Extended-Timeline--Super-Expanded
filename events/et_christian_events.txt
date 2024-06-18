@@ -1,5 +1,3 @@
-# CPBM EDITS - Replace religion = shamanism with religion_group = african_pagan
-
 namespace = et
 
 # Chalcedonism to Hellenic provinces
@@ -15,8 +13,8 @@ province_event = {
 		NOT = { religion = reformed_chalcedonism }
 		owner = { religion = hellenism }
 		religion = hellenism
-		is_year = 40
-		NOT = { is_year = 800 }
+		is_year = 2138
+		NOT = { is_year = 2898 }
 	}
 	mean_time_to_happen = {
 		months = 2000
@@ -39,7 +37,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 10
-			is_year = 600
+			is_year = 2698
 		}
 		modifier = {
 			factor = 0.5
@@ -102,7 +100,7 @@ province_event = {
 				religion = reformed_chalcedonism
 			}
 		}
-		NOT = { is_year = 867 }
+		NOT = { is_year = 2965 }
 		NOT = { is_religion_enabled = orthodox }
 	}
 	mean_time_to_happen = {
@@ -125,7 +123,7 @@ province_event = {
 			factor = 0.8
 			OR = { 
 				owner = { religion = animism }
-				owner = { religion_group = african_pagan }
+				owner = { religion = shamanism }
 			}
 		}
 		modifier = {
@@ -150,7 +148,7 @@ province_event = {
 			factor = 0.7
 			OR = { 
 				religion = hellenism
-				religion_group = african_pagan
+				religion = shamanism
 				religion = druidism
 			}
 		}
@@ -249,7 +247,7 @@ province_event = {
 		NOT = { religion = reformed_chalcedonism }
 		NOT = { religion = coptic }
 		NOT = { religion = nestorian }
-		NOT = { is_year = 867 }
+		NOT = { is_year = 2965 }
 		NOT = { is_religion_enabled = orthodox }
 	}
 	mean_time_to_happen = {
@@ -261,7 +259,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 0.8
-			religion_group = african_pagan
+			religion = shamanism
 		}
 		modifier = {
 			factor = 2
@@ -322,7 +320,7 @@ country_event = {
 		NOT = { has_global_flag = reformed_the_chalcedonism_faith }
 		NOT = { is_religion_enabled = orthodox }
 		religion = chalcedonism
-		is_year = 840
+		is_year = 2938
 		NOT = { owns = 151 }
 		#NOT = { has_opinion = { who = { owns = 151 } value = 50 }}
 		#NOT = { is_subject_of = { who = { owns = 151 }}}
@@ -334,15 +332,15 @@ country_event = {
 
 		modifier = {
 			factor = 0.5
-			is_year = 900
+			is_year = 2998
 		}
 		modifier = {
 			factor = 0.5
-			is_year = 1000
+			is_year = 3098
 		}
 		modifier = {
 			factor = 0.5
-			is_year = 1100
+			is_year = 3198
 		}
 	}
 
@@ -383,7 +381,7 @@ country_event = {
 		NOT = { exists = PAP }
 		NOT = { is_religion_enabled = orthodox }
 		religion = chalcedonism
-		is_year = 840
+		is_year = 2938
 		owns = 118
 		NOT = { owns = 151 }
 		118 = { religion = chalcedonism }
@@ -395,15 +393,15 @@ country_event = {
 
 		modifier = {
 			factor = 0.5
-			is_year = 900
+			is_year = 2998
 		}
 		modifier = {
 			factor = 0.5
-			is_year = 1000
+			is_year = 3098
 		}
 		modifier = {
 			factor = 0.5
-			is_year = 1100
+			is_year = 3198
 		}
 	}
 
@@ -603,7 +601,7 @@ province_event = {
 	trigger = {
 		is_religion_enabled = arianism
 		NOT = { religion = arianism }
-		NOT = { is_year = 550 }
+		NOT = { is_year = 2648 }
 		OR = {
 			any_neighbor_province = { religion = arianism }
 			owner = { any_owned_province = { religion = arianism }}
@@ -621,7 +619,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 0.8
-			is_year = 400
+			is_year = 2498
 		}
 		modifier = {
 			factor = 0.5
@@ -689,7 +687,7 @@ province_event = {
 	
 	trigger = {
 		NOT = { is_religion_enabled = arianism }
-		is_year = 320
+		is_year = 2418
 		religion = chalcedonism
 		owner = { religion = chalcedonism }
 		OR = {
@@ -731,7 +729,7 @@ province_event = {
 	
 	trigger = {
 		NOT = { is_religion_enabled = nestorian }
-		is_year = 420
+		is_year = 2518
 		religion = chalcedonism
 		owner = { religion = chalcedonism }
 		OR = {
@@ -786,7 +784,7 @@ province_event = {
 	
 	trigger = {
 		NOT = { is_religion_enabled = coptic }
-		is_year = 450
+		is_year = 2548
 		religion = chalcedonism
 		owner = { religion = chalcedonism }
 		OR = {
@@ -833,17 +831,17 @@ province_event = {
 		continent = asia
 		is_religion_enabled = nestorian
 		NOT = { religion = nestorian }
-		NOT = { is_year = 1100 }
+		NOT = { is_year = 3198 }
 		OR = {
 			religion = tengri_pagan_reformed
 			religion = zoroastrian
 			religion = manichaeism
 			AND = {
-				is_year = 600
+				is_year = 2698
 				religion = tibetan_bon
 			}
 			AND = {
-				is_year = 700
+				is_year = 2798
 				religion = confucianism
 			}
 		}
@@ -954,7 +952,7 @@ province_event = {
 			area = armenia_area
 		}
 		is_religion_enabled = coptic
-		NOT = { started_in = 2604.1.1 }
+		NOT = { started_in = 506.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -1000,7 +998,7 @@ country_event = {
 		religion = chalcedonism
 		owns = 2313
 		is_religion_enabled = coptic
-		NOT = { started_in = 2610.11.16 }
+		NOT = { started_in = 512.11.16 }
 		any_owned_province = {
 			religion = chalcedonism
 			OR = {
@@ -1047,8 +1045,8 @@ country_event = {
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	
 	trigger = {
-		is_year = 300
-		NOT = { is_year = 800 }
+		is_year = 2398
+		NOT = { is_year = 2898 }
 		capital_scope = { region = british_isles_region }
 		NOT = { religion_group = christian }
 		any_owned_province = {
@@ -1064,7 +1062,7 @@ country_event = {
 				}
 			}
 			AND = {
-				is_year = 400
+				is_year = 2498
 				118 = {
 					owner = { 
 						OR = {

@@ -36,7 +36,7 @@ caliphate_reform = {
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
-	fixed_rank = 80
+	fixed_rank = 3
 
 	nation_designer_trigger = {
 		religion_group = muslim
@@ -78,7 +78,7 @@ caliphate_theocratic_reform = {
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
-	fixed_rank = 80
+	fixed_rank = 3
 
 	nation_designer_trigger = {
 		religion_group = muslim
@@ -109,7 +109,7 @@ roman_empire_reform = {
 	potential = {
 		has_reform = roman_empire_reform
 	}
-	fixed_rank = 80
+	fixed_rank = 3
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
 	lock_level_when_selected = yes
@@ -139,7 +139,7 @@ roman_republic_reform = {
 	potential = {
 		has_reform = roman_republic_reform
 	}
-	fixed_rank = 80
+	fixed_rank = 3
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
 
@@ -224,7 +224,7 @@ feudal_empire_reform = {
 		owns = 1020
 	}
 	legacy_equivalent = feudal_monarchy
-	fixed_rank = 80
+	fixed_rank = 3
 	maintain_dynasty = yes
 	allow_vassal_war = yes
 	allow_vassal_alliance = yes
@@ -258,7 +258,7 @@ grand_principality = {
 			}
 		}
 	}
-	fixed_rank = 5
+	fixed_rank = 2
 	legacy_equivalent = principality_legacy
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -293,7 +293,7 @@ warlord_state = {
 		}
 		is_emperor_of_china = no
 	}
-	fixed_rank = 8
+	fixed_rank = 1
 	legacy_equivalent = feudal_monarchy
 	valid_for_nation_designer = yes
 	lock_level_when_selected = yes
@@ -319,7 +319,7 @@ somali_maritime_city_state = {
 		governing_capacity_modifier = -0.75
 		naval_forcelimit_modifier = 0.2
 	}
-	fixed_rank = 8
+	fixed_rank = 1
 	valid_for_nation_designer = yes
 	lock_level_when_selected = yes
 	nation_designer_cost = 10
@@ -905,7 +905,7 @@ early_gov_reform_1 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 200
+			is_year = 2298
 		}
 		else = {
 			has_institution = writing
@@ -924,7 +924,7 @@ early_gov_reform_1b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 200
+			is_year = 2298
 		}
 		else = {
 			has_institution = writing
@@ -944,7 +944,7 @@ early_gov_reform_2 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 330
+			is_year = 2428
 		}
 		else = {
 			has_institution = legalism
@@ -964,7 +964,7 @@ early_gov_reform_2b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 330
+			is_year = 2428
 		}
 		else = {
 			has_institution = legalism
@@ -984,7 +984,7 @@ early_gov_reform_2c = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 330
+			is_year = 2428
 		}
 		else = {
 			has_institution = legalism
@@ -1001,7 +1001,7 @@ early_gov_reform_3 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 460
+			is_year = 2558
 		}
 		else = {
 			has_institution = ancient_imperialism
@@ -1021,7 +1021,7 @@ early_gov_reform_3b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 460
+			is_year = 2558
 		}
 		else = {
 			has_institution = ancient_imperialism
@@ -1041,7 +1041,7 @@ early_gov_reform_3c = {#Will allow for a couple dictatory government types
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 460
+			is_year = 2558
 		}
 		else = {
 			has_institution = ancient_imperialism
@@ -1058,7 +1058,7 @@ early_gov_reform_4 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 590
+			is_year = 2688
 		}
 		else = {
 			has_institution = caste_system
@@ -1078,7 +1078,7 @@ early_gov_reform_4b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 590
+			is_year = 2688
 		}
 		else = {
 			has_institution = caste_system
@@ -1098,7 +1098,7 @@ early_gov_reform_4c = {#Elite Units (Will allow for Militarization Eventually)
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 590
+			is_year = 2688
 		}
 		else = {
 			has_institution = caste_system
@@ -1120,7 +1120,7 @@ early_gov_reform_5 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 720
+			is_year = 2818
 		}
 		else = {
 			has_institution = organized_religion
@@ -1140,7 +1140,7 @@ early_gov_reform_5b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 720
+			is_year = 2818
 		}
 		else = {
 			has_institution = organized_religion
@@ -1160,7 +1160,7 @@ early_gov_reform_5c = {#delegate research power to the market
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 720
+			is_year = 2818
 		}
 		else = {
 			has_institution = organized_religion
@@ -1183,7 +1183,7 @@ early_gov_reform_6 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 850
+			is_year = 2948
 		}
 		else = {
 			has_institution = manorialism
@@ -1203,7 +1203,7 @@ early_gov_reform_6b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 850
+			is_year = 2948
 		}
 		else = {
 			has_institution = manorialism
@@ -1223,7 +1223,7 @@ early_gov_reform_7 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 980
+			is_year = 3078
 		}
 		else = {
 			has_institution = early_feudalism
@@ -1243,7 +1243,7 @@ early_gov_reform_7b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 980
+			is_year = 3078
 		}
 		else = {
 			has_institution = early_feudalism
@@ -1263,7 +1263,7 @@ early_gov_reform_8 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1110
+			is_year = 3208
 		}
 		else = {
 			has_institution = manuscripts
@@ -1283,7 +1283,7 @@ early_gov_reform_8b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1110
+			is_year = 3208
 		}
 		else = {
 			has_institution = manuscripts
@@ -1303,7 +1303,7 @@ early_gov_reform_9 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1240
+			is_year = 3338
 		}
 		else = {
 			has_institution = scholasticism
@@ -1323,7 +1323,7 @@ early_gov_reform_9b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1240
+			is_year = 3338
 		}
 		else = {
 			has_institution = scholasticism
@@ -1343,7 +1343,7 @@ early_gov_reform_10 = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1370
+			is_year = 3468
 		}
 		else = {
 			has_institution = guilds
@@ -1363,7 +1363,7 @@ early_gov_reform_10b = {
 	trigger = {
 		if = {
 			limit = { government = native }
-			is_year = 1370
+			is_year = 3468
 		}
 		else = {
 			has_institution = guilds

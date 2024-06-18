@@ -1,0 +1,201 @@
+country_decisions = {
+
+	convert_to_judaism_mmetr_decision = {
+		major = yes
+		
+		color = { 94 161 255 }		#rgb
+		
+		potential = {
+			OR = {
+				has_country_flag = unlock_decision_to_adopt_judaism_flag_mmetr
+			}
+			NOT = { 
+				religion = jewish
+			}
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+		}
+		effect = {
+			change_religion = jewish
+			add_country_modifier = {
+				name = "recent_conversion"
+				duration = 1825
+			}
+			
+			#Specific unique effects, like for Himyarite missions to change
+			if = {
+				limit = {
+					OR = {
+						tag = HIM
+						was_tag = HIM
+					}
+				}
+				custom_tooltip = mmetr_HIM_mission_events.10.tt
+				swap_non_generic_missions = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { 
+					OR = {
+						tag = HIM
+						was_tag = HIM
+					}
+				}
+			}
+		}
+	}
+	
+	convert_to_armenian_mmetr_decision = {
+		major = yes
+		
+		color = { 200 140 140 }		#same rgb as religion
+		
+		potential = {
+			OR = {
+				culture = armenian
+				tag = ARM
+			}
+			OR = {
+				religion = zoroastrian
+				religion = hellenism
+			}
+			NOT = { 
+				religion = armenian_religion
+			}
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				religion = zoroastrian
+				religion = hellenism
+			}
+			OR = {
+				culture = armenian
+				tag = ARM
+			}
+			OR = {
+				num_of_religion = {
+					religion = armenian_religion
+					value = 0.5
+				}
+				num_of_religion = {
+					religion = armenian_religion
+					value = 10
+				}
+			}
+		}
+		effect = {
+			change_religion = armenian_religion
+			add_country_modifier = {
+				name = "recent_conversion"
+				duration = 1825
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	convert_to_hinduism_from_buddhic_mmetr_decision = {
+		major = yes
+		
+		color = { 0 204 204 }		#same rgb as religion
+		
+		potential = {
+			religion_group = buddhic
+			OR = {
+				num_of_religion = {
+					religion = hinduism
+					value = 1
+				}
+				capital_scope = {
+					OR = {
+						superregion = india_superregion
+						superregion = east_indies_superregion
+					}
+				}
+			}
+			NOT = { 
+				religion = hinduism
+			}
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			religion_group = buddhic
+			OR = {
+				consort_religion = hinduism
+				employed_advisor = {
+					religion = hinduism
+				}
+				num_of_religion = {
+					religion = hinduism
+					value = 0.5
+				}
+				num_of_religion = {
+					religion = hinduism
+					value = 5
+				}
+			}
+		}
+		effect = {
+			change_religion = hinduism
+			add_country_modifier = {
+				name = "recent_conversion"
+				duration = 1825
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	convert_to_waaqism_mmetr_decision = {
+		major = yes
+		
+		color = { 0 110 85 }		#same rgb as religion
+		
+		potential = {
+			NOT = { 
+				religion = waaqism
+			}
+			OR = {
+				num_of_religion = {
+					religion = waaqism
+					value = 1
+				}
+			}
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				consort_religion = waaqism
+				employed_advisor = {
+					religion = waaqism
+				}
+				num_of_religion = {
+					religion = waaqism
+					value = 1
+				}
+			}
+		}
+		effect = {
+			change_religion = waaqism
+			add_country_modifier = {
+				name = "recent_conversion"
+				duration = 1825
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

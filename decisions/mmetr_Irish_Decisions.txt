@@ -1,0 +1,81 @@
+country_decisions = {
+
+	tara_kingdom_nation = {
+		major = yes
+		potential = {
+			government = monarchy
+			primary_culture = irish
+			373 = {
+				has_discovered = ROOT
+			}
+			NOT = { tag = IRE }		#cant be ireland, but can exist alongside High King of Ireland as a challenger
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			NOT = { has_country_flag = formed_tara_kingdom_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 373		# Meath
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = formed_tara_kingdom_flag.tt
+				NOT = {
+					any_country = {
+						has_country_flag = formed_tara_kingdom_flag
+						NOT = { num_of_provinces_in_states = 1 }
+						NOT = { num_of_provinces_in_territories = 1 }
+					}
+				}
+			}
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 373		# Meath, where Hill of Tara is located
+			capital = 373
+			prestige = 25
+			num_of_owned_provinces_with = {
+				value = 6
+				is_state = yes
+				OR = {
+					area = munster_area
+					area = connacht_area
+					area = leinster_area
+					area = ulster_area
+				}
+			}
+		}
+		effect = {
+			override_country_name = TARA_COUNTRY_NAME
+			add_adm_power = 50
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "new_king_of_tara"
+				duration = 7300
+			}
+			set_country_flag = formed_tara_kingdom_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+	
+}

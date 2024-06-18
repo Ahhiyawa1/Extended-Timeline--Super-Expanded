@@ -5,53 +5,23 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_croatia_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = HLR }
-			NOT = { tag = HR8 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR6 }
-			NOT = { tag = PAP }
-			NOT = { tag = YUG }
-			NOT = { tag = ILY }
 			OR = {
-				AND = {
-					culture_group = western_balkan
-					NOT = { religion_group = hellenic }
-					NOT = { exists = BR4 }
-				}
-				AND = {
-					OR = {
-						culture_group = latin
-						culture_group = byzantine
-						religion_group = hellenic
-					}
-					NOT = { exists = DAL }
-				}
-				AND = {
-					culture_group = germanic
-					NOT = { religion_group = hellenic }
-					NOT = { exists = IL3 }
-				}
-				AND = {
-					NOT = { culture_group = western_balkan }
-					NOT = { culture_group = latin }
-					NOT = { culture_group = byzantine }
-					NOT = { culture_group = germanic }
-					NOT = { religion_group = hellenic }
-					NOT = { exists = CRO }
-				}
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
-                        capital_scope = {
-                                OR = {
-                                    area = croatia_area
-                                    area = slavonia_area
-                                    area = bosnia_area
-                                    area = east_adriatic_coast_area
-                                }
-                        }
+			NOT = { tag = HLR }
+			NOT = { tag = CRO }
+			NOT = { tag = PAP }
+			OR = {
+				NOT = { exists = CRO }
+				ai = no
+			}
+			primary_culture = croatian
 			OR = {
 				ai = no
 				AND = {
@@ -68,58 +38,59 @@ country_decisions = {
 				}
 			}
 		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 131			# Zagreb
+					NOT = { owns_core_province = 131 }
+				}
+				AND = {
+					culture = croatian
+					continent = europe
+					OR = {
+						NOT = { is_core = root }
+						NOT = { owned_by = root }
+					}
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 4
+								culture = croatian
+								is_core = root
+								continent = europe
+							}
+						}
+						owns_core_province = 131
+					}
+				}
+			}
+		}
 		allow = {
+			NOT = { exists = CRO }
+			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
 			owns_core_province = 131
-			capital_scope = { culture = ROOT }
+			num_of_owned_provinces_with = {
+				value = 4
+				culture = croatian
+				is_core = root
+				continent = europe
+			}
 		}
 		effect = {
 			add_prestige = 25
 			131 = { # Zagreb
 				move_capital_effect = yes
 			}
-			if = {
-				limit = { 
-					culture_group = western_balkan
-					NOT = { religion_group = hellenic }
-				}
-				change_tag = BR4
-			}
-			if = {
-				limit = { 
-					OR = {
-						culture_group = latin
-						culture_group = byzantine
-						religion_group = hellenic
-					}
-				}
-				change_tag = DAL
-			}
-			if = {
-				limit = { 
-					culture_group = germanic
-					NOT = { religion_group = hellenic }
-				}
-				change_tag = IL3
-			}
-			if = {
-				limit = { 
-					NOT = { culture_group = western_balkan }
-					NOT = { culture_group = latin }
-					NOT = { culture_group = byzantine }
-					NOT = { culture_group = germanic }
-					NOT = { religion_group = hellenic }
-				}
-				change_tag = CRO
-			}
+			change_tag = CRO
 			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			add_accepted_culture_or_dip_power = {
 				culture = dalmatian
@@ -133,17 +104,17 @@ country_decisions = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanent_claim = ROOT
+				add_permanent_claim = CRO
 			}
 			every_province = {
 				limit = {
-					culture = ROOT
+					culture = croatian
 					continent = europe
 					NOT = { owned_by = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { area = east_adriatic_coast_area }
 				}
-				add_permanent_claim = ROOT
+				add_permanent_claim = CRO
 			}
 			if = {
 				limit = {
@@ -156,6 +127,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_croatia_flag
 		}
 		ai_will_do = {
 			factor = 1

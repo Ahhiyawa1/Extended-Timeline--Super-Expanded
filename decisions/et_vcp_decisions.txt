@@ -10,22 +10,11 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = KRU }
-			NOT = { exists = KR6 }
-			NOT = { exists = KR7 }
-			NOT = { exists = KR8 }
 			NOT = { exists = RUS }
-			NOT = { exists = SOV }
-			NOT = { exists = RU6 }
-			NOT = { exists = RU8 }
 			NOT = { tag = UKR }
-			NOT = { tag = UK7 }
-			NOT = { tag = UK6 }
-			NOT = { tag = BLR }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
+			NOT = { tag = SOV }
 			NOT = { tag = EUR }
 			OR = {
 				primary_culture = russian
@@ -93,11 +82,11 @@ country_decisions = {
 					is_core = 293
 				}
 			}
-			capital = 280
 		}
 		effect = {
 			add_prestige = 25
 			change_tag = KRU
+			swap_non_generic_missions = yes
 			if = {
 				limit = { NOT = { government = monarchy } }
 				change_government = monarchy
@@ -118,12 +107,7 @@ country_decisions = {
 	banish_prince_novgorod = { 
 		major = yes
 		potential = {
-			OR = {
-				tag = NOV
-				tag = NV6
-				tag = NV7
-				tag = NV9
-			}
+			tag = NOV
 			NOT = { government = republic }
 		}
 		allow = {
@@ -152,12 +136,7 @@ country_decisions = {
 	#Novgorodian Knyaz converted to slavic faith
 	convert_knyaz_to_slavic = {
 		potential = {
-			OR = {
-				tag = NOV
-				tag = NV6
-				tag = NV7
-				tag = NV9
-			}
+			tag = NOV
 			religion = norse_pagan_reformed
 		}
 		allow = {

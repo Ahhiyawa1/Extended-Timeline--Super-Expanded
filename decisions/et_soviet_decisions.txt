@@ -4,22 +4,14 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
-			OR = { tag = RUS tag = RU6 tag = RU8 }
+			tag = RUS
 			NOT = { exists = SOV }
-			government = republic
-			OR = {
-				has_reform = communist_dictatorship
-				has_reform = socialist_republic
-				has_reform = communist_government
-			}
+			has_reform = communist_government
 		}
 		allow = {
-			government = republic
-			OR = {
-				has_reform = communist_dictatorship
-				has_reform = socialist_republic
-				has_reform = communist_government
-			}
+			is_subject = no
+			is_at_war = no
+			has_reform = communist_government
 		}
 		effect = {
 			add_prestige = 20
@@ -37,52 +29,17 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			tag = SOV
 			NOT = { exists = RUS }
-			NOT = { exists = RU6 }
-			NOT = { exists = RU8 }
-			NOT = {	has_reform = communist_dictatorship }
-			NOT = {	has_reform = socialist_republic }
 			NOT = {	has_reform = communist_government }
 		}
 		allow = {
 			is_subject = no
 			is_at_war = no
-			NOT = {	has_reform = communist_dictatorship }
-			NOT = {	has_reform = socialist_republic }
 			NOT = {	has_reform = communist_government }
 		}
 		effect = {
 			add_prestige = 20
-			if = {
-				limit = {
-					government = monarchy
-				}
-				change_tag = RUS
-				swap_free_idea_group = yes
-			}
-			if = {
-				limit = {
-					government = republic
-					NOT = {
-						OR = {
-							has_reform = fascist_dictatorship
-							has_reform = fascist_government
-							has_reform = dictatorial_rule 
-						}
-					}
-				}
-				change_tag = RU8
-			}
-			if = {
-				limit = {
-					government = republic
-					OR = {
-						has_reform = fascist_dictatorship
-						has_reform = fascist_government
-						has_reform = dictatorial_rule 
-					}
-				}
-				change_tag = RU6
-			}
+			change_tag = RUS
+			swap_free_idea_group = yes
 		}
 		ai_will_do = {
 			factor = 1

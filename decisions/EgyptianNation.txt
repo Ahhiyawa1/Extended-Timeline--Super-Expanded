@@ -18,26 +18,9 @@ country_decisions = {
 			NOT = { tag = PAP }
 			NOT = { tag = EUR }
 			NOT = { tag = TUR }
-			NOT = { tag = TKY }
-			NOT = { tag = OT7 }
-			NOT = { tag = OT6 }
-			NOT = { tag = AN1 }
-			NOT = { tag = GA1 }
 			NOT = { tag = ARB }
-			NOT = { tag = UA6 }
-			NOT = { tag = UA7 }
-			NOT = { tag = UA8 }
-			NOT = { tag = SAU }
-			NOT = { tag = AA3 }
 			NOT = { tag = ISR }
-			NOT = { tag = KOJ }
-			NOT = { tag = JUD }
 			NOT = { exists = EGY }
-			NOT = { exists = EG6 }
-			NOT = { exists = EG7 }
-			NOT = { exists = EG8 }
-			NOT = { exists = EGP }
-			NOT = { exists = PT0 }
 			NOT = { has_reform = celestial_empire }
 			NOT = { has_reform = caliphate_reform }
 			NOT = { has_reform = caliphate_theocratic_reform  }
@@ -49,7 +32,6 @@ country_decisions = {
 					num_of_cities = 3
 				}
 			}
-			capital_scope = { region = egypt_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -92,9 +74,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			add_prestige = 25
 			if = {
@@ -148,21 +130,8 @@ country_decisions = {
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
-			NOT = { tag = TKY }
-			NOT = { tag = OT7 }
-			NOT = { tag = OT6 }
 			NOT = { tag = ARB }
-			NOT = { tag = UA6 }
-			NOT = { tag = UA7 }
-			NOT = { tag = UA8 }
-			NOT = { tag = SAU }
-			NOT = { tag = AA3 }
 			NOT = { tag = EGY }
-			NOT = { tag = EG6 }
-			NOT = { tag = EG7 }
-			NOT = { tag = EG8 }
-			NOT = { tag = EGP }
-			NOT = { tag = PT0 }
 			OR = {
 				ai = no
 				NOT = { exists = MAM }
@@ -178,7 +147,7 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			province_id = 361 # Cairo
+			province_id = 361 	# Cairo
 			361 = { 			# Cairo
 				is_state = yes
 			}
@@ -200,8 +169,8 @@ country_decisions = {
 			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			if = {
 				limit = { has_regency = no }

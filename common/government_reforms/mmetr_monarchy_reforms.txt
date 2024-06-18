@@ -1,0 +1,706 @@
+##################################################################################
+# Antiquity
+##################################################################################
+
+germanic_empire_ancient_reform = {
+	icon = "germanic_empire"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = germanic_empire_gov_available
+		culture_group = germanic
+	}
+	trigger = {
+		culture_group = germanic
+		num_accepted_cultures = 2
+		government = monarchy
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		government_rank = 3
+	}
+	
+	fixed_rank = 3
+	
+	modifiers = {
+		num_accepted_cultures = 1
+		vassal_income = 0.2
+		governing_capacity = 50
+	}
+}
+
+kemetic_monarchy_reform = {
+	icon = "kemetic_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			religion = egyptian
+			AND = {
+				religion = hellenism
+				any_owned_province = {
+					religion = egyptian
+				}
+				accepted_culture = old_egyptian
+				NOT = {
+					OR = {
+						tag = ROM
+						tag = ROW
+						tag = BYZ
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		OR = {
+			religion = egyptian
+			AND = {
+				religion = hellenism
+				any_owned_province = {
+					religion = egyptian
+				}
+				accepted_culture = old_egyptian
+				NOT = {
+					OR = {
+						tag = ROM
+						tag = ROW
+						tag = BYZ
+					}
+				}
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		religion = egyptian
+	}
+	maintain_dynasty = yes
+	royal_marriage = yes	#other members of family can do so, like Ptolemies
+	
+	modifiers = {
+		legitimacy = 0.5
+		tolerance_own = 1
+		max_absolutism = 10
+		church_loyalty_modifier = 0.05
+	}
+}
+
+roman_imperium_reform = {
+	icon = "roman_imperium"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = ROW
+			tag = BYZ
+		}
+	}
+	trigger = {
+		government_rank = 3
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		government_rank = 3
+	}
+	
+	fixed_rank = 3
+	
+	modifiers = {
+		governing_capacity = 100
+		global_autonomy = -0.05
+	}
+}
+
+judean_monarchy_reform = {
+	icon = "judean_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = JUD
+			AND = {
+				owns = 379	#Judea
+				religion = jewish
+				culture_group = israeli_group
+			}
+		}
+	}
+	trigger = {
+		religion = jewish
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		religion = jewish
+		culture_group = israeli_group
+	}
+	
+	factions = {
+		pharisees
+		sadducees
+		zealots
+	}
+	
+	modifiers = {
+		legitimacy = 0.5
+		tolerance_own = 1
+		global_missionary_strength = 0.01
+		defensiveness = 0.1
+	}
+}
+
+chinese_claimant_empire_reform = {
+	icon = "mng_seal_of_the_emperor_reform"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = chinese_claimant_empire_reform
+			AND = {
+				culture_group = east_asian
+				capital_scope = {
+					superregion = china_superregion
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					superregion = china_superregion
+				}
+			}
+		}
+		NOT = { has_reform = celestial_empire }
+	}
+	trigger = {
+		OR = {
+			has_reform = chinese_claimant_empire_reform
+			AND = {
+				culture_group = east_asian
+				capital_scope = {
+					superregion = china_superregion
+				}
+				num_of_owned_provinces_with = {
+					value = 30
+					superregion = china_superregion
+				}
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		culture_group = east_asian
+	}
+	
+	fixed_rank = 3
+	start_territory_to_estates = 0.75
+
+	modifiers = {
+		governing_capacity = 500
+		legitimacy = 0.5
+		advisor_cost = -0.05
+	}
+
+	custom_attributes = {
+		has_unify_china_cb = yes
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+	}
+}
+
+parthian_empire_reform = {
+	icon = "parthian_empire"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = parthian_empire_reform
+			tag = PRT
+			AND = {
+				primary_culture = parthian
+				government_rank = 3
+			}
+		}
+		NOT = { has_reform = celestial_empire }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		primary_culture = parthian
+	}
+	
+	fixed_rank = 3
+	start_territory_to_estates = 0.75
+
+	modifiers = {
+		governing_capacity_modifier = -0.25
+		cavalry_power = 0.1
+		min_autonomy = 10
+		nobles_influence_modifier = 0.1
+	}
+	
+	government_abilities = {
+		parthian_empire_mechanic
+	}
+	
+	ai = {
+		factor = 500 # should always be picked if available
+		modifier = {
+			factor = 0
+			NOT = {
+				tag = PRT
+			}
+		}
+	}
+}
+
+
+##################################################################################
+# Middle Ages / Medieval
+##################################################################################
+
+anglo_saxon_monarchy_reform = {
+	icon = "anglo_saxon_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		primary_culture = anglo_saxon
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		primary_culture = anglo_saxon
+	}
+	
+	modifiers = {
+		vassal_income = 0.2
+		nobles_influence_modifier = 0.05
+		legitimacy = 0.5
+	}
+}
+
+seljuk_sultanate_reform = {
+	icon = "seljuk_sultanate"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			AND = {
+				dynasty = "Seljuq"
+				religion_group = muslim
+				government_rank = 2
+			}
+			tag = SEL
+			tag = RUM
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		always = yes
+	}
+	
+	maintain_dynasty = yes
+	
+	government_abilities = {
+		seljuk_sultanate_mechanic
+	}
+	
+	modifiers = {
+		legitimacy = 0.5
+		vassal_income = 0.33
+	}
+}
+
+ayyubid_sultanate_reform = {
+	icon = "ayyubid_sultanate"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		dynasty = "Ayyubid"
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		dynasty = "Ayyubid"
+	}
+	
+	maintain_dynasty = yes
+	has_harem = yes
+	
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+	
+	modifiers = {
+		governing_capacity = 100
+		nobles_influence_modifier = 0.1
+		vassal_income = 0.1
+	}
+}
+
+
+iberian_crusader_state = {
+	icon = "iberian_crusader_state"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = iberian_crusader_state
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	
+	nation_designer_trigger = {
+		religion = catholic
+		culture_group = iberian
+	}
+	
+	modifiers = {
+		cb_on_religious_enemies = yes
+		manpower_recovery_speed = 0.15
+		rulers_can_be_generals = yes
+		heirs_can_be_generals = yes
+	}
+}
+
+latin_empire_monarchy_reform = {
+	icon = "latin_empire"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		religion = catholic
+		NOT = { tag = PAP }
+		NOT = { tag = HLR }
+		NOT = { tag = BYZ }
+		OR = {
+			tag = LAT
+			was_tag = LAT
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	lock_level_when_selected = no
+	fixed_rank = 3
+	
+	nation_designer_trigger = {
+		religion = catholic
+		capital = 151	#Constantinople
+	}
+	
+	modifiers = {
+		vassal_income = 0.15
+		governing_capacity = 50
+		papal_influence = 0.5
+		dip_advisor_cost = -0.1
+		min_autonomy = 10
+	}
+}
+
+paternal_monarchy_reform = {
+	icon = "paternal_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = SUK		#Sukhothai
+			primary_culture = northern_thai
+			primary_culture = central_thai
+			accepted_culture = northern_thai
+			accepted_culture = central_thai
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = no
+	
+	nation_designer_trigger = {
+		OR = {
+			primary_culture = northern_thai
+			primary_culture = central_thai
+		}
+	}
+	
+	modifiers = {
+		global_unrest = -1
+		reduced_liberty_desire = 5
+		vassal_forcelimit_bonus = 1
+	}
+	
+	#New added MMETR Mechanic
+	government_abilities = {
+		mandala_system_mmetr_mechanic
+	}
+}
+
+shaman_monarchy_reform = {
+	icon = "shaman_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		culture_group = japanese_g
+		OR = {
+			religion = shinto
+			religion = shamanist
+			religion = animism
+			AND = {
+				has_reform = shaman_monarchy_reform
+				religion_group = buddhic
+			}
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = no
+	
+	nation_designer_trigger = {
+		OR = {
+			religion = shinto
+			religion = shamanist
+			religion = animism
+		}
+	}
+	
+	modifiers = {
+		tolerance_own = 1
+		stability_cost_modifier = -0.05
+		church_influence_modifier = 0.05
+	}
+}
+
+tanist_monarchy_reform = {
+	icon = "tanist_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		culture_group = gaelic
+		capital_scope = {
+			region = british_isles_region
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = no
+	
+	maintain_dynasty = yes		#Tanist is elected from same dynasty
+	
+	nation_designer_trigger = {
+		culture_group = gaelic
+	}
+	
+	modifiers = {
+		legitimacy = 0.5
+		global_manpower_modifier = 0.1
+		monarch_lifespan = 0.05			#ensures that tanists elected are all in peak condition
+	}
+	
+	ai = {
+		factor = 100 	#choose if is available
+	}
+}
+
+timurid_emirate_reform = {
+	icon = "timurid_emir"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = TIM
+			was_tag = TIM
+			dynasty = "Timurid"
+		}
+	}
+	trigger = {
+		OR = {
+			tag = TIM
+			was_tag = TIM
+			dynasty = "Timurid"
+		}
+	}
+	raze_province = yes
+	lock_level_when_selected = yes		#prevents from changing to other tribal (non-steppe horde)
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		dynasty = "Timurid"
+	}
+
+	conditional = {
+		allow = { has_dlc = "Cradle of Civilization" }
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+	
+	fixed_rank = 3
+	
+	modifiers = {
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
+		global_institution_spread = -0.1
+		tolerance_own = 1
+		num_accepted_cultures = 1
+		cav_to_inf_ratio = 0.25
+		loot_amount = 0.50
+		movement_speed = 0.2
+		years_of_nationalism = -5
+	}
+}
+
+
+##################################################################################
+# Modern
+##################################################################################
+
+austria_dual_monarchy = {		#vanilla string is called austrian_dual_monarchy
+	icon = "austrian_dual_monarchy"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = austria_dual_monarchy		#to prevent it deselecting the reform if not met
+	}
+	
+	#no trigger, since only unlocked by decisions
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		always = yes
+	}
+	
+	modifiers = {
+		num_accepted_cultures = 2
+		global_unrest = -2
+		monarch_diplomatic_power = 2
+		promote_culture_cost = -0.33
+	}
+}
+
+militant_japanese_empire = {
+	icon = "militant_japanese_empire"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		adm_tech = 60
+		OR = {
+			has_reform = militant_japanese_empire		#to prevent it deselecting the reform if not met
+			tag = JAP
+		}
+		NOT = {
+			has_reform = shogunate
+			has_reform = daimyo
+		}
+	}
+	
+	trigger = {
+		adm_tech = 65	#Absolute Rulership
+		OR = {
+			hidden_trigger = {
+				has_reform = militant_japanese_empire
+			}
+			government_rank = 3
+			have_had_reform = militant_japanese_empire
+			is_hegemon_of_type = military_hegemon
+		}
+	}
+	
+	fixed_rank = 3
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		always = yes
+	}
+	
+	modifiers = {
+		war_exhaustion = -0.03
+		global_unrest = -2
+		max_absolutism = 25
+		monarch_military_power = 2
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }	#Prussian mechanics
+		militarised_society = yes
+	}
+}
+
+maratha_confederation_reform = {
+	icon = "indian_crown"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		adm_tech = 47	#Late Feudalism
+		OR = {
+			has_reform = maratha_confederation_reform		#to prevent it deselecting the reform if not met
+			tag = MAR		#Marathas
+			primary_culture = marathi
+		}
+	}
+	
+	trigger = {
+		adm_tech = 47
+		OR = {
+			hidden_trigger = {
+				has_reform = maratha_confederation_reform
+			}
+			tag = MAR
+			have_had_reform = maratha_confederation_reform
+			AND = {
+				primary_culture = marathi
+				development = 250
+			}
+		}
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	lock_level_when_selected = no
+	nation_designer_trigger = {
+		always = yes
+	}
+	
+	modifiers = {
+		maratha_influence_modifier = 0.1
+		maratha_loyalty_modifier = 0.05
+		nobles_influence_modifier = -0.05
+		tolerance_heretic = 3
+		tolerance_heathen = 3
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic		#new 1.35 version of militarization mechanic
+		}
+	}
+}
+

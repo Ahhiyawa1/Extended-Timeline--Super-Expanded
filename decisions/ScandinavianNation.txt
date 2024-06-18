@@ -15,14 +15,8 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { exists = SCA }
-			NOT = { exists = SC8 }
-			NOT = { exists = SC7 }
-			NOT = { exists = SC6 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = HL8 }
-			NOT = { tag = HL7 }
-			NOT = { tag = HL6 }
 			NOT = { tag = EUR }
 			culture_group = scandinavian
 			OR = {
@@ -91,8 +85,8 @@ country_decisions = {
 			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			swap_non_generic_missions = yes
 			scandinavia_region = {

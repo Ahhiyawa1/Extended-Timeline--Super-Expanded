@@ -1,0 +1,1540 @@
+###########################################################
+# Events for Fitna of al-Andalus
+###########################################################
+
+namespace = fitna_of_al_andalus
+
+# The Fitna of al-Andalus
+country_event = {
+	id = fitna_of_al_andalus.1
+	title = "fitna_of_al_andalus.1.t"
+	desc = "fitna_of_al_andalus.1.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	major = yes		#makes notification pop up for others
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fitna_of_al_andalus_started_flag
+			random_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						is_capital = yes
+					}
+					is_overseas = no	#so doesn't rebel in Baleares
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3		#3 is the maximum size
+					leader = "Muhammad"
+					leader_dynasty = "Umayyad"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.1.a"
+		
+		custom_tooltip = fitna_of_al_andalus.1.tt
+		add_stability = -2
+		add_legitimacy = -20
+	}
+}
+
+# Andalusian Crisis Averted
+country_event = {
+	id = fitna_of_al_andalus.2
+	title = "fitna_of_al_andalus.2.t"
+	desc = "fitna_of_al_andalus.2.desc"
+	picture = MMETR_BATTLEFIELD_AFTERMATH_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fitna_of_al_andalus_happened
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.2.a"
+		
+		add_legitimacy = 20
+	}
+}
+
+# Weary Soldiers Defect
+country_event = {
+	id = fitna_of_al_andalus.3
+	title = "fitna_of_al_andalus.3.t"
+	desc = "fitna_of_al_andalus.3.desc"
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		manpower = 0.5
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.3.a"
+		
+		add_manpower = -0.5
+	}
+}
+
+# Sulayman Rebels!
+country_event = {
+	id = fitna_of_al_andalus.4
+	title = "fitna_of_al_andalus.4.t"
+	desc = "fitna_of_al_andalus.4.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_spawned_rebels = pretender_rebels
+		}
+		had_country_flag = {
+			flag = fitna_of_al_andalus_started_flag
+			days = 180		#at least started roughly half a year ago
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						is_capital = yes
+					}
+					is_overseas = no	#so doesn't rebel in Baleares
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3	#3 is the maximum size
+					leader = "Sulayman ibn al-Hakam"
+					leader_dynasty = "Umayyad"
+					win = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.4.a"
+		
+		custom_tooltip = fitna_of_al_andalus.4.tt
+		set_country_flag = fitna_of_al_andalus_sulayman_rebels_flag
+	}
+}
+
+# Advisor Assassinated
+country_event = {
+	id = fitna_of_al_andalus.5
+	title = "fitna_of_al_andalus.5.t"
+	desc = "fitna_of_al_andalus.5.desc"
+	picture = ASSASSINATION_eventPicture
+	
+	is_triggered_only = yes		#so only fires within disaster
+	fire_only_once = yes
+	
+	trigger = {
+		has_advisor = yes
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.5.a"
+		
+		kill_advisor = random
+	}
+}
+
+# Umayyad Clan Dissatisfied
+country_event = {
+	id = fitna_of_al_andalus.6
+	title = "fitna_of_al_andalus.6.t"
+	desc = "fitna_of_al_andalus.6.desc"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes		#so only fires within disaster
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { stability = 0 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.6.a"
+		
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+		
+		set_country_flag = fitna_of_al_andalus_dissatisfied_nobles_flag
+	}
+}
+
+# Umayyad Pretender Claims the Throne!
+country_event = {
+	id = fitna_of_al_andalus.7
+	title = "fitna_of_al_andalus.7.t"
+	desc = "fitna_of_al_andalus.7.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_spawned_rebels = pretender_rebels
+		}
+		has_country_flag = fitna_of_al_andalus_dissatisfied_nobles_flag
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						is_capital = yes
+					}
+					is_overseas = no	#so doesn't rebel in Baleares
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+					leader_dynasty = "Umayyad"
+					win = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.7.a"
+		
+	}
+}
+
+# [Root.Monarch.GetName] Assassinated!
+country_event = {
+	id = fitna_of_al_andalus.8
+	title = "fitna_of_al_andalus.8.t"
+	desc = "fitna_of_al_andalus.8.desc"
+	picture = ASSASSINATION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			stability = -1
+		}
+		has_regency = no
+		has_heir = yes
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.8.a"
+		
+		kill_ruler = yes
+	}
+}
+
+# Hammudid Dynasty Claims the Throne
+country_event = {
+	id = fitna_of_al_andalus.9
+	title = "fitna_of_al_andalus.9.t"
+	desc = "fitna_of_al_andalus.9.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_sulayman_rebels_flag
+		NOT = {
+			has_spawned_rebels = pretender_rebels
+		}
+		NOT = {
+			dynasty = "Hammudid"
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fitna_of_al_andalus_hammudid_flag
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.9.a"
+		
+		custom_tooltip = fitna_of_al_andalus.9.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+					is_overseas = no	#so doesn't rebel in Baleares
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 5
+					leader = "Ali"
+					leader_dynasty = "Hammudid"
+					win = yes
+					should_take_capital = yes		#always goes after capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.9.b"
+		
+		add_prestige = -20
+		kill_heir = { allow_new_heir = no }
+		define_ruler = {
+			name = "Ali"
+			dynasty = "Hammudid"
+			adm = 5
+			dip = 3
+			mil = 4
+			age = 30
+			claim = 50
+			religion = shiite
+		}
+		change_religion = shiite
+		set_religious_school = {
+			group = muslim
+			school = zaidi_school
+		}
+	}
+}
+
+# Populace Demands Reduced Taxes
+country_event = {
+	id = fitna_of_al_andalus.10
+	title = "fitna_of_al_andalus.10.t"
+	desc = "fitna_of_al_andalus.10.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "fitna_of_al_andalus.10.a"
+		
+		add_country_modifier = {
+			name = "disaster_tax_reduction_accepted"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.10.b"
+		
+		custom_tooltip = fitna_of_al_andalus.10.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+					NOT = {
+						fort_level = 1
+					}
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 2
+				}
+			}
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+					NOT = {
+						fort_level = 1
+					}
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 1
+				}
+			}
+		}
+	}
+}
+
+# Christian Mercenaries Hired by Rebels
+country_event = {
+	id = fitna_of_al_andalus.11
+	title = "fitna_of_al_andalus.11.t"
+	desc = "fitna_of_al_andalus.11.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = military_rebels		#new rebel type
+					size = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.11.a"
+		
+		custom_tooltip = fitna_of_al_andalus.11.tt
+	}
+}
+
+# Noble Clans Rebel
+country_event = {
+	id = fitna_of_al_andalus.12
+	title = "fitna_of_al_andalus.12.t"
+	desc = "fitna_of_al_andalus.12.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_spawned_rebels = noble_rebels
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+					win = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.12.a"
+		
+		custom_tooltip = fitna_of_al_andalus.12.tt
+	}
+}
+
+# Berber Raiders Attack
+country_event = {
+	id = fitna_of_al_andalus.13
+	title = "fitna_of_al_andalus.13.t"
+	desc = "fitna_of_al_andalus.13.desc"
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_spawned_rebels = nomad_rebels
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = nomad_rebels
+					size = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.13.a"
+		
+		custom_tooltip = fitna_of_al_andalus.13.tt
+	}
+}
+
+# Catalonian Lords Support the Rebels
+country_event = {
+	id = fitna_of_al_andalus.14
+	title = "fitna_of_al_andalus.14.t"
+	desc = "fitna_of_al_andalus.14.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_spawned_rebels = military_rebels
+		}
+		had_country_flag = {
+			flag = fitna_of_al_andalus_started_flag
+			days = 365		#at least started a year ago
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = military_rebels
+					size = 2
+					leader = "Ramon Borrell"
+				}
+			}
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = military_rebels
+					size = 2
+					leader = "Hugh"
+				}
+			}
+			random_owned_province = {
+				limit = {
+					NOT = {
+						is_capital = yes
+					}
+				}
+				spawn_rebels = {
+					type = military_rebels
+					size = 1
+					leader = "Ermengol"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.14.a"
+		
+		custom_tooltip = fitna_of_al_andalus.14.tt
+	}
+}
+
+# The Guard Revolts in the Capital
+country_event = {
+	id = fitna_of_al_andalus.15
+	title = "fitna_of_al_andalus.15.t"
+	desc = "fitna_of_al_andalus.15.desc"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_regency = no
+	}
+	
+	immediate = {
+		hidden_effect = {
+			capital_scope = {
+				spawn_rebels = {
+					type = military_rebels		#new rebel type
+					size = 1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.15.a"
+		
+		custom_tooltip = fitna_of_al_andalus.15.tt
+	}
+}
+
+# Governors Exert Regional Influence
+country_event = {
+	id = fitna_of_al_andalus.16
+	title = "fitna_of_al_andalus.16.t"
+	desc = "fitna_of_al_andalus.16.desc"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = fitna_of_al_andalus_started_flag
+			days = 730		#at least 2 years ago
+		}
+		num_of_cities = 5		#have enough provinces for it to make sense
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		}
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.16.a"
+		
+		custom_tooltip = fitna_of_al_andalus.16.tt
+		
+		hidden_effect = {
+			#Badajoz
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = beieras_area
+						area = alentejo_area
+					}
+				}
+				add_core = BDJ
+				remove_province_modifier = recent_uprising		#to restore unrest if had a big nobles rebellion that covered the entire country's provinces
+			}
+			#Seville
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = alentejo_area
+						province_id = 218
+						province_id = 224
+					}
+				}
+				add_core = SEV
+				remove_province_modifier = recent_uprising
+			}
+			#Saltes
+			if = {
+				limit = {
+					owns = 4548
+				}
+				4548 = {
+					add_core = STS
+					remove_province_modifier = recent_uprising
+				}
+			}
+			#Algeciras
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 1749
+						province_id = 226
+						province_id = 334
+					}
+				}
+				add_core = AGC
+				remove_province_modifier = recent_uprising
+			}
+			#Malaga
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 4546
+						province_id = 1751
+					}
+				}
+				add_core = MGA
+				remove_province_modifier = recent_uprising
+			}
+			#Granada
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 223
+						province_id = 1748
+						province_id = 2754
+					}
+				}
+				add_core = GRA
+				remove_province_modifier = recent_uprising
+			}
+			#Almeria
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 222
+						province_id = 221
+					}
+				}
+				add_core = ALR
+				remove_province_modifier = recent_uprising
+			}
+			#Murcia
+			if = {
+				limit = {
+					owns = 221
+				}
+				221 = {
+					add_core = MUC
+					remove_province_modifier = recent_uprising
+				}
+			}
+			#Denia
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = baleares_area
+						province_id = 4647
+						province_id = 4549
+						province_id = 1750
+					}
+				}
+				add_core = DEN
+				remove_province_modifier = recent_uprising
+			}
+			#Valencia
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 220
+						province_id = 4550
+					}
+				}
+				add_core = VAL
+				remove_province_modifier = recent_uprising
+			}
+			#Tortosa
+			every_owned_province = {
+				limit = {
+					area = catalonia_area
+				}
+				add_core = TTA
+				remove_province_modifier = recent_uprising
+			}
+			#Zaragoza
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = basque_country	#Vasconia
+						area = aragon_area
+						province_id = 4550
+					}
+				}
+				add_core = ZAR
+				remove_province_modifier = recent_uprising
+			}
+			#Toledo
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 4788
+						province_id = 1747
+						province_id = 4551
+						province_id = 219
+						province_id = 217
+						province_id = 2751
+					}
+				}
+				add_core = TOL
+				remove_province_modifier = recent_uprising
+			}
+		}
+	}
+}
+
+
+# Seville Threatens Secession
+country_event = {
+	id = fitna_of_al_andalus.17
+	title = "fitna_of_al_andalus.17.t"
+	desc = "fitna_of_al_andalus.17.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = SEV
+			is_capital = no
+		}
+		NOT = { exists = SEV }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = SEV
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = SEV
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = SEV
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = SEV
+				is_capital = no
+			}
+			cede_province = SEV
+		}
+		add_truce_with = SEV
+		SEV = {
+			set_dynasty = "Abbadid"
+		}
+		hidden_effect = {
+			SEV = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = SEV
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.17.tt
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = SEV
+				is_capital = no
+			}
+			cede_province = SEV
+		}
+		add_truce_with = SEV
+		SEV = {
+			set_dynasty = "Abbadid"
+		}
+		hidden_effect = {
+			SEV = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = SEV
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = SEV
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Badajoz Threatens Secession
+country_event = {
+	id = fitna_of_al_andalus.18
+	title = "fitna_of_al_andalus.18.t"
+	desc = "fitna_of_al_andalus.18.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = BDJ
+			is_capital = no
+		}
+		NOT = { exists = BDJ }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = BDJ
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = BDJ
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = BDJ
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = BDJ
+				is_capital = no
+			}
+			cede_province = BDJ
+		}
+		add_truce_with = BDJ
+		hidden_effect = {
+			BDJ = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = BDJ
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.18.tt
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = BDJ
+				is_capital = no
+			}
+			cede_province = BDJ
+		}
+		add_truce_with = BDJ
+		hidden_effect = {
+			BDJ = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = BDJ
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = BDJ
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Toledo Threatens Secession
+country_event = {
+	id = fitna_of_al_andalus.19
+	title = "fitna_of_al_andalus.19.t"
+	desc = "fitna_of_al_andalus.19.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = TOL
+			is_capital = no
+		}
+		NOT = { exists = TOL }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = TOL
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = TOL
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = TOL
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = TOL
+				is_capital = no
+			}
+			cede_province = TOL
+		}
+		add_truce_with = TOL
+		hidden_effect = {
+			TOL = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = TOL
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.19.tt
+		
+		add_prestige = -20
+		every_owned_province  = {
+			limit = {
+				is_core = TOL
+				is_capital = no
+			}
+			cede_province = TOL
+		}
+		add_truce_with = TOL
+		hidden_effect = {
+			TOL = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = TOL
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = TOL
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Zaragoza Threatens Secession
+country_event = {
+	id = fitna_of_al_andalus.20
+	title = "fitna_of_al_andalus.20.t"
+	desc = "fitna_of_al_andalus.20.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = ZAR
+			is_capital = no
+		}
+		NOT = { exists = ZAR }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = ZAR
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = ZAR
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = ZAR
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -15
+		every_owned_province  = {
+			limit = {
+				is_core = ZAR
+				is_capital = no
+			}
+			cede_province = ZAR
+		}
+		add_truce_with = ZAR
+		hidden_effect = {
+			ZAR = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = ZAR
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.20.tt
+		
+		add_prestige = -15
+		every_owned_province  = {
+			limit = {
+				is_core = ZAR
+				is_capital = no
+			}
+			cede_province = ZAR
+		}
+		add_truce_with = ZAR
+		hidden_effect = {
+			ZAR = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = ZAR
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = ZAR
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Denia Secedes!
+country_event = {
+	id = fitna_of_al_andalus.21
+	title = "fitna_of_al_andalus.21.t"
+	desc = "fitna_of_al_andalus.21.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = DEN
+			is_capital = no
+		}
+		NOT = { exists = DEN }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = DEN
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = DEN
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = DEN
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -15
+		every_owned_province  = {
+			limit = {
+				is_core = DEN
+				is_capital = no
+			}
+			cede_province = DEN
+		}
+		add_truce_with = DEN
+		hidden_effect = {
+			DEN = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = DEN
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.21.tt
+		
+		add_prestige = -15
+		every_owned_province  = {
+			limit = {
+				is_core = DEN
+				is_capital = no
+			}
+			cede_province = DEN
+		}
+		add_truce_with = DEN
+		hidden_effect = {
+			DEN = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = DEN
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = DEN
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Granada Secedes!
+country_event = {
+	id = fitna_of_al_andalus.22
+	title = "fitna_of_al_andalus.22.t"
+	desc = "fitna_of_al_andalus.22.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = GRA
+			is_capital = no
+		}
+		NOT = { exists = GRA }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.a"	#We cannot give in to their insolent demands!
+		
+		random_owned_province  = {
+			limit = {
+				is_core = GRA
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = GRA
+				win = yes
+			}
+		}
+		every_owned_province  = {
+			limit = {
+				is_core = GRA
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "disaster_rejected_independence_demands"
+				duration = 1825
+			}
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Our hands are tied now... we can deal with them later
+		
+		add_prestige = -15
+		every_owned_province  = {
+			limit = {
+				is_core = GRA
+				is_capital = no
+			}
+			cede_province = GRA
+		}
+		add_truce_with = GRA
+		GRA = {
+			set_dynasty = "Zirid"
+		}
+		hidden_effect = {
+			GRA = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = GRA
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.c"	#We must put ourselves in their shoes...
+		
+		custom_tooltip = fitna_of_al_andalus.22.tt
+		
+		every_owned_province  = {
+			limit = {
+				is_core = GRA
+				is_capital = no
+			}
+			cede_province = GRA
+		}
+		add_truce_with = GRA
+		GRA = {
+			set_dynasty = "Zirid"
+		}
+		hidden_effect = {
+			GRA = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = GRA
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+		
+		switch_tag = GRA
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Saltes Breaks Away!
+country_event = {
+	id = fitna_of_al_andalus.23
+	title = "fitna_of_al_andalus.23.t"
+	desc = "fitna_of_al_andalus.23.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = fitna_of_al_andalus_taifa_cores_formed_flag
+		any_owned_province = {
+			is_core = STS
+			is_capital = no
+		}
+		NOT = { exists = STS }
+	}
+	
+	option = {
+		name = "fitna_of_al_andalus.17.b"	#Immediately breaks away since is just a OPM
+		
+		every_owned_province  = {
+			limit = {
+				is_core = STS
+				is_capital = no
+			}
+			cede_province = STS
+		}
+		hidden_effect = {
+			STS = {
+				add_treasury = 100
+			}
+			random_province = {
+				limit = {
+					owner = {
+						tag = STS
+					}
+				}
+				build_to_forcelimit = {
+					infantry = 0.9
+					cavalry = 0.1
+				}
+			}
+		}
+	}
+}
+

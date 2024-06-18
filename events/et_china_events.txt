@@ -12,29 +12,12 @@ country_event = {
 
 	trigger = {
 		government = monarchy
-		NOT = { 
-			OR = {
-				has_reform = fascist_dictatorship
-				has_reform = fascist_government
-			}
-		}
-		OR = {
-			has_new_dynasty = yes
-			tag = CH6 
-			tag = CH7 
-			tag = CHN
-		}
-		OR = {
-			culture_group = east_asian
-			tag = CH6 
-			tag = CH7 
-			tag = CHN
-		}
+		has_new_dynasty = yes
+		culture_group = east_asian
+		is_subject = no
+		is_at_war = no
 		NOT = { primary_culture = manchu_new }
-	}
-
-	mean_time_to_happen = {
-		months = 1
+		NOT = { tag = CHN }
 	}
 
 	option = {

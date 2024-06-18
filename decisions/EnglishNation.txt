@@ -10,22 +10,9 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { tag = ENG }
-			NOT = { tag = EN6 }
-			NOT = { tag = EN7 }
-			NOT = { tag = EN8 }
 			NOT = { exists = GBR }
-			NOT = { exists = GB6 }
-			NOT = { exists = GB7 }
-			NOT = { exists = GB8 }
-			NOT = { exists = RBR }
-			NOT = { exists = AVE }
-			NOT = { tag = DM1 }		#New added in MMETR mod tags
-			NOT = { tag = DM2 }		#New added in MMETR mod tags
 			NOT = { tag = EUR }
 			NOT = { tag = HLR }
-			NOT = { tag = HL8 }
-			NOT = { tag = HL7 }
-			NOT = { tag = HL6 }
 			NOT = { tag = PAP }
 			OR = {
 				primary_culture = english
@@ -40,7 +27,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			capital_scope = { region = british_isles_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -60,9 +46,6 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			NOT = { exists = ENG }
-			NOT = { exists = EN6 }
-			NOT = { exists = EN7 }
-			NOT = { exists = EN8 }
 			owns_core_province = 237		# Oxfordshire
 			owns_core_province = 234		# Wessex
 			owns_core_province = 235		# Kent
@@ -89,9 +72,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			home_counties_area = {
 				limit = {

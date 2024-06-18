@@ -17,17 +17,8 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { exists = GBR }
-			NOT = { exists = GB6 }
-			NOT = { exists = GB7 }
-			NOT = { exists = GB8 }
-			NOT = { tag = AVE }
-			NOT = { tag = DM1 }		#New added in MMETR mod tags
-			NOT = { tag = DM2 }		#New added in MMETR mod tags
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = HL6 }
-			NOT = { tag = HL7 }
-			NOT = { tag = HL8 }
 			NOT = { has_country_flag = eng_took_ave_branch }
 			NOT = { tag = EUR }
 			NOT = { tag = RBR }
@@ -54,7 +45,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			capital_scope = { region = british_isles_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -116,9 +106,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			british_isles_region = {
 				limit = {
@@ -176,13 +166,7 @@ country_decisions = {
 				factor = 0
 				tag = SCO
 				NOT = { is_enemy = ENG }
-				NOT = { is_enemy = EN6 }
-				NOT = { is_enemy = EN7 }
-				NOT = { is_enemy = EN8 }
 				NOT = { is_rival = ENG }
-				NOT = { is_rival = EN6 }
-				NOT = { is_rival = EN7 }
-				NOT = { is_rival = EN8 }
 			}
 		}
 		ai_importance = 400
@@ -198,11 +182,6 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { exists = GBR }
-			NOT = { exists = GB6 }
-			NOT = { exists = GB7 }
-			NOT = { exists = GB8 }
-			NOT = { exists = RBR }
-			NOT = { tag = AVE }
 			NOT = { has_country_flag = eng_took_ave_branch }
 			OR = {
 				ai = no
@@ -214,12 +193,7 @@ country_decisions = {
 			}
 			OR = {
 				AND = {
-					OR = {
-						tag = ENG
-						tag = EN6
-						tag = EN7
-						tag = EN8
-					}
+					tag = ENG
 					OR = {
 						ai = no
 						AND = {
@@ -236,17 +210,9 @@ country_decisions = {
 						ai = no
 						AND = {
 							ai = yes
-							OR = {
-								ENG = {	is_subject_of = SCO	}
-								EN6 = {	is_subject_of = SCO	}
-								EN7 = {	is_subject_of = SCO	}
-								EN8 = {	is_subject_of = SCO	}
-							}
+							ENG = {	is_subject_of = SCO	}
 							#This overlaps with allow for AI, is meant to negate do_not_integrate
 							ENG = { NOT = { num_of_cities = 41 } } #Keep this number the same as in allow
-							EN6 = { NOT = { num_of_cities = 41 } }
-							EN7 = { NOT = { num_of_cities = 41 } }
-							EN8 = { NOT = { num_of_cities = 41 } }
 						}
 					}
 				}
@@ -260,12 +226,7 @@ country_decisions = {
 			legitimacy = 100
 			OR = {
 				AND = {
-					OR = {
-						tag = ENG
-						tag = EN6
-						tag = EN7
-						tag = EN8
-					}
+					tag = ENG
 					OR = {
 						SCO = {	junior_union_with = ENG	}
 						SCO = {	is_subject_of = ENG	}
@@ -277,26 +238,15 @@ country_decisions = {
 					OR = {
 						ENG = {	junior_union_with = SCO	}
 						ENG = {	is_subject_of = SCO	}
-						EN6 = {	is_subject_of = SCO	}
-						EN7 = {	is_subject_of = SCO	}
-						EN8 = {	is_subject_of = SCO	}
 					}
-					ENG = { NOT = { num_of_cities = 41 } } #Keep this number the same as in allow
-					EN6 = { NOT = { num_of_cities = 41 } }
-					EN7 = { NOT = { num_of_cities = 41 } }
-					EN8 = { NOT = { num_of_cities = 41 } }
+					ENG = { NOT = { num_of_cities = 41 } } #Keep this number the same as in potential
 				}
 			}
 		}
 		effect = {
 			if = {
 				limit = {
-					OR = {
-						tag = ENG
-						tag = EN6
-						tag = EN7
-						tag = EN8
-					}
+					tag = ENG
 					SCO = {
 						ai = yes
 					}
@@ -306,34 +256,11 @@ country_decisions = {
 			if = {
 				limit = {
 					tag = SCO
-					ENG = { ai = yes }
-					exists = ENG
+					ENG = {
+						ai = yes
+					}
 				}
 				inherit = ENG
-			}
-			if = {
-				limit = {
-					tag = SCO
-					EN6 = { ai = yes }
-					exists = EN6
-				}
-				inherit = EN6
-			}
-			if = {
-				limit = {
-					tag = SCO
-					EN7 = { ai = yes }
-					exists = EN7
-				}
-				inherit = EN7
-			}
-			if = {
-				limit = {
-					tag = SCO
-					EN8 = { ai = yes }
-					exists = EN8
-				}
-				inherit = EN8
 			}
 			hidden_effect = {
 				if = {
@@ -352,9 +279,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			british_isles_region = {
 				limit = {
@@ -381,9 +308,6 @@ country_decisions = {
 		}
 		ai_importance = 200
 		do_not_integrate = ENG
-		do_not_integrate = EN6
-		do_not_integrate = EN7
-		do_not_integrate = EN8
 		do_not_integrate = SCO
 	}
 	
@@ -395,10 +319,6 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { exists = GBR }
-			NOT = { exists = GB6 }
-			NOT = { exists = GB7 }
-			NOT = { exists = GB8 }
-			NOT = { exists = RBR }
 			NOT = { tag = AVE }
 			NOT = { has_country_flag = eng_took_ave_branch }
 			has_not_enacted_parliament_action = { parliament_action = english_scottish_act_of_union }
@@ -480,10 +400,6 @@ country_decisions = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { exists = GBR }
-			NOT = { exists = GB6 }
-			NOT = { exists = GB7 }
-			NOT = { exists = GB8 }
-			NOT = { exists = RBR }
 			NOT = { tag = AVE }
 			has_country_flag = eng_took_ave_branch
 			has_not_enacted_parliament_action = { parliament_action = english_french_act_of_union }
@@ -527,16 +443,8 @@ country_decisions = {
 					OR = {
 						FRA = {	junior_union_with = ROOT }
 						FRA = {	is_subject_of = ROOT }
-						FR2 = {	is_subject_of = ROOT }
-						FR7 = {	is_subject_of = ROOT }
-						FRV = {	is_subject_of = ROOT }
-						GLL = {	is_subject_of = ROOT }
 					}
 					FRA = { NOT = { num_of_cities = 40 } }
-					FR2 = { NOT = { num_of_cities = 40 } }
-					FR7 = { NOT = { num_of_cities = 40 } }
-					FRV = { NOT = { num_of_cities = 40 } }
-					GLL = { NOT = { num_of_cities = 40 } }
 				}
 			}
 			num_of_owned_provinces_with = {
@@ -560,54 +468,6 @@ country_decisions = {
 					inherit = FRA
 					custom_tooltip = english_french_act_of_union_ct
 				}
-				if = {
-					limit = {
-						FR2 = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 40 }
-						}
-					}
-					inherit = FR2
-					custom_tooltip = english_french_act_of_union_ct
-				}
-				if = {
-					limit = {
-						FR7 = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 40 }
-						}
-					}
-					inherit = FR7
-					custom_tooltip = english_french_act_of_union_ct
-				}
-				if = {
-					limit = {
-						FRV = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 40 }
-						}
-					}
-					inherit = FRV
-					custom_tooltip = english_french_act_of_union_ct
-				}
-				if = {
-					limit = {
-						GLL = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 40 }
-						}
-					}
-					inherit = GLL
-					custom_tooltip = english_french_act_of_union_ct
-				}
 				change_tag = AVE
 				add_prestige = 25
 			}
@@ -617,9 +477,5 @@ country_decisions = {
 		}
 		ai_importance = 200
 		do_not_integrate = FRA
-		do_not_integrate = FR2
-		do_not_integrate = FR7
-		do_not_integrate = FRV
-		do_not_integrate = GLL
 	}
 }

@@ -19,8 +19,8 @@ normal_or_historical_nations = yes
 #	
 #	trigger = {
 #		tag = INC
-#		is_year = 1500 
-#		NOT = { is_year = 1600 }
+#		is_year = 3598 
+#		NOT = { is_year = 3698 }
 #		has_regency = no
 #		OR = {
 #			NOT = {
@@ -112,7 +112,7 @@ country_event = {
 				NOT = { has_dlc = "Winds of Change" }
 				tag = CSU
 				has_ruler = "Pachacuti"
-				NOT = { is_year = 1450 }
+				NOT = { is_year = 3548 }
 			}
 			AND = {
 				has_country_flag = flavor_inc_2_can_fire
@@ -148,7 +148,7 @@ country_event = {
 			if = {
 				limit = {
 					has_dlc = "Leviathan"
-					NOT = { is_year = 1480 }
+					NOT = { is_year = 3578 }
 				}
 				custom_tooltip = CSU_if_we_form_inca_before_1480_machu_picchu
 				set_country_flag = CSU_if_we_form_inca_before_1480_machu_picchu_flag
@@ -240,8 +240,8 @@ country_event = {
 			tag = CSU
 			tag = INC
 		}
-		is_year = 1450
-		NOT = { is_year = 1475 }
+		is_year = 3548
+		NOT = { is_year = 3573 }
 		OR = {
 			807 = { has_province_modifier = inc_cusco_construction }
 			807 = { has_province_modifier = inc_cusco_reconstructed }
@@ -383,8 +383,8 @@ country_event = {
 	trigger = {
 		tag = INC
 		NOT =  { exists = CHM }
-		is_year = 1460
-		NOT = { is_year = 1500 }
+		is_year = 3558
+		NOT = { is_year = 3598 }
 		NOT = { has_country_flag = INC_used_to_be_CHM }
 		owns = 809 #Lima
 		owns = 812 #Chanchan
@@ -1016,8 +1016,8 @@ country_event = {
 	
 	trigger = {
 		tag = INC
-		is_year = 1460
-		NOT = { is_year = 1495 }
+		is_year = 3558
+		NOT = { is_year = 3593 }
 		owns = 816
 		government = monarchy
 		has_heir = yes

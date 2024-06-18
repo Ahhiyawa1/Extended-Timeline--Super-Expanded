@@ -4,27 +4,18 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			has_global_flag = timurids_exist_at_start
 			was_never_end_game_tag_trigger = yes
 			NOT = { dynasty = "Timurid" }
-			NOT = { is_year = 1490 }
+			NOT = { is_year = 3588 }
 			OR = {
 				government = monarchy
 				government = tribal
 			}
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			NOT = { tag = ROM }
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = PER }
-			NOT = { tag = IRA }
-			NOT = { tag = PE6 }
-			NOT = { tag = PE7 }
-			NOT = { tag = ILK }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -33,10 +24,6 @@ country_decisions = {
 				tag = FRS
 				tag = YZD
 				tag = AFG
-				tag = AF8
-				tag = AF7
-				tag = AF6
-				tag = SHH
 				tag = TRS
 			}
 			OR = {
@@ -79,7 +66,7 @@ country_decisions = {
 				owns_core_province = 2218	# Shiraz
 			}
 			NOT = { dynasty = "Timurid" }
-			NOT = { is_year = 1490 }
+			NOT = { is_year = 3588 }
 		}
 		effect = {
 			add_stability = -2
@@ -122,28 +109,17 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			NOT = { tag = ROM }
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = PER }
-			NOT = { tag = IRA }
-			NOT = { tag = PE6 }
-			NOT = { tag = PE7 }
-			NOT = { tag = ILK }
 			NOT = { tag = TIM }
 			NOT = { tag = ARB }
-			NOT = { tag = UA6 }
-			NOT = { tag = UA7 }
-			NOT = { tag = UA8 }
-			NOT = { tag = SAU }
-			NOT = { tag = AA3 }
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -208,9 +184,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 10 }
+					NOT = { government_rank = 3 }
 				}
-				set_government_rank = 10
+				set_government_rank = 3
 			}
 			if = {
 				limit = {

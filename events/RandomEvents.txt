@@ -668,8 +668,8 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_year = 1450
-		NOT = { is_year = 1550 }
+		is_year = 3548
+		NOT = { is_year = 3648 }
 		NOT = { has_country_modifier = exceptional_year }
 		OR = {
 			advisor = treasurer
@@ -770,8 +770,8 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_year = 1550
-		NOT = { is_year = 1650 }
+		is_year = 3648
+		NOT = { is_year = 3748 }
 		NOT = { has_country_modifier = exceptional_year }
 		OR = {
 			advisor = treasurer
@@ -872,7 +872,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_year = 1650
+		is_year = 3748
 		NOT = { has_country_modifier = exceptional_year }
 		OR = {
 			advisor = treasurer
@@ -2514,7 +2514,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_year = 1700
+		is_year = 3798
 		OR = {
 			religion_group = christian
 			num_of_trade_companies = 1
@@ -2673,7 +2673,7 @@ country_event = {
 	option = {
 		name = "EVTOPTI5060"		# What a great start into the new year.
 		trigger = {
-			NOT = { is_year = 1445 }
+			NOT = { is_year = 3543 }
 		}
 		if = {
 			limit = { NOT = { stability = -2 } }
@@ -2687,7 +2687,7 @@ country_event = {
 	option = {
 		name = "EVTOPTJ5060"		# That's now Victoria's problem, not mine.
 		trigger = {
-			is_year = 1810
+			is_year = 3908
 		}
 		if = {
 			limit = { NOT = { stability = -2 } }
@@ -2737,7 +2737,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		NOT = { is_year = 1700 }
+		NOT = { is_year = 3798 }
 		religion = catholic
 		NOT = { stability = 2 }
 	}
@@ -3379,7 +3379,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_year = 1600
+		is_year = 3698
 		any_owned_province = {
 			is_city = yes
 			culture_group = ROOT
@@ -3815,7 +3815,7 @@ country_event = {
 
 	trigger = {
 		capital_scope = { continent = europe }
-		NOT = { is_year = 1650 }
+		NOT = { is_year = 3748 }
 		any_known_country = {
 			culture_group = latin
 		}
@@ -4860,7 +4860,7 @@ country_event = {
 
 	trigger = {
 		num_of_merchants = 3
-		is_year = 1560
+		is_year = 3658
 	}
 
 	mean_time_to_happen = {
@@ -5141,7 +5141,7 @@ country_event = {
 		always = no
 		NOT = { exists = GEN }
 		owns = 101
-		is_year = 1700
+		is_year = 3798
 	}
 
 	mean_time_to_happen = {
@@ -5178,7 +5178,7 @@ country_event = {
 	trigger = {
 		always = no
 		NOT = { exists = VEN }
-		is_year = 1700
+		is_year = 3798
 		owns = 112
 	}
 
@@ -6383,7 +6383,7 @@ country_event = {
 			is_capital = no
 			is_in_capital_area = yes
 		}
-		NOT = { is_year = 1650 }
+		NOT = { is_year = 3748 }
 	}
 
 	mean_time_to_happen = {
@@ -9107,7 +9107,7 @@ country_event = {
 	goto = capital
 	
 	trigger = {
-		is_year = 1480
+		is_year = 3578
 		capital_scope = {
 			continent = europe
 		}
@@ -10382,7 +10382,7 @@ country_event = {
 	
 	trigger = {
 		NOT = {
-			is_year = 1500
+			is_year = 3598
 		}
 		OR = {
 			government = monarchy
@@ -11143,8 +11143,8 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_country_flag = ENG_had_event_XXX }
-		is_year = 1600
-		NOT = { is_year = 1800 }
+		is_year = 3698
+		NOT = { is_year = 3898 }
 		OR = {
 			AND = {
 				tag = ENG
@@ -11576,8 +11576,8 @@ country_event = {
 	picture = RELIGIOUS_TURMOIL_eventPicture
 	
 	trigger = {
-		is_year = 1500
-		NOT = { is_year = 1600 }
+		is_year = 3598
+		NOT = { is_year = 3698 }
 		NOT = { has_country_flag = iconoclastic_fury }
 		religion_group = christian
 		NOT = {

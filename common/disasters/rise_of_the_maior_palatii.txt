@@ -1,0 +1,174 @@
+rise_of_the_maior_palatii = {
+	potential = {
+		OR = {
+			tag = FRK
+			was_tag = FRK
+			AND = {
+				tag = SOI
+				started_in = 511.11.27
+				OR = {
+					NOT = { started_in = 752.6.1 }
+					dynasty = "Merovingian"
+				}
+			}
+			AND = {
+				tag = AQT
+				started_in = 629.10.18
+				OR = {
+					NOT = { started_in = 632.6.1 }
+					dynasty = "Merovingian"
+				}
+			}
+			AND = {
+				tag = ORL
+				started_in = 511.11.27
+				OR = {
+					NOT = { started_in = 752.6.1 }
+					dynasty = "Merovingian"
+				}
+			}
+			AND = {
+				tag = NEU
+				started_in = 511.11.27
+				OR = {
+					NOT = { started_in = 752.6.1 }
+					dynasty = "Merovingian"
+				}
+			}
+			AND = {
+				tag = AUT
+				started_in = 511.11.27
+				OR = {
+					NOT = { started_in = 752.6.1 }
+					dynasty = "Merovingian"
+				}
+			}
+		}
+		NOT = { has_country_flag = rise_of_the_maior_palatii_happened }
+		normal_or_historical_nations = yes
+		is_year = 2698
+		NOT = {
+			started_in = 752.6.1	#Pepin of the Carolingians seizes the throne
+		}
+		government = monarchy
+	}
+	
+	can_start = {
+		has_any_disaster = no
+		OR = {
+			#has_regency = yes			#removed, since historically Carolingians seized the throne while a king was enthroned
+			has_consort_regency = yes		#added, representing if a queen consort is ruler, which bracket localization should still work for?
+			NOT = { legitimacy = 40 }
+			NOT = { prestige = -40 }
+			NOT = { stability = -1 }
+			NOT = { crown_land_share = 25 }
+			NOT = { adm = 2 }
+			NOT = { mil = 2 }
+			corruption = 30
+			average_autonomy = 30
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			AND = {
+				stability = 3
+				legitimacy = 90
+				crown_land_share = 40
+			}
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			always = yes		#always ticks forward once conditions are met, unless stopped
+		}
+		modifier = {
+			factor = 1
+			NOT = {
+				legitimacy = 50
+			}
+		}
+		modifier = {
+			factor = 1
+			has_consort_regency = yes
+		}
+		modifier = {
+			factor = 1
+			NOT = { crown_land_share = 25 }
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ruler_has_personality = drunkard_personality
+				ruler_has_personality = cruel_personality
+				ruler_has_personality = craven_personality
+				ruler_has_personality = malevolent_personality
+			}
+		}
+		modifier = {
+			factor = 2
+			is_bankrupt = yes
+		}
+		modifier = {
+			factor = 2
+			corruption = 5
+			NOT = { corruption = 10 }
+		}
+		modifier = {
+			factor = 5
+			corruption = 10
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 5
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 5
+			has_heir = no
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				NOT = { adm = 3 }
+				NOT = { dip = 3 }
+				NOT = { mil = 3 }
+			}
+		}
+	}
+	
+	can_end = {
+		stability = 3
+		NOT = { num_of_rebel_armies = 1 }
+		legitimacy = 90
+		crown_land_share = 40
+	}
+	
+	modifier = {
+		global_tax_modifier = -0.2
+		diplomatic_reputation = -2
+	}
+	
+	on_start = rise_of_the_maior_palatii.1
+	on_end = rise_of_the_maior_palatii.2
+	
+	on_monthly = {
+		events = {
+			rise_of_the_maior_palatii.4		#guaranteed to trigger if disaster is still active 5 years later
+			rise_of_the_maior_palatii.7
+			rise_of_the_maior_palatii.8
+			rise_of_the_maior_palatii.9
+		}
+		random_events = {
+			1000 = 0
+			100 = rise_of_the_maior_palatii.3
+			100 = rise_of_the_maior_palatii.6
+		}
+	}
+}

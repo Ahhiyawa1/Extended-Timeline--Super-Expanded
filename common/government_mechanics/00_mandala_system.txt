@@ -1,0 +1,149 @@
+mandala_system_mmetr_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 8
+	available = {
+		always = yes
+	}
+
+	powers = {
+		mandala_domination_gov_mech = {
+			gui = mandala_domination_gov_mech
+			max = 60
+			min = -60
+			reset_on_new_ruler = yes			#Resets - loss of control after death of great kings like Pho Khun Ramkhamhaeng
+			base_monthly_growth = 0.01		#passive growth outside of estates and static modifiers
+			development_scaled_monthly_growth = 0
+			scaled_modifier = {
+				start_value = 0
+				end_value = 60
+				modifier = {
+					global_tax_modifier = 0.1
+					vassal_income = 0.2
+					vassal_forcelimit_bonus = 0.1
+				}
+			}
+			reverse_scaled_modifier = {		#applies only when below 0
+				start_value = -60
+				end_value = 0
+				modifier = {		#scaled towards max minimum level
+					global_unrest = 5
+					global_tax_modifier = -0.25
+					vassal_income = -0.2
+					vassal_forcelimit_bonus = -0.1
+				}
+			}
+			range_modifier = {		#applies only when 15 and negative below, autonomy
+				start_value = -60
+				end_value = 15
+				modifier = {
+					global_autonomy = 0.05
+					min_autonomy = 10
+				}
+			}
+		}
+	}
+	
+	interactions = {
+		mandala_request_additional_tribute_gov = {
+			gui = mandala_domination_interaction_mech
+			icon = GFX_mandala_tribute_button
+			trigger = {
+				has_government_power = {
+					mechanic_type = mandala_system_mmetr_mechanic
+					power_type = mandala_domination_gov_mech
+					value = 20
+				}
+			}
+			effect = { 
+				add_government_power = {
+					mechanic_type = mandala_system_mmetr_mechanic
+					power_type = mandala_domination_gov_mech
+					value = -20
+				}
+				add_years_of_income = 0.5
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					NOT = {
+						has_government_power = {
+							mechanic_type = mandala_system_mmetr_mechanic
+							power_type = mandala_domination_gov_mech
+							value = 35
+						}
+					}
+				}
+			}
+		}
+		
+		mandala_renegotiate_levy_agreements_gov = {
+			gui = mandala_domination_interaction_mech
+			icon = GFX_mandala_levy_button
+			trigger = {
+				has_government_power = {
+					mechanic_type = mandala_system_mmetr_mechanic
+					power_type = mandala_domination_gov_mech
+					value = 20
+				}
+			}
+			effect = { 
+				add_government_power = {
+					mechanic_type = mandala_system_mmetr_mechanic
+					power_type = mandala_domination_gov_mech
+					value = -20
+				}
+				add_country_modifier = {
+					name = "gov_mandala_renegotiated_levies"
+					duration = 1825
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					NOT = {
+						has_government_power = {
+							mechanic_type = mandala_system_mmetr_mechanic
+							power_type = mandala_domination_gov_mech
+							value = 35
+						}
+					}
+				}
+			}
+		}
+		
+		mandala_strengthen_ruler_relations_gov = {
+			gui = mandala_domination_interaction_mech
+			icon = GFX_mandala_relations_button
+			trigger = {
+				dip_power = 100
+				years_of_income = 0.3
+			}
+			effect = { 
+				add_dip_power = -100
+				add_years_of_income = -0.3
+				add_government_power = {
+					mechanic_type = mandala_system_mmetr_mechanic
+					power_type = mandala_domination_gov_mech
+					value = 10
+				}
+				
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = mandala_system_mmetr_mechanic
+						power_type = mandala_domination_gov_mech
+						value = 40
+					}
+				}
+			}
+		}
+	}
+}

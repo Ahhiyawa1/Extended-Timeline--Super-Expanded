@@ -1,0 +1,312 @@
+country_decisions = {
+	
+	#Sultanate of Italy / Italiya
+	sultanate_of_italiya_nation = {
+		major = yes
+		potential = {
+			religion_group = muslim
+			OR = {
+				culture_group = turko_semitic	#Available to Arabic nations
+				culture_group = maghrebi
+				tag = SCL	#Emirate of Sicily
+				tag = BAE	#Bari
+			}
+			any_owned_province = {
+				region = italy_region		#only appears if own provinces in Italy
+			}
+			NOT = { exists = IT0 }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { tag = ITA }
+			NOT = { tag = FAT }
+			NOT = { tag = EGY }
+			NOT = { tag = RSD }
+			NOT = { tag = UMA }
+			NOT = { tag = ABA }
+			NOT = { tag = ARB }
+			NOT = { has_country_flag = sultanate_of_italy_formed_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118 # Rome
+				province_id = 114 # Romagna
+				province_id = 121 # Napoli
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			government = monarchy
+			religion_group = muslim
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 2
+			owns_core_province = 118 # Rome
+			owns_core_province = 114 # Romagna
+			owns_core_province = 121 # Napoli
+			num_of_owned_provinces_with = {
+				value = 12
+				region = italy_region
+			}
+			capital_scope = {
+				region = italy_region
+			}
+			OR = {
+				culture_group = turko_semitic	#Available to Arabic nations
+				culture_group = maghrebi
+				tag = SCL	#Emirate of Sicily
+				tag = BAE	#Bari
+			}
+		}
+		effect = {
+			change_tag = IT0
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			hidden_effect = {
+				set_country_flag = sultanate_of_italy_formed_flag
+			}
+			add_prestige = 15
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			italy_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+	 			factor = 2
+	 			OR = {
+					tag = SCL	#Emirate of Sicily
+					tag = BAE	#Bari
+					tag = TUN	#Tunisia
+				}
+			}
+			modifier = {
+	 			factor = 0
+	 			OR = {
+					tag = TUR
+					tag = RUM
+				}
+			}
+		}
+		ai_importance = 200
+	}
+	
+	
+	#Najd to Saudi Arabia
+	saudi_arabia_formable_nation = {
+		major = yes
+		potential = {
+			OR = {
+				dynasty = "Sa'ud"		#for any of the Saudi dynasty
+				AND = {			#Historical
+					tag = NAJ
+					started_in = 1380.1.1
+					dynasty = "Sa'ud"
+				}
+			}
+			NOT = { exists = SAU }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { tag = RSD }
+			NOT = { tag = UMA }
+			NOT = { tag = ABA }
+			NOT = { tag = ARB }
+			NOT = { has_country_flag = saudi_arabia_formed_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = yamamah_area
+				area = qasim_area
+				area = nafud_area
+				area = mecca_area
+				area = medina_area
+			}
+			NOT = {
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			OR = {
+				government = monarchy
+				government = tribal
+			}
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			stability = 2
+			yamamah_area = {
+				type = all
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			qasim_area = {
+				type = all
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			nafud_area = {
+				type = all
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			medina_area = {
+				type = all
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			mecca_area = {
+				type = all
+				OR = {	
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+			capital_scope = {
+				region = arabia_region
+			}
+		}
+		effect = {
+			change_tag = SAU	#Saudi Arabia
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			hidden_effect = {
+				set_country_flag = saudi_arabia_formed_flag
+			}
+			add_prestige = 10
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			arabia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+	 			factor = 2
+	 			tag = NAJ
+			}
+		}
+		ai_importance = 200
+	}
+	
+	#Almohad Caliphate
+	almohad_caliphate_formable_nation = {
+		major = yes
+		potential = {
+			dynasty = "Almohad"		#for any of the Saudi dynasty
+			OR = {
+				tag = MOR
+				was_tag = MOR
+			}
+			NOT = { exists = AMH }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			NOT = { has_country_flag = almohad_caliphate_formed_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 344		#Marrakech
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			dynasty = "Almohad"		#for any of the Saudi dynasty
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_core_province = 344		#Marrakech
+			capital_scope = {
+				region = maghreb_region
+			}
+			religion_group = muslim
+			OR = {
+				has_reform = caliphate_reform
+				government_rank = 3
+				is_defender_of_faith = yes
+			}
+		}
+		effect = {
+			change_tag = AMH	#Almohads
+			custom_tooltip = almohad_caliphate_formable_nation.tt
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			if = {
+				NOT = {
+					has_reform = caliphate_reform
+				}
+				add_government_reform = caliphate_reform
+			}
+			hidden_effect = {
+				set_country_flag = almohad_caliphate_formed_flag
+			}
+			add_prestige = 10
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			country_event = {
+				id = mmetr_formable_events.1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+	 			factor = 2
+	 			tag = MOR
+			}
+		}
+		ai_importance = 200
+	}
+	
+	
+}

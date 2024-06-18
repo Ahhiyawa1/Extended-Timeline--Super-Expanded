@@ -1,0 +1,123 @@
+country_decisions = {
+
+	petition_for_imperial_court_rank_decision = {
+		major = yes
+		potential = {
+			OR = {
+				has_reform = daimyo
+				has_reform = indep_daimyo
+				has_reform = shogunate
+				overlord = { has_reform = shogunate }
+			}
+			NOT = { tag = JAP }
+			NOT = { government_rank = 3 }
+			NOT = {
+				has_ruler_flag = given_first_rank_court_rank_japan
+			}
+		}
+		allow = {
+			if = {
+				limit = {
+					NOT = { has_ruler_flag = given_fifth_rank_court_rank_japan }
+				}
+				prestige = 25
+				dip_power = 75
+			}
+			else_if = {
+				limit = {
+					has_ruler_flag = given_fifth_rank_court_rank_japan
+					NOT = { has_ruler_flag = given_fourth_rank_court_rank_japan }
+				}
+				prestige = 40
+				dip_power = 75
+			}
+			else_if = {
+				limit = {
+					has_ruler_flag = given_fourth_rank_court_rank_japan
+					NOT = { has_ruler_flag = given_third_rank_court_rank_japan }
+				}
+				prestige = 60
+				dip_power = 75
+			}
+			else_if = {
+				limit = {
+					has_ruler_flag = given_third_rank_court_rank_japan
+					NOT = { has_ruler_flag = given_second_rank_court_rank_japan }
+				}
+				prestige = 80
+				dip_power = 75
+			}
+			else_if = {
+				limit = {
+					has_ruler_flag = given_second_rank_court_rank_japan
+					NOT = { has_ruler_flag = given_first_rank_court_rank_japan }
+				}
+				prestige = 95
+				dip_power = 75
+			}
+		}
+		effect = {
+			add_dip_power = -75
+			tooltip = {
+				if = {
+					limit = {
+						NOT = { has_ruler_flag = given_fifth_rank_court_rank_japan }
+					}
+					add_ruler_modifier = {
+						name = "fifth_rank_court_rank_japan_mod"
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_ruler_flag = given_fifth_rank_court_rank_japan
+						NOT = { has_ruler_flag = given_fourth_rank_court_rank_japan }
+					}
+					add_ruler_modifier = {
+						name = "fourth_rank_court_rank_japan_mod"
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_ruler_flag = given_fourth_rank_court_rank_japan
+						NOT = { has_ruler_flag = given_third_rank_court_rank_japan }
+					}
+					add_ruler_modifier = {
+						name = "third_rank_court_rank_japan_mod"
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_ruler_flag = given_third_rank_court_rank_japan
+						NOT = { has_ruler_flag = given_second_rank_court_rank_japan }
+					}
+					add_ruler_modifier = {
+						name = "second_rank_court_rank_japan_mod"
+						duration = -1
+					}
+				}
+				else_if = {
+					limit = {
+						has_ruler_flag = given_second_rank_court_rank_japan
+						NOT = { has_ruler_flag = given_first_rank_court_rank_japan }
+					}
+					add_ruler_modifier = {
+						name = "first_rank_court_rank_japan_mod"
+						duration = -1
+					}
+				}
+			}
+			
+			country_event = {
+				id = mmetrFlavor_JAP.1
+			}
+		}
+		ai_will_do = {
+			factor = 0			#AI will never do
+		}
+		ai_importance = 400
+	}
+	
+}

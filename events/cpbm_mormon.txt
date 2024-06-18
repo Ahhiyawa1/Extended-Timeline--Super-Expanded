@@ -10,7 +10,7 @@ province_event = {
 	id = cpbm_mormon.1
 	title = cpbm_mormon.EVTNAME1
 	desc = cpbm_mormon.EVTDESC1
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = COLONIZATION_eventPicture
 
 	fire_only_once = yes
 
@@ -18,20 +18,27 @@ province_event = {
 		is_religion_enabled = protestant
 		NOT = { is_religion_enabled = mormon }
 		exists = USA
-		is_year = 1830
+		is_year = 3928
 		is_colony = yes
 		religion_group = christian
 		OR = {
 			region = california_region
 			region = great_plains_region
+			area = snake_river_area
+			area = columbia_river_area
+			area = oregon_area
 		}
 	}
 
 	mean_time_to_happen = {
 		years = 20
 		modifier = {
-			factor = 0.4
+			factor = 0.6
 			area = great_basin_area
+		}
+		modifier = {
+			factor = 0.3
+			area = utah_area
 		}
 		modifier = {
 			factor = 0.1
@@ -44,10 +51,13 @@ province_event = {
 		enable_religion = mormon
 		change_religion = mormon
 		add_colonysize = 400
+		add_base_tax = 1
+		add_base_production = 1
+		add_base_manpower = 1
 		add_province_modifier = {
-				name = "religious_migration"
-				duration = 8760
-			}
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
 	}
 }
 
@@ -57,27 +67,44 @@ province_event = {
 	id = cpbm_mormon.2
 	title = cpbm_mormon.EVTNAME2
 	desc = cpbm_mormon.EVTDESC2
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = RELIGIOUS_CONVERSION_eventPicture
 
 	trigger = {
-		any_neighbor_province = { religion = mormon }
+		is_religion_enabled = mormon
+		OR = {
+			any_neighbor_province = { religion = mormon }
+			NOT = { any_province = { religion = mormon } }
+		}
 		NOT = { religion = mormon }
-		any_country = {	NOT = {	adm_tech = 79 }	}
+		owner = { NOT = { adm_tech = 80 } }
 	}
 
 	mean_time_to_happen = {
 		months = 400
 		modifier = {
 			factor = 0.2
+			area = utah_area
+		}
+		modifier = {
+			factor = 0.5
 			area = great_basin_area
 		}
 		modifier = {
 			factor = 0.5
-			area = high_plains_area
+			area = snake_river_area
 		}
 		modifier = {
 			factor = 3
 			NOT = { owner = { religion_group = christian } }
+		}
+		modifier = {
+			factor = 3
+			calc_true_if = {
+				all_province = {
+					religion = mormon
+				}
+				amount = 10
+			}
 		}
 	}
 
@@ -91,173 +118,22 @@ province_event = {
 	}
 }
 
-# Creation of Deseret
-
-country_event = {
-	id = cpbm_mormon.3
-	title = cpbm_mormon.EVTNAME3
-	desc = cpbm_mormon.EVTDESC3
-	picture = CIVIL_WAR_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		is_year = 1850
-		NOT = { stability = 1 }
-		NOT = { exists = DE0 }
-		any_owned_province = { religion = mormon }
-	}
-	mean_time_to_happen = {
-		months = 200
-		modifier = {
-			factor = 2
-			stability = 0
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { stability = -1 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { stability = -2 }
-		}
-	}
-	
-	option = {
-		name = cpbm_mormon.EVTOPT3
-		add_stability = -2
-		every_owned_province = {
-			limit = { religion = mormon }
-			add_core = DE0
-			nationalist_rebels = 1
-			change_siege = 20
-		}
-	}
-}
-
-# A new core for Deseret
-
-province_event = {
-	id = cpbm_mormon.4
-	title = cpbm_mormon.EVTNAME4
-	desc = cpbm_mormon.EVTDESC4
-	picture = CPBM_RELIGION_MORMON_eventPicture
-
-	trigger = {
-		religion = mormon
-		DE0 = {	religion = mormon }
-		NOT = { owner = { religion = mormon } }
-		NOT = { is_core = DE0 }
-		any_neighbor_province = { is_core = DE0 }
-	}
-
-	mean_time_to_happen = {
-		months = 200
-		modifier = {
-			factor = 0.5
-			area = great_basin_area
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { owner = { religion_group = christian } }
-		}
-	}
-
-	hidden_effect = {
-		immediate = {
-			DE0 = {
-				country_event = { id = cpbm_mormon.5 }
-			}
-		}
-	}
-
-	option = {
-		name = cpbm_mormon.EVTOPT4
-		add_core = DE0
-	}
-}
-
-# A new core for Deseret: Deseret's Happy!
-
-province_event = {
-	id = cpbm_mormon.5
-	title = cpbm_mormon.EVTNAME5
-	desc = cpbm_mormon.EVTDESC5
-	picture = CPBM_RELIGION_MORMON_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = cpbm_mormon.EVTOPT5
-		add_prestige = 5
-		add_devotion = 5
-	}
-}
-
-# Deseret loses a core because the province is not Mormon anymore
-
-province_event = {
-	id = cpbm_mormon.6
-	title = cpbm_mormon.EVTNAME6
-	desc = cpbm_mormon.EVTDESC6
-	picture = CPBM_RELIGION_MORMON_eventPicture
-
-	trigger = {
-		NOT = { religion = mormon }
-		NOT = { owner = { religion = mormon } }
-		NOT = { tag = DE0 }
-		is_core = DE0
-	}
-
-	mean_time_to_happen = {
-		months = 400
-	}
-
-	hidden_effect = {
-		immediate = {
-			DE0 = {
-				country_event = { id = cpbm_mormon.7 }
-			}
-		}
-	}
-
-	option = {
-		name = cpbm_mormon.EVTOPT6
-		remove_core = DE0
-	}
-}
-
-# Deseret loses a core: Deseret... well... doesn't care!
-
-country_event = {
-	id = cpbm_mormon.7
-	title = cpbm_mormon.EVTNAME7
-	desc = cpbm_mormon.EVTDESC7
-	picture = CPBM_RELIGION_MORMON_eventPicture
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = cpbm_mormon.EVTOPT7
-		add_prestige = -5
-	}
-}
-
 # The Deseret Alphabet
 
 country_event = {
 	id = cpbm_mormon.8
 	title = cpbm_mormon.EVTNAME8
 	desc = cpbm_mormon.EVTDESC8
-	picture = CPBM_DESERET_ALPHABET_eventPicture
-
-	fire_only_once = no
+	picture = PRAYING_eventPicture
 
 	trigger = {
 		religion = mormon
 		is_at_war = no
 		adm_power = 100
+		treasury = 1000
 		stability = 2
+		NOT = { has_country_modifier = deseret_alphabet }
+		NOT = { has_country_flag = no_deseret_alphabet }
 	}
 
 	mean_time_to_happen = {
@@ -280,6 +156,7 @@ country_event = {
 	option = {
 		name = cpbm_mormon.EVTOPT8B
 		add_prestige = -5
+		set_country_flag = no_deseret_alphabet
 	}
 }
 
@@ -289,7 +166,7 @@ country_event = {
 	id = cpbm_mormon.9
 	title = cpbm_mormon.EVTNAME9
 	desc = cpbm_mormon.EVTDESC9
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = STREET_SPEECH_eventPicture
 
 	fire_only_once = no
 
@@ -324,7 +201,7 @@ province_event = {
 	id = cpbm_mormon.10
 	title = cpbm_mormon.EVTNAME10
 	desc = cpbm_mormon.EVTDESC10
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = RELIGION_eventPicture
 
 	trigger = {
 		religion = mormon
@@ -354,7 +231,7 @@ province_event = {
 	id = cpbm_mormon.11
 	title = cpbm_mormon.EVTNAME11
 	desc = cpbm_mormon.EVTDESC11
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = CITY_VIEW_eventPicture
 
 	trigger = {
 		religion = mormon
@@ -390,11 +267,15 @@ province_event = {
 	id = cpbm_mormon.12
 	title = cpbm_mormon.EVTNAME12
 	desc = cpbm_mormon.EVTDESC12
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = RELIGION_eventPicture
 
 	trigger = {
 		religion = mormon
-		NOT = { owner = { religion = mormon } }
+		owner = {
+			NOT = { religion = mormon }
+			NOT = { religion = secularism }
+			NOT = { has_idea = free_religion }
+		}
 	}
 
 	mean_time_to_happen = {
@@ -420,13 +301,12 @@ country_event = {
 	id = cpbm_mormon.13
 	title = cpbm_mormon.EVTNAME13
 	desc = cpbm_mormon.EVTDESC13
-	picture = CPBM_CTR_eventPicture
-
-	fire_only_once = yes
+	picture = ECONOMY_eventPicture
 
 	trigger = {
 		religion = mormon
 		stability = 1
+		NOT = { has_country_flag = choose_the_right_happened }
 	}
 
 	mean_time_to_happen = {
@@ -440,6 +320,7 @@ country_event = {
 	option = {
 		name = cpbm_mormon.EVTOPT13
 		add_mercantilism = 0.05
+		set_country_flag = choose_the_right_happened
 	}
 }
 
@@ -449,14 +330,14 @@ country_event = {
 	id = cpbm_mormon.14
 	title = cpbm_mormon.EVTNAME14
 	desc = cpbm_mormon.EVTDESC14
-	picture = CPBM_RELIGION_MORMON_eventPicture
+	picture = RELIGION_eventPicture
 
 	fire_only_once = no
 
 	trigger = {
 		religion = mormon
-		NOT = { has_ruler_modifier = mormon_polygamy }
-		NOT = { has_ruler_modifier = marital_freedom }
+		NOT = { has_country_modifier = mormon_polygamy }
+		NOT = { has_country_modifier = marital_freedom }
 	}
 
 	mean_time_to_happen = {
@@ -469,40 +350,16 @@ country_event = {
 
 	option = {
 		name = cpbm_mormon.EVTOPT14A
-		add_ruler_modifier = {
+		add_country_modifier = {
 			name = mormon_polygamy
 			duration = -1
 		}
 	}
 	option = {
 		name = cpbm_mormon.EVTOPT14B
-		add_ruler_modifier = {
+		add_country_modifier = {
 			name = marital_freedom
 			duration = -1
 		}
-	}
-}
-
-# Introduction
-
-country_event = {
-	id = cpbm_mormon.15
-	title = cpbm_mormon.EVTNAME15
-	desc = cpbm_mormon.EVTDESC15
-	picture = CPBM_RELIGION_MORMON_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		religion = mormon
-		ai = no
-	}
-
-	mean_time_to_happen = {
-		days = 10
-	}
-
-	option = {
-		name = cpbm_mormon.EVTOPT15
 	}
 }

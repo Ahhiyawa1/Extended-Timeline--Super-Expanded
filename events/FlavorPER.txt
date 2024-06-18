@@ -14,8 +14,8 @@ country_event = {
 
 	trigger = {
 		NOT = { has_country_flag = PER_had_event_3560 }
-		is_year = 1450
-		NOT = { is_year = 1550 }
+		is_year = 3548
+		NOT = { is_year = 3648 }
 		OR = {
 			tag = PER
 			tag = ERS
@@ -120,8 +120,8 @@ country_event = {
 
 	trigger = {
 		NOT = { has_country_flag = PER_had_event_3563 }
-		is_year = 1600
-		NOT = { is_year = 1650 }
+		is_year = 3698
+		NOT = { is_year = 3748 }
 		OR = {
 			tag = PER
 			tag = ERS
@@ -188,9 +188,9 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { government_rank = 10 }
+				NOT = { government_rank = 3 }
 			}
-			set_government_rank = 10
+			set_government_rank = 3
 		}
 		416 = { #Tabriz
 			add_base_tax = 2
@@ -247,10 +247,10 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1580
+		is_year = 3678
 		owns = 429
 		NOT = {
-			is_year = 1640
+			is_year = 3738
 		}
 	}
 
@@ -287,10 +287,10 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1590
+		is_year = 3688
 		owns = 429
 		NOT = {
-			is_year = 1640
+			is_year = 3738
 		}
 	}
 
@@ -338,7 +338,7 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1580
+		is_year = 3678
 		NOT = {
 			has_country_modifier = per_political_turmoil_timer
 		}
@@ -400,7 +400,7 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1635
+		is_year = 3733
 		NOT = {
 			has_country_modifier = per_political_fragmentation_timer
 		}
@@ -501,7 +501,7 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		NOT = { is_year = 1600 }
+		NOT = { is_year = 3698 }
 	}
 
 	mean_time_to_happen = {
@@ -532,8 +532,8 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1620
-		NOT = { is_year = 1635 }
+		is_year = 3718
+		NOT = { is_year = 3733 }
 	}
 
 	mean_time_to_happen = {
@@ -618,8 +618,8 @@ country_event = {
 	
 	trigger = {
 		NOT = { tag = MSY }
-		is_year = 1445
-		NOT = { is_year = 1455 }
+		is_year = 3543
+		NOT = { is_year = 3553 }
 		any_owned_province = {
 			is_core = MSY
 		}
@@ -656,8 +656,8 @@ country_event = {
 	
 	trigger = {
 		NOT = { tag = ARL }
-		is_year = 1455
-		NOT = { is_year = 1465 }
+		is_year = 3553
+		NOT = { is_year = 3563 }
 		OR = {
 			any_neighbor_country = {
 					tag = ARL
@@ -718,8 +718,8 @@ country_event = {
 	trigger = {
 		exists = PER
 		NOT = { tag = PER }
-		is_year = 1450
-		NOT = { is_year = 1580 }
+		is_year = 3548
+		NOT = { is_year = 3678 }
 		num_of_owned_provinces_with = {
 				value = 6
 				culture = persian
@@ -854,7 +854,7 @@ country_event = {
 		}
 		is_free_or_tributary_trigger = yes
 		religion_group = muslim
-		NOT = { is_year = 1630 }
+		NOT = { is_year = 3728 }
 	}
 
 	mean_time_to_happen = {
@@ -988,8 +988,8 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		is_year = 1580
-		NOT = { is_year = 1630 }
+		is_year = 3678
+		NOT = { is_year = 3728 }
 		owns_core_province = 429
 		NOT = { capital = 429 }
 		years_of_income = 0.2
@@ -2159,7 +2159,7 @@ country_event = {
 #		change_tag = MUG
 #		hidden_effect = {
 #			remove_non_electors_emperors_from_empire_effect = yes
-#			set_government_rank = 10 
+#			set_government_rank = 3 
 #			set_country_flag = formed_mughal_empire_flag
 #			set_country_flag = per_blend_with_mug_ideas_flag
 #		}
@@ -2932,7 +2932,7 @@ country_event = {
 			tag = ERS
 		}
 		NOT = { dynasty = "Timurid" }
-		started_in = 3468.1.1
+		started_in = 1370.1.1
 		NOT = { was_tag = TIM }
 		NOT = { was_tag = KHO }
 		NOT = { was_tag = AFG }
@@ -3713,8 +3713,8 @@ country_event = {
 			tag = PER
 			tag = ERS
 		} 
-		is_year = 1550
-		NOT = { is_year = 1650 } 
+		is_year = 3648
+		NOT = { is_year = 3748 } 
 		government = monarchy 
 		OR = {
 			has_heir = no
@@ -4081,7 +4081,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
-		is_year = 1482 
+		is_year = 3580 
 		if = {
 			limit = { NOT = { exists = PER } NOT = { exists = ERS } }
 			tag = ARL
@@ -4129,8 +4129,8 @@ country_event = {
 	}
 	fire_only_once = yes 
 	trigger = {
-		is_year = 1600
-		NOT = { is_year = 1675 }
+		is_year = 3698
+		NOT = { is_year = 3773 }
 		OR = {
 			tag = PER
 			tag = ERS
@@ -4170,7 +4170,7 @@ country_event = {
 			tag = ERS
 		} 
 		has_ruler_flag = per_abbas_lives_flag
-		NOT = { is_year = 1628 }
+		NOT = { is_year = 3726 }
 		OR = {
 			knows_country = ENG
 			knows_country = GBR
@@ -4179,7 +4179,7 @@ country_event = {
 		OR = { 
 			army_professionalism = 0.6
 			army_tradition = 80 
-			is_year = 1590
+			is_year = 3688
 		}
 	}
 	

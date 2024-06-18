@@ -1,0 +1,436 @@
+namespace = mmetrFlavor_daoism_events
+
+# Way of the Five Pecks of Rice - Conversion Event
+province_event = {
+	id = mmetrFlavor_daoism_events.1
+	title = "mmetrFlavor_daoism_events.1.t"
+	desc = "mmetrFlavor_daoism_events.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		province_id = 2169		#Langzhong, close to where it was founded before spreading to Hanzhong
+		is_year = 2238
+		NOT = { started_in = 142.1.1 }
+		NOT = { religion = daoism }		#province trigger
+		owner = {
+			num_of_cities = 5
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.1.a"
+		
+		change_religion = daoism
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 3650
+		}
+		if = {
+			limit = {
+				owner = {
+					num_of_cities = 30
+				}
+			}
+			add_local_autonomy = 20
+		}
+		else_if = {
+			limit = {
+				owner = {
+					num_of_cities = 15
+				}
+			}
+			add_local_autonomy = 10
+		}
+		else_if = {
+			limit = {
+				owner = {
+					num_of_cities = 10
+				}
+			}
+			add_local_autonomy = 5
+		}
+		
+		hidden_effect = {
+			set_global_flag = five_pecks_of_rice_founded_flag
+		}
+	}
+}
+
+# Tianshi School Spreads into Hanzhong
+province_event = {
+	id = mmetrFlavor_daoism_events.2
+	title = "mmetrFlavor_daoism_events.2.t"
+	desc = "mmetrFlavor_daoism_events.2.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		OR = {
+			has_global_flag = five_pecks_of_rice_founded_flag
+			started_in = 142.1.1
+		}
+		province_id = 689		#Hanzhong
+		NOT = { religion = daoism }		#province trigger
+		OR = {
+			religion = confucianism
+			has_owner_religion = yes
+		}
+		owner = {
+			num_of_cities = 5
+		}
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.2.a"
+		
+		change_religion = daoism
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 3650
+		}
+		if = {
+			limit = {
+				owner = {
+					num_of_cities = 30
+				}
+			}
+			add_local_autonomy = 20
+		}
+		else_if = {
+			limit = {
+				owner = {
+					num_of_cities = 15
+				}
+			}
+			add_local_autonomy = 10
+		}
+		else_if = {
+			limit = {
+				owner = {
+					num_of_cities = 10
+				}
+			}
+			add_local_autonomy = 5
+		}
+	}
+}
+
+# Celestial Masters of Hanzhong
+province_event = {
+	id = mmetrFlavor_daoism_events.3
+	title = "mmetrFlavor_daoism_events.3.t"
+	desc = "mmetrFlavor_daoism_events.3.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		province_id = 689		#Hanzhong
+		religion = daoism		#province trigger
+		owner = {
+			num_of_cities = 10
+			NOT = { religion = daoism }
+		}
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 100
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.3.a"
+		
+		add_province_modifier = {
+			name = "mmetr_tianshi_state_recognition"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.3.b"
+		
+		add_province_modifier = {
+			name = "mmetr_tianshi_persecution"
+			duration = 1825
+		}
+	}
+}
+
+# Daoism Spreads in [Root.GetName]
+province_event = {
+	id = mmetrFlavor_daoism_events.4
+	title = "mmetrFlavor_daoism_events.4.t"
+	desc = "mmetrFlavor_daoism_events.4.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		is_capital = no
+		NOT = { religion = daoism }
+		OR = {
+			religion = confucianism
+			has_owner_religion = yes
+		}
+		superregion = china_superregion
+		OR = {
+			unrest = 5
+			owner = {
+				NOT = { stability = -1 }
+			}
+		}
+		owner = {
+			religion = confucianism
+			NOT = {
+				religion = daoism
+				dominant_religion = daoism
+			}
+			OR = {
+				is_emperor_of_china = yes
+				AND = {
+					government_rank = 3
+					culture_group = east_asian
+				}
+				AND = {
+					culture_group = east_asian
+					government_rank = 2
+					num_of_cities = 20
+				}
+			}
+			OR = {
+				AND = {
+					NOT = { imperial_mandate = 30 }
+					is_emperor_of_china = yes
+				}
+				NOT = { stability = 0 }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.8
+			any_neighbor_province = { religion = daoism }
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.4.a"
+		
+		change_religion = daoism
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 3650
+		}
+	}
+}
+
+# [Root.Heir.GetTitle] Partial to Daoism
+country_event = {
+	id = mmetrFlavor_daoism_events.5
+	title = "mmetrFlavor_daoism_events.5.t"
+	desc = "mmetrFlavor_daoism_events.5.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		NOT = {
+			is_year = 3398
+		}
+		religion = confucianism
+		has_heir = yes
+		OR = {
+			AND = {
+				NOT = { imperial_mandate = 40 }
+				is_emperor_of_china = yes
+			}
+			NOT = { stability = 0 }
+		}
+		NOT = {
+			heir_religion = daoism
+			has_ruler_flag = heir_daoism_concluded_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.5.a"
+		
+		set_heir_religion = daoism
+		add_prestige = -2
+		hidden_effect = {
+			set_ruler_flag = heir_daoism_concluded_flag
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.5.b"
+		
+		add_adm_power = -50
+		add_country_modifier = {
+			name = "mmetr_daoist_circle_dismissed"
+			duration = 1825
+		}
+		hidden_effect = {
+			set_ruler_flag = heir_daoism_concluded_flag
+		}
+	}
+}
+
+# Daoist Alchemist Enters [Root.Capital.GetName]
+country_event = {
+	id = mmetrFlavor_daoism_events.6
+	title = "mmetrFlavor_daoism_events.6.t"
+	desc = "mmetrFlavor_daoism_events.6.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		OR = {
+			religion = daoism
+			AND = {
+				religion = confucianism
+				any_owned_province = {
+					religion = daoism
+				}
+			}
+		}
+		NOT = {
+			has_ruler_flag = alchemist_daoism_concluded_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.6.a"
+		
+		define_advisor = {
+			type = natural_scientist
+			skill = 2
+			religion = daoism
+			cost_multiplier = 0.70
+		}
+		hidden_effect = {
+			set_ruler_flag = alchemist_daoism_concluded_flag
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.6.b"
+		
+		random_owned_province = {
+			add_province_modifier = {
+				name = "mmetr_local_daoist_alchemist"
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			set_ruler_flag = alchemist_daoism_concluded_flag
+		}
+	}
+}
+
+# Daoist Critics - based on confucian_event.19
+country_event = {
+	id = mmetrFlavor_daoism_events.7
+	title = "mmetrFlavor_daoism_events.7.t"
+	desc = "mmetrFlavor_daoism_events.7.desc"
+	picture = BIG_BOOK_eventPicture
+	
+	trigger = {
+		has_dlc = "Mandate of Heaven"
+		religion = confucianism
+		OR = {
+			NOT = { has_country_flag = harmony_book_timer }
+			had_country_flag = { flag = harmony_book_timer days = 1825 }
+		}
+		NOT = {
+			has_country_modifier = harmony_banned_book
+		}
+		OR = {
+			AND = {
+				NOT = { imperial_mandate = 40 }
+				is_emperor_of_china = yes
+			}
+			NOT = { stability = 0 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 200
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.7.a"
+		add_harmony = 10
+		add_country_modifier = {
+			name = "harmony_banned_book"
+			duration = 1825
+		}
+	}
+	option = {
+		name = "mmetrFlavor_daoism_events.7.b"
+		add_harmony = -10
+		set_country_flag = harmony_book_timer
+	}
+}
+
+# Buddhist Monasticism
+country_event = {
+	id = mmetrFlavor_daoism_events.8
+	title = "mmetrFlavor_daoism_events.8.t"
+	desc = "mmetrFlavor_daoism_events.8.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		religion = daoism
+		OR = {
+			any_neighbor_province = {
+				religion_group = buddhic
+			}	
+			any_owned_province = {
+				religion_group = buddhic
+			}
+		}
+		NOT = {
+			has_country_flag = daoist_buddhist_monasticism_concluded_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 200
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.8.a"
+		
+		add_harmony = -5
+		add_country_modifier = {
+			name = "mmetr_daoist_monasticism"
+			duration = 3650
+		}
+		set_country_flag = daoist_buddhist_monasticism_concluded_flag
+	}
+	
+	option = {
+		name = "mmetrFlavor_daoism_events.8.b"
+		
+		add_harmony = 5
+		set_country_flag = daoist_buddhist_monasticism_concluded_flag
+	}
+}
+

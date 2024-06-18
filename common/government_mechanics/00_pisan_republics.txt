@@ -1,0 +1,105 @@
+pisan_republic_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 17
+	available = {
+		always = yes
+	}
+	
+	#based on Perfectionism for Korean reform from Domination
+	
+	interactions = {
+		pisan_support_famiglias = {
+			icon = GFX_pisan_support_famiglias_button
+			trigger = {
+			}
+			effect = {
+				hidden_effect = {
+					remove_country_modifier = gov_pisan_support_famiglias
+					remove_country_modifier = gov_pisan_support_mercanti
+					remove_country_modifier = gov_pisan_support_popolo
+				}
+				add_country_modifier = {
+					name = gov_pisan_support_famiglias
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 10
+			cooldown_token = pisan_republic_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+		pisan_support_mercanti = {
+			icon = GFX_pisan_support_mercanti_button
+			trigger = { 
+			}
+			effect = { 
+				hidden_effect = {
+					remove_country_modifier = gov_pisan_support_famiglias
+					remove_country_modifier = gov_pisan_support_mercanti
+					remove_country_modifier = gov_pisan_support_popolo
+				}
+				add_country_modifier = {
+					name = gov_pisan_support_mercanti
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 10
+			cooldown_token = pisan_republic_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+		pisan_support_popolo = {
+			icon = GFX_pisan_support_popolo_button
+			trigger = {
+			}
+			effect = { 
+				hidden_effect = {
+					remove_country_modifier = gov_pisan_support_famiglias
+					remove_country_modifier = gov_pisan_support_mercanti
+					remove_country_modifier = gov_pisan_support_popolo
+				}
+				add_country_modifier = {
+					name = gov_pisan_support_popolo
+					duration = -1
+					desc = until_different_focus_tt
+				}
+			}
+			cooldown_years = 10
+			cooldown_token = pisan_republic_mechanic
+			cooldown_desc = PERFECTIONISM_POLICY
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_any_disaster = yes
+				}
+				modifier = {
+					factor = 0
+					unrest = 2
+				}
+			}
+		}
+	}
+}

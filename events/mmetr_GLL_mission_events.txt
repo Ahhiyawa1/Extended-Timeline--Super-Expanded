@@ -1,0 +1,151 @@
+namespace = mmetr_GLL_mission_events
+
+# Patron Deities of Gallia
+country_event = {
+	id = mmetr_GLL_mission_events.1
+	title = "mmetr_GLL_mission_events.1.t"
+	desc = "mmetr_GLL_mission_events.1.desc"
+	picture = CPBM_TUMULUS_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_GLL_mission_events.1.a"
+		
+		if = {
+			limit = {
+				NOT = {
+					religion = hellenism
+				}
+			}
+			change_religion = hellenism
+			hidden_effect = {
+				add_stability = 3		#to offset stab hit in religion change effect
+			}
+			custom_tooltip = mmetr_CMB_mission_events.1.tt
+			
+			swap_non_generic_missions = yes
+		}
+	}
+	
+	option = {
+		name = "mmetr_GLL_mission_events.1.b"
+		if = {
+			limit = {
+				NOT = {
+					religion = druidism
+				}
+			}
+			change_religion = druidism
+			hidden_effect = {
+				add_stability = 3		#to offset stab hit in religion change effect
+			}
+			custom_tooltip = mmetr_CMB_mission_events.1.tt
+			
+			swap_non_generic_missions = yes
+		}
+	}
+	
+	option = {
+		name = "mmetr_GLL_mission_events.1.c"
+		
+		trigger = {
+			NOT = {
+				religion = hellenism
+			}
+			NOT = {
+				religion = druidism
+			}
+		}
+	}
+}
+
+# [Root.Monarch.GetName] Enters Roma
+country_event = {
+	id = mmetr_GLL_mission_events.2
+	title = "mmetr_GLL_mission_events.2.t"
+	desc = "mmetr_GLL_mission_events.2.desc"
+	picture = MMETR_CAESARS_LEGIONS_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_GLL_mission_events.2.a"
+		
+		add_prestige = 20
+		add_country_modifier = {
+			name = "me_gll_emperor_of_roma"
+			duration = -1
+		}
+		if = {
+			limit = {
+				NOT = {
+					government_rank = 3
+				}
+			}
+			set_government_rank = 3
+		}
+		italy_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+# Germanic Settlement
+country_event = {
+	id = mmetr_GLL_mission_events.3
+	title = "mmetr_GLL_mission_events.3.t"
+	desc = "mmetr_GLL_mission_events.3.desc"
+	picture = FARMING_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_GLL_mission_events.3.a"
+		
+		add_country_modifier = {
+			name = "me_gll_germanic_resettlement"
+			duration = 10950
+		}
+		add_country_modifier = {
+			name = "me_gll_germanic_integration"
+			duration = -1
+		}
+		custom_tooltip = gll_germanicus_maximus_mission.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					culture_group = germanic
+					has_owner_accepted_culture = yes
+				}
+				add_base_production = 1
+			}
+		}
+	}
+}
+
+# United Empire of Celtica
+country_event = {
+	id = mmetr_GLL_mission_events.4
+	title = "mmetr_GLL_mission_events.4.t"
+	desc = "mmetr_GLL_mission_events.4.desc"
+	picture = MMETR_CAESARS_LEGIONS_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_GLL_mission_events.4.a"
+		
+		override_country_name = CELTICA_NAME
+	}
+	
+	option = {
+		name = "mmetr_GLL_mission_events.4.b"
+		
+		
+	}
+}

@@ -1,0 +1,485 @@
+#Zalmoxism
+custom_button = {
+    name = sacrifice_messenger_button
+    potential = {
+        religion = zamolxism
+    }
+    trigger = {
+		NOT = { has_country_modifier = sacrificed_messenger_wealth }
+		NOT = { has_country_modifier = sacrificed_messenger_abundance }
+		NOT = { has_country_modifier = sacrificed_messenger_might }
+	}
+    effect = {
+		if = {
+			limit = {
+				has_country_flag = open_sacrifice_messenger_window_flag
+			}
+			clr_country_flag = open_sacrifice_messenger_window_flag
+		}
+		else = {
+			set_country_flag = open_sacrifice_messenger_window_flag
+			
+			play_sound = start_convert_shamanism	 #new in 1.36
+		}
+	}
+    tooltip = sacrifice_messenger_button.tt
+}
+
+custom_icon = {
+    name = sacrifice_messenger_window
+    potential = {
+		religion = zamolxism
+		has_country_flag = open_sacrifice_messenger_window_flag
+	}
+    tooltip = " "
+}
+
+custom_button = {
+    name = zalmoxis_sacrifice_blessing_economic
+    potential = {
+		religion = zamolxism
+		has_country_flag = open_sacrifice_messenger_window_flag
+    }
+    trigger = {
+		adm_power = 30
+	}
+    effect = {
+		add_adm_power = -30
+		add_country_modifier = {
+			name = "sacrificed_messenger_wealth"
+			duration = 1460		#4 years
+		}
+		clr_country_flag = open_sacrifice_messenger_window_flag
+	}
+    tooltip = zalmoxis_sacrifice_blessing_economic.tt
+}
+custom_button = {
+    name = zalmoxis_sacrifice_blessing_agricultural
+    potential = {
+		religion = zamolxism
+		has_country_flag = open_sacrifice_messenger_window_flag
+    }
+    trigger = {
+		dip_power = 30
+	}
+    effect = {
+		add_dip_power = -30
+		add_country_modifier = {
+			name = "sacrificed_messenger_abundance"
+			duration = 1460		#4 years
+		}
+		clr_country_flag = open_sacrifice_messenger_window_flag
+	}
+    tooltip = zalmoxis_sacrifice_blessing_agricultural.tt
+}
+custom_button = {
+    name = zalmoxis_sacrifice_blessing_war
+    potential = {
+		religion = zamolxism
+		has_country_flag = open_sacrifice_messenger_window_flag
+    }
+    trigger = {
+		mil_power = 30
+	}
+    effect = {
+		add_mil_power = -30
+		add_country_modifier = {
+			name = "sacrificed_messenger_might"
+			duration = 1460		#4 years
+		}
+		clr_country_flag = open_sacrifice_messenger_window_flag
+	}
+    tooltip = zalmoxis_sacrifice_blessing_war.tt
+}
+
+custom_button = {
+    name = zalmoxis_investiture_of_light_button
+    potential = {
+        religion = zamolxism
+    }
+    trigger = {
+		legitimacy_equivalent = 70
+		mil_power = 50
+		NOT = { has_country_modifier = zalmoxis_investiture_of_light_mod }
+	}
+    effect = {
+		add_mil_power = -50
+		add_country_modifier = {
+			name = "zalmoxis_investiture_of_light_mod"
+			duration = 1825		#5 years
+		}
+	}
+    tooltip = zalmoxis_investiture_of_light_button.tt
+}
+custom_button = {
+    name = zalmoxis_royal_banquet_button
+    potential = {
+        religion = zamolxism
+    }
+    trigger = {
+		legitimacy_equivalent = 70
+		dip_power = 50
+		NOT = { has_country_modifier = zalmoxis_royal_banquet_mod }
+	}
+    effect = {
+		add_dip_power = -50
+		add_country_modifier = {
+			name = "zalmoxis_royal_banquet_mod"
+			duration = 1825		#5 years
+		}
+	}
+    tooltip = zalmoxis_royal_banquet_button.tt
+}
+custom_button = {
+    name = zalmoxis_sponsor_soul_healers_button
+    potential = {
+        religion = zamolxism
+    }
+    trigger = {
+		legitimacy_equivalent = 70
+		adm_power = 50
+		NOT = { has_country_modifier = zalmoxis_sponsor_soul_healers_mod }
+	}
+    effect = {
+		add_adm_power = -50
+		add_country_modifier = {
+			name = "zalmoxis_sponsor_soul_healers_mod"
+			duration = 1825		#5 years
+		}
+	}
+    tooltip = zalmoxis_sponsor_soul_healers_button.tt
+}
+custom_button = {
+    name = zalmoxis_teachings_of_deceneus_button
+    potential = {
+        religion = zamolxism
+    }
+    trigger = {
+		legitimacy_equivalent = 70
+		adm_power = 50
+		NOT = { has_country_modifier = zalmoxis_teachings_of_deceneus_mod }
+	}
+    effect = {
+		add_adm_power = -50
+		add_country_modifier = {
+			name = "zalmoxis_teachings_of_deceneus_mod"
+			duration = 1825		#5 years
+		}
+	}
+    tooltip = zalmoxis_teachings_of_deceneus_button.tt
+}
+
+#Waaqism
+custom_button = {
+    name = waaqism_ayaanle_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		dip_power = 30
+		NOT = {
+			has_country_modifier = waaqism_ayaanle_mod
+		}
+	}
+    effect = {
+		add_dip_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_ayaanle_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_nidar_mod
+				}
+				remove_country_modifier = waaqism_nidar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_huur_mod
+				}
+				remove_country_modifier = waaqism_huur_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_wagar_mod
+				}
+				remove_country_modifier = waaqism_wagar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_amel_ali_mod
+				}
+				remove_country_modifier = waaqism_amel_ali_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_arawelo_mod
+				}
+				remove_country_modifier = waaqism_arawelo_mod
+			}
+		}
+	}
+    tooltip = waaqism_ayaanle_button.tt
+}
+custom_button = {
+    name = waaqism_nidar_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		dip_power = 30
+		NOT = {
+			has_country_modifier = waaqism_nidar_mod
+		}
+	}
+    effect = {
+		add_dip_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_nidar_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_ayaanle_mod
+				}
+				remove_country_modifier = waaqism_ayaanle_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_huur_mod
+				}
+				remove_country_modifier = waaqism_huur_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_wagar_mod
+				}
+				remove_country_modifier = waaqism_wagar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_amel_ali_mod
+				}
+				remove_country_modifier = waaqism_amel_ali_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_arawelo_mod
+				}
+				remove_country_modifier = waaqism_arawelo_mod
+			}
+		}
+	}
+    tooltip = waaqism_nidar_button.tt
+}
+custom_button = {
+    name = waaqism_huur_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		mil_power = 30
+		NOT = {
+			has_country_modifier = waaqism_huur_mod
+		}
+	}
+    effect = {
+		add_mil_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_huur_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_ayaanle_mod
+				}
+				remove_country_modifier = waaqism_ayaanle_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_nidar_mod
+				}
+				remove_country_modifier = waaqism_nidar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_wagar_mod
+				}
+				remove_country_modifier = waaqism_wagar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_amel_ali_mod
+				}
+				remove_country_modifier = waaqism_amel_ali_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_arawelo_mod
+				}
+				remove_country_modifier = waaqism_arawelo_mod
+			}
+		}
+	}
+    tooltip = waaqism_huur_button.tt
+}
+custom_button = {
+    name = waaqism_wagar_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		adm_power = 30
+		NOT = {
+			has_country_modifier = waaqism_wagar_mod
+		}
+	}
+    effect = {
+		add_adm_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_wagar_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_ayaanle_mod
+				}
+				remove_country_modifier = waaqism_ayaanle_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_nidar_mod
+				}
+				remove_country_modifier = waaqism_nidar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_huur_mod
+				}
+				remove_country_modifier = waaqism_huur_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_amel_ali_mod
+				}
+				remove_country_modifier = waaqism_amel_ali_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_arawelo_mod
+				}
+				remove_country_modifier = waaqism_arawelo_mod
+			}
+		}
+	}
+    tooltip = waaqism_wagar_button.tt
+}
+custom_button = {
+    name = waaqism_amel_ali_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		mil_power = 30
+		NOT = {
+			has_country_modifier = waaqism_amel_ali_mod
+		}
+	}
+    effect = {
+		add_mil_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_amel_ali_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_ayaanle_mod
+				}
+				remove_country_modifier = waaqism_ayaanle_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_nidar_mod
+				}
+				remove_country_modifier = waaqism_nidar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_huur_mod
+				}
+				remove_country_modifier = waaqism_huur_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_wagar_mod
+				}
+				remove_country_modifier = waaqism_wagar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_arawelo_mod
+				}
+				remove_country_modifier = waaqism_arawelo_mod
+			}
+		}
+	}
+    tooltip = waaqism_amel_ali_button.tt
+}
+custom_button = {
+    name = waaqism_arawelo_button
+    potential = {
+        religion = waaqism
+    }
+    trigger = {
+		adm_power = 30
+		NOT = {
+			has_country_modifier = waaqism_arawelo_mod
+		}
+	}
+    effect = {
+		add_adm_power = -30
+		add_ruler_modifier = {
+			name = "waaqism_arawelo_mod"
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_modifier = waaqism_ayaanle_mod
+				}
+				remove_country_modifier = waaqism_ayaanle_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_nidar_mod
+				}
+				remove_country_modifier = waaqism_nidar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_huur_mod
+				}
+				remove_country_modifier = waaqism_huur_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_wagar_mod
+				}
+				remove_country_modifier = waaqism_wagar_mod
+			}
+			if = {
+				limit = {
+					has_country_modifier = waaqism_amel_ali_mod
+				}
+				remove_country_modifier = waaqism_amel_ali_mod
+			}
+		}
+	}
+    tooltip = waaqism_arawelo_button.tt
+}
+

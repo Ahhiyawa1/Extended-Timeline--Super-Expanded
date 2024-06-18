@@ -1,0 +1,119 @@
+namespace = mmetrFlavor_Governments
+
+# Tanist Election - repeatable multiple times per ruler if needed
+country_event = {
+	id = mmetrFlavor_Governments.1
+	title = "mmetrFlavor_Governments.1.t"
+	desc = "mmetrFlavor_Governments.1.desc"
+	picture = COURT_eventPicture
+
+	trigger = {
+		OR = {
+			has_heir = no
+			NOT = { heir_age = 15 }
+		}
+		has_reform = tanist_monarchy_reform
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "mmetrFlavor_Governments.1.a"	#Head of cousin branch
+		
+		define_heir = {
+			male = yes
+			dynasty = ROOT
+			claim = 90
+			age = 25	#adult
+			no_consort_with_heir = yes		#not son of consort
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_Governments.1.b"	#Head of cousin branch
+		
+		define_heir = {
+			male = yes
+			dynasty = ROOT
+			claim = 90
+			age = 20
+			no_consort_with_heir = yes		#not son of consort
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_Governments.1.c"	#Wise head of cadet branch
+		
+		define_heir = {
+			male = yes
+			dynasty = ROOT
+			claim = 90
+			age = 35
+			adm = 4		#has minumum random ADM as trade off for age
+			no_consort_with_heir = yes
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_Governments.1.d"	#Eldest son
+		
+		trigger = {
+			ruler_age = 35		#available if king is old enough
+		}
+		
+		define_heir = {
+			male = yes
+			dynasty = ROOT
+			claim = 100
+			age = 15
+		}
+		
+		add_estate_loyalty = {
+			estate = estate_nobles		#youngest, but has tradeoff for favoritism
+			loyalty = -5
+		}
+	}
+}
+
+
+# Kemetic Monarchy - Sibling Consort of the Pharaoh
+country_event = {
+	id = mmetrFlavor_Governments.2
+	title = "mmetrFlavor_Governments.2.t"
+	desc = "mmetrFlavor_Governments.2.desc"
+	picture = MMETR_MARRIAGE_CHRISTIAN_eventPicture
+
+	trigger = {
+		has_regency = no
+		has_consort = no
+		OR = {
+			has_reform = kemetic_monarchy_reform
+		}
+		has_dlc = "Rights of Man"		#to avoid spamming for non-DLC users
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = kemetic_monarchy_reform_choosing_consort_flag
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_Governments.2.a"	#Head of cousin branch
+		
+		define_consort = {
+			country_of_origin = ROOT
+			dynasty = ROOT
+			religion = ROOT
+			culture = ROOT
+		}
+		
+		hidden_effect = {
+			clr_country_flag = kemetic_monarchy_reform_choosing_consort_flag
+		}
+	}
+}

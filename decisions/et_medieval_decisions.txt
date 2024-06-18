@@ -7,7 +7,7 @@ country_decisions = {
 				has_reform = feudalism_reform
 				has_reform = salic_reform
 			}
-			NOT = { is_year = 1400 }
+			NOT = { is_year = 3498 }
 			NOT = { has_country_modifier = grand_tournament }
 		}
 		allow = {
@@ -46,16 +46,13 @@ country_decisions = {
 		potential = {
 			NOT = { hre_size = 3 }
 			NOT = { exists = HLR }
-			NOT = { exists = HR8 }
-			NOT = { exists = HR7 }
-			NOT = { exists = HR6 }
 			OR = {
 				religion = catholic
 				religion = chalcedonism
 				religion = reformed_chalcedonism
 			}
 			NOT = { has_global_flag = hre_formed }
-			NOT = { started_in = 3060.2.2 }
+			NOT = { started_in = 962.2.2 }
 			JMN = {
 				is_emperor = yes
 			}
@@ -78,11 +75,6 @@ country_decisions = {
 				NOT = { owned_by = ROM }
 				NOT = { owned_by = ROW }
 				NOT = { owned_by = BYZ }
-				NOT = { owned_by = BY8 }
-				NOT = { owned_by = BY7 }
-				NOT = { owned_by = BY6 }
-				NOT = { owned_by = LAE }
-				NOT = { owned_by = IS1 }
 			}
 			has_regency = no
 		}
@@ -158,11 +150,6 @@ country_decisions = {
 					NOT = { tag = ROM }
 					NOT = { tag = ROW }
 					NOT = { tag = BYZ }
-					NOT = { tag = BY6 }
-					NOT = { tag = BY7 }
-					NOT = { tag = BY8 }
-					NOT = { tag = LAE }
-					NOT = { tag = IS1 }
 					capital_scope = {
 						continent = europe
 						NOT = { region = british_isles_region }
@@ -342,14 +329,8 @@ country_decisions = {
 	kievan_tsardom = {
 		major = yes
 		potential = {
-			OR = {
-				tag = KRU
-				tag = KR8
-				tag = KR7
-				tag = KR6
-				tag = RU0
-			}
-			NOT = { government_rank = 10 }
+			tag = KRU
+			NOT = { government_rank = 3 }
 			culture_group = east_slavic
 			religion = orthodox
 		}
@@ -375,7 +356,7 @@ country_decisions = {
 			else = {
 				add_government_reform = tsardom
 			}
-			set_government_rank = 10
+			set_government_rank = 3
 			add_prestige = 20
 		}
 		ai_will_do = {

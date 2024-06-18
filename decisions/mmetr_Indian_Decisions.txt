@@ -1,0 +1,119 @@
+country_decisions = {
+
+	mmetr_form_tamilakam_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_tamilakam_militarily_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				NOT = { exists = TML }
+			}
+			NOT = { tag = TML }
+			NOT = { tag = PER }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ARB }
+			NOT = {
+				government = republic
+			}
+			OR = {
+				primary_culture = tamil
+				tag = CLS	#Cholas
+				tag = PND	#Pandya
+				tag = MAD	#Madurai
+				tag = CEA	#Chera
+				tag = KGU	#Kongu
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = south_carnatic_area
+				area = kongu_area
+				area = tanjore_area
+				area = madura_area
+				area = malabar_area
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		allow = {
+			primary_culture = tamil
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			NOT = { exists = TML }
+			south_carnatic_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			kongu_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			tanjore_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			madura_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			malabar_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = south_carnatic_area
+					area = kongu_area
+					area = tanjore_area
+					area = madura_area
+					area = malabar_area 
+				}
+			}
+		}
+		effect = {
+			change_tag = TML
+			set_government_rank = 2
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					NOT = { primary_culture = tamil }
+				}
+				change_primary_culture = tamil
+			}
+			set_country_flag = formed_tamilakam_militarily_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+}

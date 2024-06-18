@@ -1,0 +1,266 @@
+#When adding effects directly in on_actions always consider if it would be best to do so through a scripted effect. on_actions with a lot of script in them are harder to get an overview of.
+
+#On Actions are now ADDITIVE as of 1.36! - for new file, just include new effects!
+
+# country
+on_startup = {
+	#New added in MMETR mod
+	
+	#Name Changes
+	
+	#Removed due to tag change in 1.36 update - Khmer to Kambuja (sanskrit) / Kampuchea / Cambodia for after 1431
+	#if = {
+	#	limit = {
+	#		tag = KHM
+	#		started_in = 1431.1.1		#post-Angkor period begins
+	#	}
+	#	override_country_name = KAMBUJA_COUNTRY_NAME
+	#}
+	
+	#Ayutthaya to Rattanakosin
+	if = {
+		limit = {
+			tag = AYU
+			dynasty = "Chakri"
+		}
+		override_country_name = RATTANAKOSIN_COUNTRY_NAME
+	}
+	
+	#Diplomacy changes
+	
+	#Hanzhong
+	if = {
+		limit = {
+			tag = HNZ
+			started_in = 194.1.1		#Liu Zhang and Zhang Lu falling out
+		}
+		remove_historical_friend = SHU
+	}
+	if = {
+		limit = {
+			tag = SHU
+			started_in = 194.1.1		#Liu Zhang and Zhang Lu falling out
+		}
+		remove_historical_friend = HNZ
+	}
+	
+	#Great Project / Monuments
+	
+	if = {
+		limit = { started_in = 575.12.31 }
+		set_global_flag = marib_dam_destroyed
+		2344 = { 
+			destroy_great_project = { type = marib_dam }
+		}
+	}
+	if = {
+		limit = { started_in = 107.1.1 }
+		1951 = { 
+			destroy_great_project = { type = sarmizegetusa_regia }
+		}
+	}
+	
+	#Civil War CB and other Casus Belli
+	if = {
+		limit = { 
+			tag = USA
+			started_in = 1861.1.19
+			NOT = {
+				started_in = 1865.5.5
+			}
+		}
+		add_casus_belli = {
+			target = CSA
+			type = cb_conclude_civil_war
+			months = 600		#50 years to wage war before the CSA gains de facto independence
+		}
+	}
+	if = {
+		limit = { 
+			tag = ROM
+			started_in = 260.1.1
+			NOT = {
+				started_in = 274.9.1
+			}
+			PLM = {
+				ai = yes
+			}
+		}
+		add_casus_belli = {
+			target = GLL
+			type = cb_conclude_civil_war
+			months = 360		#30 years to wage war before the Gallia gains de facto independence
+		}
+	}
+	if = {
+		limit = { 
+			tag = ROM
+			started_in = 270.12.1
+			NOT = {
+				started_in = 273.3.1
+			}
+			GLL = {
+				ai = yes
+			}
+		}
+		add_casus_belli = {
+			target = PLM
+			type = cb_conclude_civil_war
+			months = 360		#30 years to wage war before the Gallia gains de facto independence
+		}
+	}
+}
+
+# country
+# root = winning country, from = loser country
+on_war_won = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			has_government_mechanic = hunnic_confederation_mechanic
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 10
+		}
+	}
+}
+
+# country
+# root = winning country, from = loser country
+on_battle_won_country = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			has_government_mechanic = hunnic_confederation_mechanic
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 2
+		}
+	}
+}
+
+# Nation annexed.
+# FROM is the nation being annexed
+on_annexed = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			has_government_mechanic = hunnic_confederation_mechanic
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 20
+		}
+	}
+}
+
+on_culture_promoted = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			has_government_mechanic = hunnic_confederation_mechanic
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 10
+		}
+	}
+}
+
+#FROM = country pillaged, ROOT = country doing the pillaging
+on_pillaged_capital = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			has_government_mechanic = hunnic_confederation_mechanic
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 5
+		}
+	}
+}
+
+# country
+# root = winning country, from = location
+on_siege_won_country = {
+	
+	#New added in MMETR
+	
+	if = {
+		limit = {
+			ROOT = {
+				has_government_mechanic = hunnic_confederation_mechanic
+			}
+			FROM = {
+				fort_level = 1
+			}
+		}
+		add_government_power = {
+			mechanic_type = hunnic_confederation_mechanic
+			power_type = hunnic_centralization_gov_mech
+			value = 2
+		}
+	}
+}
+
+on_siege_lost_province = {
+	events = {
+		mmetrFlavor_War.1		#Siege of Basra, is in LOST since starts as POV for Abbasids / Basra owner
+	}
+}
+
+
+# New MMETR on_actions for religion harmonization
+
+on_harmonized_daoism = {
+	on_harmonized_effect = yes
+	on_harmonized_religion_estate_privileges_effect = yes
+	events = {
+		mmetr_harmonization.1
+	}
+}
+on_harmonized_confucianism = {
+	on_harmonized_effect = yes
+	on_harmonized_religion_estate_privileges_effect = yes
+	events = {
+		mmetr_harmonization.2
+	}
+}
+
+on_monarch_death = {
+	if = {
+		limit = {
+			has_country_flag = estate_church_sent_son_to_monastery_flag
+		}
+		random = { 		#chance for son sent to monastery to return to claim the throne
+			chance = 50 
+			country_event = {
+				id = mmetr_estate_events.3
+				days = 30
+				random = 15
+			}
+		}
+		clr_country_flag = estate_church_sent_son_to_monastery_flag		#removes flag no matter what
+	}
+}
+
+
+

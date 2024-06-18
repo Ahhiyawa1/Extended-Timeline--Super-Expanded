@@ -19,9 +19,6 @@ country_decisions = {
 			}
 			NOT = { has_country_flag = mongol_empire_flag }
 			NOT = { tag = HLR }
-			NOT = { tag = HR6 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR8 }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
 			NOT = { exists = MGE }
@@ -112,19 +109,20 @@ country_decisions = {
 			if = {
 				limit = {
 					NOT = {
-						government_rank = 10
+						government_rank = 3
 					}
 				}
-				set_government_rank = 10
+				set_government_rank = 3
 			}
 			if = {
 				limit = {
 					is_emperor_of_china = yes
 				}
 				dismantle_empire_of_china = yes
+			}
 			if = {
-				limit = {
-				limit = { is_revolutionary = no }
+				limit = { 
+					is_revolutionary = no
 					NOT = { has_reform = holy_horde_reform }
 				}
 				change_government = tribal
@@ -225,22 +223,11 @@ country_decisions = {
 			has_reform = steppe_horde
 			NOT = { tag = TIM }
 			NOT = { tag = PER }
-			NOT = { tag = IRA }
-			NOT = { tag = PE6 }
-			NOT = { tag = PE7 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = MUG }
-			NOT = { tag = MU6 }
-			NOT = { tag = MU7 }
-			NOT = { tag = MU8 }
 			NOT = { tag = ARB }
-			NOT = { tag = UA6 }
-			NOT = { tag = UA7 }
-			NOT = { tag = UA8 }
-			NOT = { tag = SAU }
-			NOT = { tag = AA3 }
 			NOT = { dynasty = "Timurid" }
 		}
 		provinces_to_highlight = {
