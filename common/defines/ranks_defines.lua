@@ -13,4 +13,4 @@ NDefines.NCountry.MIN_PRESTIGE_FOR_GOV_RANK_X = 5
 NDefines.NCountry.ADDITIONAL_MIN_DEVELOPMENT_FOR_GOV_RANK_X = 125
 NDefines.NCountry.MAX_GOV_RANK = 10
 NDefines.NCountry.NAT_FOCUS_YEARS_RANK = 3
-NDefines.NNationDesigner.MAX_GOVERNMENT_RANK = 10
+NDefines.NNationDesigner.MAX_government_rank = 4

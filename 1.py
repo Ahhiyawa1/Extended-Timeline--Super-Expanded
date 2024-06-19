@@ -1,8 +1,11 @@
 import os
 import re
 
-# Define the path to the bookmarks wip folder
-BOOKMARKS_WIP_FOLDER = 'C:/Users/twsb1/Documents/Paradox Interactive/Europa Universalis IV/mod/et_se/common/bookmarks/wip'
+# Define the path to the mod folder
+MOD_FOLDER_PATH = 'C:/Users/twsb1/Documents/Paradox Interactive/Europa Universalis IV/mod/et_se'
+
+# Folder to process
+FOLDER_TO_PROCESS = 'common/religions'
 
 # Define the conversion function
 def convert_to_custom_calendar(year):
@@ -11,10 +14,10 @@ def convert_to_custom_calendar(year):
     else:
         return f"{year + 2098}"
 
-# Regex to match and capture 'date = yyyy.mm.dd'
-date_pattern = re.compile(r'date\s*=\s*(\d{1,4})\.(\d{1,2})\.(\d{1,2})')
+# Regex to match and capture 'is_year = XYZ'
+is_year_pattern = re.compile(r'(\bis_year\s*=\s*)(\d{1,4})')
 
-def convert_file_dates(file_path):
+def convert_file_years(file_path):
     content = None
     # Attempt to read the file with UTF-8 encoding first
     try:
@@ -26,31 +29,33 @@ def convert_file_dates(file_path):
             content = file.read()
 
     if content is not None:
-        def replace_date(match):
-            year = int(match.group(1))
-            month = match.group(2)
-            day = match.group(3)
-            custom_year = convert_to_custom_calendar(year)
-            return f"date = {custom_year}.{month}.{day}"
+        def replace_year(match):
+            prefix = match.group(1)
+            old_year = int(match.group(2))
+            custom_year = convert_to_custom_calendar(old_year)
+            return f"{prefix}{custom_year}"
 
-        updated_content = date_pattern.sub(replace_date, content)
+        updated_content = is_year_pattern.sub(replace_year, content)
 
         if updated_content != content:
             with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(updated_content)
-            print(f"Updated dates in file: {file_path}")
+            print(f"Updated years in file: {file_path}")
         else:
-            print(f"No date changes needed in file: {file_path}")
+            print(f"No year changes needed in file: {file_path}")
 
-# Function to traverse directory and process files
-def process_directory(directory_path):
-    for file_name in os.listdir(directory_path):
-        file_path = os.path.join(directory_path, file_name)
+# Function to process files in the specified folder
+def process_folder(folder_path):
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
         if os.path.isfile(file_path):
             print(f"Processing file: {file_path}")
-            convert_file_dates(file_path)
+            convert_file_years(file_path)
 
-# Process the bookmarks wip folder
-process_directory(BOOKMARKS_WIP_FOLDER)
+# Construct full path to the folder to process
+folder_to_process_path = os.path.join(MOD_FOLDER_PATH, FOLDER_TO_PROCESS)
 
-print("Date conversion complete.")
+# Process the specified folder
+process_folder(folder_to_process_path)
+
+print("Year conversion complete.")

@@ -834,15 +834,15 @@ restore_old_nation_on_formation_effect = {
 			}
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				event_target:old_tag_target = { set_government_rank = 1 }
+				event_target:old_tag_target = { set_government_rank = 4 }
 			}
 			else_if = {
 				limit = {
-					government_rank = 3
+					government_rank = 10
 				}
-				event_target:old_tag_target = { set_government_rank = 3 }
+				event_target:old_tag_target = { set_government_rank = 4 }
 			}
 			if = {
 				limit = {
