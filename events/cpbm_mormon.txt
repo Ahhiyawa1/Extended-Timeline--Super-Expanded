@@ -77,6 +77,8 @@ province_event = {
 		}
 		NOT = { religion = mormon }
 		owner = { NOT = { adm_tech = 80 } }
+		is_year = 3928  # Ensure the event can start happening from 1830 AD (mod's dating system)
+		NOT = { is_year = 4068 }  # Ensure the event stops happening after 1970 AD (mod's dating system)
 	}
 
 	mean_time_to_happen = {
@@ -117,6 +119,7 @@ province_event = {
 		}
 	}
 }
+
 
 # The Deseret Alphabet
 

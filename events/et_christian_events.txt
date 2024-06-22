@@ -590,7 +590,7 @@ country_event = {
 	}
 }
 
-#Arianism Spreads
+# Arianism Spreads
 province_event = {
 
 	id = et.11
@@ -601,10 +601,11 @@ province_event = {
 	trigger = {
 		is_religion_enabled = arianism
 		NOT = { religion = arianism }
-		NOT = { is_year = 2648 }
+		year = 2498  # Ensure the event only happens after this year
+		NOT = { year = 2698 }  # Ensure the event does not happen after this year
 		OR = {
 			any_neighbor_province = { religion = arianism }
-			owner = { any_owned_province = { religion = arianism }}
+			owner = { any_owned_province = { religion = arianism } }
 			owner = { religion = hellenism }
 		}
 		NOT = { province_id = 118 }
@@ -619,7 +620,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 0.8
-			is_year = 2498
+			year = 2498
 		}
 		modifier = {
 			factor = 0.5
@@ -673,6 +674,9 @@ province_event = {
 		}
 	}
 }
+
+
+
 
 #First Council of Nicaea
 province_event = {
