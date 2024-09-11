@@ -601,8 +601,8 @@ province_event = {
 	trigger = {
 		is_religion_enabled = arianism
 		NOT = { religion = arianism }
-		year = 2498  # Ensure the event only happens after this year
-		NOT = { year = 2698 }  # Ensure the event does not happen after this year
+		is_year = 2498  # Ensure the event only happens after this year
+		NOT = { is_year = 2698 }  # Ensure the event does not happen after this year
 		OR = {
 			any_neighbor_province = { religion = arianism }
 			owner = { any_owned_province = { religion = arianism } }
