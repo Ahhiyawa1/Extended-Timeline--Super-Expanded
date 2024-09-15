@@ -13,40 +13,53 @@ base_production = 1
 trade_goods = livestock
 base_manpower = 1
 capital = "Chortkiv"
-2248.1.1 = { controller = BAS add_core = BAS religion = Germanic }
-2478.1.1 = { controller = HNS add_core = HNS religion = Tengri pagan reformed }
-2567.1.1 = { controller = ANE add_core = ANE religion = Slavic }
-2658.1.1 = { controller = AVR add_core = AVR }
-2665.1.1 = { controller = TIV add_core = TIV }
-2798.1.1 = { base_tax = 2 base_production = 2 }
-2858.1.1 = { controller = HUN add_core = HUN religion = Tengri pagan reformed }
-2948.1.1 = { base_manpower = 2 }
-2998.1.1 = { controller = KRU add_core = KRU add_core = UKR }
-3028.1.1 = { controller = PEC add_core = PEC }
-3058.1.1 = { religion = Orthodox }
-3078.1.1 = { controller = KRU }
-3152.2.20 = { controller = VOL add_core = VOL add_core = KIE }
-3248.1.1 = { fort_15th = yes }
-3423.1.1 = { controller = LIT add_core = LIT }
-3448.1.1 = { religion = Orthodox }
-3450.1.1 = { controller = POL add_core = POL }
+2241.1.12 = { culture = polish }
+2248.1.1 = { owner = SCI controller = SCI add_core = SCI remove_core = VNE culture = scirian religion = germanic }
+2318.1.1 = { owner = VNE controller = VNE add_core = VNE remove_core = SCI culture = polish religion = slavic }
+2478.1.1 = { owner = HNS controller = HNS add_core = HNS }
+2567.1.1 = { owner = ANE controller = ANE add_core = ANE remove_core = HNS }
+2598.1.1 = { discovered_by = western discovered_by = eastern }
+2648.1.1 = { owner = LDN controller = LDN add_core = LDN remove_core = ANE }
+3079.1.1 = { owner = KRU controller = KRU add_core = KRU remove_core = LDN }
+3088.1.1 = { religion = orthodox }
+3152.2.20 = { owner = VOL controller = VOL add_core = VOL add_core = KIE remove_core = KRU }
+3198.1.1 = { discovered_by = muslim discovered_by = ottoman }
+3297.1.1 = { remove_core = KIE }
+3298.1.1 = { discovered_by = nomad_group }
+3421.1.1 = { owner = LIT controller = LIT add_core = LIT }
+3448.1.1 = { religion = orthodox }
+
+3667.3.26 = { owner = POL controller = POL add_core = POL } # annexed by Poland
 3667.7.1 = { 
+	remove_core = LIT	# Union of Lublin, western part ceded to Poland & southern part still belonged to Lithuania
+	owner = PLC
 	controller = PLC
+	remove_core = POL
 	add_core = PLC
-}
-3746.1.1 = { 
-	controller = REB
-	add_core = ZAZ
-	revolt = { type = nationalist_rebels size = 0 }
-}
-3752.1.1 = { controller = PLC revolt = { size = 1 } }
-3770.8.18 = { controller = TUR }
-3797.1.26 = { controller = PLC }
-3891.1.23 = { controller = RUS add_core = RUS }
+} # Union of Lublin
+3724.5.5 = { unrest = 5 } # Religious struggles
+3728.1.1 = { unrest = 0 }
+3746.1.1 = { revolt = { type = nationalist_rebels size = 3 leader = "Bohdan Khmelnytsky" } controller = REB add_core = ZAZ } # Chmielnicki uprising, civil war
+3748.1.1 = { revolt = {} } 
+3752.1.1 = { controller = PLC remove_core = ZAZ }
+3866.1.1 = { unrest = 8 } # Kolivshchyna rebellion, peasant uprising
+3867.1.1 = { unrest = 0 } # Suppressed by Polish and Russian troops
+3891.1.21 = { add_core = RUS } # Second partition, partially to Russia
+3892.3.24 = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+3892.11.16 = { unrest = 0 }
+3893.10.24 = { owner = RUS controller = RUS } # Third partition of Poland
+
 4008.1.1 = { discovered_by = asian }
-4016.1.22 = { controller = UKR }
-4019.3.18 = { controller = RUS }
-4020.12.30 = { controller = SOV add_core = SOV }
-4039.8.15 = { controller = RMN }
-4042.1.1 = { controller = SOV }
-4089.8.24 = { controller = UKR }
+4013.8.29  = { controller = HAB }
+4014.6.7   = { controller = RUS }
+4016.2.7   = { controller = GER }
+4016.1.22  = { owner = UKR controller = UKR add_core = UKR }
+4016.11.11 = { owner = POL controller = POL add_core = POL }
+4019.3.18  = { remove_core = RUS } # Peace of Riga
+4037.9.17  = { controller = SOV }
+4037.10.6  = { owner = SOV }
+4039.6.30  = { controller = GER }
+4042.7.25  = { controller = SOV }
+4043.5.8   = { remove_core = POL }
+4089.8.24  = { owner = UKR controller = UKR add_core = UKR remove_core = SOV }
+
