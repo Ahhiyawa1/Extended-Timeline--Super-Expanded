@@ -5,7 +5,7 @@
 
 polish_localisation = {
 	rank = {
-		1 = BARONIA
+		1 = STAROSTWO
 		2 = HRABSTWO
 		3 = MARGRABSTWO
 		4 = KSIESTEWKO
@@ -18,7 +18,7 @@ polish_localisation = {
 	}
 
 	ruler_male = {
-		1 = BARON
+		1 = STAROSTA
 		2 = HRABIA
 		3 = MARGRABIA
 		4 = WOJEWODA
@@ -31,7 +31,7 @@ polish_localisation = {
 	}
 
 	ruler_female = {
-		1 = BARONESSA
+		1 = STAROSCINI
 		2 = HRABINA
 		3 = MARGRABINA
 		4 = WOJEWODZINA
@@ -57,7 +57,7 @@ polish_localisation = {
 	}
 
 	consort_female = {
-		1 = BARONESSA
+		1 = STAROSCINI #BARONESSA
 		2 = HRABINA
 		3 = MARGRABINA
 		4 = WOJEWODZINA
@@ -73,26 +73,26 @@ polish_localisation = {
 		1 = HEIR
 		2 = HEIR
 		3 = HEIR
-		3 = HEIR
-		3 = HEIR
-		3 = HEIR
-		3 = HEIR
-		3 = HEIR
-		3 = HEIR
-		3 = HEIR
+		4 = HEIR
+		5 = KROLEWICZ
+		6 = KROLEWICZ
+		7 = KROLEWICZ #
+		8 = KROLEWICZ #
+		9 = WIELKIKROLEWICZ #
+		10 = CESARZEWICZ #
 	}
 
 	heir_female = {
 		1 = HEIR_fem
 		2 = HEIR_fem
 		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
-		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = KSIEZNICZKA
+		6 = KSIEZNICZKA
+		7 = WIELKA_KSIEZNICZKA #
+		8 = KROLEWNA #
+		9 = WIELKAKROLEWNA #
+		10 = CESARZEWNA #
 	}
 
 	trigger = {
@@ -105,6 +105,7 @@ polish_localisation = {
 			culture_group = west_slavic
 			NOT = { primary_culture = czech }
 			NOT = { primary_culture = slovak }
+			NOT = { tag = MVA }
 			}
 		}
 	}
@@ -205,6 +206,11 @@ german_localisation = {
 	trigger = {
 		government = monarchy
 			culture_group = germanic
+		NOT = {
+			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+			}
 	}
 }
 
@@ -311,10 +317,10 @@ french_localisation = {
 
 	rank = {
 		1 = BARONNIE
-		2 = COMTE
+		2 = COMTEGOV
 		3 = MARQUE
 		4 = DUCHE
-		5 = PRINCEDOM
+		5 = PRINCEDOMFRA
 		6 = GRANDDUCHE
 		7 = ARCHDUCHE
 		8 = ROYAUME
@@ -413,7 +419,7 @@ italian_localisation = {
 		2 = MARCHIO
 		3 = PRINCIPATO
 		4 = DUCATO
-		5 = DUCATO
+		5 = DUCATO2
 		6 = GRANDUCATO
 		7 = ARCIDUCATO
 		8 = DOMINIO
@@ -515,9 +521,9 @@ spanish_localisation = {
 		5 = DUCADO
 		6 = GRANDUCADO
 		7 = ARCIDUCTO
-		8 = DOMINIO
+		8 = DOMINIOSPA
 		9 = ARCHDOMINIO
-		10 = IMPERO
+		10 = IMPERIOSPA
 	}
 
 	ruler_male = {
@@ -615,7 +621,7 @@ danish_localisation = {
 		7 = ARKEHERTUGDOM
 		8 = KONGERIGE
 		9 = STORTKONGERIGE
-		10 = EMPIRE
+		10 = EMPIREDAN
 	}
 
 	ruler_male = {
@@ -796,146 +802,154 @@ dutch_localisation = {
 
 	trigger = {
 		government = monarchy
+		OR = {
 			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+			}
 	}
 }
 
 czech_localisation = {
 	rank = {
-		1 = BARONI
-		2 = HRABSTVI
-		3 = MARKRABSTVI
-		4 = VEVODSTVI
-		5 = KNIZECTVI
-		6 = DEDICTVI
-		7 = ARCIVEVODSTVI
-		8 = KRALOVSTVI
-		9 = VYSOKEKRALOVSTVI
-		10 = RISE
+		1 = BOHBARONI
+		2 = BOHHRABSTVI
+		3 = BOHMARKRABSTVI
+		4 = BOHVEVODSTVI
+		5 = BOHKNIZECTVI
+		6 = BOHDEDICTVI
+		7 = BOHARCIVEVODSTVI
+		8 = BOHKRALOVSTVI
+		9 = BOHVYSOKEKRALOVSTVI
+		10 = BOHRISE
 	}
 
 	ruler_male = {
-		1 = HRABE
-		2 = MARKRABE
-		3 = KNIZE
-		4 = VELKOKNIZE
-		5 = VEVODA
-		6 = VELKOVEVODA
-		7 = ARCIVEVODA
-		8 = KRAL
-		9 = ARCIKRAL
-		10 = CISAR
+		1 = BOHHRABE
+		2 = BOHMARKRABE
+		3 = BOHKNIZE
+		4 = BOHVELKOKNIZE
+		5 = BOHVEVODA
+		6 = BOHVELKOVEVODA
+		7 = BOHARCIVEVODA
+		8 = BOHKRAL
+		9 = BOHARCIKRAL
+		10 = BOHCISAR
 	}
 
 	ruler_female = {
-		1 = HRABENKA
-		2 = MARKRABENKA
-		3 = KNEZNA
-		4 = VELKOKNEZNA
-		5 = VEVODKYNE
-		6 = VELKOVEVODKYNE
-		7 = ARCIVEVODKYNE
-		8 = KRALOVNA
-		9 = ARCIKRALOVNA
-		10 = CISAROVNA
+		1 = BOHHRABENKA
+		2 = BOHMARKRABENKA
+		3 = BOHKNEZNA
+		4 = BOHVELKOKNEZNA
+		5 = BOHVEVODKYNE
+		6 = BOHVELKOVEVODKYNE
+		7 = BOHARCIVEVODKYNE
+		8 = BOHKRALOVNA
+		9 = BOHARCIKRALOVNA
+		10 = BOHCISAROVNA
 	}
 
 	heir_male = {
-		1 = HRABE
-		2 = MARKRABE
-		3 = KNIZE
-		4 = VELKOKNIZE
-		5 = VEVODA
-		6 = VELKOVEVODA
-		7 = ARCIVEVODA
-		8 = KRAL
-		9 = ARCIKRAL
-		10 = CISAR
+		1 = BOHHRABE
+		2 = BOHMARKRABE
+		3 = BOHKNIZE
+		4 = BOHVELKOKNIZE
+		5 = BOHVEVODA
+		6 = BOHVELKOVEVODA
+		7 = BOHARCIVEVODA
+		8 = BOHKRAL
+		9 = BOHARCIKRAL
+		10 = BOHCISAR
 	}
 
 	heir_female = {
-		1 = HRABENKA
-		2 = MARKRABENKA
-		3 = KNEZNA
-		4 = VELKOKNEZNA
-		5 = VEVODKYNE
-		6 = VELKOVEVODKYNE
-		7 = ARCIVEVODKYNE
-		8 = KRALOVNA
-		9 = ARCIKRALOVNA
-		10 = CISAROVNA
+		1 = BOHHRABENKA
+		2 = BOHMARKRABENKA
+		3 = BOHKNEZNA
+		4 = BOHVELKOKNEZNA
+		5 = BOHVEVODKYNE
+		6 = BOHVELKOVEVODKYNE
+		7 = BOHARCIVEVODKYNE
+		8 = BOHKRALOVNA
+		9 = BOHARCIKRALOVNA
+		10 = BOHCISAROVNA
 	}
 
 	trigger = {
 		government = monarchy
+		OR = {
 			primary_culture = czech
+			tag = MVA
+			tag = GMA
+		}
 	}
 }
 
 hungarian_localisation = {
 	rank = {
-		1 = BARONOK
-		2 = MEGYEI
-		3 = MARGRAVIATUS
-		4 = SZELLEM
-		5 = FONOK
-		6 = NAGYHERCEGSEG
-		7 = FOHERCEGSEG
-		8 = KIRALYSAG
-		9 = MAGASKIRALYSAG
-		10 = BIRODALOM
+		1 = HUNBARONOK
+		2 = HUNMEGYEI
+		3 = HUNMARGRAVIATUS
+		4 = HUNSZELLEM
+		5 = HUNFONOK
+		6 = HUNNAGYHERCEGSEG
+		7 = HUNFOHERCEGSEG
+		8 = HUNKIRALYSAG
+		9 = HUNMAGASKIRALYSAG
+		10 = HUNBIRODALOM
 	}
 
 	ruler_male = {
-		1 = GROF
-		2 = ORGROF
-		3 = FEJEDELEM
-		4 = NAGYFEJEDELEM
-		5 = HERCEG
-		6 = NAGYHERZOG
-		7 = FOHERCEG
-		8 = KIRALY
-		9 = FOKIRALY
-		10 = CSASZAR
+		1 = HUNGROF
+		2 = HUNORGROF
+		3 = HUNFEJEDELEM
+		4 = HUNNAGYFEJEDELEM
+		5 = HUNHERCEG
+		6 = HUNNAGYHERZOG
+		7 = HUNFOHERCEG
+		8 = HUNKIRALY
+		9 = HUNFOKIRALY
+		10 = HUNCSASZAR
 	}
 
 	ruler_female = {
-		1 = GROFNO
-		2 = ORGROF
-		3 = FEJEDELEM
-		4 = NAGYFEJEDELEM
-		5 = HERCEGNO
-		6 = NAGYHERCEGNO
-		7 = FOHERCEGNO
-		8 = KIRALYNO
-		9 = FOKIRALYNO
-		10 = CSASZARNO
+		1 = HUNGROFNO
+		2 = HUNORGROF
+		3 = HUNFEJEDELEM
+		4 = HUNNAGYFEJEDELEM
+		5 = HUNHERCEGNO
+		6 = HUNNAGYHERCEGNO
+		7 = HUNFOHERCEGNO
+		8 = HUNKIRALYNO
+		9 = HUNFOKIRALYNO
+		10 = HUNCSASZARNO
 	}
 
 	heir_male = {
-		1 = GROF
-		2 = ORGROF
-		3 = FEJEDELEM
-		4 = NAGYFEJEDELEM
-		5 = HERCEG
-		6 = NAGYHERZOG
-		7 = FOHERCEG
-		8 = KIRALY
-		9 = FOKIRALY
-		10 = CSASZAR
+		1 = HUNGROF
+		2 = HUNORGROF
+		3 = HUNFEJEDELEM
+		4 = HUNNAGYFEJEDELEM
+		5 = HUNHERCEG
+		6 = HUNNAGYHERZOG
+		7 = HUNFOHERCEG
+		8 = HUNKIRALY
+		9 = HUNFOKIRALY
+		10 = HUNCSASZAR
 	}
 
 	heir_female = {
-		1 = GROFNO
-		2 = ORGROF
-		3 = FEJEDELEM
-		4 = NAGYFEJEDELEM
-		5 = HERCEGNO
-		6 = NAGYHERCEGNO
-		7 = FOHERCEGNO
-		8 = KIRALYNO
-		9 = FOKIRALYNO
-		10 = CSASZARNO
+		1 = HUNGROFNO
+		2 = HUNORGROF
+		3 = HUNFEJEDELEM
+		4 = HUNNAGYFEJEDELEM
+		5 = HUNHERCEGNO
+		6 = HUNNAGYHERCEGNO
+		7 = HUNFOHERCEGNO
+		8 = HUNKIRALYNO
+		9 = HUNFOKIRALYNO
+		10 = HUNCSASZARNO
 	}
 
 	trigger = {
@@ -946,16 +960,16 @@ hungarian_localisation = {
 
 russian_localisation = {
 	rank = {
-		1 = BARONY
-		2 = COUNTY
-		3 = MARGRAVIATE
-		4 = DUCHY
-		5 = PRINCEDOM
-		6 = GRANDDUCHY
-		7 = ARCHDUCHY
-		8 = KINGDOM
-		9 = HIGHKINGDOM
-		10 = EMPIRE
+		1 = BARONSTVO
+		2 = GRAFSTVO
+		3 = MARKGRAVIATSTVO
+		4 = GERTSOGSTVO
+		5 = KNYAZHESTVO
+		6 = VELIKOYEKNYAZHESTVO
+		7 = ERTSGERTSOGSTVO
+		8 = KOROLEVSTVO
+		9 = VYSOKOYEKOROLEVSTVO
+		10 = IMPERIYA
 	}
 
 	ruler_male = {
@@ -1157,5 +1171,2117 @@ persian_localisation = {
 	trigger = {
 		government = monarchy
 			culture_group = turko_semitic
+	}
+}
+
+portuguese_localisation = {
+	rank = {
+		1 = BARONIA
+		2 = CONDADO
+		3 = MARGRAVIATO
+		4 = DUCADO
+		5 = PRINCEDIO
+		6 = GRAODUCADO
+		7 = ARQUIDUCADO
+		8 = REINO
+		9 = ALTOREINO
+		10 = IMPERIO
+	}
+
+	ruler_male = {
+		1 = BARAO
+		2 = CONTADOR
+		3 = MARGRAVE
+		4 = DUQUE
+		5 = PRINCIPEPOR
+		6 = GRAODUQUE
+		7 = ARQUIDUQUE
+		8 = REI
+		9 = ALTOREI
+		10 = EMPERADOR
+	}
+
+	ruler_female = {
+		1 = BARONESA
+		2 = CONDESSA
+		3 = MARGRAVINA
+		4 = DUQUESA
+		5 = PRINCESA
+		6 = GRADUQUESA
+		7 = ARQUIDUQUESA
+		8 = RAINHA
+		9 = ALTARAINHA
+		10 = EMPRESA
+	}
+
+	consort_male = {
+		1 = BARAO
+		2 = CONTADOR
+		3 = MARGRAVE
+		4 = DUQUE
+		5 = PRINCIPE
+		6 = GRAODUQUE
+		7 = ARCHDUKE
+		8 = REI
+		9 = HIGHKING
+		10 = EMPERADOR
+	}
+
+	consort_female = {
+		1 = BARONESA
+		2 = CONDESSA
+		3 = MARGRAVINA
+		4 = DUQUESA
+		5 = PRINCESA
+		6 = GRADUQUESA
+		7 = ARQUIDUQUESA
+		8 = RAINHA
+		9 = ALTARAINHA
+		10 = EMPRESA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+			primary_culture = portuguese
+	}
+}
+
+romanmonarchy_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = ROMREGNUM
+		9 = ROMMAGNUMREGNUM
+		10 = ROMIMPERIUM
+	}
+
+	ruler_male = {
+		8 = ROMREX
+		9 = ROMMAGNUMREX
+		10 = ROMAUGUSTUS #ROMIMPERATOR
+	}
+
+	ruler_female = {
+		8 = ROMREGINA
+		9 = ROMMAGNAREGINA
+		10 = ROMAUGUSTA
+	}
+
+	consort_male = {
+		10 = ROMAUGUSTUS
+	}
+
+	consort_female = {
+		10 = ROMAUGUSTA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = roman
+			tag = ROM
+		}
+	}
+}
+
+romrepublic_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = ROMREGNUM
+		9 = ROMMAGNUMREGNUM
+		10 = ROMIMPERIUM
+	}
+
+	ruler_male = {
+		10 = ROMCAESAR
+	}
+
+	ruler_female = {
+		10 = ROMCAESAREA
+	}
+
+	trigger = {
+		government = republic
+		OR = {
+			primary_culture = roman
+			tag = ROM
+		}
+	}
+}
+
+papal_localisation = {
+
+	rank = {
+		1 = PAPPARISH
+		2 = PAPDIOCESE
+		3 = PAPARCHDIOCESE
+		4 = PAPBISHOPRICOFROME
+		5 = PAPARCHBISHOPRICOFROME
+		6 = PAPPATRIARCHATEOFROME
+		7 = PAPARCHPATRIARCHATEOFROME
+		8 = PAPTHEPAPACY
+		9 = PAPDIVINEKINGDOM #PAPHEAVENLYTHE
+		10 = PAPGODSEMPIRE
+	}
+
+	ruler_male = {
+		1 = PAPGRANDPRIEST
+		2 = PAPARCHPRIEST
+		3 = PAPHIGHPRIEST
+		4 = PAPBISHOPOFROME
+		5 = PAPARCHBISHOPOFROME
+		6 = PAPPATRIARCHOFROME
+		7 = PAPARCHPATRIARCHOFROME
+		8 = PAPTHEPOPE
+		9 = PAPARCHPOPE
+		10 = PAPPOPPANTOKRATOR #PAPDIVINEPOPE #PAPGODONEARTH
+	}
+
+	trigger = {
+		tag = PAP
+	}
+}
+
+swedish_localisation = {
+	rank = {
+		1 = SWEBARONI
+		2 = SWELANDSKAP
+		3 = SWEMARKGREVSKAP
+		4 = SWEHERTIGDOME
+		5 = SWEFURSTENDOME
+		6 = SWESTORHERTIGDOME
+		7 = SWEARKHERTIGDOME
+		8 = SWEKUNGADOME
+		9 = SWEHOGKUNGADOME
+		10 = SWEKEJSARDOME
+	}
+
+	ruler_male = {
+		1 = SWEBARON
+		2 = SWEGREV
+		3 = SWEMARKGREV
+		4 = SWEHERTIG
+		5 = SWEPRINS
+		6 = SWESTORHERTIG
+		7 = SWEARKHERTIG
+		8 = SWEKUNG
+		9 = SWEHOGKUNG
+		10 = SWEKEJSARE
+	}
+
+	ruler_female = {
+		1 = SWEBARONESSA
+		2 = SWEGREVINNA
+		3 = SWEMARKGREVINNA
+		4 = SWEHERTIGINNA
+		5 = SWEPRINSESSA
+		6 = SWESTORHERTIGINNA
+		7 = SWEARKEHERTIGINNA
+		8 = SWEDROTTNING
+		9 = SWEHOGDROTTNINGEN
+		10 = SWEKEJSARINNA
+	}
+
+	consort_male  = {
+		1 = SWEBARON
+		2 = SWEGREV
+		3 = SWEMARKGREV
+		4 = SWEHERTIG
+		5 = SWEPRINS
+		6 = SWESTORHERTIG
+		7 = SWEARKHERTIG
+		8 = SWEKUNG
+		9 = SWEHOGKUNG
+		10 = SWEKEJSARE
+	}
+
+	consort_female = {
+		1 = SWEBARONESSA
+		2 = SWEGREVINNA
+		3 = SWEMARKGREVINNA
+		4 = SWEHERTIGINNA
+		5 = SWEPRINSESSA
+		6 = SWESTORHERTIGINNA
+		7 = SWEARKEHERTIGINNA
+		8 = SWEDROTTNING
+		9 = SWEHOGDROTTNINGEN
+		10 = SWEKEJSARINNA
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = swedish
+	}
+}
+
+norwegian_localisation = {
+	rank = {
+		1 = NORBARONI
+		2 = NORFYLKE
+		3 = NORMARKGREVSKAP
+		4 = NORHERTUGDOMME
+		5 = NORFYRSTEDOMME
+		6 = NORSTORHERTUGDOMME
+		7 = NORERKEHTUGDOMME
+		8 = NORKONGERIKE
+		9 = NORHOYKONEGDOMME
+		10 = NORIMPERIUM
+	}
+
+	ruler_male = {
+		1 = NORBARON
+		2 = NORGREVE
+		3 = NORMARKGREVE
+		4 = NORHERTUG
+		5 = NORPRINS
+		6 = NORSTORHERTUG
+		7 = NORARKEHERTUG
+		8 = NORKONGE
+		9 = NORHOYKONGE
+		10 = NORKEISER
+	}
+
+	ruler_female = {
+		1 = NORBARONESS
+		2 = NORGREVINNE
+		3 = NORMARKGREVINNE
+		4 = NORHERTUGINNE
+		5 = NORPRINSESSE
+		6 = NORSTORHERTUGINNE
+		7 = NORERKEHERTUGINNE
+		8 = NORDRONNING
+		9 = NORHOYDRONNING
+		10 = NORKEISERINNE
+	}
+
+	consort_male  = {
+		1 = NORBARON
+		2 = NORGREVE
+		3 = NORMARKGREVE
+		4 = NORHERTUG
+		5 = NORPRINS
+		6 = NORSTORHERTUG
+		7 = NORARKEHERTUG
+		8 = NORKONGE
+		9 = NORHOYKONGE
+		10 = NORKEISER
+	}
+
+	consort_female = {
+		1 = NORBARONESS
+		2 = NORGREVINNE
+		3 = NORMARKGREVINNE
+		4 = NORHERTUGINNE
+		5 = NORPRINSESSE
+		6 = NORSTORHERTUGINNE
+		7 = NORERKEHERTUGINNE
+		8 = NORDRONNING
+		9 = NORHOYDRONNING
+		10 = NORKEISERINNE
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = norwegian
+	}
+}
+
+nahuatl_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = TLAHTLOANI
+		9 = HUEYITLAHTLOANI
+		10 = HUEYITLAHTLOANI #Huēyi Tlahtloāni
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = TLAHTLOANI
+		9 = HUEYITLAHTLOANI
+		10 = HUEYITLAHTLOANI
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		religion = nahuatl
+	}
+}
+
+hindi_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = KILADAR
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = RAJKUMAR
+		7 = BABU
+		8 = RAJA
+		9 = MAHARAJA
+		10 = CHAKRAVATI #SAMRAT
+	}
+
+	ruler_female = {
+		1 = KILADAR
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = RAJKUMARI
+		7 = BABU
+		8 = RAJA
+		9 = MAHARANI
+		10 = CHAKRAVATINI #SAMRAJNI
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = YUVARAJA
+		7 = YUVARAJA
+		8 = YUVARAJA
+		9 = YUVARAJA
+		10 = PILLAI
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = YUVARANI
+		7 = YUVARANI
+		8 = YUVARANI
+		9 = YUVARANI
+		10 = PILLAI
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		religion = hinduism
+	}
+}
+
+chinese_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = WANG
+		9 = WANG
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = WANG
+		9 = WANG
+		10 = HUANGDI #
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = WANG
+		9 = WANG
+		10 = HUANGDI #
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = WANG
+		9 = WANG
+		10 = HUANGDI #
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = WANG
+		9 = WANG
+		10 = HUANGDI #
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		culture_group = east_asian
+	}
+}
+
+korean_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = KORWANG
+		9 = TAEWANG
+		10 = HWANGJE #
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = KORWANG
+		9 = TAEWANG
+		10 = HWANGJE #
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = KORWANG
+		9 = TAEWANG
+		10 = HWANGJE #
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = KORWANG
+		9 = KORWANG
+		10 = HWANGJE #
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = korean
+		primary_culture = korean_new
+		}
+	}
+}
+
+vietnamese_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = VUONG #
+		9 = HIGHKING
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = VUONG #
+		9 = HIGHQUEEN
+		10 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = vietnamese
+		primary_culture = vietnamese_new
+		}
+	}
+}
+
+coatserb_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = SERDAR
+		3 = MARGRAVE
+		4 = ZUPAN
+		5 = VELIKIZUPAN
+		6 = VOJVODA
+		7 = VELIKIVOJVODA
+		8 = KRALJ
+		9 = HIGHKING
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = SERDAR
+		3 = MARGRAVINE
+		4 = ZUPAN
+		5 = VELIKIZUPAN
+		6 = VOJVODA
+		7 = VELIKIVOJVODA
+		8 = KRALJ
+		9 = HIGHQUEEN
+		10 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = croatian
+		primary_culture = serbian
+		}
+	}
+}
+
+gaelic_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = TOISEACH
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = GAELICRI
+		9 = GAELICARDRI
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = TOISEACH
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = GAELICRI
+		9 = GAELICARDRI
+		10 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		culture_group = gaelic
+	}
+}
+
+tibetan_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = TSENPO
+		9 = TSENPO
+		10 = TSENPO #AKA IHASE
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = TSENPO
+		9 = TSENPO
+		10 = TSENPO
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = tibetan
+		primary_culture = tibetan_new
+		}
+	}
+}
+
+nomadicasian_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = CHANYU
+		9 = KHAGAN
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = CHANYU
+		9 = KHAGAN
+		10 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		#continent = asia
+		technology_group = nomad_group
+	}
+}
+
+georgian_localisation = {
+	rank = {
+		1 = BARONY
+		2 = COUNTY
+		3 = MARGRAVIATE
+		4 = DUCHY
+		5 = PRINCEDOM
+		6 = GRANDDUCHY
+		7 = ARCHDUCHY
+		8 = KINGDOM
+		9 = HIGHKINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BARON
+		2 = COUNT
+		3 = MARGRAVE
+		4 = DUKE
+		5 = PRINCE
+		6 = GRANDDUKE
+		7 = ARCHDUKE
+		8 = MEPE
+		9 = MEPEMEPETA
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = BARONESS
+		2 = COUNTESS
+		3 = MARGRAVINE
+		4 = DUCHESS
+		5 = PRINCESS
+		6 = GRANDDUCHESS
+		7 = ARCHDUCHESS
+		8 = MEPE
+		9 = MEPEMEPETA
+		10 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = georgian
+		primary_culture = georgian_new
+		}
+	}
+}
+
+romanian_localisation = {
+	rank = {
+		1 = RMNBARONIA
+		2 = RMNCOMITAT
+		3 = RMNMARGRAVIATE
+		4 = RMNDUCAT
+		5 = RMNPRINCIPAT
+		6 = MARELEDUCAT
+		7 = ARHIDUCAT
+		8 = REGAT
+		9 = MARELEREGAT
+		10 = IMPERIU
+	}
+
+	ruler_male = {
+		1 = RMNBARON
+		2 = RMNCONTE
+		3 = RMNMARGRAVE
+		4 = RMNDUCE
+		5 = RMNPRINT
+		6 = MAREDUCE
+		7 = ARHIDUCE
+		8 = REGE
+		9 = MARELEREGE
+		10 = IMPARAT
+	}
+
+	ruler_female = {
+		1 = RMNBARONEASA
+		2 = RMNCONTESA
+		3 = RMNMARGRAVINE
+		4 = RMNDUCESA
+		5 = RMNPRINTESA
+		6 = RMNMAREDUCESA
+		7 = RMNARHIDUCESA
+		8 = RMNREGINA
+		9 = RMNMAREREGINA
+		10 = RMNIMPARATEASA
+	}
+
+	consort_male  = {
+		1 = RMNBARON
+		2 = RMNCONTE
+		3 = RMNMARGRAVE
+		4 = RMNDUCE
+		5 = RMNPRINT
+		6 = MAREDUCE
+		7 = ARHIDUCE
+		8 = REGE
+		9 = MARELEREGE
+		10 = IMPARAT
+	}
+
+	consort_female = {
+		1 = RMNBARONEASA
+		2 = RMNCONTESA
+		3 = RMNMARGRAVINE
+		4 = RMNDUCESA
+		5 = RMNPRINTESA
+		6 = RMNMAREDUCESA
+		7 = RMNARHIDUCESA
+		8 = RMNREGINA
+		9 = RMNMAREREGINA
+		10 = RMNIMPARATEASA
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+		primary_culture = romanian
+		primary_culture = transylvanian
+		}
+	}
+}
+
+estonian_localisation = {
+	rank = {
+		1 = PARUNIA
+		2 = MAAKOND
+		3 = MARKKRAHVKOND
+		4 = HERTSOGKOND
+		5 = VURSTSTRIIK
+		6 = SUURHERTSOGIRIIK
+		7 = PEAVUSTRIIK
+		8 = KUNIGRIIK
+		9 = KORGEKUNINGRIIK
+		10 = IMPEERIUM
+	}
+
+	ruler_male = {
+		1 = PARUN
+		2 = KRAHV
+		3 = MARKKRAHV
+		4 = HERTSOG
+		5 = VURST
+		6 = SUURVURST
+		7 = PEAVURST
+		8 = KUNINGAS
+		9 = KOGKUNINGAS
+		10 = KEISER
+	}
+
+	ruler_female = {
+		1 = PARUNESS
+		2 = KRAHVINNA
+		3 = MARKKRAHVINNA
+		4 = HERTSOGINNA
+		5 = PRINTSESS
+		6 = SUURHERTSOGINNA
+		7 = PEAHARRA
+		8 = KUNINGANNA
+		9 = KORGEKUNINGANNA
+		10 = KEISRINNA
+	}
+
+	consort_male  = {
+		1 = PARUN
+		2 = KRAHV
+		3 = MARKKRAHV
+		4 = HERTSOG
+		5 = VURST
+		6 = SUURVURST
+		7 = PEAVURST
+		8 = KUNINGAS
+		9 = KOGKUNINGAS
+		10 = KEISER
+	}
+
+	consort_female = {
+		1 = PARUNESS
+		2 = KRAHVINNA
+		3 = MARKKRAHVINNA
+		4 = HERTSOGINNA
+		5 = PRINTSESS
+		6 = SUURHERTSOGINNA
+		7 = PEAHARRA
+		8 = KUNINGANNA
+		9 = KORGEKUNINGANNA
+		10 = KEISRINNA
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = estonian
+	}
+}
+
+finnish_localisation = {
+	rank = {
+		1 = PARONIA
+		2 = KREIVIKUNTA
+		3 = MARGRAVIAATTI
+		4 = HERTTUAKUNTA
+		5 = RUHTINASKUNTA
+		6 = SUURHERTTUAKUNTA
+		7 = ARKKIHERTTUAKUNTA
+		8 = KUNINGASKUNTA
+		9 = KORKEAKUNINGASKUNTA
+		10 = VALTAKUNTA
+	}
+
+	ruler_male = {
+		1 = PARONI
+		2 = KREIVI
+		3 = MARKIISIKUNINGAS
+		4 = HERTTUA
+		5 = PRINSSI
+		6 = SUURHERTTUA
+		7 = ARKKIHERTTUA
+		8 = KUNINGAS #TS
+		9 = YLIKUNINGAS
+		10 = KEISARI
+	}
+
+	ruler_female = {
+		1 = PARONITAR
+		2 = KREIVITAR
+		3 = MARKIISITAR
+		4 = HERTTUATAR
+		5 = PRINSESSA
+		6 = SUURHERTTUATAR
+		7 = ARKKIHERTTUATAR
+		8 = KUNINGATAR
+		9 = YLIKUNGINGATAR
+		10 = KEISARINNA
+	}
+
+	consort_male  = {
+		1 = PARUN
+		2 = KRAHV
+		3 = MARKKRAHV
+		4 = HERTSOG
+		5 = VURST
+		6 = SUURVURST
+		7 = PEAVURST
+		8 = KUNINGAS
+		9 = KOGKUNINGAS
+		10 = KEISER
+	}
+
+	consort_female = {
+		1 = PARUNESS
+		2 = KRAHVINNA
+		3 = MARKKRAHVINNA
+		4 = HERTSOGINNA
+		5 = PRINTSESS
+		6 = SUURHERTSOGINNA
+		7 = PEAHARRA
+		8 = KUNINGANNA
+		9 = KORGEKUNINGANNA
+		10 = KEISRINNA
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = finnish
+	}
+}
+
+lithuanian_localisation = {
+	rank = {
+		1 = BARONIJA
+		2 = GRAFYSTE
+		3 = MARKGRAFYSTE
+		4 = KUNIGAIKSTYSTE
+		5 = KUNIGAIKSTYSTETWO
+		6 = DIDZIOJIKUNIGAIKSTYSTE
+		7 = ARCHIDUKCIJA
+		8 = KARALYSTE
+		9 = AUKSTOJIKARALYSTE
+		10 = IMPERIJA
+	}
+
+	ruler_male = {
+		1 = BARONAS
+		2 = GRAFAS
+		3 = MARGRABAS
+		4 = KUNIGAIKSTIS
+		5 = KUNIGAIKSTIS
+		6 = DIDYSISKUNIGAIKSTIS
+		7 = ERCHERCOGAS
+		8 = KARALIUS
+		9 = VYRIAUSIASISKARALIUS
+		10 = IMPERATORIUS
+	}
+
+	ruler_female = {
+		1 = BARONIENE
+		2 = GRAFIENE
+		3 = MARKGRAFIENE
+		4 = KUNIGAIKSTIENE
+		5 = KUNIGAIKSTIENE
+		6 = DIDZIOKOKUNIGAIKSTIENE
+		7 = ERCHERCOGIENE
+		8 = KARALIENE
+		9 = VYRIAUSIOJIKARALIENE
+		10 = IMPERATORIENE
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = lithuanian
+	}
+}
+
+slovak_localisation = {
+	rank = {
+		1 = SLOBARONSTVO
+		2 = SLOGROFSTVO
+		3 = SLOMARKGROFSTVO
+		4 = SLOVOJVODSTVO
+		5 = SLOKNIEZATSTVO
+		6 = SLOVELKOKNIEZATSTVO
+		7 = SLOARCIVOJVODSTVO
+		8 = SLOKRALOVSTVO
+		9 = SLOVYSOKEKRALOVSTVO
+		10 = SLORISA
+	}
+
+	ruler_male = {
+		1 = SLOBARON
+		2 = SLOGROF
+		3 = SLOMARKGROF
+		4 = SLOVOJVODA
+		5 = SLOKNIEZA
+		6 = SLOVELKOVOJVODA
+		7 = SLOARCIVOJVODA
+		8 = SLOKRAL
+		9 = SLONAJVYSSIKRAL
+		10 = SLOCISAR
+	}
+
+	ruler_female = {
+		1 = SLOBARONKA
+		2 = SLOGROFKA
+		3 = SLOMARKGROFKA
+		4 = SLOVOJVODKYNKA
+		5 = SLOPRINCEZNA
+		6 = SLOVELKOJVODYNKA
+		7 = SLOARCIVOJDYNKA
+		8 = SLOKRALOVNA
+		9 = SLOVYSOKAKRALOVNA
+		10 = SLOCISAROVNA
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = LADY_CONSORT
+		2 = COUNTESS_CONSORT
+		3 = MARGRAVINE_CONSORT
+		4 = CONSORT
+		5 = PRINCESS_CONSORT
+		6 = GRAND_CONSORT
+		7 = ARCHDUCHESS_CONSORT
+		8 = QUEEN_CONSORT
+		9 = HIGHQUEEN_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = slovak
+	}
+}
+
+slovene_localisation = {
+	rank = {
+		1 = CLIBARONIJA
+		2 = CLIGROFIJA
+		3 = CLIMARKRACIJA
+		4 = CLIVOJVODSTVO
+		5 = CLIKNEZEVINA
+		6 = CLIVELIKOVOJVODSTVO
+		7 = CLINADVOJVODSTVO
+		8 = CLIKRALJESTVO
+		9 = CLIVISOKOKRALJESTVO
+		10 = CLICESARSTVO
+	}
+
+	ruler_male = {
+		1 = CLIBARON
+		2 = CLIGROF
+		3 = CLIMARGROF
+		4 = CLIVOJVODA
+		5 = CLIKNEZ
+		6 = CLIVELIKIVOJVODA
+		7 = CLINADVOJVODA
+		8 = CLIKRALJ
+		9 = CLIVISOKIKRALJ
+		10 = CLICESAR
+	}
+
+	ruler_female = {
+		1 = CLIBARONICA
+		2 = CLIGROFICA
+		3 = CLIMARGRAVINA
+		4 = CLIVOJVODINJA
+		5 = CLIPRINCESA
+		6 = CLIVELIKAVOJVODNIJA
+		7 = CLINADVOJVODNIJA
+		8 = CLIKRALJICA
+		9 = CLIVISOKAKRALJICA
+		10 = CLICESARICA
+	}
+
+	consort_male  = {
+		1 = CLIBARON
+		2 = CLIGROF
+		3 = CLIMARGROF
+		4 = CLIVOJVODA
+		5 = CLIKNEZ
+		6 = CLIVELIKIVOJVODA
+		7 = CLINADVOJVODA
+		8 = CLIKRALJ
+		9 = CLIVISOKIKRALJ
+		10 = CLICESAR
+	}
+
+	consort_female = {
+		1 = CLIBARONICA
+		2 = CLIGROFICA
+		3 = CLIMARGRAVINA
+		4 = CLIVOJVODINJA
+		5 = CLIPRINCESA
+		6 = CLIVELIKAVOJVODNIJA
+		7 = CLINADVOJVODNIJA
+		8 = CLIKRALJICA
+		9 = CLIVISOKAKRALJICA
+		10 = CLICESARICA
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = slovene
+	}
+}
+
+greek_localisation = {
+	rank = {
+		1 = VARONIA
+		2 = NOMOS
+		3 = MARNKRAVIA
+		4 = DOUKASIO
+		5 = PRINKIPATO
+		6 = MEGALODOUKASI
+		7 = ARCHIDOUCHO
+		8 = VASILEIO
+		9 = YPSILOVASILEIO
+		10 = AUTOKRATORIA
+	}
+
+	ruler_male = {
+		1 = VARONOS
+		2 = KOMIS
+		3 = MARNKRAVIOS
+		4 = DOUKA
+		5 = PRINKIPAS
+		6 = ENGONOS
+		7 = ARCHDOUKA
+		8 = VASILIAS
+		9 = YPSISI
+		10 = AUTOKRATORAS
+	}
+
+	ruler_female = {
+		1 = VARONIAFEM
+		2 = METRISI
+		3 = MANGRAVINI
+		4 = DOUKISSA
+		5 = PRINKIPISSA
+		6 = DINGIA
+		7 = ARCHIDOUKISSA
+		8 = VASILISSA
+		9 = YPSILIVASILISSA
+		10 = AUTOKRATERAS
+	}
+
+	consort_male  = {
+		1 = VARONOS
+		2 = KOMIS
+		3 = MARNKRAVIOS
+		4 = DOUKA
+		5 = PRINKIPAS
+		6 = ENGONOS
+		7 = ARCHDOUKA
+		8 = VASILIAS
+		9 = YPSISI
+		10 = AUTOKRATORAS
+	}
+
+	consort_female = {
+		1 = VARONIAFEM
+		2 = METRISI
+		3 = MANGRAVINI
+		4 = DOUKISSA
+		5 = PRINKIPISSA
+		6 = DINGIA
+		7 = ARCHIDOUKISSA
+		8 = VASILISSA
+		9 = YPSILIVASILISSA
+		10 = AUTOKRATERAS
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		culture_group = byzantine
 	}
 }

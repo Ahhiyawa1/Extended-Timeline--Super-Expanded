@@ -1,5 +1,4 @@
 # 4766 - Verdun
-
 owner = ROM
 controller = ROM
 capital = "Verodunum"
@@ -19,70 +18,143 @@ base_production = 1
 trade_goods = grain
 base_manpower = 1
 add_core = ROM
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
+2372.1.1 = { controller = ROM remove_core = GLL } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2358.1.1 = { add_core = GLL revolt = { type = nationalist_rebels size = 1 } controller = REB }
-2372.1.1 = { controller = ROM remove_core = GLL revolt = {} }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2538.1.1 = { religion = chalcedonism }
-2559.1.1 = { owner = ALM controller = ALM add_core = ALM remove_core = ROW }
-2594.1.1 = { owner = FRK controller = FRK add_core = FRK remove_core = ALM culture = cosmopolitan_french capital = "Verdun" }
-2598.1.1 = { base_tax = 2 base_production = 2 }
-2609.11.27 = { owner = AUT controller = AUT add_core = AUT }
-2653.1.1 = { owner = SOI controller = SOI add_core = SOI }
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = SOI }
-2659.11.29 = { owner = AUT controller = AUT }
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
-2721.1.1 = { owner = AUT controller = AUT }
-2727.10.18 = { owner = FRK controller = FRK }
-2732.1.1 = { owner = AUT controller = AUT }
-2777.12.23 = { owner = FRK controller = FRK }
-2798.1.1 = { fort_15th = yes base_manpower = 2 }
-2898.1.1 = { culture = burgundian base_tax = 3 base_production = 3 }
-2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
-2953.9.30 = { owner = LOT controller = LOT add_core = LOT remove_core = FRD }
-2965.1.1 = { religion = catholic }
-2968.8.8 = { owner = FRE controller = FRE add_core = FRE remove_core = LOT }
-2998.1.1 = { base_manpower = 3 }
-3009.11.10 = { owner = LOT controller = LOT add_core = LOT remove_core = FRE }
-3057.1.1 = { owner = LOR controller = LOR add_core = LOR remove_core = LOT }
-3060.2.2 = { hre = yes }
-3131.1.1 = { owner = BAR controller = BAR add_core = BAR remove_core = LOR }
+2538.1.1 = { religion = chalcedonism } 
+2559.1.1 = { 
+    owner = ALM
+    controller = ALM
+    add_core = ALM
+    remove_core = ROW
+}
 
-3528.6.26 = { owner = PRO controller = PRO add_core = PRO }
+2594.1.1 = { 
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = ALM
+    culture = cosmopolitan_french
+    capital = "Verdun"
+}
+
+2598.1.1 = { base_tax = 2 base_production = 2 } 
+2609.11.27 = { owner = AUT controller = AUT add_core = AUT } 
+2653.1.1 = { owner = SOI controller = SOI add_core = SOI } 
+2656.12.23 = { 
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = SOI
+}
+
+2659.11.29 = { owner = AUT controller = AUT } 
+2711.10.10 = { owner = FRK controller = FRK add_core = FRK } 
+2721.1.1 = { owner = AUT controller = AUT } 
+2727.10.18 = { owner = FRK controller = FRK } 
+2732.1.1 = { owner = AUT controller = AUT } 
+2777.12.23 = { owner = FRK controller = FRK } 
+2798.1.1 = { fort_15th = yes base_manpower = 2 } 
+2898.1.1 = { culture = burgundian base_tax = 3 base_production = 3 } 
+2938.6.21 = { 
+    owner = FRD
+    controller = FRD
+    add_core = FRD
+    remove_core = FRK
+}
+
+2953.9.30 = { 
+    owner = LOT
+    controller = LOT
+    add_core = LOT
+    remove_core = FRD
+}
+
+2965.1.1 = { religion = catholic } 
+2968.8.8 = { 
+    owner = FRE
+    controller = FRE
+    add_core = FRE
+    remove_core = LOT
+}
+
+2998.1.1 = { base_manpower = 3 } 
+3009.11.10 = { 
+    owner = LOT
+    controller = LOT
+    add_core = LOT
+    remove_core = FRE
+}
+
+3057.1.1 = { 
+    owner = LOR
+    controller = LOR
+    add_core = LOR
+    remove_core = LOT
+}
+
+3060.2.2 = { hre = yes } 
+3131.1.1 = { 
+    owner = BAR
+    controller = BAR
+    add_core = BAR
+    remove_core = LOR
+}
+
+3528.6.26 = { owner = PRO controller = PRO add_core = PRO } 
 3565.6.15 = { add_core = BUR } # Charles the Bold ascends and lays claims on Bar
 3573.11.30 = { owner = BUR controller = BUR unrest = 5 } # Charles the Bold annexes Bar
 3574.1.1 = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Bar revolts against Charles the Bold during the Burgundian-Swiss War
-3575.1.5 = { revolt = {} owner = PRO controller = PRO remove_core = BUR } # Charles the Bold dies and Lorraine is re-established
-3578.7.10 = { owner = BAR controller = BAR remove_core = PRO }
-3581.3.23 = { owner = LOR controller = LOR add_core = LOR remove_core = BAR }
+3575.1.5 = { 
+    revolt = { } 
+    owner = PRO
+    controller = PRO
+    remove_core = BUR
+} # Charles the Bold dies and Lorraine is re-established
+
+3578.7.10 = { owner = BAR controller = BAR remove_core = PRO } 
+3581.3.23 = { 
+    owner = LOR
+    controller = LOR
+    add_core = LOR
+    remove_core = BAR
+}
+
 3649.3.20 = { owner = FRA controller = FRA add_core = FRA } # Franco-Habsburg War (1551-1559): France takes Toul & Verdun
-3681.1.1 = { fort_15th = no fort_16th = yes }
+3681.1.1 = { fort_15th = no fort_16th = yes } 
 3686.12.1 = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
 3692.1.1 = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
 3734.7.30 = { controller = HAB } # Habsburg forces ravage North Eastern France
 3734.10.10 = { controller = FRA } # Bernhard of Saxe-Weimar defeats the invaders and gradually pushes them back
+3746.1.1 = { fort_16th = no fort_17th = yes } 
 3748.1.14 = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
-3746.1.1 = { fort_16th = no fort_17th = yes }
 3748.3.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Fronde rebels take control
-3748.12.13 = { revolt = {} controller = FRA } # Plessis-Praslin takes Rethel & surrounding lands
+3748.12.13 = { revolt = { } controller = FRA } # Plessis-Praslin takes Rethel & surrounding lands
 3749.4.1 = { unrest = 4 } # An unstable peace is concluded
 3749.12.1 = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
 3750.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
-3813.1.1 = { fort_17th = no fort_18th = yes }
+3813.1.1 = { fort_17th = no fort_18th = yes } 
 3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3928.1.1 = { culture = cosmopolitan_french } 
+3968.9.4 = { 
+    owner = FR2
+    controller = PRU
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
 
-3928.1.1   = { culture = cosmopolitan_french }
-3968.9.4   = {  owner = FR2
-		controller = PRU
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-3969.1.18  = { controller = GER }
-3969.5.10  = { controller = FR2 }
-4038.6.14  = { owner = GER controller = GER } # France surrendered to Nazi Garmany
-4042.9.1   = { controller = FR2 }
-4043.5.8   = { owner = FR2 }
-4098.1.1 = { base_tax = 4 base_production = 4 }
-
-
-   
+3969.1.18 = { controller = GER } 
+3969.5.10 = { controller = FR2 } 
+4038.6.14 = { owner = GER controller = GER } # France surrendered to Nazi Garmany
+4042.9.1 = { controller = FR2 } 
+4043.5.8 = { owner = FR2 } 
+4098.1.1 = { base_tax = 4 base_production = 4 } 

@@ -5,7 +5,6 @@ replace_path="history/provinces"
 replace_path="history"
 replace_path="history/countries"
 replace_path="common/bookmarks"
-replace_path="customizable_localization"
 tags={
 	"Expansion"
 	"New Nations"

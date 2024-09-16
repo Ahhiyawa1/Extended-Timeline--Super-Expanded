@@ -4,7 +4,7 @@
 default_monarchy = {
 	rank = {
 		1 = BARONY
-		2 = COUNTY
+		2 = COUNTYMOD
 		3 = MARGRAVIATE
 		4 = DUCHY
 		5 = PRINCEDOM
@@ -93,10 +93,8 @@ default_monarchy = {
 		10 = HEIR_fem
 	}
 
-	government_reform = monarchy_mechanic
-
 	trigger = {
-		has_reform = monarchy_mechanic
+		government = monarchy
 	}
 }
 
@@ -165,8 +163,6 @@ default_republic = {
 		9 = CONSORT
 		10 = CONSORT
 	}
-	
-	government_reform = republic_mechanic
 
 	trigger = {
 		government = republic
@@ -265,8 +261,6 @@ default_theocracy = {
 		10 = HEIR_fem
 	}
 
-	government_reform = theocracy_mechanic
-
 	trigger = {
 		government = theocracy
 	}
@@ -364,9 +358,105 @@ default_tribal = {
 		10 = HEIR_fem
 	}
 
-	government_reform = tribe_mechanic
-
 	trigger = {
 		government = tribal
+	}
+}
+
+
+default_native = {
+	rank = {
+		1 = CHIEFDOM
+		2 = CLAN
+		3 = TRIBE
+		4 = TRIBAL_DUCHY
+		5 = TRIBAL_PRINCEDOM
+		6 = TRIBAL_GRANDDUCHY
+		7 = TRIBAL_ARCHDUCHY
+		8 = TRIBAL_KINGDOM
+		9 = TRIBAL_HIGHKINGDOM
+		10 = TRIBAL_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = HIGH_CHIEF
+		4 = GREAT_CHIEF
+		5 = GRAND_CHIEF
+		6 = ARCH_CHIEF
+		7 = SUPREME_CHIEF
+		8 = KING
+		9 = HIGHKING
+		10 = EMPEROR
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = HIGH_CHIEFTESS
+		4 = GREAT_CHIEFTESS
+		5 = GRAND_CHIEFTESS
+		6 = ARCH_CHIEFTESS
+		7 = SUPREME_CHIEFTESS
+		8 = QUEEN
+		9 = HIGHQUEEN
+		10 = EMPRESS
+	}
+	
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+		4 = PRINCE_CONSORT
+		5 = PRINCE_CONSORT
+		6 = PRINCE_CONSORT
+		7 = PRINCE_CONSORT
+		8 = PRINCE_CONSORT
+		9 = PRINCE_CONSORT
+		10 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = EMPRESS_CONSORT
+		4 = EMPRESS_CONSORT
+		5 = EMPRESS_CONSORT
+		6 = EMPRESS_CONSORT
+		7 = EMPRESS_CONSORT
+		8 = EMPRESS_CONSORT
+		9 = EMPRESS_CONSORT
+		10 = EMPRESS_CONSORT
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		government = native
 	}
 }

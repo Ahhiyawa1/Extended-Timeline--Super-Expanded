@@ -719,7 +719,7 @@ gov_austrian_dual_monarchy = {
 		7 = ARCHDUKE
 		8 = KING
 		9 = KING
-		10 = EMPEROR_KING
+		10 = EMPEROR
 	}
 
 	ruler_male = {
@@ -732,7 +732,7 @@ gov_austrian_dual_monarchy = {
 		7 = ARCHDUKE
 		8 = KING
 		9 = KING
-		10 = EMPEROR_KING
+		10 = EMPEROR
 	}
 
 	ruler_female = {
@@ -745,7 +745,7 @@ gov_austrian_dual_monarchy = {
 		7 = ARCHDUCHESS
 		8 = QUEEN
 		9 = QUEEN
-		10 = EMPRESS_QUEEN
+		10 = QUEEN
 	}
 	
 	consort_male = {
@@ -802,105 +802,6 @@ gov_austrian_dual_monarchy = {
 
 	trigger = {
 		has_reform = austria_dual_monarchy
-	}
-}
-
-#Kushite Monarchy
-gov_kushite_monarchy = {
-	rank = {
-		1 = KINGDOM
-		2 = KINGDOM
-		3 = KINGDOM
-		4 = KINGDOM
-		5 = KINGDOM
-		6 = KINGDOM
-		7 = KINGDOM
-		8 = KINGDOM
-		8 = KINGDOM
-		10 = EMPIRE
-	}
-	
-	ruler_male = {
-		1 = QORE
-		2 = QORE
-		3 = QORE
-		4 = QORE
-		5 = QORE
-		6 = QORE
-		7 = QORE
-		8 = QORE
-		9 = QORE
-		10 = QORE
-	}
-	
-	ruler_female = {
-		1 = KDWE	#Kandake
-		2 = KDWE
-		3 = KDWE
-		4 = KDWE
-		5 = KDWE
-		6 = KDWE
-		7 = KDWE
-		8 = KDWE
-		9 = KDWE
-		10 = KDWE
-	}
-	
-	consort_male = {
-		1 = QORE
-		2 = QORE
-		3 = QORE
-		4 = QORE
-		5 = QORE
-		6 = QORE
-		7 = QORE
-		8 = QORE
-		9 = QORE
-		10 = QORE
-	}
-
-	consort_female = {
-		1 = KDWE
-		2 = KDWE
-		3 = KDWE
-		4 = KDWE
-		5 = KDWE
-		6 = KDWE
-		7 = KDWE
-		8 = KDWE
-		9 = KDWE
-		10 = KDWE
-	}
-	
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-		4 = HEIR
-		5 = HEIR
-		6 = HEIR
-		7 = HEIR
-		8 = HEIR
-		9 = HEIR
-		10 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
-		4 = HEIR_fem
-		5 = HEIR_fem
-		6 = HEIR_fem
-		7 = HEIR_fem
-		8 = HEIR_fem
-		9 = HEIR_fem
-		10 = HEIR_fem
-	}
-	
-	trigger = {
-		tag = MEO
-		NOT = { has_reform = kemetic_monarchy_reform }	#changes if adopt Egyptian government as Pharaoh
 	}
 }
 
@@ -1121,93 +1022,5 @@ gov_judean_monarchy_reform = {
 	trigger = {
 		tag = JUD
 		has_reform = judean_monarchy_reform
-	}
-}
-
-
-#Daoist Theocracy
-gov_daoist_theocracy_name = {
-	rank = {
-		1 = DAOIST_ORDER
-		2 = DAOIST_ORDER
-		3 = DAOIST_ORDER
-	}
-	
-	ruler_male = {
-		1 = TIANSHI		#Celestial Master
-		2 = TIANSHI
-		3 = TIANSHI
-	}
-	
-	ruler_female = {
-		1 = TIANSHI
-		2 = TIANSHI
-		3 = TIANSHI
-	}
-	
-	consort_male = {
-		1 = CONSORT
-		2 = CONSORT
-		3 = CONSORT
-	}
-
-	consort_female = {
-		1 = CONSORT
-		2 = CONSORT
-		3 = CONSORT
-	}
-	
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
-	}
-	
-	trigger = {
-		religion = daoism
-		government = theocracy
-	}
-}
-
-#Taewang Great King Emperor name for Goguryeo mission tree, etc.
-gov_taewang_name = {
-	rank = {
-		1 = PRINCEDOM
-		2 = KINGDOM
-		3 = EMPIRE
-	}
-	
-	ruler_male = {
-		1 = PRINCE
-		2 = TAEWANG		#Great King / Emperor
-		3 = TAEWANG
-	}
-	
-	ruler_female = {
-		1 = PRINCESS
-		2 = HWANGHU		#Empress in Korean
-		3 = HWANGHU
-	}
-	
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
-	}
-	
-	trigger = {
-		has_country_flag = taewang_ruler_title_flag
 	}
 }

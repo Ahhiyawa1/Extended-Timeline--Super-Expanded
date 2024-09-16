@@ -225,7 +225,7 @@ vassal = {
 	gets_help_with_rebels = yes
 	forms_trade_companies = no
 
-	max_government_rank = 4
+	max_government_rank = 8 #MOD
 
 	liberty_desire_development_ratio = 0.25
 	liberty_desire_same_dynasty = -5.0
@@ -625,7 +625,7 @@ colony = {
 
 	liberty_desire_development_ratio = 0.1
 	opinion_on_subject_integration = 0
-	max_government_rank = 4
+	max_government_rank = 8 #MOD
 	cities_required_for_bonuses = 10
 
 	relative_power_class = 0
@@ -732,12 +732,6 @@ crown_colony = {
 		modifier = crown_colony_subject
 	}
 	
-	modifier_subject = {
-		modifier = ITA_extra_goods_produced_for_colonies
-		trigger = {
-			overlord = { has_country_flag = ITA_trades_to_come_flag }
-		}
-	}
 }
 
 private_enterprise = {
@@ -772,12 +766,6 @@ private_enterprise = {
 		modifier = private_enterprise_subject
 	}
 	
-	modifier_subject = {
-		modifier = ITA_extra_goods_produced_for_colonies
-		trigger = {
-			overlord = { has_country_flag = ITA_trades_to_come_flag }
-		}
-	}
 }
 
 self_governing_colony = {
@@ -813,12 +801,6 @@ self_governing_colony = {
 		modifier = self_governing_colony_subject
 	}
 	
-	modifier_subject = {
-		modifier = ITA_extra_goods_produced_for_colonies
-		trigger = {
-			overlord = { has_country_flag = ITA_trades_to_come_flag }
-		}
-	}
 }
 
 
@@ -844,7 +826,6 @@ tributary_state = {
 					has_country_flag = can_create_tributaries_flag_estate
 					is_nomad = yes
 					religion_group = eastern
-					religion_group = buddhic
 					technology_group = chinese
 					technology_group = polynesian_tech
 				}
@@ -987,7 +968,7 @@ eyalet = {
 	takes_diplo_slot = no
 	extend_trading_range = yes
 	counts_for_borders = yes
-	max_government_rank = 8
+	max_government_rank = 8 #MOD
 	can_be_co_belligerented = yes
 	must_accept_cta_from_overlord = yes
 	can_gain_favors = yes
@@ -1057,7 +1038,7 @@ core_eyalet = {
 	# Properties:
 	can_be_annexed = yes
 
-	max_government_rank = 8
+	max_government_rank = 8 #MOD 
 
 	liberty_desire_development_ratio = 0.1
 	liberty_desire_same_dynasty = -5.0
@@ -1129,7 +1110,7 @@ commercial_enterprise = {
 	opinion_on_subject_integration = 0
 	liberty_desire_development_ratio = 0.05
 
-	max_government_rank = 8
+	max_government_rank = 8 #MOD
 	cities_required_for_bonuses = 10
 
 	relative_power_class = 0
@@ -1600,6 +1581,8 @@ nahuatl_tributary = {
 	can_rival = {
 	}
 	can_ally = {
+		independent_nations = no
+		same_overlord = nahuatl_tributary
 	}
 	can_marry = {
 	}
@@ -1678,7 +1661,9 @@ european_colony = {
 			}
 		}
 	}
-
+	seize_territory = yes
+	replace_governor = no
+	start_colonial_war = no
 	customize_subject = no
 	sprite = GFX_icon_european_colony
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_european_colony
