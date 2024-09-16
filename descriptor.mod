@@ -18,6 +18,5 @@ tags={
 	"Technologies"
 	"Sound"
 }
-name="Extended Timeline: Super Expanded"
+name="Extended Timeline Super Expanded"
 supported_version="v1.37.2.0"
-remote_file_id="3268852078"
