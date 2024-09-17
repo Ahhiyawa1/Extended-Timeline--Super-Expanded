@@ -1,0 +1,33 @@
+cm_potential_build = {
+	AND = {
+		NOT = {
+			calc_true_if = {
+				all_owned_province ={
+					OR = {
+						has_great_project = { type = any }
+					}
+				}
+			amount = 1
+			}
+		}
+		if {
+			limit = {
+				ROOT = { vassal = 1 }
+			}
+			all_subject_country = {
+				AND = {
+					NOT = {
+						calc_true_if ={
+							any_owned_province ={
+								OR = {
+									has_great_project = { type = any }
+								}
+							}
+						amount = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}

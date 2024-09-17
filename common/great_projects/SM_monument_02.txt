@@ -1,0 +1,439 @@
+SM_great_observatory = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_great_observatory_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = {
+			local_institution_spread = 0.2
+			allowed_num_of_buildings = 1
+		}
+		area_modifier = { }
+		country_modifiers = {
+			idea_cost = -0.05
+			embracement_cost = -0.1
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = natural_scientist
+					skill = 1
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = {
+			local_institution_spread = 0.3
+			allowed_num_of_buildings = 1
+		}
+		area_modifier = { }
+		country_modifiers = {
+			idea_cost = -0.05
+			embracement_cost = -0.15
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = natural_scientist
+					skill = 2
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = {
+			local_institution_spread = 0.5
+			allowed_num_of_buildings = 1
+		}
+		area_modifier = { }
+		country_modifiers = {
+			idea_cost = -0.1
+			embracement_cost = -0.25
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = natural_scientist
+					skill = 3
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+}
+SM_high_seas_navigation_academy = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_high_seas_navigation_academy_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = {
+			local_sailors = 500
+		}
+		area_modifier = { }
+		country_modifiers = {
+			leader_naval_manuever = 1
+			naval_attrition = -0.15
+			free_navy_leader_pool = 1
+		}
+		on_upgraded = {
+			owner = {
+				create_explorer = {
+					tradition = 50
+				}
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = {
+			local_sailors = 1000
+		}
+		area_modifier = { }
+		country_modifiers = {
+			leader_naval_manuever = 1
+			naval_attrition = -0.25
+			free_navy_leader_pool = 1
+		}
+		on_upgraded = {
+			owner = {
+				create_explorer = {
+					tradition = 75
+				}
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = {
+			local_sailors = 2000
+		}
+		area_modifier = { }
+		country_modifiers = {
+			leader_naval_manuever = 1
+			naval_attrition = -0.5
+			free_navy_leader_pool = 1
+			free_maintenance_on_expl_conq = yes
+		}
+		on_upgraded = {
+			owner = {
+				create_explorer = {
+					tradition = 100
+				}
+			}
+		}
+	}
+}
+SM_sanctuary_of_harmony = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_sanctuary_of_harmony_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_religion = { religion = confucianism }
+	}
+	can_upgrade_trigger = {
+		province_is_or_accepts_religion = { religion = confucianism }
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = { }
+		area_modifier = {
+			local_unrest = -1
+		}
+		country_modifiers = {
+			yearly_harmony = 0.5
+			country_admin_power = 1
+			stability_cost_modifier = -0.1
+		}
+		on_upgraded = {
+			owner = {
+				add_stability_or_adm_power = yes
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = { }
+		area_modifier = {
+			local_unrest = -1
+		}
+		country_modifiers = {
+			yearly_harmony = 0.66
+			country_admin_power = 1
+			stability_cost_modifier = -0.2
+		}
+		on_upgraded = {
+			owner = {
+				add_stability_or_adm_power = yes
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = { }
+		area_modifier = {
+			local_unrest = -1
+		}
+		country_modifiers = {
+			yearly_harmony = 1
+			country_admin_power = 1
+			stability_cost_modifier = -0.3
+		}
+		on_upgraded = {
+			owner = {
+				add_stability_or_adm_power = yes
+			}
+		}
+	}
+}
+SM_world_heritage_exhibition = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_world_heritage_exhibition_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			num_accepted_cultures = 1
+			monthly_splendor = 1
+			prestige_decay = -0.005
+		}
+		on_upgraded = {
+			owner = {
+				add_splendor = 100
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			num_accepted_cultures = 3
+			monthly_splendor = 1.5
+			prestige_decay = -0.01
+			promote_culture_cost = -0.10
+		}
+		on_upgraded = {
+			owner = {
+				add_splendor = 100
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			num_accepted_cultures = 5
+			monthly_splendor = 2
+			prestige_decay = -0.02
+			promote_culture_cost = -0.25
+		}
+		on_upgraded = {
+			owner = {
+				add_splendor = 100
+			}
+		}
+	}
+}
+SM_trade_company_quarter = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_trade_company_quarter_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		owner = {
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_AT_LEAST_2_STRONG_TRADE_COMPANY
+				num_of_strong_trade_companies = 2
+			}
+		}
+	}
+	can_upgrade_trigger = {
+		owner = {
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_AT_LEAST_2_STRONG_TRADE_COMPANY
+				num_of_strong_trade_companies = 2
+			}
+		}
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = {
+			province_trade_power_modifier = 0.2
+		}
+		area_modifier = { }
+		country_modifiers = {
+			trade_steering = 0.1
+			trade_company_investment_cost = -0.1
+			trade_company_governing_cost = -0.05
+		}
+		on_upgraded = {
+			owner = {
+				add_mercantilism = 3
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = {
+			province_trade_power_modifier = 0.3
+		}
+		area_modifier = { }
+		country_modifiers = {
+			trade_steering = 0.15
+			trade_company_investment_cost = -0.2
+			trade_company_governing_cost = -0.1
+		}
+		on_upgraded = {
+			owner = {
+				add_mercantilism = 3
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = {
+			province_trade_power_modifier = 0.5
+		}
+		area_modifier = { }
+		country_modifiers = {
+			trade_steering = 0.2
+			trade_company_investment_cost = -0.3
+			trade_company_governing_cost = -0.2
+		}
+		on_upgraded = {
+			owner = {
+				add_mercantilism = 3
+			}
+		}
+	}
+}

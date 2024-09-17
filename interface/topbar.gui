@@ -16,7 +16,6 @@ guiTypes = {
 		animation_type = "decelerated"
 		animation_time = 600
 
-
 		iconType = {
 			name = "brown_bg"
 			spriteType ="GFX_brown_bg"
@@ -82,7 +81,7 @@ guiTypes = {
 		guiButtonType = {
 			name = "player_shield"
 			quadTextureSprite ="GFX_shield_fancy"
-			position = { x= -10 y = -13 }
+			position = { x= -5 y = 2 }
 			Orientation = "UPPER_LEFT"
 			tooltip = ""
 			tooltipText =""
@@ -93,7 +92,7 @@ guiTypes = {
 		iconType = {
 			name = "player_shield_glow"
 			quadTextureSprite ="GFX_shield_fancy_great_power_glow"
-			position = { x= -9 y = -12 }
+			position = { x= -5 y = 2 }
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -125,6 +124,7 @@ guiTypes = {
 			quadTextureSprite ="GFX_great_power_button"
 			buttonFont = "Main_14_black"
 			clicksound = macro_build
+			shortcut = "Shift+G"
 		}
 
 
@@ -648,6 +648,7 @@ guiTypes = {
 			position = { x = 722 y = 32 }
 			quadTextureSprite ="GFX_age_button"
 			clicksound = macro_build
+			shortcut = "Shift+A"
 		}
 
 		guiButtonType = {
@@ -730,6 +731,41 @@ guiTypes = {
 				format = center
 			}
 		}
+
+
+
+		#### NEW DATE YEAR ####
+		# guiButtonType = {
+		# 	name = date_gui
+		# 	quadTextureSprite = date_gui_bg
+		# 	tooltip = ""
+		# 	tooltipText = ""
+		# 	font = vic_18
+		# 	format = left
+		# 	delayedTooltipText = ""
+		# 	position = { x= -202 y = 17 }
+		# 	Orientation = UPPER_RIGHT
+		# 	scripted = yes
+		# }	
+		iconType ={
+			name = date_gui_bg
+			spriteType = date_gui_bg
+			position = { x= -124 y = 18 }
+			Orientation = UPPER_RIGHT
+			scripted = yes
+		}
+		instantTextBoxType = {
+			name = date_gui
+			text = "placeholder"
+			font = vic_18
+			format = left
+			maxWidth = 50
+			position = { x= -124 y = 18 }
+			Orientation = UPPER_RIGHT
+			scripted = yes
+		}
+
+
 	} ### end of "topbar"
 
 	windowType = {

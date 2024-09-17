@@ -1,0 +1,146 @@
+# Forward declaring all subject types so they can refer to each other in triggers etc.
+crown_protector = {}
+
+crown_protector = {
+	copy_from = vassal
+	count = vassal
+    sprite = GFX_icon_appanage
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_appanage
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_appanage
+	
+	# PROPERTIES
+	has_power_projection = no
+	takes_diplo_slot = no
+	uses_tariffs = yes
+	extend_trading_range = yes
+	counts_for_borders = yes
+	can_have_subjects_of_other_types = yes
+	transfer_subjects_when_made = yes
+
+	trust_on_start = 0
+	military_focus = 1.25
+	opinion_on_subject_integration = 0
+	max_government_rank = 2
+	liberty_desire_development_ratio = 0.05 # SUPER LOYAL
+	relative_power_class = 0
+	forcelimit_to_overlord = 0.10						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.10				# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.10						# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.10							# Percent of subject FL to use as base for modifiers
+	
+	# INTERACTIONS
+	# (continuous)
+	embargo_rivals = yes
+	support_loyalists = yes
+	subsidize_armies = yes
+	scutage = yes
+	send_officers = yes
+	divert_trade = yes
+	# (immediate)
+	placate_rulers = yes
+	place_relative_on_throne = no
+	enforce_religion = yes
+	customize_subject = yes
+	replace_governor = no
+	grant_province = yes
+	enforce_culture = yes
+	siphon_income = yes
+	fortify_march = yes
+	seize_territory = yes
+	start_colonial_war = no
+	grant_core_claim = yes
+	sacrifice_ruler = yes
+	sacrifice_heir = yes
+	increase_tariffs = yes
+	decrease_tariffs = yes
+	takeondebt = yes
+	bestow_gifts = yes
+	send_additional_troops = yes
+	demand_artifacts =no
+	demand_additional_tribute = no
+	force_seppuku = no
+	press_sailors = yes
+	contribute_to_capital = yes
+	force_isolation = no
+	return_land = yes
+	conscript_general = yes
+	knowledge_sharing = yes
+	block_settlement_growth = yes
+	allow_settlement_growth = yes
+	change_colonial_type = no
+	upgrade_subject_type = no
+	seize_court_resources = yes
+	request_extra_levies = yes
+	grant_administrative_autonomy = yes
+	
+	# MODIFIERS
+	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
+	modifier_subject = clear #Ditto
+
+	modifier_subject = {
+		modifier = crown_protector_modifier
+	}
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier
+	}
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier_10
+		trigger = {
+			num_of_cities = 15
+		}
+	}
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier_02
+		trigger = {
+			num_of_cities = 15
+		}
+	}
+
+	# modifier_overlord = {
+	# 	modifier = crown_protector_overlord_modifier_03
+	# 	trigger = {
+	# 		num_of_cities = 25
+	# 	}
+	# }
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier_04
+		trigger = {
+			num_of_cities = 50
+		}
+	}
+
+	# modifier_overlord = {
+	# 	modifier = crown_protector_overlord_modifier_05
+	# 	trigger = {
+	# 		num_of_cities = 100
+	# 	}
+	# }
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier_06
+		trigger = {
+			num_of_cities = 200
+		}
+	}
+
+	# modifier_overlord = {
+	# 	modifier = crown_protector_overlord_modifier_07
+	# 	trigger = {
+	# 		num_of_cities = 500
+	# 	}
+	# }
+
+	modifier_overlord = {
+		modifier = crown_protector_overlord_modifier_08
+		trigger = {
+			num_of_cities = 1000
+		}
+	}
+
+	overlord_opinion_modifier = is_vassal
+	subject_opinion_modifier = is_vassal
+}

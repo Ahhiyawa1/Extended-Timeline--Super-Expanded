@@ -1,0 +1,563 @@
+SM_library_of_muslim_schools = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_library_of_muslim_schools_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		custom_trigger_tooltip = {
+			tooltip = SM_PROVINCE_IS_OR_ACCEPTS_MUSLIM
+			religion_group = muslim
+			OR = {
+				has_owner_religion = yes
+				owner = { secondary_religion_group = muslim }
+				has_owner_harmonized_religion = yes
+			}
+		}
+	}
+	can_upgrade_trigger = {
+		custom_trigger_tooltip = {
+			tooltip = SM_PROVINCE_IS_OR_ACCEPTS_MUSLIM
+			religion_group = muslim
+			OR = {
+				has_owner_religion = yes
+				owner = { secondary_religion_group = muslim }
+				has_owner_harmonized_religion = yes
+			}
+		}
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			prestige = 0.1
+			advisor_pool = 1
+			innovativeness_gain = 0.1
+		}
+		conditional_modifier = {
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = SM_ANY_MUSLIM_COUNTRY_HAS_MORE_INSTITUTION_THAN_OWNER
+					owner = {
+						is_lacking_institutions = yes
+						any_known_country = {
+							religion_group = muslim
+							has_opinion = {
+								who = PREV
+								value = 1
+							}
+							institution_difference = {
+								who = PREV
+								value = 1
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				institution_growth = 5
+			}
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = theologian
+					skill = 1
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			prestige = 0.2
+			advisor_pool = 1
+			innovativeness_gain = 0.3
+		}
+		conditional_modifier = {
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = SM_ANY_MUSLIM_COUNTRY_HAS_MORE_INSTITUTION_THAN_OWNER
+					owner = {
+						is_lacking_institutions = yes
+						any_known_country = {
+							religion_group = muslim
+							has_opinion = {
+								who = PREV
+								value = 1
+							}
+							institution_difference = {
+								who = PREV
+								value = 1
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				institution_growth = 7
+			}
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = theologian
+					skill = 2
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			prestige = 0.3
+			advisor_pool = 1
+			innovativeness_gain = 0.5
+		}
+		conditional_modifier = {
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = SM_ANY_MUSLIM_COUNTRY_HAS_MORE_INSTITUTION_THAN_OWNER
+					owner = {
+						is_lacking_institutions = yes
+						any_known_country = {
+							religion_group = muslim
+							has_opinion = {
+								who = PREV
+								value = 1
+							}
+							institution_difference = {
+								who = PREV
+								value = 1
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				institution_growth = 10
+			}
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = theologian
+					skill = 3
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+}
+SM_grand_caravan_trading_square = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_grand_caravan_trading_square_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		SM_grand_caravan_trading_square_usage_triggers = yes
+	}
+	can_upgrade_trigger = {
+		SM_grand_caravan_trading_square_usage_triggers = yes
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = { }
+		area_modifier = {
+			trade_goods_size_modifier = 0.2
+		}
+		country_modifiers = {
+			caravan_power = 0.1
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = trader
+					skill = 1
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = { }
+		area_modifier = {
+			trade_goods_size_modifier = 0.3
+		}
+		country_modifiers = {
+			caravan_power = 0.2
+			merchants = 1
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = trader
+					skill = 2
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = { }
+		area_modifier = {
+			trade_goods_size_modifier = 0.5
+		}
+		country_modifiers = {
+			caravan_power = 0.3
+			merchants = 1
+		}
+		on_upgraded = {
+			owner = {
+				define_advisor = {
+					type = trader
+					skill = 3
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.5
+				}
+			}
+		}
+	}
+}
+SM_the_caliphate_great_hall = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = yes
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_the_caliphate_great_hall_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
+		is_capital = yes
+	}
+	can_upgrade_trigger = {
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
+		is_capital = yes
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			diplomatic_reputation = 1
+			diplomats = 1
+			merchants = 1
+			monthly_piety_accelerator = 0.001
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					adm = 6
+				}
+			}
+			modifier = {
+				reform_progress_growth = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					dip = 6
+				}
+			}
+			modifier = {
+				monthly_favor_modifier = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					mil = 6
+				}
+			}
+			modifier = {
+				drill_gain_modifier = 0.15
+			}
+		}
+		on_upgraded = {
+			owner = {
+				random_list = {
+					1 = { trigger = { NOT = { ADM = 6 } } change_adm = 1 }
+					1 = { trigger = { NOT = { DIP = 6 } } change_dip = 1 }
+					1 = { trigger = { NOT = { MIL = 6 } } change_mil = 1 }
+				}
+			}
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			diplomatic_reputation = 1
+			diplomats = 1
+			merchants = 1
+			monthly_piety_accelerator = 0.002
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					adm = 5
+				}
+			}
+			modifier = {
+				reform_progress_growth = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					dip = 5
+				}
+			}
+			modifier = {
+				monthly_favor_modifier = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					mil = 5
+				}
+			}
+			modifier = {
+				drill_gain_modifier = 0.15
+			}
+		}
+		on_upgraded = {
+			owner = {
+				random_list = {
+					1 = { trigger = { NOT = { ADM = 6 } } change_adm = 1 }
+					1 = { trigger = { NOT = { DIP = 6 } } change_dip = 1 }
+					1 = { trigger = { NOT = { MIL = 6 } } change_mil = 1 }
+				}
+			}
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = {
+			diplomatic_reputation = 2
+			diplomats = 1
+			merchants = 1
+			monthly_piety_accelerator = 0.003
+			monarch_admin_power = 1
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					adm = 4
+				}
+			}
+			modifier = {
+				reform_progress_growth = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					dip = 4
+				}
+			}
+			modifier = {
+				monthly_favor_modifier = 0.15
+			}
+		}
+		conditional_modifier = {
+			trigger = {
+				owner = {
+					mil = 4
+				}
+			}
+			modifier = {
+				drill_gain_modifier = 0.15
+			}
+		}
+		on_upgraded = {
+			owner = {
+				random_list = {
+					1 = { trigger = { NOT = { ADM = 6 } } change_adm = 1 }
+					1 = { trigger = { NOT = { DIP = 6 } } change_dip = 1 }
+					1 = { trigger = { NOT = { MIL = 6 } } change_mil = 1 }
+				}
+			}
+		}
+	}
+}
+SM_garden_metropolis = {
+	start = 0
+	date = 2000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 1
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		has_global_flag = SM_garden_metropolis_spawned_global_flag
+	}
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = {
+		owner = {
+			technology_group = high_american
+		}
+	}
+	can_upgrade_trigger = {
+	}
+	keep_trigger = { }
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = {	factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 1000 }
+		province_modifiers = {
+			supply_limit = 2
+			local_garrison_size = 0.2
+			local_development_cost = -0.1
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.1
+			local_unrest = -1
+		}
+		country_modifiers = {
+			monarch_lifespan = 0.2
+			all_estate_loyalty_equilibrium = 0.05
+		}
+		on_upgraded = {
+			add_random_development = 2
+		}
+	}
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = {
+			supply_limit = 3
+			local_garrison_size = 0.4
+			local_development_cost = -0.2
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.2
+			local_unrest = -1
+		}
+		country_modifiers = {
+			monarch_lifespan = 0.3
+			all_estate_loyalty_equilibrium = 0.05
+		}
+		on_upgraded = {
+			add_random_development = 2
+		}
+	}
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = {
+			supply_limit = 5
+			local_garrison_size = 0.6
+			local_development_cost = -0.3
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.3
+			local_unrest = -1
+		}
+		country_modifiers = {
+			monarch_lifespan = 0.5
+			all_estate_loyalty_equilibrium = 0.1
+		}
+		on_upgraded = {
+			add_random_development = 2
+		}
+	}
+}
