@@ -1,2 +1,725 @@
 # For specific government types
 # Will pick the first valid one it finds in list
+
+
+#ET
+gov_communist_dictatorship = {
+	rank = {
+		1 = SOCIALIST_STATE
+		2 = SOCIALIST_STATE
+		3 = SOCIALIST_STATE
+		4 = SOCIALIST_STATE
+		5 = SOCIALIST_STATE
+		6 = SOCIALIST_STATE
+		7 = SOCIALIST_STATE
+		8 = SOCIALIST_STATE
+		9 = SOCIALIST_STATE
+		10 = SOCIALIST_STATE
+	}
+	
+	ruler_male = {
+		1 = CHAIRMAN
+		2 = CHAIRMAN
+		3 = CHAIRMAN
+		4 = CHAIRMAN
+		5 = CHAIRMAN
+		6 = CHAIRMAN
+		7 = CHAIRMAN
+		8 = CHAIRMAN
+		9 = CHAIRMAN
+		10 = CHAIRMAN
+	}
+	
+	ruler_female = {
+		1 = CHAIRWOMAN
+		2 = CHAIRWOMAN
+		3 = CHAIRWOMAN
+		4 = CHAIRWOMAN
+		5 = CHAIRWOMAN
+		6 = CHAIRWOMAN
+		7 = CHAIRWOMAN
+		8 = CHAIRWOMAN
+		9 = CHAIRWOMAN
+		10 = CHAIRWOMAN
+	}
+	
+	trigger = {
+		has_reform = dictatorial_rule
+		has_reform = communist_government
+		NOT = { tag = NOK }
+	}
+}
+
+gov_socialist_republic = {
+	rank = {
+		1 = SOCIALIST_REPUBLIC
+		2 = SOCIALIST_REPUBLIC
+		3 = SOCIALIST_REPUBLIC
+		4 = SOCIALIST_REPUBLIC
+		5 = SOCIALIST_REPUBLIC
+		6 = SOCIALIST_REPUBLIC
+		7 = SOCIALIST_REPUBLIC
+		8 = SOCIALIST_REPUBLIC
+		9 = SOCIALIST_REPUBLIC
+		10 = SOCIALIST_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	
+	ruler_female = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	
+	trigger = {
+		NOT = { has_reform = dictatorial_rule }
+		has_reform = communist_government
+	}
+}
+
+gov_fascist_dictatorship = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+	
+	ruler_male = {
+		1 = LEADER
+		2 = LEADER
+		3 = LEADER
+		4 = LEADER
+		5 = LEADER
+		6 = LEADER
+		7 = LEADER
+		8 = LEADER
+		9 = LEADER
+		10 = LEADER
+	}
+	
+	ruler_female = {
+		1 = LEADER
+		2 = LEADER
+		3 = LEADER
+		4 = LEADER
+		5 = LEADER
+		6 = LEADER
+		7 = LEADER
+		8 = LEADER
+		9 = LEADER
+		10 = LEADER
+	}
+	
+	trigger = {
+		has_reform = fascist_government
+		NOT = { culture_group = germanic }
+		NOT = { culture_group = latin }
+	}
+}
+
+gov_military_junta = {
+	rank = {
+		1 = MILITARY_DICTATORSHIP
+		2 = MILITARY_DICTATORSHIP
+		3 = MILITARY_DICTATORSHIP
+		4 = MILITARY_DICTATORSHIP
+		5 = MILITARY_DICTATORSHIP
+		6 = MILITARY_DICTATORSHIP
+		7 = MILITARY_DICTATORSHIP
+		8 = MILITARY_DICTATORSHIP
+		9 = MILITARY_DICTATORSHIP
+		10 = MILITARY_DICTATORSHIP
+	}
+	
+	ruler_male = {
+		1 = CHAIRMAN
+		2 = CHAIRMAN
+		3 = CHAIRMAN
+		4 = CHAIRMAN
+		5 = CHAIRMAN
+		6 = CHAIRMAN
+		7 = CHAIRMAN
+		8 = CHAIRMAN
+		9 = CHAIRMAN
+		10 = CHAIRMAN
+	}
+	
+	ruler_female = {
+		1 = CHAIRWOMAN
+		2 = CHAIRWOMAN
+		3 = CHAIRWOMAN
+		4 = CHAIRWOMAN
+		5 = CHAIRWOMAN
+		6 = CHAIRWOMAN
+		7 = CHAIRWOMAN
+		8 = CHAIRWOMAN
+		9 = CHAIRWOMAN
+		10 = CHAIRWOMAN
+	}
+	
+	trigger = {
+		has_reform = military_government
+	}
+}
+
+gov_barbarian_tribe = {
+	rank = {
+		1 = BARBARIAN_TRIBE
+		2 = BARBARIAN_TRIBE
+		3 = BARBARIAN_TRIBE
+		4 = BARBARIAN_TRIBE
+		5 = BARBARIAN_TRIBE
+		6 = BARBARIAN_KINGDOM
+		7 = BARBARIAN_KINGDOM
+		8 = BARBARIAN_KINGDOM
+		9 = BARBARIAN_KINGDOM	
+		10 = BARBARIAN_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = CHIEF
+		5 = CHIEF
+		6 = KING
+		7 = KING
+		8 = KING
+		9 = KING	
+		10 = EMPEROR
+	}
+	
+	ruler_female = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = CHIEF
+		5 = CHIEF
+		6 = QUEEN
+		7 = QUEEN
+		8 = QUEEN 
+		9 = QUEEN
+		10 = EMPRESS
+	}
+	
+	trigger = {
+		has_reform = barbarian_reform
+	}
+}
+
+gov_parliamentary_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = REPUBLIC
+		4 = REPUBLIC
+		5 = REPUBLIC
+		6 = REPUBLIC
+		7 = REPUBLIC
+		8 = REPUBLIC
+		9 = REPUBLIC
+		10 = REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+	
+	ruler_female = {
+		1 = PRIME_MINISTER_fem
+		2 = PRIME_MINISTER_fem
+		3 = PRIME_MINISTER_fem
+		4 = PRIME_MINISTER_fem
+		5 = PRIME_MINISTER_fem
+		6 = PRIME_MINISTER_fem
+		7 = PRIME_MINISTER_fem
+		8 = PRIME_MINISTER_fem
+		9 = PRIME_MINISTER_fem
+		10 = PRIME_MINISTER_fem
+	}
+	
+	trigger = {
+		has_reform = multi_party_system
+		has_reform = abolish_presidency
+	}
+}
+
+gov_roman_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = REPUBLIC
+		4 = REPUBLIC
+		5 = REPUBLIC
+		6 = REPUBLIC
+		7 = REPUBLIC
+		8 = REPUBLIC
+		9 = REPUBLIC
+		10 = REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = CONSUL
+		4 = CONSUL
+		5 = CONSUL
+		6 = CONSUL
+		7 = CONSUL
+		8 = CONSUL
+		9 = CONSUL
+		10 = CONSUL
+	}
+	
+	ruler_female = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = CONSUL
+		4 = CONSUL
+		5 = CONSUL
+		6 = CONSUL
+		7 = CONSUL
+		8 = CONSUL
+		9 = CONSUL
+		10 = CONSUL
+	}
+	
+	trigger = {
+		has_reform = roman_republic_reform
+	}
+}
+
+egyptian_theocracy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = PRINCIPALITY
+		3 = PRINCIPALITY
+		4 = PRINCIPALITY
+		5 = PRINCIPALITY
+		6 = KINGDOM
+		7 = KINGDOM
+		8 = KINGDOM
+		9 = KINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = PRIEST
+		2 = PRIEST
+		3 = PRIEST
+		4 = PRIEST
+		5 = PRIEST
+		6 = PHAROAH
+		7 = PHAROAH
+		8 = PHAROAH
+		9 = PHAROAH
+		10 = GREAT_PHAROAH
+	}
+
+	ruler_female = {
+		1 = PRIESTESS
+		2 = PRIESTESS
+		3 = PRIESTESS
+		4 = PRIESTESS
+		5 = PRIESTESS
+		6 = PHAROAH_fem
+		7 = PHAROAH_fem
+		8 = PHAROAH_fem
+		9 = PHAROAH_fem
+		10 = GREAT_PHAROAH_fem
+	}
+
+	trigger = {
+		religion = egyptian
+		government = theocracy
+	}
+}
+
+druidism_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_PRINCIPALITY
+		3 = HOLY_PRINCIPALITY
+		4 = HOLY_PRINCIPALITY
+		5 = HOLY_PRINCIPALITY
+		6 = HOLY_STATE
+		7 = HOLY_STATE
+		8 = HOLY_STATE
+		9 = HOLY_STATE
+		10 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = DRUID
+		2 = DRUID
+		3 = DRUID
+		4 = DRUID
+		5 = DRUID
+		6 = DRUID
+		7 = HIGH_DRUID
+		8 = HIGH_DRUID
+		9 = HIGH_DRUID
+		10 = GREAT_DRUID
+	}
+
+	ruler_female = {
+		1 = DRUID_fem
+		2 = DRUID_fem
+		3 = DRUID_fem
+		4 = DRUID_fem
+		5 = DRUID_fem
+		6 = DRUID_fem
+		7 = HIGH_DRUID_fem
+		8 = HIGH_DRUID_fem
+		9 = HIGH_DRUID_fem
+		10 = GREAT_DRUID_fem
+	}
+
+	trigger = {
+		religion = druidism
+		government = theocracy
+	}
+}
+
+gov_steppe_horde = {
+	rank = {
+		1 = HORDE
+		2 = HORDE
+		3 = HORDE
+		4 = KHANATE
+		5 = KHANATE
+		6 = KHANATE
+		7 = KHAGANATE
+		8 = KHAGANATE
+		9 = KHAGANATE
+		10 = KHAGANATE
+	}
+	
+	ruler_male = {
+		1 = JINONG
+		2 = JINONG
+		3 = JINONG
+		4 = KHAN
+		5 = KHAN
+		6 = KHAN
+		7 = KHAGAN
+		8 = KHAGAN
+		9 = KHAGAN
+		10 = KHAGAN
+	}
+	
+	ruler_female = {
+		1 = JINONG
+		2 = JINONG
+		3 = JINONG
+		4 = KHATUN
+		5 = KHATUN
+		6 = KHATUN
+		7 = GREAT_KHATUN
+		8 = GREAT_KHATUN
+		9 = GREAT_KHATUN
+		10 = GREAT_KHATUN
+	}
+	
+	consort_male = {
+		1 = BEILE
+		2 = BEILE
+		3 = BEILE
+		4 = KHAN
+		5 = KHAN
+		6 = KHAN
+		7 = KHAGAN
+		8 = KHAGAN
+		9 = KHAGAN
+		10 = KHAGAN
+	}
+
+	consort_female = {
+		1 = GEGE
+		2 = GEGE
+		3 = GEGE
+		4 = KHANUM
+		5 = KHANUM
+		6 = KHANUM
+		7 = KHANUM
+		8 = KHANUM
+		9 = KHANUM
+		10 = KHANUM
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = KHANZADEH
+		8 = KHANZADEH
+		9 = KHANZADEH
+		10 = KHANZADEH
+	}
+
+	heir_female = {
+		1 = KHANUM
+		2 = KHANUM
+		3 = KHANUM
+		4 = KHANUM
+		5 = KHANUM
+		6 = KHANUM
+		7 = KHANUM
+		8 = KHANUM
+		9 = KHANUM
+		10 = KHANUM
+	}
+	
+	trigger = {
+		has_reform = steppe_horde
+		OR = { 
+			culture_group = altaic 
+			culture_group = mongolic
+			culture_group = tartar 
+		}
+	}
+}
+
+gov_native_council = {
+	rank = {
+		1 = TRIBE
+		2 = TRIBE
+		3 = TRIBE
+		4 = TRIBE
+		5 = TRIBE
+		6 = TRIBE
+		7 = CHIEF
+		8 = CHIEF
+		9 = CHIEF
+		10 = PARAMOUNT_CHIEF
+	}
+	
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = HIGH_CHIEF
+		5 = HIGH_CHIEF
+		6 = HIGH_CHIEF
+		7 = PARAMOUNT_CHIEF
+		8 = PARAMOUNT_CHIEF
+		9 = PARAMOUNT_CHIEF
+		10 = PARAMOUNT_CHIEF
+	}
+	
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = CHIEFTESS
+		3 = CHIEFTESS
+		4 = HIGH_CHIEFTESS
+		5 = HIGH_CHIEFTESS
+		6 = HIGH_CHIEFTESS
+		7 = PARAMOUNT_CHIEFTESS
+		8 = PARAMOUNT_CHIEFTESS
+		9 = PARAMOUNT_CHIEFTESS
+		10 = PARAMOUNT_CHIEFTESS
+	}
+	
+	consort_male = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+		4 = CONSORT
+		5 = CONSORT
+		6 = CONSORT
+		7 = CONSORT
+		8 = CONSORT
+		9 = CONSORT
+		10 = CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = CONSORT
+		3 = CONSORT
+		4 = CONSORT
+		5 = CONSORT
+		6 = CONSORT
+		7 = CONSORT
+		8 = CONSORT
+		9 = CONSORT
+		10 = CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+	
+	trigger = {
+		OR = {
+			government = native
+			has_reform = siberian_tribe
+			has_reform = native_basic_reform
+			AND = {
+				has_reform = steppe_horde
+				NOT = {
+					OR = { 
+						culture_group = altaic 
+						culture_group = mongolic
+						culture_group = tartar 
+					}
+				}
+			}
+		}
+	}
+}
+
+gov_colonial_government = {
+	rank = {
+		1 = COLONY
+		2 = COLONY
+		3 = COLONY
+		4 = COLONY
+		5 = COLONY
+		6 = COLONY
+		7 = COLONY
+		8 = COLONY
+		9 = COLONY
+		10 = COLONY
+	}
+	
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR
+		7 = GOVERNOR
+		8 = GOVERNOR
+		9 = GOVERNOR
+		10 = GOVERNOR
+	}
+	
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS
+		7 = GOVERNESS
+		8 = GOVERNESS
+		9 = GOVERNESS
+		10 = GOVERNESS
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = colonial_government
+			has_reform = crown_colony_government
+			has_reform = private_enterprise_colony_government
+			has_reform = self_governing_colony_government
+		}
+	}
+}
+
+federal_monarchy_statists = {
+	rank = {
+		1 = UNITED_PROVINCES
+		2 = UNITED_PROVINCES
+		3 = UNITED_PROVINCES
+		4 = FEDERAL_KINGDOM
+		5 = FEDERAL_KINGDOM
+		6 = FEDERAL_KINGDOM
+		7 = FEDERAL_EMPIRE
+		8 = FEDERAL_EMPIRE
+		9 = FEDERAL_EMPIRE
+		10 = FEDERAL_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SPEAKER
+		2 = SPEAKER
+		3 = SPEAKER
+		4 = CHANCELOR
+		5 = CHANCELOR
+		6 = CHANCELOR
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = SPEAKER_fem
+		2 = SPEAKER_fem
+		3 = SPEAKER_fem
+		4 = CHANCELOR_fem
+		5 = CHANCELOR_fem
+		6 = CHANCELOR_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		government = republic
+	}
+}
