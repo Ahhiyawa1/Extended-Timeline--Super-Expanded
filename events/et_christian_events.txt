@@ -883,9 +883,7 @@ province_event = {
 	}
 }
 
-#Catholic to Chalcedonian provinces
 province_event = {
-
 	id = et.51
 	title = "et.EVTNAME51"
 	desc = "et.EVTDESC51"
@@ -894,6 +892,8 @@ province_event = {
 	trigger = {
 		religion = chalcedonism
 		is_religion_enabled = orthodox
+		is_year = 3010
+		NOT = { is_year = 3200 }
 	}
 	mean_time_to_happen = {
 		months = 100
@@ -902,7 +902,6 @@ province_event = {
 			factor = 0.1
 			any_neighbor_province = { religion = catholic }
 		}
-
 	}
 	
 	option = {
@@ -910,6 +909,8 @@ province_event = {
 		change_religion = catholic
 	}
 }
+
+
 
 #Orthodox to Chalcedonian provinces
 province_event = {
@@ -922,6 +923,8 @@ province_event = {
 	trigger = {
 		religion = chalcedonism
 		is_religion_enabled = orthodox
+		is_year = 3010
+		NOT = { is_year = 3200 }
 	}
 	mean_time_to_happen = {
 		months = 100
