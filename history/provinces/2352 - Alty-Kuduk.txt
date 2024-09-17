@@ -1,4 +1,4 @@
-#2441 - Alty-Kuduk
+# 2441 - Alty-Kuduk
 culture = turkmeni
 religion = zoroastrian
 capital = "Alty-Kuduk"
@@ -13,36 +13,152 @@ discovered_by = muslim
 base_tax = 3
 base_production = 3
 base_manpower = 3
-2258.1.1 = { controller = HNS add_core = HNS city = yes trade_goods = Fish }
-2468.1.1 = { add_core = OGH }
-2546.1.1 = { controller = OGH }
-2691.1.1 = { controller = WGO add_core = WGO }
-2757.1.1 = { controller = KGA add_core = KGA }
-2848.1.1 = { controller = OGH }
-2998.1.1 = { religion = Sunni }
-3141.1.1 = { controller = KIM add_core = KIM }
-3148.1.1 = { controller = KIP add_core = KIP }
-3158.1.1 = { culture = khazak }
-3198.1.1 = { controller = CUM add_core = CUM }
-3334.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = BHO add_core = BHO }
-3476.1.1 = { controller = GLH add_core = GLH }
-3492.1.1 = { controller = KZH add_core = KZH }
-3504.1.1 = { controller = NOG add_core = NOG }
-3563.1.1 = { controller = KZH }
-3720.1.1 = { discovered_by = RUS }
-3838.1.1 = { controller = ZUN }
-3853.1.1 = { controller = KZH }
-3951.1.1 = { controller = RUS add_core = RUS capital = "Aralsk" }
-4008.1.1 = { discovered_by = asian }
-4015.11.27 = { controller = TKS add_core = TKS }
-4015.12.13 = { add_core = KZK }
-4016.2.22 = { controller = RUS }
-4020.12.30 = { controller = SOV add_core = SOV }
-4058.1.1 = { base_tax = 2 base_production = 2 base_manpower = 2 trade_goods = Wool }
-4089.12.16 = { controller = KZK capital = "Aral" }
 is_city = no
+2258.1.1 = { 
+    controller = HNS
+    add_core = HNS
+    city = yes
+    trade_goods = Fish
+}
 
+2438.1.1 = { 
+    owner = OGH
+    controller = OGH
+    add_core = OGH
+    is_city = yes
+    trade_goods = naval_supplies
+}
 
+2468.1.1 = { add_core = OGH } 
+2546.1.1 = { controller = OGH } 
+2691.1.1 = { 
+    controller = WGO
+    add_core = WGO
+    owner = WGO
+    add_core = WGO
+    remove_core = OGH
+}
 
-   
+2757.1.1 = { 
+    controller = KGA
+    add_core = KGA
+    owner = KGA
+    add_core = KGA
+    remove_core = WGO
+}
+
+2848.1.1 = { 
+    controller = PEC
+    owner = PEC
+    add_core = PEC
+    remove_core = KGA
+}
+
+2928.1.1 = { 
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+    culture = cuman
+}
+
+2978.1.1 = { 
+    owner = KIM
+    controller = KIM
+    add_core = KIM
+    remove_core = CUM
+}
+
+2998.1.1 = { religion = Sunni } 
+3141.1.1 = { controller = KIM add_core = KIM } 
+3148.1.1 = { 
+    controller = KIP
+    add_core = KIP
+    owner = KIP
+    add_core = KIP
+    remove_core = KIM
+}
+
+3158.1.1 = { culture = khazak } 
+3198.1.1 = { 
+    controller = CUM
+    add_core = CUM
+    owner = CUM
+    add_core = CUM
+    discovered_by = muslim
+    discovered_by = ottoman
+}
+
+3278.1.1 = { religion = sunni } 
+3334.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+    remove_core = CUM
+    culture = khazak
+}
+
+3358.1.1 = { 
+    controller = BHO
+    add_core = BHO
+    owner = BHO
+    add_core = BHO
+    remove_core = KHA
+}
+
+3476.1.1 = { 
+    controller = GLH
+    add_core = GLH
+    owner = GLH
+    add_core = GLH
+}
+
+3492.1.1 = { 
+    controller = KZH
+    add_core = KZH
+    owner = KZH
+    add_core = KZH
+    remove_core = GLH
+}
+
+3504.1.1 = { 
+    controller = NOG
+    add_core = NOG
+    owner = NOG
+    add_core = NOG
+}
+
+3563.1.1 = { controller = KZH } 
+3566.1.1 = { owner = KZH remove_core = NOG } # Kazakhs take over
+3720.1.1 = { discovered_by = RUS discovered_by = RUS } 
+3838.1.1 = { controller = ZUN owner = ZUN } # Dzungarian invasion
+3853.1.1 = { controller = KZH owner = KZH } 
+3922.1.1 = { owner = RUS controller = RUS add_core = RUS } 
+3951.1.1 = { controller = RUS add_core = RUS capital = "Aralsk" } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4015.11.27 = { controller = TKS add_core = TKS } 
+4015.12.13 = { add_core = KZK add_core = KZK remove_core = KZH } 
+4016.2.22 = { controller = RUS } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4058.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_manpower = 2
+    trade_goods = Wool
+}
+
+4089.12.16 = { 
+    controller = KZK
+    capital = "Aral"
+    owner = KZK
+    remove_core = SOV
+    remove_core = RUS
+}

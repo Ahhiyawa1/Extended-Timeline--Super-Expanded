@@ -1,11 +1,10 @@
-#5287 - Svetly Yar
-
+# 5287 - Svetly Yar
 owner = ALN
 controller = ALN
 add_core = ALN
 is_city = yes
 culture = alan
-religion = tengri_pagan_reformed
+religion = zoroastrian
 capital = "Swetli Jar"
 trade_goods = wool
 hre = no
@@ -19,40 +18,97 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 center_of_trade = 1
+2418.1.1 = { 
+    owner = HNS
+    controller = HNS
+    add_core = HNS
+    remove_core = ALN
+    culture = hunnic
+}
 
-2418.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = ALN culture = hunnic }
-2546.1.1 = { owner = KHZ controller = KHZ add_core = KHZ remove_core = HNS culture = khazar }
-2798.1.1 = { base_tax = 3 base_production = 3 }
-2898.1.1 = { base_manpower = 3 discovered_by = eastern }
-2998.1.1 = { base_tax = 4 base_production = 4 }
-3018.1.1 = { religion = sunni }
-3067.1.1 = { owner = PEC controller = PEC add_core = PEC remove_core = KHZ culture = cuman }
-3098.1.1 = { base_manpower = 4 }
-3135.1.1 = { owner = CUM controller = CUM add_core = CUM remove_core = PEC }
-3198.1.1 = { base_tax = 5 base_production = 5 }
-3298.1.1 = { base_manpower = 5 }
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = AST remove_core = CUM culture = astrakhani }
-3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA }
-3398.1.1 = { base_tax = 6 base_production = 6 }
-3470.1.1 = { owner = BHO controller = BHO add_core = BHO }
-3472.1.1 = { owner = WHH controller = WHH remove_core = BHO }
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH }
+2546.1.1 = { 
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    remove_core = HNS
+    culture = khazar
+}
 
-3540.1.1  = { owner = GOL controller = GOL add_core = GOL remove_core = GLH }
-3600.6.1  = { owner = AST controller = AST remove_core = GOL } # Golden Horde destroyed by Crimea
-3654.6.2  = { owner = RUS controller = RUS add_core = RUS remove_core = AST } # Russians acquire Volga after fall of Astrakhan
-3654.8.1  = { base_tax = 3 base_production = 3 base_manpower = 2 } #Sarai destroyed
-3698.1.1  = { citysize = 6840 culture = russian religion = orthodox }
-3768.3.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
-3769.4.14   = { revolt = { } controller = RUS unrest = 0 } # Razin captured
-3871.9.13  = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
-3873.2.1 = { revolt = {} controller = RUS unrest = 0 } # Pugachev is captured
+2798.1.1 = { base_tax = 3 base_production = 3 } 
+2898.1.1 = { base_manpower = 3 discovered_by = eastern } 
+2998.1.1 = { base_tax = 4 base_production = 4 } 
+3018.1.1 = { religion = sunni } 
+3067.1.1 = { 
+    owner = PEC
+    controller = PEC
+    add_core = PEC
+    remove_core = KHZ
+    culture = cuman
+}
 
-4008.1.1 = { discovered_by = asian }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4057.1.1   = { capital = "Svetly Yar" }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
+3098.1.1 = { base_manpower = 4 } 
+3135.1.1 = { 
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+}
 
+3198.1.1 = { base_tax = 5 base_production = 5 } 
+3298.1.1 = { base_manpower = 5 } 
+3334.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = AST
+    remove_core = CUM
+    culture = astrakhani
+}
 
+3358.1.1 = { 
+    owner = WHH
+    controller = WHH
+    add_core = WHH
+    remove_core = KHA
+}
 
-   
+3398.1.1 = { base_tax = 6 base_production = 6 } 
+3470.1.1 = { owner = BHO controller = BHO add_core = BHO } 
+3472.1.1 = { owner = WHH controller = WHH remove_core = BHO } 
+3476.1.1 = { owner = GLH controller = GLH add_core = GLH } 
+3540.1.1 = { 
+    owner = GOL
+    controller = GOL
+    add_core = GOL
+    remove_core = GLH
+}
+
+3600.6.1 = { owner = AST controller = AST remove_core = GOL } # Golden Horde destroyed by Crimea
+3654.6.2 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = AST
+} # Russians acquire Volga after fall of Astrakhan
+
+3654.8.1 = { base_tax = 3 base_production = 3 base_manpower = 2 } # Sarai destroyed
+3698.1.1 = { citysize = 6840 culture = russian religion = orthodox } 
+3768.3.1 = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
+3769.4.14 = { revolt = { } controller = RUS unrest = 0 } # Razin captured
+3871.9.13 = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
+3873.2.1 = { revolt = { } controller = RUS unrest = 0 } # Pugachev is captured
+4008.1.1 = { discovered_by = asian } 
+4020.12.30 = { 
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4057.1.1 = { capital = "Svetly Yar" } 
+4089.12.25 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = SOV
+}

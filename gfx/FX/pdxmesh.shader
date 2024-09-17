@@ -1,3 +1,5 @@
+## Credit to Yard1 & Hutama for their mod "Cantons for Colonial Flags"
+
 ## Includes
 
 Includes = {
@@ -301,28 +303,9 @@ VertexShader =
 			return Out;
 		}
 	]]
-	
-	MainCode VertexPdxMeshEmpty
-	[[
-		VS_OUTPUT_PDXMESHSTANDARD main( const VS_INPUT_PDXMESHSTANDARD v )
-		{
-		  	VS_OUTPUT_PDXMESHSTANDARD Out;
-			
-			float4 zero = float4(0,0,0,0);
-					
-			Out.vNormal = zero.rgb;
-			Out.vTangent = zero.rgb;
-			Out.vBitangent = zero.rgb;
-			Out.vPos = zero;
-			Out.vPosition = zero;
-			
-			Out.vUV0 = zero.rg;
-			Out.vUV1 = zero.rg;
-			return Out;
-		}
-	]]
-	
+
 }
+
 
 ## Pixel Shaders
 
@@ -344,16 +327,49 @@ PixelShader =
 			float3 vPos = In.vPos.xyz / In.vPos.w;
 			
 			float4 vFoWColor = GetFoWColor( vPos, FoWTexture);
+			float TI = GetTI( vFoWColor );
 
-			clip( 0.99f - vFoWColor.r );		
+			if( vFoWOpacity_Time.x < 0.0f ) {
+				TI = 0.0;
+			}
+
+			clip( 0.99f - TI );	
 			
 			float4 vColor = tex2D( DiffuseMap, In.vUV0 );
-			float3 vNormal = In.vNormal;
+			float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
+			
+			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
+			float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
+			float3 vNormal = mul( vNormalSample, TBN );
+				
+			vColor.rgb = lerp( vColor.rgb, 
+			        vColor.rgb * ( vSpecColor.r * PrimaryColor.rgb ), 
+				    vSpecColor.r );
+			vColor.rgb = lerp( vColor.rgb, 
+			        vColor.rgb * ( vSpecColor.g * SecondaryColor.rgb ), 
+				    vSpecColor.g );
+			if( AtlasHalfColor.a > 0.0f)
+			{
+				vColor.rgb = lerp( vColor.rgb, 
+						vColor.rgb * ( vSpecColor.b * AtlasHalfColor.rgb ), 
+						vSpecColor.b );	
+			}
+			else
+			{
+				vColor.rgb = lerp( vColor.rgb, 
+						vColor.rgb * ( vSpecColor.b * TertiaryColor.rgb ), 
+						vSpecColor.b );	
+			}
 			
 			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
 			float vFoW = GetFoW( vPos, vFoWColor, FoWDiffuse );
 
+			if( vFoWOpacity_Time.x < 0.0f ) {
+				vFoW = 1.0;
+			}
+
 			vColor.rgb = ApplyDistanceFog( vColor.rgb, vPos ) * vFoW;
+			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
 			return float4( vColor.rgb, 1.0f );
 		}
 	]]
@@ -384,23 +400,22 @@ PixelShader =
 			float3 vPos = In.vPos.xyz / In.vPos.w;
 			
 			float4 vFoWColor = GetFoWColor( vPos, FoWTexture);
-			//float TI = GetTI( vFoWColor );
-			clip( 0.99f - vFoWColor.r );			
+			float TI = GetTI( vFoWColor );
+			clip( 0.99f - TI );		
 			
 			float4 vColor = tex2D( DiffuseMap, In.vUV0 );
-			//float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
+			float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
 			
-			//float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
-			//float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
-			//float3 vNormal = mul( vNormalSample, TBN );
-			float3 vNormal = In.vNormal;
+			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
+			float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
+			float3 vNormal = mul( vNormalSample, TBN );
 			
 			vColor.rgb = ApplySnowMesh( vColor.rgb, vPos, vNormal, vFoWColor, FoWDiffuse );
 			
 			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
 			float vFoW = GetFoW( vPos, vFoWColor, FoWDiffuse );
 			vColor.rgb = ApplyDistanceFog( vColor.rgb, vPos ) * vFoW;
-			//vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
+			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
 			return vColor;
 		}
 	]]
@@ -421,16 +436,14 @@ PixelShader =
 		{
 			float3 vPos = In.vPos.xyz / In.vPos.w;
 			float4 vColor = tex2D( DiffuseMap, In.vUV0 );
-			/*float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
+			float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
 			
 			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
 			float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
-			float3 vNormal = float3(0,1,0);// mul( vNormalSample, TBN );
+			float3 vNormal = mul( vNormalSample, TBN );
 			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
 			vColor.rgb = ApplyDistanceFog( vColor.rgb, vPos );
-			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, ( vSpecColor.a * 2.0 ) ) );*/
-			float3 vNormal = In.vNormal;
-			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
+			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, ( vSpecColor.a * 2.0 ) ) );
 			
 			return vColor;
 		}
@@ -442,29 +455,28 @@ PixelShader =
 		{
 			float3 vPos = In.vPos.xyz / In.vPos.w;
 			float4 vFoWColor = GetFoWColor( vPos, FoWTexture);
-			//float TI = GetTI( vFoWColor );
+			float TI = GetTI( vFoWColor );
 			
-			//if( vFoWOpacity_Time.x < 0.0f ) {
-			//	TI = 0.0;
-			//}
+			if( vFoWOpacity_Time.x < 0.0f ) {
+				TI = 0.0;
+			}
 
-			clip( 0.99f - vFoWColor.r );		
+			clip( 0.99f - TI );	
 			float4 vColor = tex2D( DiffuseMap, In.vUV0 );
-			//float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
+			float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
 			
-			//float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
-			//float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
-			//float3 vNormal = mul( vNormalSample, TBN );
-			float3 vNormal = In.vNormal;
+			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
+			float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
+			float3 vNormal = mul( vNormalSample, TBN );
 			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
 			float vFoW = GetFoW( vPos, vFoWColor, FoWDiffuse );
 			
-			//if( vFoWOpacity_Time.x < 0.0f ) {
-			//	vFoW = 1.0;
-			//}
+			if( vFoWOpacity_Time.x < 0.0f ) {
+				vFoW = 1.0;
+			}
 			
 			vColor.rgb = ApplyDistanceFog( vColor.rgb, vPos ) * vFoW;
-			//vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
+			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
 			
 			return vColor;
 		}
@@ -474,18 +486,28 @@ PixelShader =
 	[[
 		float4 GetAtlasColor( float2 TexCoord )
 		{
-			if( AtlasHalfColor.a > 0.0f && TexCoord.x > 0.5f )
-				return AtlasHalfColor;
+			// Cantons for Colonial Flags Mod
+			
+			float zoomFactor = 1;
+			
+			if( AtlasHalfColor.a > 0.0f)  // aka if flag is colonial
+			{
+				zoomFactor = 2;
 
+				if (TexCoord.x > 0.5f || TexCoord.y > 0.5f)
+				{
+					return AtlasHalfColor;
+				}
+			}
+			
+			float2 vActualUV = float2( TexCoord.x * zoomFactor / TextureAtlasCoords.x + TextureAtlasCoords.z, TexCoord.y * zoomFactor / TextureAtlasCoords.y + TextureAtlasCoords.w );
+			
 			if( AtlasCutoff.x >= 0.0f)
 			{
-				float2 vActualUV = float2( TexCoord.x / TextureAtlasCoords.x + TextureAtlasCoords.z, TexCoord.y / TextureAtlasCoords.y + TextureAtlasCoords.w );
 				return tex2D( FlagMap, vActualUV );
 			}
 			else
 			{
-				float2 vActualUV = float2( TexCoord.x / TextureAtlasCoords.x + TextureAtlasCoords.z, TexCoord.y / TextureAtlasCoords.y + TextureAtlasCoords.w );
-
 				float4 OutColor = tex2D( FlagMap, vActualUV );
 				OutColor = OutColor.r * PrimaryColor + OutColor.g * SecondaryColor + OutColor.b * TertiaryColor;
 				
@@ -522,21 +544,24 @@ PixelShader =
 	[[
 		float4 main( VS_OUTPUT_PDXMESHSTANDARD In ) : PDX_COLOR
 		{
-			clip( -1);
+			float3 vPos = In.vPos.xyz / In.vPos.w;
+			float4 vFoWColor = GetFoWColor( vPos, FoWTexture);
+			clip( -1.00f );	
+			float4 vColor = float4(1.0f,1.0f,1.0f,1.0f); //tex2D( DiffuseMap, In.vUV0 );
+			float4 vSpecColor = tex2D( SpecularMap, In.vUV0 );
+			
+			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
+			float3x3 TBN = Create3x3( normalize( In.vTangent ), normalize( In.vBitangent ), normalize( In.vNormal ) );
+			float3 vNormal = mul( vNormalSample, TBN );
+			vColor.rgb = CalculateLighting( vColor.rgb, vNormal );
+			float vFoW = GetFoW( vPos, vFoWColor, FoWDiffuse );
+			vColor.rgb = ApplyDistanceFog( vColor.rgb, vPos ) * vFoW;
+			vColor.rgb = ComposeSpecular( vColor.rgb, CalculateSpecular( vPos, vNormal, (vSpecColor.a * 2.0 ) ) * vFoW );
+			
 			return vColor;
 		}
 	]]
-	
-	
-	MainCode PixelPdxMeshEmpty
-	[[
-		float4 main( VS_OUTPUT_PDXMESHSTANDARD In ) : PDX_COLOR
-		{
-			clip(-1);
-			return float4(0,0,0,0);
-		}
-	]]
-	
+
 }
 
 

@@ -1,4 +1,4 @@
-#469 - Ryn
+# 469 - Ryn
 culture = hunnic
 religion = zoroastrian
 capital = "Ryn"
@@ -12,21 +12,98 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2258.1.1 = { controller = HNS add_core = HNS city = yes trade_goods = Fish }
-2474.1.1 = { add_core = KHZ culture = khazar }
-2546.1.1 = { controller = KHZ }
-2918.1.1 = { controller = PEC add_core = PEC culture = pecheneg }
-2968.1.1 = { controller = CUM add_core = CUM culture = nogaybak }
-3098.1.1 = { discovered_by = eastern }
-3198.1.1 = { religion = Sunni }
-3334.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = BHO add_core = BHO }
-3360.1.1 = { controller = NOG add_core = NOG }
-3732.1.1 = { controller = RUS add_core = RUS culture = khazak }
-3871.9.13 = { controller = REB revolt = { type = anti_tax_rebels name = "Yemelyan Pugachev" size = 1 } }
-3873.2.1 = { controller = RUS revolt = { size = 1 } }
-4008.1.1 = { discovered_by = asian }
-4015.12.13 = { add_core = KZK }
-4020.12.30 = { controller = SOV add_core = SOV }
-4089.12.16 = { controller = KZK capital = "Ganyushkino" }
+native_size = 90
+native_ferocity = 1
+native_hostileness = 1
 is_city = no
+2258.1.1 = { 
+    controller = HNS
+    add_core = HNS
+    city = yes
+    trade_goods = fish
+    owner = HNS
+    add_core = HNS
+    is_city = yes
+}
+
+2474.1.1 = { add_core = KHZ culture = khazar } 
+2546.1.1 = { 
+    controller = KHZ
+    owner = KHZ
+    add_core = KHZ
+    remove_core = HNS
+    culture = khazar
+}
+
+2918.1.1 = { 
+    controller = PEC
+    add_core = PEC
+    culture = pecheneg
+    owner = PEC
+    add_core = PEC
+    remove_core = KHZ
+}
+
+2968.1.1 = { 
+    controller = CUM
+    add_core = CUM
+    culture = nogaybak
+    owner = CUM
+    add_core = CUM
+    remove_core = PEC
+}
+
+3098.1.1 = { discovered_by = eastern discovered_by = eastern } 
+3198.1.1 = { religion = sunni } 
+3334.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+    remove_core = CUM
+}
+
+3358.1.1 = { 
+    controller = BHO
+    add_core = BHO
+    owner = BHO
+    add_core = BHO
+    remove_core = KHA
+}
+
+3360.1.1 = { 
+    controller = NOG
+    add_core = NOG
+    owner = NOG
+    add_core = NOG
+    remove_core = BHO
+}
+
+3732.1.1 = { 
+    controller = RUS
+    add_core = RUS
+    culture = khazak
+    owner = RUS
+    add_core = RUS
+    remove_core = NOG
+} # Kalmuk invasion and Russian annexation
+
+3871.9.13 = { controller = REB unrest = 6 revolt = { type = anti_tax_rebels name = "Yemelyan Pugachev" size = 1 } } # Pugachev rebellion
+3873.2.1 = { controller = RUS unrest = 0 revolt = { size = 1 } } # Pugachev is captured
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4015.12.13 = { add_core = KZK add_core = KZK } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4089.12.16 = { 
+    controller = KZK
+    capital = Inderbor
+    owner = KZK
+    remove_core = SOV
+    remove_core = RUS
+}

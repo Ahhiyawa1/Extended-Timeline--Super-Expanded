@@ -1,4 +1,4 @@
-#439 - Mangyshlak
+# 439 - Mangyshlak
 culture = turkmeni
 religion = zoroastrian
 capital = "Mangyshlak"
@@ -12,28 +12,121 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2691.1.1 = { controller = WGO add_core = WGO city = yes trade_goods = Fish }
-2757.1.1 = { controller = OGH add_core = OGH }
-3251.1.1 = { controller = KHW add_core = KHW }
-3298.1.1 = { discovered_by = eastern }
-3329.1.1 = { controller = KHA add_core = KHA culture = nogaybak }
-3358.1.1 = { controller = BHO add_core = BHO }
-3360.1.1 = { controller = NOG add_core = NOG }
-3398.1.1 = { religion = Sunni }
-3618.1.1 = { controller = KZH add_core = KZH culture = khazak }
-3768.1.1 = { controller = KHI add_core = KHI }
-3815.1.1 = { discovered_by = RUS }
-3943.1.1 = { base_manpower = 2 }
-3977.1.1 = { controller = RUS add_core = RUS }
-4003.1.1 = { base_production = 2 }
-4008.1.1 = { discovered_by = asian }
-4015.12.13 = { add_core = KZK }
-4020.12.30 = { controller = SOV add_core = SOV }
-4059.1.1 = { capital = "Shevchenko" }
-4089.12.16 = { controller = KZK capital = "Aktau" }
-4098.1.1 = { base_tax = 2 }
 is_city = no
+2691.1.1 = { 
+    controller = WGO
+    add_core = WGO
+    city = yes
+    trade_goods = Fish
+}
 
+2757.1.1 = { controller = OGH add_core = OGH } 
+2848.1.1 = { 
+    owner = OGH
+    controller = OGH
+    add_core = OGH
+    is_city = yes
+}
 
+3018.1.1 = { religion = sunni } 
+3133.1.1 = { 
+    owner = SEL
+    controller = SEL
+    add_core = SEL
+    remove_core = OGH
+}
 
-   
+3251.1.1 = { 
+    controller = KHW
+    add_core = KHW
+    owner = KHW
+    remove_core = SEL
+}
+
+3298.1.1 = { discovered_by = eastern } 
+3329.1.1 = { 
+    controller = KHA
+    add_core = PER
+    culture = nogaybak
+    owner = KHA
+    remove_core = KHW
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    owner = ILK
+    remove_core = KHA
+}
+
+3360.1.1 = { controller = NOG add_core = NOG } 
+3398.1.1 = { religion = Sunni } 
+3433.1.1 = { 
+    owner = ASB
+    controller = ASB
+    add_core = ASB
+    remove_core = ILK
+}
+
+3464.1.1 = { owner = SBZ controller = SBZ add_core = SBZ } 
+3472.1.1 = { owner = ASB controller = ASB remove_core = SBZ } 
+3478.1.1 = { add_core = TIM } 
+3482.1.1 = { 
+    owner = TIM
+    controller = TIM
+    add_core = KHO
+    remove_core = ASB
+}
+
+3507.5.13 = { owner = TRS controller = TRS add_core = TRS } 
+3546.3.1 = { owner = TIM controller = TIM remove_core = TRS } 
+3600.1.1 = { 
+    owner = KHO
+    controller = KHO
+    add_core = KHO
+    remove_core = TIM
+} # The end of the Timurids in Samarkand
+
+3603.1.1 = { controller = BUK } 
+3604.1.1 = { 
+    owner = BUK
+    add_core = BUK
+    remove_core = KHO
+    unrest = 0
+} # Conquered by Muhammad Shaybani
+
+3609.1.1 = { owner = KHI controller = KHI remove_core = BUK } # Khiva separates from Uzbeks
+3618.1.1 = { controller = KZH add_core = KZH culture = khazak } 
+3768.1.1 = { controller = KHI add_core = KHI } 
+3815.1.1 = { discovered_by = RUS } 
+3838.1.1 = { owner = PER controller = PER } # Captured by Nadir Shah
+3845.6.19 = { owner = KHI controller = KHI } # The death of Nadir Shah ends the domination
+3943.1.1 = { base_manpower = 2 } 
+3977.1.1 = { 
+    controller = RUS
+    add_core = RUS
+    owner = RUS
+    capital = "Krasnovodsk"
+}
+
+4003.1.1 = { base_production = 2 } 
+4008.1.1 = { discovered_by = asian } 
+4015.12.13 = { add_core = KZK } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    remove_core = RUS
+}
+
+4022.10.27 = { add_core = TRK remove_core = KHI remove_core = BUK } 
+4059.1.1 = { capital = "Shevchenko" } 
+4089.10.27 = { 
+    owner = TRK
+    controller = TRK
+    remove_core = SOV
+    remove_core = RUS
+}
+
+4089.12.16 = { controller = KZK capital = "Aktau" } 
+4098.1.1 = { base_tax = 2 } 
