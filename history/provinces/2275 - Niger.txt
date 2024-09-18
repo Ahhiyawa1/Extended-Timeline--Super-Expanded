@@ -20,9 +20,12 @@ is_city = no
     owner = KBO
     add_core = KBO
     is_city = yes
+    add_core = KBO
+    add_core = KBO
+    is_city = yes
 }
 
-3355.1.1 = { discovered_by = KBO } 
+3355.1.1 = { discovered_by = KBO discovered_by = KBO } 
 3478.1.1 = { 
     city = no
     trade_goods = Unknown
@@ -30,22 +33,46 @@ is_city = no
     controller = AIR
     add_core = AIR
     remove_core = KBO
+    add_core = AIR
+    remove_core = KBO
 }
 
-3542.1.1 = { add_core = KBO } 
-3688.1.1 = { owner = KBO controller = KBO add_core = KBO } # Idris Katakarmabe retakes Kanem
+3542.1.1 = { add_core = KBO add_core = KBO } 
+3688.1.1 = { 
+    owner = KBO
+    controller = KBO
+    add_core = KBO
+    add_core = KBO
+} # Idris Katakarmabe retakes Kanem
+
 3848.1.1 = { 
     owner = AIR
     controller = AIR
     add_core = AIR
     remove_core = KBO
+    add_core = AIR
+    remove_core = KBO
 } # Decline of Kanem-Bornu, control over faraway areas gradually lost
 
-3949.1.1 = { discovered_by = GER discovered_by = PRU } # Heinrich Barth
-3988.1.1 = { discovered_by = FR2 discovered_by = FR2 } 
+3949.1.1 = { 
+    discovered_by = GER
+    discovered_by = PRU
+    discovered_by = GER
+    discovered_by = PRU
+} # Heinrich Barth
+
+3988.1.1 = { 
+    discovered_by = FR2
+    discovered_by = FR2
+    discovered_by = FR2
+    discovered_by = FR2
+}
+
 3998.4.22 = { 
     owner = FR2
     controller = FR2
+    add_core = FR2
+    remove_core = KBO
     add_core = FR2
     remove_core = KBO
 }
@@ -58,11 +85,20 @@ is_city = no
     owner = FZA
     add_core = FZA
     is_city = yes
+    add_core = FR2
+    add_core = FZA
+    is_city = yes
 }
 
 4008.1.1 = { 
     discovered_by = western
     religion = sunni
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = asian
+    discovered_by = ITA
+    discovered_by = western
+    discovered_by = western
     discovered_by = western
     discovered_by = eastern
     discovered_by = asian
@@ -76,10 +112,21 @@ is_city = no
     add_core = ITA
     add_core = LBY
     remove_core = FZA
+    add_core = ITA
+    add_core = LBY
+    remove_core = FZA
 }
 
-4031.1.1 = { capital = "Chirfa" } 
+4031.1.1 = { capital = Chirfa } 
 4038.1.1 = { 
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
     discovered_by = eastern
     discovered_by = muslim
     discovered_by = ottoman
@@ -95,16 +142,34 @@ is_city = no
     add_core = FRV
     owner = FRV
     add_core = FRV
+    add_core = FRV
+    add_core = FRV
 } # Vichy France
 
-4040.11.16 = { controller = FR2 owner = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4040.11.16 = { 
+    controller = FR2
+    owner = FR2
+    remove_core = FRV
+    remove_core = FRV
+} # Under Free French control after Operation Torch
+
 4041.1.12 = { controller = FR2 } 
-4041.4.11 = { owner = FR2 controller = FR2 remove_core = ITA } 
+4041.4.11 = { 
+    owner = FR2
+    controller = FR2
+    remove_core = ITA
+    remove_core = ITA
+}
+
 4049.12.24 = { owner = LBY controller = LBY } 
 4058.8.3 = { 
     controller = NGR
     add_core = NGR
     owner = NGR
+    add_core = NGR
+    remove_core = FR2
+    remove_core = AIR
+    add_core = NGR
     add_core = NGR
     remove_core = FR2
     remove_core = AIR
