@@ -1,10 +1,13 @@
-#Country Name: Please see filename.
+# Roman Empire
+graphical_culture = easterngfx
 
-graphical_culture = westerngfx
-
-color = { 100  0  0 }
+color = { 167 10 100 }
 
 historical_idea_groups = {
+	early_adm_ideas
+	early_mil_ideas
+	early_religious_ideas
+	early_trade_ideas
 	offensive_ideas
 	defensive_ideas
 	trade_ideas
@@ -15,106 +18,129 @@ historical_idea_groups = {
 	diplomatic_ideas
 }
 
-historical_units = {
-	western_medieval_infantry
-	western_medieval_knights
-	western_men_at_arms
-	italian_condotta
-	spanish_tercio
-	austrian_tercio
-	austrian_grenzer
-	austrian_hussar
-	austrian_white_coat
-	austrian_jaeger
+army_names = {
+	"Legio I Herculia" "Legio II Rapax" "Legio III Liberatrix" "Legio IV Apollonaris" "Legio V Alaudae"
+	"Legio VI Victrix" "Legio VII Ferrata" "Legio VIII Augusta" "Legio IX Triumphalis" "Legio X Italica" 
+	"Legio XI Macedonica" "Legio XII Minervia" "Legio XIII Fulminata" "Legio XIV Fretensis" "Legio XV Primigenia"
+	"Legio XVI Claudia" "Legio XX Scythica"
 }
 
+fleet_names = {
+	"Classis Alexandrina" "Classis Seleucena" "Classis Carpathia" "Classis Venetum" "Classis Constantinopolis"
+	"Classis Roma" "Classis Adrianopolis" "Classis Atlanticum" "Classis Mediterraneus" "Classis Euxeinos Pontos"
+}
+
+leader_names = {
+	"Basileios" "Leon" "Bardas" "Marinos" "Anastasia" "Konstantinos" "Augustus" "Tiberius" "Caligula" "Claudius" 
+	"Nero" "Galba" "Otho" "Vitellius" "Vespasian" "Titus" "Domitian" "Nerva" "Trajan" "Hadrian" 
+	"Antoninus" "Lucius" "Marcus" "Commodus" "Pertinax" "Julian" "Septimius" "Geta" "Caracalla" "Macrinus" 
+	"Heliogabalus" "Alexander" "Maximinus" "Gordian" "Pupienus" "Balbinus" "Philip" "Decius" "Trebonianus" "Aemilian" 
+	"Valerian" "Gallienus" "Quintillus" "Aurelian" "Severina" "Tacitus" "Florian" "Probus" "Carus" "Numerian" 
+	"Carinus" "Diocletian" "Constantius" "Galerius" "Licinius" "Constantine" "Constans" "Jovian" "Valentinian" "Valens" 
+	"Gratian" "Theodosius" "Arcadius" "Honorius" "Pulcheria" "Marcian" "Zenon" "Basiliskos" "Anastasios" "Ioustinos" 
+	"Ioustinianos" "Tiberios" "Maurikios" "Phokas" "Herakleios" "Herakleonas" "Konstas" "Leontios" "Philippikos" "Theodosios" 
+	"Artavasdos" "Eirene" "Nikephoros" "Stavrakios" "Michael" "Theophilos" "Adrianos" "Akakios" "Alexandros" "Alexios" 
+	"Anatolios" "Andreas" "Andronikos" "Anthemios" "Anthimos" "Antiochos" "Antonios" "Apollonios" "Arsenios" "Artemios" 
+	"Athanasios" "Bartholomaios" "Belisarios" "Boethios" "Bosporios" "Christophoros" "Chrysanthos" "Chrysogonos" "Damianos" "Daniel" 
+	"David" "Demetrios" "Diogenes" "Dionysios" "Dorotheos" "Eirenaios" "Eudoxios" "Eustratios" "Eugenios" "Euphemios" 
+	"Eusebios" "Eustathios" "Evangelos" "Gabriel" "Gennadios" "Georgios" "Gerasimos" "Germanos" "Gregoras" "Gregorios" 
+	"Hektorios" "Helias" "Hierotheos" "Himerios" "Hippolytos" "Hypatios" "Iakobos" "Ignatios" "Innokentios" "Ioannes" 
+	"Ioannikios" "Iordanes" "Ioseph" "Isaakios" "Isaias" "Isidoros" "Ioulianos" "Kaisarios" "Kallinikos" "Kallistos" 
+	"Komitas" "Konstantios" "Kosmas" "Kyriakos" "Kyrillos" "Kyros" "Laurentios" "Lazaros" "Loukas" "Makarios" 
+	"Manuel" "Markos" "Matthaios" "Maximos" "Megistos" "Meletios" "Methodios" "Narses" "Neophytos" "Niketas" 
+	"Nikodemos" "Nikolaos" "Niphon" "Orestes" "Pamphilios" "Pankratios" "Pantoleon" "Paschalis" "Pavlos" "Pelagios" 
+	"Petros" "Philaretos" "Philippos" "Philotheos" "Photios" "Polykarpos" "Porphyrios" "Prokopios" "Pyrros" "Raphail" 
+	"Romanos" "Sabas" "Samuel" "Serapion" "Sebastianos" "Sergios" "Stephanos" "Staurakios" "Symeon" "Symmachos" 
+	"Theocharistos" "Theodoros" "Theodotos" "Theodoulos" "Theoktistos" "Theophanes" "Theophylaktos" "Thomas" "Traianos" "Timotheos" 
+	"Tryphon" "Valerios" "Zacharias" "Zenobios"
+}
 monarch_names = {
-	"Basileios #1" = 22
-	"Leon #5" = 22
-	"Bardas #0" = 22
-	"Marinos #0" = 22
-	"Anastasia #0" = -23
-	"Konstantinos #4" = 22
-	"Augustus #1" = 0
-	"Tiberius #1" = 0
-	"Caligula #1" = 0
-	"Claudius #2" = 0
-	"Nero #1" = 0
-	"Galba #1" = 0
-	"Otho #1" = 0
-	"Vitellius #1" = 0
-	"Vespasian #1" = 0
-	"Titus #1" = 0
-	"Domitian #1" = 0
-	"Nerva #1" = 0
-	"Trajan #1" = 0
-	"Hadrian #1" = 0
-	"Antoninus #1" = 0
-	"Lucius #1" = 0
-	"Marcus #1" = 0
-	"Commodus #1" = 0
-	"Pertinax #1" = 0
-	"Julian #2" = 0
-	"Septimius #1" = 0
-	"Geta #1" = 0
-	"Caracalla #1" = 0
-	"Macrinus #1" = 0
-	"Heliogabalus #1" = 0
-	"Alexander #1" = 0
-	"Maximinus #2" = 0
-	"Gordian #3" = 0
-	"Pupienus #1" = 0
-	"Balbinus #1" = 0
-	"Philip #1" = 0
-	"Decius #1" = 0
-	"Trebonianus #1" = 0
-	"Aemilian #1" = 0
-	"Valerian #1" = 0
-	"Gallienus #1" = 0
-	"Quintillus #1" = 0
-	"Aurelian #1" = 0
-	"Severina #1" = -1
-	"Tacitus #1" = 0
-	"Florian #1" = 0
-	"Probus #1" = 0
-	"Carus #1" = 0
-	"Numerian #1" = 0
-	"Carinus #1" = 0
-	"Diocletian #1" = 0
-	"Constantius #3" = 0
-	"Galerius #1" = 0
-	"Licinius #1" = 0
-	"Constantine #2" = 0
-	"Constans #1" = 0
-	"Jovian #1" = 0
-	"Valentinian #1" = 0
-	"Valens #1" = 0
-	"Gratian #1" = 0
-	"Theodosius #2" = 0
-	"Arcadius #1" = 0
-	"Honorius #1" = 0
-	"Pulcheria #1" = -1
-	"Marcian #1" = 0
-	"Zenon #1" = 0
-	"Basiliskos #1" = 0
-	"Anastasios #2" = 0
-	"Ioustinos #2" = 0
-	"Ioustinianos #2" = 0
-	"Tiberios #2" = 0
-	"Maurikios #1" = 0
-	"Phokas #1" = 0
-	"Herakleios #1" = 0
-	"Herakleonas #1" = 0
-	"Konstas #1" = 0
-	"Leontios #1" = 0
-	"Philippikos #1" = 0
-	"Theodosios #1" = 0
-	"Artavasdos #1" = 0
-	"Eirene #1" = -1
-	"Nikephoros #1" = 0
-	"Stavrakios #1" = 0
-	"Michael #3" = 0
-	"Theophilos #1" = 0
+	"Basileios #0" = 10
+	"Leon #0" = 10
+	"Bardas #0" = 10
+	"Marinos #0" = 10
+	"Anastasia #0" = -10
+	"Konstantinos #0" = 10
+	"Augustus #0" = 10
+	"Tiberius #0" = 10
+	"Caligula #0" = 10
+	"Claudius #0" = 10
+	"Nero #0" = 10
+	"Galba #0" = 10
+	"Otho #0" = 10
+	"Vitellius #0" = 10
+	"Vespasian #0" = 10
+	"Titus #0" = 10
+	"Domitian #0" = 10
+	"Nerva #0" = 10
+	"Trajan #0" = 10
+	"Hadrian #0" = 10
+	"Antoninus #0" = 10
+	"Lucius #0" = 10
+	"Marcus #0" = 10
+	"Commodus #0" = 10
+	"Pertinax #0" = 10
+	"Julian #0" = 10
+	"Septimius #0" = 10
+	"Geta #0" = 10
+	"Caracalla #0" = 10
+	"Macrinus #0" = 10
+	"Heliogabalus #0" = 10
+	"Alexander #0" = 10
+	"Maximinus #0" = 10
+	"Gordian #0" = 10
+	"Pupienus #0" = 10
+	"Balbinus #0" = 10
+	"Philip #0" = 10
+	"Decius #0" = 10
+	"Trebonianus #0" = 10
+	"Aemilian #0" = 10
+	"Valerian #0" = 10
+	"Gallienus #0" = 10
+	"Quintillus #0" = 10
+	"Aurelian #0" = 10
+	"Severina #0" = -1
+	"Tacitus #0" = 10
+	"Florian #0" = 10
+	"Probus #0" = 10
+	"Carus #0" = 10
+	"Numerian #0" = 10
+	"Carinus #0" = 10
+	"Diocletian #0" = 10
+	"Constantius #0" = 10
+	"Galerius #0" = 10
+	"Licinius #0" = 10
+	"Constantine #0" = 10
+	"Constans #0" = 0
+	"Jovian #0" = 10
+	"Valentinian #0" = 10
+	"Valens #0" = 0
+	"Gratian #0" = 10
+	"Theodosius #0" = 10
+	"Arcadius #0" = 0
+	"Honorius #0" = 0
+	"Pulcheria #0" = -1
+	"Marcian #0" = 0
+	"Zenon #0" = 0
+	"Basiliskos #0" = 0
+	"Anastasios #0" = 0
+	"Ioustinos #0" = 0
+	"Ioustinianos #0" = 0
+	"Tiberios #0" = 0
+	"Maurikios #0" = 0
+	"Phokas #0" = 0
+	"Herakleios #0" = 0
+	"Herakleonas #0" = 0
+	"Konstas #0" = 0
+	"Leontios #0" = 0
+	"Philippikos #0" = 0
+	"Theodosios #0" = 0
+	"Artavasdos #0" = 0
+	"Eirene #0" = -1
+	"Nikephoros #0" = 0
+	"Stavrakios #0" = 0
+	"Michael #0" = 0
+	"Theophilos #0" = 0
 	"Adrianos #0" = 0
 	"Akakios #0" = 0
 	"Alexandros #0" = 0
@@ -243,142 +269,26 @@ monarch_names = {
 	"Valerios #0" = 0
 	"Zacharias #0" = 0
 	"Zenobios #0" = 0
-	"Claudius #0" = 30
-	"Antonius #0" = 30
-	"Marcus #0" = 30
-	"Septimius #0" = 30
-	"Maximinus #0" = 20
-	"Severus #0" = 20
-	"Gordian #0" = 20
-	"Trajan #0" = 10
-	"Valerian #0" = 10
-	"Aurelian #0" = 10
-	"Constantinus #0" = 10
-	"Constantine #0" = 10
-	"Julian #0" = 10
-	"Valentinian #0" = 10
-	"Vitellius #0" = 10
-	"Brutus #0" = 0
-	"Titus #0" = 10
-	"Domitian #0" = 10
-	"Commodus #0" = 10
-	"Didius #0" = 10
-	"Macrinus #0" = 10
-	"Hostilian #0" = 10
-	"Aemelian #0" = 10
-	"Gallienus #0" = 10
-	"Quintillus #0" = 10
-	"Tacticus #0" = 10
-	"Marius #0" = 10
-	"Probus #0" = 0
-	"Carus #0" = 0
-	"Carinus #0" = 0
-	"Valerius #0" = 0
-	"Gaius #0" = 0
-	"Gnaeus #0" = 0
-	"Quintus #0" = 0
-	"Tiberius #0" = 0
-	"Lucius #0" = 0
-	"Publius #0" = 0
-	"Metellus #0" = 0
-	"Cestius #0" = 0
-	"Aulus #0" = 0
-	"Julius #0" = 0
-	"Appius #0" = 0
-	"Scipio #0" = 0
-	"Aelia #0" = -1
-	"Constantina #0" = -1
-	"Gordiana #0" = -1
-	"Magnia #0" = -1
-	"Octaviana #0" = -1
-	"Sabina #0" = -1
-	"Verina #0" = -1
 }
-
-leader_names = {
-    Maximus Chlorus Gothicus Germanicus Gallus Alexander Pius Barbula Lepidus Macedonicus
-	Domitius Corbulo Acilius Aebutius Aegidius Africanus Agricola Aquillius Paxton Romulus
-	Arrian Artorius Asinius Aulus Atilius Aureolus Balbus Barbatio Bassus Bonifacius 
-	Bonosus Caelicus Caecinus Calpurnius Carrinas Cassius Cicero Civilis Caudex Clodius
-	Coriolanus Cinna Cornelius Coruncanius Curius Decius Dexippus Didius Domitius Domino
-	Drusus Duilus Fabius Flaminius Fimbria Fufius Fullofaudes Fulvius Furius Fuscus
-	Gabinius Galba Gellius Hosidius Laelius Larcius Licinius Lucullus Ligarius Livius 
-	Lollius Lutatius Mallius Manlius Marcius Mummius Maximianus Norbanus Opimius Ostorius
-	Papirius Paulinus Perperna Petillius Petronius Piso Plautius Pompeius Pomponius
-	Pompillus Postumius Primus Quietus Quintilius Quinticus Roscius Rutilius Salvidienus
-	Scribonius Sejanus Sempronius Sergius Sertorius Servilius Sextus Sisenna Silva Sosius
-	Stilicho Suetonius Sulla Sulpicus Terentius Trebonius Ursicinus Vipsanius Aecius
-	Truculentus Crito Pyrgopolynices Montanus Sophoclidisca Camerius Charinus Dio Crispus
-	Mnesilochus Quintus Chrysalus Romanus Citro Triarius Panegyris Eugenus Phaedromus Haterius
-	Baebio Bradua Equitia Genesius Bruttia Collatinus Cicereia Triferus Vergilia Classicius
-	Petilia Iuncus Minucia Larcius Consentia Publius Naevia Magnus Viridia Aeacus Sepurcia Iunius
-	Sobersides Lartius Melaenis Leptis Ludovicus Dignus Epidicus Globulus Eligius Polybius
-	Blepharo Ursinus Philolaches Symphorian Eutychus Agustalis Auxilium Philippus Cacistus Cupitas
-	Brutus Caius Dominic Felinus Felix Festus Monico Nelius Neo Nero Octavius Trajanus
-}
-
 ship_names = {
-	Jupiter Juno Neptunus Minerva Mars Venus Apollon Diana Vulcan Mercurius Ceres
-	Tellus Sol Luna Liber Robigus Flora Libera Fauni Dryad Saturnus Janus Genius Orcus
-	Vesta Lucina Augustus Aurora Aura Bacchus Carmenta Carna Clementia Cloacina Collatina
-	Concordia Cuba Cunina Cupid Cura Cybele Decimata Dea Devera Disciplina Discordia
-	Domiduca Egeria Empanda Epona Fama Fauna Faustitas Febris Fecunditas Felicitas
-	Ferentina Feronia Fessonia Fides Fortuna Fraus Furrina Hercules Hespera Hilaritas
-	Honos Hora Hostilina Honoria Inuus Invidia Iris Justitia Juturna Juventas Larentina
-	Laverna Levana Liberalitas Libertas Libitina Lima Lua Meditrina Mellona Messia Molae
-	Moneta Murcia Muta Necessitas Nemesis Nerio Neverita Nona Nox Orbona Palatua Partula
-	Patelana Pax "Pax Romana" Pellonia Pietas Pluto Pomona Porrima Portunes Postverta
-	Potina Proserpina Providentia Pudicitia Puta Quiritis Roma Rumina Rusina Salacia
-	Salus Sancus Secia Securitas Segetia Semonia Sentia Somnus Sors Spes "Stata Mater"
-	Statina Strentua Suadela Summanus Tempestas Terra Tiberinus Tranquillitas Trivia
-	Uranus Vacuna Vallonia Veritas Victoria Volturnus Virtus "Vica Pota" Virbinus Volumnas
-	Volutina
+	Abundantia "Acca Larentia" Acis Aerecura Aequitas Aesculapius Aeternitas Aeon "Aius Locutius"
+	Alernus Angerona Angitia "Anna Perenna" Annona Antevorta Apollo Arimanius Aura Aurora Averruncus
+	Bacchus Bellona "Bona Dea" "Bonus Eventus" Bubona Caca Cacus Camenae Cardea Carmenta Carmentes
+	Carna Ceres Clementia Cloacina Concordia Consus Cupid Cura Cybele "Dea Dia" "Dea Tacita"
+	Decima Devera Diana "Diana Nemorensis" "Dius Fidius" Disciplina "Dis Pater" Egeria Empanda
+	Epona Falacer Fama Fascinus Fauna Faunus Faustitas Februus Febris Fecunditas Felicitas Ferentina
+	Feronia Fides Flora Fornax Fontus Fortuna Fulgora Furrina Genius Gratiae Hercules Hermaphroditus
+	Hilaritas Honos Hora Indiges Intercidona Inuus Invidia Isis Iris Janus Juno Jupiter Justitia
+	Juturna Juventas Lares Laverna Levana Letum Liber Libera Liberalitas Libertas Libitina Lua
+	Lucina Luna Lupercus Lympha "Mana Genita" Manes Mania Mantus Mars "Mater Matuta" Meditrina 
+	Mephitis Mellonia Mercury Minerva Mithras Molae Moneta Mors Morta Murcia "Mutunus Tutunus"
+	Naenia Nascio Necessitas Nemesis Neptune Nerio Neverita Nixi Nona Nox Opis Orcus Palatua
+	Pales Parcae Pax Penates Picumnus Picus Pietas Pilumnus Pluto Poena Pomona Porrima Portunes
+	Postverta Priapus Proserpina Providentia Pudicitia Querquetulanae Quirinus Quiritis Robigus
+	Roma Rumina Salacia Salus Sancus Saturn Securitas Silvanus "Sol Invictus" Somnus Soranus
+	Sors Spes Stata Mater Sterquilinus Suadela Summanus "Sulis Minerva" Tellurus Tempestas
+	"Terra Mater" Terminus Tiberinus Tibertus Tranquillitas Trivia Ubertas Unxia Uranus Vacuna
+	Vediovus Venilia Venti Venus Veritas Verminus Vertumnus Vesta "Vica Pota" Victoria Virbius
+	Virtus Volturnus Voluptas Vulcan
 }
-
-army_names = {
-	"Legio I Germanica" "Legio II Sabina" "Legio III Cyrenaica" "Legio III Gallica" "Legio IV Macedonica"
-
-	"Legio IV Scythica" "Legio V Alaudae" "Legio VI Ferrata" "Legio VII Claudia Pia Fidelis" "Legio VIII Augusta" 
-
-	"Legio IX Hispana" "Legio X Fretensis" "Legio XI Domremy" "Legio XII Victrix" "Legio XIV Gemina"
-
-	"Legio XV Apollinaris" "Legio XVI Flavia Firma" "Legio XVII Gallium" "Legio XVIII Drusus" "Legio XIX Trebium" "Legio XX Valeria Victrix" "Legio XXI Rapax" 
-
-	"Legio XXII Deiotariana" "Legio XXIII Primigenia" "Legio XXIV Ceasarian Rapax Victrix" "Legio XXV Iulia Alpina" "Legio XXVI Parthica"
-
-	"Legio XXVII Iovia" "Legio XXVIII Gemella" "Legio XXIX Herculia" "Legio XXX Ulpia Victrix"  "Legio XXXI Heraclius"  "Legio XXXI Sigilla"
-
-	"Legio XXXII Constantinus" "Legio XXXIII Iustinus" "Legio XXXIV  Iunior" "Legio XXXV Sabbatius" "Legio XXXVI Belisarius" "Legio XXXVII Codex" 
-
-	"Legio XXXVIII Anastasius" "Legio IXL Zeno" "Legio XL Magnus Thrax" "Legio XLI Marcianus" "Legio XLII Theodosius" "Legio XLIII Eudoxia" 
-
-	"Legio XLIV Dominus Noster " "Legio XLV Magister Militum" "Legio XLVI Pogonatos" "Legio XLVII Tzimisces" "Legio XLVIII Atanatos" 
-
-	"Legio XLIX Megas" "Legio L Dragases"  "Legio LI Origo" "Legio LII Lupa" "Legio LIII Remo" "Legio LIV India" "Legio LV Umbra" 
-
-	"Legio LVI Comulum" "Legio LVII Magnum" "Legio LVIII Noctis" "Legio LIX Sonitu" "Legio LX Aureum Gladio" "Legio LXI Ignis" 
-
-	"Legio LXII Latet" "Legio LXIII Glaciem" "Legio LXIV Frigidum" "Legio LXV Calidum" "Legio LXVI Caligine" "Legio LXVII Ridere" 
-
- 	"Legio LXVIII Puellae" "Legio LXIX Semper" "Legio LXX Macabre" "Legio LXXI Sinistra" "Legio LXXII Pavorum" "Legio LXXIII Vertit" 
-
-	"Legio LXXIV Ignitionem" "Legio LXXV Cognosco" "Legio LXXVI Speluncis" "Legio LXXVII Sunt" "Legio LXXVIII Auctor" "Legio LXXIX Domina"
-
-	"Legio LXXX Renovans" "Legio LXXXI Parietes" "Legio LXXXII Etiam" "Legio LXXXIII Monumentum" "Legio LXXXIV Aeternum" "Legio LXXXV Soporis"
-
-	"Legio LXXXVI Litigabo" "Legio LXXXVII Saturata" "Legio LXXXVIII Decretum" "Legio LXXXIX Sempiternum" "Legio XC Litigabo" "Legio XCI Captus" 
-
-	"Legio XCII Oculis" "Legio XCIII Arata Rugis" "Legio XCIV Civitate" "Legio XCV Arbitrabatur" "Legio XCVI Stabant" "Legio XCVII Vetulam" 
-
-	"Legio XCVIII Coopertum" "Legio XCIX Soporis" "Legio C Destinatum"  "Legio $PROVINCE$"
-}
-
-
-fleet_names = {
-	"Classis Misenensis" "Classis Ravennas" "Classis Alexandrina" "Classis Britannica" "Classis Germanica" "Classis Libyca"
-	"Classis Mauretanica" "Classis Moesica" "Classis Perinthia" "Classis Pontica" "Classis Syriaca" "Classis Anderetianorum"
-	"Classis Ararica" "Classis Barbariocum" "Classis Comensis" "Classis Sambrica" "Classis Venetum" "Classis Rhodani"
-	"Classis Pannonica" "Classis Histrica" "Classis $PROVINCE$"
-}
-
 
