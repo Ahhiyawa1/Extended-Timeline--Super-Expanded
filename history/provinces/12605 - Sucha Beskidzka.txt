@@ -1,5 +1,4 @@
 #12605 - Sucha Beskidzka
-
 owner = QUA
 controller = QUA
 add_core = QUA
@@ -7,7 +6,6 @@ is_city = yes
 culture = quadian
 religion = germanic
 capital = "Sucha Beskidzka"
-hre = no
 discovered_by = VNE
 discovered_by = ottoman
 discovered_by = middle_eastern
@@ -20,39 +18,30 @@ base_tax = 1
 base_production = 1
 trade_goods = iron
 base_manpower = 1
-
-2648.1.1 = { owner = VIS controller = VIS add_core = VIS remove_core = QUA culture = polish religion = slavic }
+2648.1.1 = { controller = VIS add_core = VIS culture = polish religion = Slavic }
 2798.1.1 = { base_tax = 2 base_production = 2 }
-2968.1.1 = { owner = MVA controller = MVA add_core = MVA }
-2993.1.1 = { owner = VIS controller = VIS remove_core = MVA }
+2968.1.1 = { controller = MVA add_core = MVA }
+2993.1.1 = { controller = VIS }
 2998.1.1 = { base_tax = 3 base_production = 3 }
-3038.1.1 = { owner = POL controller = POL add_core = POL }
-3078.1.1 = { religion = catholic }
-3098.1.1 = { base_manpower = 2 discovered_by = muslim discovered_by = ottoman }
+3038.1.1 = { controller = POL add_core = POL }
+3078.1.1 = { religion = Catholic }
+3098.1.1 = { base_manpower = 2 }
 3198.1.1 = { base_tax = 4 base_production = 4 }
 3298.1.1 = { base_tax = 5 base_production = 5 }
 3398.1.1 = { base_tax = 6 base_production = 6 }
-
-3656.1.1 = { religion = protestant }
-3667.7.1 = {
-	owner = PLC
+3656.1.1 = { religion = Protestant }
+3667.7.1 = { 
 	controller = PLC
-	remove_core = POL
 	add_core = PLC
-} # Union of Lublin
-3686.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Civil war, Polish succession
-3687.1.1 = { revolt = {} controller = PLC } # Coronation of Sigismund III
-3756.1.1 = { religion = catholic }
-3831.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # The war of Polish succession
-3833.1.1 = { revolt = {} controller = PLC }
-3870.8.5 = { owner = HAB controller = HAB add_core = HAB } #First Partition
-
+}
+3686.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 2 } }
+3687.1.1 = { controller = PLC revolt = { size = 1 } }
+3756.1.1 = { religion = Catholic }
+3831.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 2 } }
+3833.1.1 = { controller = PLC revolt = { size = 1 } }
+3870.8.5 = { controller = HAB add_core = HAB }
 4008.1.1 = { discovered_by = asian }
-4016.11.11 = { owner = POL controller = POL add_core = POL remove_core = KRA remove_core = HAB }
-4037.9.6   = { controller = GER }
-4037.10.6  = { owner = GER }
-4043.1.1   = { controller = SOV }
-4043.5.8   = { owner = POL controller = POL }
-
-
-   
+4016.11.11 = { controller = POL }
+4037.9.6 = { controller = GER }
+4043.1.1 = { controller = SOV }
+4043.5.8 = { controller = POL }

@@ -5,7 +5,6 @@ capital = "Divio"
 is_city = yes
 culture = gallian
 religion = hellenism
-hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -19,117 +18,73 @@ trade_goods = wine
 base_manpower = 1
 add_core = ROM
 center_of_trade = 2
-
 #Crisis of Third Century
-2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
-2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
-2418.1.1 = { religion = chalcedonism } 
+2356.1.1 = { controller = GLL add_core = GLL }
+2368.9.1 = { controller = ROM }
+2418.1.1 = { religion = Chalcedonism }
 2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
-
-2498.1.1 = { base_tax = 2 base_production = 2 } 
+	controller = ROW
+	add_core = ROW
+}
+2498.1.1 = { base_tax = 2 base_production = 2 }
 2520.1.1 = { 
-    owner = BUR
-    controller = BUR
-    add_core = BUR
-    remove_core = ROW
-    capital = "Dijon"
-    culture = burgundione
+	controller = BUR
+	add_core = BUR
+	capital = "Dijon"
+	culture = burgundione
 }
-
-2584.6.1 = { culture = burgundian } 
-2632.1.1 = { owner = NEU controller = NEU add_core = NEU } 
+2584.6.1 = { culture = burgundian }
+2632.1.1 = { controller = NEU add_core = NEU }
 2656.12.23 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    remove_core = NEU
+	controller = FRK
+	add_core = FRK
 }
-
-2659.11.29 = { owner = ORL controller = ORL add_core = ORL } 
-2690.3.28 = { owner = AUT controller = AUT add_core = AUT } 
-2693.1.1 = { owner = ORL controller = ORL remove_core = AUT } 
-2698.1.1 = { base_manpower = 2 } 
+2659.11.29 = { controller = ORL add_core = ORL }
+2690.3.28 = { controller = AUT add_core = AUT }
+2693.1.1 = { controller = ORL }
+2698.1.1 = { base_manpower = 2 }
 2710.1.1 = { 
-    owner = AUT
-    controller = AUT
-    add_core = AUT
-    remove_core = ORL
+	controller = AUT
 }
-
 2711.10.10 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    remove_core = AUT
+	controller = FRK
 }
-
-2732.1.1 = { owner = NEU controller = NEU add_core = NEU } 
-2777.12.23 = { owner = FRK controller = FRK } 
-2798.1.1 = { base_tax = 3 base_production = 3 } 
-2898.1.1 = { base_manpower = 3 } 
+2732.1.1 = { controller = NEU }
+2777.12.23 = { controller = FRK }
+2798.1.1 = { base_tax = 3 base_production = 3 }
+2898.1.1 = { base_manpower = 3 }
 2938.6.21 = { 
-    owner = FRD
-    controller = FRD
-    add_core = FRD
-    remove_core = FRK
+	controller = FRD
+	add_core = FRD
 }
-
 2953.9.30 = { 
-    owner = LOT
-    controller = LOT
-    add_core = LOT
-    remove_core = FRD
+	controller = LOT
+	add_core = LOT
 }
-
-2965.1.1 = { religion = catholic } 
+2965.1.1 = { religion = Catholic }
 2968.8.8 = { 
-    owner = FRW
-    controller = FRW
-    add_core = FRW
-    remove_core = LOT
+	controller = FRW
+	add_core = FRW
 }
-
 2986.1.1 = { 
-    owner = BUR
-    controller = BUR
-    add_core = BUR
-    remove_core = FRW
+	controller = BUR
 }
-
-2998.1.1 = { base_tax = 4 base_production = 4 } 
-3098.1.1 = { base_manpower = 4 } 
-3148.1.1 = { base_tax = 5 base_production = 5 } 
-3198.1.1 = { base_manpower = 5 } 
-3248.1.1 = { base_tax = 6 base_production = 6 } 
-3298.1.1 = { base_manpower = 6 } 
-3398.1.1 = { base_tax = 7 base_production = 7 } 
-3575.1.5 = { owner = FRA controller = FRA add_core = FRA } # Charles the Bold dies and transfers Bourgogne to France
-3624.1.14 = { add_core = HAB } # Treaty of Madrid, Austria claims Burgundy, but François I refuses to hand it over subsequently
-3627.8.3 = { remove_core = HAB } # Peace of Cambrai (Ladies' Peace): Charles V renounces his claims on Bourgogne
-3686.12.1 = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
-3692.1.1 = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
-3728.1.1 = { unrest = 3 } 
-3730.1.1 = { unrest = 0 } 
-3734.8.30 = { controller = HAB } # Habsburg forces ravage the region in the Thirty Years War
-3734.10.1 = { controller = FRA } # Bernhard of Saxe-Weimar defeats the invaders and gradually pushes them back
-3748.1.14 = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
-3749.4.1 = { unrest = 4 } # An unstable peace is concluded
-3749.12.1 = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
-3750.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
-3871.1.1 = { base_tax = 11 base_production = 11 } # Turgot & the Economical Reforms
+2998.1.1 = { base_tax = 4 base_production = 4 }
+3098.1.1 = { base_manpower = 4 }
+3148.1.1 = { base_tax = 5 base_production = 5 }
+3198.1.1 = { base_manpower = 5 }
+3248.1.1 = { base_tax = 6 base_production = 6 }
+3298.1.1 = { base_manpower = 6 }
+3398.1.1 = { base_tax = 7 base_production = 7 }
+3575.1.5 = { controller = FRA add_core = FRA }
+3624.1.14 = { add_core = HAB }
+3734.8.30 = { controller = HAB }
+3734.10.1 = { controller = FRA }
+3871.1.1 = { base_tax = 11 base_production = 11 }
 3968.9.4 = { 
-    owner = FR2
-    controller = FR2
-    add_core = FR2
-    remove_core = FRA
-    remove_core = BUR
-} # Republic proclaimed
-
-4008.1.1 = { discovered_by = asian } 
-4038.6.14 = { owner = GER controller = GER } # France surrendered to Nazi Garmany
-4042.8.25 = { owner = FR2 controller = FR2 } # France liberated by allied forces
+	controller = FR2
+	add_core = FR2
+}
+4008.1.1 = { discovered_by = asian }
+4038.6.14 = { controller = GER }
+4042.8.25 = { controller = FR2 }

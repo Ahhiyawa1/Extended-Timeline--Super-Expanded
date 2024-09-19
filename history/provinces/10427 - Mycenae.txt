@@ -4,7 +4,6 @@ culture = greek
 religion = hellenism
 capital = "Mycenae"
 trade_goods = wine
-hre = no
 discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
@@ -17,47 +16,35 @@ base_production = 2
 base_manpower = 2
 is_city = yes
 add_core = ROM
-
-
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
-2558.1.1 = { religion = chalcedonism }
-2965.1.1 = { religion = orthodox }
+2493.1.17 = { controller = BYZ add_core = BYZ }
+2558.1.1 = { religion = Chalcedonism }
+2965.1.1 = { religion = Orthodox }
 3298.1.1 = { fort_15th = yes }
-3303.1.1 = { owner = ACH controller = ACH add_core = ACH }
-3447.1.1 = { owner = BYZ controller = BYZ add_core = MOE }
-
-3551.5.29 = {
-	owner = MOE
+3303.1.1 = { controller = ACH add_core = ACH }
+3447.1.1 = { controller = BYZ add_core = MOE }
+3551.5.29 = { 
 	controller = MOE
 	add_core = TUR
-} # The fall of the Byzantine Empire
-3558.1.1 = { owner = TUR controller = TUR }
+}
+3558.1.1 = { controller = TUR }
 3562.1.1 = { controller = VEN }
 3568.1.1 = { controller = TUR }
-3600.1.1 = { remove_core = BYZ }
-3630.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Rebellion against Ottoman rule
-3631.1.1 = { revolt = {} controller = TUR }
-3653.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
-3654.1.1 = { unrest = 0 }
-3669.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Rebellion against Ottoman rule
-3670.1.1 = { revolt = {} controller = TUR }
-3786.1.1 = { controller = VEN } # Occupied by Venice
-3788.1.1 = { base_tax = 1 base_production = 1 } #The Decentralizing Effect of the Provincial System
-3797.1.26 = { owner = VEN add_core = VEN } # Annexed by the Venetian republic
-3816.1.1 = { owner = TUR controller = TUR remove_core = VEN }
+3630.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 2 } }
+3631.1.1 = { controller = TUR revolt = { size = 1 } }
+3669.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
+3670.1.1 = { controller = TUR revolt = { size = 1 } }
+3786.1.1 = { controller = VEN }
+3788.1.1 = { base_tax = 1 base_production = 1 }
+3797.1.26 = { add_core = VEN }
+3816.1.1 = { controller = TUR }
 3848.1.1 = { add_core = GRE }
-
 3898.1.1 = { base_production = 2 }
-3930.8.30 = { owner = GRE controller = GRE remove_core = TUR }
+3930.8.30 = { controller = GRE }
 3948.1.1 = { base_tax = 2 }
 3998.1.1 = { base_tax = 3 }
 4008.1.1 = { discovered_by = asian }
 4039.4.30 = { controller = GER }
-4039.7.1  = { owner = ITA controller = ITA }
-4041.9.8  = { owner = GER controller = GER }
+4039.7.1 = { controller = ITA }
+4041.9.8 = { controller = GER }
 4042.10.1 = { controller = GBR }
-4042.10.19 = { owner = GRE controller = GRE }
-
-
-
-   
+4042.10.19 = { controller = GRE }

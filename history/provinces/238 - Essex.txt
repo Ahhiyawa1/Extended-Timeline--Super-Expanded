@@ -1,10 +1,8 @@
 #238 - Essex
-
 owner = ICN
 controller = ICN
 culture = briton
 religion = druidism
-hre = no
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -19,45 +17,33 @@ base_manpower = 1
 capital = "Camulodunum"
 is_city = yes
 add_core = ICN
-
-2141.1.1 = { owner = ROM controller = ROM add_core = ROM }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2518.1.1 = { owner = ESX controller = ESX add_core = ESX remove_core = ROW remove_core = ICN capital = "Chelmsford" culture = anglo_saxon }
-2625.1.1 = { religion = germanic }
+2141.1.1 = { controller = ROM add_core = ROM }
+2493.1.17 = { controller = ROW add_core = ROW }
+2518.1.1 = { controller = ESX add_core = ESX capital = "Chelmsford" culture = anglo_saxon }
+2625.1.1 = { religion = Germanic }
 2698.1.1 = { base_tax = 3 base_production = 3 }
-2758.1.1 = { religion = chalcedonism }
+2758.1.1 = { religion = Chalcedonism }
 2798.1.1 = { base_manpower = 2 }
 2898.1.1 = { base_tax = 4 base_production = 4 }
-2923.1.1 = { owner = WSX controller = WSX add_core = WSX }
-2965.1.1 = { religion = catholic }
-2977.1.1 = { owner = EAN controller = EAN add_core = EAN }
-3016.1.1 = { owner = WSX controller = WSX remove_core = EAN }
-3025.1.1 = { owner = ENG controller = ENG add_core = ENG remove_core = WSX }
-3048.1.1 = { remove_core = ESX }
+2923.1.1 = { controller = WSX add_core = WSX }
+2965.1.1 = { religion = Catholic }
+2977.1.1 = { controller = EAN add_core = EAN }
+3016.1.1 = { controller = WSX }
+3025.1.1 = { controller = ENG add_core = ENG }
 3098.1.1 = { base_tax = 5 base_production = 5 }
 3164.12.25 = { culture = english }
 3298.1.1 = { base_tax = 6 base_production = 6 }
-
-3551.1.1 = { unrest = 5 } # Start of the War of the Roses
-3559.6.1 = { unrest = 2 } # Coronation of Edward IV
-3565.1.1 = { unrest = 5 } # Rivalry between Edward IV & Warwick
-3569.1.1 = { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
-3569.5.4 = { unrest = 2 } # Murder of Henry VI & Restoration of Edward IV
-3581.6.26 = { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
-3583.8.23 = { unrest = 0 } # Battle of Bosworth Field & the End of the War of the Roses
-3636.1.1 = { religion = anglican }
-3740.8.22 = { revolt = { type = revolutionary_rebels size = 2 leader = "Thomas Fairfax" } controller = REB } # Start of First English Civil War
-3744.5.5 = { revolt = {} controller = ENG } # End of First English Civil War
-3746.6.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-3746.8.29 = { revolt = {} controller = ENG } # End of Second English Civil War
-3805.5.12 = {	owner = GBR
+3636.1.1 = { religion = Anglican }
+3740.8.22 = { controller = REB revolt = { type = revolutionary_rebels size = 2 leader = "Thomas Fairfax" } }
+3744.5.5 = { controller = ENG revolt = { size = 1 } }
+3746.6.1 = { controller = REB revolt = { type = revolutionary_rebels size = 1 } }
+3746.8.29 = { controller = ENG revolt = { size = 1 } }
+3805.5.12 = { 
 	controller = GBR
 	add_core = GBR
-	remove_core = ENG
 }
 3849.1.1 = { base_tax = 9 base_manpower = 5 }
 3873.1.1 = { base_production = 10 base_manpower = 7 }
-
 3899.1.1 = { base_production = 11 base_manpower = 9 }
 3923.1.1 = { base_tax = 10 base_production = 13 base_manpower = 10 }
 3949.1.1 = { base_tax = 12 base_production = 14 }
@@ -67,10 +53,3 @@ add_core = ICN
 4023.1.1 = { base_tax = 15 }
 4048.1.1 = { base_manpower = 13 }
 4073.1.1 = { base_tax = 16 }
-
-
-
-
-
-
-   

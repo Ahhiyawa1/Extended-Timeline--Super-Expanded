@@ -1,12 +1,10 @@
 #140 - Bosnia
-
 owner = ROM
 controller = ROM
 culture = illyrian
 religion = druidism
 capital = "Servitium"
 trade_goods = salt
-hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -19,61 +17,42 @@ base_production = 2
 base_manpower = 1
 is_city = yes
 add_core = ROM
-
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2548.1.1 = { religion = arianism }
-2553.1.1 = { owner = OST controller = OST add_core = OST remove_core = ROW culture = gothic }
-2638.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = OST }
-2708.1.1 = { add_core = BOS culture = bosnian religion = slavic }
-2728.1.1 = { owner = BOS controller = BOS remove_core = BYZ capital = "Doboj" }
-2967.1.1 = { religion = orthodox }
-2978.1.1 = { owner = SER controller = SER add_core = SER }
-3058.1.1 = { owner = CRO controller = CRO add_core = CRO remove_core = SER }
-3095.1.1 = { owner = BOS controller = BOS add_core = BOS }
+2493.1.17 = { controller = ROW add_core = ROW }
+2548.1.1 = { religion = Arianism }
+2553.1.1 = { controller = OST add_core = OST culture = gothic }
+2638.1.1 = { controller = BYZ add_core = BYZ }
+2708.1.1 = { add_core = BOS culture = bosnian religion = Slavic }
+2728.1.1 = { controller = BOS capital = "Doboj" }
+2967.1.1 = { religion = Orthodox }
+2978.1.1 = { controller = SER add_core = SER }
+3058.1.1 = { controller = CRO add_core = CRO }
+3095.1.1 = { controller = BOS }
 3098.1.1 = { base_tax = 3 base_production = 3 }
-3148.1.1 = { owner = CRO controller = CRO add_core = CRO }
-3175.1.1 = { owner = DOC controller = DOC add_core = DOC remove_core = CRO }
-3193.1.1 = { owner = SER controller = SER add_core = SER remove_core = DOC }
-3234.1.1 = { owner = HUN controller = HUN add_core = HUN remove_core = SER }
-3263.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = HUN }
-3278.1.1 = { owner = BOS controller = BOS add_core = BOS remove_core = BYZ }
-3403.1.1 = { owner = CRO controller = CRO add_core = CRO }
-3420.1.1 = { owner = BOS controller = BOS remove_core = CRO }
-
-3561.1.1 = {
-	owner = TUR
+3148.1.1 = { controller = CRO }
+3175.1.1 = { controller = DOC add_core = DOC }
+3193.1.1 = { controller = SER }
+3234.1.1 = { controller = HUN add_core = HUN }
+3263.1.1 = { controller = BYZ }
+3278.1.1 = { controller = BOS }
+3403.1.1 = { controller = CRO }
+3420.1.1 = { controller = BOS }
+3561.1.1 = { 
 	controller = TUR
 	add_core = TUR
-} # The Ottoman province of Bosnia
+}
 3681.1.1 = { fort_16th = yes }
-3691.1.1 = { unrest = 3 } # Fighting began in northwestern Bosnia, sparked Habsburg-Ottoman conflict
-3704.1.1 = { unrest = 0 } # Temporarty peace
-3781.1.1 = { unrest = 6 } # Heavy fighting & destruction in western Bosnia
-3797.1.1 = { unrest = 0 } # Flood of Muslim refugees from Slavonia & Ottoman Hungary 
-3814.12.9 = { controller = HAB } # Occupied by Habsburg
+3814.12.9 = { controller = HAB }
 3816.7.21 = { controller = TUR }
-3835.7.1 = { controller = HAB } # Occupied by Habsburg again
-3836.1.1 = { unrest = 5 } # The constant fighting, increased taxation caused tax revolts
-3837.9.18 = { controller = TUR } # Treaty of Belgrade, Habsburg gave up its claim to the territory
-3838.1.1 = { unrest = 8 }
-3848.1.1 = { unrest = 0 }
-3886.12.6 = { controller = HAB } # Habsburg invasion
-3889.8.4 = { controller = TUR } # Treaty of Sistova
-
-3973.11.2  = { revolt = { type = nationalist_rebels size = 1 } controller = REB add_core = SER }
-3975.8.4   = { revolt = {} controller = TUR }
-3976.7.13  = { owner = HAB controller = HAB add_core = HAB }
-4006.10.5  = { remove_core = TUR }
+3835.7.1 = { controller = HAB }
+3837.9.18 = { controller = TUR }
+3886.12.6 = { controller = HAB }
+3889.8.4 = { controller = TUR }
+3973.11.2 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
+3975.8.4 = { controller = TUR revolt = { size = 1 } }
+3976.7.13 = { controller = HAB add_core = HAB }
 4008.1.1 = { discovered_by = asian }
-4016.12.1  = { owner = YUG controller = YUG add_core = YUG add_core = BHE remove_core = HAB remove_core = BOS }
-4039.4.6   = { owner = GER controller = GER }
-4039.4.10  = { owner = CRO controller = CRO add_core = CRO }
-4043.5.8   = { owner = YUG controller = YUG remove_core = CRO }
-4090.3.3   = { owner = BHE controller = BHE remove_core = YUG remove_core = SER }
-
-
-
-
-
-
-   
+4016.12.1 = { controller = YUG add_core = YUG add_core = BHE }
+4039.4.6 = { controller = GER }
+4039.4.10 = { controller = CRO }
+4043.5.8 = { controller = YUG }
+4090.3.3 = { controller = BHE }

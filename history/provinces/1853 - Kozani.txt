@@ -1,12 +1,10 @@
 #1853 - Monastir
-
 owner = ROM
 controller = ROM
 culture = greek
 religion = hellenism
 capital = "Ptolemaida"
 trade_goods = wine
-hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -22,56 +20,36 @@ base_production = 2
 base_manpower = 1
 is_city = yes
 add_core = ROM
-
-2478.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
-2940.1.1 = { owner = BUL controller = BUL add_core = BUL }
-2965.1.1 = { religion = orthodox }
+2478.1.1 = { religion = Chalcedonism }
+2493.1.17 = { controller = BYZ add_core = BYZ }
+2940.1.1 = { controller = BUL add_core = BUL }
+2965.1.1 = { religion = Orthodox }
 3098.1.1 = { base_manpower = 2 }
-3103.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = BUL }
+3103.1.1 = { controller = BYZ }
 3298.1.1 = { base_tax = 3 }
-3302.4.13 = { owner = THS controller = THS add_core = THS }
-3315.1.1 = { owner = EPI controller = EPI add_core = EPI }
-3322.1.1 = { owner = THS controller = THS remove_core = EPI }
-3344.1.1 = { owner = NCA controller = NCA add_core = NCA remove_core = BUL }
-3359.1.1 = { owner = BYZ controller = BYZ remove_core = NCA }
-3446.1.1 = { owner = SER controller = SER add_core = SER }
-3454.1.1 = { owner = BYZ controller = BYZ remove_core = SER }
-3493.1.1 = { owner = TUR controller = TUR add_core = TUR capital = "Kastoria" }
-
-3500.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Interregnum
-3501.1.1 = { revolt = {} owner = BYZ controller = BYZ remove_core = TUR }
-3521.1.1 = {
-	owner = VEN
+3302.4.13 = { controller = THS add_core = THS }
+3315.1.1 = { controller = EPI add_core = EPI }
+3322.1.1 = { controller = THS }
+3344.1.1 = { controller = NCA add_core = NCA }
+3359.1.1 = { controller = BYZ }
+3446.1.1 = { controller = SER add_core = SER }
+3454.1.1 = { controller = BYZ }
+3493.1.1 = { controller = TUR add_core = TUR capital = "Kastoria" }
+3500.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
+3501.1.1 = { controller = BYZ revolt = { size = 1 } }
+3521.1.1 = { 
 	controller = VEN
 	add_core = VEN
-} # Sold to Venice
-3528.3.29 = {
-	owner = TUR
+}
+3528.3.29 = { 
 	controller = TUR
-	add_core = TUR
-	remove_core = VEN
-} # To the Ottoman Empire
-3600.1.1 = { remove_core = BYZ }
-3653.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
-3654.1.1 = { unrest = 0 }
-3721.1.1 = { unrest = 7 } # The empire fell into anarchy, Janissaries stormed the palace
-3723.1.1 = { unrest = 0 } # Murad tries to quell the corruption
+}
 3848.1.1 = { add_core = GRE }
-
-3948.1.1   = { capital = "Kozani" }
+3948.1.1 = { capital = "Kozani" }
 4008.1.1 = { discovered_by = asian }
 4010.10.11 = { controller = GRE }
-4011.5.30  = { owner = GRE remove_core = TUR }
-4039.4.20  = { controller = GER }
-4039.7.1   = { owner = ITA controller = ITA }
-4041.9.8   = { owner = GER controller = GER }
-4042.10.1  = { controller = GBR }
-4042.10.19 = { owner = GRE controller = GRE }
-
-
-
-
-
-
-   
+4039.4.20 = { controller = GER }
+4039.7.1 = { controller = ITA }
+4041.9.8 = { controller = GER }
+4042.10.1 = { controller = GBR }
+4042.10.19 = { controller = GRE }

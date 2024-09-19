@@ -4,7 +4,6 @@ controller = VAS
 add_core = VAS
 culture = basque
 religion = jainko
-hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -18,96 +17,62 @@ trade_goods = iron
 base_manpower = 1
 capital = "Pompaelo"
 is_city = yes
-2112.1.1 = { owner = ROM controller = ROM add_core = ROM } 
+2112.1.1 = { controller = ROM add_core = ROM }
 2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
-
-2518.1.1 = { religion = chalcedonism } 
+	controller = ROW
+	add_core = ROW
+}
+2518.1.1 = { religion = Chalcedonism }
 2553.1.1 = { 
-    owner = VAS
-    controller = VAS
-    add_core = VAS
-    remove_core = ROW
+	controller = VAS
 }
-
-2564.1.1 = { owner = GVI controller = GVI } 
-2570.1.1 = { owner = VAS controller = VAS } 
+2564.1.1 = { controller = GVI }
+2570.1.1 = { controller = VAS }
 2679.1.1 = { 
-    owner = GVI
-    controller = GVI
-    add_core = GVI
-    capital = "Victoriacum"
+	controller = GVI
+	add_core = GVI
+	capital = "Victoriacum"
 }
-
-2687.1.1 = { religion = chalcedonism } 
+2687.1.1 = { religion = Chalcedonism }
 2809.1.1 = { 
-    owner = VAS
-    controller = VAS
-    remove_core = GVI
-    capital = "Pamplona"
+	controller = VAS
+	capital = "Pamplona"
 }
-
 2814.1.1 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    add_core = FRK
+	controller = UMA
+	add_core = UMA
+	add_core = FRK
 }
-
 2848.8.6 = { 
-    owner = CRD
-    controller = CRD
-    add_core = CRD
-    remove_core = UMA
+	controller = CRD
+	add_core = CRD
 }
-
-2876.1.1 = { owner = VAS controller = VAS } 
-2898.1.1 = { base_tax = 2 base_production = 2 } 
+2876.1.1 = { controller = VAS }
+2898.1.1 = { base_tax = 2 base_production = 2 }
 2922.1.1 = { 
-    owner = NAV
-    controller = NAV
-    add_core = NAV
-    remove_core = UMA
-    remove_core = FRK
-    remove_core = VAS
+	controller = NAV
+	add_core = NAV
 }
-
-2965.1.1 = { religion = catholic } 
-3098.1.1 = { base_manpower = 2 } 
-3298.1.1 = { base_tax = 3 } 
-3581.1.29 = { unrest = 5 } # Civil War between the Beaumont and Agramont parties in Navarra
-3583.2.5 = { unrest = 0 } # Peace of Pau between the two parties
-3610.7.24 = { controller = ARA owner = ARA add_core = ARA } # Navarra's alliance with France gives Fernando the perfect excuse to invade the kingdom.
+2965.1.1 = { religion = Catholic }
+3098.1.1 = { base_manpower = 2 }
+3298.1.1 = { base_tax = 3 }
+3610.7.24 = { controller = ARA add_core = ARA }
 3613.7.7 = { 
-    controller = CAS
-    owner = CAS
-    add_core = CAS
-    remove_core = ARA
-} # Navarra's formally integrated into Castilla
-
+	controller = CAS
+	add_core = CAS
+}
 3614.1.23 = { 
-    controller = SPA
-    owner = SPA
-    add_core = SPA
-    remove_core = CAS
-} # King Fernando dies, Carlos inherits Aragon and becomes co-regent of Castille
-
-3619.5.1 = { controller = FRA } # Exploiting the turmoil provoked by the revolt of the Comunidades, France attacks the unprotected Navarrese border.
-3619.6.30 = { controller = SPA } # French troops are defeated at the battle of Quirós
-3667.1.1 = { fort_16th = yes } # Fortifications of Pamplona
-3898.1.1 = { base_tax = 4 } 
-3906.6.6 = { revolt = { type = pretender_rebels size = 1 } controller = REB } 
-3906.12.1 = { revolt = { } controller = SPA } 
-3911.6.21 = { revolt = { type = pretender_rebels size = 2 } controller = REB } 
-3911.12.11 = { revolt = { } controller = SPA } 
-3937.1.1 = { add_core = VAS } 
-3973.1.1 = { base_production = 3 } 
-4008.1.1 = { discovered_by = asian } 
-4098.1.1 = { base_production = 4 base_manpower = 3 } 
-
-
-   
+	controller = SPA
+	add_core = SPA
+}
+3619.5.1 = { controller = FRA }
+3619.6.30 = { controller = SPA }
+3667.1.1 = { fort_16th = yes }
+3898.1.1 = { base_tax = 4 }
+3906.6.6 = { controller = REB revolt = { type = pretender_rebels size = 1 } }
+3906.12.1 = { controller = SPA revolt = { size = 1 } }
+3911.6.21 = { controller = REB revolt = { type = pretender_rebels size = 2 } }
+3911.12.11 = { controller = SPA revolt = { size = 1 } }
+3973.1.1 = { base_production = 3 }
+4008.1.1 = { discovered_by = asian }
+4098.1.1 = { base_production = 4 base_manpower = 3 }

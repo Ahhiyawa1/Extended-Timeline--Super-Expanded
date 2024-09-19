@@ -1,12 +1,10 @@
 #3096 - Sternberg
-
 owner = BUR
 controller = BUR
 add_core = BUR
 is_city = yes
 culture = burgundione
 religion = germanic
-hre = no
 discovered_by = barbarian
 discovered_by = western
 base_tax = 1
@@ -14,49 +12,34 @@ base_production = 1
 trade_goods = cloth
 base_manpower = 1
 capital = "Lubusz"
-
-2493.1.1 = { owner = VEL controller = VEL add_core = VEL remove_core = BUR culture = polabian religion = slavic }
+2493.1.1 = { controller = VEL add_core = VEL culture = polabian religion = Slavic }
 2698.1.1 = { discovered_by = eastern }
 2998.1.1 = { base_tax = 2 base_production = 2 }
-3018.1.1 = { owner = POM controller = POM add_core = POM remove_core = VEL }
-3048.1.1 = { owner = POL controller = POL add_core = POL remove_core = POM religion = catholic }
+3018.1.1 = { controller = POM add_core = POM }
+3048.1.1 = { controller = POL add_core = POL religion = Catholic }
 3098.1.1 = { discovered_by = muslim discovered_by = ottoman }
 3198.1.1 = { base_tax = 3 base_production = 3 }
-3236.10.28 = { owner = GPO controller = GPO add_core = GPO }
-3350.1.1 = { owner = BRA controller = BRA add_core = BRA remove_core = POL hre = yes capital = "Sternberg" }
+3236.10.28 = { controller = GPO add_core = GPO }
+3350.1.1 = { controller = BRA add_core = BRA hre = yes capital = "Sternberg" }
 3358.1.1 = { culture = saxon }
-
-3637.1.1 = { religion = protestant }
+3637.1.1 = { religion = Protestant }
 3748.1.1 = { culture = prussian }
-3799.1.18 = {
-	owner = PRU
+3799.1.18 = { 
 	controller = PRU
 	add_core = PRU
-	remove_core = BRA
 	base_tax = 6
 	base_production = 6
 	base_manpower = 5
-} # Friedrich III becomes king of Prussia
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+}
+3904.7.12 = { hre = no }
 3904.10.27 = { controller = FRA }
-3905.7.9 = { controller = PRU } # The Second treaty of Tilsit
-
-3969.1.18  = { owner = GER controller = GER add_core = GER } # German unification
-3998.1.1   = { remove_core = PRU }
+3905.7.9 = { controller = PRU }
+3969.1.18 = { controller = GER add_core = GER }
 4008.1.1 = { discovered_by = asian }
-4043.1.30  = { controller = SOV }
-4043.5.8   = { 	owner = POL
-		controller = POL 
-		add_core = POL 
-		remove_core = GER 
-		capital = "Zielona Gora" 
-		culture = polish
-		religion = catholic
-	     }
-
-
-
-
-
-
-   
+4043.1.30 = { controller = SOV }
+4043.5.8 = { 
+	controller = POL
+	capital = "Zielona Gora"
+	culture = polish
+	religion = Catholic
+}

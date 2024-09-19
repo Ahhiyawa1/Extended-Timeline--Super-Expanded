@@ -11,104 +11,63 @@ native_size = 30
 native_ferocity = 6
 is_city = no
 2448.1.1 = { 
-    controller = GHA
-    add_core = GHA
-    city = yes
-    trade_goods = Grain
+	controller = GHA
+	add_core = GHA
+	trade_goods = Grain
 }
-
 2870.1.1 = { 
-    owner = SIJ
-    controller = SIJ
-    add_core = SIJ
-    is_city = yes
-    trade_goods = grain
+	controller = SIJ
+	add_core = SIJ
+	city = yes
+	trade_goods = Grain
 }
-
-2938.1.1 = { owner = SAN controller = SAN add_core = SAN } 
-2948.1.1 = { controller = SAN add_core = SAN religion = sunni } 
-2958.1.1 = { religion = Sunni } 
+2938.1.1 = { controller = SAN add_core = SAN }
+2948.1.1 = { controller = SAN religion = Sunni }
+2958.1.1 = { religion = Sunni }
 2998.1.1 = { 
-    owner = SIJ
-    controller = SIJ
-    add_core = SIJ
-    remove_core = SAN
+	controller = SIJ
 }
-
-3018.1.1 = { controller = GHA } 
+3018.1.1 = { controller = GHA }
 3152.1.1 = { 
-    controller = MOR
-    add_core = MOR
-    owner = MOR
-    add_core = MOR
+	controller = MOR
+	add_core = MOR
 }
-
 3219.1.1 = { 
-    controller = XXX
-    owner = XXX
-    remove_core = MOR
-    remove_core = SIJ
-    is_city = no
-    trade_goods = unknown
-    native_size = 30
-    native_ferocity = 4
-    native_hostileness = 9
+	city = no
+	trade_goods = Unknown
 }
-
-3333.1.1 = { trade_goods = Unknown } 
+3333.1.1 = { trade_goods = Unknown }
 3653.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    is_city = yes
-    trade_goods = salt
-} # Moroccans occupy oasis of Tawat
-
-3728.1.1 = { owner = SOS controller = SOS add_core = SOS } 
+	controller = MOR
+	city = yes
+	trade_goods = Salt
+}
+3728.1.1 = { controller = SOS add_core = SOS }
 3729.1.1 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    remove_core = SOS
-} # Alaouites
-
-3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
-3948.1.1 = { discovered_by = FRA discovered_by = FR2 } 
-3978.1.1 = { discovered_by = FR2 } 
-3999.1.1 = { owner = FR2 controller = FR2 add_core = FR2 } 
+	controller = TFL
+	add_core = TFL
+}
+3766.9.7 = { controller = MOR }
+3948.1.1 = { discovered_by = FRA discovered_by = FR2 }
+3999.1.1 = { controller = FR2 add_core = FR2 }
 4002.1.1 = { 
-    controller = FR2
-    add_core = FR2
-    city = yes
-    trade_goods = Grain
+	controller = FR2
+	trade_goods = Grain
 }
-
-4008.1.1 = { discovered_by = western } 
-4018.1.1 = { discovered_by = western } 
+4008.1.1 = { discovered_by = western }
 4038.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
 }
-
 4038.6.14 = { 
-    controller = FRV
-    add_core = FRV
-    owner = FRV
-    add_core = FRV
-} # Vichy France
-
-4040.11.16 = { controller = FR2 owner = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.11.28 = { controller = MRT add_core = MRT } 
+	controller = FRV
+	add_core = FRV
+}
+4040.11.16 = { controller = FR2 }
+4058.11.28 = { controller = MRT add_core = MRT }
 4060.7.3 = { 
-    owner = ALG
-    controller = ALG
-    add_core = ALG
-    remove_core = FR2
-    remove_core = MOR
+	controller = ALG
+	add_core = ALG
 }

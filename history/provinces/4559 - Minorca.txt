@@ -4,7 +4,6 @@ controller = ROM
 add_core = ROM
 culture = iberi
 religion = canaanite_religion
-hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -19,88 +18,55 @@ base_manpower = 1
 capital = "Mago"
 is_city = yes
 2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
-
-2498.1.1 = { religion = chalcedonism } 
+	controller = ROW
+	add_core = ROW
+}
+2498.1.1 = { religion = Chalcedonism }
 2548.1.1 = { 
-    owner = VAN
-    controller = VAN
-    add_core = VAN
-    remove_core = ROW
+	controller = VAN
+	add_core = VAN
 }
-
 2632.1.1 = { 
-    owner = BYZ
-    controller = BYZ
-    add_core = BYZ
-    remove_core = VAN
+	controller = BYZ
+	add_core = BYZ
 }
-
-2898.1.1 = { religion = sunni culture = andalucian } 
+2898.1.1 = { religion = Sunni culture = andalucian }
 3001.1.1 = { 
-    owner = CRD
-    controller = CRD
-    add_core = CRD
-    remove_core = BYZ
-    capital = "Mahon"
+	controller = CRD
+	add_core = CRD
+	capital = "Mahon"
 }
-
 3109.1.1 = { 
-    owner = DEN
-    controller = DEN
-    add_core = DEN
-    remove_core = CRD
+	controller = DEN
+	add_core = DEN
 }
-
 3174.1.1 = { 
-    owner = MJR
-    controller = MJR
-    add_core = MJR
-    remove_core = DEN
+	controller = MJR
+	add_core = MJR
 }
-
-3212.1.1 = { owner = PIS controller = PIS add_core = PIS } 
+3212.1.1 = { controller = PIS add_core = PIS }
 3213.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = PIS
+	controller = MOR
+	add_core = MOR
 }
-
-3243.1.1 = { owner = MJR controller = MJR remove_core = MOR } 
-3301.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3243.1.1 = { controller = MJR }
+3301.1.1 = { controller = MOR }
 3329.6.17 = { 
-    owner = MJR
-    controller = MJR
-    add_core = MJR
-    add_core = MJO
-} # Treaty of Capdepera
-
-3385.1.17 = { 
-    owner = ARA
-    controller = ARA
-    add_core = ARA
-    add_core = MJO
-    remove_core = MJR
+	controller = MJR
+	add_core = MJO
 }
-
-3393.1.1 = { owner = MJO controller = MJO } 
-3398.1.1 = { religion = catholic culture = catalan } 
-3447.10.25 = { owner = ARA controller = ARA } 
-3560.1.1 = { unrest = 2 } # Remença peasant revolt, in parallel with the Catalan civil war.
-3570.1.1 = { unrest = 0 } # End of the First Remença revolt
-3614.1.23 = { controller = SPA owner = SPA add_core = SPA } # King Fernando dies, Carlos inherits Aragon and becomes co-regent of Castille
-3619.3.16 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The Germanies movement reaches the archipelago, the viceroy is deposed by the revolters
-3621.3.8 = { revolt = { } controller = SPA } # The royal army retakes the city of Palma
-3811.1.1 = { owner = GBR controller = GBR add_core = GBR } 
-3880.1.1 = { owner = SPA controller = SPA } 
-3913.1.1 = { base_tax = 2 } 
-4003.1.1 = { base_production = 2 } 
-4008.1.1 = { discovered_by = asian } 
-
-
-   
+3385.1.17 = { 
+	controller = ARA
+	add_core = ARA
+}
+3393.1.1 = { controller = MJO }
+3398.1.1 = { religion = Catholic culture = catalan }
+3447.10.25 = { controller = ARA }
+3614.1.23 = { controller = SPA add_core = SPA }
+3619.3.16 = { controller = REB revolt = { type = revolutionary_rebels size = 0 } }
+3621.3.8 = { controller = SPA revolt = { size = 1 } }
+3811.1.1 = { controller = GBR add_core = GBR }
+3880.1.1 = { controller = SPA }
+3913.1.1 = { base_tax = 2 }
+4003.1.1 = { base_production = 2 }
+4008.1.1 = { discovered_by = asian }

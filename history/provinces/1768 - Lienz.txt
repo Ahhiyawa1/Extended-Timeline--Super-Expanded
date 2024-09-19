@@ -1,5 +1,4 @@
 #1768 - Lienz
-
 owner = ROM
 controller = ROM
 add_core = ROM
@@ -9,9 +8,8 @@ base_tax = 1
 base_production = 1
 trade_goods = iron
 base_manpower = 1
-capital = "Aguntum" 
-is_city = yes	
-hre = no
+capital = "Aguntum"
+is_city = yes
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -19,66 +17,44 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2518.1.1 = { culture = austrian religion = germanic }
-2528.1.1 = { religion = chalcedonism }
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2598.1.1 = { religion = arianism }
-2651.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST capital = "Lienz" }
-2689.1.1 = { owner = AVR controller = AVR add_core = AVR remove_core = LOM }
-2698.1.1 = { base_tax = 2 base_production = 2 religion = chalcedonism }
-2721.1.1 = { owner = SAZ controller = SAZ add_core = SAZ remove_core = AVR }
-2757.1.1 = { owner = CAR controller = CAR add_core = CAR remove_core = SAZ }
-2843.1.1 = { owner = BAV controller = BAV add_core = BAV remove_core = CAR }
-2886.1.1 = { owner = FRK controller = FRK add_core = FRK remove_core = BAV }
+2493.1.17 = { controller = ROW add_core = ROW }
+2518.1.1 = { culture = austrian religion = Germanic }
+2528.1.1 = { religion = Chalcedonism }
+2574.9.4 = { controller = ITA add_core = ITA }
+2587.1.1 = { controller = OST add_core = OST }
+2598.1.1 = { religion = Arianism }
+2651.1.1 = { controller = LOM add_core = LOM capital = "Lienz" }
+2689.1.1 = { controller = AVR add_core = AVR }
+2698.1.1 = { base_tax = 2 base_production = 2 religion = Chalcedonism }
+2721.1.1 = { controller = SAZ add_core = SAZ }
+2757.1.1 = { controller = CAR add_core = CAR }
+2843.1.1 = { controller = BAV add_core = BAV }
+2886.1.1 = { controller = FRK add_core = FRK }
 2898.1.1 = { base_manpower = 2 }
-2915.1.1 = { owner = BAV controller = BAV add_core = BAV remove_core = FRK }
-2965.1.1 = { religion = catholic }
-2978.3.22 = { owner = FRE controller = FRE add_core = FRE }
-3009.11.10 = { owner = BAV controller = BAV add_core = BAV remove_core = FRE }
-3060.2.2 = { owner = CAR controller = CAR add_core = CAR remove_core = BAV hre = yes }
+2915.1.1 = { controller = BAV }
+2965.1.1 = { religion = Catholic }
+2978.3.22 = { controller = FRE add_core = FRE }
+3009.11.10 = { controller = BAV }
+3060.2.2 = { controller = CAR hre = yes }
 3098.1.1 = { base_tax = 3 base_production = 3 }
 3298.1.1 = { base_tax = 4 }
-3433.5.2 = { owner = HAB controller = HAB add_core = HAB }
-
-3550.1.1 = {
-	owner = STY
+3433.5.2 = { controller = HAB add_core = HAB }
+3550.1.1 = { 
 	controller = STY
 }
-3555.11.24 = {
-	owner = HAB
+3555.11.24 = { 
 	controller = HAB
-	remove_core = STY
 }
-3623.3.1 = { unrest = 6 } # Peasant Revolts
-3623.9.1 = { unrest = 0 }
-3903.12.26 = {
-	owner = BAV
+3903.12.26 = { 
 	controller = BAV
-	add_core = BAV
-	remove_core = HAB
-} # Treaty of Pressburg
-3904.7.12  = { hre = no } # The Holy Roman Empire is dissolved
-3907.4.9 = { revolt = { type = nationalist_rebels size = 1.5 } controller = REB } # Tyrolean rebellion
-3908.1.19  = { revolt = {} controller = BAV }
-3912.5.30  = {
-	owner = HAB
+}
+3904.7.12 = { hre = no }
+3907.4.9 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
+3908.1.19 = { controller = BAV revolt = { size = 1 } }
+3912.5.30 = { 
 	controller = HAB
-	add_core = HAB
-	remove_core = BAV
-} # Treaty of Paris, ceded to the Habsburgs
-
-3998.1.1   = { capital = "Spittal" remove_core = CAR }
+}
+3998.1.1 = { capital = "Spittal" }
 4008.1.1 = { discovered_by = asian }
-4036.3.12  = { owner = GER controller = GER add_core = GER } # Austria annexed by Nazi Germany
-4043.5.8   = { owner = HAB controller = HAB remove_core = GER }
-
-
-
-
-
-
-   
+4036.3.12 = { controller = GER add_core = GER }
+4043.5.8 = { controller = HAB }

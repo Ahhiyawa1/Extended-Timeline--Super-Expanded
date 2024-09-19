@@ -1,12 +1,10 @@
 #2528 - Ma'an
-
 owner = NAB
 controller = NAB
 culture = nabataean_culture
 religion = nabataean
 capital = "Ayla"
 trade_goods = fish
-hre = no
 discovered_by = indian
 discovered_by = asian
 discovered_by = early_indian
@@ -26,45 +24,32 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = NAB
-
-2204.6.1 = { owner = ROM controller = ROM add_core = ROM remove_core = NAB }
-2358.1.1 = { religion = hellenism }
-2367.1.1 = { add_core = PLM revolt = { type = nationalist_rebels size = 1 } controller = REB culture = aramaic }
-2370.1.1 = { controller = ROM remove_core = PLM revolt = {} culture = bedouin_arabic }
-2378.1.1 = { religion = chalcedonism }
+2204.6.1 = { controller = ROM add_core = ROM }
+2358.1.1 = { religion = Hellenism }
+2367.1.1 = { add_core = PLM controller = REB culture = aramaic revolt = { type = nationalist_rebels size = 1 } }
+2370.1.1 = { controller = ROM culture = bedouin_arabic revolt = { size = 1 } }
+2378.1.1 = { religion = Chalcedonism }
 2398.1.1 = { capital = "Aqaba" }
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
-2712.5.1 = { controller = ERS } # Conquered by Sassanid Persia
-2726.1.1 = { controller = BYZ } # Byzantine Emperor Heraclius retakes Jerusalem
-2733.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BYZ }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
-2778.1.1 = { religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
-3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3068.3.1  = { owner = FAT controller = FAT add_core = FAT remove_core = EGY }
-3269.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = FAT }
-3348.5.2 = { owner = MAM controller = MAM add_core = MAM remove_core = EGY }
-
-3614.8.24 = {	owner = TUR
-		controller = TUR
-		add_core = TUR
-	   } # Part of the Ottoman Empire
-3763.1.1 = { unrest = 4 }
-3767.1.1 = { unrest = 2 } # Ottoman attempts to pacify unruly tribes 
-3768.1.1 = { unrest = 0 }
+2493.1.17 = { controller = BYZ add_core = BYZ }
+2712.5.1 = { controller = ERS }
+2726.1.1 = { controller = BYZ }
+2733.1.1 = { controller = RSD add_core = RSD }
+2759.7.28 = { controller = UMA add_core = UMA }
+2778.1.1 = { religion = Sunni }
+2848.8.6 = { controller = ABA add_core = ABA }
+2966.9.15 = { controller = EGY add_core = EGY }
+3003.1.10 = { controller = ABA }
+3033.8.26 = { controller = EGY }
+3068.3.1 = { controller = FAT add_core = FAT }
+3269.1.1 = { controller = EGY }
+3348.5.2 = { controller = MAM add_core = MAM }
+3614.8.24 = { 
+	controller = TUR
+	add_core = TUR
+}
 3848.1.1 = { add_core = SYR }
-3916.9.9 = { owner = EGY controller = EGY add_core = EGY remove_core = MAM }
-
-3939.2.1   = { owner = TUR controller = TUR add_core = TUR remove_core = EGY }
-4018.3.8   = { owner = SYR controller = SYR add_core = SYR }
-4018.7.24  = { owner = GBR controller = GBR add_core = GBR add_core = JOR remove_core = SYR remove_core = TUR }
-4044.5.25  = { owner = JOR controller = JOR remove_core = GBR }
-
-
-
-
-
-
-   
+3916.9.9 = { controller = EGY }
+3939.2.1 = { controller = TUR }
+4018.3.8 = { controller = SYR }
+4018.7.24 = { controller = GBR add_core = GBR add_core = JOR }
+4044.5.25 = { controller = JOR }

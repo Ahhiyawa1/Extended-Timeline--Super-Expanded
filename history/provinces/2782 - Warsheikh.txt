@@ -4,7 +4,6 @@ religion = south_arabian
 capital = "Kelafo"
 native_size = 40
 trade_goods = unknown
-hre = no
 base_tax = 1
 base_production = 1
 base_manpower = 1
@@ -12,61 +11,46 @@ native_ferocity = 4
 native_hostileness = 9
 discovered_by = east_african
 2948.1.1 = { 
-    discovered_by = indian
-    discovered_by = asian
-    discovered_by = muslim
-    discovered_by = ottoman
-    owner = AJU
-    controller = AJU
-    add_core = AJU
-    is_city = yes
-    trade_goods = livestock
-    religion = sunni
+	discovered_by = indian
+	discovered_by = asian
+	discovered_by = muslim
+	discovered_by = ottoman
+	controller = AJU
+	add_core = AJU
+	city = yes
+	trade_goods = Livestock
+	religion = Sunni
 }
-
 3298.1.1 = { 
-    owner = OGD
-    controller = OGD
-    add_core = OGD
-    is_city = yes
-    religion = sunni
-    trade_goods = incense
-} # This region was never part of a state
-
-3624.1.1 = { owner = ADA controller = ADA } # Ahmad Gran secures control over Marehan
-3648.1.1 = { discovered_by = TUR discovered_by = TUR } 
-3653.1.1 = { owner = AJU controller = AJU } # Northern part of province no longer conrolled by ADA
-3718.1.1 = { owner = MDI controller = MDI remove_core = AJU } 
-3978.1.1 = { discovered_by = western } 
-3987.1.7 = { owner = ITA controller = ITA add_core = ITA } 
-3994.1.1 = { owner = DER controller = DER add_core = DER } 
+	controller = OGD
+	add_core = OGD
+	city = yes
+	religion = Sunni
+	trade_goods = Incense
+}
+3624.1.1 = { controller = ADA }
+3648.1.1 = { discovered_by = TUR }
+3653.1.1 = { controller = AJU }
+3718.1.1 = { controller = MDI }
+3978.1.1 = { discovered_by = western }
+3987.1.7 = { controller = ITA add_core = ITA }
+3994.1.1 = { controller = DER add_core = DER }
 4008.1.1 = { 
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = western
-    discovered_by = eastern
+	discovered_by = eastern
 }
-
 4018.2.9 = { 
-    owner = ETH
-    controller = ETH
-    add_core = ETH
-    remove_core = DER
+	controller = ETH
+	add_core = ETH
 }
-
-4031.1.1 = { owner = ITA controller = ITA } 
-4038.1.1 = { discovered_by = eastern discovered_by = asian } 
-4039.3.27 = { controller = GBR } 
-4039.11.27 = { owner = ETH controller = ETH } 
+4031.1.1 = { controller = ITA }
+4039.3.27 = { controller = GBR }
+4039.11.27 = { controller = ETH }
 4058.7.1 = { 
-    owner = SOM
-    controller = SOM
-    add_core = SOM
-    remove_core = ITA
-    remove_core = MDI
+	controller = SOM
+	add_core = SOM
 }
-
-4075.7.20 = { controller = SOM } 
-4076.3.15 = { controller = ETH } 
-4106.8.22 = { revolt = { type = fanatic_rebels size = 2 } controller = REB } # Al-Shabaab, Battle of Kismayo
-4109.12.31 = { revolt = { } controller = SOM } 
+4075.7.20 = { controller = SOM }
+4076.3.15 = { controller = ETH }
+4106.8.22 = { controller = REB revolt = { type = fanatic_rebels size = 2 } }
+4109.12.31 = { controller = SOM revolt = { size = 1 } }
+is_city = no
