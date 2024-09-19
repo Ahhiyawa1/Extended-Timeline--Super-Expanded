@@ -24,9 +24,5 @@ tags={
 }
 name="Extended Timeline Super Expanded (WIP)"
 picture="extended_timeline_se.png"
-<<<<<<< HEAD
+
 supported_version="v1.37"
-=======
-supported_version="v1.37.2.0"
->>>>>>> parent of 97b56e328 (...)
-remote_file_id="3268852078"
