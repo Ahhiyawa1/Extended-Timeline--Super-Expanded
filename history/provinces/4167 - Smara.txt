@@ -1,4 +1,4 @@
-# 344 - Marrakech
+#344 - Marrakech
 culture = atlas
 religion = amanaiism
 capital = "Smara"
@@ -9,256 +9,23 @@ base_manpower = 1
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9
-is_city = no
-add_permanent_province_modifier = { name = hard_to_colonize duration = -1 } 
-2448.1.1 = { 
-    owner = GHA
-    controller = GHA
-    add_core = GHA
-    is_city = yes
-    trade_goods = grain
-    add_core = GHA
-    city = yes
-    add_core = GHA
-    is_city = yes
-    controller = GHA
-    add_core = GHA
-    city = yes
-    trade_goods = grain
-    owner = GHA
-    add_core = GHA
-    is_city = yes
+add_permanent_province_modifier = { 
+	name = hard_to_colonize
+	duration = -1
 }
-
-2818.1.1 = { owner = UMA controller = UMA } 
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB add_core = BGW } # Great Berber revolt
-2841.1.1 = { 
-    owner = BGW
-    controller = BGW
-    remove_core = UMA
-    revolt = { } 
-} # Caliphate loses control of the region
-
-2878.1.1 = { religion = ibadi } 
-2948.1.1 = { 
-    religion = Sunni
-    owner = SAN
-    controller = SAN
-    add_core = SAN
-    add_core = SAN
-    add_core = SAN
-    controller = SAN
-    add_core = SAN
-    owner = SAN
-    add_core = SAN
-}
-
-2958.1.1 = { religion = sunni religion = sunni } 
-3018.1.1 = { 
-    owner = GHA
-    controller = GHA
-    add_core = GHA
-    remove_core = SAN
-    add_core = GHA
-    remove_core = SAN
-    controller = GHA
-    owner = GHA
-    add_core = GHA
-    remove_core = SAN
-}
-
-3152.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    add_core = MOR
-    add_core = MOR
-    controller = MOR
-    add_core = MOR
-    owner = MOR
-    add_core = MOR
-}
-
-3156.7.27 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = BGW
-}
-
-3178.1.1 = { culture = moroccan religion = sunni } 
-3219.1.1 = { 
-    owner = GHA
-    controller = GHA
-    add_core = GHA
-    remove_core = MOR
-    add_core = GHA
-    remove_core = MOR
-    controller = GHA
-    owner = GHA
-    add_core = GHA
-    remove_core = MOR
-}
-
-3333.1.1 = { 
-    owner = XXX
-    controller = XXX
-    remove_core = GHA
-    citysize = 0
-    trade_goods = unknown
-    native_size = 30
-    native_ferocity = 6
-    native_hostileness = 9
-    remove_core = GHA
-    trade_goods = unknown
-    owner = XXX
-    controller = XXX
-    remove_core = GHA
-    citysize = 0
-    native_size = 30
-    native_ferocity = 6
-    native_hostileness = 9
-}
-
-3532.1.1 = { discovered_by = POR } 
-3563.1.1 = { unrest = 5 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
-3570.1.1 = { 
-    owner = FEZ
-    controller = FEZ
-    add_core = FEZ
-    unrest = 0
-} # Wattasids take control over Fez, nominal ruler over much of Morocco.
-
-3583.1.1 = { 
-    owner = POR
-    controller = POR
-    add_core = POR
-    remove_core = FEZ
-}
-
-3640.1.1 = { owner = TFL controller = TFL add_core = TFL } # Portuguese withdrawal from most of the province (exception is Mazagan)
-3647.1.1 = { owner = MOR controller = MOR remove_core = TFL } # Fall of Fez
-3736.10.26 = { owner = FEZ controller = FEZ } # Dilawites seize the region from squabling Saadite claimants
-3766.7.20 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    unrest = 0
-} # Alaouites
-
-3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
-3978.1.1 = { 
-    discovered_by = FR2
-    discovered_by = FR2
-    discovered_by = FR2
-    discovered_by = FR2
-    discovered_by = FR2
-}
-
+2948.1.1 = { religion = Sunni }
+3532.1.1 = { discovered_by = POR }
 3982.1.1 = { 
-    controller = SPA
-    add_core = SPA
-    trade_goods = Grain
-    city = yes
+	controller = SPA
+	add_core = SPA
+	trade_goods = Grain
+	city = yes
 }
+4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
+4071.1.1 = { add_core = WSH }
+4073.11.14 = { controller = MOR add_core = MOR }
+is_city = no
 
-4002.1.1 = { 
-    owner = FR2
-    controller = FR2
-    add_core = FR2
-    is_city = yes
-    trade_goods = grain
-    add_core = FR2
-    city = yes
-    capital = "Atar"
-    add_core = FR2
-    is_city = yes
-    controller = FR2
-    add_core = FR2
-    city = yes
-    capital = "Atar"
-    trade_goods = grain
-    owner = FR2
-    add_core = FR2
-    is_city = yes
-}
 
-4008.1.1 = { 
-    discovered_by = western
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = asian
-}
 
-4018.1.1 = { 
-    discovered_by = western
-    discovered_by = western
-    discovered_by = western
-    discovered_by = western
-    discovered_by = western
-}
-
-4038.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-}
-
-4038.6.14 = { 
-    owner = FRV
-    controller = FRV
-    add_core = FRV
-    add_core = FRV
-    add_core = FRV
-    controller = FRV
-    add_core = FRV
-    owner = FRV
-    add_core = FRV
-} # Vichy France
-
-4040.11.16 = { 
-    owner = FR2
-    controller = FR2
-    remove_core = FRV
-    remove_core = FRV
-    controller = FR2
-    owner = FR2
-    remove_core = FRV
-} # Under Free French control after Operation Torch
-
-4058.11.28 = { 
-    owner = MRT
-    controller = MRT
-    add_core = MRT
-    remove_core = FR2
-    add_core = MRT
-    add_core = MRT
-    remove_core = FR2
-    controller = MRT
-    add_core = MRT
-    owner = MRT
-    add_core = MRT
-    remove_core = FR2
-}
-
-4071.1.1 = { add_core = WSH } 
-4073.11.14 = { controller = MOR add_core = MOR } 
+   
