@@ -2,6 +2,25 @@ objectTypes = {
 	pdxmesh = {
 	  name = "romano_pannonian_early_imperial_legionary_mesh"
 	  file = "gfx/models/Units/romano_pannonian_early_imperial_legionary.mesh"
-	  scale = 1.0
+	  scale = 0.55
+
+	  animation = { id = "attack"				type = "spear_shield_attack_animation" }
+	  animation = { id = "idle"				type = "spear_shield_idle_animation" }
+	  animation = { id = "walk"				type = "spear_shield_moving_animation" }
+	  animation = { id = "death"				type = "polearm_twohanded_death_animation" }
+	  animation = { id = "retreat"			type = "polearm_twohanded_retreat_animation" }
+
+	  animation = { id = "horse_rider_attack"		type = "etcup_cavalry_rider_lance_attack_animation" }	#animations based on hotcup crescent cavalry DLC
+	  animation = { id = "horse_rider_death"		type = "etcup_cavalry_rider_lance_death_animation" }		
+	  animation = { id = "horse_rider_idle"		type = "etcup_cavalry_rider_lance_idle_animation" }
+	  animation = { id = "horse_rider_walk"		type = "etcup_cavalry_rider_lance_moving_animation" }
+	  animation = { id = "horse_rider_retreat"	type = "cavalry_rider_retreat_animation" }	
+
+	}
+	pdxmesh = {
+		name = "romano_pannonian_early_imperial_legionary_shield_mesh"
+		file = "gfx/models/Units/romano_pannonian_early_imperial_legionary_shield.mesh"	
+		
+		scale = 0.55
 	}
 }
