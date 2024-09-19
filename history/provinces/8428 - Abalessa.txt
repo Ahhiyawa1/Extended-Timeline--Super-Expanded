@@ -1,4 +1,4 @@
-#8428 - Abalessa
+# 8428 - Abalessa
 culture = tuareg
 religion = imohag
 capital = "Abalesa"
@@ -12,26 +12,93 @@ base_manpower = 1
 native_size = 30
 native_ferocity = 4.5
 native_hostileness = 9
-add_permanent_province_modifier = { 
-	name = hard_to_colonize
-	duration = -1
-}
-2948.1.1 = { religion = Sunni }
-3948.1.1 = { discovered_by = FRA }
-3999.1.1 = { 
-	controller = FR2
-	add_core = FR2
-	add_core = ALG
-	city = yes
-	trade_goods = Grain
-	capital = "Abalessa"
-}
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian }
-4038.6.14 = { controller = FRV add_core = FRV }
-4040.11.16 = { controller = FR2 }
-4060.7.3 = { controller = ALG }
 is_city = no
+add_permanent_province_modifier = { name = hard_to_colonize duration = -1 } 
+2870.1.1 = { 
+    owner = SIJ
+    controller = SIJ
+    add_core = SIJ
+    is_city = yes
+    trade_goods = grain
+}
 
+2938.1.1 = { owner = SAN controller = SAN add_core = SAN } 
+2948.1.1 = { religion = sunni } 
+2998.1.1 = { 
+    owner = SIJ
+    controller = SIJ
+    add_core = SIJ
+    remove_core = SAN
+}
 
+3152.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3219.1.1 = { 
+    owner = XXX
+    controller = XXX
+    remove_core = MOR
+    remove_core = SIJ
+    is_city = no
+    trade_goods = unknown
+    native_size = 30
+    native_ferocity = 4
+    native_hostileness = 9
+}
 
-   
+3653.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    is_city = yes
+    trade_goods = salt
+} # Moroccans occupy oasis of Tawat
+
+3728.1.1 = { owner = SOS controller = SOS add_core = SOS } 
+3729.1.1 = { 
+    owner = TFL
+    controller = TFL
+    add_core = TFL
+    remove_core = SOS
+} # Alaouites
+
+3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
+3948.1.1 = { discovered_by = FRA discovered_by = FRA discovered_by = FR2 } 
+3999.1.1 = { 
+    controller = FR2
+    add_core = FR2
+    add_core = ALG
+    city = yes
+    trade_goods = Grain
+    capital = "Abalessa"
+    owner = FR2
+    add_core = FR2
+}
+
+4008.1.1 = { 
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = asian
+    discovered_by = western
+}
+
+4038.1.1 = { 
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+}
+
+4038.6.14 = { 
+    controller = FRV
+    add_core = FRV
+    owner = FRV
+    add_core = FRV
+} # Vichy France
+
+4040.11.16 = { controller = FR2 owner = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4060.7.3 = { 
+    controller = ALG
+    owner = ALG
+    add_core = ALG
+    remove_core = FR2
+    remove_core = MOR
+}
