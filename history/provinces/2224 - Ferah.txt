@@ -1,4 +1,4 @@
-#2304 - Ferah
+# 2304 - Ferah
 owner = PRT
 controller = PRT
 culture = parthian
@@ -19,47 +19,91 @@ base_production = 1
 base_manpower = 2
 is_city = yes
 add_core = PRT
-2322.4.24 = { controller = ERS add_core = ERS }
-2742.1.1 = { controller = RSD add_core = RSD }
-2748.1.1 = { culture = khorasani }
-2759.7.28 = { controller = UMA add_core = UMA }
-2778.1.1 = { religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
-2919.1.1 = { controller = KHO add_core = KHO }
-2952.1.1 = { controller = SIS add_core = SIS }
-3011.5.24 = { controller = BUK }
-3020.5.1 = { controller = SIS }
-3100.12.1 = { controller = GHZ add_core = GHZ }
-3138.1.1 = { controller = SIS }
-3250.1.1 = { controller = GHU add_core = GHU }
-3305.1.1 = { controller = KHW add_core = KHW }
-3329.1.1 = { controller = KHA add_core = KHA add_core = AFG }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = KRT add_core = KRT }
-3478.1.1 = { controller = TIM add_core = TIM }
-3547.2.1 = { 
-	controller = KHO
+2582.1.1 = { 
+    owner = GHZ
+    controller = GHZ
+    add_core = GHZ
+    remove_core = KAP
 }
-3556.6.28 = { controller = QAR }
-3556.12.22 = { controller = TIM }
-3567.8.27 = { controller = KHO }
-3605.1.1 = { controller = BUK }
-3608.1.1 = { 
-	controller = PER
-	add_core = PER
+
+2628.1.1 = { 
+    owner = KAP
+    controller = KAP
+    add_core = KAP
+    remove_core = GHZ
 }
-3698.1.1 = { discovered_by = TUR }
-3748.1.1 = { culture = persian }
-3771.1.1 = { discovered_by = ENG }
-3775.1.1 = { discovered_by = FRA }
-3805.5.12 = { discovered_by = GBR }
-3848.1.1 = { 
-	controller = AFG
+
+2687.1.1 = { 
+    owner = ERS
+    controller = ERS
+    add_core = ERS
+    remove_core = KAP
 }
-3858.1.1 = { culture = afghani }
-4094.9.27 = { controller = REB revolt = { type = fanatic_rebels size = 0 } }
-4099.11.23 = { controller = AFG revolt = { size = 1 } }
-4116.5.14 = { controller = REB revolt = { type = fanatic_rebels size = 1 } }
-4119.5.16 = { controller = AFG revolt = { size = 1 } }
-4119.8.10 = { controller = REB revolt = { type = fanatic_rebels size = 0 } }
-4119.8.19 = { controller = AFG revolt = { size = 1 } }
+
+2742.1.1 = { controller = RSD add_core = RSD } 
+2745.1.1 = { 
+    owner = ZAB
+    controller = ZAB
+    add_core = ZAB
+    remove_core = ERS
+}
+
+2778.1.1 = { religion = Sunni } 
+2858.1.1 = { 
+    owner = GHU
+    controller = GHU
+    add_core = GHU
+    remove_core = ZAB
+}
+
+2919.1.1 = { add_core = KHO } 
+2952.1.1 = { controller = SIS add_core = SIS } 
+3020.5.1 = { controller = SIS } 
+3060.1.1 = { owner = GHZ controller = GHZ add_core = GHZ } 
+3078.1.1 = { culture = hazara } 
+3100.12.1 = { controller = GHZ add_core = GHZ } 
+3110.1.1 = { religion = sunni } 
+3138.1.1 = { controller = SIS } 
+3139.1.1 = { 
+    owner = GHU
+    controller = GHU
+    add_core = GHU
+    remove_core = GHZ
+}
+
+3313.1.1 = { 
+    owner = KHW
+    controller = KHW
+    add_core = KHW
+    remove_core = GHU
+}
+
+3319.1.1 = { owner = KHA add_core = AFG remove_core = KHW } 
+3329.1.1 = { add_core = AFG add_core = KHA } 
+3336.1.1 = { 
+    owner = GHZ
+    controller = GHZ
+    add_core = GHZ
+    remove_core = KHA
+}
+
+3364.1.1 = { 
+    owner = AFG
+    controller = AFG
+    add_core = AFG
+    remove_core = GHZ
+}
+
+3433.1.1 = { add_core = KRM } 
+3468.1.1 = { owner = TIM controller = TIM add_core = TIM } 
+3608.1.1 = { add_core = PER } 
+3683.2.1 = { owner = MUG } # Annexed into empire again
+3748.1.1 = { culture = persian } 
+3771.1.1 = { discovered_by = ENG } 
+3805.5.12 = { discovered_by = GBR } 
+3837.5.1 = { owner = PER add_core = PER remove_core = MUG } # Captured by Persia, Nadir Shah
+3845.6.1 = { owner = AFG controller = AFG remove_core = PER } # Ahmad Shah established the Durrani empire
+3858.1.1 = { culture = afghani } 
+4116.5.14 = { controller = REB revolt = { type = fanatic_rebels size = 1 } } 
+4119.5.16 = { controller = AFG revolt = { size = 1 } } 
+4119.8.10 = { controller = REB revolt = { type = fanatic_rebels size = 0 } } 

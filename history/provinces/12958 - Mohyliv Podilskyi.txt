@@ -1,4 +1,4 @@
-#Mohyliv Podilskyi/East Podolia
+# Mohyliv Podilskyi/East Podolia
 owner = ANE
 controller = ANE
 culture = dacian
@@ -20,41 +20,162 @@ base_manpower = 1
 capital = "Mohyliv Podilskyi"
 is_city = yes
 add_core = ANE
-2318.1.1 = { controller = OST add_core = OST religion = Germanic }
-2468.1.1 = { controller = HNS add_core = HNS religion = Tengri pagan reformed }
-2567.1.1 = { controller = ANE religion = Slavic }
-2658.1.1 = { controller = AVR add_core = AVR }
-2665.1.1 = { controller = TIV add_core = TIV }
-2858.1.1 = { controller = HUN add_core = HUN religion = Tengri pagan reformed }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-2998.1.1 = { controller = KRU add_core = KRU add_core = UKR }
-3028.1.1 = { controller = PEC add_core = PEC }
-3058.1.1 = { religion = Orthodox }
-3098.1.1 = { base_manpower = 2 }
-3192.1.1 = { controller = CUM add_core = CUM }
-3298.1.1 = { base_production = 3 }
-3339.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = WHH add_core = WHH }
-3423.1.1 = { controller = LIT add_core = LIT }
+2248.1.1 = { 
+    owner = BAS
+    controller = BAS
+    add_core = BAS
+    remove_core = ANE
+    religion = germanic
+}
+
+2318.1.1 = { controller = OST add_core = OST religion = Germanic } 
+2468.1.1 = { controller = HNS add_core = HNS religion = Tengri } 
+2478.1.1 = { 
+    owner = HNS
+    controller = HNS
+    add_core = HNS
+    remove_core = BAS
+    religion = tengri_pagan_reformed
+}
+
+2567.1.1 = { 
+    controller = ANE
+    religion = slavic
+    owner = ANE
+    add_core = ANE
+    remove_core = HNS
+}
+
+2658.1.1 = { 
+    controller = AVR
+    add_core = AVR
+    owner = AVR
+    add_core = AVR
+    remove_core = ANE
+}
+
+2665.1.1 = { 
+    controller = TIV
+    add_core = TIV
+    owner = TIV
+    add_core = TIV
+    remove_core = AVR
+}
+
+2798.1.1 = { base_tax = 2 base_production = 2 } 
+2858.1.1 = { 
+    controller = HUN
+    add_core = HUN
+    religion = tengri_pagan_reformed
+    owner = HUN
+    add_core = HUN
+    remove_core = TIV
+}
+
+2898.1.1 = { base_tax = 2 base_production = 2 } 
+2948.1.1 = { base_manpower = 2 } 
+2998.1.1 = { 
+    controller = KRU
+    add_core = KRU
+    add_core = UKR
+    owner = KRU
+    add_core = KRU
+    add_core = UKR
+    remove_core = HUN
+}
+
+3028.1.1 = { 
+    controller = PEC
+    add_core = PEC
+    owner = PEC
+    add_core = PEC
+    remove_core = KRU
+}
+
+3058.1.1 = { religion = orthodox } 
+3078.1.1 = { 
+    owner = KRU
+    controller = KRU
+    add_core = KRU
+    remove_core = PEC
+}
+
+3098.1.1 = { base_manpower = 2 } 
+3152.2.20 = { 
+    owner = VOL
+    controller = VOL
+    add_core = VOL
+    add_core = KIE
+    remove_core = KRU
+}
+
+3192.1.1 = { controller = CUM add_core = CUM } 
+3248.1.1 = { fort_15th = yes } 
+3297.1.1 = { remove_core = KIE } 
+3298.1.1 = { base_production = 3 } 
+3339.1.1 = { controller = KHA add_core = KHA } 
+3358.1.1 = { controller = WHH add_core = WHH } 
+3423.1.1 = { 
+    controller = LIT
+    add_core = LIT
+    owner = LIT
+    add_core = LIT
+} # The eastern part remained in Lituania
+
+3448.1.1 = { religion = orthodox } 
+3450.1.1 = { 
+    owner = POL
+    controller = POL
+    add_core = POL
+    remove_core = LIT
+}
+
 3667.7.1 = { 
-	controller = PLC
-	add_core = PLC
-}
+    controller = PLC
+    add_core = PLC
+    owner = PLC
+    remove_core = POL
+    add_core = PLC
+} # Union of Lublin
+
 3746.1.1 = { 
-	controller = REB
-	add_core = ZAZ
-	revolt = { type = nationalist_rebels size = 0 }
+    controller = REB
+    add_core = ZAZ
+    add_core = ZAZ
+    revolt = { type = nationalist_rebels size = 0 } 
+} # Chmielnicki uprising, civil war
+
+3752.1.1 = { controller = PLC remove_core = ZAZ revolt = { size = 1 } } 
+3770.8.18 = { controller = TUR owner = TUR } # Treaty of Buchach
+3797.1.26 = { controller = PLC owner = PLC } # Treaty of Karlowitz
+3866.1.1 = { unrest = 8 } # Kolivshchyna rebellion, peasant uprising
+3867.1.1 = { unrest = 0 } # Suppressed by Polish and Russian troops
+3891.1.23 = { 
+    controller = RUS
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
 }
-3752.1.1 = { controller = PLC revolt = { size = 1 } }
-3770.8.18 = { 
-	controller = TUR
+
+3892.3.24 = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+3892.11.16 = { unrest = 0 } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4016.1.22 = { controller = UKR owner = UKR add_core = UKR } 
+4019.3.18 = { controller = RUS owner = RUS } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = RUS
 }
-3797.1.26 = { controller = PLC }
-3891.1.23 = { controller = RUS add_core = RUS }
-4008.1.1 = { discovered_by = asian }
-4016.1.22 = { controller = UKR }
-4019.3.18 = { controller = RUS }
-4020.12.30 = { controller = SOV add_core = SOV }
-4039.8.15 = { controller = RMN }
-4042.1.1 = { controller = SOV }
-4089.8.24 = { controller = UKR }
+
+4039.8.15 = { controller = RMN } 
+4042.1.1 = { controller = SOV } 
+4089.8.24 = { 
+    controller = UKR
+    owner = UKR
+    add_core = UKR
+    remove_core = SOV
+    remove_core = RUS
+}

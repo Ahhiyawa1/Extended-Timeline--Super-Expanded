@@ -1,5 +1,4 @@
-#411 - Mosul
-
+# 411 - Mosul
 owner = ADB
 controller = ADB
 culture = assyrian
@@ -22,72 +21,201 @@ base_production = 2
 base_manpower = 2
 is_city = yes
 add_core = ADB
+2128.1.1 = { religion = jewish } 
+2214.1.1 = { 
+    owner = ROM
+    controller = ROM
+    add_core = ROM
+    add_core = ROM
+}
 
-2128.1.1 = { religion = jewish }
-2214.1.1 = { owner = ROM controller = ROM add_core = ROM }
-2216.1.1 = { owner = PRT controller = PRT add_core = PRT remove_core = ROM remove_core = ADB }
-2248.1.1 = { religion = chalcedonism }
-2322.4.24 = { owner = ERS controller = ERS add_core = ERS remove_core = PRT }
-2529.7.1 = { religion = nestorian }
-2735.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS capital = "Arbil" }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2948.1.1 = { religion = ibadi }
-2964.1.1 = { revolt = { type = ibadi_rebels size = 2 } controller = REB } #Kharijite Rebellion
-2967.1.1 = { revolt = {} controller = ABA religion = sunni }
-3009.1.1 = { owner = ZNG controller = ZNG add_core = ZNG remove_core = ABA }
-3077.1.1 = { owner = ABA controller = ABA add_core = ABA }
-3079.1.1 = { owner = ZNG controller = ZNG add_core = ZNG remove_core = ABA }
-3187.1.1 = { owner = SEL controller = SEL add_core = SEL }
-3225.1.1 = { owner = ZNG controller = ZNG add_core = ZNG remove_core = SEL }
-3298.1.1 = { culture = kurdish }
-3348.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = IRQ remove_core = ZNG }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3433.1.1 = { owner = JAL controller = JAL add_core = JAL remove_core = ILK }
+2216.1.1 = { 
+    owner = PRT
+    controller = PRT
+    add_core = PRT
+    remove_core = ROM
+    remove_core = ADB
+    add_core = PRT
+    remove_core = ROM
+    remove_core = ADB
+}
 
-3497.1.1   = { add_core = TIM }
-3503.1.1   = {	owner = QAR
-		controller = QAR
-		add_core = QAR
-		remove_core = JAL
-	     } # The Qara Koyunlu
-3567.2.4  = {	owner = AKK
-		controller = AKK
-		add_core = AKK
-		remove_core = QAR
-	    }
+2248.1.1 = { religion = chalcedonism } 
+2322.4.24 = { 
+    owner = ERS
+    controller = ERS
+    add_core = ERS
+    remove_core = PRT
+    add_core = ERS
+    remove_core = PRT
+}
+
+2529.7.1 = { religion = nestorian } 
+2735.1.1 = { 
+    owner = RSD
+    controller = RSD
+    add_core = RSD
+    remove_core = ERS
+    capital = Arbil
+    add_core = RSD
+    remove_core = ERS
+}
+
+2759.7.28 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = RSD
+    add_core = UMA
+    remove_core = RSD
+}
+
+2848.8.6 = { 
+    owner = ABA
+    controller = ABA
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    remove_core = UMA
+}
+
+2948.1.1 = { religion = ibadi } 
+2964.1.1 = { controller = REB revolt = { type = ibadi_rebels size = 2 } } # Kharijite Rebellion
+2967.1.1 = { controller = ABA religion = sunni revolt = { } } 
+3009.1.1 = { 
+    owner = ZNG
+    controller = ZNG
+    add_core = ZNG
+    remove_core = ABA
+    add_core = ZNG
+    remove_core = ABA
+}
+
+3077.1.1 = { 
+    owner = ABA
+    controller = ABA
+    add_core = ABA
+    add_core = ABA
+}
+
+3079.1.1 = { 
+    owner = ZNG
+    controller = ZNG
+    add_core = ZNG
+    remove_core = ABA
+    add_core = ZNG
+    remove_core = ABA
+}
+
+3187.1.1 = { 
+    owner = SEL
+    controller = SEL
+    add_core = SEL
+    add_core = SEL
+}
+
+3225.1.1 = { 
+    owner = ZNG
+    controller = ZNG
+    add_core = ZNG
+    remove_core = SEL
+    add_core = ZNG
+    remove_core = SEL
+}
+
+3298.1.1 = { culture = kurdish } 
+3348.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = IRQ
+    remove_core = ZNG
+    add_core = KHA
+    add_core = IRQ
+    remove_core = ZNG
+}
+
+3358.1.1 = { 
+    owner = ILK
+    controller = ILK
+    add_core = ILK
+    remove_core = KHA
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { 
+    owner = JAL
+    controller = JAL
+    add_core = JAL
+    remove_core = ILK
+    add_core = JAL
+    remove_core = ILK
+}
+
+3497.1.1 = { add_core = TIM add_core = TIM } 
+3503.1.1 = { 
+    owner = QAR
+    controller = QAR
+    add_core = QAR
+    remove_core = JAL
+    add_core = QAR
+    remove_core = JAL
+} # The Qara Koyunlu
+
+3567.2.4 = { 
+    owner = AKK
+    controller = AKK
+    add_core = AKK
+    remove_core = QAR
+    add_core = AKK
+    remove_core = QAR
+}
+
 3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Qasim Jahangir's Faction" leader = "Qasim Jahangir Ak Koyunlu" } } # Civil war in Ak Koyunlu
-3605.1.1  = {	owner = PER
-		controller = PER
-		add_core = PER
-		revolt = { }
-		remove_core = AKK
-	    } # The Safavids took over
+3605.1.1 = { 
+    owner = PER
+    controller = PER
+    add_core = PER
+    remove_core = AKK
+    add_core = PER
+    remove_core = AKK
+    revolt = { } 
+} # The Safavids took over
+
 3632.11.28 = { controller = TUR } # Ottoman conquest
-3634.1.1   = {	owner = TUR
-		add_core = TUR
-		remove_core = PER
-	     } # Annexed by the Ottomans
-3722.1.1   = { controller = PER }
-3736.12.24 = { controller = TUR }
+3634.1.1 = { 
+    owner = TUR
+    add_core = TUR
+    remove_core = PER
+    add_core = TUR
+    remove_core = PER
+} # Annexed by the Ottomans
 
-3899.1.1 = { base_production = 3 }
-3949.1.1 = { base_production = 4 }
-3973.1.1 = { base_manpower = 4 }
-3999.1.1 = { base_tax = 3 }
-4008.1.1 = { discovered_by = asian }
-4018.7.24 = { owner = GBR controller = GBR add_core = GBR }
-4023.1.1 = { base_production = 5 }
-4024.1.1  = { remove_core = TUR }
-4030.10.3 = { owner = IRQ controller = IRQ remove_core = GBR }
-4049.1.1 = { base_production = 6 }
-4073.1.1 = { base_manpower = 5 }
-4089.10.1 = { add_core = KRD capital = "Erbil" }
-4098.1.1 = { base_tax = 6 }
+3722.1.1 = { controller = PER } 
+3736.12.24 = { controller = TUR } 
+3899.1.1 = { base_production = 3 base_production = 3 } 
+3949.1.1 = { base_production = 4 base_production = 4 } 
+3973.1.1 = { base_manpower = 4 base_manpower = 4 } 
+3999.1.1 = { base_tax = 3 base_tax = 3 } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4018.7.24 = { 
+    owner = GBR
+    controller = GBR
+    add_core = GBR
+    add_core = GBR
+}
 
+4023.1.1 = { base_production = 5 base_production = 5 } 
+4024.1.1 = { remove_core = TUR remove_core = TUR } 
+4030.10.3 = { 
+    owner = IRQ
+    controller = IRQ
+    remove_core = GBR
+    remove_core = GBR
+}
 
-
-
-
-
-   
+4049.1.1 = { base_production = 6 base_production = 6 } 
+4073.1.1 = { base_manpower = 5 base_manpower = 5 } 
+4089.10.1 = { add_core = KRD add_core = KRD } 
+4098.1.1 = { base_tax = 6 base_tax = 6 } 

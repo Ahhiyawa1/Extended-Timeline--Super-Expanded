@@ -1,5 +1,4 @@
-#575 - Eastern Makran
-
+# 575 - Eastern Makran
 owner = BAL
 controller = BAL
 culture = baluchi
@@ -21,40 +20,178 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = BAL
+2398.1.1 = { 
+    owner = ERS
+    controller = ERS
+    add_core = ERS
+    add_core = ERS
+    add_core = ERS
+    add_core = ERS
+}
 
-2398.1.1 = { owner = ERS controller = ERS add_core = ERS }
-2734.1.1 = { owner = SND controller = SND add_core = SND remove_core = ERS }
-2750.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = SND }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
-2838.1.1 = { religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2918.1.1 = { owner = BAL controller = BAL add_core = BAL religion = ibadi } #Overrun by Kharijites
-2952.1.1 = { owner = SND controller = SND add_core = SND }
-2959.1.1 = { remove_core = ABA }
-2973.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = SND }
-3008.1.1 = { owner = BAL controller = BAL remove_core = SIS }
-3286.1.1 = { owner = GHU controller = GHU add_core = GHU }
-3298.1.1 = { religion = sunni }
-3304.1.1 = { owner = BAL controller = BAL remove_core = GHU }
-3329.1.1 = { owner = KHA controller = KHA add_core = KHA }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3433.1.1 = { owner = BAL controller = BAL remove_core = ILK }
+2734.1.1 = { 
+    owner = SND
+    controller = SND
+    add_core = SND
+    remove_core = ERS
+    add_core = SND
+    remove_core = ERS
+    add_core = SND
+    add_core = SND
+    remove_core = ERS
+}
 
-3596.1.1 = { discovered_by = POR }
-3747.1.1 = { controller = PER }
-3748.1.1 = { owner = PER }
-3764.1.1 = {
-	owner = BAL
-	controller = BAL
-} #Kingdom of Kalat
+2750.1.1 = { 
+    owner = RSD
+    controller = RSD
+    add_core = RSD
+    remove_core = SND
+    add_core = RSD
+    remove_core = SND
+    add_core = RSD
+    capital = "Dalbandin"
+    add_core = RSD
+    remove_core = SND
+}
 
-3937.2.3   = { owner = GBR controller = GBR add_core = GBR }
-4028.12.29 = { add_core = PAK }
-4045.8.14  = { owner = PAK controller = PAK remove_core = GBR }
+2759.7.28 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = RSD
+    add_core = UMA
+    remove_core = RSD
+    add_core = UMA
+    add_core = UMA
+    remove_core = RSD
+}
 
+2838.1.1 = { religion = sunni } 
+2848.8.6 = { 
+    owner = ABA
+    controller = ABA
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    add_core = ABA
+    remove_core = UMA
+}
 
+2918.1.1 = { 
+    owner = BAL
+    controller = BAL
+    add_core = BAL
+    religion = ibadi
+    add_core = BAL
+    add_core = BAL
+} # Overrun by Kharijites
 
+2952.1.1 = { 
+    owner = SND
+    controller = SND
+    add_core = SND
+    add_core = SND
+    add_core = SND
+}
 
+2959.1.1 = { remove_core = ABA remove_core = ABA remove_core = ABA } 
+2965.1.1 = { controller = SIS add_core = SIS } 
+2973.1.1 = { 
+    owner = SIS
+    controller = SIS
+    add_core = SIS
+    remove_core = SND
+    add_core = SIS
+    remove_core = SND
+    add_core = SIS
+    remove_core = SND
+}
 
+3008.1.1 = { 
+    owner = BAL
+    controller = BAL
+    remove_core = SIS
+    remove_core = SIS
+    remove_core = SIS
+}
 
-   
+3286.1.1 = { 
+    owner = GHU
+    controller = GHU
+    add_core = GHU
+    add_core = GHU
+    add_core = GHU
+    add_core = GHU
+}
+
+3298.1.1 = { religion = sunni } 
+3304.1.1 = { 
+    owner = BAL
+    controller = BAL
+    remove_core = GHU
+    remove_core = GHU
+    remove_core = GHU
+}
+
+3308.1.1 = { religion = Sunni } 
+3329.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = KHA
+    add_core = KHA
+    add_core = KHA
+}
+
+3358.1.1 = { 
+    owner = ILK
+    controller = ILK
+    add_core = ILK
+    remove_core = KHA
+    add_core = ILK
+    remove_core = KHA
+    add_core = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { 
+    owner = BAL
+    controller = BAL
+    remove_core = ILK
+    remove_core = ILK
+    remove_core = ILK
+}
+
+3596.1.1 = { discovered_by = POR discovered_by = POR discovered_by = POR } 
+3747.1.1 = { controller = PER } 
+3748.1.1 = { owner = PER } 
+3764.1.1 = { owner = BAL controller = BAL } # Kingdom of Kalat
+3771.1.1 = { discovered_by = ENG } 
+3775.1.1 = { discovered_by = FRA } 
+3805.5.12 = { discovered_by = GBR } 
+3937.1.1 = { controller = GBR add_core = GBR } 
+3937.2.3 = { 
+    owner = GBR
+    controller = GBR
+    add_core = GBR
+    add_core = GBR
+    add_core = GBR
+}
+
+4028.12.29 = { 
+    add_core = PAK
+    add_core = PAK
+    add_core = PAK
+    add_core = PAK
+}
+
+4045.8.14 = { 
+    owner = PAK
+    controller = PAK
+    remove_core = GBR
+    remove_core = GBR
+    remove_core = GBR
+}

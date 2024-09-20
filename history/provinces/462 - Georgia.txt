@@ -1,4 +1,4 @@
-#462 - Mingrelia
+# 462 - Mingrelia
 owner = PON
 controller = PON
 add_core = PON
@@ -21,29 +21,150 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 center_of_trade = 1
-2160.1.1 = { controller = ROM add_core = ROM }
-2493.1.17 = { controller = BYZ add_core = BYZ }
-2498.1.1 = { capital = "Archaeopolis" }
-2554.1.1 = { controller = LAZ add_core = LAZ }
-2558.1.1 = { religion = Chalcedonism }
-2795.1.1 = { controller = IBE add_core = IBE add_core = UMA }
-2848.1.1 = { add_core = ABA }
-2873.1.1 = { controller = ABK add_core = ABK }
-2965.1.1 = { religion = Orthodox }
-3106.1.1 = { controller = GEO add_core = GEO capital = "Batumi" }
-3334.1.1 = { controller = KHA add_core = KHA }
-3357.1.1 = { controller = IME add_core = IME }
-3428.1.1 = { controller = GEO }
-3485.1.1 = { controller = IME }
-3510.1.1 = { controller = GEO }
-3544.1.1 = { controller = IME }
-3551.1.1 = { controller = GEO }
-3553.1.1 = { controller = IME }
-3563.1.1 = { controller = GEO }
-3576.1.1 = { controller = IME }
-3908.2.20 = { controller = RUS add_core = RUS }
-4008.1.1 = { discovered_by = asian }
-4016.5.26 = { controller = GEO }
-4019.2.25 = { controller = RUS }
-4020.12.30 = { controller = SOV add_core = SOV }
-4089.4.9 = { controller = GEO }
+2160.1.1 = { 
+    controller = ROM
+    add_core = ROM
+    owner = ROM
+    add_core = ROM
+    add_core = ROM
+    add_core = ROM
+}
+
+2178.1.1 = { remove_core = PON remove_core = PON } 
+2493.1.17 = { 
+    controller = BYZ
+    add_core = BYZ
+    owner = BYZ
+    add_core = BYZ
+    remove_core = ROM
+    add_core = BYZ
+    add_core = BYZ
+    remove_core = ROM
+} # Final division of the empire
+
+2498.1.1 = { capital = "Bathus Limen" } 
+2554.1.1 = { 
+    controller = LAZ
+    add_core = LAZ
+    owner = LAZ
+    add_core = LAZ
+    remove_core = BYZ
+    add_core = LAZ
+    add_core = LAZ
+    remove_core = BYZ
+}
+
+2558.1.1 = { religion = chalcedonism } 
+2795.1.1 = { 
+    controller = IBE
+    add_core = IBE
+    add_core = UMA
+    owner = IBE
+    add_core = IBE
+    add_core = UMA
+    add_core = IBE
+    add_core = UMA
+    add_core = IBE
+    add_core = UMA
+}
+
+2848.1.1 = { 
+    add_core = ABA
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    add_core = ABA
+    remove_core = UMA
+}
+
+2873.1.1 = { 
+    controller = ABK
+    add_core = ABK
+    owner = ABK
+    add_core = ABK
+    remove_core = IBE
+    remove_core = ABA
+    add_core = ABK
+    add_core = ABK
+    remove_core = IBE
+    remove_core = ABA
+}
+
+2965.1.1 = { religion = orthodox } 
+3106.1.1 = { 
+    controller = GEO
+    add_core = GEO
+    capital = Batumi
+    owner = GEO
+    add_core = GEO
+    remove_core = ABK
+    add_core = GEO
+    add_core = GEO
+    remove_core = ABK
+}
+
+3334.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+    add_core = KHA
+    add_core = KHA
+}
+
+3357.1.1 = { 
+    controller = IME
+    add_core = IME
+    owner = IME
+    add_core = IME
+    remove_core = KHA
+    add_core = IME
+    add_core = IME
+    remove_core = KHA
+}
+
+3428.1.1 = { controller = GEO owner = GEO } 
+3485.1.1 = { controller = IME owner = IME } 
+3510.1.1 = { controller = GEO owner = GEO } 
+3544.1.1 = { controller = IME owner = IME } 
+3551.1.1 = { controller = GEO owner = GEO } 
+3553.1.1 = { controller = IME owner = IME } 
+3563.1.1 = { controller = GEO owner = GEO } 
+3576.1.1 = { controller = IME owner = IME } 
+3908.2.20 = { 
+    controller = RUS
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
+    add_core = RUS
+    add_core = RUS
+} # Annexed by Russia
+
+4008.1.1 = { 
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+}
+
+4016.5.26 = { controller = GEO owner = GEO } 
+4019.2.25 = { controller = RUS owner = RUS } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = RUS
+    add_core = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4089.4.9 = { 
+    controller = GEO
+    owner = GEO
+    remove_core = SOV
+    remove_core = RUS
+    remove_core = SOV
+    remove_core = RUS
+}

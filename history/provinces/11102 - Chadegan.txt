@@ -1,4 +1,4 @@
-#11102 - Chadegan
+# 11102 - Chadegan
 owner = PRT
 controller = PRT
 culture = persian
@@ -20,55 +20,185 @@ base_manpower = 3
 is_city = yes
 add_core = PRT
 center_of_trade = 2
-2322.4.24 = { controller = ERS add_core = ERS }
-2741.1.1 = { controller = RSD add_core = RSD }
-2759.7.28 = { controller = UMA add_core = UMA }
-2778.1.1 = { religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
-2968.1.1 = { controller = FRS add_core = FRS }
-2973.8.1 = { controller = SIS add_core = SIS }
-3010.1.1 = { controller = ABA }
-3031.1.1 = { controller = TAB add_core = TAB }
-3033.1.1 = { controller = QOM add_core = QOM }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3127.1.1 = { controller = ISF add_core = ISF }
-3149.1.1 = { controller = SEL add_core = SEL }
-3198.1.1 = { trade_goods = Paper }
-3292.1.1 = { controller = KHW add_core = KHW }
-3329.1.1 = { controller = KHA add_core = KHA add_core = PER }
-3358.1.1 = { controller = ILK add_core = ILK }
-3378.1.1 = { religion = Shiite }
-3433.1.1 = { controller = FRS }
-3455.1.1 = { controller = PER }
-3478.1.1 = { add_core = TIM }
-3485.1.1 = { controller = TIM }
-3540.1.1 = { 
-	controller = QOM
+2322.4.24 = { 
+    controller = ERS
+    add_core = ERS
+    add_core = ERS
+    owner = ERS
+    add_core = ERS
+    remove_core = PRT
 }
-3547.1.1 = { 
-	controller = QAR
-	add_core = QAR
+
+2741.1.1 = { 
+    controller = RSD
+    add_core = RSD
+    add_core = RSD
+    owner = RSD
+    add_core = RSD
+    remove_core = ERS
 }
-3566.6.1 = { controller = TIM }
-3567.2.4 = { controller = AKK add_core = AKK }
-3594.2.8 = { controller = REB revolt = { type = pretender_rebels name = "Muhammad's Faction" size = 0 leader = "Muhammad Ak Koyunlu" } }
-3598.1.1 = { discovered_by = TUR }
-3599.7.1 = { 
-	controller = AKK
-	revolt = { size = 1 }
+
+2759.7.28 = { 
+    controller = UMA
+    add_core = UMA
+    add_core = UMA
+    owner = UMA
+    add_core = UMA
+    remove_core = RSD
 }
+
+2778.1.1 = { religion = Sunni } 
+2796.1.1 = { religion = sunni } 
+2848.8.6 = { 
+    controller = ABA
+    add_core = ABA
+    add_core = ABA
+    owner = ABA
+    add_core = ABA
+    remove_core = UMA
+}
+
+2898.1.1 = { controller = QOM add_core = QOM } 
+2919.1.1 = { owner = KHO controller = KHO add_core = KHO } 
+2959.1.1 = { remove_core = ABA } 
+2962.1.1 = { 
+    owner = SIS
+    controller = SIS
+    add_core = SIS
+    remove_core = KHO
+}
+
+2968.1.1 = { controller = FRS add_core = FRS } 
+2973.8.1 = { controller = SIS add_core = SIS } 
+2977.1.1 = { controller = SIS add_core = SIS } 
+2998.1.1 = { controller = ABA } 
+3010.1.1 = { controller = ABA } 
+3011.5.24 = { 
+    owner = BUK
+    controller = BUK
+    add_core = BUK
+    remove_core = SIS
+}
+
+3018.1.1 = { fort_15th = yes } 
+3030.1.1 = { 
+    owner = KRM
+    controller = KRM
+    add_core = KRM
+    remove_core = BUK
+}
+
+3031.1.1 = { controller = TAB add_core = TAB add_core = TAB } 
+3033.1.1 = { controller = QOM add_core = QOM } 
+3066.1.1 = { owner = FRS controller = FRS add_core = FRS } 
+3076.3.1 = { owner = PER controller = PER add_core = PER } 
+3087.9.7 = { owner = FRS controller = FRS } 
+3096.12.1 = { owner = PER controller = PER } 
+3098.1.1 = { base_tax = 4 base_production = 4 } 
+3110.12.22 = { owner = KRM controller = KRM add_core = KRM } 
+3126.11.1 = { owner = PER controller = PER } 
+3127.1.1 = { controller = ISF add_core = ISF add_core = ISF } 
+3139.1.1 = { owner = KRM controller = KRM } 
+3149.1.1 = { controller = SEL add_core = SEL add_core = SEL } 
+3198.1.1 = { trade_goods = Paper } 
+3292.1.1 = { controller = KHW add_core = KHW add_core = KHW } 
+3294.1.1 = { owner = KHW controller = KHW add_core = KHW } 
+3329.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    add_core = PER
+    add_core = KHA
+    add_core = PER
+    owner = KHA
+    add_core = KHA
+    add_core = PER
+    remove_core = KHW
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    add_core = ILK
+    owner = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3378.1.1 = { religion = Shiite } 
+3433.1.1 = { 
+    controller = KRM
+    add_core = YZD
+    owner = KRM
+    add_core = KRM
+    remove_core = ILK
+}
+
+3440.1.1 = { owner = YZD controller = YZD add_core = YZD } 
+3455.1.1 = { 
+    controller = PER
+    owner = PER
+    add_core = PER
+    remove_core = YZD
+}
+
+3478.1.1 = { add_core = TIM add_core = TIM add_core = TIM } 
+3485.1.1 = { controller = TIM } 
+3491.1.1 = { owner = TIM controller = TIM } 
+3540.1.1 = { controller = QOM } 
+3547.1.1 = { controller = QAR add_core = QAR } 
+3547.2.1 = { owner = KHO controller = KHO remove_core = TIM } 
+3549.1.1 = { controller = QAR add_core = QAR } 
+3556.12.22 = { controller = TIM owner = TIM add_core = TIM } # Abu Said negotiates peace with Jahan Shah and the area falls to Timurids of Samarkand
+3566.6.1 = { controller = TIM } 
+3567.2.4 = { 
+    controller = AKK
+    add_core = AKK
+    add_core = AKK
+    owner = AKK
+    add_core = AKK
+    remove_core = TIM
+} # Battle of Qarabagh
+
+3594.2.8 = { controller = REB revolt = { type = pretender_rebels name = "Muhammad's Faction" size = 0 leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
+3598.1.1 = { discovered_by = TUR discovered_by = TUR } 
+3599.7.1 = { controller = AKK revolt = { size = 1 } } 
 3602.1.1 = { 
-	controller = PER
+    controller = PER
+    owner = PER
+    add_core = PER
+    remove_core = AKK
+} # The Safavids take over, Shi'ism becomes the state religion
+
+3648.1.1 = { discovered_by = TUR } 
+3678.1.1 = { fort_15th = yes } 
+3748.1.1 = { trade_goods = Spices } 
+3771.1.1 = { discovered_by = ENG discovered_by = ENG discovered_by = ENG } 
+3805.5.12 = { discovered_by = GBR discovered_by = GBR discovered_by = GBR } 
+3845.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
+3846.1.1 = { unrest = 4 } # The empire began to decline
+3873.1.1 = { base_tax = 4 } 
+3877.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized
+3898.1.1 = { base_manpower = 4 culture = persian } 
+3923.1.1 = { base_production = 4 } 
+3937.1.1 = { 
+    owner = PER
+    controller = PER
+    add_core = PER
+    remove_core = BAL
 }
-3678.1.1 = { fort_15th = yes }
-3748.1.1 = { trade_goods = Spices }
-3771.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3873.1.1 = { base_tax = 4 }
-3898.1.1 = { base_manpower = 4 }
-3923.1.1 = { base_production = 4 }
-3949.1.1 = { base_manpower = 5 }
-3973.1.1 = { base_tax = 5 }
-3999.1.1 = { base_tax = 6 }
-4023.1.1 = { base_tax = 7 }
-4033.1.1 = { controller = IRA add_core = IRA }
+
+3949.1.1 = { base_manpower = 5 } 
+3973.1.1 = { base_tax = 5 base_tax = 2 } 
+3999.1.1 = { base_tax = 6 base_manpower = 2 } 
+4010.1.1 = { base_manpower = 2 } 
+4023.1.1 = { base_tax = 7 } 
+4033.1.1 = { 
+    controller = IRA
+    add_core = IRA
+    add_core = IRA
+    owner = IRA
+    add_core = IRA
+    remove_core = PER
+}
+
+4098.1.1 = { base_manpower = 3 } 

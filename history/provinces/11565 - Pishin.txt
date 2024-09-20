@@ -1,4 +1,4 @@
-#11565 - Pishin
+# 11565 - Pishin
 owner = IPA
 controller = IPA
 culture = baluchi
@@ -20,42 +20,99 @@ base_manpower = 3
 is_city = yes
 add_core = IPA
 add_core = BAL
-2144.1.1 = { controller = BAL }
-2398.1.1 = { controller = ERS add_core = ERS }
-2718.1.1 = { controller = BAL }
-2734.1.1 = { controller = SND add_core = SND }
-2750.1.1 = { controller = RSD add_core = RSD }
-2759.7.28 = { controller = UMA add_core = UMA }
-2848.8.6 = { controller = ABA add_core = ABA }
-2898.1.1 = { religion = Sunni }
-2939.1.1 = { controller = SND }
-2973.1.1 = { controller = SIS add_core = SIS }
-3011.5.24 = { controller = BUK }
-3020.5.1 = { controller = SIS }
-3100.1.1 = { controller = GHZ add_core = GHZ }
-3273.1.1 = { controller = GHU add_core = GHU }
-3304.1.1 = { controller = BAL }
-3329.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = BAL }
-3645.1.1 = { controller = MUG add_core = MUG }
-3656.1.1 = { controller = PER add_core = PER }
-3693.1.1 = { controller = MUG }
-3715.1.1 = { controller = PER }
-3735.1.1 = { controller = MUG }
-3747.1.1 = { controller = PER }
-3764.1.1 = { 
-	controller = BAL
+2398.1.1 = { 
+    controller = ERS
+    add_core = ERS
+    owner = ERS
+    add_core = ERS
 }
-3771.1.1 = { discovered_by = ENG }
-3775.1.1 = { discovered_by = FRA }
-3805.5.12 = { discovered_by = GBR }
-3845.10.1 = { 
-	controller = AFG
-	add_core = AFG
+
+2734.1.1 = { 
+    controller = SND
+    add_core = SND
+    owner = SND
+    add_core = SND
+    remove_core = ERS
 }
-3916.1.1 = { controller = REB revolt = { type = nationalist_rebels name = "Sadozai" size = 1 } }
-3920.1.1 = { controller = AFG revolt = { size = 1 } }
-3974.1.1 = { controller = GBR add_core = GBR }
-4028.12.29 = { add_core = PAK }
-4045.8.14 = { controller = PAK }
+
+2750.1.1 = { 
+    controller = RSD
+    add_core = RSD
+    capital = "Dalbandin"
+    owner = RSD
+    add_core = RSD
+    remove_core = SND
+}
+
+2759.7.28 = { 
+    controller = UMA
+    add_core = UMA
+    owner = UMA
+    add_core = UMA
+    remove_core = RSD
+}
+
+2838.1.1 = { religion = sunni } 
+2848.8.6 = { 
+    controller = ABA
+    add_core = ABA
+    owner = ABA
+    add_core = ABA
+    remove_core = UMA
+}
+
+2918.1.1 = { 
+    controller = BAL
+    religion = ibadi
+    owner = BAL
+    add_core = BAL
+} # Overrun by Kharijites
+
+2952.1.1 = { owner = SND controller = SND add_core = SND } 
+2959.1.1 = { remove_core = ABA } 
+2965.1.1 = { controller = SIS add_core = SIS } 
+2973.1.1 = { 
+    owner = SIS
+    controller = SIS
+    add_core = SIS
+    remove_core = SND
+}
+
+3008.1.1 = { controller = BAL owner = BAL remove_core = SIS } 
+3286.1.1 = { 
+    controller = GHU
+    add_core = GHU
+    owner = GHU
+    add_core = GHU
+}
+
+3298.1.1 = { religion = sunni } 
+3304.1.1 = { controller = BAL owner = BAL remove_core = GHU } 
+3308.1.1 = { religion = Sunni } 
+3329.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    owner = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { controller = BAL owner = BAL remove_core = ILK } 
+3596.1.1 = { discovered_by = POR } 
+3747.1.1 = { controller = PER } 
+3748.1.1 = { owner = PER } 
+3764.1.1 = { controller = BAL owner = BAL } # Kingdom of Kalat
+3771.1.1 = { discovered_by = ENG } 
+3775.1.1 = { discovered_by = FRA } 
+3805.5.12 = { discovered_by = GBR } 
+3937.1.1 = { controller = GBR add_core = GBR } 
+3937.2.3 = { owner = GBR controller = GBR add_core = GBR } 
+4028.12.29 = { add_core = PAK add_core = PAK } 
+4045.8.14 = { controller = PAK owner = PAK remove_core = GBR } 

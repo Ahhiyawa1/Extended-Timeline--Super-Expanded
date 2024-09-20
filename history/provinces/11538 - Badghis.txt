@@ -1,4 +1,4 @@
-#11538 - Badghis
+# 11538 - Badghis
 owner = KUS
 controller = KUS
 culture = afghani
@@ -19,52 +19,62 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = KUS
-2328.1.1 = { controller = KSA add_core = KSA }
-2448.1.1 = { controller = KDT add_core = KDT }
-2528.1.1 = { controller = HEP add_core = HEP }
-2658.1.1 = { controller = ERS add_core = ERS }
-2677.1.1 = { controller = GUZ add_core = GUZ }
-2761.1.1 = { controller = UMA add_core = UMA }
-2787.1.1 = { controller = HEP }
-2808.1.1 = { controller = UMA }
-2848.8.6 = { controller = ABA add_core = ABA }
-2917.1.1 = { controller = KRT add_core = KRT culture = tajik }
-2918.1.1 = { religion = Sunni }
-2968.1.1 = { controller = GUZ }
-3108.1.1 = { controller = GHZ add_core = GHZ }
-3138.5.23 = { controller = SEL add_core = SEL }
-3250.1.1 = { controller = GHU add_core = GHU }
-3298.1.1 = { culture = afghani }
-3305.1.1 = { controller = KHW add_core = AFG }
-3318.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = KRT }
-3478.1.1 = { controller = TIM add_core = TIM add_core = MUG }
-3547.2.1 = { 
+2328.1.1 = { owner = KSA controller = KSA add_core = KSA remove_core = KUS }
+2448.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KSA }
+2528.1.1 = { owner = KAP controller = KAP add_core = KAP remove_core = KDT }
+2582.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = KAP }
+2628.1.1 = { owner = KAP controller = KAP add_core = KAP remove_core = GHZ }
+2687.1.1 = { owner = ERS controller = ERS add_core = ERS remove_core = KAP }
+2745.1.1 = { owner = ZAB controller = ZAB add_core = ZAB remove_core = ERS }
+2858.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = ZAB }
+3060.1.1 = { owner = GHZ controller = GHZ add_core = GHZ }
+3078.1.1 = { culture = hazara }
+3110.1.1 = { religion = sunni }
+3139.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
+3313.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = GHU }
+3319.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = AFG remove_core = KHW }
+3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
+3433.1.1 = { owner = KRT controller = KRT add_core = KRT remove_core = ILK }
+3478.1.1 = { owner = TIM controller = TIM add_core = TIM add_core = KHO remove_core = KRT }
+
+3547.2.1 = { #Conquered by Babur bin Baysunkur
+	owner = KHO
 	controller = KHO
+	remove_core = TIM
 }
-3555.7.19 = { controller = TIM }
-3600.1.1 = { 
-	controller = KHO
-	add_core = KHO
-}
-3605.7.1 = { 
+3605.7.1 = {
+	owner = TIM
 	controller = TIM
-}
-3624.4.21 = { 
+	add_core = TIM
+} # Kabul falls to Babur
+3624.4.21 = {
+	owner = MUG
 	controller = MUG
-}
-3664.1.1 = { controller = REB revolt = { type = nationalist_rebels name = "Hakim Timurid's Faction" size = 0 } }
-3664.6.1 = { controller = AFG revolt = { size = 1 } }
-3683.1.1 = { controller = BUK add_core = BUK }
+	add_core = MUG
+	remove_core = TIM
+} #Battle of Panipat
+3664.1.1 = { revolt = { type = nationalist_rebels size = 3 name = "Hakim Timurid's Faction" leader = "Hakim Timurid" } controller = REB }	#Hakim, should be pretender that declares independence
+3664.6.1 = { revolt = { } owner = AFG controller = AFG } #Independent of the Mughal empire
+3683.1.1 = { controller = MUG }	# Man Singh occupies Kabulistan after death of Mirza Hakim
+3683.2.1 = { owner = MUG } # Annexed into empire again
 3698.1.1 = { discovered_by = TUR }
+3715.1.1 = { controller = PER }
+3716.1.1 = { owner = PER  add_core = PER} #Conquered by Persia
+3735.1.1 = { controller = MUG }
+3736.1.1 = { owner = MUG } #Restored to Mughal Empire
+3747.1.1 = { controller = PER } #Recaptured by Safavids
+3751.1.1 = { owner = PER remove_core = MUG }
 3771.1.1 = { discovered_by = ENG }
 3775.1.1 = { discovered_by = FRA }
+3802.1.1 = { unrest = 5 } # Afghanian revolts
 3805.5.12 = { discovered_by = GBR }
-3835.1.1 = { controller = PER }
-3846.1.1 = { controller = BUK }
-3849.1.1 = { 
+3806.1.1 = { unrest = 8 } # Mir Wais rebelled against Persian rule
+3827.1.1 = { unrest = 0 }
+3845.6.1 = {
+	owner = AFG
 	controller = AFG
-}
-4096.8.14 = { controller = REB revolt = { type = fanatic_rebels size = 0 } }
-4099.11.10 = { controller = AFG revolt = { size = 1 } }
+	remove_core = PER
+} # Ahmad Shah established the Durrani empire
+
+4119.8.13  = { revolt = { type = fanatic_rebels size = 0 } controller = REB }
+4119.8.19  = { revolt = {} controller = AFG }

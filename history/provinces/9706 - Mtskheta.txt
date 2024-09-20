@@ -1,5 +1,4 @@
-#9706 - Mtskheta
-
+# 9706 - Mtskheta
 owner = IBE
 controller = IBE
 add_core = IBE
@@ -22,40 +21,169 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 is_city = yes
+2424.1.1 = { religion = chalcedonism } 
+2625.1.1 = { controller = ERS } 
+2630.1.1 = { controller = IBE } 
+2678.1.1 = { 
+    owner = ERS
+    controller = ERS
+    add_core = SAS
+    add_core = ERS
+}
 
-2424.1.1 = { religion = chalcedonism }
-2678.1.1 = { owner = SAS controller = SAS add_core = SAS }
-2705.1.1 = { owner = IBE controller = IBE add_core = IBE remove_core = SAS }
-2726.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
-2752.1.1 = { owner = IBE controller = IBE add_core = IBE add_core = RSD remove_core = BYZ }
-2759.1.1 = { add_core = UMA remove_core = RSD }
-2848.1.1 = { add_core = ABA remove_core = UMA }
-2884.1.1 = { owner = KKE controller = KKE add_core = KKE remove_core = ABA remove_core = IBE }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2965.1.1 = { religion = orthodox }
-3098.1.1 = { base_manpower = 3 }
-3127.1.1 = { owner = GEO controller = GEO add_core = GEO }
-3168.1.1 = { owner = KKE controller = KKE add_core = KKE remove_core = GEO }
-3208.1.1 = { owner = GEO controller = GEO add_core = GEO }
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA }
-3358.1.1 = { owner = GEO controller = GEO remove_core = KHA }
+2689.1.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    remove_core = ERS
+}
 
-3686.1.1 = { controller = TUR }
-3688.3.21 = { controller = GEO } #Treaty of Istanbul, Ottoman vassal
-3728.1.1 = { owner = KKE controller = KKE add_core = KKE unrest = 0 }
-3731.1.1 = { owner = GEO controller = GEO remove_core = KKE }
-3825.1.1 = { owner = TUR controller = TUR add_core = TUR }
-3833.1.1 = { controller = PER }
-3834.9.24 = { owner = PER add_core = PER remove_core = TUR } #Treaty of Constantinople
-3842.1.1 = { owner = GEO controller = GEO remove_core = PER }
-3899.9.12 = { owner = RUS controller = RUS add_core = RUS } # Annexed by Russia
+2705.1.1 = { 
+    owner = IBE
+    controller = IBE
+    add_core = IBE
+    remove_core = SAS
+}
 
-4008.1.1 = { discovered_by = asian }
-4016.5.26  = { owner = GEO controller = GEO }
-4019.2.25  = { owner = RUS controller = RUS }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4089.4.9   = { owner = GEO controller = GEO remove_core = SOV remove_core = RUS }
+2726.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
+2752.1.1 = { 
+    owner = IBE
+    controller = IBE
+    add_core = IBE
+    add_core = RSD
+    remove_core = BYZ
+    add_core = IBE
+    add_core = RSD
+    remove_core = BYZ
+}
 
+2759.1.1 = { 
+    add_core = UMA
+    remove_core = RSD
+    add_core = UMA
+    remove_core = RSD
+}
 
+2848.1.1 = { 
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    remove_core = UMA
+}
 
-   
+2884.1.1 = { 
+    owner = KKE
+    controller = KKE
+    add_core = KKE
+    remove_core = ABA
+    remove_core = IBE
+}
+
+2898.1.1 = { 
+    base_tax = 3
+    base_production = 3
+    base_tax = 4
+    base_production = 4
+}
+
+2908.1.1 = { remove_core = ABA } 
+2965.1.1 = { religion = orthodox } 
+2998.1.1 = { fort_15th = yes } # Gori
+3098.1.1 = { base_manpower = 3 } 
+3118.1.1 = { 
+    owner = GEO
+    controller = GEO
+    add_core = GEO
+    remove_core = IBE
+}
+
+3127.1.1 = { owner = GEO controller = GEO add_core = GEO } 
+3168.1.1 = { 
+    owner = KKE
+    controller = KKE
+    add_core = KKE
+    remove_core = GEO
+}
+
+3208.1.1 = { owner = GEO controller = GEO add_core = GEO } 
+3334.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = KHA
+}
+
+3358.1.1 = { 
+    owner = GEO
+    controller = GEO
+    remove_core = KHA
+    remove_core = KHA
+}
+
+3686.1.1 = { controller = TUR } 
+3688.3.21 = { controller = GEO } # Treaty of Istanbul, Ottoman vassal
+3728.1.1 = { 
+    owner = KKE
+    controller = KKE
+    add_core = KKE
+    unrest = 0
+    add_core = KKE
+}
+
+3731.1.1 = { 
+    owner = GEO
+    controller = GEO
+    remove_core = KKE
+    remove_core = KKE
+}
+
+3825.1.1 = { 
+    owner = TUR
+    controller = TUR
+    add_core = TUR
+    add_core = TUR
+}
+
+3833.1.1 = { controller = PER } 
+3834.9.24 = { 
+    owner = PER
+    add_core = PER
+    remove_core = TUR
+    add_core = PER
+    remove_core = TUR
+} # Treaty of Constantinople
+
+3842.1.1 = { 
+    owner = GEO
+    controller = GEO
+    remove_core = PER
+    remove_core = PER
+}
+
+3899.9.12 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    add_core = RUS
+} # Annexed by Russia
+
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4016.5.26 = { owner = GEO controller = GEO } 
+4019.2.25 = { owner = RUS controller = RUS } 
+4020.12.30 = { 
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+    add_core = SOV
+    remove_core = RUS
+}
+
+4089.4.9 = { 
+    owner = GEO
+    controller = GEO
+    remove_core = SOV
+    remove_core = RUS
+    remove_core = SOV
+    remove_core = RUS
+}

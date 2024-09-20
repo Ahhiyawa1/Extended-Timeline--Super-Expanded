@@ -1,4 +1,4 @@
-#11426 - Serdar
+# 11426 - Serdar
 culture = persian
 religion = zoroastrian
 capital = "Hasan-Kuly"
@@ -15,34 +15,164 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2848.1.1 = { controller = OGH add_core = OGH city = yes }
-3018.1.1 = { religion = Sunni }
-3133.1.1 = { controller = SEL add_core = SEL }
-3251.1.1 = { controller = KHW add_core = KHW }
-3329.1.1 = { controller = KHA add_core = KHA add_core = PER }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = ASB add_core = ASB }
-3464.1.1 = { controller = SBZ add_core = SBZ }
-3472.1.1 = { controller = ASB }
-3478.1.1 = { add_core = TIM }
-3482.1.1 = { controller = TIM add_core = KHO }
-3507.5.13 = { 
-	controller = TRS
-	add_core = TRS
-}
-3546.3.1 = { 
-	controller = TIM
-}
-3600.1.1 = { controller = KHO }
-3603.1.1 = { controller = BUK }
-3604.1.1 = { add_core = BUK }
-3609.1.1 = { controller = KHI }
-3815.1.1 = { discovered_by = RUS }
-3838.1.1 = { controller = PER }
-3845.6.19 = { controller = KHI }
-3977.1.1 = { controller = RUS add_core = RUS capital = "Kazandzhik" }
-4020.12.30 = { controller = SOV add_core = SOV }
-4022.10.27 = { add_core = TRK }
-4089.10.27 = { controller = TRK }
-4091.1.1 = { capital = "Esenguly" }
 is_city = no
+2848.1.1 = { 
+    controller = OGH
+    add_core = OGH
+    city = yes
+    owner = OGH
+    controller = OGH
+    add_core = OGH
+    is_city = yes
+}
+
+3018.1.1 = { religion = Sunni religion = sunni } 
+3133.1.1 = { 
+    controller = SEL
+    add_core = SEL
+    owner = SEL
+    controller = SEL
+    add_core = SEL
+    remove_core = OGH
+}
+
+3251.1.1 = { 
+    controller = KHW
+    add_core = KHW
+    owner = KHW
+    controller = KHW
+    add_core = KHW
+    remove_core = SEL
+}
+
+3329.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    add_core = PER
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = PER
+    remove_core = KHW
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    owner = ILK
+    controller = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { 
+    controller = ASB
+    add_core = ASB
+    owner = ASB
+    controller = ASB
+    add_core = ASB
+    remove_core = ILK
+}
+
+3464.1.1 = { 
+    controller = SBZ
+    add_core = SBZ
+    owner = SBZ
+    controller = SBZ
+    add_core = SBZ
+}
+
+3472.1.1 = { 
+    controller = ASB
+    owner = ASB
+    controller = ASB
+    remove_core = SBZ
+}
+
+3478.1.1 = { add_core = TIM add_core = TIM } 
+3482.1.1 = { 
+    controller = TIM
+    add_core = KHO
+    owner = TIM
+    controller = TIM
+    add_core = KHO
+    remove_core = ASB
+}
+
+3507.5.13 = { 
+    controller = TRS
+    add_core = TRS
+    owner = TRS
+    controller = TRS
+    add_core = TRS
+}
+
+3546.3.1 = { 
+    controller = TIM
+    owner = TIM
+    controller = TIM
+    remove_core = TRS
+}
+
+3600.1.1 = { 
+    controller = KHO
+    owner = KHO
+    controller = KHO
+    add_core = KHO
+    remove_core = TIM
+} # The end of the Timurids in Samarkand
+
+3603.1.1 = { controller = BUK controller = BUK } 
+3604.1.1 = { 
+    add_core = BUK
+    owner = BUK
+    add_core = BUK
+    remove_core = KHO
+    unrest = 0
+} # Conquered by Muhammad Shaybani
+
+3609.1.1 = { 
+    controller = KHI
+    owner = KHI
+    controller = KHI
+    remove_core = BUK
+} # Khiva separates from Uzbeks
+
+3815.1.1 = { discovered_by = RUS discovered_by = RUS } 
+3838.1.1 = { controller = PER owner = PER controller = PER } # Captured by Nadir Shah
+3845.6.19 = { controller = KHI owner = KHI controller = KHI } # The death of Nadir Shah ends the domination
+3977.1.1 = { 
+    controller = RUS
+    add_core = RUS
+    capital = "Kazandzhik"
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    capital = "Neftedag"
+}
+
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4022.10.27 = { 
+    add_core = TRK
+    add_core = TRK
+    remove_core = KHI
+    remove_core = BUK
+}
+
+4089.10.27 = { 
+    controller = TRK
+    owner = TRK
+    controller = TRK
+    remove_core = SOV
+    remove_core = RUS
+}
+
+4091.1.1 = { capital = "Esenguly" } 

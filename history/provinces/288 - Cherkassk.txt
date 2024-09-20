@@ -20,82 +20,101 @@ base_production = 1
 trade_goods = livestock
 base_manpower = 1
 capital = "Cherkassk"
-2468.1.1 = { 
-	controller = HNS
-	add_core = HNS
-	culture = hunnic
-}
-2518.1.1 = { add_core = ONG culture = bulgar }
-2567.1.1 = { controller = ONG }
-2730.1.1 = { 
-	controller = BUL
-	add_core = BUL
-}
+2518.1.1 = { add_core = ONG add_core = ONG } 
+2567.1.1 = { controller = ONG owner = ONG } 
 2818.1.1 = { 
-	controller = KHZ
-	add_core = KHZ
-	culture = khazar
+    controller = KHZ
+    add_core = KHZ
+    culture = khazar
+    owner = KHZ
+    add_core = KHZ
 }
-3067.1.1 = { 
-	controller = PEC
-	add_core = PEC
-	culture = cuman
+
+3067.1.1 = { culture = cuman add_core = PEC } 
+3098.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
 }
-3098.1.1 = { base_tax = 2 base_production = 2 }
+
 3153.1.1 = { 
-	controller = CUM
-	add_core = CUM
-	add_core = ZAZ
+    controller = CUM
+    add_core = CUM
+    add_core = ZAZ
+    owner = CUM
+    add_core = CUM
+    add_core = ZAZ
+    remove_core = PEC
 }
-3298.1.1 = { base_manpower = 2 }
+
+3298.1.1 = { base_manpower = 2 base_manpower = 2 } 
 3335.1.1 = { 
-	controller = KHA
-	add_core = KHA
-	add_core = GLH
-	culture = mishary
+    controller = KHA
+    add_core = KHA
+    add_core = GLH
+    culture = mishary
+    owner = KHA
+    add_core = KHA
+    add_core = GLH
+    remove_core = CUM
 }
-3348.1.1 = { religion = Sunni }
-3358.1.1 = { 
-	controller = WHH
-	add_core = WHH
+
+3348.1.1 = { religion = sunni } 
+3398.1.1 = { 
+    base_tax = 3
+    base_production = 3
+    base_tax = 3
+    base_production = 3
 }
-3398.1.1 = { base_tax = 3 base_production = 3 }
-3470.1.1 = { controller = BHO add_core = BHO }
-3472.1.1 = { controller = WHH }
-3476.1.1 = { controller = GLH }
+
+3470.1.1 = { owner = BHO add_core = BHO } 
+3472.1.1 = { owner = WHH remove_core = BHO } 
+3476.1.1 = { owner = GLH add_core = GLH } 
 3540.1.1 = { 
-	controller = GOL
-	add_core = GOL
+    controller = GOL
+    add_core = GOL
+    owner = GOL
+    add_core = GOL
+    remove_core = GLH
 }
+
 3600.6.1 = { 
-	controller = AST
-	add_core = AST
-}
+    controller = AST
+    add_core = AST
+    owner = AST
+    add_core = AST
+    remove_core = GOL
+} # Golden Horde destroyed by Crimea
+
 3654.6.2 = { 
-	controller = RUS
-	add_core = RUS
-}
-3668.1.1 = { culture = russian religion = Orthodox }
-3768.3.1 = { controller = REB revolt = { type = anti_tax_rebels name = "Stepan Razin" size = 2 } }
-3769.4.14 = { controller = RUS revolt = { size = 1 } }
-3871.9.13 = { controller = REB revolt = { type = anti_tax_rebels name = "Yemelyan Pugachev" size = 2 } }
-3873.2.1 = { controller = RUS revolt = { size = 1 } }
-3959.1.1 = { base_tax = 4 }
-3979.1.1 = { capital = "Alexandrovsk-Gruskevsky" }
-3986.1.1 = { base_tax = 5 }
-4008.1.1 = { discovered_by = asian }
-4013.1.1 = { base_manpower = 3 }
-4019.1.13 = { capital = "Shakhty" }
-4020.12.30 = { 
-	controller = SOV
-	add_core = SOV
-}
-4040.7.24 = { controller = GER }
-4041.2.13 = { controller = SOV }
-4042.1.1 = { base_manpower = 4 }
-4043.1.1 = { culture = russian }
-4068.1.1 = { base_production = 4 }
+    controller = RUS
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
+    remove_core = AST
+} # Russians acquire Volga after fall of Astrakhan
+
+3668.1.1 = { culture = russian religion = orthodox } 
+3768.3.1 = { controller = REB unrest = 6 revolt = { type = anti_tax_rebels name = "Stepan Razin" size = 2 } } # Razin rebellion
+3769.4.14 = { controller = RUS unrest = 0 revolt = { size = 1 } } # Razin captured
+3871.9.13 = { controller = REB unrest = 6 revolt = { type = anti_tax_rebels name = "Yemelyan Pugachev" size = 2 } } # Pugachev rebellion
+3873.2.1 = { controller = RUS unrest = 0 revolt = { size = 1 } } # Pugachev is captured
+3959.1.1 = { base_tax = 4 base_tax = 4 } 
+3979.1.1 = { capital = "Alexandrovsk-Gruskevsky" } 
+3986.1.1 = { base_tax = 5 base_tax = 5 } 
+4013.1.1 = { base_manpower = 3 base_manpower = 3 } 
+4019.1.13 = { capital = "Shakhty" } 
+4040.7.24 = { controller = GER } 
+4041.2.13 = { controller = SOV } 
+4042.1.1 = { base_manpower = 4 base_manpower = 4 } 
+4043.1.1 = { culture = russian } 
+4068.1.1 = { base_production = 4 base_production = 4 } 
 4089.12.25 = { 
-	controller = RUS
+    controller = RUS
+    owner = RUS
+    add_core = RUS
+    remove_core = SOV
 }
-4098.1.1 = { base_manpower = 5 }
+
+4098.1.1 = { base_manpower = 5 base_manpower = 5 } 

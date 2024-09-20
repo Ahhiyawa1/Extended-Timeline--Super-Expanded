@@ -13,62 +13,406 @@ base_production = 1
 trade_goods = grain
 base_manpower = 1
 capital = "Khomutovka"
-2468.1.1 = { 
-	controller = HNS
-	add_core = HNS
-	culture = hunnic
-}
-2498.1.1 = { discovered_by = western discovered_by = eastern }
-2518.1.1 = { add_core = KTR culture = bulgar }
-2567.1.1 = { controller = KTR }
-2665.1.1 = { 
-	controller = ONG
-	add_core = ONG
-}
-2730.1.1 = { 
-	controller = HUN
-	add_core = HUN
-	culture = hungarian
-}
-2878.1.1 = { 
-	controller = ULI
-	add_core = ULI
-	culture = ruthenian
-}
-2968.1.1 = { 
-	controller = PEC
-	add_core = PEC
-}
-3078.1.1 = { 
-	controller = KRU
-	add_core = KRU
-}
-3098.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3152.2.20 = { 
-	controller = CHR
-	add_core = CHR
-}
-3158.1.1 = { religion = Orthodox }
-3335.1.1 = { controller = KHA add_core = KHA }
-3348.1.1 = { controller = CHR }
-3438.1.1 = { controller = GOL }
-3458.1.1 = { controller = LIT add_core = LIT }
-3606.10.18 = { 
-	controller = RUS
-	add_core = RUS
-}
-3694.1.1 = { fort_16th = yes }
-3776.1.1 = { culture = russian }
-4008.1.1 = { discovered_by = asian }
-4020.12.30 = { 
-	controller = SOV
-	add_core = SOV
-}
-4039.11.4 = { controller = GER }
-4041.2.8 = { controller = SOV }
-4048.1.1 = { base_tax = 3 base_production = 2 }
-4078.1.1 = { base_manpower = 2 }
-4089.12.25 = { 
-	controller = RUS
-}
 discovered_by = barbarian
+2348.1.1 = { 
+    controller = ANE
+    add_core = ANE
+    controller = ANE
+    add_core = ANE
+    add_core = ANE
+}
+
+2468.1.1 = { 
+    controller = HNS
+    add_core = HNS
+    culture = hunnic
+    add_core = HNS
+    add_core = HNS
+    add_core = HNS
+    owner = HNS
+    add_core = HNS
+    remove_core = SRT
+    controller = HNS
+    add_core = HNS
+    add_core = HNS
+    add_core = HNS
+    add_core = HNS
+}
+
+2498.1.1 = { 
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+}
+
+2518.1.1 = { add_core = KTR culture = bulgar add_core = KTR } 
+2567.1.1 = { 
+    controller = KTR
+    add_core = AVR
+    culture = avar
+    add_core = AVR
+    add_core = AVR
+    owner = KTR
+    remove_core = HNS
+    controller = AVR
+    add_core = AVR
+    culture = avar
+    add_core = AVR
+    add_core = AVR
+    add_core = AVR
+}
+
+2665.1.1 = { 
+    controller = ONG
+    add_core = ONG
+    add_core = ULI
+    owner = ONG
+    culture = ruthenian
+    add_core = ULI
+    add_core = ULI
+    add_core = ONG
+    remove_core = KTR
+    controller = ULI
+    add_core = ULI
+    culture = ruthenian
+    add_core = ULI
+    owner = ULI
+    add_core = ULI
+    add_core = ULI
+}
+
+2730.1.1 = { 
+    controller = BUL
+    add_core = HUN
+    culture = hungarian
+    owner = BUL
+    add_core = BUL
+    remove_core = ONG
+}
+
+2818.1.1 = { 
+    owner = HUN
+    controller = HUN
+    add_core = HUN
+    remove_core = BUL
+    culture = hungarian
+}
+
+2878.1.1 = { controller = ULI add_core = ULI culture = ruthenian } 
+2898.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+}
+
+2938.1.1 = { 
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    remove_core = HUN
+}
+
+2968.1.1 = { 
+    controller = PEC
+    add_core = PEC
+    add_core = PEC
+    owner = PEC
+    add_core = PEC
+    add_core = PEC
+    controller = PEC
+    add_core = PEC
+    add_core = PEC
+    owner = PEC
+    add_core = PEC
+    add_core = PEC
+}
+
+2998.1.1 = { base_tax = 2 base_production = 2 } 
+3018.1.1 = { 
+    base_tax = 2
+    controller = KRU
+    add_core = KRU
+    add_core = UKR
+    base_tax = 2
+    controller = KRU
+    add_core = KRU
+    add_core = UKR
+    base_tax = 2
+    add_core = KRU
+    add_core = UKR
+}
+
+3067.1.1 = { 
+    controller = PEC
+    add_core = KRU
+    add_core = UKR
+    owner = PEC
+    add_core = KRU
+    add_core = UKR
+    add_core = PEC
+    remove_core = KHZ
+    culture = pecheneg
+    controller = KRU
+    add_core = KRU
+    add_core = UKR
+    owner = UKR
+    add_core = KRU
+    add_core = UKR
+}
+
+3078.1.1 = { controller = KRU add_core = KRU } 
+3090.1.1 = { religion = Orthodox religion = Orthodox } 
+3098.1.1 = { 
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = muslim
+    discovered_by = ottoman
+}
+
+3152.2.20 = { 
+    controller = PEY
+    add_core = CHR
+    add_core = PEY
+    owner = PEY
+    add_core = PEY
+    add_core = PEY
+    controller = PEY
+    add_core = PEY
+    add_core = PEY
+    owner = PEY
+    add_core = PEY
+    add_core = PEY
+}
+
+3158.1.1 = { 
+    religion = Orthodox
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+}
+
+3198.1.1 = { base_production = 2 base_production = 2 base_production = 2 } 
+3318.1.1 = { culture = crimean } 
+3328.1.1 = { religion = sunni } 
+3335.1.1 = { controller = KHA add_core = KHA } 
+3337.3.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = UKR
+    add_core = KHA
+    add_core = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = KHA
+    owner = UKR
+    add_core = KHA
+    add_core = KHA
+}
+
+3339.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
+}
+
+3348.1.1 = { controller = CHR } 
+3358.1.1 = { 
+    controller = WHH
+    add_core = WHH
+    owner = WHH
+    add_core = WHH
+    add_core = WHH
+    add_core = WHH
+    remove_core = KHA
+    controller = WHH
+    add_core = WHH
+    add_core = WHH
+    owner = WHH
+    add_core = WHH
+    add_core = WHH
+}
+
+3438.1.1 = { controller = GOL } 
+3451.1.1 = { 
+    controller = LIT
+    add_core = LIT
+    capital = Sostka
+    add_core = LIT
+    add_core = LIT
+    controller = LIT
+    add_core = LIT
+    add_core = LIT
+    capital = Sostka
+    add_core = LIT
+    add_core = LIT
+}
+
+3458.1.1 = { 
+    controller = LIT
+    add_core = LIT
+    fort_15th = yes
+    owner = LIT
+    add_core = LIT
+    remove_core = WHH
+    fort_15th = yes
+}
+
+3518.1.1 = { culture = ruthenian religion = orthodox } 
+3606.10.18 = { controller = RUS add_core = RUS } 
+3653.1.1 = { 
+    owner = ZAZ
+    controller = ZAZ
+    add_core = ZAZ
+    remove_core = CRI
+} # Fortified military camp, independent state
+
+3667.7.1 = { 
+    controller = PLC
+    add_core = PLC
+    owner = PLC
+    add_core = PLC
+    add_core = PLC
+    controller = PLC
+    add_core = PLC
+    add_core = PLC
+    owner = PLC
+    add_core = PLC
+    add_core = PLC
+}
+
+3694.1.1 = { fort_16th = yes } 
+3746.1.1 = { controller = REB controller = REB revolt = { type = anti_tax_rebels size = 2 } } 
+3752.1.1 = { controller = RUS controller = RUS revolt = { size = 1 } } 
+3755.1.1 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = ZAZ
+}
+
+3765.1.1 = { 
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
+    add_core = RUS
+    add_core = RUS
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
+    add_core = RUS
+}
+
+3776.1.1 = { culture = russian } 
+3948.1.1 = { remove_core = CRI } 
+3998.1.1 = { capital = "Pryluky" } 
+4008.1.1 = { 
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
+}
+
+4016.1.22 = { 
+    controller = UKR
+    owner = UKR
+    add_core = UKR
+    controller = UKR
+    owner = UKR
+}
+
+4019.3.18 = { 
+    owner = RUS
+    controller = RUS
+    controller = RUS
+    owner = RUS
+}
+
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    add_core = SOV
+    add_core = SOV
+    remove_core = RUS
+    controller = SOV
+    add_core = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    add_core = SOV
+}
+
+4039.9.18 = { controller = GER controller = GER } 
+4039.10.20 = { controller = GER controller = GER } 
+4039.10.24 = { controller = GER } 
+4039.11.4 = { controller = GER } 
+4041.2.8 = { controller = SOV } 
+4041.2.16 = { controller = SOV } 
+4041.3.15 = { controller = GER } 
+4041.8.23 = { controller = SOV } 
+4041.9.18 = { controller = SOV controller = SOV } 
+4041.9.23 = { 
+    controller = SOV
+    owner = SOV
+    controller = SOV
+    owner = SOV
+}
+
+4048.1.1 = { base_tax = 3 base_production = 2 } 
+4078.1.1 = { base_manpower = 2 } 
+4089.8.24 = { 
+    controller = UKR
+    owner = UKR
+    add_core = UKR
+    remove_core = SOV
+    controller = UKR
+    owner = UKR
+}
+
+4089.12.25 = { controller = RUS } 

@@ -1,4 +1,4 @@
-#285 - Kaffa
+# 285 - Kaffa
 owner = BSP
 controller = BSP
 culture = pontic_greek
@@ -22,34 +22,122 @@ is_city = yes
 add_core = BSP
 add_core = ROM
 center_of_trade = 2
-2161.1.1 = { controller = ROM }
-2166.1.1 = { controller = BSP }
-2348.1.1 = { controller = OST add_core = OST capital = "Theodosia" }
-2398.1.1 = { religion = Germanic }
-2468.1.1 = { controller = GCR add_core = GCR }
-2648.1.1 = { controller = BYZ add_core = BYZ }
-2698.1.1 = { religion = Chalcedonism }
-2848.1.1 = { controller = KHZ add_core = KHZ capital = "Doros" }
-2948.1.1 = { base_tax = 4 base_production = 4 }
-2965.1.1 = { religion = Orthodox }
-3067.1.1 = { controller = BYZ }
-3302.4.1 = { controller = TRE add_core = TRE }
-3335.1.1 = { controller = KHA add_core = KHA add_core = CRI capital = "Kaffa" }
-3358.1.1 = { controller = WHH add_core = WHH }
-3364.1.1 = { controller = GEN add_core = GEN }
-3573.5.1 = { controller = TUR add_core = TUR culture = turkish religion = Sunni capital = "Kefe" }
-3869.7.1 = { controller = RUS }
-3872.7.21 = { add_core = RUS }
-3902.1.1 = { capital = "Feodosiya" }
-3978.1.1 = { religion = Orthodox }
-4008.1.1 = { discovered_by = asian }
-4020.12.30 = { controller = SOV add_core = SOV }
-4028.1.1 = { base_manpower = 3 }
-4040.7.1 = { controller = GER }
-4042.5.9 = { controller = SOV }
-4043.1.1 = { culture = russian }
-4048.1.1 = { base_production = 5 }
-4068.1.1 = { base_manpower = 4 }
-4089.8.24 = { controller = UKR add_core = UKR }
-4112.3.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
-4112.3.18 = { controller = RUS revolt = { size = 1 } }
+2161.1.1 = { controller = ROM owner = ROM } 
+2166.1.1 = { controller = BSP owner = BSP } 
+2348.1.1 = { 
+    controller = ROM
+    add_core = OST
+    capital = "Theodosia"
+    owner = ROM
+    add_core = ROM
+    remove_core = BSP
+}
+
+2398.1.1 = { religion = Germanic } 
+2468.1.1 = { 
+    controller = GCR
+    add_core = GCR
+    owner = GCR
+    add_core = GCR
+    remove_core = ROM
+    religion = germanic
+}
+
+2498.1.1 = { culture = gothic } 
+2648.1.1 = { 
+    controller = BYZ
+    add_core = BYZ
+    owner = BYZ
+    add_core = BYZ
+}
+
+2698.1.1 = { religion = chalcedonism } 
+2848.1.1 = { 
+    controller = KHZ
+    add_core = KHZ
+    capital = "Doros"
+    owner = KHZ
+    add_core = KHZ
+    remove_core = GCR
+}
+
+2898.1.1 = { base_manpower = 2 } 
+2931.1.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    remove_core = KHZ
+}
+
+2948.1.1 = { base_tax = 4 base_production = 4 } 
+2965.1.1 = { religion = orthodox } 
+3067.1.1 = { controller = BYZ } 
+3098.1.1 = { base_tax = 3 base_production = 3 } 
+3298.1.1 = { base_manpower = 3 } 
+3302.4.1 = { controller = TRE add_core = TRE } 
+3302.4.13 = { owner = TRE controller = TRE add_core = TRE } 
+3335.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    add_core = CRI
+    capital = "Kaffa"
+}
+
+3358.1.1 = { controller = WHH add_core = WHH } 
+3364.1.1 = { controller = GEN add_core = GEN } 
+3438.1.1 = { 
+    owner = FEO
+    controller = FEO
+    add_core = FEO
+    remove_core = TRE
+    capital = "Mangul"
+}
+
+3573.5.1 = { 
+    controller = TUR
+    add_core = TUR
+    culture = turkish
+    religion = Sunni
+    capital = "Kefe"
+    owner = TUR
+    add_core = TUR
+} # Seized by Gedik Ahmet Pasha
+
+3598.1.1 = { culture = crimean } 
+3869.7.1 = { controller = RUS } # Russo-Turkish War
+3872.7.21 = { 
+    add_core = RUS
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = TUR
+} # Treaty of Kuchuk-Kainarji
+
+3902.1.1 = { capital = "Feodosiya" } 
+3978.1.1 = { religion = orthodox } 
+3998.1.1 = { remove_core = CRI } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4020.12.30 = { 
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4028.1.1 = { base_manpower = 3 } 
+4040.7.1 = { controller = GER } 
+4042.5.9 = { controller = SOV } 
+4043.1.1 = { culture = russian } 
+4048.1.1 = { base_production = 5 } 
+4068.1.1 = { base_manpower = 4 } 
+4089.8.24 = { 
+    controller = UKR
+    add_core = UKR
+    owner = UKR
+    add_core = UKR
+    remove_core = SOV
+}
+
+4112.3.1 = { controller = REB add_core = RUS revolt = { type = nationalist_rebels size = 1 } } 
+4112.3.18 = { controller = RUS owner = RUS revolt = { size = 1 } } 

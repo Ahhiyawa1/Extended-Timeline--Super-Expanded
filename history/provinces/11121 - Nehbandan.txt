@@ -1,4 +1,4 @@
-#11121 - Nehbandan
+# 11121 - Nehbandan
 owner = PRT
 controller = PRT
 culture = parthian
@@ -19,47 +19,173 @@ base_production = 2
 base_manpower = 2
 is_city = yes
 add_core = PRT
-2322.4.24 = { controller = ERS add_core = ERS }
-2745.1.1 = { controller = RSD add_core = RSD }
-2748.1.1 = { culture = khorasani }
-2759.7.28 = { controller = UMA add_core = UMA }
-2788.1.1 = { religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
-2919.1.1 = { controller = KHO add_core = KHO }
-2962.1.1 = { controller = SIS add_core = SIS }
-2998.1.1 = { controller = BUK add_core = BUK }
-3075.1.1 = { controller = KHO }
-3096.1.1 = { controller = GHZ add_core = GHZ }
-3138.5.23 = { controller = SEL add_core = SEL }
-3251.1.1 = { controller = KHW add_core = KHW }
-3329.1.1 = { controller = KHA add_core = KHA add_core = PER }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = KRT add_core = KRT }
-3478.1.1 = { controller = TIM add_core = TIM }
-3547.2.1 = { 
-	controller = KHO
+2322.4.24 = { 
+    controller = ERS
+    add_core = ERS
+    owner = ERS
+    add_core = ERS
+    remove_core = PRT
 }
-3556.6.28 = { controller = QAR }
-3556.12.22 = { controller = TIM }
-3567.8.27 = { controller = KHO }
-3603.1.1 = { controller = BUK }
-3608.1.1 = { 
-	controller = PER
+
+2741.1.1 = { 
+    owner = RSD
+    controller = RSD
+    add_core = RSD
+    remove_core = ERS
 }
-3614.1.1 = { religion = Shiite }
-3695.12.1 = { base_tax = 3 base_production = 3 }
-3748.1.1 = { culture = persian }
-3771.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3848.1.2 = { 
-	controller = KHO
+
+2745.1.1 = { controller = RSD add_core = RSD } 
+2748.1.1 = { culture = khorasani } 
+2759.7.28 = { 
+    controller = UMA
+    add_core = UMA
+    owner = UMA
+    add_core = UMA
+    remove_core = RSD
 }
-3894.1.1 = { 
-	controller = PER
+
+2788.1.1 = { religion = Sunni } 
+2796.1.1 = { religion = sunni } 
+2848.8.6 = { 
+    controller = ABA
+    add_core = ABA
+    owner = ABA
+    add_core = ABA
+    remove_core = UMA
 }
-3900.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 2 } }
-3901.4.1 = { controller = PER revolt = { size = 1 } }
-3973.1.1 = { base_production = 4 }
-4023.1.1 = { base_tax = 4 }
-4033.1.1 = { controller = IRA add_core = IRA }
-4098.1.1 = { base_manpower = 3 }
+
+2919.1.1 = { 
+    controller = KHO
+    add_core = KHO
+    owner = KHO
+    add_core = KHO
+}
+
+2959.1.1 = { remove_core = ABA } 
+2962.1.1 = { 
+    controller = SIS
+    add_core = SIS
+    owner = SIS
+    add_core = SIS
+    remove_core = KHO
+}
+
+2998.1.1 = { controller = BUK add_core = BUK } 
+3011.5.24 = { 
+    owner = BUK
+    controller = BUK
+    add_core = BUK
+    remove_core = SIS
+}
+
+3018.1.1 = { fort_15th = yes } 
+3030.1.1 = { 
+    owner = KRM
+    controller = KRM
+    add_core = KRM
+    remove_core = BUK
+}
+
+3066.1.1 = { owner = FRS controller = FRS add_core = FRS } 
+3075.1.1 = { controller = KHO } 
+3076.3.1 = { owner = PER controller = PER add_core = PER } 
+3087.9.7 = { owner = FRS controller = FRS } 
+3096.1.1 = { controller = GHZ add_core = GHZ } 
+3096.12.1 = { owner = PER controller = PER } 
+3110.12.22 = { owner = KRM controller = KRM add_core = KRM } 
+3126.11.1 = { owner = PER controller = PER } 
+3138.5.23 = { controller = SEL add_core = SEL } 
+3139.1.1 = { owner = KRM controller = KRM } 
+3251.1.1 = { controller = KHW add_core = KHW } 
+3294.1.1 = { owner = KHW controller = KHW add_core = KHW } 
+3329.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    add_core = PER
+    owner = KHA
+    add_core = KHA
+    add_core = PER
+    remove_core = KHW
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    owner = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { 
+    controller = KRM
+    add_core = KRT
+    owner = KRM
+    add_core = KRM
+    remove_core = ILK
+}
+
+3440.1.1 = { owner = YZD controller = YZD add_core = YZD } 
+3455.1.1 = { 
+    owner = PER
+    controller = PER
+    add_core = PER
+    remove_core = YZD
+}
+
+3478.1.1 = { controller = TIM add_core = TIM add_core = TIM } 
+3491.1.1 = { owner = TIM controller = TIM } 
+3547.2.1 = { controller = KHO owner = KHO remove_core = TIM } 
+3556.6.28 = { controller = QAR } 
+3556.12.22 = { controller = TIM owner = TIM add_core = TIM } # Abu Said negotiates peace with Jahan Shah and the area falls to Timurids of Samarkand
+3567.2.4 = { 
+    controller = AKK
+    owner = AKK
+    add_core = AKK
+    remove_core = TIM
+} # Battle of Qarabagh
+
+3567.8.27 = { controller = KHO } 
+3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Muhammad's Faction" leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
+3599.7.1 = { controller = AKK revolt = { } } 
+3602.1.1 = { 
+    owner = PER
+    add_core = PER
+    controller = PER
+    remove_core = AKK
+} # The Safavids take over, Shi'ism becomes the state religion
+
+3603.1.1 = { controller = BUK } 
+3608.1.1 = { controller = PER } 
+3614.1.1 = { religion = Shiite } 
+3648.1.1 = { discovered_by = TUR } 
+3695.12.1 = { base_tax = 3 base_production = 3 } 
+3748.1.1 = { culture = persian } 
+3771.1.1 = { discovered_by = ENG discovered_by = ENG } 
+3805.5.12 = { discovered_by = GBR discovered_by = GBR } 
+3845.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
+3846.1.1 = { unrest = 4 } # The empire began to decline
+3848.1.2 = { controller = KHO } 
+3877.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized
+3894.1.1 = { controller = PER } 
+3898.1.1 = { culture = persian } 
+3900.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 2 } } 
+3901.4.1 = { controller = PER revolt = { size = 1 } } 
+3937.1.1 = { 
+    owner = PER
+    controller = PER
+    add_core = PER
+    remove_core = BAL
+}
+
+3973.1.1 = { base_production = 4 base_tax = 2 } 
+4010.1.1 = { base_manpower = 2 } 
+4023.1.1 = { base_tax = 4 } 
+4033.1.1 = { 
+    controller = IRA
+    add_core = IRA
+    owner = IRA
+    add_core = IRA
+    remove_core = PER
+}
+
+4098.1.1 = { base_manpower = 3 } 

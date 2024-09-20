@@ -21,22 +21,50 @@ base_manpower = 2
 is_city = yes
 add_core = KHW
 2898.1.1 = { religion = sunni } 
-3098.1.1 = { base_tax = 3 base_production = 3 } 
-3139.1.1 = { owner = OGH controller = OGH add_core = OGH } 
+3098.1.1 = { 
+    base_tax = 3
+    base_production = 3
+    base_tax = 3
+    base_production = 3
+}
+
+3139.1.1 = { 
+    owner = OGH
+    controller = OGH
+    add_core = OGH
+    add_core = OGH
+}
+
 3140.1.1 = { 
     owner = SEL
     controller = SEL
     add_core = SEL
     remove_core = OGH
+    add_core = SEL
+    remove_core = OGH
 }
 
-3198.1.1 = { base_manpower = 3 } 
-3236.1.1 = { owner = KHW controller = KHW add_core = KHW } 
-3251.1.1 = { remove_core = SEL } 
-3298.1.1 = { base_tax = 4 base_production = 4 } 
+3198.1.1 = { base_manpower = 3 base_manpower = 3 } 
+3236.1.1 = { 
+    owner = KHW
+    controller = KHW
+    add_core = KHW
+    add_core = KHW
+}
+
+3251.1.1 = { remove_core = SEL remove_core = SEL } 
+3298.1.1 = { 
+    base_tax = 4
+    base_production = 4
+    base_tax = 4
+    base_production = 4
+}
+
 3319.1.1 = { 
     owner = KHA
     controller = KHA
+    add_core = KHA
+    remove_core = KHW
     add_core = KHA
     remove_core = KHW
 }
@@ -47,30 +75,62 @@ add_core = KHW
     controller = CGT
     add_core = CGT
     remove_core = KHA
+    add_core = CGT
+    remove_core = KHA
 }
 
-3398.1.1 = { base_manpower = 4 } 
+3398.1.1 = { base_manpower = 4 base_manpower = 4 } 
 3445.1.1 = { 
     owner = TRS
     controller = TRS
     add_core = TRS
     remove_core = CGT
+    add_core = TRS
+    remove_core = CGT
 }
 
-3458.1.1 = { owner = CHG controller = CHG add_core = CHG } 
+3458.1.1 = { 
+    owner = CHG
+    controller = CHG
+    add_core = CHG
+    add_core = CHG
+}
+
 3461.1.1 = { 
     owner = TRS
     controller = TRS
     add_core = TRS
     remove_core = CHG
+    add_core = TRS
+    remove_core = CHG
 }
 
-3468.1.1 = { owner = TIM controller = TIM add_core = TIM } 
-3507.5.13 = { owner = TRS controller = TRS add_core = TRS } 
-3546.3.1 = { owner = TIM controller = TIM remove_core = TRS } 
+3468.1.1 = { 
+    owner = TIM
+    controller = TIM
+    add_core = TIM
+    add_core = TIM
+}
+
+3507.5.13 = { 
+    owner = TRS
+    controller = TRS
+    add_core = TRS
+    add_core = TRS
+}
+
+3546.3.1 = { 
+    owner = TIM
+    controller = TIM
+    remove_core = TRS
+    remove_core = TRS
+}
+
 3600.1.1 = { 
     owner = KHO
     controller = KHO
+    add_core = KHO
+    remove_core = TIM
     add_core = KHO
     remove_core = TIM
 } # The end of the Timurids in Samarkand
@@ -82,23 +142,47 @@ add_core = KHW
     remove_core = KHO
     unrest = 0
     fort_15th = no
+    add_core = BUK
+    remove_core = KHO
 } # Conquered by Muhammad Shaybani
 
-3609.1.1 = { owner = KHI controller = KHI remove_core = BUK } # Khiva separates from Uzbeks
-3815.1.1 = { discovered_by = RUS } # 3971.8.12 Russian protectorate
-4018.2.2 = { owner = RUS controller = RUS add_core = RUS } 
+3609.1.1 = { 
+    owner = KHI
+    controller = KHI
+    remove_core = BUK
+    remove_core = BUK
+} # Khiva separates from Uzbeks
+
+3815.1.1 = { discovered_by = RUS discovered_by = RUS } # 3971.8.12 Russian protectorate
+4018.2.2 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    add_core = RUS
+}
+
 4020.12.30 = { 
     owner = SOV
     controller = SOV
     add_core = SOV
     remove_core = RUS
+    add_core = SOV
+    remove_core = RUS
 }
 
-4022.10.27 = { add_core = UZB remove_core = KHI } 
+4022.10.27 = { 
+    add_core = UZB
+    remove_core = KHI
+    add_core = UZB
+    remove_core = KHI
+}
+
 4058.1.1 = { trade_goods = cotton } 
 4089.12.8 = { 
     owner = UZB
     controller = UZB
+    remove_core = SOV
+    remove_core = RUS
     remove_core = SOV
     remove_core = RUS
 }

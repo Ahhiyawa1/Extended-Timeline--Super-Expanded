@@ -1,4 +1,4 @@
-#435 - Zaranj
+# 435 - Zaranj
 owner = BAL
 controller = BAL
 culture = baluchi
@@ -19,28 +19,164 @@ base_production = 1
 base_manpower = 2
 is_city = yes
 add_core = BAL
-2398.1.1 = { controller = ERS add_core = ERS }
-2734.1.1 = { controller = SND add_core = SND }
-2750.1.1 = { controller = RSD add_core = RSD capital = "Dalbandin" }
-2759.7.28 = { controller = UMA add_core = UMA }
-2838.1.1 = { religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
-2918.1.1 = { controller = BAL religion = Ibadi }
-2965.1.1 = { controller = SIS add_core = SIS }
-3008.1.1 = { controller = BAL }
-3286.1.1 = { controller = GHU add_core = GHU }
-3308.1.1 = { religion = Sunni }
-3304.1.1 = { controller = BAL }
-3329.1.1 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = BAL }
-3747.1.1 = { controller = PER }
-3764.1.1 = { 
-	controller = BAL
+2398.1.1 = { 
+    controller = ERS
+    add_core = ERS
+    owner = ERS
+    add_core = ERS
+    add_core = ERS
+    add_core = ERS
 }
-3771.1.1 = { discovered_by = ENG }
-3775.1.1 = { discovered_by = FRA }
-3805.5.12 = { discovered_by = GBR }
-3937.1.1 = { controller = GBR add_core = GBR }
-4028.12.29 = { add_core = PAK }
-4045.8.14 = { controller = PAK }
+
+2734.1.1 = { 
+    controller = SND
+    add_core = SND
+    owner = SND
+    add_core = SND
+    remove_core = ERS
+    add_core = SND
+    add_core = SND
+    remove_core = ERS
+}
+
+2750.1.1 = { 
+    controller = RSD
+    add_core = RSD
+    capital = Dalbandin
+    owner = RSD
+    add_core = RSD
+    remove_core = SND
+    add_core = RSD
+    add_core = RSD
+    remove_core = SND
+}
+
+2759.7.28 = { 
+    controller = UMA
+    add_core = UMA
+    owner = UMA
+    add_core = UMA
+    remove_core = RSD
+    add_core = UMA
+    add_core = UMA
+    remove_core = RSD
+}
+
+2838.1.1 = { religion = sunni } 
+2848.8.6 = { 
+    controller = ABA
+    add_core = ABA
+    owner = ABA
+    add_core = ABA
+    remove_core = UMA
+    add_core = ABA
+    add_core = ABA
+    remove_core = UMA
+}
+
+2918.1.1 = { 
+    controller = BAL
+    religion = ibadi
+    owner = BAL
+    add_core = BAL
+    add_core = BAL
+} # Overrun by Kharijites
+
+2952.1.1 = { 
+    owner = SND
+    controller = SND
+    add_core = SND
+    add_core = SND
+}
+
+2959.1.1 = { remove_core = ABA remove_core = ABA } 
+2965.1.1 = { controller = SIS add_core = SIS add_core = SIS } 
+2973.1.1 = { 
+    owner = SIS
+    controller = SIS
+    add_core = SIS
+    remove_core = SND
+    add_core = SIS
+    remove_core = SND
+}
+
+3008.1.1 = { 
+    controller = BAL
+    owner = BAL
+    remove_core = SIS
+    remove_core = SIS
+}
+
+3286.1.1 = { 
+    controller = GHU
+    add_core = GHU
+    owner = GHU
+    add_core = GHU
+    add_core = GHU
+    add_core = GHU
+}
+
+3298.1.1 = { religion = sunni } 
+3304.1.1 = { 
+    controller = BAL
+    owner = BAL
+    remove_core = GHU
+    remove_core = GHU
+}
+
+3308.1.1 = { religion = Sunni } 
+3329.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+    add_core = KHA
+    add_core = KHA
+}
+
+3358.1.1 = { 
+    controller = ILK
+    add_core = ILK
+    owner = ILK
+    add_core = ILK
+    remove_core = KHA
+    add_core = ILK
+    add_core = ILK
+    remove_core = KHA
+}
+
+3433.1.1 = { 
+    controller = BAL
+    owner = BAL
+    remove_core = ILK
+    remove_core = ILK
+}
+
+3596.1.1 = { discovered_by = POR discovered_by = POR } 
+3747.1.1 = { controller = PER } 
+3748.1.1 = { owner = PER } 
+3764.1.1 = { controller = BAL owner = BAL } # Kingdom of Kalat
+3771.1.1 = { discovered_by = ENG discovered_by = ENG } 
+3775.1.1 = { discovered_by = FRA discovered_by = FRA } 
+3805.5.12 = { discovered_by = GBR discovered_by = GBR } 
+3937.1.1 = { controller = GBR add_core = GBR add_core = GBR } 
+3937.2.3 = { 
+    owner = GBR
+    controller = GBR
+    add_core = GBR
+    add_core = GBR
+}
+
+4028.12.29 = { 
+    add_core = PAK
+    add_core = PAK
+    add_core = PAK
+    add_core = PAK
+}
+
+4045.8.14 = { 
+    controller = PAK
+    owner = PAK
+    remove_core = GBR
+    remove_core = GBR
+}

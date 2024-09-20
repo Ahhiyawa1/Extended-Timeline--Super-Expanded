@@ -21,37 +21,86 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 2398.1.1 = { 
-	controller = CIR
-	add_core = CIR
+    controller = CIR
+    add_core = CIR
+    owner = CIR
+    add_core = CIR
+    remove_core = SIR
 }
-2778.1.1 = { religion = Chalcedonism }
-2898.1.1 = { base_manpower = 2 }
-2965.1.1 = { religion = Orthodox }
-3098.1.1 = { base_tax = 2 base_production = 2 }
-3298.1.1 = { base_manpower = 3 }
-3337.1.1 = { controller = KHA add_core = KHA }
+
+2778.1.1 = { religion = chalcedonism } 
+2898.1.1 = { base_manpower = 2 base_manpower = 2 } 
+2965.1.1 = { religion = orthodox } 
+3098.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+}
+
+3298.1.1 = { base_manpower = 3 base_manpower = 3 } 
+3337.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+}
+
 3358.1.1 = { 
-	controller = WHH
-	add_core = WHH
+    controller = WHH
+    add_core = WHH
+    owner = WHH
+    add_core = WHH
+    remove_core = KHA
 }
+
 3406.1.1 = { 
-	controller = CIR
+    controller = CIR
+    owner = CIR
+    add_core = CIR
+    remove_core = WHH
 }
-3748.1.1 = { religion = Sunni }
-3883.1.1 = { base_tax = 3 }
-3923.1.1 = { capital = "Mostovskoy" }
-3943.1.1 = { base_tax = 4 }
-3962.3.18 = { controller = RUS add_core = RUS }
-3965.1.1 = { culture = russian religion = Orthodox }
-4003.1.1 = { base_production = 3 }
-4008.1.1 = { discovered_by = asian }
-4016.2.20 = { controller = UKR add_core = UKR }
-4017.11.7 = { controller = RUS }
+
+3748.1.1 = { religion = sunni } 
+3883.1.1 = { base_tax = 3 base_tax = 3 } 
+3923.1.1 = { capital = "Mostovskoy" } 
+3943.1.1 = { base_tax = 4 base_tax = 4 } 
+3962.3.18 = { 
+    controller = RUS
+    add_core = RUS
+    owner = RUS
+    add_core = RUS
+} # End of Russo-Circassian War
+
+3965.1.1 = { culture = russian religion = orthodox } # Circassian genocide
+4003.1.1 = { base_production = 3 base_production = 3 } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4016.2.20 = { 
+    controller = UKR
+    add_core = UKR
+    owner = UKR
+    add_core = UKR
+}
+
+4017.11.7 = { controller = RUS owner = RUS remove_core = UKR } 
 4020.12.30 = { 
-	controller = SOV
-	add_core = SOV
+    controller = SOV
+    add_core = SOV
+    owner = SOV
+    add_core = SOV
+    remove_core = GEO
 }
+
 4089.12.25 = { 
-	controller = RUS
+    controller = RUS
+    owner = RUS
+    add_core = RUS
+    remove_core = SOV
 }
-4098.1.1 = { base_production = 4 base_manpower = 4 }
+
+4098.1.1 = { 
+    base_production = 4
+    base_manpower = 4
+    base_production = 4
+    base_manpower = 4
+}

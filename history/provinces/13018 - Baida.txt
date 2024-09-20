@@ -20,74 +20,275 @@ base_manpower = 1
 capital = "Baida"
 is_city = yes
 add_core = SRT
-2318.1.1 = { 
-	controller = OST
-	add_core = OST
-}
-2398.1.1 = { religion = Germanic culture = gothic }
+2398.1.1 = { religion = Germanic culture = gothic } 
 2468.1.1 = { 
-	controller = HNS
-	add_core = HNS
+    owner = HNS
+    controller = HNS
+    add_core = HNS
+    remove_core = SRT
+    culture = hunnic
+    add_core = HNS
+    remove_core = SRT
 }
-2518.1.1 = { add_core = ONG }
-2567.1.1 = { controller = ONG }
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2718.1.1 = { religion = Chalcedonism }
+
+2518.1.1 = { 
+    add_core = ONG
+    add_core = ONG
+    add_core = KTR
+    culture = bulgar
+    add_core = KTR
+}
+
+2567.1.1 = { 
+    controller = ONG
+    owner = ONG
+    owner = KTR
+    controller = KTR
+    remove_core = HNS
+    remove_core = HNS
+}
+
+2665.1.1 = { 
+    owner = ONG
+    controller = ONG
+    add_core = ONG
+    remove_core = KTR
+    add_core = ONG
+    remove_core = KTR
+}
+
+2698.1.1 = { base_tax = 2 base_production = 2 } 
+2718.1.1 = { religion = Chalcedonism } 
 2730.1.1 = { 
-	controller = BUL
-	add_core = BUL
+    owner = BUL
+    controller = BUL
+    add_core = BUL
+    remove_core = ONG
+    add_core = BUL
+    remove_core = ONG
 }
-2848.1.1 = { 
-	controller = KHZ
-	add_core = KHZ
+
+2818.1.1 = { 
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    culture = khazar
+    owner = HUN
+    controller = HUN
+    add_core = HUN
+    remove_core = BUL
+    culture = hungarian
+    add_core = HUN
+    remove_core = BUL
 }
-2898.1.1 = { base_manpower = 2 culture = khazar }
-2965.1.1 = { religion = Orthodox }
+
+2848.1.1 = { controller = KHZ add_core = KHZ } 
+2898.1.1 = { base_manpower = 2 culture = khazar } 
+2938.1.1 = { 
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    remove_core = HUN
+    add_core = KHZ
+    remove_core = HUN
+}
+
+2965.1.1 = { religion = Orthodox } 
+2998.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+}
+
 3067.1.1 = { 
-	controller = PEC
-	add_core = PEC
-	culture = pecheneg
+    culture = cuman
+    add_core = PEC
+    owner = PEC
+    controller = PEC
+    add_core = PEC
+    remove_core = KHZ
+    culture = pecheneg
+    add_core = PEC
+    remove_core = KHZ
 }
-3098.1.1 = { base_tax = 3 base_production = 3 }
+
+3098.1.1 = { 
+    base_tax = 3
+    base_production = 3
+    base_tax = 2
+    base_production = 2
+}
+
+3153.1.1 = { 
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    add_core = ZAZ
+    remove_core = PEC
+}
+
 3158.1.1 = { 
-	controller = CUM
-	add_core = CUM
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+    add_core = CUM
+    remove_core = PEC
 }
-3198.1.1 = { base_manpower = 3 }
-3218.1.1 = { culture = crimean }
-3298.1.1 = { base_tax = 4 base_production = 4 }
+
+3198.1.1 = { base_manpower = 3 } 
+3218.1.1 = { culture = crimean } 
+3298.1.1 = { base_tax = 4 base_production = 4 base_manpower = 2 } 
+3318.1.1 = { culture = crimean } 
+3328.1.1 = { religion = sunni } 
 3335.1.1 = { 
-	controller = KHA
-	add_core = KHA
-	add_core = CRI
+    controller = KHA
+    add_core = KHA
+    add_core = CRI
+    owner = KHA
+    add_core = KHA
+    add_core = GLH
+    remove_core = CUM
+    culture = mishary
 }
+
+3339.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
+}
+
+3348.1.1 = { religion = sunni } 
 3358.1.1 = { 
-	controller = WHH
-	add_core = WHH
+    owner = WHH
+    controller = WHH
+    add_core = WHH
+    remove_core = KHA
+    add_core = WHH
+    remove_core = KHA
 }
-3398.1.1 = { religion = Sunni }
-3470.1.1 = { controller = BHO add_core = BHO }
-3472.1.1 = { controller = WHH }
-3476.1.1 = { controller = GLH add_core = GLH }
-3539.1.1 = { controller = CRI }
-3576.6.1 = { add_core = TUR }
-3834.6.1 = { controller = RUS }
-3837.9.29 = { controller = CRI }
-3869.7.1 = { controller = RUS }
-3872.7.21 = { controller = CRI add_core = RUS }
-3881.4.8 = { controller = RUS }
-3938.1.1 = { religion = Orthodox }
-3995.1.1 = { capital = "Zaporizhzhia" }
-4008.1.1 = { discovered_by = asian }
-4016.1.22 = { controller = UKR add_core = UKR }
-4019.3.18 = { controller = RUS }
+
+3398.1.1 = { religion = Sunni base_tax = 3 base_production = 3 } 
+3458.1.1 = { 
+    owner = LIT
+    controller = LIT
+    add_core = LIT
+    remove_core = WHH
+    add_core = LIT
+    remove_core = WHH
+}
+
+3470.1.1 = { owner = BHO add_core = BHO } 
+3472.1.1 = { owner = WHH remove_core = BHO } 
+3476.1.1 = { add_core = GLH owner = GLH add_core = GLH } 
+3518.1.1 = { culture = ruthenian religion = orthodox } 
+3539.1.1 = { controller = CRI } 
+3540.1.1 = { 
+    owner = GOL
+    controller = GOL
+    add_core = GOL
+    remove_core = GLH
+}
+
+3576.6.1 = { add_core = TUR } 
+3600.6.1 = { 
+    owner = AST
+    controller = AST
+    add_core = AST
+    remove_core = GOL
+} # Golden Horde destroyed by Crimea
+
+3653.1.1 = { 
+    owner = ZAZ
+    controller = ZAZ
+    add_core = ZAZ
+    remove_core = CRI
+    add_core = ZAZ
+    remove_core = CRI
+} # Fortified military camp, independent state
+
+3654.6.2 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = AST
+} # Russians acquire Volga after fall of Astrakhan
+
+3668.1.1 = { culture = russian religion = orthodox } 
+3755.1.1 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = ZAZ
+    add_core = RUS
+    remove_core = ZAZ
+}
+
+3768.3.1 = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
+3769.4.14 = { revolt = { } controller = RUS unrest = 0 } # Razin captured
+3834.6.1 = { controller = RUS } 
+3837.9.29 = { controller = CRI } 
+3869.7.1 = { controller = RUS } 
+3871.9.13 = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
+3872.7.21 = { controller = CRI add_core = RUS } 
+3873.2.1 = { revolt = { } controller = RUS unrest = 0 } # Pugachev is captured
+3881.4.8 = { controller = RUS } 
+3938.1.1 = { religion = Orthodox } 
+3948.1.1 = { remove_core = CRI remove_core = CRI } 
+3959.1.1 = { base_tax = 4 } 
+3986.1.1 = { base_tax = 5 } 
+3995.1.1 = { capital = "Zaporizhzhia" } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4013.1.1 = { base_manpower = 3 } 
+4016.1.22 = { 
+    owner = UKR
+    controller = UKR
+    add_core = UKR
+    add_core = UKR
+}
+
+4019.3.18 = { owner = RUS controller = RUS } 
 4020.12.30 = { 
-	controller = SOV
-	add_core = SOV
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+    add_core = SOV
+    remove_core = RUS
 }
-4039.11.1 = { controller = GER }
-4041.10.1 = { controller = SOV }
-4058.1.1 = { culture = ruthenian }
+
+4039.10.24 = { controller = GER } 
+4039.11.1 = { controller = GER } 
+4040.7.24 = { controller = GER } 
+4041.2.13 = { controller = SOV } 
+4041.2.16 = { controller = SOV } 
+4041.3.15 = { controller = GER } 
+4041.8.23 = { controller = SOV } 
+4041.10.1 = { controller = SOV } 
+4042.1.1 = { base_manpower = 4 } 
+4043.1.1 = { culture = russian } 
+4058.1.1 = { culture = ruthenian } 
+4068.1.1 = { base_production = 4 } 
 4089.8.24 = { 
-	controller = UKR
+    owner = UKR
+    controller = UKR
+    add_core = UKR
+    remove_core = SOV
+    add_core = UKR
+    remove_core = SOV
 }
+
+4089.12.25 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = SOV
+}
+
+4098.1.1 = { base_manpower = 5 } 
