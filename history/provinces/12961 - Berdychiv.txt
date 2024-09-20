@@ -19,8 +19,9 @@ capital = "Berdychiv"
     add_core = HNS
 }
 
+2478.1.1 = { owner = HNS controller = HNS add_core = HNS } 
 2498.1.1 = { 
-    discovered_by = western
+    discovered_by = eastern
     discovered_by = eastern
     discovered_by = western
     discovered_by = eastern
@@ -31,12 +32,21 @@ capital = "Berdychiv"
 }
 
 2567.1.1 = { 
-    controller = AVR
-    add_core = AVR
+    controller = ANE
+    add_core = ANE
     culture = avar
     add_core = AVR
     add_core = AVR
     add_core = AVR
+    owner = ANE
+    remove_core = HNS
+}
+
+2648.1.1 = { 
+    owner = DRV
+    controller = DRV
+    add_core = DRV
+    remove_core = ANE
 }
 
 2665.1.1 = { 
@@ -60,6 +70,14 @@ capital = "Berdychiv"
     base_production = 2
 }
 
+2958.1.1 = { 
+    owner = KRU
+    controller = KRU
+    add_core = KRU
+    add_core = UKR
+    remove_core = DRV
+}
+
 2968.1.1 = { 
     controller = PEC
     add_core = PEC
@@ -79,6 +97,7 @@ capital = "Berdychiv"
     add_core = UKR
 }
 
+3058.1.1 = { religion = orthodox } 
 3067.1.1 = { 
     controller = KRU
     add_core = KRU
@@ -98,18 +117,23 @@ capital = "Berdychiv"
     discovered_by = ottoman
     discovered_by = muslim
     discovered_by = ottoman
+    base_production = 2
 }
 
 3152.2.20 = { 
-    controller = PEY
+    controller = KIE
+    add_core = KIE
+    add_core = PEY
+    owner = KIE
     add_core = PEY
     add_core = PEY
-    owner = PEY
-    add_core = PEY
-    add_core = PEY
+    remove_core = KRU
 }
 
-3198.1.1 = { base_production = 2 base_production = 2 } 
+3198.1.1 = { base_production = 2 base_production = 2 discovered_by = ottoman } 
+3297.1.1 = { remove_core = KIE } 
+3298.1.1 = { discovered_by = nomad_group } 
+3328.1.1 = { owner = VOL controller = VOL add_core = VOL } 
 3337.3.1 = { 
     controller = KHA
     add_core = KHA
@@ -128,6 +152,8 @@ capital = "Berdychiv"
     add_core = WHH
 }
 
+3418.1.1 = { owner = LIT controller = LIT add_core = LIT } 
+3447.1.1 = { remove_core = VOL } 
 3451.1.1 = { 
     controller = LIT
     add_core = LIT
@@ -138,6 +164,7 @@ capital = "Berdychiv"
 }
 
 3458.1.1 = { fort_15th = yes } 
+3667.3.26 = { owner = POL controller = POL add_core = POL } # annexed by Poland
 3667.7.1 = { 
     controller = PLC
     add_core = PLC
@@ -145,10 +172,13 @@ capital = "Berdychiv"
     owner = PLC
     add_core = PLC
     add_core = PLC
-}
+    remove_core = POL # Union of Lublin, western part ceded to Poland & southern part still belonged to Lithuania
+} # Union of Lublin
 
-3746.1.1 = { controller = REB revolt = { type = anti_tax_rebels size = 2 } } 
-3752.1.1 = { controller = RUS revolt = { size = 1 } } 
+3693.1.1 = { unrest = 4 } # Union of Brest, religious struggles
+3694.1.1 = { unrest = 0 } 
+3746.1.1 = { controller = REB add_core = ZAZ revolt = { type = nationalist_rebels size = 0 } } # Chmielnicki uprising, civil war
+3752.1.1 = { controller = PLC remove_core = ZAZ revolt = { size = 1 } } 
 3765.1.1 = { 
     add_core = RUS
     add_core = RUS
@@ -156,6 +186,13 @@ capital = "Berdychiv"
     add_core = RUS
     add_core = RUS
 }
+
+3891.1.23 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = PLC
+} # Second Partition
 
 3998.1.1 = { capital = "Pryluky" } 
 4008.1.1 = { 
@@ -165,7 +202,13 @@ capital = "Berdychiv"
     discovered_by = asian
 }
 
-4016.1.22 = { controller = UKR owner = UKR } 
+4016.1.22 = { 
+    controller = UKR
+    owner = UKR
+    add_core = UKR
+    capital = "Ovruch"
+}
+
 4019.3.18 = { controller = RUS owner = RUS } 
 4020.12.30 = { 
     controller = SOV
@@ -174,10 +217,18 @@ capital = "Berdychiv"
     owner = SOV
     add_core = SOV
     add_core = SOV
+    remove_core = RUS
 }
 
 4039.9.18 = { controller = GER } 
+4039.9.19 = { controller = GER } 
 4039.10.20 = { controller = GER } 
 4041.9.18 = { controller = SOV } 
 4041.9.23 = { controller = SOV owner = SOV } 
-4089.8.24 = { controller = UKR owner = UKR } 
+4041.11.6 = { controller = SOV } 
+4089.8.24 = { 
+    controller = UKR
+    owner = UKR
+    add_core = UKR
+    remove_core = RUS
+}

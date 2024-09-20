@@ -37,6 +37,13 @@ discovered_by = barbarian
     add_core = HNS
     add_core = HNS
     add_core = HNS
+    owner = HNS
+    controller = HNS
+    add_core = HNS
+    remove_core = SRT
+    culture = hunnic
+    add_core = HNS
+    remove_core = SRT
 }
 
 2498.1.1 = { 
@@ -58,7 +65,16 @@ discovered_by = barbarian
     discovered_by = eastern
 }
 
-2518.1.1 = { add_core = KTR culture = bulgar add_core = KTR } 
+2518.1.1 = { 
+    add_core = KTR
+    culture = bulgar
+    add_core = KTR
+    add_core = ONG
+    add_core = KTR
+    culture = bulgar
+    add_core = KTR
+}
+
 2567.1.1 = { 
     controller = KTR
     add_core = AVR
@@ -73,6 +89,10 @@ discovered_by = barbarian
     add_core = AVR
     add_core = AVR
     add_core = AVR
+    owner = KTR
+    controller = KTR
+    remove_core = HNS
+    remove_core = HNS
 }
 
 2665.1.1 = { 
@@ -92,6 +112,12 @@ discovered_by = barbarian
     owner = ULI
     add_core = ULI
     add_core = ULI
+    owner = ONG
+    controller = ONG
+    add_core = ONG
+    remove_core = KTR
+    add_core = ONG
+    remove_core = KTR
 }
 
 2730.1.1 = { 
@@ -99,6 +125,14 @@ discovered_by = barbarian
     add_core = HUN
     culture = hungarian
     owner = BUL
+    add_core = BUL
+    remove_core = ONG
+    add_core = HUN
+    culture = hungarian
+    owner = BUL
+    controller = BUL
+    add_core = BUL
+    remove_core = ONG
     add_core = BUL
     remove_core = ONG
 }
@@ -109,9 +143,25 @@ discovered_by = barbarian
     add_core = HUN
     remove_core = BUL
     culture = hungarian
+    add_core = KHZ
+    owner = HUN
+    controller = HUN
+    add_core = HUN
+    remove_core = BUL
+    culture = hungarian
+    add_core = HUN
+    remove_core = BUL
 }
 
-2878.1.1 = { controller = BTA add_core = BTA culture = mordvin } 
+2878.1.1 = { 
+    controller = BTA
+    add_core = BTA
+    culture = mordvin
+    controller = ULI
+    add_core = ULI
+    culture = ruthenian
+}
+
 2898.1.1 = { 
     base_tax = 2
     base_production = 2
@@ -134,6 +184,12 @@ discovered_by = barbarian
     controller = KHZ
     add_core = KHZ
     remove_core = HUN
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    remove_core = HUN
+    add_core = KHZ
+    remove_core = HUN
 }
 
 2948.1.1 = { base_tax = 2 } 
@@ -152,7 +208,15 @@ discovered_by = barbarian
 }
 
 2978.1.1 = { controller = PEC add_core = PEC culture = ruthenian } 
-2998.1.1 = { base_tax = 2 base_production = 2 } 
+2998.1.1 = { 
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+    base_tax = 2
+    base_production = 2
+}
+
 3018.1.1 = { 
     base_tax = 2
     controller = KRU
@@ -183,9 +247,22 @@ discovered_by = barbarian
     owner = UKR
     add_core = KRU
     add_core = UKR
+    owner = PEC
+    controller = PEC
+    add_core = PEC
+    remove_core = KHZ
+    culture = pecheneg
+    add_core = PEC
+    remove_core = KHZ
 }
 
-3078.1.1 = { controller = KRU add_core = KRU } 
+3078.1.1 = { 
+    controller = KRU
+    add_core = KRU
+    controller = KRU
+    add_core = KRU
+}
+
 3090.1.1 = { religion = Orthodox religion = Orthodox } 
 3098.1.1 = { 
     discovered_by = muslim
@@ -204,6 +281,8 @@ discovered_by = barbarian
     discovered_by = ottoman
     discovered_by = muslim
     discovered_by = ottoman
+    base_tax = 2
+    base_production = 2
 }
 
 3152.2.20 = { 
@@ -219,6 +298,16 @@ discovered_by = barbarian
     owner = PEY
     add_core = PEY
     add_core = PEY
+    controller = CHR
+    add_core = CHR
+}
+
+3153.1.1 = { 
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    add_core = ZAZ
+    remove_core = PEC
 }
 
 3158.1.1 = { 
@@ -227,12 +316,31 @@ discovered_by = barbarian
     controller = CUM
     add_core = CUM
     remove_core = PEC
+    religion = Orthodox
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+    add_core = CUM
+    remove_core = PEC
 }
 
 3198.1.1 = { base_production = 2 base_production = 2 base_production = 2 } 
-3318.1.1 = { culture = crimean } 
-3328.1.1 = { religion = sunni } 
-3335.1.1 = { controller = KHA add_core = KHA } 
+3298.1.1 = { base_manpower = 2 } 
+3318.1.1 = { culture = crimean culture = crimean } 
+3328.1.1 = { religion = sunni religion = sunni } 
+3335.1.1 = { 
+    controller = KHA
+    add_core = KHA
+    controller = KHA
+    add_core = KHA
+    owner = KHA
+    add_core = KHA
+    add_core = GLH
+    remove_core = CUM
+    culture = mishary
+}
+
 3337.3.1 = { 
     controller = KHA
     add_core = KHA
@@ -253,9 +361,17 @@ discovered_by = barbarian
     add_core = KHA
     add_core = ZAZ
     remove_core = CUM
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
 }
 
-3348.1.1 = { controller = CHR } 
+3348.1.1 = { controller = CHR controller = CHR religion = sunni } 
 3358.1.1 = { 
     controller = WHH
     add_core = WHH
@@ -270,9 +386,16 @@ discovered_by = barbarian
     owner = WHH
     add_core = WHH
     add_core = WHH
+    owner = WHH
+    controller = WHH
+    add_core = WHH
+    remove_core = KHA
+    add_core = WHH
+    remove_core = KHA
 }
 
-3438.1.1 = { controller = GOL } 
+3398.1.1 = { base_tax = 3 base_production = 3 } 
+3438.1.1 = { controller = GOL controller = GOL } 
 3451.1.1 = { 
     controller = LIT
     add_core = LIT
@@ -295,16 +418,64 @@ discovered_by = barbarian
     add_core = LIT
     remove_core = WHH
     fort_15th = yes
+    owner = LIT
+    controller = LIT
+    add_core = LIT
+    remove_core = WHH
+    add_core = LIT
+    remove_core = WHH
 }
 
-3518.1.1 = { culture = ruthenian religion = orthodox } 
-3606.10.18 = { controller = RUS add_core = RUS } 
+3470.1.1 = { owner = BHO } 
+3472.1.1 = { owner = WHH remove_core = BHO } 
+3476.1.1 = { owner = GLH add_core = GLH } 
+3518.1.1 = { 
+    culture = ruthenian
+    religion = orthodox
+    culture = ruthenian
+    religion = orthodox
+}
+
+3540.1.1 = { 
+    owner = GOL
+    controller = GOL
+    add_core = GOL
+    remove_core = GLH
+}
+
+3600.6.1 = { 
+    owner = AST
+    controller = AST
+    add_core = AST
+    remove_core = GOL
+} # Golden Horde destroyed by Crimea
+
+3606.10.18 = { 
+    controller = RUS
+    add_core = RUS
+    controller = RUS
+    add_core = RUS
+}
+
 3653.1.1 = { 
     owner = ZAZ
     controller = ZAZ
     add_core = ZAZ
     remove_core = CRI
+    owner = ZAZ
+    controller = ZAZ
+    add_core = ZAZ
+    remove_core = CRI
+    add_core = ZAZ
+    remove_core = CRI
 } # Fortified military camp, independent state
+
+3654.6.2 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = AST
+} # Russians acquire Volga after fall of Astrakhan
 
 3667.7.1 = { 
     controller = PLC
@@ -320,12 +491,19 @@ discovered_by = barbarian
     add_core = PLC
 }
 
+3668.1.1 = { culture = russian religion = orthodox } 
 3694.1.1 = { fort_16th = yes } 
 3746.1.1 = { controller = REB controller = REB revolt = { type = anti_tax_rebels size = 2 } } 
 3752.1.1 = { controller = RUS controller = RUS revolt = { size = 1 } } 
 3755.1.1 = { 
     owner = RUS
     controller = RUS
+    add_core = RUS
+    remove_core = ZAZ
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = ZAZ
     add_core = RUS
     remove_core = ZAZ
 }
@@ -342,8 +520,14 @@ discovered_by = barbarian
     add_core = RUS
 }
 
-3776.1.1 = { culture = russian } 
-3948.1.1 = { remove_core = CRI } 
+3768.3.1 = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
+3769.4.14 = { revolt = { } controller = RUS unrest = 0 } # Razin captured
+3776.1.1 = { culture = russian culture = russian } 
+3871.9.13 = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
+3873.2.1 = { revolt = { } controller = RUS unrest = 0 } # Pugachev is captured
+3948.1.1 = { remove_core = CRI remove_core = CRI remove_core = CRI } 
+3959.1.1 = { base_tax = 4 } 
+3986.1.1 = { base_tax = 5 } 
 3998.1.1 = { capital = "Pryluky" } 
 4008.1.1 = { 
     discovered_by = asian
@@ -355,14 +539,21 @@ discovered_by = barbarian
     discovered_by = asian
     discovered_by = asian
     discovered_by = asian
+    discovered_by = asian
+    discovered_by = asian
 }
 
+4013.1.1 = { base_manpower = 3 } 
 4016.1.22 = { 
     controller = UKR
     owner = UKR
     add_core = UKR
     controller = UKR
     owner = UKR
+    owner = UKR
+    controller = UKR
+    add_core = UKR
+    add_core = UKR
 }
 
 4019.3.18 = { 
@@ -370,6 +561,8 @@ discovered_by = barbarian
     controller = RUS
     controller = RUS
     owner = RUS
+    owner = RUS
+    controller = RUS
 }
 
 4020.12.30 = { 
@@ -387,16 +580,24 @@ discovered_by = barbarian
     owner = SOV
     add_core = SOV
     add_core = SOV
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+    add_core = SOV
+    remove_core = RUS
 }
 
 4039.9.18 = { controller = GER controller = GER } 
 4039.10.20 = { controller = GER controller = GER } 
-4039.10.24 = { controller = GER } 
-4039.11.4 = { controller = GER } 
-4041.2.8 = { controller = SOV } 
-4041.2.16 = { controller = SOV } 
-4041.3.15 = { controller = GER } 
-4041.8.23 = { controller = SOV } 
+4039.10.24 = { controller = GER controller = GER } 
+4039.11.4 = { controller = GER controller = GER } 
+4040.7.24 = { controller = GER } 
+4041.2.8 = { controller = SOV controller = SOV } 
+4041.2.13 = { controller = SOV } 
+4041.2.16 = { controller = SOV controller = SOV } 
+4041.3.15 = { controller = GER controller = GER } 
+4041.8.23 = { controller = SOV controller = SOV } 
 4041.9.18 = { controller = SOV controller = SOV } 
 4041.9.23 = { 
     controller = SOV
@@ -405,8 +606,17 @@ discovered_by = barbarian
     owner = SOV
 }
 
-4048.1.1 = { base_tax = 3 base_production = 2 } 
-4078.1.1 = { base_manpower = 2 } 
+4042.1.1 = { base_manpower = 4 } 
+4043.1.1 = { culture = russian } 
+4048.1.1 = { 
+    base_tax = 3
+    base_production = 2
+    base_tax = 3
+    base_production = 2
+}
+
+4068.1.1 = { base_production = 4 } 
+4078.1.1 = { base_manpower = 2 base_manpower = 2 } 
 4089.8.24 = { 
     controller = UKR
     owner = UKR
@@ -414,6 +624,20 @@ discovered_by = barbarian
     remove_core = SOV
     controller = UKR
     owner = UKR
+    owner = UKR
+    controller = UKR
+    add_core = UKR
+    remove_core = SOV
+    add_core = UKR
+    remove_core = SOV
 }
 
-4089.12.25 = { controller = RUS } 
+4089.12.25 = { 
+    controller = RUS
+    controller = RUS
+    owner = RUS
+    add_core = RUS
+    remove_core = SOV
+}
+
+4098.1.1 = { base_manpower = 5 } 
