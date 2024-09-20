@@ -1,12 +1,10 @@
 #2614 - Matrega
- 
 owner = BSP
 controller = BSP
 culture = pontic_greek
 add_core = BSP
 add_core = ROM
 religion = hellenism
-hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -22,52 +20,42 @@ base_production = 3
 trade_goods = livestock
 base_manpower = 1
 capital = "Phanagoria"
-
-2161.1.1 = { owner = ROM controller = ROM }
-2166.1.1 = { owner = BSP controller = BSP }
-2468.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = ROM }
+2161.1.1 = { controller = ROM }
+2166.1.1 = { controller = BSP }
+2468.1.1 = { controller = HNS add_core = HNS }
 2478.1.1 = { base_tax = 2 base_production = 2 }
 2518.1.1 = { add_core = UTI }
-2548.1.1 = { religion = tengri_pagan_reformed }
-2567.1.1 = { owner = UTI controller = UTI remove_core = HNS }
-2730.1.1 = { owner = BUL controller = BUL add_core = BUL remove_core = UTI }
-2798.1.1 = { is_city = yes }
-2818.1.1 = { owner = KHZ controller = KHZ add_core = KHZ remove_core = BUL capital = "Tamantarkhan" culture = khazar }
-3086.1.1 = { owner = TMU controller = TMU add_core = TMU remove_core = KHZ capital = "Tmutarakan" }
-3088.1.1 = { religion = orthodox }
-3133.1.1 = { owner = KRU controller = KRU add_core = KRU }
-3152.2.20 = { owner = TMU controller = TMU add_core = TMU remove_core = KRU }
-3192.1.1 = { owner = CUM controller = CUM add_core = CUM culture = cuman }
+2548.1.1 = { religion = Tengri pagan reformed }
+2567.1.1 = { controller = UTI }
+2730.1.1 = { controller = BUL add_core = BUL }
+2798.1.1 = { city = yes }
+2818.1.1 = { controller = KHZ add_core = KHZ capital = "Tamantarkhan" culture = khazar }
+3086.1.1 = { controller = TMU add_core = TMU capital = "Tmutarakan" }
+3088.1.1 = { religion = Orthodox }
+3133.1.1 = { controller = KRU add_core = KRU }
+3152.2.20 = { controller = TMU }
+3192.1.1 = { controller = CUM add_core = CUM culture = cuman }
 3218.1.1 = { culture = crimean }
 3338.1.1 = { culture = circassian add_core = CIR }
-3335.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = CRI remove_core = CUM culture = crimean }
-3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA }
-3398.1.1 = { owner = GEN controller = GEN add_core = GEN remove_core = WHH capital = "Mantrega" }
-
-3539.1.1  = { add_core = CRI } # The Crimean Khanate
-3573.5.1 = { owner = TUR controller = TUR add_core = TUR }
-3879.6.24  = { capital = "Anapa" }
-3882.1.2  = { culture = nogaybak religion = sunni }
-3889.6.22 = { controller = RUS } # War
-3890.6.12 = { owner = RUS add_core = RUS culture = ruthenian religion = orthodox }
-
+3335.1.1 = { controller = KHA add_core = KHA add_core = CRI culture = crimean }
+3358.1.1 = { controller = WHH add_core = WHH }
+3398.1.1 = { controller = GEN add_core = GEN capital = "Mantrega" }
+3573.5.1 = { controller = TUR add_core = TUR }
+3879.6.24 = { capital = "Anapa" }
+3882.1.2 = { culture = nogaybak religion = Sunni }
+3889.6.22 = { controller = RUS }
+3890.6.12 = { add_core = RUS culture = ruthenian religion = Orthodox }
 3923.1.1 = { base_production = 3 }
-3936.1.1   = { capital = "Novorossiysk" }
+3936.1.1 = { capital = "Novorossiysk" }
 3973.1.1 = { base_tax = 3 }
 4008.1.1 = { discovered_by = asian }
-4016.2.20  = { owner = UKR controller = UKR add_core = UKR }
-4017.11.7  = { owner = RUS controller = RUS remove_core = UKR }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
+4016.2.20 = { controller = UKR add_core = UKR }
+4017.11.7 = { controller = RUS }
+4020.12.30 = { controller = SOV add_core = SOV }
 4023.1.1 = { base_manpower = 2 }
-4031.1.1   = { culture = russian }
-4040.9.10  = { controller = GER }
-4041.9.16  = { controller = SOV }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
+4031.1.1 = { culture = russian }
+4040.9.10 = { controller = GER }
+4041.9.16 = { controller = SOV }
+4089.12.25 = { controller = RUS }
 4098.1.1 = { base_manpower = 3 }
-
-
-
-
-
-
-   
+is_city = no

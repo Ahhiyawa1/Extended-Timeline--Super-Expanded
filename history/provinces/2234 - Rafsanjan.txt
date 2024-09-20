@@ -1,12 +1,10 @@
 #2298 - Rafsanjan
-
 owner = PRT
 controller = PRT
 culture = persian
 religion = zoroastrian
 capital = "Rafsanjan"
 trade_goods = copper
-hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -21,66 +19,46 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = PRT
-
-2322.4.24 = { owner = ERS controller = ERS add_core = ERS remove_core = PRT }
-2741.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
-2796.1.1 = { religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2322.4.24 = { controller = ERS add_core = ERS }
+2741.1.1 = { controller = RSD add_core = RSD }
+2759.7.28 = { controller = UMA add_core = UMA }
+2796.1.1 = { religion = Sunni }
+2848.8.6 = { controller = ABA add_core = ABA }
 2898.1.1 = { base_tax = 2 base_production = 2 }
-2918.1.1 = { religion = shiite }
-2919.1.1 = { owner = KHO controller = KHO add_core = KHO }
-2959.1.1 = { remove_core = ABA }
-2962.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = KHO }
-3011.5.24 = { owner = BUK controller = BUK add_core = BUK remove_core = SIS }
-3030.1.1 = { owner = KRM controller = KRM add_core = KRM remove_core = BUK }
-3034.1.1 = { owner = FRS controller = FRS add_core = FRS remove_core = ABA }
-3076.3.1 = { owner = PER controller = PER add_core = PER }
-3087.9.7 = { owner = FRS controller = FRS }
-3096.12.1 = { owner = PER controller = PER }
-3139.1.1 = { owner = KRM controller = KRM add_core = KRM }
-3294.1.1 = { owner = KHW controller = KHW add_core = KHW }
-3329.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = PER remove_core = KHW }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3433.1.1 = { owner = YZD controller = YZD add_core = YZD remove_core = ILK }
-3455.1.1 = { owner = PER controller = PER add_core = PER }
+2918.1.1 = { religion = Shiite }
+2919.1.1 = { controller = KHO add_core = KHO }
+2962.1.1 = { controller = SIS add_core = SIS }
+3011.5.24 = { controller = BUK add_core = BUK }
+3030.1.1 = { controller = KRM add_core = KRM }
+3034.1.1 = { controller = FRS add_core = FRS }
+3076.3.1 = { controller = PER add_core = PER }
+3087.9.7 = { controller = FRS }
+3096.12.1 = { controller = PER }
+3139.1.1 = { controller = KRM }
+3294.1.1 = { controller = KHW add_core = KHW }
+3329.1.1 = { controller = KHA add_core = KHA }
+3358.1.1 = { controller = ILK add_core = ILK }
+3433.1.1 = { controller = YZD add_core = YZD }
+3455.1.1 = { controller = PER }
 3478.1.1 = { add_core = TIM }
-3491.1.1 = { owner = TIM controller = TIM remove_core = YZD }
-
-3545.3.13 = {
-	owner = QOM
+3491.1.1 = { controller = TIM }
+3545.3.13 = { 
 	controller = QOM
 	add_core = QOM
 }
-3549.1.1 = {
-	owner = KHO
+3549.1.1 = { 
 	controller = KHO
-	add_core = KHO
-	remove_core = QOM
-	remove_core = TIM
-} # The Timurid Successor state, ruled by Babur Ibn-Baysunkur
-3556.12.22 = { controller = TIM owner = TIM add_core = TIM } #Abu Said negotiates peace with Jahan Shah and the area falls to Timurids of Samarkand
-3567.2.4 = { controller = AKK owner = AKK add_core = AKK remove_core = TIM } #Battle of Qarabagh
-3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Muhammad's Faction" leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
-3599.7.1 = { controller = AKK revolt = { } }
-3602.1.1 = {
-	owner = PER
-	add_core = PER
+}
+3556.12.22 = { controller = TIM }
+3567.2.4 = { controller = AKK add_core = AKK }
+3594.2.8 = { controller = REB revolt = { type = pretender_rebels name = "Muhammad's Faction" size = 0 leader = "Muhammad Ak Koyunlu" } }
+3599.7.1 = { controller = AKK revolt = { size = 1 } }
+3602.1.1 = { 
 	controller = PER
-	remove_core = KHO
-} # The Safavids take over, Shi'ism becomes the state religion
+}
 3648.1.1 = { discovered_by = TUR }
 3771.1.1 = { discovered_by = ENG }
 3805.5.12 = { discovered_by = GBR }
-3845.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
-3846.1.1 = { unrest = 4 } # The empire began to decline
-3877.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized
-
 3998.1.1 = { base_manpower = 2 }
-4033.1.1   = { owner = IRA controller = IRA add_core = IRA remove_core = PER }
+4033.1.1 = { controller = IRA add_core = IRA }
 4098.1.1 = { base_tax = 3 }
-
-
-
-
-   
