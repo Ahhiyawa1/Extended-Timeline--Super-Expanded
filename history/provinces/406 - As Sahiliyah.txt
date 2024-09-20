@@ -1,4 +1,5 @@
 #2273 - As Sahiliyah
+
 owner = PRT
 controller = PRT
 add_core = PRT
@@ -6,6 +7,7 @@ culture = assyrian
 religion = ashurism
 capital = "Aeipolis"
 trade_goods = livestock
+hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -20,56 +22,71 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 is_city = yes
-2214.1.1 = { controller = ROM add_core = ROM }
-2216.1.1 = { controller = PRT }
+
+2214.1.1 = { owner = ROM controller = ROM add_core = ROM }
+2216.1.1 = { owner = PRT controller = PRT remove_core = ROM }
 2262.1.1 = { controller = ROM }
 2264.1.1 = { controller = PRT }
-2322.4.24 = { controller = ERS add_core = ERS }
-2328.1.1 = { religion = Chalcedonism }
-2529.7.1 = { religion = Nestorian }
-2732.1.1 = { controller = RSD add_core = RSD capital = "Sahiliyah" }
-2759.7.28 = { controller = UMA add_core = UMA }
-2848.8.6 = { controller = ABA add_core = ABA }
-2878.1.1 = { religion = Sunni }
-3040.1.1 = { controller = ZNG add_core = ZNG }
-3056.1.1 = { controller = IRQ add_core = IRQ }
-3076.3.1 = { controller = PER add_core = PER }
-3081.3.26 = { controller = IRQ }
-3085.1.1 = { controller = PER }
-3119.1.1 = { controller = IRQ }
-3142.3.1 = { controller = PER }
-3146.10.1 = { controller = IRQ }
-3153.12.17 = { controller = SEL add_core = SEL }
-3251.1.1 = { controller = ABA }
-3356.2.10 = { controller = KHA add_core = KHA }
-3358.1.1 = { controller = ILK add_core = ILK }
+2322.4.24 = { owner = ERS controller = ERS add_core = ERS remove_core = PRT }
+2328.1.1 = { religion = chalcedonism }
+2529.7.1 = { religion = nestorian }
+2732.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS capital = "Sahiliyah" }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2878.1.1 = { religion = sunni }
+3040.1.1 = { owner = ZNG controller = ZNG add_core = ZNG }
+3056.1.1 = { owner = IRQ controller = IRQ add_core = IRQ remove_core = ZNG }
+3076.3.1 = { owner = PER controller = PER add_core = PER }
+3081.3.26 = { owner = IRQ controller = IRQ }
+3085.1.1 = { owner = PER controller = PER }
+3119.1.1 = { owner = IRQ controller = IRQ }
+3142.3.1 = { owner = PER controller = PER }
+3146.10.1 = { owner = IRQ controller = IRQ }
+3153.12.17 = { owner = SEL controller = SEL add_core = SEL remove_core = PER }
+3251.1.1 = { owner = ABA controller = ABA add_core = ABA remove_core = SEL }
+3356.2.10 = { owner = KHA controller = KHA add_core = KHA remove_core = ABA }
+3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
 3398.1.1 = { culture = al_iraqiya_arabic }
-3433.1.1 = { controller = JAL add_core = JAL }
-3509.1.1 = { 
-	controller = QAR
-	add_core = QAR
-}
-3567.2.4 = { 
-	controller = AKK
-	add_core = AKK
-}
-3605.1.1 = { 
-	controller = PER
-}
+3433.1.1 = { owner = JAL controller = JAL add_core = JAL remove_core = ILK }
+
+3509.1.1  = {	owner = QAR
+		controller = QAR
+		add_core = QAR
+		remove_core = JAL
+	    } # The Qara Koyunlu
+3567.2.4  = {	owner = AKK
+		controller = AKK
+		add_core = AKK
+		remove_core = QAR
+	    }
+3605.1.1  = {	owner = PER
+		controller = PER
+		add_core = PER		
+		remove_core = AKK
+	    } # The Safavids took over
 3613.1.1 = { discovered_by = POR }
-3634.1.1 = { 
-	controller = TUR
-	add_core = TUR
-}
+3634.1.1 = {	owner = TUR
+		controller = TUR
+		add_core = TUR
+                remove_core = PER
+	   } # Part of the Ottoman Empire
+
 3899.1.1 = { base_production = 3 }
 3935.1.1 = { base_manpower = 3 }
-3967.1.1 = { capital = "Ar Ramadi" }
+3967.1.1  = { capital = "Ar Ramadi" }
 3973.1.1 = { base_manpower = 4 }
 4010.1.1 = { base_tax = 3 }
-4018.7.24 = { controller = GBR add_core = GBR }
-4030.10.3 = { controller = IRQ }
+4018.7.24 = { owner = GBR controller = GBR add_core = GBR add_core = IRQ remove_core = TUR remove_core = SYR }
+4030.10.3 = { owner = IRQ controller = IRQ remove_core = GBR }
 4049.1.1 = { base_production = 4 }
 4098.1.1 = { base_tax = 4 }
-4111.4.8 = { add_core = ISS }
-4112.6.10 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
-4113.12.28 = { controller = IRQ revolt = { size = 1 } }
+4111.4.8  = { add_core = ISS }
+4112.6.10 = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+4113.12.28 = { revolt = {} controller = IRQ }
+
+
+
+
+
+
+   

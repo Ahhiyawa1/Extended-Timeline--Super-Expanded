@@ -13,40 +13,59 @@ native_hostileness = 9
 center_of_trade = 1
 is_city = no
 2798.1.1 = { 
-	discovered_by = muslim
-	discovered_by = ottoman
-	discovered_by = indian
-	discovered_by = asian
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = indian
+    discovered_by = asian
 }
+
 2948.1.1 = { 
-	controller = AJU
-	add_core = HOB
-	trade_goods = Livestock
-	add_core = AJU
-	city = yes
-	religion = Sunni
+    controller = AJU
+    add_core = HOB
+    city = yes
+    trade_goods = livestock
+    discovered_by = indian
+    discovered_by = asian
+    discovered_by = muslim
+    discovered_by = ottoman
+    owner = AJU
+    add_core = AJU
+    is_city = yes
+    religion = sunni
 }
-3248.1.1 = { religion = Sunni }
-3318.1.1 = { controller = AJU }
-3597.1.1 = { discovered_by = POR }
-3624.1.1 = { controller = ADA }
-3648.1.1 = { discovered_by = TUR }
-3653.1.1 = { controller = AJU }
+
+3248.1.1 = { religion = Sunni } 
+3318.1.1 = { controller = AJU add_core = AJU } 
+3597.1.1 = { discovered_by = POR } 
+3624.1.1 = { controller = ADA owner = ADA } # Ahmad Gran secures control over Marehan
+3648.1.1 = { discovered_by = TUR discovered_by = TUR } 
+3653.1.1 = { controller = AJU owner = AJU } # Northern part of province no longer conrolled by ADA
 3718.1.1 = { 
-	controller = MDI
-	add_core = MDI
+    controller = MDI
+    add_core = MDI
+    owner = MDI
+    remove_core = AJU
 }
-3968.1.1 = { controller = MJE add_core = MJE }
-3976.1.1 = { controller = HOB }
-3987.1.7 = { controller = ITA add_core = ITA }
+
+3968.1.1 = { controller = MJE add_core = MJE } 
+3976.1.1 = { controller = HOB } 
+3987.1.7 = { owner = ITA controller = ITA add_core = ITA } 
 4008.1.1 = { 
-	discovered_by = western
-	discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = western
+    discovered_by = eastern
 }
-4023.12.26 = { controller = ITA }
+
+4023.12.26 = { controller = ITA add_core = ITA } 
 4058.7.1 = { 
-	controller = SOM
-	add_core = SOM
+    controller = SOM
+    add_core = SOM
+    owner = SOM
+    add_core = SOM
+    remove_core = ITA
+    remove_core = MDI
 }
-4106.8.22 = { controller = REB revolt = { type = fanatic_rebels size = 2 } }
-4109.12.31 = { controller = SOM revolt = { size = 1 } }
+
+4106.8.22 = { revolt = { type = fanatic_rebels size = 2 } controller = REB } # Al-Shabaab, Battle of Kismayo
+4109.12.31 = { revolt = { } controller = SOM } 

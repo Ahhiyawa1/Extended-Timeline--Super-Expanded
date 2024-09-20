@@ -1,8 +1,10 @@
 #12269 - Hampshire + Wight
+
 owner = ERG
 controller = ERG
 culture = briton
 religion = druidism
+hre = no
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -17,34 +19,51 @@ base_manpower = 1
 capital = "Vecta"
 is_city = yes
 add_core = ERG
-2141.1.1 = { controller = ROM add_core = ROM }
+
+2141.1.1 = { owner = ROM controller = ROM add_core = ROM }
 2398.1.1 = { culture = welsh }
-2493.1.17 = { controller = ROW add_core = ROW }
-2508.1.1 = { controller = ERG capital = "Wiht" culture = welsh }
+2478.1.1 = { add_core = ERG }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2508.1.1 = { owner = ERG controller = ERG add_core = ERG remove_core = ROW capital = "Wiht" culture = welsh }
 2598.1.1 = { base_tax = 2 base_production = 2 }
-2617.1.1 = { controller = WSX add_core = WSX culture = anglo_saxon religion = Germanic }
+2617.1.1 = { owner = WSX controller = WSX add_core = WSX remove_core = ERG culture = anglo_saxon religion = germanic }
 2698.1.1 = { base_tax = 3 base_production = 3 }
-2743.1.1 = { controller = MRC add_core = MRC }
-2746.1.1 = { controller = WSX religion = Chalcedonism }
+2743.1.1 = { owner = MRC controller = MRC add_core = MRC }
+2746.1.1 = { owner = WSX controller = WSX remove_core = MRC religion = chalcedonism }
 2848.1.1 = { base_manpower = 2 }
-2965.1.1 = { religion = Catholic }
-3025.1.1 = { controller = ENG add_core = ENG capital = "Wight" }
+2965.1.1 = { religion = catholic }
+3025.1.1 = { owner = ENG controller = ENG add_core = ENG capital = "Wight" }
+3125.1.1 = { remove_core = WSX }
 3164.12.25 = { culture = english }
 3298.1.1 = { base_manpower = 3 }
-3559.3.1 = { controller = REB revolt = { type = pretender_rebels size = 2 } }
-3559.6.28 = { controller = ENG revolt = { size = 1 } }
-3638.1.1 = { religion = Anglican }
-3740.8.22 = { controller = REB revolt = { type = revolutionary_rebels size = 0 leader = "Oliver Cromwell" } }
-3744.5.5 = { controller = ENG revolt = { size = 1 } }
-3805.5.12 = { 
+
+3551.1.1 = { unrest = 5 } # Start of the War of the Roses
+3557.1.1 = { unrest = 7 } # Increasing Disorder & Piracy Along South Coast
+3559.3.1 = { unrest = 0 revolt = { type = pretender_rebels size = 2 } controller = REB } # Increasing Yorkist Support in the South
+3559.6.28 = { revolt = {} unrest = 2 controller = ENG } # Coronation of Edward IV
+3565.1.1 = { unrest = 5 } # Rivalry between Edward IV & Warwick
+3569.1.1 = { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
+3569.5.4 = { unrest = 2 } # Murder of Henry VI & Restoration of Edward IV
+3581.6.26 = { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
+3583.8.23 = { unrest = 0 } # Battle of Bosworth Field & the End of the War of the Roses
+3638.1.1 = { religion = anglican }
+3740.8.22 = { revolt = { type = revolutionary_rebels size = 0 leader = "Oliver Cromwell" } controller = REB } # Start of First English Civil War
+3744.5.5 = { revolt = {} controller = ENG } # End of First English Civil War
+3805.5.12 = {
+	owner = GBR
 	controller = GBR
 	add_core = GBR
+	remove_core = ENG
 }
 3849.1.1 = { base_tax = 8 base_production = 7 base_manpower = 4 }
 3873.1.1 = { base_tax = 10 base_production = 9 }
+
 3899.1.1 = { base_tax = 13 base_production = 11 }
 3923.1.1 = { base_tax = 14 base_manpower = 5 }
 3949.1.1 = { base_production = 13 }
 3973.1.1 = { base_manpower = 7 }
 3999.1.1 = { base_tax = 15 }
 4008.1.1 = { discovered_by = asian }
+
+
+   

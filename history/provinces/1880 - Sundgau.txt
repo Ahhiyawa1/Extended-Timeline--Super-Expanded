@@ -5,6 +5,7 @@ capital = "Sequania"
 is_city = yes
 culture = swiss
 religion = germanic
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,63 +18,88 @@ base_production = 1
 trade_goods = iron
 base_manpower = 1
 add_core = ROM
-2356.1.1 = { controller = GLL add_core = GLL }
-2359.1.1 = { controller = GLL }
-2367.1.1 = { controller = ROM }
-2368.9.1 = { controller = ROM }
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2498.1.1 = { religion = Chalcedonism }
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2498.1.1 = { religion = chalcedonism } 
 2548.1.1 = { 
-	controller = ALM
-	add_core = ALM
+    owner = ALM
+    controller = ALM
+    add_core = ALM
+    remove_core = ROW
 }
-2598.1.1 = { base_tax = 2 base_production = 2 }
-2698.1.1 = { capital = "Sundgau" }
-2798.1.1 = { base_manpower = 2 }
-2844.1.1 = { controller = FRK add_core = FRK }
-2898.1.1 = { base_tax = 3 base_production = 3 }
+
+2598.1.1 = { base_tax = 2 base_production = 2 } 
+2698.1.1 = { capital = "Sundgau" } 
+2798.1.1 = { base_manpower = 2 } 
+2844.1.1 = { owner = FRK controller = FRK add_core = FRK } 
+2898.1.1 = { base_tax = 3 base_production = 3 } 
 2938.6.21 = { 
-	controller = FRD
-	add_core = FRD
+    owner = FRD
+    controller = FRD
+    add_core = FRD
+    remove_core = FRK
 }
+
 2953.9.30 = { 
-	controller = LOT
-	add_core = LOT
+    owner = LOT
+    controller = LOT
+    add_core = LOT
+    remove_core = FRD
 }
-2965.1.1 = { religion = Catholic }
+
+2965.1.1 = { religion = catholic } 
 2968.8.8 = { 
-	controller = FRE
-	add_core = FRE
-	capital = "Altkirch"
+    owner = FRE
+    controller = FRE
+    add_core = FRE
+    remove_core = LOT
+    capital = "Altkirch"
 }
+
 2998.1.1 = { 
-	controller = SDG
-	add_core = SDG
+    owner = SDG
+    controller = SDG
+    add_core = SDG
+    remove_core = FRE
+    remove_core = ALM
 }
-3023.1.1 = { controller = SWA add_core = SWA }
-3060.2.2 = { hre = yes }
-3098.1.1 = { base_manpower = 3 }
+
+3023.1.1 = { owner = SWA controller = SWA add_core = SWA } 
+3060.2.2 = { hre = yes } 
+3098.1.1 = { base_manpower = 3 } 
 3233.1.1 = { 
-	controller = HAB
-	add_core = HAB
+    owner = HAB
+    controller = HAB
+    add_core = HAB
+    remove_core = SWA
 }
-3550.1.1 = { controller = STY add_core = STY }
-3555.11.24 = { controller = HAB }
-3733.5.1 = { controller = FRA }
-3734.8.15 = { controller = HAB }
-3734.10.20 = { controller = FRA }
-3746.1.1 = { add_core = FRA }
-3904.7.12 = { hre = no }
-3938.1.1 = { culture = cosmopolitan_french }
+
+3550.1.1 = { owner = STY controller = STY add_core = STY } 
+3555.11.24 = { owner = HAB controller = HAB remove_core = STY } 
+3733.5.1 = { controller = FRA } # To France
+3734.8.15 = { controller = HAB } # Habsburg forces ravage North Eastern France, Lorraine liberated
+3734.10.20 = { controller = FRA } # Bernhard of Saxe-Weimar defeats the invaders and gradually pushes them back
+3746.1.1 = { owner = FRA add_core = FRA } # Peace of Westphalia
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3938.1.1 = { culture = cosmopolitan_french } 
 3968.9.4 = { 
-	controller = FR2
-	add_core = FR2
-}
-3969.5.10 = { controller = GER add_core = GER }
-4008.1.1 = { discovered_by = asian }
-4017.6.28 = { controller = FR2 }
-4038.6.14 = { controller = GER }
-4042.8.25 = { controller = FR2 }
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
+
+3969.5.10 = { owner = GER controller = GER add_core = GER } # Treaty of Frankfurt
+4008.1.1 = { discovered_by = asian } 
+4017.6.28 = { owner = FR2 controller = FR2 } # Treaty of Versailles
+4038.6.14 = { owner = GER controller = GER } # France surrendered to Nazi Garmany
+4042.8.25 = { owner = FR2 controller = FR2 remove_core = GER } # France liberated by allied forces

@@ -1,10 +1,12 @@
 #1873 - Graubünden
+
 owner = ROM
 controller = ROM
 culture = rhaetian
 religion = druidism
 capital = "Curia"
 trade_goods = livestock
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,27 +19,39 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2458.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = ROW add_core = ROW }
-2574.9.4 = { controller = CH0 add_core = CH0 }
-2587.1.1 = { controller = OST add_core = OST }
-2651.1.1 = { controller = LOM add_core = LOM capital = "Chur" }
-2708.1.1 = { controller = CH0 }
+
+2458.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2574.9.4 = { owner = CH0 controller = CH0 add_core = CH0 }
+2578.6.1 = { remove_core = ROW }
+2587.1.1 = { owner = OST controller = OST add_core = OST }
+2651.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST capital = "Chur" }
+2708.1.1 = { owner = CH0 controller = CH0 add_core = CH0 remove_core = LOM }
 2898.1.1 = { base_tax = 2 base_production = 2 }
-2934.1.1 = { controller = FRK add_core = FRK }
-2938.6.21 = { controller = FRE add_core = FRE }
-2965.1.1 = { religion = Catholic }
-3009.11.10 = { controller = CH0 fort_15th = yes }
+2934.1.1 = { owner = FRK controller = FRK add_core = FRK }
+2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
+2965.1.1 = { religion = catholic }
+3009.11.10 = { owner = CH0 controller = CH0 add_core = CH0 remove_core = FRE fort_15th = yes }
 3060.2.2 = { hre = yes }
 3198.1.1 = { base_tax = 3 base_production = 3 }
-3465.1.29 = { controller = TTL add_core = TTL }
+3465.1.29 = { owner = TTL controller = TTL add_core = TTL remove_core = CH0 }
 3563.1.1 = { culture = swiss }
-3622.1.1 = { religion = Reformed }
-3897.4.21 = { 
+
+3611.7.3 = { unrest = 7 } # Luzern Peasant War
+3613.1.1 = { unrest = 0 }
+3622.1.1 = { religion = reformed }
+3751.1.1 = { unrest = 5 } # Peasant rebellion against overtaxation
+3752.1.1 = { unrest = 0 }
+3754.1.1 = { unrest = 7 } # Protestants are expelled from Schwyz which lead to the First War of Villmergen
+3755.1.1 = { unrest = 2 } # An agreement is concluded at Villmergren but tensions remain
+3897.4.21 = {
+	owner = SWI
 	controller = SWI
 	add_core = SWI
-}
-3904.7.12 = { hre = no }
+	remove_core = TTL
+} # Incorporation of the Three Leagues into the Helvetic Republic
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+
 3923.1.1 = { base_tax = 5 }
 3949.1.1 = { base_production = 4 }
 3973.1.1 = { base_production = 5 }
@@ -47,3 +61,10 @@ add_core = ROM
 4049.1.1 = { base_manpower = 4 }
 4073.1.1 = { base_tax = 6 }
 4098.1.1 = { base_manpower = 6 }
+
+
+
+
+
+
+   

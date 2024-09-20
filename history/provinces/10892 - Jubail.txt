@@ -1,13 +1,16 @@
 #10892 - Jubail
-latent_trade_goods = { 
-	oil 
+
+latent_trade_goods = {
+	oil
 }
+
 owner = GRR
 controller = GRR
 culture = gulf_arabic
 religion = south_arabian
 capital = "Jubail"
 trade_goods = fish
+hre = no
 discovered_by = east_african
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
@@ -24,30 +27,40 @@ base_manpower = 1
 is_city = yes
 add_core = GRR
 center_of_trade = 1
-2318.1.1 = { controller = LKH add_core = LKH religion = Chalcedonism }
-2423.1.1 = { controller = ERS add_core = ERS }
-2529.7.1 = { religion = Nestorian }
-2707.1.1 = { controller = ALH add_core = ALH }
-2732.1.1 = { controller = RSD add_core = RSD religion = Islam }
-2759.7.28 = { controller = UMA add_core = UMA religion = Shiite }
-2848.8.6 = { controller = ABA add_core = ABA }
-2997.1.1 = { controller = QRM add_core = QRM }
-3174.1.1 = { controller = ALH }
+
+2318.1.1 = { owner = LKH controller = LKH add_core = LKH remove_core = GRR religion = chalcedonism }
+2423.1.1 = { owner = ERS controller = ERS add_core = ERS remove_core = LKH }
+2529.7.1 = { religion = nestorian }
+2707.1.1 = { owner = ALH controller = ALH add_core = ALH remove_core = ERS } #Battle of Dhi Qar
+2732.1.1 = { owner = RSD controller = RSD add_core = RSD religion = islam }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = shiite }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2997.1.1 = { owner = QRM controller = QRM add_core = QRM remove_core = ABA }
+3174.1.1 = { owner = ALH controller = ALH add_core = ALH remove_core = QRM }
 3198.1.1 = { fort_15th = yes }
+
 3596.1.1 = { discovered_by = POR }
-3647.1.1 = { 
+3647.1.1 = {
+	owner = TUR
 	controller = TUR
 	add_core = TUR
 }
-3788.1.1 = { controller = ALH }
+3788.1.1 = { owner = ALH controller = ALH remove_core = TUR }
 3848.1.1 = { base_tax = 5 base_production = 3 base_manpower = 5 }
-3893.1.1 = { controller = NAJ add_core = NAJ }
-3916.9.9 = { 
+3893.1.1 = { owner = NAJ controller = NAJ add_core = NAJ }
+3916.9.9 = {
+	owner = TUR
 	controller = TUR
-}
-3922.1.1 = { controller = NAJ }
+	add_core = TUR
+} # The end of the Saudi State
+
+3922.1.1   = { owner = NAJ controller = NAJ remove_core = TUR remove_core = ALH }
 3938.1.1 = { base_tax = 12 base_production = 5 base_manpower = 8 }
-3969.1.1 = { controller = TUR }
-4011.1.1 = { controller = NAJ }
-4030.9.23 = { controller = SAU add_core = SAU }
-4036.1.1 = { trade_goods = Oil }
+3969.1.1   = { owner = TUR controller = TUR add_core = TUR }
+4011.1.1   = { owner = NAJ controller = NAJ add_core = NAJ remove_core = TUR }
+4030.9.23  = { owner = SAU controller = SAU add_core = SAU remove_core = NAJ }
+4036.1.1   = { trade_goods = oil } #Ghawar oil field
+
+
+
+   

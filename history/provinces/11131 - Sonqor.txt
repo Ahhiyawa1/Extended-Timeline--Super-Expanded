@@ -1,10 +1,12 @@
 #11131 - Sonqor
+
 owner = PRT
 controller = PRT
 culture = luri
 religion = zoroastrian
 capital = "Sanghur"
 trade_goods = cloth
+hre = no
 discovered_by = indian
 discovered_by = asian
 discovered_by = early_indian
@@ -19,43 +21,68 @@ base_production = 2
 base_manpower = 1
 is_city = yes
 add_core = PRT
-2322.4.24 = { controller = ERS add_core = ERS }
+
+2322.4.24 = { owner = ERS controller = ERS add_core = ERS remove_core = PRT }
 2488.1.1 = { capital = "Sonqor" }
-2736.1.1 = { controller = RSD add_core = RSD }
-2748.1.1 = { religion = Islam }
-2759.7.28 = { controller = UMA add_core = UMA religion = Shiite }
-2848.8.6 = { controller = ABA add_core = ABA }
+2736.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS }
+2748.1.1 = { religion = islam }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = shiite }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
 3028.1.1 = { culture = kurdish }
-3033.1.1 = { controller = QOM add_core = QOM }
-3059.1.1 = { controller = ARD add_core = ARD }
-3153.1.1 = { controller = SEL add_core = SEL }
-3292.1.1 = { controller = KHW add_core = KHW }
-3329.1.1 = { controller = KHA add_core = KHA add_core = PER }
-3358.1.1 = { controller = ILK add_core = ILK }
-3433.1.1 = { controller = JAL add_core = JAL }
+3033.1.1 = { owner = QOM controller = QOM add_core = QOM remove_core = ABA }
+3059.1.1 = { owner = ARD controller = ARD add_core = ARD remove_core = QOM }
+3153.1.1 = { owner = SEL controller = SEL add_core = SEL }
+3292.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = SEL }
+3329.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = PER remove_core = KHW }
+3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
+3433.1.1 = { owner = JAL controller = JAL add_core = JAL remove_core = ILK }
 3478.1.1 = { add_core = TIM }
-3491.1.1 = { controller = TIM }
-3540.1.1 = { 
+3491.1.1 = { owner = TIM controller = TIM remove_core = JAL }
+
+3540.1.1 = { #Death of Yusuf Khwaja, governor of Rayy. Appointment of Sultan Muhammad b. Baysunghur as governor of northern Iran.
+	owner = QOM
 	controller = QOM
+	add_core = QOM
 }
-3549.1.1 = { 
+#3544.1.1 #Revolt of Muhammad bin Baysonqor
+3549.1.1 = {
+	owner = QAR
 	controller = QAR
 	add_core = QAR
-}
-3567.2.4 = { 
+	remove_core = QOM
+	remove_core = TIM
+} # Fars and surroundings to Qara Quyunlu
+3556.9.1 = { unrest = 5 } # Civil war
+3556.12.1 = { unrest = 0 }
+3567.2.4 = {
+	owner = AKK
 	controller = AKK
 	add_core = AKK
+	remove_core = QAR
 }
-3594.2.8 = { controller = REB revolt = { type = pretender_rebels name = "Muhammad's Faction" size = 0 leader = "Muhammad Ak Koyunlu" } }
-3599.7.1 = { controller = AKK revolt = { size = 1 } }
-3602.1.1 = { 
+3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Muhammad's Faction" leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
+3599.7.1 = { controller = AKK revolt = { } }
+3602.1.1 = {
+	owner = PER
 	controller = PER
-}
-3633.1.1 = { controller = TUR }
-3634.1.1 = { controller = PER }
-3685.1.1 = { controller = TUR }
-3688.3.21 = { controller = PER }
-3693.1.1 = { fort_16th = yes }
+	add_core = PER
+	remove_core = AKK
+} # The Safavids took over
+3633.1.1 = { controller = TUR } # Wartime occupation
+3634.1.1 = { controller = PER } # End of Ottoman-Safavid war
+3685.1.1 = { controller = TUR } # Wartime occupation
+3688.3.21 = { controller = PER } # Peace of Istanbul
+3693.1.1 = { fort_15th = no fort_16th = yes }
 3771.1.1 = { discovered_by = ENG }
 3805.5.12 = { discovered_by = GBR }
-4033.1.1 = { controller = IRA add_core = IRA }
+3817.1.1 = { unrest = 5 } # Rebellion
+3818.1.1 = { unrest = 0 }
+3845.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
+3846.1.1 = { unrest = 4 } # The empire began to decline
+3877.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized
+
+4033.1.1   = { owner = IRA controller = IRA add_core = IRA remove_core = PER }
+
+
+
+   

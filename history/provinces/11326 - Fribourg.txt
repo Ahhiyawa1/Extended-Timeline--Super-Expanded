@@ -4,6 +4,7 @@ culture = helvetian
 religion = druidism
 capital = "Aventicum"
 trade_goods = livestock
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,69 +17,110 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2356.1.1 = { controller = GLL add_core = GLL }
-2359.1.1 = { controller = GLL }
-2367.1.1 = { controller = ROM }
-2368.9.1 = { controller = ROM }
-2478.1.1 = { religion = Chalcedonism }
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
+2478.1.1 = { religion = chalcedonism } 
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
 2541.1.1 = { 
-	controller = BUR
-	add_core = BUR
-	culture = burgundione
-	capital = "Fribourg"
+    owner = BUR
+    controller = BUR
+    add_core = BUR
+    culture = burgundione
+    capital = "Fribourg"
 }
-2584.6.1 = { culture = burgundian }
-2598.1.1 = { base_tax = 2 base_production = 2 }
-2632.1.1 = { controller = NEU add_core = NEU }
+
+2578.6.1 = { remove_core = ROW } 
+2584.6.1 = { culture = burgundian } 
+2598.1.1 = { base_tax = 2 base_production = 2 } 
+2632.1.1 = { owner = NEU controller = NEU add_core = NEU } 
 2656.12.23 = { 
-	controller = FRK
-	add_core = FRK
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = NEU
 }
-2659.11.29 = { controller = ORL add_core = ORL }
-2690.3.28 = { controller = AUT add_core = AUT }
-2693.1.1 = { controller = ORL }
+
+2659.11.29 = { owner = ORL controller = ORL add_core = ORL } 
+2690.3.28 = { owner = AUT controller = AUT add_core = AUT } 
+2693.1.1 = { owner = ORL controller = ORL remove_core = AUT } 
 2710.1.1 = { 
-	controller = AUT
+    owner = AUT
+    controller = AUT
+    add_core = AUT
+    remove_core = ORL
 }
+
 2711.10.10 = { 
-	controller = FRK
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = AUT
 }
-2732.1.1 = { controller = NEU }
-2777.12.23 = { controller = FRK }
-2798.1.1 = { base_manpower = 2 culture = arpitan }
+
+2732.1.1 = { owner = NEU controller = NEU add_core = NEU } 
+2777.12.23 = { owner = FRK controller = FRK } 
+2798.1.1 = { base_manpower = 2 culture = arpitan } 
 2938.6.21 = { 
-	controller = FRD
-	add_core = FRD
+    owner = FRD
+    controller = FRD
+    add_core = FRD
+    remove_core = FRK
 }
+
 2953.9.30 = { 
-	controller = LOT
-	add_core = LOT
+    owner = LOT
+    controller = LOT
+    add_core = LOT
+    remove_core = FRD
 }
-2965.1.1 = { religion = Catholic }
+
+2965.1.1 = { religion = catholic } 
 2968.8.8 = { 
-	controller = ITA
-	add_core = ITA
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    remove_core = LOT
 }
+
 2986.1.1 = { 
-	controller = BUR
+    owner = BUR
+    controller = BUR
+    add_core = BUR
+    remove_core = ITA
 }
-2998.1.1 = { base_tax = 3 base_production = 3 }
-3130.1.1 = { hre = yes }
+
+2998.1.1 = { base_tax = 3 base_production = 3 } 
+3130.1.1 = { hre = yes } 
 3411.1.1 = { 
-	controller = SWI
-	add_core = SWI
+    owner = SWI
+    controller = SWI
+    add_core = SWI
+    remove_core = BUR
 }
-3597.1.1 = { controller = FRA add_core = FRA }
-3627.1.1 = { controller = SAV }
-3634.1.1 = { controller = SWI religion = Reformed }
-3904.7.12 = { hre = no }
-3923.1.1 = { base_production = 4 }
-3948.1.1 = { base_tax = 4 }
-3973.1.1 = { base_manpower = 3 }
-3998.1.1 = { base_production = 5 }
-4023.1.1 = { base_manpower = 4 }
-4048.1.1 = { base_tax = 5 }
+
+3542.1.1 = { add_core = SWI } 
+3597.1.1 = { owner = FRA controller = FRA add_core = FRA } 
+3611.7.3 = { unrest = 7 } # Luzern Peasant War
+3613.1.1 = { unrest = 0 } 
+3627.1.1 = { owner = SAV controller = SAV } 
+3634.1.1 = { owner = SWI controller = SWI religion = reformed } # By 1536 the area was completely annexed. Calvin Debate in the Cathedral of Lausanne.
+3662.10.30 = { remove_core = SAV } # Savoy officially ceded Vaud to Bern in the treaty of Lausanne of 30 October 1564.
+3751.1.1 = { unrest = 5 } # Peasant rebellion against overtaxation
+3752.1.1 = { unrest = 0 } 
+3754.1.1 = { unrest = 7 } # Protestants are expelled from Schwyz which lead to the First War of Villmergen
+3755.1.1 = { unrest = 2 } # An agreement is concluded at Villmergren but tensions remain
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3923.1.1 = { base_production = 4 } 
+3948.1.1 = { base_tax = 4 } 
+3973.1.1 = { base_manpower = 3 } 
+3998.1.1 = { base_production = 5 } 
+4023.1.1 = { base_manpower = 4 } 
+4048.1.1 = { base_tax = 5 } 

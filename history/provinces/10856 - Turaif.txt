@@ -1,8 +1,10 @@
 #10856 - Turaif
+
 culture = bedouin_arabic
 religion = nabataean
 capital = "Turaif"
 trade_goods = unknown
+hre = no
 discovered_by = east_african
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
@@ -13,23 +15,34 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 2
-2318.1.1 = { controller = GHS add_core = GHS city = yes trade_goods = Livestock }
-2328.1.1 = { religion = Chalcedonism }
-2558.1.1 = { controller = KIN add_core = KIN }
-2578.1.1 = { religion = South arabian }
-2628.1.1 = { controller = ANZ add_core = ANZ }
-2731.1.1 = { controller = RSD add_core = RSD religion = Islam }
-2759.7.28 = { controller = UMA add_core = UMA religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
-2988.1.1 = { controller = NAJ add_core = NAJ }
-3004.1.1 = { controller = ABA }
-3033.8.26 = { controller = FAD add_core = FAD }
-3074.1.1 = { controller = ANZ }
+
+2318.1.1 = { owner = GHS controller = GHS add_core = GHS is_city = yes trade_goods = livestock }
+2328.1.1 = { religion = chalcedonism }
+2558.1.1 = { owner = KIN controller = KIN add_core = KIN remove_core = GHS }
+2578.1.1 = { religion = south_arabian }
+2628.1.1 = { owner = ANZ controller = ANZ add_core = ANZ remove_core = KIN }
+2731.1.1 = { owner = RSD controller = RSD add_core = RSD religion = islam }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2988.1.1 = { owner = NAJ controller = NAJ add_core = NAJ remove_core = ABA }
+3004.1.1 = { owner = ABA controller = ABA add_core = ABA remove_core = NAJ }
+3033.8.26 = { owner = FAD controller = FAD add_core = FAD remove_core = ABA }
+3074.1.1 = { owner = ANZ controller = ANZ add_core = ANZ remove_core = FAD }
+
 3613.1.1 = { discovered_by = POR }
+3763.1.1 = { unrest = 4 }
+3767.1.1 = { unrest = 2 } # Ottoman attempts to pacify unruly tribes 
+3768.1.1 = { unrest = 0 }
+
 3923.1.1 = { base_tax = 2 }
-3930.1.1 = { controller = SHM add_core = SHM }
+3930.1.1   = { owner = SHM controller = SHM add_core = SHM }
 4008.1.1 = { discovered_by = asian }
-4019.11.2 = { controller = NAJ }
-4030.9.23 = { controller = SAU add_core = SAU }
+4019.11.2 = { owner = NAJ controller = NAJ add_core = NAJ remove_core = SHM }
+4030.9.23  = { owner = SAU controller = SAU add_core = SAU remove_core = NAJ }
 4098.1.1 = { base_production = 3 }
-is_city = no
+
+
+
+
+
+   

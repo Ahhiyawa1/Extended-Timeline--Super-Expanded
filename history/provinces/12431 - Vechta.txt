@@ -1,4 +1,5 @@
 #12431 - Vechta
+
 owner = CMV
 controller = CMV
 add_core = CMV
@@ -7,6 +8,7 @@ culture = frankish
 religion = germanic
 capital = "Vechta"
 trade_goods = salt
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,50 +19,67 @@ discovered_by = eastern
 base_tax = 1
 base_production = 1
 base_manpower = 2
-2398.1.1 = { controller = SAX add_core = SAX culture = hannoverian }
+
+2398.1.1 = { owner = SAX controller = SAX add_core = SAX culture = hannoverian }
 2898.1.1 = { base_tax = 2 base_production = 2 }
-2902.1.1 = { controller = FRK add_core = FRK }
-2938.6.21 = { controller = FRE add_core = FRE }
-2998.1.1 = { religion = Catholic }
-3009.11.10 = { controller = SAX }
+2902.1.1 = { owner = FRK controller = FRK add_core = FRK }
+2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
+2998.1.1 = { religion = catholic }
+3009.11.10 = { owner = SAX controller = SAX remove_core = FRE }
 3060.2.2 = { hre = yes }
 3098.1.1 = { base_tax = 3 base_production = 3 }
 3298.1.1 = { base_production = 4 }
-3323.1.1 = { controller = OSN }
-3350.1.1 = { controller = MUN add_core = MUN }
-3683.1.1 = { controller = KOL add_core = KOL }
-3746.10.24 = { add_core = LUN }
-3748.1.1 = { controller = MUN }
-3821.1.1 = { controller = KOL }
+3323.1.1 = { owner = OSN controller = OSN remove_core = SAX }
+3350.1.1 = { owner = MUN controller = MUN add_core = MUN remove_core = OSN }
+
+3683.1.1   = { owner = KOL controller = KOL add_core = KOL }
+3746.10.24 = { add_core = LUN } # Peace of Westphalia
+3748.1.1   = { owner = MUN controller = MUN }
+3821.1.1   = { owner = KOL controller = KOL }
 3899.1.1 = { base_tax = 3 }
-3901.1.1 = { 
-	controller = HAN
-	add_core = HAN
-}
-3901.7.5 = { controller = FRA }
-3903.12.15 = { 
-	controller = PRU
-	add_core = PRU
-}
-3904.7.12 = { hre = no }
-3905.7.9 = { 
-	controller = WES
-	add_core = WES
-}
-3911.10.13 = { 
-	controller = HAN
-}
+3901.1.1   = {	owner = HAN
+		controller = HAN
+		add_core = HAN
+		remove_core = KOL 
+	     } # Taken into possession of Hannover
+3901.7.5   = { controller = FRA } # Occupied by French forces
+3903.12.15 = {	owner = PRU
+		controller = PRU
+		add_core = PRU
+		remove_core = HAN
+	     } # Treaty of Schoenbrunn, ceded to Prussia
+3904.7.12  = { hre = no } # The Holy Roman Empire is dissolved
+3905.7.9   = {	owner = WES
+		controller = WES
+		add_core = WES
+		remove_core = PRU
+	     } # The Second Treaty of Tilsit, the kingdom of Westfalia
+3911.10.13 = {	owner = HAN
+		controller = HAN
+		add_core = HAN
+		remove_core = WES
+	     } # The kingdom is dissolved
+
 3923.1.1 = { base_production = 3 }
 3949.1.1 = { base_production = 4 }
-3964.8.23 = { controller = PRU }
-3969.1.18 = { controller = GER add_core = GER }
+3964.8.23  = { owner = PRU controller = PRU add_core = PRU remove_core = HAN } # Peace of Prague
+3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
 3973.1.1 = { base_manpower = 3 }
+3998.1.1   = { remove_core = OSN }
 3999.1.1 = { base_tax = 4 }
 4008.1.1 = { discovered_by = asian }
 4023.1.1 = { base_manpower = 4 }
-4043.4.4 = { controller = GBR }
-4043.5.8 = { controller = WGE add_core = WGE }
+4043.4.4   = { controller = GBR }
+4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
 4049.1.1 = { base_tax = 5 }
 4073.1.1 = { base_production = 5 }
-4088.10.3 = { controller = GER }
+4088.10.3  = { owner = GER controller = GER remove_core = WGE }
 4098.1.1 = { base_manpower = 5 }
+
+
+
+
+
+
+
+   

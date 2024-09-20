@@ -5,6 +5,7 @@ culture = berber
 religion = amanaiism
 capital = "Vezeros"
 trade_goods = salt
+hre = no
 discovered_by = ROW
 discovered_by = ROM
 discovered_by = TUR
@@ -16,41 +17,75 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2438.1.1 = { religion = Chalcedonism }
+2438.1.1 = { religion = chalcedonism } 
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2498.1.1 = { discovered_by = VAN }
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2498.1.1 = { discovered_by = VAN } 
 2528.1.1 = { 
-	controller = GHD
-	add_core = GHD
+    owner = GHD
+    controller = GHD
+    add_core = GHD
+    remove_core = ROW
 }
-2698.1.1 = { discovered_by = western }
-2758.1.1 = { controller = AUR add_core = AUR }
+
+2698.1.1 = { discovered_by = western } 
+2758.1.1 = { owner = AUR controller = AUR add_core = AUR } 
 2800.1.1 = { 
-	controller = UMA
-	add_core = UMA
-	capital = "Tataouine"
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = AUR
+    capital = "Tataouine"
 }
-2828.1.1 = { culture = tunisian religion = Sunni }
+
+2828.1.1 = { culture = tunisian religion = sunni } 
 2843.1.1 = { 
-	controller = TUN
-	add_core = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = UMA
 }
-2855.6.1 = { controller = ABA add_core = ABA }
+
+2855.6.1 = { owner = ABA controller = ABA add_core = ABA } 
 2898.1.1 = { 
-	controller = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = ABA
 }
-2998.1.1 = { base_tax = 2 base_production = 2 }
-3007.1.1 = { controller = FAT add_core = FAT }
+
+2998.1.1 = { base_tax = 2 base_production = 2 } 
+3007.1.1 = { owner = FAT controller = FAT add_core = FAT } 
 3071.1.1 = { 
-	controller = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = FAT
 }
+
 3152.1.1 = { 
-	controller = GHD
+    owner = GHD
+    controller = GHD
+    add_core = GHD
+    remove_core = TUN
 }
-3654.12.1 = { controller = TRP add_core = TRP }
-3691.1.1 = { controller = TUN }
-3800.1.1 = { add_core = ALG }
-4008.1.1 = { discovered_by = eastern discovered_by = asian }
+
+3587.1.1 = { unrest = 4 } # Abu Zikriya Yahya overthrown by Abul Mumin
+3588.1.1 = { unrest = 0 } # Abu Yahya recaptures the power
+3654.12.1 = { owner = TRP controller = TRP add_core = TRP } 
+3689.1.1 = { unrest = 6 } # Janissary revolt
+3690.1.1 = { unrest = 0 } 
+3691.1.1 = { owner = TUN controller = TUN add_core = TUN } # Tunisian Pashalik created
+3800.1.1 = { unrest = 4 add_core = ALG } # Military coup, Algerian invasion
+3801.1.1 = { unrest = 0 } 
+3833.1.1 = { unrest = 6 } # Coup with Algerian support
+3854.1.1 = { unrest = 0 } # The Husaynid Dynasty is restored
+4008.1.1 = { discovered_by = eastern discovered_by = asian } 
+
+
+   

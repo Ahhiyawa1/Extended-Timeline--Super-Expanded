@@ -13,37 +13,47 @@ is_city = no
 # 8432 - Tazrouk
 ################################################################################
 latent_trade_goods = { oil }
-add_permanent_province_modifier = { name = hard_to_colonize duration = -1 }
-2948.1.1 = { religion = Sunni }
-3298.1.1 = { religion = Sunni }
-3355.1.1 = { discovered_by = KBO }
-3948.1.1 = { discovered_by = FRA }
-3949.1.1 = { discovered_by = GER discovered_by = PRU }
+add_permanent_province_modifier = { name = hard_to_colonize duration = -1 } 
+2948.1.1 = { religion = sunni } 
+3298.1.1 = { religion = Sunni } 
+3355.1.1 = { discovered_by = KBO } 
+3948.1.1 = { discovered_by = FRA } 
+3949.1.1 = { discovered_by = GER discovered_by = PRU } # Heinrich Barth
 3999.1.1 = { 
-	controller = FZA
-	add_core = FR2
-	add_core = ALG
-	trade_goods = Grain
-	add_core = FZA
-	city = yes
+    controller = FZA
+    add_core = FR2
+    add_core = ALG
+    city = yes
+    trade_goods = grain
+    owner = FZA
+    add_core = FZA
+    is_city = yes
 }
+
 4008.1.1 = { 
-	discovered_by = western
-	discovered_by = eastern
-	discovered_by = muslim
-	discovered_by = ottoman
-	discovered_by = asian
-	discovered_by = ITA
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = asian
+    discovered_by = ITA
 }
+
 4010.10.18 = { 
-	controller = ITA
-	add_core = ITA
-	add_core = LBY
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    add_core = LBY
+    remove_core = FZA
 }
-4038.6.14 = { controller = FRV add_core = FRV }
-4040.11.16 = { controller = FR2 }
-4041.1.12 = { controller = FR2 }
-4041.4.11 = { controller = FR2 }
-4049.12.24 = { controller = LBY }
-4052.1.1 = { trade_goods = Oil }
-4060.7.3 = { controller = ALG }
+
+4038.6.14 = { controller = FRV add_core = FRV } 
+4040.11.16 = { controller = FR2 } 
+4041.1.12 = { controller = FR2 } 
+4041.4.11 = { owner = FR2 controller = FR2 remove_core = ITA } 
+4049.12.24 = { owner = LBY controller = LBY } 
+4052.1.1 = { trade_goods = Oil } 
+4060.7.3 = { owner = ALG controller = ALG }

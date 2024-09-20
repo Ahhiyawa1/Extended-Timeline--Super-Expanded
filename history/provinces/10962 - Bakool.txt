@@ -1,29 +1,38 @@
 #10962 - Bakool
+
 culture = somali
 religion = south_arabian
 capital = "Bakool"
 base_manpower = 1
 trade_goods = unknown
+hre = no
 base_tax = 1
 base_production = 1
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9
 discovered_by = east_african
-2948.1.1 = { 
+
+2948.1.1 = {
 	discovered_by = indian
 	discovered_by = asian
 	discovered_by = muslim
 	discovered_by = ottoman
+	owner = AJU
 	controller = AJU
 	add_core = AJU
-	city = yes
-	trade_goods = Grain
-	religion = Sunni
+	is_city = yes
+	trade_goods = grain
+	religion = sunni
 }
+
 3648.1.1 = { discovered_by = TUR }
-3828.1.1 = { controller = GLE add_core = GLE }
-4008.1.1 = { discovered_by = western discovered_by = eastern controller = ITA add_core = ITA capital = "Xuddur" }
+3828.1.1 = { owner = GLE controller = GLE add_core = GLE remove_core = AJU }
+
+4008.1.1 = { discovered_by = western discovered_by = eastern }
 4008.1.1 = { owner = ITA controller = ITA add_core = ITA capital = "Xuddur" }
-4058.7.1 = { controller = SOM add_core = SOM }
-is_city = no
+4058.7.1 = { owner = SOM controller = SOM add_core = SOM remove_core = ITA remove_core = GLE }
+
+
+
+   

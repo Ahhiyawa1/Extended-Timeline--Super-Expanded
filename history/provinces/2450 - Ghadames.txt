@@ -7,6 +7,7 @@ culture = eastern_berber
 religion = amanaiism
 capital = "Cydamus"
 trade_goods = spices
+hre = no
 discovered_by = roman_group
 discovered_by = ottoman
 discovered_by = middle_eastern
@@ -15,29 +16,45 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 2758.1.1 = { 
-	controller = AUR
-	add_core = AUR
-	add_core = FZA
+    owner = AUR
+    controller = AUR
+    add_core = AUR
+    add_core = FZA
+    remove_core = GAR
 }
-2800.1.1 = { controller = FZA }
-2948.1.1 = { religion = Sunni culture = tunisian capital = "Ghadames" }
-3271.1.1 = { controller = MAM add_core = MAM }
+
+2800.1.1 = { owner = FZA controller = FZA remove_core = AUR } 
+2948.1.1 = { religion = sunni culture = tunisian capital = "Ghadames" } 
+3271.1.1 = { owner = MAM controller = MAM add_core = MAM } 
 3310.1.1 = { 
-	controller = GHD
-	add_core = GHD
+    owner = GHD
+    controller = GHD
+    add_core = GHD
+    remove_core = FZA
+    remove_core = MAM
 }
+
 3928.1.1 = { 
-	controller = FZA
+    owner = FZA
+    controller = FZA
+    add_core = FZA
+    remove_core = GHD
 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian discovered_by = ITA }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian discovered_by = ITA }
+
+4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian } 
+4008.1.1 = { discovered_by = ITA } 
 4010.10.18 = { 
-	controller = ITA
-	add_core = ITA
-	add_core = LBY
-	trade_goods = Grain
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    add_core = LBY
+    trade_goods = grain
 }
-4041.1.12 = { controller = FR2 }
-4041.4.11 = { controller = FR2 }
-4049.12.24 = { controller = LBY }
-4115.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
+
+4041.1.12 = { controller = FR2 } 
+4041.4.11 = { owner = FR2 controller = FR2 remove_core = ITA } 
+4049.12.24 = { owner = LBY controller = LBY } 
+4115.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Tuareg militias
+
+
+   

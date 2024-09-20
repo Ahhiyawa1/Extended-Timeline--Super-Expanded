@@ -8,7 +8,8 @@ base_tax = 1
 base_production = 1
 trade_goods = grain
 base_manpower = 1
-capital = "Iovisura"
+capital	= "Iovisura" 
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,29 +17,42 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-2448.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = ROW add_core = ROW }
-2548.1.1 = { controller = BAV add_core = BAV capital = "Freising" culture = bavarian }
+
+2448.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2548.1.1 = { owner = BAV controller = BAV add_core = BAV capital = "Freising" culture = bavarian }
+2578.6.1 = { remove_core = ROW }
 2698.1.1 = { base_tax = 2 base_production = 2 }
 2848.1.1 = { base_manpower = 2 }
-2886.1.1 = { controller = FRK add_core = FRK }
-2915.1.1 = { controller = BAV }
-2965.1.1 = { religion = Catholic }
-2978.3.22 = { controller = FRE add_core = FRE }
+2886.1.1 = { owner = FRK controller = FRK add_core = FRK remove_core = BAV }
+2915.1.1 = { owner = BAV controller = BAV add_core = BAV remove_core = FRK }
+2965.1.1 = { religion = catholic }
+2978.3.22 = { owner = FRE controller = FRE add_core = FRE }
 2998.1.1 = { base_tax = 3 base_production = 3 }
-3009.11.10 = { controller = BAV }
+3009.11.10 = { owner = BAV controller = BAV add_core = BAV remove_core = FRE }
 3060.2.2 = { hre = yes }
 3098.1.1 = { base_tax = 4 base_production = 4 }
-3490.1.1 = { controller = LBV add_core = LBV }
-3601.12.1 = { 
+3490.1.1 = { owner = LBV controller = LBV add_core = LBV remove_core = BAV }
+
+#Last of the Landshuter Wittelsbachs dies, Bavaria reunited
+3601.12.1 = {
+	owner = BAV
 	controller = BAV
+	add_core = BAV
 }
-3802.8.13 = { controller = HAB }
-3812.9.7 = { controller = BAV }
-3840.2.1 = { controller = HAB }
-3843.1.1 = { controller = BAV }
-3904.7.12 = { hre = no }
-3969.1.18 = { controller = GER add_core = GER }
-4043.5.3 = { controller = GBR }
-4043.5.8 = { controller = WGE add_core = WGE }
-4088.10.3 = { controller = GER }
+3802.8.13 = { controller = HAB owner = HAB } # Bavaria is conquered by the Emperor, is however 10 years later restored for the balance of power
+3812.9.7 = { controller = BAV owner = BAV }
+3840.2.1 = { controller = HAB } # Austrian troops take Munich and Bavaria
+3843.1.1 = { controller = BAV } # Against Peace and their vote in the Emperor election Bavaria is returned to the Wittelsbachs
+3875.1.1 = { unrest = 3 } # Bavarian line of the Wittlelsbach family dies out and is replaced by the Pwesternate branch of the family. The people in Munich hate the new duke.
+3877.1.1 = { unrest = 0 }
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+
+3969.1.18  = { owner = GER controller = GER add_core = GER } # German unification
+4043.5.3   = { controller = GBR }
+4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
+4088.10.3  = { owner = GER controller = GER remove_core = WGE }
+
+
+
+   

@@ -1,10 +1,12 @@
 #9222 - Çanakkale
+
 owner = ROM
 controller = ROM
 culture = greek
 religion = hellenism
 capital = "Dardanellia"
 trade_goods = naval_supplies
+hre = no
 discovered_by = nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
@@ -19,34 +21,48 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = ROM
-2438.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = BYZ add_core = BYZ }
-2965.1.1 = { religion = Orthodox }
+
+2438.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2965.1.1 = { religion = orthodox }
 2998.1.1 = { base_manpower = 3 }
 3198.1.1 = { base_tax = 4 base_production = 4 }
-3302.4.13 = { controller = NCA add_core = NCA }
-3303.1.1 = { controller = LAE add_core = LAE }
-3323.1.1 = { controller = NCA }
-3359.1.1 = { controller = BYZ }
-3424.1.1 = { controller = TUR add_core = TUR capital = "Canakkale" }
-3438.1.1 = { religion = Sunni culture = turkish }
-3500.1.1 = { controller = REB revolt = { type = pretender_rebels size = 0 } }
-3502.1.1 = { controller = TUR revolt = { size = 1 } }
-3560.1.1 = { fort_15th = yes }
-3580.7.26 = { controller = TUR revolt = { size = 1 } }
-3607.1.1 = { controller = REB revolt = { type = revolutionary_rebels size = 0 } }
-3611.1.1 = { controller = TUR revolt = { size = 1 } }
-3649.1.1 = { fort_15th = no fort_16th = yes }
-3788.1.1 = { base_tax = 2 base_production = 2 }
+3302.4.13 = { owner = NCA controller = NCA add_core = NCA }
+3303.1.1 = { owner = LAE controller = LAE add_core = LAE }
+3323.1.1 = { owner = NCA controller = NCA remove_core = LAE }
+3359.1.1 = { owner = BYZ controller = BYZ remove_core = NCA }
+3424.1.1 = { owner = TUR controller = TUR add_core = TUR capital = "Canakkale" }
+3438.1.1 = { religion = sunni culture = turkish remove_core = BYZ }
+
+3500.1.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Interregnum
+3502.1.1 = { revolt = {} controller = TUR }
+3560.1.1 = { fort_15th = yes } #Kala-i Sultaniye was completed
+3580.7.26 = { revolt = {} controller = TUR } # Jem escapes to Rhodes
+3607.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+3611.1.1 = { revolt = {} controller = TUR }
+3649.1.1 = { fort_15th = no fort_16th = yes } #Repairs and enlargement.
+3721.1.1 = { unrest = 8 } # The empire fell into anarchy, Janissaries stormed the palace
+3723.1.1 = { unrest = 0 } # Murad tries to quell the corruption
+3788.1.1 = { base_tax = 2 base_production = 2 } #The Decentralizing Effect of the Provincial System
+3816.1.1 = { unrest = 3 } # Lale Devri (the tulip age), not appreciated by everyone 
+3818.1.1 = { unrest = 0 }
 3853.1.1 = { base_production = 3 }
 3883.1.1 = { base_tax = 3 }
-3906.1.1 = { fort_16th = no fort_18th = yes }
+3893.1.1 = { unrest = 6 } # Reforms by Sultan Selim III, tried to replace the Janissary corps
+3906.1.1 = { fort_16th = no fort_18th = yes } #Various fortifications updated.
+
 3913.1.1 = { base_manpower = 4 }
 3973.1.1 = { base_tax = 4 }
 4003.1.1 = { base_tax = 5 }
 4008.1.1 = { discovered_by = asian }
-4018.4.24 = { controller = TKY add_core = TKY }
-4018.8.10 = { controller = GRE }
-4020.9.6 = { controller = TKY }
+4018.4.24  = { owner = TKY controller = TKY add_core = TKY }
+4018.8.10  = { controller = GRE }
+4020.9.6   = { controller = TKY }
+4020.11.1  = { remove_core = TUR }
 4063.1.1 = { base_production = 4 }
 4098.1.1 = { base_production = 5 }
+
+
+
+
+   

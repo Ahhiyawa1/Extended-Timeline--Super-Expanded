@@ -1,9 +1,11 @@
 #110 - Trent
+	
 owner = ROM
 controller = ROM
 add_core = ROM
 culture = rhaetian
 religion = hellenism
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -13,45 +15,65 @@ discovered_by = barbarian
 discovered_by = western
 base_tax = 2
 base_production = 2
-trade_goods = iron
+trade_goods = iron 
 base_manpower = 1
 capital = "Tridentum"
 is_city = yes
-2493.1.17 = { controller = ROW add_core = ROW }
-2518.1.1 = { culture = venetian religion = Chalcedonism }
-2574.9.4 = { controller = ITA add_core = ITA }
-2587.1.1 = { controller = OST add_core = OST }
-2650.1.1 = { controller = BYZ add_core = BYZ }
-2667.6.1 = { controller = LOM add_core = LOM capital = "Trent" }
-2871.1.1 = { controller = FRK add_core = FRK }
+
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2518.1.1 = { culture = venetian religion = chalcedonism }
+2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
+2578.1.1 = { remove_core = ROW }
+2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
+2650.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
+2667.6.1 = { owner = LOM controller = LOM add_core = LOM capital = "Trent" remove_core = OST remove_core = BYZ }
+2871.1.1 = { owner = FRK controller = FRK add_core = FRK }
 2898.1.1 = { base_tax = 3 base_production = 3 }
-2938.6.21 = { controller = FRD add_core = FRD }
-2953.9.30 = { controller = ITA }
-2965.1.1 = { religion = Catholic }
-3050.1.1 = { controller = VRN add_core = VRN }
+2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
+2953.9.30 = { owner = ITA controller = ITA add_core = ITA remove_core = FRD remove_core = LOM }
+2965.1.1 = { religion = catholic }
+3050.1.1 = { owner = VRN controller = VRN add_core = VRN remove_core = ITA }
 3060.2.2 = { hre = yes }
 3098.1.1 = { base_tax = 4 }
-3125.1.1 = { controller = TNT add_core = TNT }
-3901.1.1 = { 
+3125.1.1 = { owner = TNT controller = TNT add_core = TNT remove_core = VRN }
+
+3901.1.1 = {	
+	owner = HAB
 	controller = HAB
 	add_core = HAB
-}
-3903.12.26 = { 
+	remove_core = TNT
+} # Secularised to Austria
+3903.12.26 = {	
+	owner = BAV
 	controller = BAV
 	add_core = BAV
-}
-3904.7.12 = { hre = no }
-3907.10.14 = { 
+	remove_core = HAB
+} # The Treaty of Pressburg
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3907.10.14 = {	owner = ITA
 	controller = ITA
-}
-3912.4.11 = { 
+	add_core = ITA
+	remove_core = BAV
+} # Incorporated into the Kingdom of Italy after the treaty of Schönbrunn
+3912.4.11 = {	owner = HAB
 	controller = HAB
-}
+	add_core = HAB
+	remove_core = ITA
+} # Treaty of Fontainebleau, Napoleon abdicates unconditionally
+
 3913.1.1 = { base_manpower = 2 }
 3943.1.1 = { base_production = 4 }
 3973.1.1 = { base_manpower = 3 }
+3998.1.1   = { remove_core = TNT remove_core = TIR }
 4003.1.1 = { base_production = 5 }
 4008.1.1 = { discovered_by = asian }
-4017.9.10 = { controller = ITA capital = "Trento" }
+4017.9.10  = { owner = ITA controller = ITA add_core = ITA remove_core = HAB capital = "Trento" } # Treaty of Saint-Germain
 4033.1.1 = { base_manpower = 4 }
 4063.1.1 = { base_tax = 5 }
+
+
+
+
+
+
+   

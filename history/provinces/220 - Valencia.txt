@@ -1,9 +1,11 @@
 #220 - ValÃ¨ncia
+
 owner = ROM
 controller = ROM
 add_core = ROM
 culture = iberi
 religion = hellenism
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -15,52 +17,60 @@ base_tax = 3
 base_production = 3
 trade_goods = cloth
 base_manpower = 2
-capital = "Valentia"
+capital = "Valentia" 
 is_city = yes
 center_of_trade = 2
-2438.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = ROW add_core = ROW }
-2546.1.1 = { controller = EAL add_core = EAL }
-2551.1.1 = { controller = ROW }
-2554.1.1 = { controller = GVI add_core = GVI religion = Arianism }
-2556.10.1 = { controller = ROW }
-2559.8.2 = { controller = GVI }
-2688.1.1 = { religion = Chalcedonism }
-2809.1.1 = { controller = UMA add_core = UMA capital = "Balansiya" }
-2838.1.1 = { religion = Sunni }
-2848.8.6 = { controller = CRD add_core = CRD }
+
+2438.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2546.1.1 = { owner = EAL controller = EAL add_core = EAL }
+2551.1.1 = { owner = ROW controller = ROW remove_core = EAL }
+2554.1.1 = { owner = GVI controller = GVI add_core = GVI religion = arianism }
+2556.10.1 = { owner = ROW controller = ROW } #Battle of Arelate
+2559.8.2 = { owner = GVI controller = GVI remove_core = ROW } #Assassination of Majorian
+2688.1.1 = { religion = chalcedonism }
+2809.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = GVI capital = "Balansiya" }
+2838.1.1 = { religion = sunni }
+2848.8.6 = { owner = CRD controller = CRD add_core = CRD remove_core = UMA }
 2898.1.1 = { fort_15th = yes }
 2948.1.1 = { culture = andalucian }
 2998.1.1 = { base_tax = 4 base_production = 4 }
-3098.1.1 = { base_manpower = 3 }
-3108.1.1 = { controller = VAL add_core = VAL capital = "València" }
-3163.1.1 = { controller = TOL add_core = TOL }
-3173.1.1 = { controller = VAL }
+3098.1.1 = { base_manpower = 3 } # València was the center of peninsular trade with the Mediterranean, surpassing Barcelona
+3108.1.1 = { owner = VAL controller = VAL add_core = VAL remove_core = CRD capital = "València" }
+3163.1.1 = { owner = TOL controller = TOL add_core = TOL }
+3173.1.1 = { owner = VAL controller = VAL remove_core = TOL }
 3192.6.15 = { add_core = MOR }
 3198.1.1 = { base_tax = 5 base_production = 5 }
-3200.6.1 = { controller = MOR }
-3243.1.1 = { controller = VAL }
-3245.1.1 = { controller = MOR }
-3248.1.1 = { trade_goods = Paper }
+3200.6.1 = { owner = MOR controller = MOR }
+3243.1.1 = { owner = VAL controller = VAL remove_core = MOR }
+3245.1.1 = { owner = MOR controller = MOR add_core = MOR }
+3248.1.1 = { trade_goods = paper }
 3298.1.1 = { base_tax = 6 }
-3336.9.28 = { controller = ARA add_core = ARA culture = catalan }
-3378.1.1 = { religion = Catholic }
+3336.9.28 = { owner = ARA controller = ARA add_core = ARA remove_core = VAL remove_core = MOR culture = catalan }
+3378.1.1 = { religion = catholic }
 3398.1.1 = { base_manpower = 4 }
-3614.1.23 = { 
+
+3614.1.23 = {
 	controller = SPA
+	owner = SPA
 	add_core = SPA
-}
-3619.5.1 = { controller = REB revolt = { type = revolutionary_rebels size = 2 } }
-3619.9.11 = { controller = SPA revolt = { size = 1 } }
-3803.12.16 = { controller = HAB }
-3805.5.8 = { controller = SPA }
+} # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
+3617.7.1 = { unrest = 2 } # Revolt of the Germanies, which is at first moderate and appeased by the King
+3619.5.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 2 } controller = REB } # The revolt radicalizes and the Agermanats organize an army 
+3619.9.11 = { revolt = {} controller = SPA } # The Agermanats are soundly defeated in Oriola, València capitulates alongside most revolted towns.
+3707.9.22 = { unrest = 2 } # Decree for the expulsion of the morisques in Valencia. Morisque mutiny in the Alicante harbour.
+3707.11.1 = { unrest = 0 } # The morisque mutiny is finally controlled. (economic consequences should be added)
+3803.12.16 = { controller = HAB } # València joins the Austrian side in the War of the Spanish Succession
+3805.5.8 = { controller = SPA } # València falls to the Borbonic troops
+3811.7.13 = { remove_core = ARA }
 3848.1.1 = { base_production = 6 }
 3873.1.1 = { base_tax = 7 }
 3898.1.1 = { base_tax = 8 base_manpower = 5 }
-3906.6.6 = { controller = REB revolt = { type = pretender_rebels size = 2 } }
-3910.1.1 = { controller = SPA revolt = { size = 1 } }
-3911.3.19 = { controller = REB revolt = { type = pretender_rebels size = 2 } }
-3911.12.11 = { controller = SPA revolt = { size = 1 } }
+3906.6.6 = { revolt = { type = pretender_rebels size = 2 } controller = REB }
+3910.1.1 = { revolt = {} controller = SPA }
+3911.3.19 = { revolt = { type = pretender_rebels size = 2 } controller = REB }
+3911.12.11 = { revolt = {} controller = SPA }
+
 3923.1.1 = { base_production = 8 }
 3949.1.1 = { base_production = 10 }
 3973.1.1 = { base_tax = 9 base_manpower = 6 }
@@ -70,3 +80,10 @@ center_of_trade = 2
 4049.1.1 = { base_manpower = 8 }
 4073.1.1 = { base_manpower = 9 }
 4098.1.1 = { base_manpower = 10 }
+
+
+
+
+
+
+   

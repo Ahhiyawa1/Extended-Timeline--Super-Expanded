@@ -1,4 +1,5 @@
 # 11263 - Vorarlberg
+
 owner = ROM
 controller = ROM
 add_core = ROM
@@ -8,8 +9,9 @@ base_tax = 1
 base_production = 1
 trade_goods = wool
 base_manpower = 1
-capital = "Brigantium"
+capital = "Brigantium" 
 is_city = yes
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,28 +19,42 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-2348.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = ROW add_core = ROW }
-2498.1.1 = { controller = ALM add_core = ALM capital = "Bregenz" culture = swiss }
-2844.1.1 = { controller = FRK add_core = FRK }
-2938.6.21 = { controller = FRE add_core = FRE }
-2965.1.1 = { religion = Catholic }
-3009.11.10 = { controller = SWA add_core = SWA }
-3060.2.2 = { hre = yes controller = MBZ add_core = MBZ }
+
+2348.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2498.1.1 = { owner = ALM controller = ALM add_core = ALM capital = "Bregenz" culture = swiss }
+2578.6.1 = { remove_core = ROW }
+2844.1.1 = { owner = FRK controller = FRK add_core = FRK remove_core = ALM }
+2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
+2965.1.1 = { religion = catholic }
+3009.11.10 = { owner = SWA controller = SWA add_core = SWA remove_core = FRE }
+3060.2.2 = { hre = yes owner = MBZ controller = MBZ add_core = MBZ remove_core = SWA }
 3098.1.1 = { base_tax = 2 base_production = 2 }
-3556.6.7 = { 
+
+3556.6.7 = { #sold to the Habsburgs
+	owner = HAB
 	controller = HAB
 	add_core = HAB
 }
-3580.1.1 = { 
+3580.1.1 = { #Montfort-Bregenz partially restored
+	owner = MBZ
 	controller = MBZ
+	add_core = MBZ
 }
-3621.1.1 = { 
+3621.1.1 = { #the remaining parts of Bregenz are sold to the Habsburgs
+	owner = HAB
 	controller = HAB
+	add_core = HAB
 }
-3904.7.12 = { hre = no }
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+
 3943.1.1 = { base_manpower = 2 }
+3998.1.1   = { remove_core = TIR }
 4003.1.1 = { base_tax = 3 }
-4036.3.12 = { controller = GER add_core = GER }
-4043.5.8 = { controller = HAB }
+4036.3.12  = { owner = GER controller = GER add_core = GER } # Austria annexed by Nazi Germany
+4043.5.8   = { owner = HAB controller = HAB remove_core = GER }
 4098.1.1 = { base_production = 3 }
+
+
+
+   

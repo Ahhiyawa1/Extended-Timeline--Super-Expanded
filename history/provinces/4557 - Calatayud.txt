@@ -4,6 +4,7 @@ controller = ROM
 add_core = ROM
 culture = iberi
 religion = jainko
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,49 +18,69 @@ trade_goods = cloth
 base_manpower = 1
 capital = "Augusta Bilbilis"
 is_city = yes
-2478.1.1 = { religion = Chalcedonism }
+2478.1.1 = { religion = chalcedonism } 
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2554.1.1 = { controller = GVI add_core = GVI }
-2556.10.1 = { controller = ROW }
-2574.9.4 = { controller = GVI }
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2554.1.1 = { owner = GVI controller = GVI add_core = GVI } 
+2556.10.1 = { owner = ROW controller = ROW } # Battle of Arelate
+2574.9.4 = { owner = GVI controller = GVI remove_core = ROW } 
 2809.1.1 = { 
-	controller = UMA
-	add_core = UMA
-	capital = "Calatayud"
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = GVI
+    capital = "Calatayud"
 }
+
 2848.8.6 = { 
-	controller = CRD
-	add_core = CRD
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = UMA
 }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-2965.1.1 = { religion = Catholic }
-2978.1.1 = { religion = Sunni }
-2998.1.1 = { culture = andalucian }
-3098.1.1 = { base_manpower = 2 }
+
+2898.1.1 = { base_tax = 2 base_production = 2 } 
+2965.1.1 = { religion = catholic } 
+2978.1.1 = { religion = sunni } 
+2998.1.1 = { culture = andalucian } 
+3098.1.1 = { base_manpower = 2 } 
 3111.1.1 = { 
-	controller = ZAR
-	add_core = ZAR
+    owner = ZAR
+    controller = ZAR
+    add_core = ZAR
+    remove_core = CRD
 }
-3208.1.1 = { controller = MOR add_core = MOR }
+
+3208.1.1 = { owner = MOR controller = MOR add_core = MOR } 
 3216.12.18 = { 
-	controller = ARA
-	add_core = ARA
-	culture = aragonese
+    owner = ARA
+    controller = ARA
+    add_core = ARA
+    remove_core = ZAR
+    remove_core = MOR
+    culture = aragonese
 }
-3238.1.1 = { religion = Catholic }
-3298.1.1 = { base_tax = 3 }
-3614.1.23 = { controller = SPA add_core = SPA }
-3689.9.24 = { controller = REB revolt = { type = revolutionary_rebels size = 1 } }
-3689.12.24 = { controller = SPA revolt = { size = 1 } }
-3803.6.29 = { controller = HAB }
-3805.5.26 = { controller = SPA }
-3808.6.13 = { controller = HAB }
-3808.11.1 = { controller = SPA }
-3906.6.6 = { controller = REB revolt = { type = pretender_rebels size = 0 } }
-3908.1.1 = { controller = SPA revolt = { size = 1 } }
-3910.7.26 = { controller = REB revolt = { type = pretender_rebels size = 0 } }
-3911.12.11 = { controller = SPA revolt = { size = 1 } }
-4008.1.1 = { discovered_by = asian }
+
+3238.1.1 = { religion = catholic } 
+3298.1.1 = { base_tax = 3 } 
+3614.1.23 = { controller = SPA owner = SPA add_core = SPA } # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
+3689.9.24 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Foral riots in Zaragoza
+3689.12.24 = { revolt = { } controller = SPA } # The army is dispatched to quell the riots
+3803.6.29 = { controller = HAB } # Aragon joins the Austrian side in the War of Spanish Succession
+3805.5.26 = { controller = SPA } # Aragon falls to the Borbonic troops
+3808.6.13 = { controller = HAB } # Archduke Carlos takes Zaragoza, paving again the way to Madrid
+3808.11.1 = { controller = SPA } # Felipe V reorganises his army and is able to force the retreat of the Archduke's army
+3811.7.13 = { remove_core = ARA } 
+3906.6.6 = { revolt = { type = pretender_rebels size = 0 } controller = REB } 
+3908.1.1 = { revolt = { } controller = SPA } 
+3910.7.26 = { revolt = { type = pretender_rebels size = 0 } controller = REB } 
+3911.12.11 = { revolt = { } controller = SPA } 
+4008.1.1 = { discovered_by = asian } 
+
+
+   

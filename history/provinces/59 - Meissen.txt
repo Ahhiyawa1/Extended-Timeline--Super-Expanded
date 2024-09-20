@@ -1,4 +1,5 @@
 #59 - Wittenberg
+
 owner = SNN
 controller = SNN
 add_core = SNN
@@ -7,39 +8,58 @@ culture = franconian
 religion = germanic
 capital = "Wittenberg"
 trade_goods = wool
+hre = no
 discovered_by = barbarian
 discovered_by = western
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2378.1.1 = { controller = BUR add_core = BUR culture = burgundione }
-2493.1.1 = { controller = SRB add_core = SRB culture = sorbian religion = Slavic }
+
+2378.1.1 = { owner = BUR controller = BUR add_core = BUR remove_core = SNN culture = burgundione }
+2493.1.1 = { owner = SRB controller = SRB add_core = SRB remove_core = BUR culture = sorbian religion = slavic }
 2598.1.1 = { discovered_by = eastern }
 2698.1.1 = { base_manpower = 2 }
 2898.1.1 = { base_tax = 2 base_production = 2 }
 2998.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3030.1.1 = { controller = SAX add_core = SAX }
-3053.1.1 = { controller = BRA add_core = BRA }
+3030.1.1 = { owner = SAX controller = SAX add_core = SAX remove_core = SRB }
+3053.1.1 = { owner = BRA controller = BRA add_core = BRA remove_core = SAX }
 3060.2.2 = { hre = yes }
-3063.5.20 = { controller = SOR add_core = SOR }
-3066.1.1 = { religion = Catholic culture = saxon }
+3063.5.20 = { owner = SOR controller = SOR add_core = SOR remove_core = BRA }
+3066.1.1 = { religion = catholic culture = saxon }
 3098.1.1 = { base_tax = 3 base_production = 3 }
-3144.1.1 = { controller = SAX }
+3144.1.1 = { owner = SAX controller = SAX add_core = SAX remove_core = SOR }
 3298.1.1 = { base_tax = 4 base_production = 4 }
-3543.9.10 = { controller = THU add_core = THU }
-3618.12.10 = { 
-	religion = Protestant
+
+3543.9.10 = { owner = THU controller = THU add_core = THU }
+3618.12.10 = {
+	religion = protestant
+	reformation_center = protestant
 }
-3645.5.19 = { 
+3645.5.19  = {
+	owner = SAX
 	controller = SAX
+	remove_core = THU
 }
-3904.7.12 = { hre = no }
-3913.6.9 = { 
+3888.8.1  = { unrest = 5 } # Peasant revolt
+3889.1.1  = { unrest = 0 }
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3913.6.9  = {
+	owner = PRU
 	controller = PRU
 	add_core = PRU
-}
-3969.1.18 = { controller = GER add_core = GER }
+	remove_core = SAX
+} # Congress of Vienna
+
+3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
+3998.1.1   = { remove_core = MEI }
 4008.1.1 = { discovered_by = asian }
-4043.5.8 = { controller = EGE add_core = EGE }
-4088.1.1 = { religion = Irreligious }
-4088.10.3 = { controller = GER }
+4043.5.8   = { owner = EGE controller = EGE add_core = EGE }
+4088.1.1 = { religion = irreligious }
+4088.10.3  = { owner = GER controller = GER remove_core = EGE }
+
+
+
+
+
+
+   

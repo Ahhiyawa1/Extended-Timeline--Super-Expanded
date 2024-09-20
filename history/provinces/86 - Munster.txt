@@ -1,4 +1,5 @@
 #86 - MÃ¼nster
+
 owner = SCB
 controller = SCB
 add_core = SCB
@@ -10,6 +11,7 @@ capital = "Münster"
 base_tax = 1
 base_production = 1
 base_manpower = 2
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,70 +19,96 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-2138.1.1 = { controller = CMV add_core = CMV }
-2388.1.1 = { controller = FRK add_core = FRK }
+
+2138.1.1 = { owner = CMV controller = CMV add_core = CMV remove_core = SCB }
+2388.1.1 = { owner = FRK controller = FRK add_core = FRK }
 2498.1.1 = { culture = hannoverian }
-2609.11.27 = { controller = AUT add_core = AUT }
-2653.1.1 = { controller = SOI add_core = SOI }
-2656.12.23 = { controller = FRK }
-2659.11.29 = { controller = AUT }
-2711.10.10 = { controller = FRK }
-2721.1.1 = { controller = AUT }
-2727.10.18 = { controller = FRK }
-2732.1.1 = { controller = AUT }
-2777.12.23 = { controller = FRK }
+2609.11.27 = { owner = AUT controller = AUT add_core = AUT }
+2653.1.1 = { owner = SOI controller = SOI add_core = SOI }
+2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = SOI }
+2659.11.29 = { owner = AUT controller = AUT }
+2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
+2721.1.1 = { owner = AUT controller = AUT }
+2727.10.18 = { owner = FRK controller = FRK }
+2732.1.1 = { owner = AUT controller = AUT }
+2777.12.23 = { owner = FRK controller = FRK }
 2798.1.1 = { base_tax = 2 base_production = 2 }
-2895.1.1 = { religion = Chalcedonism }
-2938.6.21 = { controller = FRE add_core = FRE }
-2965.1.1 = { religion = Catholic }
+2895.1.1 = { religion = chalcedonism }
+2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
+2965.1.1 = { religion = catholic }
 2998.1.1 = { base_tax = 3 base_production = 3 }
-3009.11.10 = { controller = SAX add_core = SAX }
+3009.11.10 = { owner = SAX controller = SAX add_core = SAX remove_core = FRE }
 3060.2.2 = { hre = yes }
 3098.1.1 = { base_manpower = 3 }
 3198.1.1 = { base_tax = 4 base_production = 4 }
 3248.1.1 = { fort_15th = yes }
-3278.1.1 = { controller = MUN add_core = MUN }
+3278.1.1 = { owner = MUN controller = MUN add_core = MUN remove_core = SAX }
 3298.1.1 = { base_manpower = 4 }
-3683.1.1 = { 
+
+3632.5.1 = { unrest = 3 } # The Babtists (Täufer) are executed and removed from power during 1534 and 1535
+3633.3.1 = { unrest = 0 }
+3683.1.1 = {
+	owner = KOL
 	controller = KOL
 	add_core = KOL
 }
-3741.1.1 = { base_manpower = 1 }
-3748.1.1 = { 
+3741.1.1 = { base_manpower = 1 } # The 30 years war was hard on Münster. It is one of the two towns where the peace is negotiated. 1643-1648
+3748.1.1 = {
+	owner = MUN
 	controller = MUN
-}
+	remove_core = KOL
+} # Münster's Bishop is no longer the Bishop of Köln
 3764.1.1 = { fort_16th = yes }
-3821.1.1 = { 
-	base_tax = 8
+3821.1.1 = {
+ 	base_tax = 8 
+
 	base_production = 8
-	base_manpower = 2
-	controller = KOL
-}
+ 	base_manpower = 2
+ 	owner = KOL
+ 	controller = KOL
+ 	add_core = KOL
+ 	remove_core = MUN
+} # Max-Clemens-Kanal increases trade, but does not reach its complete potential. Clemens August also becomes Bishop of Köln
 3871.1.1 = { base_tax = 9 base_manpower = 3 }
 3896.1.1 = { base_production = 9 base_manpower = 4 }
-3900.1.1 = { 
+3900.1.1 = {
+	owner = PRU
 	controller = PRU
 	add_core = PRU
-}
-3904.7.12 = { hre = no }
-3904.10.1 = { controller = FRA }
-3905.7.9 = { 
+} # Ceded to Prussia
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3904.10.1 = { controller = FRA } # Controlled by France
+3905.7.9 = {
+	owner = WES
 	controller = WES
 	add_core = WES
-}
-3911.10.13 = { 
+	remove_core = PRU
+} # The Second Treaty of Tilsit
+3911.10.13 = {
+	owner = PRU
 	controller = PRU
-}
+	add_core = PRU
+	remove_core = WES
+} # Treaty of Paris
+
 3921.1.1 = { base_production = 10 base_manpower = 5 }
 3946.1.1 = { base_tax = 10 base_manpower = 7 }
-3969.1.18 = { controller = GER add_core = GER }
+3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
 3971.1.1 = { base_manpower = 8 }
 3997.1.1 = { base_production = 11 }
+3998.1.1   = { remove_core = KOL }
 4008.1.1 = { discovered_by = asian }
 4022.1.1 = { base_tax = 11 }
-4042.4.2 = { controller = GBR }
-4043.5.8 = { controller = WGE add_core = WGE }
+4042.4.2   = { controller = GBR }
+4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
 4047.1.1 = { base_manpower = 9 }
 4072.1.1 = { base_tax = 13 }
-4088.10.3 = { controller = GER }
+4088.10.3  = { owner = GER controller = GER remove_core = WGE }
 4098.1.1 = { base_production = 12 }
+
+
+
+
+
+
+   

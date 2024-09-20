@@ -18,92 +18,157 @@ trade_goods = cloth
 base_manpower = 1
 add_core = ROM
 2173.1.1 = { 
-	controller = ROM
+    owner = ROM
+    controller = ROM
+    add_core = ROM
+    add_core = ROM
 }
+
 2356.1.1 = { 
-	controller = GLL
-	add_core = GLL
+    controller = GLL
+    owner = GLL
+    add_core = GLL
+    add_core = GLL
 }
+
 2358.1.1 = { 
-	controller = ALM
-	capital = "Offenburg"
+    owner = ALM
+    controller = ALM
+    remove_core = ROM
+    capital = Offenburg
+    remove_core = ROM
 }
-2359.1.1 = { controller = GLL }
-2367.1.1 = { controller = ROM }
+
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
 2368.9.1 = { 
-	controller = ROM
+    controller = ROM
+    owner = ROM
+    add_core = ROM
+    remove_core = GLL
+    add_core = ROM
+    remove_core = GLL
 }
+
 2509.1.1 = { 
-	controller = BUR
-	add_core = BUR
+    owner = BUR
+    controller = BUR
+    add_core = BUR
+    remove_core = ALM
 }
+
 2535.1.1 = { 
-	controller = ALM
-	add_core = ALM
+    owner = ALM
+    controller = ALM
+    add_core = ALM
+    remove_core = BUR
 }
-2698.1.1 = { religion = Chalcedonism }
-2798.1.1 = { base_tax = 2 base_production = 2 }
+
+2698.1.1 = { religion = chalcedonism } 
+2798.1.1 = { base_tax = 2 base_production = 2 } 
 2844.1.1 = { 
-	controller = FRK
-	add_core = FRK
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    add_core = FRK
 }
-2898.1.1 = { base_manpower = 2 }
+
+2898.1.1 = { base_manpower = 2 } 
 2938.6.21 = { 
-	controller = FRE
-	add_core = FRE
+    owner = FRE
+    controller = FRE
+    add_core = FRE
+    remove_core = FRK
+    add_core = FRE
+    remove_core = FRK
 }
-2948.1.1 = { fort_15th = yes }
-2965.1.1 = { religion = Catholic }
-2998.1.1 = { trade_goods = Glass base_tax = 2 base_production = 2 }
+
+2948.1.1 = { fort_15th = yes } 
+2965.1.1 = { religion = catholic } 
+2998.1.1 = { trade_goods = glass base_tax = 2 base_production = 2 } 
 3009.11.10 = { 
-	controller = SWA
-	add_core = SWA
+    owner = SWA
+    controller = SWA
+    add_core = SWA
+    remove_core = FRE
+    remove_core = ALM
+    add_core = SWA
+    remove_core = FRE
+    remove_core = ALM
 }
-3060.2.2 = { hre = yes }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3198.1.1 = { base_manpower = 3 base_tax = 3 base_production = 3 }
+
+3060.2.2 = { hre = yes } 
+3098.1.1 = { base_tax = 3 base_production = 3 } 
+3198.1.1 = { base_manpower = 3 base_tax = 3 base_production = 3 } 
 3210.1.1 = { 
-	controller = BAD
-	add_core = BAD
+    owner = BAD
+    controller = BAD
+    add_core = BAD
+    remove_core = SWA
+    add_core = BAD
+    remove_core = SWA
 }
-3298.1.1 = { base_tax = 4 base_production = 4 }
-3398.1.1 = { base_manpower = 2 }
+
+3298.1.1 = { base_tax = 4 base_production = 4 } 
+3398.1.1 = { base_manpower = 2 } 
 3504.1.1 = { 
-	controller = HAB
-	add_core = HAB
-	add_core = TIR
+    owner = HAB
+    controller = HAB
+    add_core = HAB
+    add_core = TIR
+    remove_core = BAD
 }
-3636.1.1 = { religion = Protestant }
-3748.1.1 = { religion = Catholic }
-3869.1.1 = { base_tax = 4 base_production = 4 base_manpower = 2 }
-3890.10.3 = { controller = FRA }
-3894.8.7 = { controller = BAD }
+
+3622.4.1 = { unrest = 8 } # Peasant Revolts - 18.000 peasants take Freiburg (May)
+3622.12.1 = { unrest = 0 } 
+3636.1.1 = { religion = protestant } # Protestant majority
+3748.1.1 = { religion = catholic } 
+3869.1.1 = { base_tax = 4 base_production = 4 base_manpower = 2 } # Baden-Baden Line dies without heirs, thus the possessions of the Baden family are reunited in one hand (Baden-Durlach).
+3890.10.3 = { controller = FRA } # Occupied by French troops
+3894.8.7 = { controller = BAD } 
 3895.10.17 = { 
-	controller = MOD
-	add_core = MOD
-}
+    owner = MOD
+    controller = MOD
+    add_core = MOD
+    remove_core = HAB
+} # Treaty of Campo Formio
+
 3903.12.26 = { 
-	controller = BAD
-}
-3904.7.12 = { hre = no }
-3923.1.1 = { base_tax = 5 }
-3949.1.1 = { base_production = 5 base_manpower = 3 }
+    owner = BAD
+    controller = BAD
+    add_core = BAD
+    remove_core = MOD
+} # Treaty of Pressburg
+
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3923.1.1 = { base_tax = 5 base_tax = 5 } 
+3949.1.1 = { base_production = 5 base_manpower = 3 } 
 3969.1.18 = { 
-	controller = GER
-	add_core = GER
-}
-3973.1.1 = { base_tax = 6 base_manpower = 4 }
-3999.1.1 = { base_production = 6 base_manpower = 5 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_manpower = 4 base_tax = 6 }
-4029.1.1 = { capital = "Baden-Baden" }
-4043.4.1 = { controller = FR2 }
+    owner = GER
+    controller = GER
+    add_core = GER
+    add_core = GER
+} # German unification
+
+3973.1.1 = { base_tax = 6 base_manpower = 4 } 
+3998.1.1 = { remove_core = BAD remove_core = BAD } 
+3999.1.1 = { base_production = 6 base_manpower = 5 } 
+4008.1.1 = { discovered_by = asian discovered_by = asian } 
+4023.1.1 = { base_manpower = 4 base_tax = 6 } 
+4029.1.1 = { capital = "Baden-Baden" } 
+4043.4.1 = { controller = FR2 } 
 4043.5.8 = { 
-	controller = WGE
-	add_core = WGE
+    owner = WGE
+    controller = WGE
+    add_core = WGE
+    add_core = WGE
 }
-4049.1.1 = { base_manpower = 5 base_production = 5 }
-4073.1.1 = { base_production = 6 }
+
+4049.1.1 = { base_manpower = 5 base_production = 5 } 
+4073.1.1 = { base_production = 6 } 
 4088.10.3 = { 
-	controller = GER
+    owner = GER
+    controller = GER
+    remove_core = WGE
+    remove_core = WGE
 }

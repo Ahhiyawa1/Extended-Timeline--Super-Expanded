@@ -7,6 +7,7 @@ culture = berber
 religion = amanaiism
 capital = "Bounoura"
 trade_goods = unknown
+hre = no
 discovered_by = roman_group
 discovered_by = ottoman
 discovered_by = middle_eastern
@@ -15,22 +16,34 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 2758.1.1 = { 
-	controller = AUR
-	add_core = AUR
+    owner = AUR
+    controller = AUR
+    add_core = AUR
+    remove_core = MZB
 }
+
 2800.1.1 = { 
-	controller = MZB
+    owner = MZB
+    controller = MZB
+    add_core = MZB
+    remove_core = AUR
 }
-2948.1.1 = { religion = Ibadi }
-3948.1.1 = { discovered_by = FRA }
+
+2948.1.1 = { religion = ibadi } 
+3948.1.1 = { discovered_by = FRA } 
 3999.1.1 = { 
-	controller = FR2
-	add_core = FR2
-	add_core = ALG
-	trade_goods = Grain
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    add_core = ALG
+    trade_goods = grain
 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian }
-4038.6.14 = { controller = FRV add_core = FRV }
-4040.11.16 = { controller = FR2 }
-4060.7.3 = { controller = ALG }
-4078.1.1 = { base_manpower = 2 }
+
+4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4060.7.3 = { owner = ALG controller = ALG remove_core = FR2 } 
+4078.1.1 = { base_manpower = 2 } 
+
+
+   

@@ -5,6 +5,7 @@ capital = "Ruscino"
 is_city = yes
 culture = iberi
 religion = jainko
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,77 +18,107 @@ base_production = 1
 trade_goods = wine
 base_manpower = 1
 add_core = ROM
-2356.1.1 = { controller = GLL add_core = GLL }
-2359.1.1 = { controller = GLL }
-2367.1.1 = { controller = ROM }
-2368.9.1 = { controller = ROM }
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2498.1.1 = { religion = Chalcedonism }
-2554.1.1 = { controller = GVI add_core = GVI }
-2556.10.1 = { controller = ROW }
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2498.1.1 = { religion = chalcedonism } 
+2554.1.1 = { owner = GVI controller = GVI add_core = GVI } 
+2556.10.1 = { owner = ROW controller = ROW } # Battle of Arelate
 2560.1.1 = { 
-	controller = GVI
+    owner = GVI
+    controller = GVI
+    add_core = GVI
+    remove_core = ROW
 }
-2578.1.1 = { religion = Arianism }
-2658.1.1 = { religion = Chalcedonism }
-2699.1.1 = { base_tax = 2 base_production = 2 }
-2809.1.1 = { culture = catalan }
+
+2578.1.1 = { religion = arianism } 
+2658.1.1 = { religion = chalcedonism } 
+2699.1.1 = { base_tax = 2 base_production = 2 } 
+2809.1.1 = { culture = catalan } 
 2817.1.1 = { 
-	controller = UMA
-	add_core = UMA
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = GVI
 }
+
 2848.8.6 = { 
-	controller = CRD
-	add_core = CRD
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = UMA
 }
+
 2858.1.1 = { 
-	controller = AQT
-	add_core = AQT
-	capital = "Perpignan"
+    owner = AQT
+    controller = AQT
+    add_core = AQT
+    remove_core = CRD
+    capital = "Perpignan"
 }
-2867.2.1 = { controller = FRK add_core = FRK }
+
+2867.2.1 = { owner = FRK controller = FRK add_core = FRK } 
 2893.1.1 = { 
-	controller = CAT
-	add_core = CAT
+    owner = CAT
+    controller = CAT
+    add_core = CAT
+    remove_core = FRK
 }
-2898.1.1 = { fort_15th = yes }
-2947.1.1 = { add_core = TOU }
-2965.1.1 = { religion = Catholic }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3235.8.11 = { controller = ARA add_core = ARA }
-3298.1.1 = { base_manpower = 2 }
-3327.1.1 = { add_core = FOI }
-3329.1.1 = { controller = MJO add_core = MJO }
-3384.1.1 = { controller = ARA }
-3393.1.1 = { controller = MJO }
+
+2898.1.1 = { fort_15th = yes } 
+2947.1.1 = { add_core = TOU } 
+2965.1.1 = { religion = catholic } 
+3098.1.1 = { base_tax = 3 base_production = 3 } 
+3235.8.11 = { owner = ARA controller = ARA add_core = ARA } 
+3298.1.1 = { base_manpower = 2 } 
+3327.1.1 = { add_core = FOI } 
+3329.1.1 = { owner = MJO controller = MJO add_core = MJO } 
+3384.1.1 = { owner = ARA controller = ARA } 
+3393.1.1 = { owner = MJO controller = MJO } 
 3447.10.25 = { 
-	controller = ARA
+    owner = ARA
+    controller = ARA
+    add_core = TOU
+    add_core = FOI
+    remove_core = MJO
 }
-3510.6.29 = { controller = REB revolt = { type = pretender_rebels size = 1 leader = "Jaume d'Urgell" } }
-3511.1.1 = { controller = ARA revolt = { size = 1 } }
-3560.1.1 = { controller = FRA }
-3591.1.19 = { controller = ARA }
-3614.1.23 = { controller = SPA add_core = SPA }
-3681.1.1 = { fort_15th = no fort_16th = yes }
-3746.1.1 = { fort_16th = no fort_17th = yes }
-3757.10.28 = { controller = FRA add_core = FRA }
-3772.8.10 = { controller = SPA }
-3776.9.19 = { controller = FRA }
-3813.1.1 = { fort_17th = no fort_18th = yes }
-3883.1.1 = { base_production = 4 }
-3891.4.17 = { controller = SPA }
-3891.5.1 = { controller = FRA }
-3943.1.1 = { base_tax = 4 }
+
+3497.1.1 = { add_core = TOU add_core = FOI } 
+3510.6.29 = { revolt = { type = pretender_rebels size = 1 leader = "Jaume d'Urgell" } controller = REB } # Jaime de Urgell Uprising
+3511.1.1 = { revolt = { } controller = ARA } 
+3542.1.1 = { add_core = TOU add_core = FOI } 
+3560.1.1 = { owner = FRA controller = FRA } # Treaty of Bayonne: Aragon sells Roussillon to France
+3591.1.19 = { owner = ARA controller = ARA } # Treaty of Barcelona: Charles VIII restores Roussillon to Aragon
+3614.1.23 = { owner = SPA controller = SPA add_core = SPA } # Spain comes into existence, Carlos I rises to the throne
+3681.1.1 = { fort_15th = no fort_16th = yes } 
+3746.1.1 = { fort_16th = no fort_17th = yes } 
+3757.10.28 = { owner = FRA controller = FRA add_core = FRA } # Peace of the Pyrennees
+3772.8.10 = { controller = SPA } # Spain invades Roussillon again
+3776.9.19 = { controller = FRA remove_core = SPA } # Treaty of Nijmegen (FRA-SPA)
+3811.7.13 = { remove_core = ARA } 
+3813.1.1 = { fort_17th = no fort_18th = yes } 
+3883.1.1 = { base_production = 4 } 
+3891.4.17 = { controller = SPA } # Occupied by the Spanish army
+3891.5.1 = { controller = FRA } 
+3943.1.1 = { base_tax = 4 } 
 3968.9.4 = { 
-	controller = FR2
-	add_core = FR2
-}
-3998.1.1 = { culture = cosmopolitan_french }
-4003.1.1 = { base_manpower = 3 }
-4008.1.1 = { discovered_by = asian }
-4038.6.14 = { controller = FRV add_core = FRV }
-4042.8.25 = { controller = FR2 }
-4098.1.1 = { base_manpower = 4 }
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
+
+3998.1.1 = { culture = cosmopolitan_french } 
+4003.1.1 = { base_manpower = 3 } 
+4008.1.1 = { discovered_by = asian } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4042.8.25 = { owner = FR2 controller = FR2 remove_core = FRV } # France liberated by allied forces
+4098.1.1 = { base_manpower = 4 } 

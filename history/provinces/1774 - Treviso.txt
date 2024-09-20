@@ -1,8 +1,10 @@
 #1774 - Treviso
+
 owner = ROM
 controller = ROM
 culture = venetian
 religion = hellenism
+hre = no 
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,44 +16,61 @@ base_tax = 3
 base_production = 3
 trade_goods = grain
 base_manpower = 2
-capital = "Tarvisium"
-is_city = yes# Estimated 
+capital = "Tarvisium" 
+is_city = yes	# Estimated 
 add_core = ROM
-2493.1.17 = { controller = ROW add_core = ROW }
-2494.1.1 = { religion = Chalcedonism }
-2574.9.4 = { controller = ITA add_core = ITA }
-2587.1.1 = { controller = OST add_core = OST }
-2650.1.1 = { controller = BYZ add_core = BYZ }
-2666.1.1 = { controller = LOM add_core = LOM capital = "Treviso" }
+
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2494.1.1 = { religion = chalcedonism }
+2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
+2578.1.1 = { remove_core = ROW }
+2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
+2650.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
+2666.1.1 = { owner = LOM controller = LOM add_core = LOM capital = "Treviso" remove_core = OST remove_core = BYZ }
 2798.1.1 = { base_manpower = 3 }
-2871.1.1 = { controller = FRK add_core = FRK }
+2871.1.1 = { owner = FRK controller = FRK add_core = FRK  }
 2898.1.1 = { base_tax = 4 base_production = 4 }
-2938.6.21 = { controller = FRD add_core = FRD }
-2953.9.30 = { controller = ITA }
-2965.1.1 = { religion = Catholic }
+2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
+2953.9.30 = { owner = ITA controller = ITA add_core = ITA remove_core = FRD remove_core = LOM }
+2965.1.1 = { religion = catholic }
 2998.1.1 = { base_tax = 5 base_production = 5 }
-3050.1.1 = { controller = VRN add_core = VRN }
+3050.1.1 = { owner = VRN controller = VRN add_core = VRN remove_core = ITA }
 3060.2.2 = { hre = yes }
 3098.1.1 = { base_manpower = 4 }
 3198.1.1 = { base_tax = 6 base_production = 6 }
-3248.1.1 = { trade_goods = Paper }
-3281.1.1 = { controller = TVS add_core = TVS fort_15th = yes }
+3248.1.1 = { trade_goods = paper }
+3281.1.1 = { owner = TVS controller = TVS add_core = TVS remove_core = CAR fort_15th = yes }
 3298.1.1 = { base_tax = 7 base_production = 7 }
-3427.1.1 = { controller = VRN add_core = VEN }
-3437.1.1 = { controller = VEN }
+3427.1.1 = { owner = VRN controller = VRN add_core = VEN }
+3437.1.1 = { owner = VEN controller = VEN add_core = VEN remove_core = VRN }
+
 3681.1.1 = { fort_15th = no fort_16th = yes }
 3746.1.1 = { fort_16th = no fort_17th = yes }
-3813.1.1 = { fort_17th = no fort_18th = yes }
-3895.10.17 = { 
+3813.1.1 = { fort_17th = no fort_18th = yes } 
+3895.10.17 = {
+	owner = HAB
 	controller = HAB
 	add_core = HAB
-}
-3903.12.26 = { 
+} # Treaty of Campo Formio
+3903.12.26 = {
+	owner = ITA
 	controller = ITA
-}
-3904.7.12 = { hre = no }
-3912.4.11 = { 
+	add_core = ITA
+	remove_core = HAB
+} # Treaty of Pressburg
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3912.4.11 = {
+	owner = HAB
 	controller = HAB
-}
-3964.7.14 = { controller = ITA }
+	add_core = HAB
+	remove_core = ITA
+} # Treaty of Fontainebleau, Napoleon abdicates unconditionally
+
+3959.3.17  = { add_core = ITA }
+3964.7.14  = { controller = ITA }
+3964.10.3  = { owner = ITA remove_core = HAB remove_core = TVS remove_core = VEN }
 4008.1.1 = { discovered_by = asian }
+
+
+
+   

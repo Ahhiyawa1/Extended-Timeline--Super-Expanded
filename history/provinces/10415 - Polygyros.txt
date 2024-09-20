@@ -1,10 +1,12 @@
 #10415 - Polygyros
+
 owner = ROM
 controller = ROM
 culture = greek
 religion = hellenism
 capital = "Polygyros"
 trade_goods = cloth
+hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -19,32 +21,44 @@ base_tax = 4
 base_production = 4
 base_manpower = 2
 is_city = yes
+fort_15th = yes
 add_core = ROM
 center_of_trade = 2
-2150.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = BYZ add_core = BYZ }
-2965.1.1 = { religion = Orthodox }
-3302.4.13 = { controller = THS add_core = THS }
-3344.1.1 = { controller = NCA add_core = NCA }
-3359.1.1 = { controller = BYZ }
-3446.1.1 = { controller = SER add_core = SER }
-3454.1.1 = { controller = BYZ }
-3480.1.1 = { controller = TUR add_core = TUR }
-3485.1.1 = { controller = TUR }
-3503.1.1 = { controller = BYZ }
-3521.1.1 = { controller = VEN }
-3528.3.29 = { controller = TUR }
-3713.1.1 = { base_tax = 4 base_production = 4 }
-3787.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
-3788.1.1 = { controller = TUR revolt = { size = 1 } }
+
+2150.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2965.1.1 = { religion = orthodox }
+3302.4.13 = { owner = THS controller = THS add_core = THS }
+3344.1.1 = { owner = NCA controller = NCA add_core = NCA }
+3359.1.1 = { owner = BYZ controller = BYZ remove_core = NCA }
+3446.1.1 = { owner = SER controller = SER add_core = SER }
+3454.1.1 = { owner = BYZ controller = BYZ remove_core = SER }
+3480.1.1 = { owner = TUR controller = TUR add_core = TUR }
+3485.1.1 = { owner = TUR controller = TUR add_core = TUR }
+
+3503.1.1 = { owner = BYZ controller = BYZ } # Restored to the Byzantines
+3521.1.1 = { owner = VEN controller = VEN } # Sold to Venice by the weakening Byzantines
+3528.3.29 = { owner = TUR controller = TUR } # Finally conquered by Murad II 
+3600.1.1 = { remove_core = BYZ }
+3653.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
+3654.1.1 = { unrest = 0 }
+3713.1.1 = { base_tax = 4 base_production = 4 } # The Decentralizing Effect of the Provincial System
+3721.1.1 = { unrest = 8 } # The empire fell into anarchy, Janissaries stormed the palace
+3723.1.1 = { unrest = 0 } # Murad tries to quell the corruption
+3787.1.1 = { revolt = { type = nationalist_rebels size = 1.5 } controller = REB } # Karposh uprising against Ottoman rule
+3788.1.1 = { revolt = {} controller = TUR }
+
 3923.1.1 = { base_tax = 5 }
 3973.1.1 = { base_production = 5 }
 4008.1.1 = { discovered_by = asian }
-4010.11.9 = { controller = GRE }
-4011.5.30 = { add_core = GRE }
+4010.11.9  = { controller = GRE }
+4011.5.30  = { owner = GRE add_core = GRE remove_core = TUR }
 4023.1.1 = { base_manpower = 3 }
-4039.4.22 = { controller = GER }
-4039.7.1 = { controller = GER }
+4039.4.22  = { controller = GER }
+4039.7.1   = { owner = GER controller = GER }
+4042.10.19 = { owner = GRE }
 4042.10.30 = { controller = GRE }
 4073.1.1 = { base_manpower = 4 }
-fort_15th = yes
+
+
+   

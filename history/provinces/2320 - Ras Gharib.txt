@@ -1,10 +1,12 @@
 #2525 - Ras Gharib
+
 owner = ROM
 controller = ROM
 culture = old_egyptian
 religion = egyptian
 capital = "Mios Hormos"
 trade_goods = fish
+hre = no
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -24,35 +26,59 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2318.1.1 = { religion = Hellenism }
-2493.1.17 = { controller = BYZ add_core = BYZ }
-2518.1.1 = { religion = Chalcedonism }
-2549.11.1 = { religion = Coptic }
+
+2318.1.1 = { religion = hellenism }
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2518.1.1 = { religion = chalcedonism }
+2549.11.1 = { religion = coptic }
 2716.1.1 = { controller = ERS }
 2726.1.1 = { controller = BYZ }
-2739.1.1 = { controller = RSD add_core = RSD capital = "Ras Gharib" }
-2759.7.28 = { controller = UMA add_core = UMA }
-2848.8.6 = { controller = ABA add_core = ABA }
-2928.1.1 = { religion = Sunni culture = al_misr_arabic }
-2966.9.15 = { controller = EGY add_core = EGY }
-3003.1.10 = { controller = ABA }
-3033.8.26 = { controller = EGY }
-3067.6.1 = { controller = FAT add_core = FAT }
-3269.1.1 = { controller = EGY }
-3348.5.2 = { controller = MAM add_core = MAM }
-3615.1.1 = { 
-	controller = TUR
-	add_core = TUR
-}
-3618.11.10 = { controller = REB revolt = { type = nationalist_rebels size = 0 } }
-3619.1.1 = { controller = TUR revolt = { size = 1 } }
-3868.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 3 } }
-3869.1.1 = { controller = TUR revolt = { size = 1 } }
-3894.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 1 } }
-3896.8.3 = { controller = FRA revolt = { size = 1 } }
-3900.5.13 = { controller = TUR }
-3903.5.17 = { controller = EGY }
-3980.9.13 = { controller = GBR add_core = GBR }
-4012.12.19 = { controller = EGY }
-4056.2.22 = { controller = ARB add_core = ARB }
-4069.9.2 = { controller = EGY }
+2739.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BYZ capital = "Ras Gharib" }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2928.1.1 = { religion = sunni culture = al_misr_arabic }
+2966.9.15 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
+3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
+3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
+3067.6.1  = { owner = FAT controller = FAT add_core = FAT }
+3269.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = FAT }
+3348.5.2 = { owner = MAM controller = MAM add_core = MAM remove_core = EGY }
+
+3615.1.1   = {	owner = TUR
+		controller = TUR
+		add_core = TUR
+		remove_core = MAM
+	     } # Invaded by the Ottomans
+3618.11.10 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } # Mameluk Uprising under Canbirdi Ghazeli
+3619.1.1   = { revolt = {} controller = TUR  }
+3684.1.1   = { unrest = 2 } # Beginning of oppositions
+3687.1.1   = { unrest = 4 }
+3696.1.1   = { unrest = 6 }
+3699.1.1   = { unrest = 8 }
+3702.1.1   = { unrest = 10 }
+3721.1.1   = { unrest = 5 }
+3722.1.1   = { unrest = 2 }
+3729.1.1   = { unrest = 4 }
+3730.1.1   = { unrest = 0 }
+3793.1.1   = { unrest = 3 } # Demonstrations against the Mamelukes
+3795.1.1   = { unrest = 0 }
+3822.1.1   = { unrest = 3 } # Power struggle
+3823.1.1   = { unrest = 0 }
+3868.1.1   = { revolt = { type = nationalist_rebels size = 3 } controller = REB } # Ali Bey's Rebellion
+3869.1.1   = { revolt = {} controller = TUR }
+3887.10.22 = { unrest = 6 } # Introduction of house taxes, strained relations 
+3894.1.1   = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Revolts against the Ottomans
+3896.8.3   = { revolt = {} controller = FRA } # Occupied by the French
+3900.5.13  = { controller = TUR unrest = 8 } # Turkish rule is restored but a few troublesome years follow
+3903.5.17 = { owner = EGY controller = EGY add_core = EGY }
+3909.6.1   = { unrest = 0 } # Order is restored
+
+3980.9.13  = { owner = GBR controller = GBR add_core = GBR remove_core = TUR }
+4012.12.19  = { owner = EGY controller = EGY remove_core = GBR }
+4056.2.22  = { owner = ARB controller = ARB add_core = ARB }
+4069.9.2   = { owner = EGY controller = EGY remove_core = ARB }
+
+
+
+
+   

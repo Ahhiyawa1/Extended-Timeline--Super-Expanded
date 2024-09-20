@@ -1,10 +1,12 @@
 #359 - Faiyum
+
 owner = ROM
 controller = ROM
 culture = old_egyptian
 religion = hellenism
 capital = "Crocodilopolis"
 trade_goods = cotton
+hre = no
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -24,47 +26,70 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = ROM
-2378.1.1 = { religion = Manichaeism }
-2478.1.1 = { religion = Chalcedonism }
-2493.1.17 = { controller = BYZ add_core = BYZ }
-2549.11.1 = { religion = Coptic }
+
+2378.1.1 = { religion = manichaeism }
+2478.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2549.11.1 = { religion = coptic }
 2716.1.1 = { controller = ERS }
 2726.1.1 = { controller = BYZ }
-2739.1.1 = { controller = RSD add_core = RSD capital = "Al Fayyum" }
-2759.7.28 = { controller = UMA add_core = UMA }
-2848.8.6 = { controller = ABA add_core = ABA }
-2966.9.15 = { controller = EGY add_core = EGY }
+2739.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BYZ capital = "Al Fayyum" }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2966.9.15 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
 2998.1.1 = { base_tax = 4 base_production = 4 }
-3003.1.10 = { controller = ABA }
-3033.8.26 = { controller = EGY }
-3067.6.1 = { controller = FAT add_core = FAT }
-3078.1.1 = { religion = Shiite }
+3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
+3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
+3067.6.1  = { owner = FAT controller = FAT add_core = FAT }
+3078.1.1 = { religion = shiite }
 3198.1.1 = { base_tax = 5 base_production = 5 }
-3269.1.1 = { controller = EGY }
-3278.1.1 = { religion = Sunni }
-3348.5.2 = { controller = MAM add_core = MAM }
-3615.1.1 = { 
-	controller = TUR
-	add_core = TUR
-}
-3738.1.1 = { culture = al_misr_arabic }
+3269.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = FAT }
+3278.1.1 = { religion = sunni }
+3348.5.2 = { owner = MAM controller = MAM add_core = MAM remove_core = EGY }
+
+3615.1.1   = {	owner = TUR
+		controller = TUR
+		add_core = TUR
+	     } # Conquered by Ottoman troops
+3684.1.1   = { unrest = 2 } # Oppositions
+3687.1.1   = { unrest = 4 }
+3696.1.1   = { unrest = 6 }
+3699.1.1   = { unrest = 8 }
+3702.1.1   = { unrest = 10 }
+3721.1.1   = { unrest = 5 }
+3722.1.1   = { unrest = 2 }
+3729.1.1   = { unrest = 4 }
+3730.1.1   = { unrest = 0 }
+3738.1.1   = { culture = al_misr_arabic }
+3793.1.1   = { unrest = 3 } # Demonstrations against the Mamelukes
+3822.1.1   = { unrest = 3 } # Power struggle
 3849.1.1 = { base_production = 4 }
 3873.1.1 = { base_manpower = 3 }
-3894.1.1 = { controller = REB revolt = { type = nationalist_rebels size = 2 } }
-3896.8.3 = { controller = FRA revolt = { size = 1 } }
+3887.10.22 = { unrest = 6 } # Introduction of house tax, strained relations 
+3894.1.1   = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Revolts against the Ottomans
+3896.8.3   = { revolt = {} controller = FRA } # Occupied by the French
 3899.1.1 = { base_production = 5 }
-3900.5.13 = { controller = TUR }
-3903.5.17 = { controller = EGY }
+3900.5.13  = { controller = TUR unrest = 8 } # Turkish rule is restored but a few troublesome years follow
+3903.5.17  = { owner = EGY controller = EGY add_core = EGY remove_core = MAM }
+3909.6.1   = { unrest = 0 } # Order is restored
+
 3923.1.1 = { base_tax = 4 }
 3949.1.1 = { base_production = 6 }
-3965.6.8 = { controller = EGY }
+3965.6.8   = { owner = EGY controller = EGY add_core = EGY remove_core = MAM }
 3973.1.1 = { base_tax = 5 base_production = 7 }
-3980.9.13 = { controller = GBR add_core = GBR }
+3980.9.13  = { owner = GBR controller = GBR add_core = GBR remove_core = TUR }
 3999.1.1 = { base_production = 8 }
-4012.12.19 = { controller = EGY }
+4012.12.19  = { owner = EGY controller = EGY remove_core = GBR }
 4023.1.1 = { base_manpower = 4 }
 4049.1.1 = { base_manpower = 5 }
-4056.2.22 = { controller = ARB add_core = ARB }
-4069.9.2 = { controller = EGY }
+4056.2.22  = { owner = ARB controller = ARB add_core = ARB }
+4069.9.2   = { owner = EGY controller = EGY remove_core = ARB }
 4073.1.1 = { base_manpower = 6 }
 4098.1.1 = { base_tax = 8 }
+
+
+
+
+
+
+   

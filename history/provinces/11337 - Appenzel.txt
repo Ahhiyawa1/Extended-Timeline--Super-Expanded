@@ -5,6 +5,7 @@ culture = rhaetian
 religion = druidism
 capital = "Appacella"
 trade_goods = livestock
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,48 +18,72 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2348.1.1 = { religion = Chalcedonism }
-2356.1.1 = { controller = GLL add_core = GLL }
-2368.9.1 = { controller = ROM }
+2348.1.1 = { religion = chalcedonism } 
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
 2498.1.1 = { 
-	controller = ALM
-	add_core = ALM
-	capital = "Appenzel"
-	culture = swiss
+    owner = ALM
+    controller = ALM
+    add_core = ALM
+    capital = "Appenzel"
+    culture = swiss
 }
-2798.1.1 = { base_tax = 2 base_production = 2 }
+
+2578.6.1 = { remove_core = ROW } 
+2798.1.1 = { base_tax = 2 base_production = 2 } 
 2844.1.1 = { 
-	controller = FRK
-	add_core = FRK
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = ALM
 }
+
 2938.6.21 = { 
-	controller = FRE
-	add_core = FRE
+    owner = FRE
+    controller = FRE
+    add_core = FRE
+    remove_core = FRK
 }
-2965.1.1 = { religion = Catholic }
-2998.1.1 = { base_manpower = 2 }
+
+2965.1.1 = { religion = catholic } 
+2998.1.1 = { base_manpower = 2 } 
 3009.11.10 = { 
-	controller = SWA
-	add_core = SWA
+    owner = SWA
+    controller = SWA
+    add_core = SWA
+    remove_core = FRE
 }
-3060.2.2 = { hre = yes }
-3198.1.1 = { base_tax = 3 base_production = 3 }
+
+3060.2.2 = { hre = yes } 
+3198.1.1 = { base_tax = 3 base_production = 3 } 
 3305.1.1 = { 
-	controller = STG
-	add_core = STG
+    owner = STG
+    controller = STG
+    add_core = STG
+    remove_core = SWA
 }
-3398.1.1 = { base_tax = 4 base_production = 4 }
-3509.1.1 = { controller = SWI add_core = SWI }
-3624.1.1 = { religion = Reformed }
-3849.1.1 = { base_manpower = 3 }
-3873.1.1 = { base_manpower = 4 }
-3899.1.1 = { base_production = 4 base_manpower = 5 }
-3904.7.12 = { hre = no }
-3923.1.1 = { base_production = 5 }
-3949.1.1 = { base_tax = 5 }
-3973.1.1 = { base_manpower = 6 }
-4008.1.1 = { discovered_by = asian }
+
+3398.1.1 = { base_tax = 4 base_production = 4 } 
+3509.1.1 = { owner = SWI controller = SWI add_core = SWI } # St Gall allied with Swiss, officially joined in 1454
+3611.7.3 = { unrest = 7 } # Luzern Peasant War
+3613.1.1 = { unrest = 0 } 
+3624.1.1 = { religion = reformed } 
+3751.1.1 = { unrest = 5 } # Peasant rebellion against overtaxation
+3752.1.1 = { unrest = 0 } 
+3754.1.1 = { unrest = 7 } # Protestants are expelled from Schwyz which lead to the First War of Villmergen
+3755.1.1 = { unrest = 2 } # An agreement is concluded at Villmergren but tensions remain
+3849.1.1 = { base_manpower = 3 } 
+3873.1.1 = { base_manpower = 4 } 
+3899.1.1 = { base_production = 4 base_manpower = 5 } 
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3923.1.1 = { base_production = 5 } 
+3949.1.1 = { base_tax = 5 } 
+3973.1.1 = { base_manpower = 6 } 
+4008.1.1 = { discovered_by = asian } 

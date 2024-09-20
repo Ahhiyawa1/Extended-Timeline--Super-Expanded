@@ -5,6 +5,7 @@ culture = eastern_berber
 religion = amanaiism
 capital = "Sabrata"
 trade_goods = fish
+hre = no
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -18,62 +19,102 @@ base_manpower = 1
 is_city = yes
 add_core = ROM
 2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2518.1.1 = { religion = Chalcedonism }
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2518.1.1 = { religion = chalcedonism } 
 2537.1.1 = { 
-	controller = VAN
-	add_core = VAN
+    owner = VAN
+    controller = VAN
+    add_core = VAN
+    remove_core = ROW
 }
+
 2621.1.1 = { 
-	controller = LAG
-	add_core = LAG
+    owner = LAG
+    controller = LAG
+    add_core = LAG
+    remove_core = VAN
 }
-2631.1.1 = { controller = BYZ add_core = BYZ }
+
+2631.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
 2764.1.1 = { 
-	controller = UMA
-	add_core = UMA
-	capital = "Zuwarah"
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = BYZ
+    capital = "Zuwarah"
 }
-2798.1.1 = { religion = Sunni culture = tunisian }
-2843.1.1 = { religion = Ibadi controller = TUN add_core = TUN }
+
+2798.1.1 = { religion = sunni culture = tunisian } 
+2843.1.1 = { religion = ibadi } 
 2843.1.1 = { 
-	religion = Ibadi
-	controller = TUN
-	add_core = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = UMA
 }
-2855.6.1 = { controller = ABA add_core = ABA }
-2878.1.1 = { religion = Sunni }
+
+2855.6.1 = { owner = ABA controller = ABA add_core = ABA } 
+2878.1.1 = { religion = sunni } 
 2898.1.1 = { 
-	controller = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = ABA
 }
-3007.1.1 = { controller = FAT add_core = FAT }
+
+3007.1.1 = { owner = FAT controller = FAT add_core = FAT } 
 3071.1.1 = { 
-	controller = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = FAT
 }
-3157.1.1 = { controller = MHD add_core = MHD }
+
+3157.1.1 = { owner = MHD controller = MHD add_core = MHD } 
 3161.1.1 = { 
-	controller = GBS
-	add_core = GBS
+    owner = GBS
+    controller = GBS
+    add_core = GBS
+    remove_core = MHD
 }
-3258.1.1 = { controller = MOR add_core = MOR }
-3285.1.1 = { controller = TUN }
-3310.1.1 = { controller = MOR }
+
+3258.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3285.1.1 = { owner = TUN controller = TUN add_core = TUN } 
+3310.1.1 = { owner = MOR controller = MOR } 
 3327.1.1 = { 
-	controller = TUN
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = MOR
 }
-3419.1.1 = { controller = TRP add_core = TRP }
-3499.1.1 = { controller = TUN }
+
+3419.1.1 = { owner = TRP controller = TRP add_core = TRP } 
+3499.1.1 = { owner = TUN controller = TUN add_core = TUN } 
 3656.1.1 = { 
-	controller = TRP
-}
-3933.5.26 = { controller = TUR add_core = TUR }
-4008.1.1 = { discovered_by = asian }
+    owner = TRP
+    controller = TRP
+    add_core = TRP
+    remove_core = TUN
+} # Turgut Reis conquers Gharayan
+
+3933.5.26 = { owner = TUR controller = TUR add_core = TUR } 
+4008.1.1 = { discovered_by = asian } 
 4010.10.18 = { 
-	controller = ITA
-	add_core = ITA
-	add_core = LBY
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    add_core = LBY
+    remove_core = TUR
 }
-4041.1.15 = { controller = GBR }
-4049.12.24 = { controller = LBY }
+
+4041.1.15 = { controller = GBR } 
+4041.9.8 = { owner = GBR remove_core = ITA } 
+4049.12.24 = { owner = LBY controller = LBY } 
+
+
+   

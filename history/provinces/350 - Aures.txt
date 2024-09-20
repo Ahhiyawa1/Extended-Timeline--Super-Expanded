@@ -7,6 +7,7 @@ culture = berber
 religion = amanaiism
 capital = "Laghwat"
 trade_goods = livestock
+hre = no
 discovered_by = roman_group
 discovered_by = ottoman
 discovered_by = middle_eastern
@@ -14,40 +15,60 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2498.1.1 = { discovered_by = VAN }
+2498.1.1 = { discovered_by = VAN } 
 2528.1.1 = { 
-	controller = ATV
-	add_core = ATV
+    owner = ATV
+    controller = ATV
+    add_core = ATV
+    remove_core = GAE
 }
+
 2676.1.1 = { 
-	controller = OUA
-	add_core = OUA
+    owner = OUA
+    controller = OUA
+    add_core = OUA
+    remove_core = ATV
 }
+
 2758.1.1 = { 
-	controller = AUR
-	add_core = AUR
+    owner = AUR
+    controller = AUR
+    add_core = AUR
+    remove_core = OUA
 }
+
 2800.1.1 = { 
-	controller = MZB
-	add_core = MZB
+    owner = MZB
+    controller = MZB
+    add_core = MZB
+    remove_core = TGT
 }
-2875.1.1 = { religion = Ibadi }
-2898.1.1 = { discovered_by = western }
-3198.1.1 = { culture = algerian }
-3883.1.1 = { base_tax = 2 }
-3943.1.1 = { base_tax = 3 }
+
+2875.1.1 = { religion = ibadi } 
+2898.1.1 = { discovered_by = western } 
+3198.1.1 = { culture = algerian } 
+3883.1.1 = { base_tax = 2 } 
+3943.1.1 = { base_tax = 3 } 
 3958.1.1 = { 
-	controller = FRA
-	add_core = FRA
-	add_core = ALG
-}
+    owner = FRA
+    controller = FRA
+    add_core = FRA
+    add_core = ALG
+} # Conquered by France
+
 3968.9.4 = { 
-	controller = FR2
-	add_core = FR2
-}
-4003.1.1 = { base_manpower = 2 }
-4008.1.1 = { discovered_by = eastern discovered_by = asian }
-4038.6.14 = { controller = FRV add_core = FRV }
-4040.11.16 = { controller = FR2 }
-4060.7.3 = { controller = ALG }
-4098.1.1 = { base_production = 3 }
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
+
+4003.1.1 = { base_manpower = 2 } 
+4008.1.1 = { discovered_by = eastern discovered_by = asian } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4060.7.3 = { owner = ALG controller = ALG remove_core = FR2 } 
+4098.1.1 = { base_production = 3 } 
+
+
+   

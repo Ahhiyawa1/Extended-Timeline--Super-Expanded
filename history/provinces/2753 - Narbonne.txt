@@ -5,6 +5,7 @@ capital = "Narbo"
 is_city = yes
 culture = gallian
 religion = hellenism
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,62 +18,122 @@ base_production = 4
 trade_goods = wine
 base_manpower = 1
 add_core = ROM
-2356.1.1 = { controller = GLL add_core = GLL }
-2359.1.1 = { controller = GLL }
-2367.1.1 = { controller = ROM }
-2368.9.1 = { controller = ROM }
-2398.1.1 = { religion = Chalcedonism }
-2493.1.17 = { 
-	controller = ROW
-	add_core = ROW
-}
-2554.1.1 = { controller = GVI add_core = GVI }
-2556.10.1 = { controller = ROW }
-2560.1.1 = { controller = GVI }
-2698.1.1 = { culture = occitain }
-2817.1.1 = { 
-	controller = UMA
-	add_core = UMA
-}
-2848.8.6 = { 
-	controller = CRD
-	add_core = CRD
-}
-2857.1.1 = { 
-	controller = AQT
-	add_core = AQT
-	capital = "Narbonne"
-}
-2867.2.1 = { controller = FRK add_core = FRK }
-2879.1.1 = { controller = AQT }
-2912.1.1 = { controller = FRK }
-2938.6.21 = { 
-	controller = FRW
-	add_core = FRW
-}
-2964.1.1 = { 
-	controller = AQT
-}
-2965.1.1 = { religion = Catholic }
-2975.10.6 = { 
-	controller = FRW
-}
-3085.7.3 = { 
-	controller = FRA
-	add_core = FRA
-}
-3098.1.1 = { base_tax = 5 base_production = 5 }
-3298.1.1 = { base_manpower = 3 }
-3447.10.25 = { add_core = TOU }
-3658.1.1 = { religion = Reformed }
-3746.1.1 = { fort_15th = no fort_17th = yes }
-3784.1.17 = { religion = Catholic }
-3968.9.4 = { 
-	controller = FR2
-	add_core = FR2
-}
-4008.1.1 = { discovered_by = asian }
-4038.6.14 = { controller = FRV add_core = FRV }
-4042.8.25 = { controller = FR2 }
-4048.1.1 = { culture = cosmopolitan_french }
 fort_15th = yes
+2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
+2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
+2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
+2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
+################################################################################
+# # L'Université de Montpellier
+################################################################################
+2398.1.1 = { religion = chalcedonism } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
+
+2554.1.1 = { owner = GVI controller = GVI add_core = GVI } 
+2556.10.1 = { owner = ROW controller = ROW } # Battle of Arelate
+2560.1.1 = { owner = GVI controller = GVI remove_core = ROW } 
+2698.1.1 = { culture = occitain } 
+2817.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = GVI
+}
+
+2848.8.6 = { 
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = UMA
+}
+
+2857.1.1 = { 
+    owner = AQT
+    controller = AQT
+    add_core = AQT
+    remove_core = CRD
+    capital = "Narbonne"
+}
+
+2867.2.1 = { owner = FRK controller = FRK add_core = FRK } 
+2879.1.1 = { owner = AQT controller = AQT add_core = AQT } 
+2912.1.1 = { owner = FRK controller = FRK } 
+2938.6.21 = { 
+    owner = FRW
+    controller = FRW
+    add_core = FRW
+    remove_core = FRK
+}
+
+2964.1.1 = { 
+    owner = AQT
+    controller = AQT
+    add_core = AQT
+    remove_core = FRW
+}
+
+2965.1.1 = { religion = catholic } 
+2975.10.6 = { 
+    owner = FRW
+    controller = FRW
+    add_core = FRW
+    remove_core = AQT
+}
+
+################################################################################
+# 3016.1.1 = { owner = TOU controller = TOU add_core = TOU remove_core = AQT }
+################################################################################
+3085.7.3 = { 
+    owner = FRA
+    controller = FRA
+    add_core = FRA
+    remove_core = FRW
+}
+
+3098.1.1 = { base_tax = 5 base_production = 5 } 
+3298.1.1 = { base_manpower = 3 } 
+################################################################################
+# 3369.1.1 = { owner = FRA controller = FRA }
+################################################################################
+3447.10.25 = { add_core = TOU } 
+3658.1.1 = { religion = reformed } 
+3663.1.1 = { unrest = 8 } # France is restless once again as ultra-catholic intentions become clear
+3666.9.1 = { unrest = 15 } # Catherine de Medici and Charles IX side with the Guise faction, religious intolerance peaks
+3668.8.8 = { unrest = 10 } # Edict of Saint-Germain: temporary pacification
+3671.9.1 = { unrest = 15 } # Saint Barthelew's Day Massacre: the consequences in the land
+3672.5.1 = { unrest = 7 } # Charles IX dies, situation cools a bit
+3682.1.1 = { unrest = 12 } # Situation heats up again
+3686.12.1 = { unrest = 15 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
+3692.1.1 = { unrest = 10 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
+3696.4.13 = { unrest = 3 } # Edict of Nantes, alot more freedom to the protestants
+3696.5.2 = { unrest = 0 } # Peace of Vervins, formal end to the Wars of Religion
+3733.1.1 = { unrest = 3 } 
+3735.1.1 = { unrest = 0 } 
+3737.1.1 = { unrest = 3 } 
+3739.1.1 = { unrest = 0 } 
+3742.1.1 = { unrest = 3 } 
+3745.1.1 = { unrest = 0 } 
+3746.1.1 = { fort_15th = no fort_17th = yes } 
+3748.1.14 = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
+3749.4.1 = { unrest = 4 } # An unstable peace is concluded
+3749.12.1 = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
+3750.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
+3783.10.18 = { unrest = 8 } # Edict of Nantes revoked by Louis XIV
+3784.1.17 = { religion = catholic } # Dragonnard campaign succesful: region reverts back to catholicism
+3787.1.1 = { unrest = 0 } # War of the Grand Alliance erupts: Louis XIV can't persue his religious policy anymore
+3968.9.4 = { 
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
+
+4008.1.1 = { discovered_by = asian } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4042.8.25 = { owner = FR2 controller = FR2 remove_core = FRV } # France liberated by allied forces
+4048.1.1 = { culture = cosmopolitan_french } 

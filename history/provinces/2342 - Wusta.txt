@@ -1,10 +1,12 @@
 #2541 - Wusta
+
 owner = ADX
 controller = ADX
 culture = mahri_culture
 religion = south_arabian
 capital = "Haima"
 trade_goods = incense
+hre = no
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -17,28 +19,46 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ADX
-2732.1.1 = { controller = RSD add_core = RSD religion = Islam }
-2759.7.28 = { controller = UMA add_core = UMA religion = Sunni }
-2848.8.6 = { controller = ABA add_core = ABA }
+
+2732.1.1 = { owner = RSD controller = RSD add_core = RSD religion = islam }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
 2898.1.1 = { discovered_by = nomad_group }
-2938.1.1 = { controller = OMA add_core = OMA }
-3171.5.16 = { controller = KRM add_core = KRM }
-3252.1.1 = { controller = OMA }
+2938.1.1 = { owner = OMA controller = OMA add_core = OMA remove_core = ABA }
+3171.5.16 = { owner = KRM controller = KRM add_core = KRM }
+3252.1.1 = { owner = OMA controller = OMA remove_core = KRM }
+
 3578.1.1 = { discovered_by = TUR }
-3586.1.1 = { discovered_by = POR }
-3605.6.1 = { 
+3586.1.1 = { discovered_by = POR } # Pêro da Covilhã
+3605.6.1 = {
+	owner = POR
 	controller = POR
 	add_core = POR
-}
-3722.1.1 = { 
+} # Captured by the Portuguese
+3722.1.1 = {
+	owner = OMA
 	controller = OMA
-}
-3839.1.1 = { 
-	controller = PER
+	add_core = OMA
+	remove_core = POR
+} # Rule restored
+3777.1.1 = { unrest = 5 } # Internal unrest upon Imam's death
+3839.1.1 = {
+	owner = PER
+	controller = PER	
 	add_core = PER
-}
-3847.6.10 = { 
+} # Invaded by Persia
+3847.1.1 = { unrest = 0 }
+3847.6.10 = {
+	owner = OMA
 	controller = OMA
+	remove_core = PER
 }
-3958.1.1 = { culture = omani_culture religion = Ibadi }
+
+3958.1.1 = { culture = omani_culture religion = ibadi }
+
+
+
 4008.1.1 = { discovered_by = western discovered_by = eastern }
+
+
+   
