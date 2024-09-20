@@ -91,7 +91,7 @@ default = {
 	overlord_can_be_subject = no
 	can_have_subjects_of_other_types = no
 	can_be_annexed = no
-	takes_diplo_slot = yes
+	takes_diplo_slot = no
 	has_power_projection = yes
 	can_release_in_peace = yes
 	uses_military_focus = yes
@@ -118,7 +118,7 @@ default = {
 	extend_trading_range = no
 	can_gain_favors = no
 
-	max_government_rank = 0								# 0 means no limit
+	max_government_rank = 0							# 0 means no limit
 	cities_required_for_bonuses = 0						# How many cities the subject needs before giving bonuses to overlord
 	trust_on_start = 35									# Overlord and subject will each get this much extra trust with each other at game start
 
@@ -133,7 +133,7 @@ default = {
 	manpower_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
 	sailors_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
 	military_focus = 1.0								# How much the AI subject should spend etc. on army and forts. 0 should make them spend nothing. Very high values will probably not make a big difference since there will be sanity checks.
-	annex_cost_per_development = 8.0					# annex/integrate cost per development
+	annex_cost_per_development = 10.0					# annex/integrate cost per development
 
 	relative_power_class = 1 							# See description above
 	should_quit_wars_on_activation = yes
@@ -225,7 +225,7 @@ vassal = {
 	gets_help_with_rebels = yes
 	forms_trade_companies = no
 
-	max_government_rank = 8 #MOD
+	max_government_rank = 10 #MOD
 
 	liberty_desire_development_ratio = 0.25
 	liberty_desire_same_dynasty = -5.0
@@ -430,7 +430,7 @@ appanage = {
 	
 	# Properties:
 	has_power_projection = yes
-	takes_diplo_slot = yes
+	takes_diplo_slot = no
 	gets_help_with_rebels = no
 	separatists_become_subjects = yes
 	allows_taking_land_without_independence = yes
@@ -625,7 +625,7 @@ colony = {
 
 	liberty_desire_development_ratio = 0.1
 	opinion_on_subject_integration = 0
-	max_government_rank = 8 #MOD
+	max_government_rank = 10 #MOD
 	cities_required_for_bonuses = 10
 
 	relative_power_class = 0
@@ -968,7 +968,7 @@ eyalet = {
 	takes_diplo_slot = no
 	extend_trading_range = yes
 	counts_for_borders = yes
-	max_government_rank = 8 #MOD
+	max_government_rank = 10 #MOD
 	can_be_co_belligerented = yes
 	must_accept_cta_from_overlord = yes
 	can_gain_favors = yes
@@ -1038,7 +1038,7 @@ core_eyalet = {
 	# Properties:
 	can_be_annexed = yes
 
-	max_government_rank = 8 #MOD 
+	max_government_rank = 10 #MOD 
 
 	liberty_desire_development_ratio = 0.1
 	liberty_desire_same_dynasty = -5.0
@@ -1110,7 +1110,7 @@ commercial_enterprise = {
 	opinion_on_subject_integration = 0
 	liberty_desire_development_ratio = 0.05
 
-	max_government_rank = 8 #MOD
+	max_government_rank = 10 #MOD
 	cities_required_for_bonuses = 10
 
 	relative_power_class = 0
