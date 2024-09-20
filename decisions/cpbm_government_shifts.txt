@@ -2519,11 +2519,13 @@ country_decisions = {
 			OR = { tag = ARB tag = UA7 tag = UA8 }
 			NOT = { exists = UA6 }
 			OR = {
+				has_reform = fascist_dictatorship
 				has_reform = fascist_government
 			}
 		}
 		allow = {
 			OR = {
+				has_reform = fascist_dictatorship
 				has_reform = fascist_government
 			}
 		}
@@ -2549,6 +2551,7 @@ country_decisions = {
 			government = monarchy
 			NOT = { 
 				OR = {
+					has_reform = fascist_dictatorship
 					has_reform = fascist_government
 				}
 			}
@@ -2566,7 +2569,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
-			OR = { tag = CAS }
+			OR = { tag = CAS tag = CS6 tag = CS7 }
 			NOT = { exists = CS8 }
 			government = republic
 			NOT = { 
@@ -2605,7 +2608,7 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			is_year = 3848
-			OR = { tag = CAS }
+			OR = { tag = CAS tag = CS6 tag = CS8 }
 			NOT = { exists = CS7 }
 			government = republic
 			OR = {
@@ -2636,7 +2639,7 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			is_year = 3848
-			OR = { tag = CAS }
+			OR = { tag = CAS tag = CS7 tag = CS8 }
 			NOT = { exists = CS6 }
 			OR = {
 				has_reform = fascist_dictatorship
