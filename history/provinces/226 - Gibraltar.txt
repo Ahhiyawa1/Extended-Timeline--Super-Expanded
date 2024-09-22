@@ -1,10 +1,9 @@
-#226 - Gibraltar
-
+# 226 - Gibraltar
 owner = ROM
 controller = ROM
 add_core = ROM
 culture = iberi
-religion = animism
+religion = canaanite_religion
 hre = no
 discovered_by = roman_group
 discovered_by = eastern
@@ -15,54 +14,113 @@ discovered_by = barbarian
 discovered_by = western
 base_tax = 1
 base_production = 1
-trade_goods = fish 
+trade_goods = fish
 base_manpower = 1
-capital = "Carteia" 
+capital = "Carteia"
 is_city = yes
+2408.1.1 = { religion = chalcedonism } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2408.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2507.1.1 = { owner = VAN controller = VAN add_core = VAN religion = arianism }
-2523.1.1 = { owner = ROW controller = ROW remove_core = VAN }
-2546.1.1 = { owner = EAL controller = EAL add_core = EAL }
-2554.1.1 = { owner = GVI controller = GVI add_core = GVI remove_core = EAL }
-2556.10.1 = { owner = ROW controller = ROW } #Battle of Arelate
-2559.8.2 = { owner = GVI controller = GVI remove_core = ROW } #Assassination of Majorian
-2650.1.1 = { owner = BYZ controller = BYZ add_core = BYZ religion = chalcedonism }
-2718.1.1 = { owner = GVI controller = GVI remove_core = BYZ }
-2809.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = GVI capital = "Al-Jazira Al-Kharda" }
-2838.1.1 = { religion = sunni }
-2848.1.1 = { culture = andalucian }
-2848.8.6 = { owner = CRD controller = CRD add_core = CRD remove_core = UMA }
-3121.1.1 = { owner = AGC controller = AGC add_core = AGC remove_core = CRD }
-3156.1.1 = { owner = SEV controller = SEV add_core = SEV }
-3189.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = SEV remove_core = AGC }
-3245.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = MOR }
-3336.1.1 = { owner = GRA controller = GRA add_core = GRA remove_core = MOR }
-3407.1.1 = { owner = CAS controller = CAS add_core = CAS capital = "Gibraltar" }
-3431.1.1 = { owner = MOR controller = MOR add_core = MOR }
-3472.1.1 = { owner = GRA controller = GRA add_core = GRA remove_core = MOR }
+2507.1.1 = { 
+    owner = VAN
+    controller = VAN
+    add_core = VAN
+    religion = arianism
+}
+
+2523.1.1 = { owner = ROW controller = ROW remove_core = VAN } 
+2546.1.1 = { owner = EAL controller = EAL add_core = EAL } 
+2554.1.1 = { 
+    owner = GVI
+    controller = GVI
+    add_core = GVI
+    remove_core = EAL
+}
+
+2556.10.1 = { owner = ROW controller = ROW } # Battle of Arelate
+2559.8.2 = { owner = GVI controller = GVI remove_core = ROW } # Assassination of Majorian
+2650.1.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    religion = chalcedonism
+}
+
+2718.1.1 = { owner = GVI controller = GVI remove_core = BYZ } 
+2809.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = GVI
+    capital = "Al-Jazira Al-Kharda"
+}
+
+2838.1.1 = { religion = sunni } 
+2848.1.1 = { culture = andalucian } 
+2848.8.6 = { 
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = UMA
+}
+
+3121.1.1 = { 
+    owner = AGC
+    controller = AGC
+    add_core = AGC
+    remove_core = CRD
+}
+
+3156.1.1 = { owner = SEV controller = SEV add_core = SEV } 
+3189.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = SEV
+    remove_core = AGC
+}
+
+3245.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = MOR
+}
+
+3336.1.1 = { 
+    owner = GRA
+    controller = GRA
+    add_core = GRA
+    remove_core = MOR
+}
+
+3407.1.1 = { 
+    owner = CAS
+    controller = CAS
+    add_core = CAS
+    capital = "Gibraltar"
+}
+
+3431.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3472.1.1 = { 
+    owner = GRA
+    controller = GRA
+    add_core = GRA
+    remove_core = MOR
+}
 
 3560.1.1 = { owner = CAS controller = CAS add_core = CAS } # Conquest of Gibraltar by King Enrique of Castilla
 3597.12.1 = { unrest = 2 } # The Inquisition forces Spanish muslims to convert back to Christianity. Occasional revolts occur.
 3600.2.1 = { unrest = 0 religion = catholic } # New capitulations where all the subjects of Granada are baptised and fully incorporated into the legal system of Castilla
-3614.1.23 = {
-	controller = SPA
-	owner = SPA
-	add_core = SPA
-} # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
+3614.1.23 = { controller = SPA owner = SPA add_core = SPA } # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
 3708.1.12 = { culture = castillian } # Decree for the expulsion of the morisques in Andalucía, which is speedily and uneventfully performed
 3802.8.3 = { controller = ENG } # England occupies Gibraltar
-3805.5.12 = { controller = GBR }
-3811.4.11 = {
-	owner = GBR
-	add_core = GBR
-	remove_core = CAS
-} # Treaty of Utrecht
-3818.1.1 = { fort_18th = yes }
-
-
-
-
-
-4008.1.1 = { discovered_by = asian }
+3805.5.12 = { controller = GBR } 
+3811.4.11 = { owner = GBR add_core = GBR remove_core = CAS } # Treaty of Utrecht
+3818.1.1 = { fort_18th = yes } 
+4008.1.1 = { discovered_by = asian } 

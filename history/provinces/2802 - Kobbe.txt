@@ -1,7 +1,6 @@
-#2665 - Kobbe
-
+# 2665 - Kobbe
 culture = fur_culture
-religion = shamanism
+religion = egyptian
 capital = "Kobbe"
 native_size = 50
 trade_goods = unknown
@@ -11,27 +10,42 @@ base_production = 1
 base_manpower = 1
 native_ferocity = 4
 native_hostileness = 9
+3694.1.1 = { 
+    owner = DAR
+    controller = DAR
+    add_core = DAR
+    discovered_by = NUB
+    is_city = yes
+    discovered_by = ETH
+    trade_goods = grain
+}
 
-3694.1.1 = {	owner = DAR
-	   	controller = DAR
-		add_core = DAR
-		discovered_by = NUB
-		is_city = yes
-		discovered_by = ETH
-		trade_goods = grain
-	   }
-3780.1.1 = { religion = sunni }
+3780.1.1 = { religion = sunni } 
+3918.1.1 = { discovered_by = muslim discovered_by = ottoman } 
+3972.1.1 = { owner = EGY controller = EGY add_core = EGY } 
+3978.1.1 = { discovered_by = western } 
+3980.9.13 = { owner = GBR controller = GBR remove_core = EGY } 
+3981.6.1 = { add_core = SUD } 
+3981.12.1 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } 
+3996.1.1 = { 
+    owner = DAR
+    controller = DAR
+    add_core = DAR
+    revolt = { } 
+}
 
-3918.1.1   = { discovered_by = muslim discovered_by = ottoman }
-3972.1.1   = { owner = EGY controller = EGY add_core = EGY }
-3978.1.1   = { discovered_by = western }
-3980.9.13  = { owner = GBR controller = GBR remove_core = EGY }
-3981.6.1   = { add_core = SUD }
-3981.12.1  = { revolt = { type = nationalist_rebels size = 0 } controller = REB }
-3996.1.1   = { owner = DAR controller = DAR add_core = DAR revolt = {} }
-4014.1.1   = { owner = GBR controller = GBR add_core = GBR add_core = SUD capital = "Al-Fulah" }
-4038.1.1   = { discovered_by = eastern discovered_by = asian }
-4054.1.1   = { owner = SUD controller = SUD remove_core = GBR remove_core = EGY }
+4014.1.1 = { 
+    owner = GBR
+    controller = GBR
+    add_core = GBR
+    add_core = SUD
+    capital = "Al-Fulah"
+}
 
-
-
+4038.1.1 = { discovered_by = eastern discovered_by = asian } 
+4054.1.1 = { 
+    owner = SUD
+    controller = SUD
+    remove_core = GBR
+    remove_core = EGY
+}

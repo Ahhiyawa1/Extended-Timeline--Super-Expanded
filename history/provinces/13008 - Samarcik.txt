@@ -1,11 +1,10 @@
-#13008 - Samarçik
-
+# 13008 - Samarçik
 owner = SRT
 controller = SRT
 add_core = SRT
 is_city = yes
 culture = sarmatian
-religion = tengri_pagan_reformed
+religion = heptadic
 hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
@@ -22,39 +21,124 @@ base_production = 1
 trade_goods = livestock
 base_manpower = 1
 capital = "Samarçik"
+2318.1.1 = { 
+    owner = OST
+    controller = OST
+    add_core = OST
+    remove_core = SRT
+}
 
-2318.1.1 = { owner = OST controller = OST add_core = OST remove_core = SRT }
-2468.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = OST culture = hunnic }
-2518.1.1 = { add_core = KTR culture = bulgar }
-2567.1.1 = { owner = KTR controller = KTR remove_core = HNS }
-2698.1.1 = { base_manpower = 2 }
-2730.1.1 = { owner = BUL controller = BUL add_core = BUL remove_core = KTR }
-2848.1.1 = { owner = HUN controller = HUN add_core = HUN remove_core = BUL culture = hungarian }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-2938.1.1 = { owner = KHZ controller = KHZ add_core = KHZ remove_core = HUN }
-3067.1.1 = { owner = PEC controller = PEC add_core = PEC remove_core = KHZ culture = pecheneg }
-3158.1.1 = { owner = CUM controller = CUM add_core = CUM remove_core = PEC }
-3298.1.1 = { base_tax = 3 base_production = 3 }
-3318.1.1 = { culture = crimean }
-3339.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = ZAZ remove_core = CUM }
-3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA }
-3378.1.1 = { religion = sunni }
-3470.1.1 = { owner = BHO controller = BHO add_core = BHO }
-3472.1.1 = { owner = WHH controller = WHH remove_core = BHO }
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH }
+2468.1.1 = { 
+    owner = HNS
+    controller = HNS
+    add_core = HNS
+    remove_core = OST
+    culture = hunnic
+}
 
-3539.1.1  = { owner = CRI controller = CRI add_core = CRI } # The Crimean Khanate
-3653.1.1  = { owner = ZAZ controller = ZAZ remove_core = CRI culture = ruthenian religion = orthodox } # Fortified military camp, independent state
-3798.7.14  = { owner = RUS add_core = RUS } # Treaty of Constantinople
-3811.6.24  = { owner = TUR controller = TUR add_core = TUR remove_core = RUS } # Treaty of Adrianople
-3834.6.30  = { controller = RUS } # Taken by the army during the Russo-Turkish War
-3837.9.29  = { owner = RUS add_core = RUS remove_core = TUR capital = "Samara" } # Treaty of Belgrad
+2518.1.1 = { add_core = KTR culture = bulgar } 
+2567.1.1 = { owner = KTR controller = KTR remove_core = HNS } 
+2698.1.1 = { base_manpower = 2 } 
+2730.1.1 = { 
+    owner = BUL
+    controller = BUL
+    add_core = BUL
+    remove_core = KTR
+}
 
-4008.1.1 = { discovered_by = asian }
-4016.1.22  = { owner = UKR controller = UKR add_core = UKR }
-4019.3.18  = { owner = RUS controller = RUS }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4024.1.1   = { capital = "Novomoskovsk" }
-4039.10.12 = { controller = GER }
-4042.4.1   = { controller = SOV }
-4089.8.24  = { owner = UKR controller = UKR add_core = UKR remove_core = SOV }
+2848.1.1 = { 
+    owner = HUN
+    controller = HUN
+    add_core = HUN
+    remove_core = BUL
+    culture = hungarian
+}
+
+2898.1.1 = { base_tax = 2 base_production = 2 } 
+2938.1.1 = { 
+    owner = KHZ
+    controller = KHZ
+    add_core = KHZ
+    remove_core = HUN
+}
+
+3067.1.1 = { 
+    owner = PEC
+    controller = PEC
+    add_core = PEC
+    remove_core = KHZ
+    culture = pecheneg
+}
+
+3158.1.1 = { 
+    owner = CUM
+    controller = CUM
+    add_core = CUM
+    remove_core = PEC
+}
+
+3298.1.1 = { base_tax = 3 base_production = 3 } 
+3318.1.1 = { culture = crimean } 
+3339.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    add_core = ZAZ
+    remove_core = CUM
+}
+
+3358.1.1 = { 
+    owner = WHH
+    controller = WHH
+    add_core = WHH
+    remove_core = KHA
+}
+
+3378.1.1 = { religion = sunni } 
+3470.1.1 = { owner = BHO controller = BHO add_core = BHO } 
+3472.1.1 = { owner = WHH controller = WHH remove_core = BHO } 
+3476.1.1 = { owner = GLH controller = GLH add_core = GLH } 
+3539.1.1 = { owner = CRI controller = CRI add_core = CRI } # The Crimean Khanate
+3653.1.1 = { 
+    owner = ZAZ
+    controller = ZAZ
+    remove_core = CRI
+    culture = ruthenian
+    religion = orthodox
+} # Fortified military camp, independent state
+
+3798.7.14 = { owner = RUS add_core = RUS } # Treaty of Constantinople
+3811.6.24 = { 
+    owner = TUR
+    controller = TUR
+    add_core = TUR
+    remove_core = RUS
+} # Treaty of Adrianople
+
+3834.6.30 = { controller = RUS } # Taken by the army during the Russo-Turkish War
+3837.9.29 = { 
+    owner = RUS
+    add_core = RUS
+    remove_core = TUR
+    capital = "Samara"
+} # Treaty of Belgrad
+
+4008.1.1 = { discovered_by = asian } 
+4016.1.22 = { owner = UKR controller = UKR add_core = UKR } 
+4019.3.18 = { owner = RUS controller = RUS } 
+4020.12.30 = { 
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4024.1.1 = { capital = "Novomoskovsk" } 
+4039.10.12 = { controller = GER } 
+4042.4.1 = { controller = SOV } 
+4089.8.24 = { 
+    owner = UKR
+    controller = UKR
+    add_core = UKR
+    remove_core = SOV
+}

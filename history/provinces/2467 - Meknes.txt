@@ -1,9 +1,8 @@
-#2569 - Meknes
-
+# 2569 - Meknes
 owner = MOO
-controller = MOO 
+controller = MOO
 culture = berber
-religion = shamanism
+religion = amanaiism
 capital = "Meknes"
 trade_goods = cloth
 hre = no
@@ -19,51 +18,70 @@ base_production = 4
 base_manpower = 2
 is_city = yes
 add_core = MOO
+2418.1.1 = { religion = chalcedonism } 
+2806.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = MOO
+}
 
-2418.1.1 = { religion = chalcedonism }
-2806.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = MOO }
-2828.1.1 = { religion = ibadi } #Many Berbers become Kharijite
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } #Great Berber revolt
-2841.1.1 = { owner = FEZ controller = FEZ add_core = FEZ remove_core = UMA revolt = {} } #Caliphate loses control of the region
-2887.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = FEZ culture = moroccan }
-2888.1.1 = { religion = shiite }
-3020.1.1 = { owner = FAT controller = FAT }
-3023.1.1 = { owner = MOR controller = MOR }
-3025.1.1 = { owner = FAT controller = FAT }
-3035.1.1 = { owner = MOR controller = MOR }
-3072.1.1 = { owner = CRD controller = CRD add_core = CRD remove_core = MOR }
-3129.1.1 = { owner = FEZ controller = FEZ add_core = FEZ remove_core = CRD }
-3138.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = FEZ }
-3148.1.1 = { religion = sunni }
+2828.1.1 = { religion = ibadi } # Many Berbers become Kharijite
+2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Great Berber revolt
+2841.1.1 = { 
+    owner = FEZ
+    controller = FEZ
+    add_core = FEZ
+    remove_core = UMA
+    revolt = { } 
+} # Caliphate loses control of the region
 
-3563.1.1 = { unrest = 2 } #Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country. 
-3570.1.1 = {
-	owner = FEZ
-	controller = FEZ
-	unrest = 0
-} #Wattasids take control over Fez, nominal ruler over much of Morocco.
-3647.1.1 = {
-	owner = MOR
-	controller = MOR
-}	#Fall of Fez
-3701.8.1 = { unrest = 5 } #Death of al-Mansur, long period of instability follows
-3736.10.26 = {
-	owner = FEZ
-	controller = FEZ
-} #Dilawites seize the region from squabling Saadite claimants
-3764.6.6 = {
-	owner = TFL
-	controller = TFL
-	add_core = TFL
-	unrest = 0
-}	#Alaouites
-3766.9.7 = {
-	owner = MOR
-	controller = MOR
-	remove_core = TFL
-} #Alaouites reunifies the country
+2887.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = FEZ
+    culture = moroccan
+}
 
+2888.1.1 = { religion = shiite } 
+3020.1.1 = { owner = FAT controller = FAT } 
+3023.1.1 = { owner = MOR controller = MOR } 
+3025.1.1 = { owner = FAT controller = FAT } 
+3035.1.1 = { owner = MOR controller = MOR } 
+3072.1.1 = { 
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = MOR
+}
 
+3129.1.1 = { 
+    owner = FEZ
+    controller = FEZ
+    add_core = FEZ
+    remove_core = CRD
+}
 
+3138.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = FEZ
+}
 
-4008.1.1 = { discovered_by = asian }
+3148.1.1 = { religion = sunni } 
+3563.1.1 = { unrest = 2 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
+3570.1.1 = { owner = FEZ controller = FEZ unrest = 0 } # Wattasids take control over Fez, nominal ruler over much of Morocco.
+3647.1.1 = { owner = MOR controller = MOR } # Fall of Fez
+3701.8.1 = { unrest = 5 } # Death of al-Mansur, long period of instability follows
+3736.10.26 = { owner = FEZ controller = FEZ } # Dilawites seize the region from squabling Saadite claimants
+3764.6.6 = { 
+    owner = TFL
+    controller = TFL
+    add_core = TFL
+    unrest = 0
+} # Alaouites
+
+3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
+4008.1.1 = { discovered_by = asian } 

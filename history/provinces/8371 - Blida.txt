@@ -1,9 +1,8 @@
-#8371 - Blida
-
+# 8371 - Blida
 owner = ROM
-controller = ROM  
+controller = ROM
 culture = berber
-religion = shamanism
+religion = amanaiism
 capital = "Civitas Rosis"
 trade_goods = grain
 hre = no
@@ -20,57 +19,121 @@ base_manpower = 3
 is_city = yes
 add_core = ROM
 center_of_trade = 1
+2458.1.1 = { religion = chalcedonism } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2458.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2527.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = ROW religion = arianism }
-2632.3.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = VAN }
-2658.1.1 = { religion = chalcedonism }
-2806.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = BYZ capital = "Al-Balaydah" }
-2838.1.1 = { religion = ibadi }
-2839.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } #Great Berber revolt
-2841.1.1 = { owner = TLC controller = TLC add_core = TLC remove_core = UMA revolt = {} } #Caliphate loses control of the region
-2875.1.1 = { owner = MZB controller = MZB add_core = MZB remove_core = TLC }
-3007.1.1 = { owner = FAT controller = FAT add_core = FAT remove_core = MZB }
-3038.1.1 = { religion = shiite culture = algerian }
-3071.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = FAT }
-3116.1.1 = { owner = KBA controller = KBA add_core = KBA remove_core = TUN }
-3148.1.1 = { religion = sunni }
-3250.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = KBA }
-3327.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = MOR }
+2527.1.1 = { 
+    owner = VAN
+    controller = VAN
+    add_core = VAN
+    remove_core = ROW
+    religion = arianism
+}
 
-3608.1.1 = {
-	owner = ALG
-	controller = ALG
-	add_core = ALG
-} # Captured by Spain
-3622.1.1 = { controller = KBA } #War with the Kabyles
-3623.1.1 = { controller = ALG } #Retaken by Barbarossa
+2632.3.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    remove_core = VAN
+}
+
+2658.1.1 = { religion = chalcedonism } 
+2806.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = BYZ
+    capital = "Al-Balaydah"
+}
+
+2838.1.1 = { religion = ibadi } 
+2839.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Great Berber revolt
+2841.1.1 = { 
+    owner = TLC
+    controller = TLC
+    add_core = TLC
+    remove_core = UMA
+    revolt = { } 
+} # Caliphate loses control of the region
+
+2875.1.1 = { 
+    owner = MZB
+    controller = MZB
+    add_core = MZB
+    remove_core = TLC
+}
+
+3007.1.1 = { 
+    owner = FAT
+    controller = FAT
+    add_core = FAT
+    remove_core = MZB
+}
+
+3038.1.1 = { religion = shiite culture = algerian } 
+3071.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = FAT
+}
+
+3116.1.1 = { 
+    owner = KBA
+    controller = KBA
+    add_core = KBA
+    remove_core = TUN
+}
+
+3148.1.1 = { religion = sunni } 
+3250.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = KBA
+}
+
+3327.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = MOR
+}
+
+3608.1.1 = { owner = ALG controller = ALG add_core = ALG } # Captured by Spain
+3622.1.1 = { controller = KBA } # War with the Kabyles
+3623.1.1 = { controller = ALG } # Retaken by Barbarossa
 3628.1.1 = { fort_15th = yes } # Fortified
-3679.1.1 = { fort_15th = no fort_16th = yes }
+3679.1.1 = { fort_15th = no fort_16th = yes } 
+3848.1.1 = { base_production = 7 } 
+3873.1.1 = { base_tax = 6 base_production = 8 } 
+3898.1.1 = { base_tax = 7 base_manpower = 4 } 
+3923.1.1 = { base_production = 9 base_manpower = 5 } 
+3928.7.5 = { controller = FRA } # French invasion of Algiers
+3928.7.10 = { owner = FRA add_core = FRA capital = "Blida" } 
+3935.5.30 = { owner = ALG controller = ALG } # Treaty of Tafna
+3939.1.1 = { controller = FRA } 
+3945.12.21 = { owner = FRA add_core = FRA } 
+3948.1.1 = { base_tax = 8 base_production = 10 } 
+3968.9.4 = { 
+    owner = FR2
+    controller = FR2
+    add_core = FR2
+    remove_core = FRA
+} # Republic proclaimed
 
-3848.1.1 = { base_production = 7 }
-3873.1.1 = { base_tax = 6 base_production = 8 }
-3898.1.1 = { base_tax = 7 base_manpower = 4 }
-3923.1.1 = { base_production = 9 base_manpower = 5 }
-3928.7.5   = { controller = FRA } #French invasion of Algiers
-3928.7.10  = { owner = FRA add_core = FRA capital = "Blida" }
-3935.5.30  = { owner = ALG controller = ALG } #Treaty of Tafna
-3939.1.1   = { controller = FRA }
-3945.12.21 = { owner = FRA add_core = FRA }
-3948.1.1 = { base_tax = 8 base_production = 10 }
-3968.9.4   = {  owner = FR2
-		controller = FR2
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-3973.1.1 = { base_production = 11 base_manpower = 6 }
-3999.1.1 = { base_production = 12 base_manpower = 7 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_tax = 9 }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+3973.1.1 = { base_production = 11 base_manpower = 6 } 
+3999.1.1 = { base_production = 12 base_manpower = 7 } 
+4008.1.1 = { discovered_by = asian } 
+4023.1.1 = { base_tax = 9 } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
 4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4048.1.1 = { base_tax = 11 }
-4060.7.3   = { owner = ALG controller = ALG remove_core = FR2 }
-4073.1.1 = { base_tax = 12 base_manpower = 8 }
-4098.1.1 = { base_manpower = 10 }
+4048.1.1 = { base_tax = 11 } 
+4060.7.3 = { owner = ALG controller = ALG remove_core = FR2 } 
+4073.1.1 = { base_tax = 12 base_manpower = 8 } 
+4098.1.1 = { base_manpower = 10 } 

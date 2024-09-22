@@ -1,6 +1,5 @@
-
 culture = atlas
-religion = shamanism
+religion = amanaiism
 capital = "Boujdour"
 trade_goods = unknown
 hre = no
@@ -10,25 +9,32 @@ base_manpower = 1
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9
-
-add_permanent_province_modifier = {
-	name = hard_to_colonize
-	duration = -1
+add_permanent_province_modifier = { name = hard_to_colonize duration = -1 } 
+2948.1.1 = { religion = sunni } 
+3532.1.1 = { discovered_by = POR } 
+3982.1.1 = { 
+    owner = SPA
+    controller = SPA
+    add_core = SPA
+    trade_goods = grain
+    is_city = yes
 }
 
-2948.1.1    = { religion = sunni }
-3532.1.1   = { discovered_by = POR }
-3982.1.1   = { 	owner = SPA
-		controller = SPA 
-		add_core = SPA
-		trade_goods = grain
-		is_city = yes
-	     }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4071.1.1   = { add_core = WSH }
-4073.11.14 = { owner = MOR controller = MOR add_core = MOR remove_core = SPA } # Madrid Accords
-4091.1.1   = { add_core = WSH }
-4111.1.1   = { add_core = WSH }
+4008.1.1 = { 
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+}
 
+4071.1.1 = { add_core = WSH } 
+4073.11.14 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = SPA
+} # Madrid Accords
 
-
+4091.1.1 = { add_core = WSH } 
+4111.1.1 = { add_core = WSH } 

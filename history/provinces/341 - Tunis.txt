@@ -1,9 +1,8 @@
-#341 - Tunis
-
+# 341 - Tunis
 owner = ROM
-controller = ROM  
+controller = ROM
 culture = berber
-religion = hellenism
+religion = canaanite_religion
 capital = "Carthage"
 trade_goods = cloth
 hre = no
@@ -21,67 +20,84 @@ is_city = yes
 fort_15th = yes
 add_core = ROM
 center_of_trade = 2
+2338.1.1 = { religion = chalcedonism } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2338.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2537.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = ROW religion = arianism }
-2631.10.15 = { controller = BYZ add_core = BYZ }
-2632.3.1 = { owner = BYZ remove_core = VAN }
-2638.1.1 = { religion = chalcedonism }
-2796.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = BYZ capital = "Tunis" fort_15th = no }
-2828.1.1 = { religion = sunni culture = tunisian }
-2843.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = UMA }
-2855.6.1 = { owner = ABA controller = ABA add_core = ABA }
-2898.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = ABA }
-3007.1.1 = { owner = FAT controller = FAT add_core = FAT }
-3071.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = FAT }
-3226.1.1 = { owner = KBA controller = KBA add_core = KBA }
-3246.1.1 = { owner = TUN controller = TUN add_core = TUN }
-3257.1.1 = { owner = MOR controller = MOR add_core = MOR }
-3285.1.1 = { owner = TUN controller = TUN add_core = TUN }
-3310.1.1 = { owner = MOR controller = MOR }
-3327.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = MOR }
+2537.1.1 = { 
+    owner = VAN
+    controller = VAN
+    add_core = VAN
+    remove_core = ROW
+    religion = arianism
+}
 
-3587.1.1  = { unrest = 4 } # Abu Zikriya Yahya overthrown by Abul Mumin
-3588.1.1  = { unrest = 0 } # Abu Yahya recaptures the power
-3632.8.16 = {
-	owner = ALG
-	controller = ALG
-	add_core = ALG
-} #Conquered by Barbarossa
-3633.6.11 = {
-	owner = TUN
-	controller = TUN
-	remove_core = ALG
-} #Spain reinstate Hafsids
-3667.1.1 = {
-	owner = ALG
-	controller = ALG
-	add_core = ALG
-} #Uluj Ali Pasha captures Tunis
-3671.1.1 = {
-	owner = TUN
-	controller = TUN
-	remove_core = ALG
-} #Spain reinstate Hafsids
-3672.1.1 = {
-	owner = ALG
-	controller = ALG
-	add_core = ALG
-} #End of the Hafsids, and of Spanish influence
-3689.1.1  = { unrest = 6 } # Janissary revolt
-3690.1.1  = { unrest = 0 }
-3691.1.1 = {
-	owner = TUN
-	controller = TUN
-	remove_core = ALG
-}#Tunisian Pashalik created
-3800.1.1  = { unrest = 4 add_core = ALG } # Military coup, Murad III is assassinated
-3801.1.1  = { unrest = 0 }
-3833.1.1  = { unrest = 6 } # Coup with Algerian support
-3854.1.1  = { unrest = 0 } # The Husaynid Dynasty is restored 
+2631.10.15 = { controller = BYZ add_core = BYZ } 
+2632.3.1 = { owner = BYZ remove_core = VAN } 
+2638.1.1 = { religion = chalcedonism } 
+2796.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = BYZ
+    capital = "Tunis"
+    fort_15th = no
+}
 
-4008.1.1 = { discovered_by = asian }
-4040.11.16 = { owner = GER controller = GER }
-4041.5.7  = { owner = TUN controller = TUN } # Liberated by Free France
+2828.1.1 = { religion = sunni culture = tunisian } 
+2843.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = UMA
+}
 
+2855.6.1 = { owner = ABA controller = ABA add_core = ABA } 
+2898.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = ABA
+}
+
+3007.1.1 = { owner = FAT controller = FAT add_core = FAT } 
+3071.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = FAT
+}
+
+3226.1.1 = { owner = KBA controller = KBA add_core = KBA } 
+3246.1.1 = { owner = TUN controller = TUN add_core = TUN } 
+3257.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3285.1.1 = { owner = TUN controller = TUN add_core = TUN } 
+3310.1.1 = { owner = MOR controller = MOR } 
+3327.1.1 = { 
+    owner = TUN
+    controller = TUN
+    add_core = TUN
+    remove_core = MOR
+}
+
+3587.1.1 = { unrest = 4 } # Abu Zikriya Yahya overthrown by Abul Mumin
+3588.1.1 = { unrest = 0 } # Abu Yahya recaptures the power
+3632.8.16 = { owner = ALG controller = ALG add_core = ALG } # Conquered by Barbarossa
+3633.6.11 = { owner = TUN controller = TUN remove_core = ALG } # Spain reinstate Hafsids
+3667.1.1 = { owner = ALG controller = ALG add_core = ALG } # Uluj Ali Pasha captures Tunis
+3671.1.1 = { owner = TUN controller = TUN remove_core = ALG } # Spain reinstate Hafsids
+3672.1.1 = { owner = ALG controller = ALG add_core = ALG } # End of the Hafsids, and of Spanish influence
+3689.1.1 = { unrest = 6 } # Janissary revolt
+3690.1.1 = { unrest = 0 } 
+3691.1.1 = { owner = TUN controller = TUN remove_core = ALG } # Tunisian Pashalik created
+3800.1.1 = { unrest = 4 add_core = ALG } # Military coup, Murad III is assassinated
+3801.1.1 = { unrest = 0 } 
+3833.1.1 = { unrest = 6 } # Coup with Algerian support
+3854.1.1 = { unrest = 0 } # The Husaynid Dynasty is restored
+4008.1.1 = { discovered_by = asian } 
+4040.11.16 = { owner = GER controller = GER } 
+4041.5.7 = { owner = TUN controller = TUN } # Liberated by Free France

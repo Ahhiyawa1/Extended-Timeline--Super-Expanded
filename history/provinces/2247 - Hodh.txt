@@ -1,7 +1,6 @@
-#2307 - Hodh
-
+# 2307 - Hodh
 culture = haratin
-religion = shamanism
+religion = imohag
 hre = no
 discovered_by = sub_saharan
 base_tax = 1
@@ -12,34 +11,79 @@ capital = "Walata"
 native_hostileness = 9
 native_size = 30
 native_ferocity = 6
+2448.1.1 = { 
+    owner = GHA
+    controller = GHA
+    add_core = GHA
+    is_city = yes
+    trade_goods = wool
+}
 
-2448.1.1 = { owner = GHA controller = GHA add_core = GHA is_city = yes trade_goods = wool }
-2948.1.1 = { owner = SAN controller = SAN add_core = SAN }
-2958.1.1 = { religion = sunni }
-3018.1.1 = { owner = GHA controller = GHA add_core = GHA remove_core = SAN }
-3152.1.1 = { owner = MOR controller = MOR add_core = MOR }
-3219.1.1 = { owner = GHA controller = GHA add_core = GHA remove_core = MOR }
-3328.1.1 = { owner = TMB controller = TMB add_core = TMB remove_core = GHA }
-3450.1.1 = { discovered_by = MOR } #Ibn Battuta
+2948.1.1 = { owner = SAN controller = SAN add_core = SAN } 
+2958.1.1 = { religion = sunni } 
+3018.1.1 = { 
+    owner = GHA
+    controller = GHA
+    add_core = GHA
+    remove_core = SAN
+}
 
-3615.1.1 = { owner = SON controller = SON add_core = SON }
-3691.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = SON } #Moroccan conquest
-3716.1.1   = { owner = TMB controller = TMB add_core = TMB remove_core = MOR } #Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own (recycle TMB tag)
-3768.1.1 = { owner = SOF controller = SOF add_core = SOF remove_core = TMB } #Massa establish the Massassi dynasty and Kaarta kingdom as Bambara expansion
+3152.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3219.1.1 = { 
+    owner = GHA
+    controller = GHA
+    add_core = GHA
+    remove_core = MOR
+}
 
-3978.1.1   = { discovered_by = FR2 }
-3988.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
-4018.1.1   = { discovered_by = western }
-4038.1.1   = {  discovered_by = eastern
-		discovered_by = muslim
-		discovered_by = ottoman
-		discovered_by = indian
-		discovered_by = chinese
-discovered_by = asian
-	     }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+3328.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = GHA
+}
+
+3450.1.1 = { discovered_by = MOR } # Ibn Battuta
+3615.1.1 = { owner = SON controller = SON add_core = SON } 
+3691.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = SON
+} # Moroccan conquest
+
+3716.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = MOR
+} # Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own (recycle TMB tag)
+
+3768.1.1 = { 
+    owner = SOF
+    controller = SOF
+    add_core = SOF
+    remove_core = TMB
+} # Massa establish the Massassi dynasty and Kaarta kingdom as Bambara expansion
+
+3978.1.1 = { discovered_by = FR2 } 
+3988.1.1 = { owner = FR2 controller = FR2 add_core = FR2 } 
+4018.1.1 = { discovered_by = western } 
+4038.1.1 = { 
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = indian
+    discovered_by = chinese
+    discovered_by = asian
+}
+
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
 4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.11.28 = { owner = MRT controller = MRT add_core = MRT remove_core = FR2 remove_core = SOF }
-
-
-
+4058.11.28 = { 
+    owner = MRT
+    controller = MRT
+    add_core = MRT
+    remove_core = FR2
+    remove_core = SOF
+}

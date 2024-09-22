@@ -1,8 +1,7 @@
-#10732 - Ansongo
-
+# 10732 - Ansongo
 culture = songhai
 base_manpower = 2
-religion = shamanism
+religion = imohag
 capital = "Ansongo"
 trade_goods = unknown
 hre = no
@@ -13,27 +12,60 @@ native_size = 50
 native_ferocity = 4.5
 native_hostileness = 9
 center_of_trade = 1
+2448.1.1 = { 
+    owner = SON
+    controller = SON
+    add_core = SON
+    is_city = yes
+    trade_goods = cloth
+}
 
-2448.1.1 = { owner = SON controller = SON add_core = SON is_city = yes trade_goods = cloth }
-3198.1.1 = { base_tax = 5 base_production = 5 }
-3298.1.1 = { base_tax = 6 base_production = 6 }
-3398.1.1 = { base_tax = 7 base_production = 7 fort_15th = yes }
-
+3198.1.1 = { base_tax = 5 base_production = 5 } 
+3298.1.1 = { base_tax = 6 base_production = 6 } 
+3398.1.1 = { base_tax = 7 base_production = 7 fort_15th = yes } 
 3591.1.1 = { unrest = 9 } # Civil War between Sunni Baare and Muhammad Ture Sylla
 3592.1.1 = { unrest = 0 religion = sunni } # Muhammad Ture Sylla establishes new dynasty
 3627.1.1 = { unrest = 2 } # Musa overthrows father, becomes Askiya
-3689.3.15 = { discovered_by = MOR owner = MOR controller = MOR add_core = MOR } # Moroccan victory at Tondibi
-3716.1.1   = { owner = TMB controller = TMB add_core = TMB remove_core = MOR } #Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own (recycle TMB tag)
+3689.3.15 = { 
+    discovered_by = MOR
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+} # Moroccan victory at Tondibi
+
+3716.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = MOR
+} # Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own (recycle TMB tag)
+
 3740.1.1 = { remove_core = SON } # Collapse of last vestiges of unity among Songhai
+3923.1.1 = { 
+    owner = SON
+    controller = SON
+    add_core = SON
+    remove_core = TMB
+}
 
-3923.1.1   = { owner = SON controller = SON add_core = SON remove_core = TMB }
-3953.1.1   = { discovered_by = GER discovered_by = PRU } #Heinrich Barth
-3993.5.1   = { owner = FR2 controller = FR2 add_core = FR2 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+3953.1.1 = { discovered_by = GER discovered_by = PRU } # Heinrich Barth
+3993.5.1 = { owner = FR2 controller = FR2 add_core = FR2 } 
+4008.1.1 = { 
+    discovered_by = western
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+}
+
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
 4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.6.20  = { owner = MAL controller = MAL add_core = MAL remove_core = FR2 }
-4110.3.31  = { revolt = { type = nationalist_rebels size = 2 } controller = REB }
-4110.6.26  = { revolt = {} controller = MAL }
+4058.6.20 = { 
+    owner = MAL
+    controller = MAL
+    add_core = MAL
+    remove_core = FR2
+}
 
-
+4110.3.31 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } 
+4110.6.26 = { revolt = { } controller = MAL } 

@@ -1,7 +1,6 @@
-#2430 - Kungirot
-
+# 2430 - Kungirot
 culture = turkmeni
-religion = tengri_pagan_reformed
+religion = heptadic
 capital = "Kungirot"
 trade_goods = livestock
 hre = no
@@ -14,26 +13,83 @@ discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
+2691.1.1 = { 
+    owner = WGO
+    controller = WGO
+    add_core = WGO
+    is_city = yes
+}
 
-2691.1.1 = { owner = WGO controller = WGO add_core = WGO is_city = yes }
-2757.1.1 = { owner = OGH controller = OGH add_core = OGH remove_core = WGO }
-3148.1.1 = { religion = sunni }
-3251.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = OGH }
-3298.1.1 = { discovered_by = eastern }
-3329.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KHW culture = nogaybak }
-3358.1.1 = { owner = BHO controller = BHO add_core = BHO remove_core = KHA }
-3360.1.1 = { owner = NOG controller = NOG add_core = NOG remove_core = BHO }
+2757.1.1 = { 
+    owner = OGH
+    controller = OGH
+    add_core = OGH
+    remove_core = WGO
+}
 
-3618.1.1 = { owner = KZH controller = KZH add_core = KZH remove_core = NOG culture = khazak } # Qasim Khan conquers Nogai lands
-3768.1.1 = { owner = KHI controller = KHI add_core = KHI remove_core = KZH } # Khan of Khiva builds Mangyshlak fortress
-3815.1.1 = { discovered_by = RUS }
+3148.1.1 = { religion = sunni } 
+3251.1.1 = { 
+    owner = KHW
+    controller = KHW
+    add_core = KHW
+    remove_core = OGH
+}
 
-#3971.8.12 Russian protectorate
-3977.1.1   = { owner = RUS controller = RUS add_core = RUS }
-4008.1.1 = { discovered_by = asian }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4022.10.27 = { add_core = UZB remove_core = KHI remove_core = SHY }
-4089.12.8  = { owner = UZB controller = UZB remove_core = SOV remove_core = RUS }
+3298.1.1 = { discovered_by = eastern } 
+3329.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    remove_core = KHW
+    culture = nogaybak
+}
 
+3358.1.1 = { 
+    owner = BHO
+    controller = BHO
+    add_core = BHO
+    remove_core = KHA
+}
 
+3360.1.1 = { 
+    owner = NOG
+    controller = NOG
+    add_core = NOG
+    remove_core = BHO
+}
 
+3618.1.1 = { 
+    owner = KZH
+    controller = KZH
+    add_core = KZH
+    remove_core = NOG
+    culture = khazak
+} # Qasim Khan conquers Nogai lands
+
+3768.1.1 = { 
+    owner = KHI
+    controller = KHI
+    add_core = KHI
+    remove_core = KZH
+} # Khan of Khiva builds Mangyshlak fortress
+
+3815.1.1 = { discovered_by = RUS } 
+################################################################################
+# 3971.8.12 Russian protectorate
+################################################################################
+3977.1.1 = { owner = RUS controller = RUS add_core = RUS } 
+4008.1.1 = { discovered_by = asian } 
+4020.12.30 = { 
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+}
+
+4022.10.27 = { add_core = UZB remove_core = KHI remove_core = SHY } 
+4089.12.8 = { 
+    owner = UZB
+    controller = UZB
+    remove_core = SOV
+    remove_core = RUS
+}
