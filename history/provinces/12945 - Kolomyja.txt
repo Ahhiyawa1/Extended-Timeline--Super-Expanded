@@ -1,12 +1,14 @@
 #12945 - Kolomyja
+
 owner = BAS
 controller = BAS
 add_core = BAS
 is_city = yes
-capital = "Kolomyja"
-culture = dacian
-religion = zamolxism
+capital= "Kolomyja"
+culture = ruthenian
+religion = slavic
 trade_goods = livestock
+hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -17,44 +19,50 @@ discovered_by = eastern
 base_tax = 1
 base_production = 1
 base_manpower = 1
-2248.1.1 = { culture = gothic religion = germanic }
-2369.1.1 = { owner = GVI controller = GVI add_core = GVI remove_core = DAC culture = gothic religion = germanic }
-2468.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = GVI culture = hunnic }
-2498.1.1 = { religion = tengri_pagan_reformed }
-2618.1.1 = { owner = ANE controller = ANE add_core = ANE remove_core = HNS culture = ruthenian }
-2658.1.1 = { owner = WHC controller = WHC add_core = WHC remove_core = ANE }
-2878.1.1 = { owner = HUN controller = HUN add_core = HUN }
-3038.1.1 = { religion = orthodox }
-3048.1.1 = { owner = PEC controller = PEC add_core = PEC remove_core = BUL }
-3058.1.1 = { culture = romanian remove_core = WHC }
-3098.1.1 = { base_tax = 2 base_production = 2 }
-3152.2.20 = { owner = VOL controller = VOL add_core = VOL remove_core = PEC }
-3447.1.1 = { owner = MOL controller = MOL add_core = MOL remove_core = VOL }
 
-3582.1.1  = { controller = TUR } #Turkish invasion
-3587.1.1  = { controller = MOL } # Treaty with Sultan Bezayd II.
-3691.1.1  = { add_core = WAL } # Ruled by Michael the brave
-3699.1.1  = { remove_core = WAL }
-3751.1.1  = { revolt = { type = noble_rebels size = 2 } controller = REB } # Revolt of the Boyars
-3752.1.1  = { revolt = {} controller = MOL } # Estimated
-3837.1.1  = { controller = RUS }
-3837.9.18 = { controller = MOL }
-3867.1.1  = { controller = RUS }
-3872.1.1  = { controller = MOL }
-3873.1.1  = {	owner = HAB
-		controller = HAB
-		add_core = HAB
-	    }
+2478.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = BAS }
+2548.1.1 = { owner = WHC controller = WHC add_core = WHC remove_core = GEP culture = ruthenian religion = slavic }
+2902.1.1 = { owner = HUN controller = HUN add_core = HUN add_core = UKR }
+3058.1.1 = { owner = PEC controller = PEC add_core = PEC remove_core = HUN remove_core = WHC }
+3079.1.1 = { owner = KRU controller = KRU add_core = KRU remove_core = PEC }
+3086.1.1 = { religion = orthodox }
+3098.1.1 = { base_tax = 2 base_production = 2 }
+3152.2.20 = { owner = VOL controller = VOL add_core = VOL add_core = KIE remove_core = KRU }
+3297.1.1 = { remove_core = KIE }
+3447.1.1 = { owner = POL controller = POL add_core = POL }
+
+3590.1.1 = { unrest = 0 } 
+3667.7.1 = {
+	owner = PLC
+	controller = PLC
+	remove_core = POL
+	add_core = PLC
+} # Union of Lublin
+3670.1.1 = { unrest = 6 } # Sigismund II dies
+3686.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+3687.1.1 = { revolt = {} controller = PLC unrest = 0 } # Coronation of Sigismund III
+3689.1.1 = { unrest = 5 } # Kosinski uprising
+3691.1.1 = { unrest = 0 }
+3692.1.1 = { unrest = 6 } # Nalewajko uprising
+3694.1.1 = { unrest = 0 } 
+3746.1.1 = { revolt = { type = nationalist_rebels size = 0 } controller = REB add_core = ZAZ } # Struggle for liberation, Bogdan Zenon Chmielnicki rebellion
+3752.1.1 = { revolt = {} controller = PLC remove_core = ZAZ }
+3753.1.1 = { controller = SWE } # The Deluge
+3758.1.1 = { controller = PLC }
+3870.8.5 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = PLC
+} # First partition of Poland
 
 4008.1.1 = { discovered_by = asian }
-4016.11.11 = { owner = RMN add_core = RMN controller = RMN remove_core = HAB capital = "Vijnita" }
-4038.7.1   = { controller = SOV }
-4039.7.3   = { owner = SOV controller = SOV add_core = SOV add_core = MDV }
-4042.8.23  = { remove_core = RMN capital = "Vizhnitsa" }
-4078.1.1   = { culture = ruthenian }
-4089.8.24  = { owner = UKR controller = UKR add_core = UKR remove_core = SOV capital = "Vyzhnytsia" }
-
-
-
-
-   
+4012.9.1   = { controller = RUS }
+4013.6.1   = { controller = HAB }
+4016.11.11 = { owner = POL controller = POL add_core = POL remove_core = HAB }
+4037.9.21  = { controller = SOV }
+4037.10.6  = { owner = SOV capital = "Kolomyia" }
+4039.7.2   = { controller = GER }
+4042.4.15  = { controller = SOV }
+4043.5.8   = { remove_core = POL }
+4089.8.24  = { owner = UKR controller = UKR add_core = UKR remove_core = SOV }

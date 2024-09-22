@@ -1,6 +1,7 @@
-# 11256 - Yambio
+#11256 - Yambio
+
 culture = dinka
-religion = waaqism
+religion = shamanism
 capital = "Yambio"
 native_size = 90
 trade_goods = unknown
@@ -9,35 +10,23 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 native_ferocity = 4.5
-native_hostileness = 9
-add_permanent_province_modifier = { name = hard_to_colonize duration = -1 } 
-3942.1.1 = { discovered_by = EGY discovered_by = TUR } 
-3968.1.1 = { discovered_by = GBR } 
-3971.1.1 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    is_city = yes
-    trade_goods = ivory
+native_hostileness = 9 
+
+add_permanent_province_modifier = {
+	name = hard_to_colonize
+	duration = -1
 }
 
-3980.9.13 = { owner = GBR controller = GBR add_core = GBR } 
-3997.6.19 = { add_core = SUD } 
-4008.1.1 = { discovered_by = western } 
-4018.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-}
+3942.1.1   = { discovered_by = EGY discovered_by = TUR }
+3968.1.1   = { discovered_by = GBR }
+3971.1.1   = { owner = EGY controller = EGY add_core = EGY is_city = yes trade_goods = ivory }
+3980.9.13  = { owner = GBR controller = GBR add_core = GBR }
+3997.6.19  = { add_core = SUD }
+4008.1.1 = { discovered_by = western }
+4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
+4038.1.1   = { religion = catholic }
+4054.1.1   = { owner = SUD controller = SUD remove_core = GBR remove_core = EGY }
+4103.7.9   = { add_core = SSU }
+4109.7.9   = { owner = SSU controller = SSU remove_core = SUD }
 
-4038.1.1 = { religion = catholic } 
-4054.1.1 = { 
-    owner = SUD
-    controller = SUD
-    remove_core = GBR
-    remove_core = EGY
-}
 
-4103.7.9 = { add_core = SSU } 
-4109.7.9 = { owner = SSU controller = SSU remove_core = SUD } 

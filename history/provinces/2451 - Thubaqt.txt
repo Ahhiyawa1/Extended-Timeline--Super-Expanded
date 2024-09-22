@@ -1,8 +1,9 @@
-# 2589 - Thubaqt
+#2589 - Thubaqt
+
 owner = ROM
 controller = ROM
 culture = eastern_berber
-religion = canaanite_religion
+religion = shamanism
 capital = "Thubactis"
 trade_goods = cloth
 hre = no
@@ -18,106 +19,46 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = ROM
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2518.1.1 = { religion = chalcedonism } 
-2537.1.1 = { 
-    owner = LAG
-    controller = LAG
-    add_core = LAG
-    remove_core = ROW
-}
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2518.1.1 = { religion = chalcedonism }
+2537.1.1 = { owner = LAG controller = LAG add_core = LAG remove_core = ROW }
+2641.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
+2748.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BYZ capital = "Thubaqt" }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
+2798.1.1 = { religion = sunni culture = tunisian }
+2843.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = UMA }
+2855.6.1 = { owner = ABA controller = ABA add_core = ABA }
+2898.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = ABA }
+3007.1.1 = { owner = FAT controller = FAT add_core = FAT }
+3071.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = FAT }
+3125.1.1 = { owner = TRP controller = TRP add_core = TRP }
+3244.1.1 = { owner = SIC controller = SIC add_core = SIC }
+3256.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = SIC }
+3272.1.1 = { owner = MAM controller = MAM add_core = MAM }
+3289.1.1 = { owner = TUN controller = TUN add_core = TUN }
+3310.1.1 = { owner = MOR controller = MOR }
+3327.1.1 = { owner = TUN controller = TUN add_core = TUN remove_core = MOR }
+3419.1.1 = { owner = TRP controller = TRP add_core = TRP }
+3499.1.1 = { owner = TUN controller = TUN add_core = TUN }
 
-2641.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
-2748.1.1 = { 
-    owner = RSD
-    controller = RSD
-    add_core = RSD
-    remove_core = BYZ
-    capital = "Thubaqt"
-}
+3649.1.1 = { capital = "Misratah" }
+3656.1.1 = {
+	owner = TRP
+	controller = TRP
+	add_core = TRP
+	remove_core = TUN
+} #Turgut Reis conquers Thubaqt
 
-2759.7.28 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = RSD
-}
-
-2798.1.1 = { religion = sunni culture = tunisian } 
-2843.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = UMA
-}
-
-2855.6.1 = { owner = ABA controller = ABA add_core = ABA } 
-2898.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = ABA
-}
-
-3007.1.1 = { owner = FAT controller = FAT add_core = FAT } 
-3071.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = FAT
-}
-
-3125.1.1 = { owner = TRP controller = TRP add_core = TRP } 
-3244.1.1 = { owner = SIC controller = SIC add_core = SIC } 
-3256.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SIC
-}
-
-3272.1.1 = { owner = MAM controller = MAM add_core = MAM } 
-3289.1.1 = { owner = TUN controller = TUN add_core = TUN } 
-3310.1.1 = { owner = MOR controller = MOR } 
-3327.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = MOR
-}
-
-3419.1.1 = { owner = TRP controller = TRP add_core = TRP } 
-3499.1.1 = { owner = TUN controller = TUN add_core = TUN } 
-3649.1.1 = { capital = "Misratah" } 
-3656.1.1 = { 
-    owner = TRP
-    controller = TRP
-    add_core = TRP
-    remove_core = TUN
-} # Turgut Reis conquers Thubaqt
-
-3933.5.26 = { owner = TUR controller = TUR add_core = TUR } 
-4008.1.1 = { discovered_by = asian } 
-4010.10.18 = { 
-    owner = ITA
-    controller = ITA
-    add_core = ITA
-    add_core = LBY
-    remove_core = TUR
-}
-
-4041.1.15 = { controller = GBR } 
-4041.9.8 = { owner = GBR remove_core = ITA } 
-4049.12.24 = { owner = LBY controller = LBY } 
-4068.1.1 = { base_tax = 2 } 
-4088.1.1 = { base_production = 2 } 
-4112.8.8 = { revolt = { type = pretender_rebels size = 1 } controller = REB } # New General National Congress
+3933.5.26  = { owner = TUR controller = TUR add_core = TUR }
+4008.1.1 = { discovered_by = asian }
+4010.10.18 = { owner = ITA controller = ITA add_core = ITA add_core = LBY remove_core = TUR }
+4041.1.15  = { controller = GBR }
+4041.9.8   = { owner = GBR remove_core = ITA }
+4049.12.24 = { owner = LBY controller = LBY }
+4068.1.1   = { base_tax = 2 }
+4088.1.1   = { base_production = 2 }
+4112.8.8   = { revolt = { type = pretender_rebels size = 1 } controller = REB } #New General National Congress
 
 
-   
+

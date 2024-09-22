@@ -23,24 +23,24 @@ base_manpower = 2
 is_city = yes
 add_core = KUS
 
-2328.1.1 = { owner = KHW controller = KHW remove_core = KUS }
-2418.1.1 = { owner = KDT controller = KDT add_core = KDT }
-2478.1.1 = { owner = HEP controller = HEP add_core = HEP remove_core = KDT }
-2665.1.1 = { owner = GOK controller = GOK add_core = GOK remove_core = HEP }
+2328.1.1 = { owner = KSA controller = KSA add_core = KSA remove_core = KUS }
+2448.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KSA }
+2528.1.1 = { owner = HEP controller = HEP add_core = HEP remove_core = KDT }
+2658.1.1 = { owner = ERS controller = ERS add_core = ERS remove_core = HEP }
+2677.1.1 = { owner = GOK controller = GOK add_core = GOK remove_core = ERS }
 2691.1.1 = { owner = WGO controller = WGO add_core = WGO remove_core = GOK }
 2698.1.1 = { owner = BUK controller = BUK add_core = BUK remove_core = WGO }
-2798.1.1 = { fort_15th = yes }
 2804.1.1 = { owner = UMA controller = UMA add_core = UMA }
 2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2898.1.1 = { base_tax = 4 base_production = 4 }
-2917.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = ABA }
-2965.1.1 = { owner = BUK controller = BUK add_core = BUK remove_core = KHW }
-2998.1.1 = { base_manpower = 4 }
-3008.1.1 = { culture = uzbehk religion = sunni }
-3097.1.1 = { owner = TRS controller = TRS add_core = TRS }
-3098.1.1 = { base_tax = 5 base_production = 5 }
-3198.1.1 = { base_manpower = 5 }
-3305.1.1 = { owner = KHW controller = KHW add_core = KHW }
+2868.1.1 = { religion = sunni }
+2917.1.1 = { owner = SOG controller = SOG add_core = SOG remove_core = ABA culture = tajik }
+2940.1.1 = { owner = KOK controller = KOK add_core = KOK }
+2968.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = KOK }
+2998.1.1 = { owner = BUK controller = BUK add_core = BUK remove_core = SIS }
+3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = BUK }
+3135.1.1 = { owner = SEL controller = SEL add_core = SEL remove_core = GHZ }
+3138.1.1 = { culture = uzbehk }
+3251.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = SEL }
 3319.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KHW }
 3358.1.1 = { owner = CGT controller = CGT add_core = CGT remove_core = KHA }
 3445.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = CGT }
@@ -58,17 +58,15 @@ add_core = KUS
 }
 3599.1.1 = { controller = SHY } # Conquered by Muhammad Shaybani
 3600.1.1 = { owner = BUK add_core = BUK controller = BUK remove_core = TIM } # The Uzbek Shaybanids brings an end to the Timurid dynasty
-3631.1.1 = { base_tax = 7 } # Bukhara becomes capital
+3609.1.1 = { owner = KHI controller = KHI remove_core = BUK } # Khiva separates from Uzbeks
 3771.1.1 = { discovered_by = ENG }
 3775.1.1 = { discovered_by = FRA }
+3798.1.1 = { culture = turkmeni }
 3805.5.12 = { discovered_by = GBR }
+3883.1.1 = { owner = BUK controller = BUK add_core = BUK } # Conquered by Bukhara
 
 #3971.6.1 Russian protectorate
-4018.10.1  = { owner = RUS controller = RUS add_core = RUS }
+4018.10.1  = { owner = RUS controller = RUS add_core = RUS capital = "Firabr" }
 4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4022.10.27 = { add_core = UZB remove_core = BUK }
-4028.1.1   = { trade_goods = oil }
-4058.1.1   = { trade_goods = cotton }
-4089.12.8  = { owner = UZB controller = UZB remove_core = SOV remove_core = RUS }
-
-
+4022.10.27 = { add_core = TRK remove_core = BUK }
+4089.10.27 = { owner = TRK controller = TRK remove_core = SOV remove_core = RUS capital = "Farab" }

@@ -1,4 +1,5 @@
-# 88 - Artois
+#88 - Artois
+
 owner = ROM
 controller = ROM
 capital = "Nemetacum"
@@ -18,106 +19,48 @@ base_production = 1
 trade_goods = cloth
 base_manpower = 1
 add_core = ROM
-2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
 
-
-2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
-2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
-2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
-2372.1.1 = { 
-    controller = ROM
-    remove_core = GLL
-    revolt = { } 
-    culture = belgae
-}
-
-2478.1.1 = { religion = chalcedonism } 
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
-
-2554.1.1 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    capital = "Arras"
-    remove_core = ROW
-}
-
-2584.6.1 = { culture = wallonian } 
-2609.11.27 = { owner = SOI controller = SOI add_core = SOI } 
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK } 
-2659.11.29 = { owner = SOI controller = SOI } 
-2665.12.1 = { 
-    owner = NEU
-    controller = NEU
-    add_core = NEU
-    remove_core = SOI
-}
-
-2698.1.1 = { base_tax = 2 base_production = 2 } 
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK } 
-2732.1.1 = { owner = NEU controller = NEU } 
-2777.12.23 = { owner = FRK controller = FRK } 
-2898.1.1 = { base_manpower = 2 } 
-2938.6.21 = { 
-    owner = FRW
-    controller = FRW
-    add_core = FRW
-    remove_core = FRK
-}
-
-2965.1.1 = { religion = catholic } 
-2996.1.1 = { 
-    owner = FLA
-    controller = FLA
-    add_core = FLA
-    remove_core = FRW
-}
-
-2998.1.1 = { base_tax = 3 base_production = 3 } 
-3098.1.1 = { base_tax = 4 base_production = 4 } 
-3198.1.1 = { base_manpower = 3 } 
-3288.1.1 = { add_core = FRA } 
-3298.1.1 = { base_tax = 5 base_production = 5 } 
+2358.1.1 = { add_core = GLL revolt = { type = nationalist_rebels size = 1 } controller = REB culture = gallian }
+2372.1.1 = { controller = ROM remove_core = GLL revolt = {} culture = belgae }
+2478.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2554.1.1 = { owner = FRK controller = FRK add_core = FRK capital = "Arras" remove_core = ROW }
+2584.6.1 = { culture = wallonian }
+2609.11.27 = { owner = SOI controller = SOI add_core = SOI }
+2656.12.23 = { owner = FRK controller = FRK add_core = FRK }
+2659.11.29 = { owner = SOI controller = SOI }
+2665.12.1 = { owner = NEU controller = NEU add_core = NEU remove_core = SOI }
+2698.1.1 = { base_tax = 2 base_production = 2 }
+2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
+2732.1.1 = { owner = NEU controller = NEU }
+2777.12.23 = { owner = FRK controller = FRK }
+2898.1.1 = { base_manpower = 2 }
+2938.6.21 = { owner = FRW controller = FRW add_core = FRW remove_core = FRK }
+2965.1.1 = { religion = catholic }
+2996.1.1 = { owner = FLA controller = FLA add_core = FLA remove_core = FRW }
+2998.1.1 = { base_tax = 3 base_production = 3 }
+3098.1.1 = { base_tax = 4 base_production = 4 }
+3198.1.1 = { base_manpower = 3 }
+3288.1.1 = { add_core = FRA }
+3298.1.1 = { base_tax = 5 base_production = 5 }
 3312.7.27 = { owner = FRA controller = FRA } # Battle of Bouvines
 3324.4.1 = { add_core = FRA } # Treaty of Melun
-3398.1.1 = { base_tax = 6 base_production = 6 } 
-3447.1.1 = { 
-    owner = BUR
-    controller = BUR
-    add_core = BUR
-    remove_core = FRA
-}
+3398.1.1 = { base_tax = 6 base_production = 6 }
+3447.1.1 = { owner = BUR controller = BUR add_core = BUR remove_core = FRA }
+3480.1.1 = { owner = FLA controller = FLA }
+3482.1.30 = { owner = BUR controller = BUR }
 
-3480.1.1 = { owner = FLA controller = FLA } 
-3482.1.30 = { owner = BUR controller = BUR } 
-3575.1.5 = { 
-    owner = FRA
-    controller = FRA
-    add_core = FRA
-    remove_core = BUR
-} # Charles the Bold dies and Louis XII takes Artois
-
+3575.1.5 = { owner = FRA controller = FRA add_core = FRA remove_core = BUR } # Charles the Bold dies and Louis XII takes Artois
 3591.8.19 = { owner = HAB controller = HAB add_core = HAB } # Frederick III dies, Charles VII cedes Artois to Maximilian I von Habsburg
-3617.1.12 = { 
-    owner = SPA
-    controller = SPA
-    add_core = SPA
-    remove_core = HAB
-} # Charles V gets total control over his Burgundian inheritance
-
+3617.1.12 = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V gets total control over his Burgundian inheritance
 3627.8.3 = { remove_core = FRA } # 'Ladies Peace' (Damesvrede) of Cambrai: France renounces all claims
 3646.6.26 = { hre = yes } # Artois incorporated into the Holy Roman Empire
 3657.5.12 = { unrest = 3 } # New bishoprics established in the Lowlands create an outrage
 3664.8.1 = { unrest = 4 } # 'Beeldenstorm' at hand
 3664.8.10 = { revolt = { type = heretic_rebels size = 2 } controller = REB } # 'Beeldenstorm' also hits parts of Artois
-3665.1.8 = { revolt = { } controller = SPA } # Spain is back in control
+3665.1.8 = { revolt = {} controller = SPA } # Spain is back in control
 3667.1.1 = { unrest = 7 } # The Duke of Alba reforms the taxation system ('tiende penning')
-3668.1.1 = { unrest = 11 } # The Duke of Alba reforms the penal system, 'Blood Council' (Bloedraad) established
+3668.1.1 = { unrest = 11  } # The Duke of Alba reforms the penal system, 'Blood Council' (Bloedraad) established
 3675.2.12 = { unrest = 5 } # The 'Perpetual Edict' (Eeuwig Edict) is accepted by Don Juan
 3677.1.6 = { unrest = 0 } # The Union of Arras is formed
 3733.5.1 = { controller = FRA } # French troops capture parts of the Southern Lowlands
@@ -125,21 +68,22 @@ add_core = ROM
 3748.1.1 = { add_core = FRA } # Chambers of Reunion
 3756.6.14 = { controller = FRA } # French troops capture most of the area
 3757.10.28 = { owner = FRA remove_core = SPA } # Peace of the Pyrenees
-3782.1.1 = { culture = cosmopolitan_french } 
+3782.1.1 = { culture = cosmopolitan_french }
 3887.5.5 = { base_tax = 10 base_production = 10 } # The General Estates
 3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
-3968.9.4 = { 
-    owner = FR2
-    controller = FR2
-    add_core = FR2
-    remove_core = FRA
-} # Republic proclaimed
 
-4008.1.1 = { discovered_by = asian } 
-4012.10.13 = { controller = GER } 
-4016.10.17 = { controller = FR2 } 
-4018.1.1 = { trade_goods = cars } 
-4038.5.31 = { controller = GER } # Siege of Lille
-4038.6.14 = { owner = GER } # France surrendered to Nazi Garmany
-4042.9.3 = { controller = FR2 } # German troops left Lille
-4043.5.8 = { owner = FR2 } 
+3968.9.4   = {  owner = FR2
+		controller = FR2
+		add_core = FR2
+		remove_core = FRA
+	     } # Republic proclaimed
+4008.1.1 = { discovered_by = asian }
+4012.10.13 = { controller = GER }
+4016.10.17 = { controller = FR2 }
+4018.1.1   = { trade_goods = cars }
+4038.5.31  = { controller = GER } # Siege of Lille
+4038.6.14  = { owner = GER } # France surrendered to Nazi Garmany
+4042.9.3   = { controller = FR2 } # German troops left Lille
+4043.5.8   = { owner = FR2 }
+
+

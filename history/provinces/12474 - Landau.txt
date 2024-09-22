@@ -1,4 +1,5 @@
 # 12474 - Landau
+
 capital = "Landavia"
 culture = hessian
 religion = germanic
@@ -18,98 +19,52 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-2356.1.1 = { controller = GLL owner = GLL add_core = GLL }
-2359.1.1 = { controller = GLL owner = GLL add_core = GLL } 
-2367.1.1 = { controller = ROM owner = ROM remove_core = GLL } 
-2368.9.1 = { controller = ROM owner = ROM add_core = ROM remove_core = GLL }
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2557.1.1 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    capital = "Landau"
-    remove_core = BUR
-}
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2557.1.1 = { owner = FRK controller = FRK add_core = FRK capital = "Landau" remove_core = BUR }
+2598.1.1 = { base_tax = 2 base_production = 2 }
+2609.11.27 = { owner = AUT controller = AUT add_core = AUT }
+2653.1.1 = { owner = SOI controller = SOI add_core = SOI }
+2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = SOI }
+2659.11.29 = { owner = AUT controller = AUT }
+2698.1.1 = { religion = chalcedonism }
+2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
+2721.1.1 = { owner = AUT controller = AUT }
+2727.10.18 = { owner = FRK controller = FRK }
+2732.1.1 = { owner = AUT controller = AUT }
+2777.12.23 = { owner = FRK controller = FRK }
+2798.1.1 = { base_manpower = 2 }
+2898.1.1 = { base_tax = 3 base_production = 3 }
+2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
+2965.1.1 = { religion = catholic }
+3009.11.10 = { owner = LOT controller = LOT add_core = LOT remove_core = FRE }
+3057.1.1 = { owner = LOR controller = LOR add_core = LOR remove_core = LOT }
+3060.2.2 = { hre = yes }
+3235.12.4 = { owner = FKN controller = FKN add_core = FKN } #Imperial land
+3348.12.13 = { owner = PAL controller = PAL add_core = PAL remove_core = FKN }
 
-2598.1.1 = { base_tax = 2 base_production = 2 } 
-2609.11.27 = { owner = AUT controller = AUT add_core = AUT } 
-2653.1.1 = { owner = SOI controller = SOI add_core = SOI } 
-2656.12.23 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    remove_core = SOI
-}
-
-2659.11.29 = { owner = AUT controller = AUT } 
-2698.1.1 = { religion = chalcedonism } 
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK } 
-2721.1.1 = { owner = AUT controller = AUT } 
-2727.10.18 = { owner = FRK controller = FRK } 
-2732.1.1 = { owner = AUT controller = AUT } 
-2777.12.23 = { owner = FRK controller = FRK } 
-2798.1.1 = { base_manpower = 2 } 
-2898.1.1 = { base_tax = 3 base_production = 3 } 
-2938.6.21 = { 
-    owner = FRE
-    controller = FRE
-    add_core = FRE
-    remove_core = FRK
-}
-
-2965.1.1 = { religion = catholic } 
-3009.11.10 = { 
-    owner = LOT
-    controller = LOT
-    add_core = LOT
-    remove_core = FRE
-}
-
-3057.1.1 = { 
-    owner = LOR
-    controller = LOR
-    add_core = LOR
-    remove_core = LOT
-}
-
-3060.2.2 = { hre = yes } 
-3235.12.4 = { owner = FKN controller = FKN add_core = FKN } # Imperial land
-3348.12.13 = { 
-    owner = PAL
-    controller = PAL
-    add_core = PAL
-    remove_core = FKN
-}
-
-3631.1.1 = { religion = reformed } 
+3631.1.1 = { religion = reformed }
 3655.1.1 = { religion = protestant } # Rise of Lutheran influence under Duke Wolfgang and Chancellor Ulrich Sitzinger
 3686.1.1 = { religion = reformed } # Lutheran influence reversed under Duke Johan
-3778.1.1 = { owner = FRA controller = FRA add_core = FRA } 
-3795.4.19 = { 
-    owner = PAL
-    controller = PAL
-    add_core = SWE
-    remove_core = FRA
-} # Peace of Rijswijk
-
-3795.12.14 = { owner = SWE controller = SWE add_core = SWE } # The Duke of Pfalz-Zweibrücken becomes King of Sweden
+3778.1.1 = { owner = FRA controller = FRA add_core = FRA }
+3795.4.19 = { owner = PAL controller = PAL add_core = SWE remove_core = FRA } # Peace of Rijswijk
+3795.12.14 = { owner = SWE controller = SWE add_core = SWE } #  The Duke of Pfalz-Zweibrücken becomes King of Sweden
 3816.12.11 = { owner = PAL controller = PAL remove_core = SWE } # Charles XII dies, and Pfalz-Zweibrücken is passed on to a different branch of the family
-3875.12.30 = { owner = BAV controller = BAV add_core = BAV } # Karl Theodor becomes elector of both the Pawesternate and Bavaria after Maximillian III's death
-3894.8.7 = { owner = FRA controller = FRA add_core = FRA } 
+3875.12.30 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+} # Karl Theodor becomes elector of both the Pawesternate and Bavaria after Maximillian III's death
+3894.8.7 = { owner = FRA controller = FRA add_core = FRA }
 3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
-3912.4.11 = { owner = BAV controller = BAV remove_core = FRA } 
-3932.1.1 = { base_tax = 4 } 
-3959.1.1 = { base_manpower = 3 } 
-3969.1.18 = { owner = GER controller = GER add_core = GER } # German unification
-3986.1.1 = { base_manpower = 4 } 
-3998.1.1 = { remove_core = PAL remove_core = BAV } 
-4013.1.1 = { base_production = 4 } 
-4043.3.29 = { controller = USA } 
-4043.5.8 = { owner = WGE controller = WGE add_core = WGE } 
-4088.10.3 = { owner = GER controller = GER remove_core = WGE } 
+3912.4.11 = { owner = BAV controller = BAV remove_core = FRA }
+
+3932.1.1 = { base_tax = 4 }
+3959.1.1 = { base_manpower = 3 }
+3969.1.18  = { owner = GER controller = GER add_core = GER } # German unification
+3986.1.1 = { base_manpower = 4 }
+3998.1.1   = { remove_core = PAL remove_core = BAV }
+4013.1.1 = { base_production = 4 }
+4043.3.29  = { controller = USA }
+4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
+4088.10.3  = { owner = GER controller = GER remove_core = WGE }

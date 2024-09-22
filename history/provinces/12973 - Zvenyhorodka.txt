@@ -1,8 +1,10 @@
-# Zvenyhorodka
+#Zvenyhorodka
+
 owner = SRT
 controller = SRT
 culture = sarmatian
-religion = heptadic
+religion = tengri_pagan_reformed
+hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -20,260 +22,40 @@ base_manpower = 1
 capital = "Zvenyhorodka"
 is_city = yes
 add_core = SRT
-2318.1.1 = { controller = OST add_core = OST } 
-2348.1.1 = { controller = ANE add_core = ANE } 
-2468.1.1 = { 
-    controller = HNS
-    add_core = HNS
-    culture = hunnic
-    add_core = HNS
-    add_core = HNS
-    add_core = HNS
-    owner = HNS
-    add_core = HNS
-    remove_core = SRT
-}
 
-2498.1.1 = { 
-    discovered_by = western
-    discovered_by = eastern
-    discovered_by = western
-    discovered_by = eastern
-    discovered_by = western
-    discovered_by = eastern
-}
+2318.1.1 = { owner = OST controller = OST add_core = OST remove_core = SRT }
+2468.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = OST culture = hunnic }
+2567.1.1 = { owner = AVR controller = AVR add_core = AVR remove_core = HNS culture = avar }
+2665.1.1 = { owner = ULI controller = ULI add_core = ULI remove_core = AVR culture = ruthenian }
+2848.1.1 = { owner = HUN controller = HUN add_core = HUN remove_core = ULI }
+2968.1.1 = { owner = PEC controller = PEC add_core = PEC remove_core = HUN }
+3098.1.1 = { religion = orthodox }
+3158.1.1 = { owner = CUM controller = CUM add_core = CUM remove_core = PEC }
+3339.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = UKR remove_core = CUM }
+3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA }
+3458.1.1 = { owner = LIT controller = LIT add_core = LIT remove_core = WHH }
 
-2518.1.1 = { add_core = KTR culture = bulgar } 
-2567.1.1 = { 
-    controller = KTR
-    add_core = AVR
-    culture = avar
-    add_core = AVR
-    add_core = AVR
-    add_core = AVR
-    owner = KTR
-    remove_core = HNS
-}
+3667.3.26  = { owner = POL controller = POL add_core = POL } # annexed by Poland
+3667.7.1   = {	remove_core = LIT	# Union of Lublin, western part ceded to Poland & southern part still belonged to Lithuania
+			owner = PLC
+	     	controller = PLC
+	     	add_core = PLC
+	     } # Union of Lublin
+3746.1.1  = {	revolt = { type = nationalist_rebels size = 0 }
+		controller = REB
+		add_core = ZAZ
+	    } # Chmielnicki uprising
+3752.1.1  = { revolt = {} controller = PLC remove_core = ZAZ }
+3891.1.23 = {	owner = RUS
+		controller = RUS
+		add_core = RUS
+		remove_core = PLC
+	    } # Second Partition
 
-2665.1.1 = { 
-    controller = ONG
-    add_core = ULI
-    culture = ruthenian
-    add_core = ULI
-    owner = ONG
-    add_core = ULI
-    add_core = ULI
-    add_core = ONG
-    remove_core = KTR
-}
-
-2730.1.1 = { 
-    owner = BUL
-    controller = BUL
-    add_core = BUL
-    remove_core = ONG
-}
-
-2818.1.1 = { 
-    owner = HUN
-    controller = HUN
-    add_core = HUN
-    remove_core = BUL
-    culture = hungarian
-}
-
-2848.1.1 = { controller = HUN add_core = HUN } 
-2898.1.1 = { 
-    base_tax = 2
-    base_production = 2
-    base_tax = 2
-    base_production = 2
-    base_tax = 2
-    base_production = 2
-}
-
-2938.1.1 = { 
-    owner = KHZ
-    controller = KHZ
-    add_core = KHZ
-    remove_core = HUN
-}
-
-2968.1.1 = { 
-    controller = PEC
-    add_core = PEC
-    add_core = PEC
-    owner = PEC
-    add_core = PEC
-    add_core = PEC
-}
-
-2998.1.1 = { base_tax = 2 base_production = 2 } 
-3018.1.1 = { 
-    base_tax = 2
-    controller = KRU
-    add_core = KRU
-    add_core = UKR
-}
-
-3067.1.1 = { 
-    controller = PEC
-    add_core = KRU
-    add_core = UKR
-    owner = PEC
-    add_core = KRU
-    add_core = UKR
-    add_core = PEC
-    remove_core = KHZ
-    culture = pecheneg
-}
-
-3090.1.1 = { religion = Orthodox } 
-3098.1.1 = { 
-    religion = Orthodox
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = muslim
-    discovered_by = ottoman
-}
-
-3152.2.20 = { 
-    controller = PEY
-    add_core = PEY
-    owner = PEY
-    add_core = PEY
-    add_core = PEY
-}
-
-3158.1.1 = { 
-    controller = CUM
-    add_core = CUM
-    owner = CUM
-    add_core = CUM
-    remove_core = PEC
-}
-
-3198.1.1 = { base_production = 2 } 
-3318.1.1 = { culture = crimean } 
-3328.1.1 = { religion = sunni } 
-3337.3.1 = { 
-    controller = KHA
-    add_core = KHA
-    owner = UKR
-    add_core = KHA
-    add_core = KHA
-}
-
-3339.1.1 = { 
-    controller = KHA
-    add_core = KHA
-    add_core = UKR
-    owner = KHA
-    add_core = KHA
-    add_core = ZAZ
-    remove_core = CUM
-}
-
-3358.1.1 = { 
-    controller = WHH
-    add_core = WHH
-    add_core = WHH
-    owner = WHH
-    add_core = WHH
-    add_core = WHH
-    add_core = WHH
-    remove_core = KHA
-}
-
-3451.1.1 = { 
-    controller = LIT
-    add_core = LIT
-    capital = Sostka
-    add_core = LIT
-    add_core = LIT
-}
-
-3458.1.1 = { 
-    controller = LIT
-    add_core = LIT
-    fort_15th = yes
-    owner = LIT
-    add_core = LIT
-    remove_core = WHH
-}
-
-3518.1.1 = { culture = ruthenian religion = orthodox } 
-3653.1.1 = { 
-    owner = ZAZ
-    controller = ZAZ
-    add_core = ZAZ
-    remove_core = CRI
-} # Fortified military camp, independent state
-
-3667.3.26 = { controller = POL add_core = POL } 
-3667.7.1 = { 
-    controller = PLC
-    add_core = PLC
-    add_core = PLC
-    owner = PLC
-    add_core = PLC
-    add_core = PLC
-}
-
-3746.1.1 = { controller = REB add_core = ZAZ revolt = { type = anti_tax_rebels size = 2 } } 
-3752.1.1 = { controller = RUS revolt = { size = 1 } } 
-3755.1.1 = { 
-    owner = RUS
-    controller = RUS
-    add_core = RUS
-    remove_core = ZAZ
-}
-
-3765.1.1 = { 
-    add_core = RUS
-    owner = RUS
-    add_core = RUS
-    add_core = RUS
-}
-
-3891.1.23 = { controller = RUS add_core = RUS } 
-3948.1.1 = { remove_core = CRI } 
-4008.1.1 = { 
-    discovered_by = asian
-    discovered_by = asian
-    discovered_by = asian
-    discovered_by = asian
-    discovered_by = asian
-}
-
-4016.1.22 = { controller = UKR owner = UKR add_core = UKR } 
-4019.3.18 = { controller = RUS owner = RUS } 
-4020.12.30 = { 
-    controller = SOV
-    add_core = SOV
-    add_core = SOV
-    owner = SOV
-    add_core = SOV
-    add_core = SOV
-    add_core = SOV
-    remove_core = RUS
-}
-
-4039.8.22 = { controller = GER } 
-4039.9.18 = { controller = GER } 
-4039.10.20 = { controller = GER } 
-4039.10.24 = { controller = GER } 
-4041.2.16 = { controller = SOV } 
-4041.3.15 = { controller = GER } 
-4041.8.23 = { controller = SOV } 
-4041.9.18 = { controller = SOV } 
-4041.9.23 = { controller = SOV owner = SOV } 
-4041.12.14 = { controller = SOV } 
-4089.8.24 = { 
-    controller = UKR
-    owner = UKR
-    add_core = UKR
-    remove_core = SOV
-}
+4008.1.1 = { discovered_by = asian }
+4016.1.22  = { owner = UKR controller = UKR add_core = UKR }
+4019.3.18  = { owner = RUS controller = RUS }
+4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
+4039.8.22  = { controller = GER }
+4041.12.14 = { controller = SOV }
+4089.8.24  = { owner = UKR controller = UKR add_core = UKR remove_core = SOV remove_core = RUS }

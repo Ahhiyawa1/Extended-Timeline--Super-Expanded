@@ -1,9 +1,10 @@
-# 126 - Malta
+#126 - Malta
+
 owner = ROM
 controller = ROM
 culture = griko
-religion = canaanite_religion
-hre = no
+religion = hellenism 
+hre = no 
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -15,89 +16,60 @@ base_tax = 1
 base_production = 1
 trade_goods = fish
 base_manpower = 1
-capital = "Melita"
+capital = "Melita" 
 is_city = yes
 add_core = ROM
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2552.1.1 = { 
-    owner = VAN
-    controller = VAN
-    add_core = VAN
-    remove_core = ROW
-}
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2552.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = ROW }
+2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = VAN }
+2598.1.1 = { religion = chalcedonism }
+2631.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = OST }
+2698.1.1 = { base_tax = 2 base_production = 2 }
+2898.1.1 = { base_manpower = 2 }
+2965.1.1 = { religion = catholic }
+2968.1.1 = { owner = SCL controller = SCL add_core = SCL capital = "Medina" culture = maltese }
+2978.1.1 = { religion = sunni }
+3098.1.1 = { base_tax = 3 base_production = 3 }
+3146.1.1 = { owner = BYZ controller = BYZ remove_core = SCL }
+3189.1.1 = { owner = SIC controller = SIC add_core = SIC add_core = NAP remove_core = BYZ }
+3220.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+3225.1.1 = { revolt = {} controller = SIC religion = catholic }
 
-2587.1.1 = { 
-    owner = OST
-    controller = OST
-    add_core = OST
-    remove_core = VAN
-}
-
-2598.1.1 = { religion = chalcedonism } 
-2631.1.1 = { 
-    owner = BYZ
-    controller = BYZ
-    add_core = BYZ
-    remove_core = OST
-}
-
-2698.1.1 = { base_tax = 2 base_production = 2 } 
-2898.1.1 = { base_manpower = 2 } 
-2965.1.1 = { religion = catholic } 
-2968.1.1 = { 
-    owner = SCL
-    controller = SCL
-    add_core = SCL
-    capital = "Medina"
-    culture = maltese
-}
-
-2978.1.1 = { religion = sunni } 
-3098.1.1 = { base_tax = 3 base_production = 3 } 
-3146.1.1 = { owner = BYZ controller = BYZ remove_core = SCL } 
-3189.1.1 = { 
-    owner = SIC
-    controller = SIC
-    add_core = SIC
-    add_core = NAP
-    remove_core = BYZ
-}
-
-3220.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } 
-3225.1.1 = { revolt = { } controller = SIC religion = catholic } 
-3507.7.25 = { owner = ARA controller = ARA add_core = ARA } # Martin I inherits Sicily from his son
-3614.1.23 = { 
-    owner = SPA
-    controller = SPA
-    add_core = SPA
-    remove_core = ARA
+3507.7.25 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+} # Martin I inherits Sicily from his son
+3614.1.23 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = ARA
 } # Unification of Spain
-
-3628.1.1 = { 
-    owner = KNI
-    controller = KNI
-    add_core = KNI
-    capital = "Birgu"
-    remove_core = SPA
-    fort_16th = yes
+3628.1.1 = {
+	owner = KNI
+	controller = KNI
+	add_core = KNI
+	capital = "Birgu"
+	remove_core = SPA
+	fort_16th = yes
 } # Malta given to the Knights
-
-3664.3.28 = { capital = "Valletta" } 
+3664.3.28 = { capital = "Valletta" }
 3873.1.1 = { unrest = 4 } # Revolt headed by priest Gaetano Mannarino failed.
-3874.1.1 = { unrest = 0 } 
+3874.1.1 = { unrest = 0 }
 3896.6.9 = { controller = FRA } # Occupied by French troops
 3898.1.1 = { controller = KNI } # British protectorate
-3912.5.30 = { owner = GBR controller = GBR add_core = GBR } # Treaty of Paris
-4008.1.1 = { discovered_by = asian } 
-4019.1.1 = { add_core = JAI remove_core = KNI } 
-4062.9.21 = { owner = JAI controller = JAI remove_core = GBR } 
-4098.1.1 = { base_tax = 4 base_production = 4 } 
+3912.5.30 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+} # Treaty of Paris
+
+4008.1.1 = { discovered_by = asian }
+4019.1.1  = { add_core = JAI remove_core = KNI }
+4062.9.21 = { owner = JAI controller = JAI remove_core = GBR }
+4098.1.1 = { base_tax = 4 base_production = 4 }
 
 
-   
+

@@ -1,10 +1,12 @@
-# 11571 - Karachi
+#11571 - Karachi
+
 owner = SND
 controller = SND
 culture = sindhi
 religion = mahayana
 capital = "Karachi"
 trade_goods = cloth
+hre = no
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -21,82 +23,49 @@ base_production = 3
 base_manpower = 2
 is_city = yes
 add_core = SND
-add_permanent_province_modifier = { name = indus_estuary_modifier duration = -1 } 
-2174.1.1 = { 
-    controller = KUS
-    add_core = KUS
-    owner = KUS
-    add_core = KUS
+
+add_permanent_province_modifier = {
+	name = indus_estuary_modifier
+	duration = -1
 }
 
-2178.1.1 = { controller = SND owner = SND remove_core = KUS } 
-2730.1.1 = { religion = hinduism } 
-2809.1.1 = { 
-    controller = UMA
-    add_core = UMA
-    owner = UMA
-    add_core = UMA
-}
+2174.1.1 = { owner = KUS controller = KUS add_core = KUS }
+2178.1.1 = { owner = SND controller = SND remove_core = KUS }
+2730.1.1 = { religion = hinduism }
+2809.1.1 = { owner = UMA controller = UMA add_core = UMA }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2898.1.1 = { religion = sunni }
+2939.1.1 = { owner = SND controller = SND add_core = SND remove_core = ABA }
+3098.1.1 = { base_tax = 4 base_production = 4 }
+3108.1.1 = { religion = shiite }
+3122.1.1 = { owner = GHZ controller = GHZ add_core = GHZ }
+3124.1.1 = { owner = SND controller = SND remove_core = GHZ }
+3458.1.1 = { religion = sunni }
 
-2848.8.6 = { 
-    controller = ABA
-    add_core = ABA
-    owner = ABA
-    add_core = ABA
-    remove_core = UMA
-}
-
-2898.1.1 = { religion = Sunni } 
-2939.1.1 = { 
-    controller = SND
-    owner = SND
-    add_core = SND
-    remove_core = ABA
-}
-
-3098.1.1 = { base_tax = 4 base_production = 4 religion = sunni } 
-3108.1.1 = { religion = Shiite } 
-3122.1.1 = { 
-    controller = GHZ
-    add_core = GHZ
-    owner = GHZ
-    add_core = GHZ
-}
-
-3124.1.1 = { 
-    controller = SND
-    owner = SND
-    remove_core = GHZ
-    religion = shiite
-}
-
-3198.1.1 = { base_tax = 4 base_production = 4 } 
-3458.1.1 = { religion = sunni } 
-3596.1.1 = { discovered_by = POR discovered_by = POR } 
-3642.1.1 = { controller = BNG owner = BNG } # Sur Expansionism
-3643.1.1 = { controller = SND owner = SND } # Sher Shah dies
-3689.1.1 = { 
-    controller = MUG
-    add_core = MUG
-    owner = MUG
-    add_core = MUG
+3596.1.1 = { discovered_by = POR }
+3642.1.1 = {
+	owner = BNG
+	controller = BNG
+} # Sur Expansionism
+3643.1.1 = {
+	owner = SND
+	controller = SND
+} # Sher Shah dies
+3689.1.1 = {
+	owner = MUG
+	controller = MUG
+	add_core = MUG
 } # Integrated into Mughal Empire
+3837.1.1 = {
+	owner = SND 
+	controller = SND
+	remove_core = MUG
+}
 
-3837.1.1 = { controller = SND owner = SND remove_core = MUG } 
-3898.1.1 = { base_manpower = 3 } 
-3941.2.17 = { 
-    controller = GBR
-    add_core = GBR
-    owner = GBR
-    add_core = GBR
-} # Battle of Miani
-
-3948.1.1 = { religion = shiite } 
-3973.1.1 = { base_manpower = 4 } 
-3999.1.1 = { base_tax = 5 base_production = 5 } 
-4023.1.1 = { base_tax = 6 base_production = 6 base_manpower = 5 } 
-4028.12.29 = { add_core = PAK add_core = PAK } 
-4045.8.14 = { controller = PAK owner = PAK remove_core = GBR } 
-4048.1.1 = { base_manpower = 3 } 
-4073.1.1 = { base_manpower = 4 } 
-4098.1.1 = { base_tax = 5 base_production = 5 } 
+3898.1.1 = { base_manpower = 3 }
+3941.2.17  = { owner = GBR controller = GBR add_core = GBR } #Battle of Miani
+3973.1.1 = { base_manpower = 4 }
+3999.1.1 = { base_tax = 5 base_production = 5 }
+4023.1.1 = { base_tax = 6 base_production = 6 base_manpower = 5 }
+4028.12.29 = { add_core = PAK }
+4045.8.14  = { owner = PAK controller = PAK remove_core = GBR }

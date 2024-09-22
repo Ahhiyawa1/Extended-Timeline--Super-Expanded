@@ -1,6 +1,7 @@
 # No previous file for Tanout
-culture = hausa
-religion = imohag
+
+culture = hausa  
+religion = shamanism
 capital = "Tanout"
 base_manpower = 1
 trade_goods = unknown
@@ -11,50 +12,25 @@ base_production = 3
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9
-2621.1.1 = { 
-    owner = HBS
-    controller = HBS
-    add_core = HBS
-    trade_goods = dyes
-    is_city = yes
-}
 
-3097.1.1 = { 
-    owner = KAN
-    controller = KAN
-    add_core = KAN
-    remove_core = HBS
-}
+2621.1.1 = { owner = HBS controller = HBS add_core = HBS trade_goods = dyes is_city = yes }
+3097.1.1 = { owner = KAN controller = KAN add_core = KAN remove_core = HBS }
+3398.1.1 = { owner = KTS controller = KTS add_core = KTS remove_core = KAN }
+3448.1.1 = { religion = sunni }
 
-3398.1.1 = { 
-    owner = KTS
-    controller = KTS
-    add_core = KTS
-    remove_core = KAN
-}
+3829.1.1 = { owner = KBO controller = KBO add_core = KBO } #Damagaram founded as a vassal of Kanem-Bornu
 
-3448.1.1 = { religion = sunni } 
-3829.1.1 = { owner = KBO controller = KBO add_core = KBO } # Damagaram founded as a vassal of Kanem-Bornu
-3988.1.1 = { discovered_by = FR2 } 
-3999.1.1 = { owner = FR2 controller = FR2 add_core = FR2 } 
-4008.1.1 = { discovered_by = western } 
-4038.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-}
-
-4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+3988.1.1   = { discovered_by = FR2 }
+3999.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
+4008.1.1   = { discovered_by = western }
+4038.1.1   = {  discovered_by = eastern
+		discovered_by = muslim
+		discovered_by = ottoman
+		discovered_by = asian
+	     }
+4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
 4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.8.3 = { 
-    owner = NGR
-    controller = NGR
-    add_core = NGR
-    remove_core = FR2
-    remove_core = KBO
-}
+4058.8.3   = { owner = NGR controller = NGR add_core = NGR remove_core = FR2 remove_core = KBO }
 
 
 
-   

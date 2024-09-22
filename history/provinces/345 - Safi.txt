@@ -1,10 +1,12 @@
 #345 - Abda
+
 owner = MOO
 controller = MOO
 culture = atlas
-religion = amanaiism
+religion = shamanism
 capital = "Safi"
 trade_goods = sugar
+hre = no
 discovered_by = ROW
 discovered_by = ROM
 discovered_by = ottoman
@@ -15,52 +17,39 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = MOO
-2818.1.1 = { owner = UMA controller = UMA } 
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB add_core = BGW } # Great Berber revolt
-2841.1.1 = { 
-    owner = BGW
-    controller = BGW
-    remove_core = UMA
-    revolt = { } 
-} # Caliphate loses control of the region
 
-2878.1.1 = { religion = ibadi } 
-3156.7.27 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = BGW
-}
+2698.1.1 = { discovered_by = western }
+2818.1.1 = { owner = UMA controller = UMA }
+2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB add_core = BGW } #Great Berber revolt
+2841.1.1 = { owner = BGW controller = BGW remove_core = UMA revolt = {} } #Caliphate loses control of the region
+3156.7.27 = { owner = MOR controller = MOR add_core = MOR remove_core = BGW }
+3178.1.1 = { culture = moroccan religion = sunni }
+3472.1.1 = { owner = MRK controller = MRK add_core = MRK }
+3480.1.1 = { owner = MOR controller = MOR }
+3491.1.1 = { owner = MRK controller = MRK } #Semi-independent Hintata Emirs
 
-3178.1.1 = { culture = moroccan religion = sunni } 
-3563.1.1 = { unrest = 5 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
-3570.1.1 = { 
-    owner = FEZ
-    controller = FEZ
-    add_core = FEZ
-    unrest = 0
-} # Wattasids take control over Fez, nominal ruler over much of Morocco.
-
-3583.1.1 = { 
-    owner = POR
-    controller = POR
-    add_core = POR
-    remove_core = FEZ
-}
-
-3640.1.1 = { owner = TFL controller = TFL add_core = TFL } # Portuguese withdrawal from most of the province (exception is Mazagan)
-3647.1.1 = { owner = MOR controller = MOR remove_core = TFL } # Fall of Fez
-3736.10.26 = { owner = FEZ controller = FEZ } # Dilawites seize the region from squabling Saadite claimants
-3766.7.20 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    unrest = 0
-} # Alaouites
-
-3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
-4008.1.1 = { discovered_by = asian } 
+3563.1.1 = { unrest = 5 } #Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country. 
+3570.1.1 = {
+	owner = FEZ
+	controller = FEZ
+	add_core = FEZ
+	unrest = 0
+} #Wattasids take control over Fez, nominal ruler over much of Morocco.
+3586.1.1 = { owner = POR controller = POR add_core = POR remove_core = FEZ } # Conquered by the Portuguese
+3640.1.1 = {	owner = TFL
+		controller = TFL
+		add_core = TFL
+		remove_core = POR
+	   } # The Portuguese abandon Safi
+3647.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+}	#Fall of Fez
+3701.8.1 = { unrest = 5 } # The death of the Saadita Ahmad I al-Mansur
+3766.9.7 = { unrest = 0 } #Alaouites reunifies the country
+3770.1.1 = { unrest = 4 } # Oppositions against Ismail, & the idea of a unified state
+3825.1.1 = { unrest = 0 }
 
 
-
-   
+4008.1.1 = { discovered_by = eastern discovered_by = asian }

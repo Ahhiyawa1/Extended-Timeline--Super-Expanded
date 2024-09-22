@@ -1,9 +1,10 @@
-# 344 - Marrakech
+#344 - Marrakech
+
 owner = ATL
 controller = ATL
 add_core = ATL
 culture = atlas
-religion = amanaiism
+religion = shamanism
 capital = "Demnate"
 trade_goods = wool
 hre = no
@@ -16,74 +17,59 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 is_city = yes
-2698.1.1 = { discovered_by = western } 
-2818.1.1 = { owner = UMA controller = UMA } 
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Great Berber revolt
-2841.1.1 = { 
-    owner = ATL
-    controller = ATL
-    add_core = ATL
-    remove_core = UMA
-    revolt = { } 
-} # Caliphate loses control of the region
 
-2878.1.1 = { religion = ibadi } 
-2887.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = FEZ
+2698.1.1 = { discovered_by = western }
+2818.1.1 = { owner = UMA controller = UMA }
+2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } #Great Berber revolt
+2841.1.1 = { owner = ATL controller = ATL add_core = ATL remove_core = UMA revolt = {} } #Caliphate loses control of the region
+2878.1.1 = { religion = ibadi }
+2887.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = FEZ }
+2998.1.1 = { base_tax = 2 base_production = 2 }
+3020.1.1 = { owner = FAT controller = FAT }
+3023.1.1 = { owner = MOR controller = MOR }
+3025.1.1 = { owner = FAT controller = FAT }
+3035.1.1 = { owner = MOR controller = MOR }
+3072.1.1 = { owner = ATL controller = ATL add_core = ATL remove_core = MOR }
+3138.1.1 = { owner = MOR controller = MOR add_core = MOR }
+3158.1.1 = { religion = sunni }
+3222.1.1 = { owner = SOS controller = SOS add_core = SOS }
+3245.4.1 = { owner = MOR controller = MOR add_core = MOR remove_core = SOS }
+
+3563.1.1 = { unrest = 5 } #Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country. 
+3570.1.1 = {
+	owner = FEZ
+	controller = FEZ
+	add_core = FEZ
+	unrest = 0
+} #Wattasids take control over Fez, nominal ruler over much of Morocco.
+3622.1.1 = {
+	owner = TFL
+	controller = TFL
+	add_core = TFL
+	remove_core = FEZ
 }
-
-2998.1.1 = { base_tax = 2 base_production = 2 } 
-3020.1.1 = { owner = FAT controller = FAT } 
-3023.1.1 = { owner = MOR controller = MOR } 
-3025.1.1 = { owner = FAT controller = FAT } 
-3035.1.1 = { owner = MOR controller = MOR } 
-3072.1.1 = { 
-    owner = ATL
-    controller = ATL
-    add_core = ATL
-    remove_core = MOR
-}
-
-3138.1.1 = { owner = MOR controller = MOR add_core = MOR } 
-3158.1.1 = { religion = sunni } 
-3222.1.1 = { owner = SOS controller = SOS add_core = SOS } 
-3245.4.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SOS
-}
-
-3563.1.1 = { unrest = 5 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
-3570.1.1 = { 
-    owner = FEZ
-    controller = FEZ
-    add_core = FEZ
-    unrest = 0
-} # Wattasids take control over Fez, nominal ruler over much of Morocco.
-
-3622.1.1 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    remove_core = FEZ
-}
-
-3647.1.1 = { owner = MOR controller = MOR remove_core = TFL } # Fall of Fez
-3701.8.1 = { unrest = 5 } # Death of al-Mansur, long period of instability follows
-3736.10.26 = { owner = FEZ controller = FEZ } # Dilawites seize the region from squabling Saadite claimants
-3766.7.20 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    unrest = 0
-} # Alaouites
-
-3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
-4008.1.1 = { discovered_by = eastern discovered_by = asian } 
+3647.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+}	#Fall of Fez
+3701.8.1 = { unrest = 5 } #Death of al-Mansur, long period of instability follows
+3736.10.26 = {
+	owner = FEZ
+	controller = FEZ
+} #Dilawites seize the region from squabling Saadite claimants
+3766.7.20 = {
+	owner = TFL
+	controller = TFL
+	add_core = TFL
+	unrest = 0
+}	#Alaouites
+3766.9.7 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+} #Alaouites reunifies the country
 
 
-   
+
+4008.1.1 = { discovered_by = eastern discovered_by = asian }

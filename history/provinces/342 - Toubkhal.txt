@@ -1,8 +1,9 @@
-# 342 - Dukkala
+#342 - Dukkala
+
 owner = MOO
 controller = MOO
 culture = atlas
-religion = amanaiism
+religion = shamanism
 capital = "Azama"
 trade_goods = grain
 hre = no
@@ -18,59 +19,57 @@ base_production = 2
 base_manpower = 1
 is_city = yes
 add_core = MOO
-2818.1.1 = { owner = UMA controller = UMA } 
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB add_core = BGW } # Great Berber revolt
-2841.1.1 = { 
-    owner = BGW
-    controller = BGW
-    remove_core = UMA
-    revolt = { } 
-} # Caliphate loses control of the region
 
-2878.1.1 = { religion = ibadi } 
-3156.7.27 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = BGW
-    capital = "Mazzagan"
+2818.1.1 = { owner = UMA controller = UMA }
+2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB add_core = BGW } #Great Berber revolt
+2841.1.1 = { owner = BGW controller = BGW remove_core = UMA revolt = {} } #Caliphate loses control of the region
+2878.1.1 = { religion = ibadi }
+3156.7.27 = { owner = MOR controller = MOR add_core = MOR remove_core = BGW capital = "Mazzagan" }
+3178.1.1 = { culture = moroccan religion = sunni }
+
+3563.1.1 = { unrest = 5 } #Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country. 
+3570.1.1 = {
+	owner = FEZ
+	controller = FEZ
+	add_core = FEZ
+	unrest = 0
+} #Wattasids take control over Fez, nominal ruler over much of Morocco.
+3583.1.1 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	remove_core = FEZ
 }
-
-3178.1.1 = { culture = moroccan religion = sunni } 
-3563.1.1 = { unrest = 5 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
-3570.1.1 = { 
-    owner = FEZ
-    controller = FEZ
-    add_core = FEZ
-    unrest = 0
-} # Wattasids take control over Fez, nominal ruler over much of Morocco.
-
-3583.1.1 = { 
-    owner = POR
-    controller = POR
-    add_core = POR
-    remove_core = FEZ
-}
-
-3640.1.1 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    capital = "Azamor"
+3640.1.1 = {
+	owner = TFL
+	controller = TFL
+	add_core = TFL
+	capital = "Azamor"
 } # Portuguese withdrawal from most of the province (exception is Mazagan)
+3647.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+}	#Fall of Fez
+3736.10.26 = {
+	owner = FEZ
+	controller = FEZ
+} #Dilawites seize the region from squabling Saadite claimants
+3766.7.20 = {
+	owner = TFL
+	controller = TFL
+	add_core = TFL
+	unrest = 0
+}	#Alaouites
+3766.9.7 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+} #Alaouites reunifies the country
 
-3647.1.1 = { owner = MOR controller = MOR remove_core = TFL } # Fall of Fez
-3736.10.26 = { owner = FEZ controller = FEZ } # Dilawites seize the region from squabling Saadite claimants
-3766.7.20 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    unrest = 0
-} # Alaouites
-
-3766.9.7 = { owner = MOR controller = MOR remove_core = TFL } # Alaouites reunifies the country
-3948.1.1 = { capital = "El Jadida" } 
-4008.1.1 = { discovered_by = asian } 
+3948.1.1 = { capital = "El Jadida" }
 
 
-   
+
+
+4008.1.1 = { discovered_by = asian }

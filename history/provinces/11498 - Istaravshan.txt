@@ -1,9 +1,10 @@
-# 11498 - Istaravshan
+#11498 - Istaravshan
+
 owner = KGJ
 controller = KGJ
 add_core = KGJ
 culture = sogdian
-religion = heptadic
+religion = zoroastrian
 capital = "Istaravshan"
 trade_goods = silk
 hre = no
@@ -20,136 +21,53 @@ base_tax = 2
 base_production = 2
 base_manpower = 3
 is_city = yes
-2418.1.1 = { 
-    owner = KDT
-    controller = KDT
-    add_core = KDT
-    remove_core = KGJ
-}
 
-2478.1.1 = { 
-    owner = HEP
-    controller = HEP
-    add_core = HEP
-    remove_core = KDT
-}
+2418.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KGJ }
+2478.1.1 = { owner = HEP controller = HEP add_core = HEP remove_core = KDT }
+2665.1.1 = { owner = GOK controller = GOK add_core = GOK remove_core = HEP }
+2691.1.1 = { owner = WGO controller = WGO add_core = WGO remove_core = GOK }
+2757.1.1 = { owner = FRG controller = FRG add_core = FRG remove_core = WGO }
+2820.1.1 = { owner = UMA controller = UMA add_core = UMA }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2898.1.1 = { culture = tajik }
+2917.1.1 = { owner = KOK controller = KOK add_core = KOK remove_core = KLU }
+3048.1.1 = { religion = sunni }
+2990.8.1 = { owner = BUK controller = BUK add_core = BUK }
+3090.1.1 = { owner = KKH controller = KKH add_core = KKH remove_core = BUK }
+3140.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = KKH }
+3309.1.1 = { owner = KKT controller = KKT add_core = KKT }
+3317.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KKT }
+3358.1.1 = { owner = CGT controller = CGT add_core = CGT remove_core = KHA }
+3445.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = CGT }
+3458.1.1 = { owner = CHG controller = CHG add_core = CHG }
+3461.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = CHG }
+3468.1.1 = { owner = TIM controller = TIM add_core = TIM }
 
-2665.1.1 = { 
-    owner = GOK
-    controller = GOK
-    add_core = GOK
-    remove_core = HEP
+3507.5.13 = { #Ulugh Beg is made Governor of Samarkand
+	owner = TRS
+	controller = TRS
 }
-
-2691.1.1 = { 
-    owner = WGO
-    controller = WGO
-    add_core = WGO
-    remove_core = GOK
+3546.3.1 = { #Ulugh Beg takes Herat and reunites the core of the Timurid Empire
+	owner = TIM
+	controller = TIM
 }
-
-2757.1.1 = { 
-    owner = FRG
-    controller = FRG
-    add_core = FRG
-    remove_core = WGO
-}
-
-2820.1.1 = { owner = UMA controller = UMA add_core = UMA } 
-2848.8.6 = { 
-    owner = ABA
-    controller = ABA
-    add_core = ABA
-    remove_core = UMA
-}
-
-2898.1.1 = { culture = tajik } 
-2917.1.1 = { 
-    owner = KOK
-    controller = KOK
-    add_core = KOK
-    remove_core = KLU
-}
-
-2990.8.1 = { owner = BUK controller = BUK add_core = BUK } 
-3048.1.1 = { religion = sunni } 
-3090.1.1 = { 
-    owner = KKH
-    controller = KKH
-    add_core = KKH
-    remove_core = BUK
-}
-
-3140.1.1 = { 
-    owner = TRS
-    controller = TRS
-    add_core = TRS
-    remove_core = KKH
-}
-
-3309.1.1 = { owner = KKT controller = KKT add_core = KKT } 
-3317.1.1 = { 
-    owner = KHA
-    controller = KHA
-    add_core = KHA
-    remove_core = KKT
-}
-
-3358.1.1 = { 
-    owner = CGT
-    controller = CGT
-    add_core = CGT
-    remove_core = KHA
-}
-
-3445.1.1 = { 
-    owner = TRS
-    controller = TRS
-    add_core = TRS
-    remove_core = CGT
-}
-
-3458.1.1 = { owner = CHG controller = CHG add_core = CHG } 
-3461.1.1 = { 
-    owner = TRS
-    controller = TRS
-    add_core = TRS
-    remove_core = CHG
-}
-
-3468.1.1 = { owner = TIM controller = TIM add_core = TIM } 
-3507.5.13 = { owner = TRS controller = TRS } 
-3546.3.1 = { owner = TIM controller = TIM } 
-3599.1.1 = { owner = SHY controller = SHY add_core = SHY } # Muhammad Shaybani
+3599.1.1 = {
+	owner = SHY
+	controller = SHY
+	add_core = SHY
+} # Muhammad Shaybani
 3600.1.1 = { 
-    owner = BUK
-    add_core = BUK
-    controller = BUK
-    remove_core = SHY
-    remove_core = TIM
+	owner = BUK 
+	add_core = BUK
+	controller = BUK
+	remove_core = SHY
+	remove_core = TIM 
 } # The Uzbek Shaybanids brings an end to the Timurid dynasty
+3720.1.1 = { discovered_by = RUS }
+3900.1.1 = { owner = KOK controller = KOK remove_core = BUK }
 
-3720.1.1 = { discovered_by = RUS } 
-3900.1.1 = { owner = KOK controller = KOK remove_core = BUK } 
-3940.1.1 = { 
-    owner = BUK
-    controller = BUK
-    add_core = BUK
-    remove_core = KOK
-}
-
-3964.1.1 = { owner = RUS controller = RUS add_core = RUS } 
-4020.12.30 = { 
-    owner = SOV
-    controller = SOV
-    add_core = SOV
-    remove_core = RUS
-}
-
-4027.1.1 = { add_core = TJK remove_core = BUK } 
-4089.9.9 = { 
-    owner = TJK
-    controller = TJK
-    remove_core = SOV
-    remove_core = RUS
-}
+3940.1.1   = { owner = BUK controller = BUK add_core = BUK remove_core = KOK }
+3964.1.1   = { owner = RUS controller = RUS add_core = RUS }
+4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
+4027.1.1   = { add_core = TJK remove_core = BUK }
+4089.9.9   = { owner = TJK controller = TJK remove_core = SOV remove_core = RUS }

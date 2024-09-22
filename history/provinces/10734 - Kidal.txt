@@ -1,7 +1,8 @@
-# 10734 - Kidal
+#10734 - Kidal
+
 culture = tuareg
 base_manpower = 1
-religion = imohag
+religion = shamanism
 capital = "Kidal"
 trade_goods = unknown
 hre = no
@@ -11,65 +12,25 @@ base_production = 1
 native_size = 40
 native_ferocity = 4.5
 native_hostileness = 10
-2948.1.1 = { 
-    owner = SAN
-    controller = SAN
-    add_core = SAN
-    is_city = yes
-    trade_goods = wool
-}
 
-2998.1.1 = { 
-    owner = TMB
-    controller = TMB
-    add_core = TMB
-    remove_core = SAN
-}
+2948.1.1 = { owner = SAN controller = SAN add_core = SAN is_city = yes trade_goods = wool }
+2998.1.1 = { owner = TMB controller = TMB add_core = TMB remove_core = SAN }
+3048.1.1 = { religion = sunni }
+3528.1.1 = { owner = SON controller = SON add_core = SON remove_core = TMB }
 
-3048.1.1 = { religion = sunni } 
-3528.1.1 = { 
-    owner = SON
-    controller = SON
-    add_core = SON
-    remove_core = TMB
-}
-
-3641.1.1 = { discovered_by = MOR } 
+3641.1.1  = { discovered_by = MOR }
 3689.3.15 = { owner = AIR controller = AIR add_core = AIR } # Songahi defeat at Tondibi leaves Tuareg free
-3740.1.1 = { remove_core = SON } # Collapse of last vestiges of unity among Songhai
-3798.1.1 = { 
-    owner = TMB
-    controller = TMB
-    add_core = TMB
-    remove_core = AIR
-} # Timbuktu is effectively a Tuareg tag again
+3740.1.1   = { remove_core = SON } # Collapse of last vestiges of unity among Songhai
+3798.1.1 = { owner = TMB controller = TMB add_core = TMB remove_core = AIR } #Timbuktu is effectively a Tuareg tag again
 
-3924.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = TMB
-}
-
-3978.1.1 = { discovered_by = FR2 } 
-3999.1.1 = { owner = FR2 controller = FR2 add_core = FR2 } 
-4008.1.1 = { discovered_by = western } 
-4038.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-}
-
-4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+3924.1.1   = { owner = MOR controller = MOR add_core = MOR remove_core = TMB }
+3978.1.1   = { discovered_by = FR2 }
+3999.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
+4008.1.1   = { discovered_by = western }
+4038.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
+4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
 4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.6.20 = { 
-    owner = MAL
-    controller = MAL
-    add_core = MAL
-    remove_core = FR2
-    remove_core = MOR
-}
+4058.6.20  = { owner = MAL controller = MAL add_core = MAL remove_core = FR2 remove_core = MOR }
+4110.1.17  = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+4110.6.26  = { revolt = {} controller = MAL }
 
-4110.1.17 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } 
-4110.6.26 = { controller = MAL owner = MAL revolt = { } } 

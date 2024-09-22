@@ -1,8 +1,9 @@
-# 1855 - Sidon
+#1855 - Sidon
+
 owner = ROM
 controller = ROM
 culture = aramaic
-religion = canaanite_religion
+religion = jewish
 capital = "Sidon"
 trade_goods = naval_supplies
 hre = no
@@ -21,113 +22,48 @@ base_production = 4
 base_manpower = 3
 is_city = yes
 add_core = ROM
-2128.1.1 = { religion = chalcedonism } 
-2367.1.1 = { add_core = PLM revolt = { type = nationalist_rebels size = 1 } controller = REB } 
-2370.1.1 = { controller = ROM remove_core = PLM revolt = { } } 
-2493.1.17 = { 
-    controller = BYZ
-    owner = BYZ
-    add_core = BYZ
-    remove_core = ROM
-} # Final division of the empire
 
-2610.11.16 = { religion = coptic } # Syrian Orthodox Church
+2128.1.1 = { religion = chalcedonism }
+2367.1.1 = { add_core = PLM revolt = { type = nationalist_rebels size = 1 } controller = REB }
+2370.1.1 = { controller = ROM remove_core = PLM revolt = {} }
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2610.11.16 = { religion = coptic } #Syrian Orthodox Church
 2708.1.1 = { revolt = { type = jewish_rebels size = 2 } controller = REB } # Jewish revolt
-2711.1.1 = { revolt = { } controller = ERS } 
-2725.1.1 = { controller = BYZ } 
-2734.1.1 = { 
-    owner = RSD
-    controller = RSD
-    add_core = RSD
-    remove_core = BYZ
-}
+2711.1.1 = { revolt = {} controller = ERS }
+2725.1.1 = { controller = BYZ }
+2734.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BYZ }
+2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
+2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
+2966.9.15 = { owner = EGY controller = EGY add_core = EGY }
+3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
+3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
+3043.1.1 = { owner = SYR controller = SYR add_core = SYR remove_core = EGY }
+3058.1.1 = { culture = al_suryah_arabic }
+3098.1.1 = { base_tax = 5 base_production = 5 }
+3100.1.1 = { owner = FAT controller = FAT add_core = FAT }
+3184.1.1 = { owner = SYR controller = SYR add_core = SYR remove_core = FAT }
+3202.1.1 = { religion = catholic }
+3209.1.1 = { owner = KOJ controller = KOJ add_core = KOJ }
+3286.1.1 = { owner = EGY controller = EGY add_core = EGY } #Battle of Hattin
+3295.1.1 = { owner = KOJ controller = KOJ }
+3389.1.1 = { owner = MAM controller = MAM add_core = MAM remove_core = KOJ }
+3475.1.1 = { revolt = { type = pretender_rebels size = 4 } controller = REB }
+3480.1.1 = { revolt = {} controller = MAM }
 
-2759.7.28 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = RSD
-}
+3614.8.24 = {	owner = TUR
+		controller = TUR
+		add_core = TUR
+	   } # Part of the Ottoman Empire
 
-2848.8.6 = { 
-    owner = ABA
-    controller = ABA
-    add_core = ABA
-    remove_core = UMA
-}
-
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY } 
-3003.1.10 = { owner = ABA controller = ABA add_core = ABA } 
-3033.8.26 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    remove_core = ABA
-}
-
-3043.1.1 = { 
-    owner = SYR
-    controller = SYR
-    add_core = SYR
-    remove_core = EGY
-}
-
-3058.1.1 = { culture = al_suryah_arabic } 
-3098.1.1 = { base_tax = 5 base_production = 5 } 
-3100.1.1 = { owner = FAT controller = FAT add_core = FAT } 
-3184.1.1 = { 
-    owner = SYR
-    controller = SYR
-    add_core = SYR
-    remove_core = FAT
-}
-
-3202.1.1 = { religion = catholic } 
-3209.1.1 = { owner = KOJ controller = KOJ add_core = KOJ } 
-3286.1.1 = { owner = EGY controller = EGY add_core = EGY } # Battle of Hattin
-3295.1.1 = { owner = KOJ controller = KOJ } 
-3389.1.1 = { 
-    owner = MAM
-    controller = MAM
-    add_core = MAM
-    remove_core = KOJ
-}
-
-3475.1.1 = { revolt = { type = pretender_rebels size = 4 } controller = REB } 
-3480.1.1 = { revolt = { } controller = MAM } 
-3614.8.24 = { owner = TUR controller = TUR add_core = TUR } # Part of the Ottoman Empire
-3899.1.1 = { base_production = 6 } 
-3931.5.6 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    remove_core = MAM
-}
-
-3939.2.1 = { 
-    owner = TUR
-    controller = TUR
-    add_core = TUR
-    remove_core = EGY
-}
-
-3948.1.1 = { religion = shiite } 
-3973.1.1 = { base_tax = 6 } 
-4008.1.1 = { discovered_by = asian } 
-4018.3.8 = { owner = SYR controller = SYR add_core = SYR } 
-4018.7.24 = { 
-    owner = FR2
-    controller = FR2
-    add_core = FR2
-    add_core = LEB
-    remove_core = SYR
-    remove_core = TUR
-}
-
-4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4039.7.1 = { owner = FR2 controller = FR2 remove_core = FRV } # Taken by Free France
-4041.11.22 = { owner = LEB controller = LEB remove_core = FR2 } 
-4098.1.1 = { base_manpower = 5 } 
-
-
-   
+3899.1.1   = { base_production = 6 }
+3931.5.6   = { owner = EGY controller = EGY add_core = EGY remove_core = MAM }
+3939.2.1   = { owner = TUR controller = TUR add_core = TUR remove_core = EGY }
+3948.1.1   = { religion = shiite }
+3973.1.1   = { base_tax = 6 }
+4008.1.1 = { discovered_by = asian }
+4018.3.8   = { owner = SYR controller = SYR add_core = SYR }
+4018.7.24  = { owner = FR2 controller = FR2 add_core = FR2 add_core = LEB remove_core = SYR remove_core = TUR }
+4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4039.7.1   = { owner = FR2 controller = FR2 remove_core = FRV } # Taken by Free France
+4041.11.22 = { owner = LEB controller = LEB remove_core = FR2 }
+4098.1.1   = { base_manpower = 5 }

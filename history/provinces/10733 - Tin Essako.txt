@@ -1,89 +1,37 @@
 # 10733 - Tin Essako
+
 culture = tuareg
 base_manpower = 1
-religion = imohag
+religion = shamanism
 capital = "Tin Essako"
 trade_goods = unknown
+hre = no
 discovered_by = sub_saharan
 base_tax = 1
 base_production = 1
 native_size = 40
 native_ferocity = 4
 native_hostileness = 9
-is_city = no
-2798.1.1 = { 
-    controller = SON
-    add_core = SON
-    city = yes
-    trade_goods = Livestock
-}
 
-3108.1.1 = { religion = Sunni } 
-3348.1.1 = { 
-    owner = TDD
-    controller = TDD
-    add_core = TDD
-    trade_goods = salt
-    is_city = yes
-    religion = sunni
-}
+2798.1.1 = { owner = SON controller = SON add_core = SON is_city = yes trade_goods = livestock }
+3108.1.1 = { religion = sunni }
 
-3502.1.1 = { 
-    owner = AIR
-    controller = AIR
-    add_core = AIR
-    remove_core = TDD
-}
+3689.3.15 = {	owner = AIR
+		controller = AIR
+		add_core = AIR
+	     } # Songahi defeat at Tondibi leaves Tuareg free
 
-3598.1.1 = { owner = SON controller = SON add_core = SON } # Askiya Muhammad of Songhai seizes control
-3689.3.15 = { 
-    controller = AIR
-    add_core = AIR
-    owner = AIR
-    add_core = AIR
-    remove_core = SON
-} # Songahi defeat at Tondibi leaves Tuareg free
+3978.1.1   = { discovered_by = FR2 }
+3998.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
+4008.1.1   = { discovered_by = western }
+4038.1.1   = {  discovered_by = eastern
+		discovered_by = muslim
+		discovered_by = ottoman
+		discovered_by = asian
+	     }
+4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4058.6.20  = { owner = MAL controller = MAL add_core = MAL remove_core = FR2 remove_core = MOR }
+4110.1.17  = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+4110.6.26  = { revolt = {} controller = MAL }
 
-3978.1.1 = { discovered_by = FR2 } 
-3988.1.1 = { discovered_by = FR2 } 
-3998.1.1 = { 
-    controller = FR2
-    add_core = FR2
-    owner = FR2
-    add_core = FR2
-}
-
-4008.1.1 = { discovered_by = western discovered_by = western religion = sunni } 
-4014.12.17 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Kaocen Revolt
-4015.3.3 = { revolt = { } controller = FR2 } 
-4038.1.1 = { 
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-    discovered_by = eastern
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = asian
-}
-
-4038.6.14 = { 
-    controller = FRV
-    add_core = FRV
-    owner = FRV
-    add_core = FRV
-} # Vichy France
-
-4040.11.16 = { controller = FR2 owner = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.6.20 = { controller = MAL add_core = MAL } 
-4058.8.3 = { 
-    owner = NGR
-    controller = NGR
-    add_core = NGR
-    remove_core = FR2
-    remove_core = AIR
-}
-
-4066.1.1 = { trade_goods = uranium } 
-4110.1.17 = { controller = REB revolt = { type = nationalist_rebels size = 1 } } 
-4110.6.26 = { controller = MAL owner = MAL revolt = { size = 1 } } 
