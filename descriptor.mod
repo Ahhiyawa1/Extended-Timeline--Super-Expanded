@@ -22,7 +22,7 @@ tags={
 	"Technologies"
 	"Sound"
 }
-name="Extended Timeline Super Expanded (WIP)"
+name="Extended Timeline: Super Expanded (WIP)"
 picture="extended_timeline_se.png"
 supported_version="v1.37"
 remote_file_id="3268852078"
