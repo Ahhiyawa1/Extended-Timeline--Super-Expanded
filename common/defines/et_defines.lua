@@ -1,13 +1,6 @@
--- Format for overwriting define values:
---
--- NDefines.NDiplomacy.MAX_CLIENT_STATES = 20
-
 NDefines.NGame.START_DATE = "2100.1.1"
 NDefines.NGame.END_DATE = "99999.12.31"
 NDefines.NGame.MAX_RANDOM_NEW_WORLD = "1.1.1"
-NDefines.NGame.GREAT_POWER_FRENZY_START = "3890.1.1",	-- Latest date for the start of the Great Power Frenzy (struggle).
-NDefines.NGame.GREAT_POWER_FRENZY_WARMUP_MONTHS = 600,	-- How many months does it take for the Great Power Frenzy to reach full potency after starting.
-NDefines.NGame.GREAT_POWER_FRENZY_QUICKSTART = 0,		-- Can the Great Power Frenzy start early due to one alliance block becoming too powerful?
 NDefines.NDiplomacy.VASSALIZE_BASE_DEVELOPMENT_CAP = 1000
 NDefines.NCountry.ADVISOR_COST_INCREASE_PER_YEAR = 0.0006
 NDefines.NCountry.FREE_IDEA_GROUP_COST  = 10
@@ -46,30 +39,27 @@ NDefines.NAI.PEACE_HIGH_WAR_EXHAUSTION_THRESHOLD = 7
 NDefines.NAI.PEACE_WAR_EXHAUSTION_FACTOR = 1.6
 NDefines.NGovernment.GOVERNMENT_REFORM_BASE_COST = 300.0
 NDefines.NGovernment.GOVERNMENT_REFORM_COST_INCREASE = 10.0
-
-NDefines.NDiplomacy.
-NDefines.NDiplomacy.AE_OTHER_CONTINENT = 2.5,               -- Significantly reduced from 10
-NDefines.NDiplomacy.AE_SAME_CULTURE = 0.125,                -- Significantly reduced from 0.5
-NDefines.NDiplomacy.AE_SAME_CULTURE_GROUP = 0.0525,         -- Significantly reduced from 0.25
-NDefines.NDiplomacy.AE_INFIDEL_CONQUEST = 0.0525,           -- Significantly reduced from 0.25
-NDefines.NDiplomacy.AE_SAME_RELIGION = 0.125,               -- Significantly reduced from 0.5
-NDefines.NDiplomacy.AE_SAME_RELIGION_GROUP = 0.0,           -- No change, still 0
-NDefines.NDiplomacy.AE_DIFFERENT_RELIGION = -0.125,         -- Reduced from -0.5
-NDefines.NDiplomacy.AE_HRE_INTERNAL = 0.125,                -- Reduced from 0.5
-NDefines.NDiplomacy.AE_ATTACKER_DEVELOPMENT = 0.0025,       -- Significantly reduced from 0.01
-NDefines.NDiplomacy.AE_DEFENDER_DEVELOPMENT = 0.0025,       -- Significantly reduced from 0.01
-NDefines.NDiplomacy.AE_DISTANCE_BASE = 0.25,                -- Reduced from 0.75
-NDefines.NDiplomacy.AE_SAME_OVERLORD = 0.125,               -- Reduced from 0.5
-NDefines.NDiplomacy.AE_PROVINCE_CAP = 10,                   -- Reduced from 30
-NDefines.NDiplomacy.AE_THREATEN_WAR = 0.17,                 -- Reduced from 1.0
-NDefines.NDiplomacy.AE_PRIMITIVES = -0.25,                  -- Reduced from -0.75
-NDefines.NDiplomacy.NUM_POSSIBLE_RIVALS = 4,
-NDefines.NDiplomacy.PO_DEMAND_PROVINCES_AE = 0.6, 				-- _DDEF_PO_DEMAND_PROVINCES_AE = 10, (Per development)
-NDefines.NDiplomacy.PO_RETURN_CORES_AE = 0.4, 					-- (Per core, only applied if returning cores to vassals of winner)
-NDefines.NDiplomacy.PO_FORM_PU_AE = 0.20, 							-- _DDEF_PO_FORM_PU_AE = 10, (Per development)
-NDefines.NDiplomacy.PO_CONCEDE_COLONIAL_AE = 0.2,
-NDefines.NDiplomacy.PO_BECOME_VASSAL_AE = 0.5, 					-- _DDEF_PO_BECOME_VASSAL_AE = 10, (Per development)
-NDefines.NDiplomacy.PO_FORCE_JOIN_EMPIRE_AE = 0.2, 					-- _DDEF_PO_BECOME_VASSAL_AE = 10, (Per development)
-NDefines.NDiplomacy.ALLY_AE_MULT = 0.675,    -- Reduced from 1.5
-NDefines.NDiplomacy.AE_COALITION_THRESHOLD = -70,					-- Coalitions can form below this amount of AE opinion
-NDefines.NDiplomacy.MAX_CLIENT_STATES = 40,							-- Max client states for one country
+NDefines.NDiplomacy.AE_OTHER_CONTINENT = 2.5
+NDefines.NDiplomacy.AE_SAME_CULTURE = 0.125
+NDefines.NDiplomacy.AE_SAME_CULTURE_GROUP = 0.0525
+NDefines.NDiplomacy.AE_INFIDEL_CONQUEST = 0.0525
+NDefines.NDiplomacy.AE_SAME_RELIGION = 0.125
+NDefines.NDiplomacy.AE_SAME_RELIGION_GROUP = 0.0
+NDefines.NDiplomacy.AE_DIFFERENT_RELIGION = -0.125
+NDefines.NDiplomacy.AE_HRE_INTERNAL = 0.125
+NDefines.NDiplomacy.AE_ATTACKER_DEVELOPMENT = 0.0025
+NDefines.NDiplomacy.AE_DEFENDER_DEVELOPMENT = 0.0025
+NDefines.NDiplomacy.AE_DISTANCE_BASE = 0.25
+NDefines.NDiplomacy.AE_SAME_OVERLORD = 0.125
+NDefines.NDiplomacy.AE_PROVINCE_CAP = 10
+NDefines.NDiplomacy.AE_THREATEN_WAR = 0.17
+NDefines.NDiplomacy.AE_PRIMITIVES = -0.25
+NDefines.NDiplomacy.NUM_POSSIBLE_RIVALS = 4
+NDefines.NDiplomacy.PO_DEMAND_PROVINCES_AE = 0.6
+NDefines.NDiplomacy.PO_RETURN_CORES_AE = 0.4
+NDefines.NDiplomacy.PO_FORM_PU_AE = 0.20
+NDefines.NDiplomacy.PO_CONCEDE_COLONIAL_AE = 0.2
+NDefines.NDiplomacy.PO_BECOME_VASSAL_AE = 0.5
+NDefines.NDiplomacy.PO_FORCE_JOIN_EMPIRE_AE = 0.2
+NDefines.NDiplomacy.ALLY_AE_MULT = 0.675
+NDefines.NDiplomacy.MAX_CLIENT_STATES = 40
