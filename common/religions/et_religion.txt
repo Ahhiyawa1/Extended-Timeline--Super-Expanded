@@ -1685,6 +1685,37 @@ jainko_group = {
 }
 
 
+satanism_group = {
+
+    henotheistic_satanism = {
+        color = { 0.110 0.111 0.111 }
+        icon = 52
+        
+        # Allow secondary religions and their mechanics
+        
+        # Province-specific effects
+        province = {
+            local_missionary_strength = -0.03
+        }
+
+        # Country-wide modifiers
+        country = {
+            tolerance_heathen = 1  # Tolerance towards heathens
+			tolerance_heretic = 3  # Tolerance towards heathens
+            religious_unity = 0.5   # Base religious unity
+			female_advisor_chance = 0.4
+        }
+
+        # Define heretic group
+        heretic = { ATHEIST }
+    }
+
+    # Other modifiers
+    crusade_name = UNHOLY_WAR                    # Name of the crusade associated with this religion
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+}
+
 
 
 fantasy_pagan = {
