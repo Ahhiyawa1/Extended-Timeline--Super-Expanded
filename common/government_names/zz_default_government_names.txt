@@ -93,8 +93,10 @@ default_monarchy = {
 		10 = HEIR_fem
 	}
 
+	government_reform = monarchy_mechanic
+
 	trigger = {
-		government = monarchy
+		has_reform = monarchy_mechanic
 	}
 }
 
@@ -163,9 +165,11 @@ default_republic = {
 		9 = CONSORT
 		10 = CONSORT
 	}
+	
+	government_reform = republic_mechanic
 
 	trigger = {
-		government = republic	
+		government = republic
 	}
 }
 
@@ -261,8 +265,14 @@ default_theocracy = {
 		10 = HEIR_fem
 	}
 
+	government_reform = theocracy_mechanic
+
 	trigger = {
 		government = theocracy
+		religion_group = christian
+		NOT = {
+		religion = sunni
+		}
 	}
 }
 
@@ -357,6 +367,8 @@ default_tribal = {
 		9 = HEIR_fem
 		10 = HEIR_fem
 	}
+
+	government_reform = tribe_mechanic
 
 	trigger = {
 		government = tribal
@@ -455,6 +467,8 @@ default_native = {
 		9 = HEIR_fem
 		10 = HEIR_fem
 	}
+
+	government_reform = native_basic_reform
 
 	trigger = {
 		government = native

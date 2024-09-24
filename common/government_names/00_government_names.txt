@@ -96,15 +96,16 @@ polish_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
-			#primary_culture = polish
+			primary_culture = polish
 			tag = POL
 			tag = PLC
 			AND = {
 			culture_group = west_slavic
 			NOT = { primary_culture = czech }
 			NOT = { primary_culture = slovak }
+			NOT = { primary_culture = schlesian }
 			NOT = { tag = MVA }
 			}
 		}
@@ -204,12 +205,12 @@ german_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = germanic
 		NOT = {
 			primary_culture = dutch
 			primary_culture = flemish
-			primary_culture = frisian
+			#primary_culture = frisian
 			}
 	}
 }
@@ -308,7 +309,7 @@ ethiopian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		tag = ETH
 	}
 }
@@ -407,8 +408,13 @@ french_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
+		AND = {
 		culture_group = french
+		NOT = {
+		primary_culture = breton
+			}
+		}
 	}
 }
 
@@ -506,7 +512,7 @@ italian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = latin
 	}
 }
@@ -605,7 +611,7 @@ spanish_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = iberian
 	}
 }
@@ -703,7 +709,7 @@ danish_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture = danish
 	}
 }
@@ -801,11 +807,11 @@ dutch_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 			primary_culture = dutch
 			primary_culture = flemish
-			primary_culture = frisian
+			#primary_culture = frisian
 			}
 	}
 }
@@ -877,7 +883,7 @@ czech_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 			primary_culture = czech
 			tag = MVA
@@ -953,7 +959,7 @@ hungarian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			primary_culture = hungarian
 	}
 }
@@ -1025,7 +1031,7 @@ russian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = east_slavic
 	}
 }
@@ -1097,7 +1103,7 @@ persian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = iranian
 	}
 }
@@ -1169,7 +1175,7 @@ persian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			culture_group = turko_semitic
 	}
 }
@@ -1192,7 +1198,7 @@ portuguese_localisation = {
 		1 = BARAO
 		2 = CONTADOR
 		3 = MARGRAVE
-		4 = DUQUE
+		4 = DUQUE #jj
 		5 = PRINCIPEPOR
 		6 = GRAODUQUE
 		7 = ARQUIDUQUE
@@ -1267,7 +1273,7 @@ portuguese_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 			primary_culture = portuguese
 	}
 }
@@ -1333,7 +1339,7 @@ romanmonarchy_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 			primary_culture = roman
 			tag = ROM
@@ -1498,7 +1504,7 @@ swedish_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = swedish
 	}
 }
@@ -1596,7 +1602,7 @@ norwegian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = norwegian
 	}
 }
@@ -1694,7 +1700,7 @@ nahuatl_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		religion = nahuatl
 	}
 }
@@ -1792,7 +1798,7 @@ hindi_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		religion = hinduism
 	}
 }
@@ -1890,7 +1896,7 @@ chinese_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		culture_group = east_asian
 	}
 }
@@ -1988,7 +1994,7 @@ korean_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = korean
 		primary_culture = korean_new
@@ -2089,7 +2095,7 @@ vietnamese_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = vietnamese
 		primary_culture = vietnamese_new
@@ -2190,7 +2196,7 @@ coatserb_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = croatian
 		primary_culture = serbian
@@ -2291,7 +2297,7 @@ gaelic_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		culture_group = gaelic
 	}
 }
@@ -2389,7 +2395,7 @@ tibetan_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = tibetan
 		primary_culture = tibetan_new
@@ -2490,7 +2496,7 @@ nomadicasian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		#continent = asia
 		technology_group = nomad_group
 	}
@@ -2589,7 +2595,7 @@ georgian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = georgian
 		primary_culture = georgian_new
@@ -2690,7 +2696,7 @@ romanian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		OR = {
 		primary_culture = romanian
 		primary_culture = transylvanian
@@ -2791,7 +2797,7 @@ estonian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = estonian
 	}
 }
@@ -2889,7 +2895,7 @@ finnish_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = finnish
 	}
 }
@@ -2987,7 +2993,7 @@ lithuanian_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = lithuanian
 	}
 }
@@ -3085,7 +3091,7 @@ slovak_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = slovak
 	}
 }
@@ -3183,7 +3189,7 @@ slovene_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
+		#government = monarchy
 		primary_culture = slovene
 	}
 }
@@ -3281,7 +3287,474 @@ greek_localisation = {
 	}
 
 	trigger = {
-		government = monarchy
-		culture_group = byzantine
+OR = {
+		primary_culture = greek
+		primary_culture = pontic_greek
+		primary_culture = cappadocian_greek
+		primary_culture = goths
+		primary_culture = griko
+		primary_culture = georgian_new
+		
+		}
+	}
+}
+
+irish_localisation = {
+	rank = {
+		1 = BAROIN
+		2 = CONTAE
+		3 = MARGADH
+		4 = DUCHA
+		5 = PRIONSABAL
+		6 = ANARDDHIUCACH
+		7 = ARCHUDACH
+		8 = ANRIOCHT
+		9 = ARDRIOCH
+		10 = IMPIRE
+	}
+
+	ruler_male = {
+		1 = BARONIRL
+		2 = COUNTIRL
+		3 = MARGADH
+		4 = DUCIRL
+		5 = PRIONSABAL
+		6 = ANARDDIUC
+		7 = ARCHDUKEIRL
+		8 = RIIRL
+		9 = ARDRI
+		10 = IMPIREIRL
+	}
+
+	ruler_female = {
+		1 = BARANTAS
+		2 = COUNTESSIRL
+		3 = MARGADH
+		4 = DUCHAS
+		5 = PRIONSABAL
+		6 = ANARDBHANDIUC
+		7 = ARCHDUCHESSIRL
+		8 = BANRION
+		9 = BANRIONARD
+		10 = EMPRESSIRL
+	}
+
+	consort_male  = {
+		1 = BARONIRL
+		2 = COUNTIRL
+		3 = MARGADH
+		4 = DUCIRL
+		5 = PRIONSABAL
+		6 = ANARDDIUC
+		7 = ARCHDUKEIRL
+		8 = RIIRL
+		9 = ARDRI
+		10 = IMPIREIRL
+	}
+
+	consort_female = {
+		1 = BARANTAS
+		2 = COUNTESSIRL
+		3 = MARGADH
+		4 = DUCHAS
+		5 = PRIONSABAL
+		6 = ANARDBHANDIUC
+		7 = ARCHDUCHESSIRL
+		8 = BANRION
+		9 = BANRIONARD
+		10 = EMPRESSIRL
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		#government = monarchy
+		culture = irish
+	}
+}
+
+albanian_localisation = {
+	rank = {
+	1 = BARONI
+  2 = QARKU
+  3 = MARGRAVIATE
+  4 = DUKATI
+  5 = PRINCEDOM
+  6 = DUCHYIMADH
+  7 = ARCHDUCHY
+  8 = MBRETERI
+  9 = MBRETERIELARTE
+  10 = PERANDORI
+  }
+
+  ruler_male = {
+  1 = BARON
+  2 = COUNT
+  3 = MARGRAVE
+  4 = DUKE
+  5 = PRINCE
+  6 = DUKAIMADH
+  7 = ARCHDUKE
+  8 = MBRETI
+  9 = MBRETIILARTE
+  10 = PERANDOR
+  }
+
+  ruler_female = {
+  1 = BARONESI
+  2 = NUMERIM
+  3 = MARGRAVINE
+  4 = DUKESH
+  5 = PRINCESH
+  6 = DUKESHEEMADHE
+  7 = ARCHDUKESHA
+  8 = MBRETESHERE
+  9 = MBRETESHEREELARTE
+  10 = EMPRESS
+}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		#government = monarchy
+		culture = albanian
+	}
+
+}
+
+occitan_localisation = {
+	rank = {
+1 = BARONIEOCC
+  2 = COMTAT
+  3 = MARGRAVIAT
+  4 = DUCHAT
+  5 = PRINCEDO
+  6 = GRANDUCAT
+  7 = ARCADUCAT
+  8 = REIALME
+  9 = NAUTREIALME
+  10 = EMPERI
+  }
+
+  ruler_male = {
+1 = BARON
+  2 = COMPTE
+  3 = MARGRAVE
+  4 = DUQUE
+  5 = PRINCE
+  6 = GRANDUC
+  7 = ARCHIDUC #jj
+  8 = REI #jj
+  9 = ALTOREI #jj
+  10 = EMPERADOR #jj
+  }
+
+  ruler_female = {
+1 = BARONESA #jj
+  2 = COMTESS
+  3 = MARGRAVINA #jj
+  4 = DUQUESA #jj
+  5 = PRINCESA #jj
+  6 = GRANDADUQUESA
+  7 = ARCHIDUQUESA #jj
+  8 = REINA #jj
+  9 = ALTAREINA
+  10 = EMPERARIS
+}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		#government = monarchy
+		culture = occitain
+	}
+}
+
+breton_localisation = {
+	rank = {
+1 = BARONIEBRI
+  2 = KONTELEZH
+  3 = MARGRAVIATEBRI
+  4 = DUGED
+  5 = PRINSED
+  6 = DUGEDMEUR
+  7 = ARCHDUKED
+  8 = ROUANTELEZH
+  9 = HIGHKINGDOM
+  10 = IMPALAERIEZH
+  }
+
+  ruler_male = {
+1 = BARON_BRI
+  2 = KONT
+  3 = MARGRAVE_BRI
+  4 = DUG
+  5 = PRINS
+  6 = DUGMEZ
+  7 = ARCHDUG
+  8 = ROUE
+  9 = ROUEUHELL
+  10 = IMPALAER
+  }
+
+  ruler_female = {
+1 = BARONEZ
+  2 = GONTES
+  3 = MARGRAVINE_BRI
+  4 = DUGEZ
+  5 = PRINSEZ
+  6 = DIGHEZ
+  7 = ARCHDUKEZ
+  8 = ROUANEZ
+  9 = ROUANEZUHEL
+  10 = IMPALAEREZ
+}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		##government = monarchy
+		culture = breton
+	}
+}
+
+frisian_localisation = {
+	rank = {
+  1 = BARONIE_FRI
+  2 = COUNTY_FRI
+  3 = MARGRAVIATE_FRI
+  4 = HERTOGDOM
+  5 = PRINSYK
+  6 = GRUTDUCHY
+  7 = AARTHERTOGDOM
+  8 = KONINKRIJK
+  9 = HIGHKONINKRIJK
+  10 = RYK
+  }
+
+  ruler_male = {
+  1 = BARON_FRI
+  2 = TELLE
+  3 = MARKGRAAF_FRI
+  4 = DUKE_FRI
+  5 = PRINS_FRI
+  6 = GRANDHARTOCH
+  7 = AARTHERTOCH
+  8 = KENING
+  9 = HEGEKENING
+  10 = KEIZER_FRI
+  }
+
+  ruler_female = {
+1 = BARONESS
+  2 = COUNTESS
+  3 = MARGRAVINE
+  4 = HERTOGINNE
+  5 = PRINSES
+  6 = GRANDHARTOGINNE
+  7 = AARTHERTOGE
+  8 = KONINGIN
+  9 = HEGEKENINGINNE #Hege keninginne
+  10 = KEIZERINNE
+}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		##government = monarchy
+		culture = frisian
+	}
+}
+
+schlesian_localisation = {
+	rank = {
+  1 = BARONSTWO #Barōństwo
+  2 = GROFSTWO #Grŏfstwo
+  3 = MARKGRAWIAT #Margrawiat
+  4 = KSIYNOT #KSIYNŌT
+  5 = KRINCODOM
+  6 = WARZKONZYJO
+  7 = ARCHDUCHYJO
+  8 = KROLESTWO_SIL
+  9 = WYSOKE_KROLESTWO
+  10 = IMPYRIYJO
+  }
+
+  ruler_male = {
+  1 = BARON_SIL #Barōn
+  1 = BARON_SIL #Barōn
+  2 = HRABIJA
+  3 = MARGRAW #Margraw
+  4 = PRINC
+  5 = PRINCY
+  6 = WIELKIKSIYNB #WIELKI KSIYNB
+  7 = ARCIKNIYK
+  8 = KROL #Krōl
+  9 = WYSOKIKROL #Wysoki Krōl
+  10 = CYSORZ
+  }
+
+  ruler_female = {
+1 = BARONSKA
+  2 = HRABINO
+  3 = MARGRAWINA
+  4 = KSYLONKA #KSYŁŌNKA
+  5 = PRYNCESA
+  6 = WIELKOKSYNZOS #WIELKO KSYNZOŚ
+  7 = ARCHDUCHESKA
+  8 = KROLOWO #KRŌLOWO
+  9 = WYSOKOKROLOWO #Wysoko Krōlowo
+  10 = CYSORZOWO #Cysorzowo
+}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+		4 = HEIR
+		5 = HEIR
+		6 = HEIR
+		7 = HEIR
+		8 = HEIR
+		9 = HEIR
+		10 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+		4 = HEIR_fem
+		5 = HEIR_fem
+		6 = HEIR_fem
+		7 = HEIR_fem
+		8 = HEIR_fem
+		9 = HEIR_fem
+		10 = HEIR_fem
+	}
+
+	trigger = {
+		##government = monarchy
+		culture = schlesian
 	}
 }
