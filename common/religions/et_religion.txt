@@ -1695,23 +1695,27 @@ satanism_group = {
         
         # Province-specific effects
         province = {
-            local_missionary_strength = -0.03
+            local_missionary_strength = -0.05
         }
 
         # Country-wide modifiers
         country = {
-            tolerance_heathen = 1  # Tolerance towards heathens
+            tolerance_heathen = 2  # Tolerance towards heathens
 			tolerance_heretic = 3  # Tolerance towards heathens
             religious_unity = 0.5   # Base religious unity
 			female_advisor_chance = 0.4
         }
 
         # Define heretic group
+		personal_deity = yes
+		can_have_secondary_religion = yes
+		declare_war_in_regency = yes
+		has_patriarchs = yes
         heretic = { ATHEIST }
     }
 
     # Other modifiers
-    crusade_name = UNHOLY_WAR                    # Name of the crusade associated with this religion
+    crusade_name = crusade_name_UNHOLY_WAR                    ## Name of the crusade associated with this religion
 	defender_of_faith = yes
 	can_form_personal_unions = yes
 }
