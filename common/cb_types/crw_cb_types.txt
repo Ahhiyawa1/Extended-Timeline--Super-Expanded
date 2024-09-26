@@ -33,33 +33,3 @@ cb_roman_convert = {
 	
 	war_goal = war_goal_roman_convert
 }
-
-cb_roman_unify = {
-	valid_for_subject = no
-	
-	prerequisites = {
-		OR = {
-			tag = BYZ
-			tag = ROM
-			tag = LAT
-			tag = ROW
-			tag = GLL
-			tag = PLM
-			tag = SOI
-		}
-		is_subject = no
-		FROM = { #Imperial borders
-			OR = {
-				tag = BYZ
-				tag = ROM
-				tag = LAT
-				tag = ROW
-				tag = GLL
-				tag = PLM
-				tag = SOI
-			}
-			NOT = { is_subject_of = ROOT }
-		}
-	}
-	war_goal = war_goal_roman_unify
-}
