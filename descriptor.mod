@@ -21,5 +21,5 @@ tags={
 }
 name="Extended Timeline: Super Expanded (WIP)"
 picture="extended_timeline_se.png"
-supported_version="v1.37"
+supported_version="v1.37.4.0"
 remote_file_id="3268852078"
