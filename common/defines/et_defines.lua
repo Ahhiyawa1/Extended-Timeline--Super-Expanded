@@ -66,3 +66,4 @@ NDefines.NDiplomacy.PO_BECOME_VASSAL_AE = 0.5
 NDefines.NDiplomacy.PO_FORCE_JOIN_EMPIRE_AE = 0.2
 NDefines.NDiplomacy.ALLY_AE_MULT = 0.675
 NDefines.NDiplomacy.MAX_CLIENT_STATES = 40
+NDefines.NCountry.CULTURE_MIN_DEVELOPMENT_TO_PROMOTE = 0
