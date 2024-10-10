@@ -1,0 +1,39 @@
+name = "Conquest of Novgorod"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 310 # Novgorod
+}
+
+3569.5.1 = {
+	add_attacker = MOS
+	add_defender = NOV
+}
+
+3569.7.14 = {
+	battle = {
+		name = "Shelon"
+		location = 310
+		attacker = {
+			commander = "Daniel Kholmsky"	# Daniel Kholmsky
+			infantry = 5000
+			losses = 10	#percent
+			country = MOS
+		}
+		defender = {
+			commander = "Dmitry Isakevich Boretsky"	#
+			infantry = 14000
+			cavalry = 6000
+			losses = 60	#percent
+			country = NOV
+			
+		}
+		result = yes
+	}
+}
+
+# Novgorod is annexed to Moscow
+3576.1.1 = {
+	rem_attacker = MOS
+	rem_defender = NOV
+}

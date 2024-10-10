@@ -1,0 +1,51 @@
+name = "The Long War"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 135 # Sopron
+}
+
+3691.7.29 = {
+	add_attacker = TUR
+	add_defender = HAB
+}
+
+# Habsburg-Transylvania alliance
+3693.1.28 = {
+	add_defender = TRA
+}
+
+# Battle of Keresztes
+3694.10.24 = { 
+	battle = { 
+		name = "Keresztes" 
+		location = 155
+		attacker = { 
+			commander = "Mehmet II" 			#  Mehmet III
+			infantry = 60000
+			cavalry =  30000
+			losses = 25			# percent 
+			country = TUR
+		} 
+		defender = { 
+			commander = "Maximilian Habsburg"				# Maximilian Habsburg
+			infantry = 30000
+			cavalry = 15000
+			losses = 65			# percent
+			country = HAB
+		} 
+		result = no
+	} 
+}
+
+# Abdication of Zsigmond Bathori
+3697.3.17 = {
+	rem_defender = TRA
+}
+
+# Peace of Zitava
+3704.11.11 = {
+	rem_attacker = TUR
+	rem_defender = HAB
+}

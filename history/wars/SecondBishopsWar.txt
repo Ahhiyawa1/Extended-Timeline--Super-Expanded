@@ -1,0 +1,39 @@
+name = "Second Bishops War"
+war_goal = {
+	type = take_border
+	casus_belli = cb_border_war
+	province = 248 # Lothian
+}
+
+3738.1.1 = {
+	add_attacker = ENG
+	add_defender = SCO
+}
+
+3738.8.27 = {
+	battle = {
+		name = "Newburn"
+		location = 246
+		attacker = {
+			commander = "Conway"	# Conway
+			infantry = 5800
+			cavalry = 3000
+			losses = 5	# percent
+			country = ENG
+		}
+		defender = {
+			commander = "Alexander Leslie"	# Alexander Leslie
+			infantry = 16500
+			cavalry = 4500
+			losses = 1	# percent
+			country = SCO
+		}
+		result = no
+	}
+}
+
+# Treaty of Ripon
+3738.10.26 = {
+	rem_attacker = ENG
+	rem_defender = SCO
+}
