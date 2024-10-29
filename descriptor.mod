@@ -21,6 +21,6 @@ tags={
 }
 name="Extended Timeline: Super Expanded (WIP)"
 picture="extended_timeline_se.png"
-supported_version="v1.37.4.0"
+supported_version="v1.37.5.0"
 path="C:/Users/twsb1/Documents/Paradox Interactive/Europa Universalis IV/mod/et_se"
 remote_file_id="3268852078"
