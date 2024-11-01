@@ -1,12 +1,10 @@
 #11581 - Rawalpindi
-
 owner = GND
 controller = GND
 culture = panjabi
 religion = mahayana
 capital = "Rawalpindi"
 trade_goods = iron
-hre = no
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -23,104 +21,98 @@ base_production = 3
 base_manpower = 1
 is_city = yes
 add_core = GND
+2089.1.1 = { 
+	owner = IGR
+	controller = IGR
+	add_core = GND	
+	add_core = IGR
+}
 
 2108.1.1 = { owner = IPA controller = IPA add_core = IPA }
-2174.1.1 = { owner = KUS controller = KUS add_core = KUS remove_core = IPA }
-2398.1.1 = { religion = hinduism }
-2473.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KUS }
-2558.1.1 = { owner = KAP controller = KAP add_core = KAP remove_core = KDT }
-2628.1.1 = { owner = GND controller = GND add_core = GND remove_core = KAP }
-2768.1.1 = { owner = KSH controller = KSH add_core = KSH remove_core = GND }
-2958.1.1 = { owner = SHH controller = SHH add_core = SHH remove_core = KSH }
-3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = SHH }
-3273.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
-3308.1.1 = { owner = MUL controller = MUL add_core = MUL remove_core = GHU }
+2174.1.1 = { owner = KUS controller = KUS add_core = KUS }
+2398.1.1 = { religion = Hinduism }
+2473.1.1 = { owner = KDT controller = KDT add_core = KDT }
+2558.1.1 = { owner = KAP controller = KAP add_core = KAP }
+2628.1.1 = { owner = GND controller = GND }
+2768.1.1 = { owner = KSH controller = KSH add_core = KSH }
+2958.1.1 = { owner = SHH controller = SHH add_core = SHH }
+3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ }
+3273.1.1 = { owner = GHU controller = GHU add_core = GHU }
+3308.1.1 = { owner = MUL controller = MUL add_core = MUL }
 3326.1.1 = { owner = DLH controller = DLH add_core = DLH add_core = PUN }
-3496.1.1 = { owner = MUL controller = MUL add_core = MUL }
-
-3512.1.1 = {
+3496.1.1 = { owner = MUL controller = MUL }
+3512.1.1 = { 
 	owner = DLH
 	controller = DLH
 }
-3542.1.1 = {
+3542.1.1 = { 
 	controller = KSH
 	owner = KSH
-	add_core = KSH
 }
-3548.1.1 = {
+3548.1.1 = { 
 	owner = DLH
 	controller = DLH
 }
-3620.1.1 = {
+3620.1.1 = { 
 	controller = REB
-	revolt = {
-		type = pretender_rebels
-		size = 0
-		leader = "Dalaut Khan Lodi"
-	}
-} #Daulat Kahn Lodi revolt
-3623.1.1 = {
-	controller = TIM owner = TIM add_core = TIM
-	revolt = { }
-} #Defects to Babur
-3624.4.21 = {
+	revolt = { type = pretender_rebels size = 0 leader = "Dalaut Khan Lodi" }
+}
+3623.1.1 = { 
+	controller = TIM
+	owner = TIM
+	add_core = TIM
+	revolt = { size = 1 }
+}
+3624.4.21 = { 
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-	remove_core = DLH
-	remove_core = TIM
-} # Battle of Panipat & Tag Change
-3638.1.1 = { religion = sikhism }
-3642.1.1 = {
+}
+3638.1.1 = { religion = Sikhism }
+3642.1.1 = { 
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} # Sur expansion
-3651.1.1 = {
+}
+3651.1.1 = { 
 	owner = SRH
 	controller = SRH
 	add_core = SRH
-	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
-3652.7.1 = { controller = MUG } #Humayun invades
-3652.12.1 = { owner = MUG remove_core = SRH } #Aftermath of the battle of Sirhind
+}
+3652.7.1 = { controller = MUG }
+3652.12.1 = { owner = MUG }
 3788.1.1 = { discovered_by = ENG }
-3798.1.1 = {
+3798.1.1 = { 
 	controller = REB
-	revolt = { type = sikhism_rebels }
+	revolt = { type = sikhism_rebels size = 1 }
 }
 3805.5.12 = { discovered_by = GBR }
-3813.1.1 = {
+3813.1.1 = { 
 	controller = MUG
-	revolt = { }
+	revolt = { size = 1 }
 }
-3818.1.1 = {
+3818.1.1 = { 
 	controller = REB
-	revolt = { type = sikhism_rebels }
+	revolt = { type = sikhism_rebels size = 1 }
 }
-3836.1.1 = { controller = PER } # Captured by Persia, Nadir Shah
-3837.5.1 = {
+3836.1.1 = { controller = PER }
+3837.5.1 = { 
 	owner = PER
 	add_core = PER
-} # Captured by Persia, Nadir Shah
-3845.10.1 = {
+}
+3845.10.1 = { 
 	owner = AFG
 	controller = AFG
 	add_core = AFG
-	remove_core = PER
-	remove_core = MUG
-} # Ahmad Shah established the Durrani empire
-3916.1.1={
+}
+3916.1.1 = { 
 	owner = PUN
 	controller = PUN
-	remove_core = AFG
 }
-
 3923.1.1 = { base_manpower = 2 }
-3947.1.1   = { owner = GBR controller = GBR add_core = GBR }
-3978.1.1 = { religion = sunni }
+3947.1.1 = { owner = GBR controller = GBR add_core = GBR }
+3978.1.1 = { religion = Sunni }
 3998.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 }
 4023.1.1 = { base_tax = 6 base_production = 6 base_manpower = 5 }
-4028.12.29 = { add_core = PAK remove_core = PUN }
-4045.8.14  = { owner = PAK controller = PAK remove_core = GBR }
-
+4028.12.29 = { add_core = PAK }
+4045.8.14 = { owner = PAK controller = PAK }
