@@ -1,0 +1,622 @@
+country_decisions = {
+#################
+##SPECIAL UNITS##
+#################
+	xorme_ai_spawn_special_units_janissaries = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			has_government_attribute = has_janissaries
+			xorme_ai_valid_nation = yes
+			capital_scope = {
+				controlled_by = owner
+			}
+		}
+
+		allow = {
+			current_income_balance = 3
+			is_in_deficit = no
+			NOT = { janissary_percentage = 0.25 }
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.5 
+					NOT = { army_size_percentage = 0.75 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = janissaries
+					force_limit_percentage = 0.25
+				}
+				add_mil_power = -40
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.65
+					NOT = { army_size_percentage = 0.8 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = janissaries
+					force_limit_percentage = 0.15
+				}
+				add_mil_power = -30
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.8
+					NOT = { army_size_percentage = 0.95 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = janissaries
+					force_limit_percentage = 0.10
+				}
+				add_mil_power = -20
+			}
+			else_if = {
+				limit = {
+					army_size_percentage = 0.95
+					NOT = { army_size_percentage = 0.99 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = janissaries
+					force_limit_percentage = 0.05
+				}
+				add_mil_power = -10
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+
+		ai_will_do = {
+			factor = 100.0
+		}
+	}
+
+	xorme_ai_spawn_special_units_streltsy = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			OR = {
+				has_government_mechanic = russian_mechanic
+				has_government_mechanic = russian_modernization_mechanic
+			}
+			xorme_ai_valid_nation = yes
+			capital_scope = {
+				controlled_by = owner
+			}
+		}
+
+		allow = {
+			if = {
+				limit = { 
+					NOT = { total_development = 500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = streltsy type = infantry value = 4 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 500 
+					NOT = { total_development = 1000 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = streltsy type = infantry value = 6 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 1000 
+					NOT = { total_development = 1500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = streltsy type = infantry value = 12 }
+				}
+			}
+			else_if = {
+				limit = { total_development = 1500 }
+				NOT = {  
+					num_of_special_units = { special_unit_category = streltsy type = infantry value = 18 }
+				}
+			}
+			else = {
+				NOT = {  
+					num_of_special_units = { special_unit_category = streltsy type = infantry value = 30 }
+				}
+			}
+			treasury = 100
+			current_income_balance = 3
+			is_in_deficit = no
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.5 
+					NOT = { army_size_percentage = 0.75 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = streltsy
+					force_limit_percentage = 0.15
+				}
+				add_treasury = -75
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.8 
+					NOT = { army_size_percentage = 0.95 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = streltsy
+					force_limit_percentage = 0.1
+				}
+				add_treasury = -50
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.95
+					NOT = { army_size_percentage = 0.99 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = streltsy
+					force_limit_percentage = 0.05
+				}
+				add_treasury = -20
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+
+		ai_will_do = {
+			factor = 120.0
+		}
+	}
+
+	xorme_ai_spawn_special_units_cossacks = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			has_estate_privilege = estate_cossacks_establish_the_cossack_regiments
+			xorme_ai_valid_nation = yes
+			capital_scope = {
+				controlled_by = owner
+			}
+		}
+
+		allow = {
+			if = {
+				limit = { 
+					NOT = { total_development = 500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cossacks type = infantry value = 6 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 500 
+					NOT = { total_development = 1000 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cossacks type = infantry value = 12 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 1000 
+					NOT = { total_development = 1500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cossacks type = infantry value = 16 }
+				}
+			}
+			else_if = {
+				limit = { total_development = 1500 }
+				NOT = {  
+					num_of_special_units = { special_unit_category = cossacks type = infantry value = 20 }
+				}
+			}
+			else = {
+				NOT = {  
+					num_of_special_units = { special_unit_category = cossacks type = infantry value = 25 }
+				}
+			}
+			treasury = 100
+			current_income_balance = 3
+			is_in_deficit = no
+			NOT = { cossacks_percentage = 0.5 }
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.8
+					NOT = { army_size_percentage = 0.95 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = cavalry
+					special_unit_category = cossacks
+					force_limit_percentage = 0.10
+				}
+				add_treasury = -50
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.95 
+					NOT = { army_size_percentage = 0.99 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = cavalry
+					special_unit_category = cossacks
+					force_limit_percentage = 0.05
+				}
+				add_treasury = -20
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+
+		ai_will_do = {
+			factor = 75.0
+		}
+	}
+
+	xorme_ai_spawn_special_units_rajputs = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			OR = {
+				has_estate_privilege = estate_rajput_rajput_regiments
+				has_reform = rajput_military_leadership_reform
+			}
+			xorme_ai_valid_nation = yes
+		}
+
+	
+		allow = {
+			if = {
+				limit = { 
+					NOT = { total_development = 500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = rajput type = infantry value = 4 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 500 
+					NOT = { total_development = 1000 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = rajput type = infantry value = 6 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 1000 
+					NOT = { total_development = 1500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = rajput type = infantry value = 12 }
+				}
+			}
+			else_if = {
+				limit = { total_development = 1500 }
+				NOT = {  
+					num_of_special_units = { special_unit_category = rajput type = infantry value = 18 }
+				}
+			}
+			else = {
+				NOT = {  
+					num_of_special_units = { special_unit_category = rajput type = infantry value = 30 }
+				}
+			}
+			treasury = 100
+			current_income_balance = 3
+			is_in_deficit = no
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.5 
+					NOT = { army_size_percentage = 0.75 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = rajput
+					force_limit_percentage = 0.2
+				}
+				add_treasury = -75
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.8 
+					NOT = { army_size_percentage = 0.95 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = rajput
+					force_limit_percentage = 0.1
+				}
+				add_treasury = -50
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.95
+					NOT = { army_size_percentage = 0.99 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = rajput
+					force_limit_percentage = 0.05
+				}
+				add_treasury = -20
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+
+		ai_will_do = {
+			factor = 100.0
+		}
+	}
+
+	xorme_ai_spawn_special_units_cawa = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			OR = {
+				has_reform = solomonic_empire
+				has_reform = negusa_nagast
+				has_reform = the_cawa_regiments_reform
+			}
+			xorme_ai_valid_nation = yes
+			capital_scope = {
+				controlled_by = owner
+			}
+		}
+	
+		allow = {
+			if = {
+				limit = { 
+					NOT = { total_development = 250 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cawa type = infantry value = 20 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 250 
+					NOT = { total_development = 500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cawa type = infantry value = 30 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 500 
+					NOT = { total_development = 1000 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cawa type = infantry value = 60 }
+				}
+			}
+			else_if = {
+				limit = { 
+					total_development = 1000 
+					NOT = { total_development = 1500 }
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = cawa type = infantry value = 80 }
+				}
+			}
+			else = {
+				NOT = {  
+					num_of_special_units = { special_unit_category = cawa type = infantry value = 120 }
+				}
+			}
+			current_income_balance = 3
+			is_in_deficit = no
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+	
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.5 
+					NOT = { army_size_percentage = 0.75 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = cawa
+					force_limit_percentage = 0.20
+				}
+				add_mil_power = -50
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.65
+					NOT = { army_size_percentage = 0.8 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = cawa
+					force_limit_percentage = 0.15
+				}
+				add_mil_power = -30
+			}
+			else_if = {
+				limit = { 
+					army_size_percentage = 0.8
+					NOT = { army_size_percentage = 0.95 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = cawa
+					force_limit_percentage = 0.10
+				}
+				add_mil_power = -15
+			}
+			else_if = {
+				limit = {
+					army_size_percentage = 0.95
+					NOT = { army_size_percentage = 0.99 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = cawa
+					force_limit_percentage = 0.05
+				}
+				add_mil_power = -10
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+	
+		ai_will_do = {
+			factor = 100.0
+		}
+	}
+
+	xorme_ai_spawn_special_units_samurai = {
+		potential = {
+			has_global_flag = xorme_ai_allow_special_units_on
+			OR = {
+				culture_group = japanese_g
+				has_reform = shogunate
+				has_reform = daimyo
+				has_reform = indep_daimyo
+				tag = JAP
+			}
+			ai = yes
+			capital_scope = {
+				controlled_by = owner
+			}
+		}
+	
+		allow = {
+			if = {
+				limit = { 
+					has_reform = shogunate
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = samurai type = infantry value = 10 }
+				}
+			}
+			else_if = {
+				limit = { 
+					has_reform = daimyo
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = samurai type = infantry value = 4 }
+				}
+			}
+			else_if = {
+				limit = { 
+					has_reform = indep_daimyo
+				}
+				NOT = {  
+					num_of_special_units = { special_unit_category = samurai type = infantry value = 5 }
+				}
+			}
+			else = {
+				NOT = {  
+					num_of_special_units = { special_unit_category = samurai type = infantry value = 4 }
+				}
+			}
+
+			current_income_balance = 1.5
+			manpower = 5
+			is_in_deficit = no
+			NOT = { num_of_loans = 1 }
+			NOT = { has_country_modifier = special_unit_cooldown }
+			NOT = { army_size_percentage = 0.99 }
+		}
+	
+		effect = {
+			if = {
+				limit = { 
+					army_size_percentage = 0.65
+					NOT = { army_size_percentage = 0.95 } 
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = samurai
+					force_limit_percentage = 0.2
+				}
+				add_treasury = -50
+				add_manpower = -4
+			}
+			else_if = {
+				limit = {
+					army_size_percentage = 0.95
+					NOT = { army_size_percentage = 0.99 }
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					special_unit_category = samurai
+					force_limit_percentage = 0.1
+				}
+				add_treasury = -25
+				add_manpower = -2
+			}
+			else = {
+				
+			}
+			add_country_modifier = {
+				name = special_unit_cooldown
+				duration = 1000
+			}
+		}
+	
+		ai_will_do = {
+			factor = 100.0
+		}
+	}
+
+}

@@ -1,0 +1,85 @@
+defined_text = {
+	name = GetXormeAIConquerorsSettings
+	random = no
+	text = {
+		localisation_key = xorme_ai_conq_settings_1
+		trigger = {
+			has_global_flag = xorme_ai_conquerors_active_easy
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_settings_2
+		trigger = {
+			has_global_flag = xorme_ai_conquerors_active_medium
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_settings_3
+		trigger = {
+			has_global_flag = xorme_ai_conquerors_active_hard
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_settings_4
+		trigger = {
+			has_global_flag = xorme_ai_conquerors_disabled
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_settings_5
+		trigger = {
+			AND = {
+				NOT = {
+					has_global_flag = xorme_ai_conquerors_active_easy
+				}
+				NOT = {
+					has_global_flag = xorme_ai_conquerors_active_medium
+				}
+				NOT = {
+					has_global_flag = xorme_ai_conquerors_active_hard
+				}
+				NOT = {
+					has_global_flag = xorme_ai_conquerors_disabled
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetXormeAIConquerorsStatus
+	random = no
+	text = {
+		localisation_key = xorme_ai_conq_ON
+		trigger = {
+			OR = {
+				has_global_flag = xorme_ai_conquerors_active_easy
+				has_global_flag = xorme_ai_conquerors_active_medium
+				has_global_flag = xorme_ai_conquerors_active_hard
+			}
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_OFF
+		trigger = {
+			has_global_flag = xorme_ai_conquerors_disabled
+		}
+	}
+	text = {
+		localisation_key = xorme_ai_conq_not_set
+		trigger = {
+			NOT = {
+				has_global_flag = xorme_ai_conquerors_active_easy
+			}
+			NOT = {
+				has_global_flag = xorme_ai_conquerors_active_medium
+			}
+			NOT = {
+				has_global_flag = xorme_ai_conquerors_active_hard
+			}
+			NOT = {
+				has_global_flag = xorme_ai_conquerors_disabled
+			}
+		}
+	}
+}

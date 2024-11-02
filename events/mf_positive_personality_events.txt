@@ -1,0 +1,409 @@
+namespace = mf_positive_personality
+
+#Military Advisor Recruited
+country_event = {
+	id = mf_positive_personality.1
+	title = mf_positive_personality.EVTNAME1
+	desc = mf_positive_personality.EVTDESC1
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = keen_recruiter_personality
+		NOT = { has_ruler_flag = mf_positive_personality_military_advisor }
+	}
+
+	immediate = {
+		set_ruler_flag = mf_positive_personality_military_advisor
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.8
+			ruler_has_personality = well_advised_personality
+		}
+	}
+
+	option = {
+		name = "mf_positive_personality.EVTOPTA1" #Let him reform our armies
+		define_advisor = {
+			type = army_reformer
+			skill = 3
+		}
+	}
+
+	option = {
+		name = "mf_positive_personality.EVTOPTB1" #Let him organize our ranks
+		define_advisor = {
+			type = army_organiser
+			skill = 3
+		}
+	}
+	
+	option = {
+		name = "mf_positive_personality.EVTOPTC1" #Let him drill the soldiers
+		define_advisor = {
+			type = commandant
+			skill = 3
+		}
+	}
+}
+
+#Extravagant Party for a Neighbor
+country_event = {
+	id = mf_positive_personality.2
+	title = mf_positive_personality.EVTNAME2
+	desc = mf_positive_personality.EVTDESC2
+	picture = FEAST_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = extravagant_personality
+		years_of_income = 1.0
+		any_neighbor_country = {
+			NOT = { war_with = ROOT }
+			NOT = { alliance_with = ROOT }
+			NOT = { is_rival = ROOT }
+			NOT = { junior_union_with = ROOT }
+			NOT = { senior_union_with = ROOT }
+			has_opinion = {
+				who = ROOT
+				value = 10
+			}
+			has_regency = no
+		}
+		NOT = { has_ruler_flag = mfp_extravagant_party_ruler_flag }
+	}
+
+	immediate = {
+		hidden_effect = { 
+			random_neighbor_country = {
+				limit = {
+					NOT = { war_with = ROOT }
+					NOT = { alliance_with = ROOT }
+					NOT = { is_rival = ROOT }
+					has_opinion = {
+						who = ROOT
+						value = 10
+					}
+					has_regency = no
+				}
+				save_event_target_as = extrav_friendly_neighbor_country
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 300
+	}
+
+	option = {
+		name = "mf_positive_personality.EVTOPTA2"	#At least it didn't go to waste...
+		add_years_of_income = -0.1
+		event_target:extrav_friendly_neighbor_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_extravagant_party_reception
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_extravagant_party_ruler_flag
+		}
+	}
+}
+
+#For Sturdier Walls
+country_event = {
+	id = mf_positive_personality.3
+	title = mf_positive_personality.3.t
+	desc = mf_positive_personality.3.desc
+	picture = FORT_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = earthwork_expert_personality
+		years_of_income = 0.5
+		any_owned_province = {
+			fort_level = 2
+		}
+		NOT = { has_ruler_flag = mfp_sturdy_walls_ruler_flag }
+	}
+
+	immediate = {
+		hidden_effect = { 
+			random_owned_province = {
+				limit = {
+					fort_level = 2
+				}
+				save_event_target_as = earthwork_event_target
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 300
+	}
+
+	option = {
+		name = "mf_positive_personality.3.a"
+		
+		event_target:extrav_friendly_neighbor_country = {
+			add_province_modifier = {
+				name = "mfp_sturdy_walls"
+				duration = 1825
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_sturdy_walls_ruler_flag
+		}
+	}
+	
+	option = {
+		name = "mf_positive_personality.3.b"
+		
+		add_mil_power = -20
+		event_target:extrav_friendly_neighbor_country = {
+			add_province_modifier = {
+				name = "mfp_impregnable_walls"
+				duration = 1825
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_sturdy_walls_ruler_flag
+		}
+	}
+}
+
+#A Lover in the Court?
+country_event = {
+	id = mf_positive_personality.4
+	title = mf_positive_personality.4.t
+	desc = mf_positive_personality.4.desc
+	picture = COURT_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		OR = {
+			ruler_has_personality = seducer_personality
+			ruler_has_personality = seductress_personality
+		}
+		NOT = { has_ruler_flag = mfp_court_lover_ruler_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 300
+	}
+
+	option = {
+		name = "mf_positive_personality.4.a"
+		
+		if = {
+			limit = {
+				ruler_has_personality = seducer_personality
+			}
+			define_advisor = {
+				type = philosopher
+				skill = 2
+				discount = yes
+				female = yes
+			}
+		}
+		else = {
+			define_advisor = {
+				type = philosopher
+				skill = 2
+				discount = yes
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_court_lover_ruler_flag
+		}
+	}
+	
+	option = {
+		name = "mf_positive_personality.4.b"
+		
+		if = {
+			limit = {
+				ruler_has_personality = seducer_personality
+			}
+			define_advisor = {
+				type = artist
+				skill = 2
+				discount = yes
+				female = yes
+			}
+		}
+		else = {
+			define_advisor = {
+				type = artist
+				skill = 2
+				discount = yes
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_court_lover_ruler_flag
+		}
+	}
+	
+	option = {
+		name = "mf_positive_personality.4.c"
+		
+		if = {
+			limit = {
+				ruler_has_personality = seducer_personality
+			}
+			define_advisor = {
+				type = spymaster
+				skill = 2
+				discount = yes
+				female = yes
+			}
+		}
+		else = {
+			define_advisor = {
+				type = spymaster
+				skill = 2
+				discount = yes
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_court_lover_ruler_flag
+		}
+	}
+}
+
+#An Extravagant Fleet
+country_event = {
+	id = mf_positive_personality.5
+	title = mf_positive_personality.5.t
+	desc = mf_positive_personality.5.desc
+	picture = NAVAL_MILITARY_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		ruler_has_personality = extravagant_personality
+		navy_size = 5
+		NOT = { navy_size = 50 }
+		NOT = { has_ruler_flag = mfp_intimidating_fleet_ruler_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 300
+	}
+
+	option = {
+		name = "mf_positive_personality.5.a"
+		
+		add_country_modifier = {
+			name = "mfp_intimidating_fleet"
+			duration = 1825
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_intimidating_fleet_ruler_flag
+		}
+	}
+}
+
+#The Suggestion Box
+country_event = {
+	id = mf_positive_personality.6
+	title = mf_positive_personality.6.t
+	desc = mf_positive_personality.6.desc
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		NOT = { has_ruler_flag = mfp_suggestion_box_ruler_flag }
+		
+		has_dlc = "Rights of Man"
+		OR = {
+			ruler_has_personality = impartial_personality
+			ruler_has_personality = just_personality
+			ruler_has_personality = righteous_personality
+			ruler_has_personality = kind_hearted_personality
+			ruler_has_personality = free_thinker_personality
+			ruler_has_personality = well_connected_personality
+			ruler_has_personality = humble_personality
+		}
+		has_advisor = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 900
+	}
+
+	option = {
+		name = "mf_positive_personality.6.a"
+		
+		add_ruler_modifier = {
+			name = "mfp_suggestion_box"
+			duration = 1825
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_suggestion_box_ruler_flag
+		}
+	}
+}
+
+#A Monument to the [Root.Monarch.GetTitle]
+country_event = {
+	id = mf_positive_personality.7
+	title = mf_positive_personality.7.t
+	desc = mf_positive_personality.7.desc
+	picture = ARTWORK_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		OR = {
+			ruler_has_personality = just_personality
+			ruler_has_personality = righteous_personality
+			ruler_has_personality = kind_hearted_personality
+			ruler_has_personality = bishamonten_personality
+			ruler_has_personality = farr_gifted_personality
+			ruler_has_personality = gregarious_personality
+			ruler_has_personality = populist_personality
+			ruler_has_personality = galvanizing_orator_personality
+			ruler_has_personality = good_caesar_personality
+			ruler_has_personality = overly_generous_personality
+		}
+		stability = -1
+		
+		NOT = { has_ruler_flag = mfp_monument_of_the_people_ruler_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 400
+	}
+	
+	immediate = {
+		hidden_effect = { 
+			random_owned_province = {
+				save_event_target_as = monument_by_people_target
+			}
+		}
+	}
+
+	option = {
+		name = "mf_positive_personality.7.a"
+		
+		event_target:monument_by_people_target = {
+			add_province_modifier = {
+				name = "mfp_monument_of_the_people"
+				duration = 3650
+			}
+		}
+		
+		hidden_effect = {
+			set_ruler_flag = mfp_monument_of_the_people_ruler_flag
+		}
+	}
+}
