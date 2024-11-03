@@ -5,7 +5,7 @@ mithraic_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = waaqism
+	religion = mithraic
 	defection = religion				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -42,7 +42,7 @@ mithraic_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = waaqism }
+			NOT = { religion = mithraic }
 		}
 		modifier = {
 			factor = 0.001
@@ -87,21 +87,21 @@ mithraic_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = waaqism
-			owner = { religion = waaqism }
+			religion = mithraic
+			owner = { religion = mithraic }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = waaqism }
+			NOT = { religion = mithraic }
 			any_neighbor_province = {
-	 			religion = waaqism
+	 			religion = mithraic
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = waaqism
+			religion = mithraic
 		}
 		modifier = {
 			factor = 1.5
@@ -132,9 +132,9 @@ mithraic_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = waaqism
+						religion = mithraic
 						is_reformation_center = yes
-						owner = { religion = waaqism }
+						owner = { religion = mithraic }
 					}
 				}
 				add_province_modifier = {
@@ -143,7 +143,7 @@ mithraic_rebels = {
 				}
 			}
 			else = {
-				change_religion = waaqism
+				change_religion = mithraic
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -163,7 +163,7 @@ mithraic_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = eastern
-			dominant_religion = waaqism
+			dominant_religion = mithraic
 		}
 	}
 
@@ -173,7 +173,7 @@ mithraic_rebels = {
 	}
 
 	# Localisation for their demands
-	demands_description = "waaqism_rebels_demand"
+	demands_description = "mithraic_rebels_demand"
 
 	# Country Scope
 	demands_enforced_effect = {
@@ -204,7 +204,7 @@ mithraic_rebels = {
 		}
 		if = {
 			limit = {
-				religion = waaqism
+				religion = mithraic
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -217,16 +217,16 @@ mithraic_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = waaqism }
-				dominant_religion = waaqism
+				NOT = { religion = mithraic }
+				dominant_religion = mithraic
 			}
-			change_religion = waaqism
+			change_religion = mithraic
 			force_converted = yes
 		}
 		if = {
 			limit = {
-				NOT = { religion = waaqism }
-				NOT = { dominant_religion = waaqism }
+				NOT = { religion = mithraic }
+				NOT = { dominant_religion = mithraic }
 				religion_group = eastern
 				NOT = { has_country_modifier = heretic_tolerance }
 			}
@@ -237,7 +237,7 @@ mithraic_rebels = {
 		}
 		if = {
 			limit = {
-				religion = waaqism
+				religion = mithraic
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {

@@ -5,7 +5,7 @@ heptadic_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = waaqism
+	religion = heptadic
 	defection = religion				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -42,7 +42,7 @@ heptadic_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = waaqism }
+			NOT = { religion = heptadic }
 		}
 		modifier = {
 			factor = 0.001
@@ -87,21 +87,21 @@ heptadic_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = waaqism
-			owner = { religion = waaqism }
+			religion = heptadic
+			owner = { religion = heptadic }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = waaqism }
+			NOT = { religion = heptadic }
 			any_neighbor_province = {
-	 			religion = waaqism
+	 			religion = heptadic
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = waaqism
+			religion = heptadic
 		}
 		modifier = {
 			factor = 1.5
@@ -132,9 +132,9 @@ heptadic_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = waaqism
+						religion = heptadic
 						is_reformation_center = yes
-						owner = { religion = waaqism }
+						owner = { religion = heptadic }
 					}
 				}
 				add_province_modifier = {
@@ -143,7 +143,7 @@ heptadic_rebels = {
 				}
 			}
 			else = {
-				change_religion = waaqism
+				change_religion = heptadic
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -163,7 +163,7 @@ heptadic_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = eastern
-			dominant_religion = waaqism
+			dominant_religion = heptadic
 		}
 	}
 
@@ -173,7 +173,7 @@ heptadic_rebels = {
 	}
 
 	# Localisation for their demands
-	demands_description = "waaqism_rebels_demand"
+	demands_description = "heptadic_rebels_demand"
 
 	# Country Scope
 	demands_enforced_effect = {
@@ -204,7 +204,7 @@ heptadic_rebels = {
 		}
 		if = {
 			limit = {
-				religion = waaqism
+				religion = heptadic
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -217,16 +217,16 @@ heptadic_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = waaqism }
-				dominant_religion = waaqism
+				NOT = { religion = heptadic }
+				dominant_religion = heptadic
 			}
-			change_religion = waaqism
+			change_religion = heptadic
 			force_converted = yes
 		}
 		if = {
 			limit = {
-				NOT = { religion = waaqism }
-				NOT = { dominant_religion = waaqism }
+				NOT = { religion = heptadic }
+				NOT = { dominant_religion = heptadic }
 				religion_group = eastern
 				NOT = { has_country_modifier = heretic_tolerance }
 			}
@@ -237,7 +237,7 @@ heptadic_rebels = {
 		}
 		if = {
 			limit = {
-				religion = waaqism
+				religion = heptadic
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {
