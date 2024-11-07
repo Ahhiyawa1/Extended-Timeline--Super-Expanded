@@ -1,5 +1,7 @@
-owner = ROM
-controller = ROM
+##Marcus Antonius's Domain
+owner = M10
+controller = M10
+add_core = M10
 culture = achaean
 religion = hellenism
 capital = "Argolis"
@@ -16,42 +18,47 @@ base_tax = 2
 base_production = 2
 base_manpower = 2
 is_city = yes
-add_core = ROM
+add_core = M10
+2086.11.1 = { 
+    owner = ROM
+    controller = ROM
+    add_core = ROM
+    remove_core = M10
+}
+2458.1.1 = { religion = chalcedonism } 
+2458.1.1 = { culture = greek } 
+2493.1.17 = { 
+    controller = BYZ
+    owner = BYZ
+    add_core = BYZ
+    remove_core = ROM
+} # Final division of the empire
 
-2458.1.1 = { religion = chalcedonism }
-2458.1.1 = { culture = greek }
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
-2965.1.1 = { religion = orthodox }
-3303.1.1 = { owner = ACH controller = ACH add_core = ACH }
-3447.1.1 = { add_core = MOE }
-
+2965.1.1 = { religion = orthodox } 
+3303.1.1 = { owner = ACH controller = ACH add_core = ACH } 
+3447.1.1 = { add_core = MOE } 
 3530.1.1 = { owner = BYZ controller = BYZ } # To Morea
 3551.5.29 = { owner = ACH controller = ACH } # The fall of the Byzantine Empire
-3553.1.1 = { owner = MOE controller = MOE remove_core = ACH }
-3558.1.1 = { owner = TUR controller = TUR add_core = TUR }
-3562.1.1 = { controller = VEN }
-3568.1.1 = { controller = TUR }
-3600.1.1 = { remove_core = BYZ }
+3553.1.1 = { owner = MOE controller = MOE remove_core = ACH } 
+3558.1.1 = { owner = TUR controller = TUR add_core = TUR } 
+3562.1.1 = { controller = VEN } 
+3568.1.1 = { controller = TUR } 
+3600.1.1 = { remove_core = BYZ } 
 3630.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Rebellion against the Ottoman rule
-3631.1.1 = { revolt = {} controller = TUR }
+3631.1.1 = { revolt = { } controller = TUR } 
 3653.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
-3654.1.1 = { unrest = 0 }
+3654.1.1 = { unrest = 0 } 
 3669.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Rebellion against Ottoman rule
-3670.1.1 = { revolt = {} controller = TUR } # Estimated
+3670.1.1 = { revolt = { } controller = TUR } # Estimated
 3786.1.1 = { controller = VEN } # Occupied by Venice
 3797.1.26 = { owner = VEN add_core = VEN } # Annexed by the Venetian republic
-3816.1.1 = { owner = TUR controller = TUR remove_core = VEN }
-3848.1.1 = { add_core = GRE }
-
-3930.8.30 = { owner = GRE controller = GRE remove_core = TUR }
-3956.1.1 = { base_production = 3 }
-3989.1.1 = { base_tax = 3 }
-4039.4.27 = { controller = GER }
-4039.7.1  = { owner = ITA controller = ITA }
-4041.9.8  = { owner = GER controller = GER }
-4042.10.1 = { controller = GBR }
-4043.5.8  = { owner = GRE controller = GRE }
-
-
-
-   
+3816.1.1 = { owner = TUR controller = TUR remove_core = VEN } 
+3848.1.1 = { add_core = GRE } 
+3930.8.30 = { owner = GRE controller = GRE remove_core = TUR } 
+3956.1.1 = { base_production = 3 } 
+3989.1.1 = { base_tax = 3 } 
+4039.4.27 = { controller = GER } 
+4039.7.1 = { owner = ITA controller = ITA } 
+4041.9.8 = { owner = GER controller = GER } 
+4042.10.1 = { controller = GBR } 
+4043.5.8 = { owner = GRE controller = GRE } 
