@@ -156,46 +156,4 @@ country_decisions = {
 		}
 	}
 	
-	convert_to_waaqism_mmetr_decision = {
-		major = yes
-		
-		color = { 0 110 85 }		#same rgb as religion
-		
-		potential = {
-			NOT = { 
-				religion = waaqism
-			}
-			OR = {
-				num_of_religion = {
-					religion = waaqism
-					value = 1
-				}
-			}
-		}
-		allow = {
-			stability = 1
-			is_at_war = no
-			OR = {
-				consort_religion = waaqism
-				employed_advisor = {
-					religion = waaqism
-				}
-				num_of_religion = {
-					religion = waaqism
-					value = 1
-				}
-			}
-		}
-		effect = {
-			change_religion = waaqism
-			add_country_modifier = {
-				name = "recent_conversion"
-				duration = 1825
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
 }
