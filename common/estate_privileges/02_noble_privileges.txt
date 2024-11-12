@@ -1114,7 +1114,7 @@ estate_nobles_golden_liberty = {
 				mission_completed = plc_golden_liberty
 				absolutism = 70
 				AND = {
-					is_year = 1615
+					is_year = 3598
 					crown_land_share = 90
 				}
 			}
@@ -1152,7 +1152,7 @@ estate_nobles_golden_liberty = {
 			if = {
 				limit = {
 					NOT = { has_country_flag = pol_zebrzydowski_rebellion_flag }
-					is_year = 1600
+					is_year = 3598
 					government = monarchy
 				}
 				set_country_flag = pol_pact_conventa_flag
@@ -2311,7 +2311,7 @@ estate_nobles_mestnichestvo = {
 		has_estate_privilege = estate_nobles_mestnichestvo
 		OR = {
 			ai = no
-			NOT = { is_year = 1500 }
+			NOT = { is_year = 3598 }
 		}
 	}
 	loyalty = 0.05
@@ -2328,7 +2328,7 @@ estate_nobles_mestnichestvo = {
 			legitimacy = 90
 		}
 		else = {
-			is_year = 1500
+			is_year = 3598
 		}
 	}
 	on_revoked = {
