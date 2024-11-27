@@ -1,0 +1,104 @@
+# CPBM - BEST TO COMPARE PREV ET TO NEW ET AND REFLECT CHANGES
+# Added religions and changing icon IDs
+# Shifts: dreamtime to pacific_pagan in et_religion
+# Added religions: Baptist, Mandaenism, Ahmadiyya, Mutazila, Shaivism, Shaktism
+# Added MMETR sections (Find)
+
+# If you add religions, and use those tags, do not change them without changing everywhere they are used.
+
+# Uses all 'modifiers' possible thats exported as a Modifier.
+
+
+christian = {
+	defender_of_faith = yes
+	can_form_personal_unions = yes
+
+	center_of_religion = 118 # Rome	
+
+	carthaginian_rite = {
+		color = { 125 140 139 }
+		icon = 130
+		allowed_conversion = {
+			arianism
+			chalcedonism
+		}
+		country = {
+			stability_cost_modifier = 0.1
+			tolerance_own = 2
+			tolerance_heretic = 2
+			tolerance_heathen = -3
+			cavalry_shock = 0.2
+			discipline = 0.4
+			war_exhaustion = 0.05	
+			prestige_decay = -0.09		
+		}
+
+		country_as_secondary = {
+			diplomatic_reputation = 1
+			stability_cost_modifier = -0.1
+		}
+		
+		on_convert = {
+			change_religion = carthaginian_rite
+			add_stability = -0.5
+		}
+
+		misguided_heretic = yes
+		can_have_secondary_religion = yes
+		
+		heretic = { LOLLARD }
+		
+		holy_sites = { 151 341 354 355 379 }
+		
+		blessings = {
+			legitimize_government
+			encourage_warriors_of_the_faith
+			send_monks_to_establish_monasteries
+			christian_law
+			one_true_faith
+		}
+	}
+
+    acacianism = {
+        color = { 16 56 25 } 
+        icon = 131
+        allowed_conversion = {
+            arianism
+        }
+		country = {
+			stability_cost_modifier = 0.2
+			tolerance_own = 2
+			tolerance_heretic = 2
+			tolerance_heathen = -3
+			discipline = 0.3	
+		}
+		country_as_secondary = {
+			diplomatic_reputation = 1
+			stability_cost_modifier = -0.1
+		}
+
+        holy_sites = { 118 151 354 } # Rome, Alexandria, Antioch
+
+		misguided_heretic = no
+        can_have_secondary_religion = no
+
+		on_convert = {
+			change_religion = acacianism
+			add_stability = -1
+		}
+
+		blessings = {
+			legitimize_government
+			encourage_warriors_of_the_faith
+			send_monks_to_establish_monasteries
+			christian_law
+			one_true_faith
+		}
+
+		heretic = { BOGOMILIST WALDENSIAN FRATICELLI LOLLARD SOCINIAN }		
+    }
+
+	harmonized_modifier = harmonized_christian
+	
+	crusade_name = CRUSADE
+}
