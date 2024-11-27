@@ -16,7 +16,6 @@ guiTypes = {
 		animation_type = "decelerated"
 		animation_time = 600
 
-
 		iconType = {
 			name = "brown_bg"
 			spriteType ="GFX_brown_bg"
@@ -77,8 +76,8 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
-
-
+		
+		
 		guiButtonType = {
 			name = "player_shield"
 			quadTextureSprite ="GFX_shield_fancy"
@@ -733,37 +732,29 @@ guiTypes = {
 			}
 		}
 
-		guiButtonType = {
-			name = "custom_date_window_toggle_button"
-			position = { x = -243 y = 5 }
-			orientation = upper_right
-			spriteType = "GFX_custom_date_toggle_button"
+
+
+		#### NEW DATE GUI - new background patch to cover old year, new date GUI text
+
+		iconType ={
+			name = date_gui_bg
+			spriteType = date_gui_bg
+			position = { x= -138 y = 18 }
+			Orientation = UPPER_RIGHT
+			scripted = yes
+		}
+		instantTextBoxType = {
+			name = date_gui
+			text = "placeholder"
+			font = vic_18
+			format = left # Align with eu4's date string
+			maxWidth = 60
+			position = { x= -138 y = 18 }
+			Orientation = UPPER_RIGHT
 			scripted = yes
 		}
 
-		windowType = {
-			name = "custom_date_window"
-			position = { x = -220 y = 42 }
-			orientation = upper_right
-			scripted = yes
 
-			iconType = {
-				name = "background"
-				position = { x = 0 y = 0 }
-				spriteType = "GFX_custom_date_bg"
-			}
-
-			instantTextBoxType = {
-				name = "custom_date_text"
-				position = { x = 7 y = 6 }
-				maxWidth = 120
-				maxHeight = 20
-				fixedsize = yes
-				format = center
-				font = "vic_18"
-				scripted = yes
-			}
-		}
 	} ### end of "topbar"
 
 	windowType = {

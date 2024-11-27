@@ -1,0 +1,20 @@
+# Handle setup stuff, setting yearly update PTM and getting initial year number
+date_setup = {
+    1 = {
+        add_province_triggered_modifier = date_timer
+        date_tick = yes
+    }
+}
+# Update year numbers, should happen on January 1st
+date_tick = {
+    export_to_variable = { which = year value = trigger_value:is_year } # Get eu4 year
+    change_variable = { which = year value = -2098 } # Offset from eu4 year
+    set_variable = { which = display_year which = year } # Copy to display variable
+    if = { # If it's BC, change display to be positive
+        limit = {
+            NOT = { check_variable = { which = year value = 1 } }
+        }
+        multiply_variable = { which = display_year value = -1 }
+        change_variable = { which = display_year value = 1 } # There is no 'year 0'
+    }
+}
