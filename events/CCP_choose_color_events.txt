@@ -1,0 +1,1920 @@
+namespace = CCP_choose_color_events
+country_event = {
+	id = CCP_choose_color_events.0
+	title = CCP_choose_color_events.title
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			CCP_unified_color_effects = yes
+		}
+	}
+	option = { #Return
+		name = CCP.return
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			if = {
+				limit = {
+					event_target:CCP_selected_target = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = CCP_config_events.0
+				}
+			}
+			else = {
+				country_event = {
+					id = CCP_foreign_action_events.0
+				}
+			}
+		}
+	}
+	option = { #Beige
+		name = CCP.category_beige
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.1
+			}
+		}
+	}
+	option = { #Brown
+		name = CCP.category_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.2
+			}
+		}
+	}
+	option = { #Reddish Brown
+		name = CCP.category_reddish_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.3
+			}
+		}
+	}
+	option = { #Black
+		name = CCP.category_black
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.4
+			}
+		}
+	}
+	option = { #Cyan
+		name = CCP.category_cyan
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.5
+			}
+		}
+	}
+	option = { #Blue
+		name = CCP.category_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.6
+			}
+		}
+	}
+	option = { #Dark Blue
+		name = CCP.category_dark_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.7
+			}
+		}
+	}
+	option = { #Turqouise
+		name = CCP.category_turqoise
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.8
+			}
+		}
+	}
+	option = { #Pale Blue
+		name = CCP.category_pale_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.9
+			}
+		}
+	}
+	option = { #Green
+		name = CCP.category_green
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.10
+			}
+		}
+	}
+	option = { #Olive
+		name = CCP.category_olive
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.11
+			}
+		}
+	}
+	option = { #Grey
+		name = CCP.category_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.12
+			}
+		}
+	}
+	option = { #Light Grey
+		name = CCP.category_light_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.13
+			}
+		}
+	}
+	option = { #Violet
+		name = CCP.category_violet
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.14
+			}
+		}
+	}
+	option = { #Magenta
+		name = CCP.category_magenta
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.15
+			}
+		}
+	}
+	option = { #Pink
+		name = CCP.category_pink
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.16
+			}
+		}
+	}
+	option = { #Purple
+		name = CCP.category_purple
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.17
+			}
+		}
+	}
+	option = { #Red
+		name = CCP.category_red
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.18
+			}
+		}
+	}
+	option = { #Bright Red
+		name = CCP.category_bright_red
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.19
+			}
+		}
+	}
+	option = { #Orange
+		name = CCP.category_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.20
+			}
+		}
+	}
+	option = { #Yellow
+		name = CCP.category_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.21
+			}
+		}
+	}
+	option = { #Pale Yellow
+		name = CCP.category_pale_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.22
+			}
+		}
+	}
+	option = { #White
+		name = CCP.category_white
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_choose_color_events.23
+			}
+		}
+	}
+	option = { #Return
+		name = CCP.return
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			if = {
+				limit = {
+					event_target:CCP_selected_target = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = CCP_config_events.0
+				}
+			}
+			else = {
+				country_event = {
+					id = CCP_foreign_action_events.0
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.1
+	title = CCP.category_beige
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_burly_wood
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 222 G = 184 B = 135 } }
+	}
+	option = {
+		name = CCP_champagne
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 230 G = 193 B = 141 } }
+	}
+	option = {
+		name = CCP_tan
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 210 G = 180 B = 140 } }
+	}
+	option = {
+		name = CCP_portland_stone
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 206 G = 192 B = 147 } }
+	}
+	option = {
+		name = CCP_sunrise_sunshine
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 207 G = 180 B = 138 } }
+	}
+	option = {
+		name = CCP_light_stone
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 212 G = 185 B = 125 } }
+	}
+	option = {
+		name = CCP_beige
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 228 G = 207 B = 147 } }
+	}
+	option = {
+		name = CCP_khaki
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 240 G = 230 B = 140 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.1
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.2
+	title = CCP.category_brown
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_saddle_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 139 G = 69 B = 19 } }
+	}
+	option = {
+		name = CCP_chocolate
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 210 G = 105 B = 30 } }
+	}
+	option = {
+		name = CCP_peru
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 205 G = 133 B = 63 } }
+	}
+	option = {
+		name = CCP_orange_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 166 G = 94 B = 47 } }
+	}
+	option = {
+		name = CCP_sienna
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 160 G = 82 B = 45 } }
+	}
+	option = {
+		name = CCP_pearl_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 149 G = 69 B = 39 } }
+	}
+	option = {
+		name = CCP_ochre_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 156 G = 107 B = 48 } }
+	}
+	option = {
+		name = CCP_golden_tan
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 146 G = 86 B = 41 } }
+	}
+	option = {
+		name = CCP_darker_tan
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 143 G = 95 B = 50 } }
+	}
+	option = {
+		name = CCP_clay_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 128 G = 84 B = 47 } }
+	}
+	option = {
+		name = CCP_copper_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 143 G = 78 B = 53 } }
+	}
+	option = {
+		name = CCP_signal_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 123 G = 81 B = 65 } }
+	}
+	option = {
+		name = CCP_pearl_gold
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 146 G = 117 B = 73 } }
+	}
+	option = {
+		name = CCP_green_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 136 G = 113 B = 66 } }
+	}
+	option = {
+		name = CCP_bronze_olive
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 105 G = 93 B = 62 } }
+	}
+	option = {
+		name = CCP_nut_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 118 G = 72 B = 50 } }
+	}
+	option = {
+		name = CCP_darker_nut_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 90 G = 58 B = 41 } }
+	}
+	option = {
+		name = CCP_mahogany_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 76 G = 47 B = 38 } }
+	}
+	option = {
+		name = CCP_chocolate_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 68 G = 50 B = 45 } }
+	}
+	option = {
+		name = CCP_sepia_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 73 G = 57 B = 45 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.2
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.3
+	title = CCP.category_reddish_brown
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_terracotta
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 160 G = 76 B = 54 } }
+	}
+	option = {
+		name = CCP_raspberry
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 133 G = 47 B = 49 } }
+	}
+	option = {
+		name = CCP_venetian_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 119 G = 55 B = 43 } }
+	}
+	option = {
+		name = CCP_red_gum
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 141 G = 67 B = 56 } }
+	}
+	option = {
+		name = CCP_chestnut_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 99 G = 58 B = 52 } }
+	}
+	option = {
+		name = CCP_deep_indian_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 84 G = 46 B = 43 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.3
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.4
+	title = CCP.category_black
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 0 B = 0 } }
+	}
+	option = {
+		name = CCP_jet_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 10 G = 10 B = 10 } }
+	}
+	option = {
+		name = CCP_graphite_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 28 G = 28 B = 28 } }
+	}
+	option = {
+		name = CCP_traffic_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 30 G = 30 B = 30 } }
+	}
+	option = {
+		name = CCP_midnight_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 41 G = 42 B = 52 } }
+	}
+	option = {
+		name = CCP_deep_bronze_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 51 G = 51 B = 52 } }
+	}
+	option = {
+		name = CCP_other_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 42 G = 42 B = 44 } }
+	}
+	option = {
+		name = CCP_night
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 40 G = 43 B = 47 } }
+	}
+	option = {
+		name = CCP_black_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 29 G = 31 B = 42 } }
+	}
+	option = {
+		name = CCP_signal_black
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 40 G = 40 B = 40 } }
+	}
+	option = {
+		name = CCP_brown_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 53 G = 56 B = 46 } }
+	}
+	option = {
+		name = CCP_steel_furniture_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 59 G = 54 B = 41 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.4
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.5
+	title = CCP.category_cyan
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_dodger_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 30 G = 144 B = 255 } }
+	}
+	option = {
+		name = CCP_light_sea_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 32 G = 178 B = 170 } }
+	}
+	option = {
+		name = CCP_deep_sky_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 191 B = 255 } }
+	}
+	option = {
+		name = CCP_aqua
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 255 B = 255 } }
+	}
+	option = {
+		name = CCP_aquamarine
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 127 G = 255 B = 212 } }
+	}
+	option = {
+		name = CCP_turquoise
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 64 G = 224 B = 208 } }
+	}
+	option = {
+		name = CCP_dark_turquoise
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 206 B = 209 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.5
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.6
+	title = CCP.category_blue
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_arctic_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 120 G = 173 B = 194 } }
+	}
+	option = {
+		name = CCP_cornflower_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 100 G = 149 B = 237 } }
+	}
+	option = {
+		name = CCP_cadet_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 95 G = 158 B = 160 } }
+	}
+	option = {
+		name = CCP_steel_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 70 G = 130 B = 180 } }
+	}
+	option = {
+		name = CCP_royal_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 65 G = 105 B = 225 } }
+	}
+	option = {
+		name = CCP_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 0 B = 255 } }
+	}
+	option = {
+		name = CCP_medium_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 0 B = 205 } }
+	}
+	option = {
+		name = CCP_navy
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 0 B = 128 } }
+	}
+	option = {
+		name = CCP_lighter_midnight_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 25 G = 25 B = 112 } }
+	}
+	option = {
+		name = CCP_teal
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 128 B = 128 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.6
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.7
+	title = CCP.category_dark_blue
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_navy_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 40 G = 48 B = 77 } }
+	}
+	option = {
+		name = CCP_dark_teal
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 24 G = 63 B = 78 } }
+	}
+	option = {
+		name = CCP_malachite
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 16 G = 81 B = 84 } }
+	}
+	option = {
+		name = CCP_mountain_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 41 G = 86 B = 104 } }
+	}
+	option = {
+		name = CCP_peacock_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 36 G = 87 B = 100 } }
+	}
+	option = {
+		name = CCP_coral_sea
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 43 G = 56 B = 115 } }
+	}
+	option = {
+		name = CCP_other_royal_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 44 G = 53 B = 99 } }
+	}
+	option = {
+		name = CCP_saphhire
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 40 G = 66 B = 107 } }
+	}
+	option = {
+		name = CCP_mid_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 20 G = 75 B = 111 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.7
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.8
+	title = CCP.category_turqoise
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_sea_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 46 G = 139 B = 87 } }
+	}
+	option = {
+		name = CCP_mint_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 107 B = 69 } }
+	}
+	option = {
+		name = CCP_spruce
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 5 G = 103 B = 79 } }
+	}
+	option = {
+		name = CCP_jade
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 18 G = 116 B = 83 } }
+	}
+	option = {
+		name = CCP_homebush_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 1 G = 127 B = 77 } }
+	}
+	option = {
+		name = CCP_lawn_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 13 G = 135 B = 93 } }
+	}
+	option = {
+		name = CCP_vertigris
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 70 G = 138 B = 101 } }
+	}
+	option = {
+		name = CCP_beanstalk
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 69 G = 165 B = 106 } }
+	}
+	option = {
+		name = CCP_medium_sea_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 60 G = 179 B = 113 } }
+	}
+	option = {
+		name = CCP_medium_spring_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 250 B = 154 } }
+	}
+	option = {
+		name = CCP_spring_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 255 B = 127 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.8
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.9
+	title = CCP.category_pale_blue
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_medium_aqua_marine
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 102 G = 205 B = 170 } }
+	}
+	option = {
+		name = CCP_pale_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 140 G = 197 B = 187 } }
+	}
+	option = {
+		name = CCP_sky_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 148 G = 191 B = 172 } }
+	}
+	option = {
+		name = CCP_light_sky_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 135 G = 206 B = 250 } }
+	}
+	option = {
+		name = CCP_light_steel_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 176 G = 196 B = 222 } }
+	}
+	option = {
+		name = CCP_pale_roundel_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 167 G = 198 B = 235 } }
+	}
+	option = {
+		name = CCP_powder_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 176 G = 224 B = 230 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.9
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.10
+	title = CCP.category_green
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_green_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 173 G = 255 B = 47 } }
+	}
+	option = {
+		name = CCP_other_lawn_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 124 G = 252 B = 0 } }
+	}
+	option = {
+		name = CCP_yellow_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 154 G = 205 B = 50 } }
+	}
+	option = {
+		name = CCP_lime
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 255 B = 0 } }
+	}
+	option = {
+		name = CCP_lime_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 50 G = 205 B = 50 } }
+	}
+	option = {
+		name = CCP_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 128 B = 0 } }
+	}
+	option = {
+		name = CCP_dark_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 0 G = 100 B = 0 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.10
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.11
+	title = CCP.category_olive
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_olive_drab
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 107 G = 142 B = 35 } }
+	}
+	option = {
+		name = CCP_dark_olive_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 85 G = 107 B = 47 } }
+	}
+	option = {
+		name = CCP_olive
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 128 G = 128 B = 0 } }
+	}
+	option = {
+		name = CCP_other_lime_green
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 137 G = 146 B = 46 } }
+	}
+	option = {
+		name = CCP_kikuyu
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 149 G = 180 B = 59 } }
+	}
+	option = {
+		name = CCP_citronella
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 191 G = 200 B = 62 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.11
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.12
+	title = CCP.category_grey
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_dark_slate_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 47 G = 79 B = 79 } }
+	}
+	option = {
+		name = CCP_dim_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 105 G = 105 B = 105 } }
+	}
+	option = {
+		name = CCP_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 128 G = 128 B = 128 } }
+	}
+	option = {
+		name = CCP_light_slate_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 119 G = 136 B = 153 } }
+	}
+	option = {
+		name = CCP_slate_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 112 G = 128 B = 144 } }
+	}
+	option = {
+		name = CCP_other_light_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 154 G = 170 B = 159 } }
+	}
+	option = {
+		name = CCP_dark_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 169 G = 169 B = 169 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.12
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.13
+	title = CCP.category_light_grey
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_light_gray
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 211 G = 211 B = 211 } }
+	}
+	option = {
+		name = CCP_silver
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 192 G = 192 B = 192 } }
+	}
+	option = {
+		name = CCP_light_aircraft_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 190 G = 192 B = 184 } }
+	}
+	option = {
+		name = CCP_light_weatherwork_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 169 G = 183 B = 185 } }
+	}
+	option = {
+		name = CCP_light_admiralty_grey
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 182 G = 211 B = 204 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.13
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.14
+	title = CCP.category_violet
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_medium_orchid
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 186 G = 85 B = 211 } }
+	}
+	option = {
+		name = CCP_orchid
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 218 G = 112 B = 214 } }
+	}
+	option = {
+		name = CCP_thistle
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 216 G = 191 B = 216 } }
+	}
+	option = {
+		name = CCP_plum
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 221 G = 160 B = 221 } }
+	}
+	option = {
+		name = CCP_violet
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 238 G = 130 B = 238 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.14
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.15
+	title = CCP.category_magenta
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_medium_violet_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 199 G = 21 B = 133 } }
+	}
+	option = {
+		name = CCP_deep_pink
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 20 B = 147 } }
+	}
+	option = {
+		name = CCP_magenta
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 0 B = 255 } }
+	}
+	option = {
+		name = CCP_hot_pink
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 105 B = 180 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.15
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.16
+	title = CCP.category_pink
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_coral
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 127 B = 80 } }
+	}
+	option = {
+		name = CCP_tomato
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 99 B = 71 } }
+	}
+	option = {
+		name = CCP_salmon
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 250 G = 128 B = 114 } }
+	}
+	option = {
+		name = CCP_light_salmon
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 160 B = 122 } }
+	}
+	option = {
+		name = CCP_dark_salmon
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 233 G = 150 B = 122 } }
+	}
+	option = {
+		name = CCP_sandy_brown
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 244 G = 164 B = 96 } }
+	}
+	option = {
+		name = CCP_light_pink
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 182 B = 193 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.16
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.17
+	title = CCP.category_purple
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_indigo
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 75 G = 0 B = 130 } }
+	}
+	option = {
+		name = CCP_dark_slate_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 72 G = 61 B = 139 } }
+	}
+	option = {
+		name = CCP_purple
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 128 G = 0 B = 128 } }
+	}
+	option = {
+		name = CCP_rebecca_purple
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 102 G = 51 B = 153 } }
+	}
+	option = {
+		name = CCP_dark_orchid
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 153 G = 50 B = 204 } }
+	}
+	option = {
+		name = CCP_blue_violet
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 138 G = 43 B = 226 } }
+	}
+	option = {
+		name = CCP_medium_purple
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 147 G = 112 B = 219 } }
+	}
+	option = {
+		name = CCP_medium_slate_blue
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 123 G = 104 B = 238 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.17
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.18
+	title = CCP.category_red
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_maroon
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 128 G = 0 B = 0 } }
+	}
+	option = {
+		name = CCP_carmine_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 161 G = 35 B = 43 } }
+	}
+	option = {
+		name = CCP_tomato_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 156 G = 50 B = 46 } }
+	}
+	option = {
+		name = CCP_flame_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 171 G = 37 B = 36 } }
+	}
+	option = {
+		name = CCP_strawberry
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 180 G = 41 B = 42 } }
+	}
+	option = {
+		name = CCP_fire_brick
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 178 G = 34 B = 34 } }
+	}
+	option = {
+		name = CCP_signal_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 186 G = 49 B = 43 } }
+	}
+	option = {
+		name = CCP_traffic_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 193 G = 18 B = 28 } }
+	}
+	option = {
+		name = CCP_scarlet
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 205 G = 57 B = 42 } }
+	}
+	option = {
+		name = CCP_international_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 206 G = 72 B = 42 } }
+	}
+	option = {
+		name = CCP_homebush_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 216 G = 58 B = 45 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.18
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.19
+	title = CCP.category_bright_red
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_pure_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 231 G = 37 B = 18 } }
+	}
+	option = {
+		name = CCP_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 0 B = 0 } }
+	}
+	option = {
+		name = CCP_luminous_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 247 G = 0 B = 0 } }
+	}
+	option = {
+		name = CCP_luminous_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 35 B = 0 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.19
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.20
+	title = CCP.category_orange
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_orange_red
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 69 B = 0 } }
+	}
+	option = {
+		name = CCP_dark_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 140 B = 0 } }
+	}
+	option = {
+		name = CCP_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 165 B = 0 } }
+	}
+	option = {
+		name = CCP_apricot
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 251 G = 156 B = 6 } }
+	}
+	option = {
+		name = CCP_marigold
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 237 G = 127 B = 21 } }
+	}
+	option = {
+		name = CCP_inca_gold
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 223 G = 140 B = 25 } }
+	}
+	option = {
+		name = CCP_pumpkin
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 221 G = 126 B = 26 } }
+	}
+	option = {
+		name = CCP_mandarin
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 228 G = 84 B = 39 } }
+	}
+	option = {
+		name = CCP_darker_orange
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 227 G = 108 B = 43 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.20
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.21
+	title = CCP.category_yellow
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_honey_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 200 G = 159 B = 4 } }
+	}
+	option = {
+		name = CCP_golden_rod
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 218 G = 165 B = 32 } }
+	}
+	option = {
+		name = CCP_daffodil_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 231 G = 156 B = 0 } }
+	}
+	option = {
+		name = CCP_dahlia_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 250 G = 171 B = 33 } }
+	}
+	option = {
+		name = CCP_primrose
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 233 G = 187 B = 67 } }
+	}
+	option = {
+		name = CCP_buttercup
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 224 G = 205 B = 65 } }
+	}
+	option = {
+		name = CCP_gold
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 215 B = 0 } }
+	}
+	option = {
+		name = CCP_golden_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 252 G = 200 B = 8 } }
+	}
+	option = {
+		name = CCP_lemon
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 253 G = 217 B = 6 } }
+	}
+	option = {
+		name = CCP_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 255 B = 0 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.21
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.22
+	title = CCP.category_pale_yellow
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_zinc_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 243 G = 224 B = 59 } }
+	}
+	option = {
+		name = CCP_sulfur_yellow
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 234 G = 240 B = 68 } }
+	}
+	option = {
+		name = CCP_other_primrose
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 245 G = 207 B = 91 } }
+	}
+	option = {
+		name = CCP_custard
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 239 G = 210 B = 92 } }
+	}
+	option = {
+		name = CCP_deep_cream
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 243 G = 201 B = 104 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.22
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_choose_color_events.23
+	title = CCP.category_white
+	desc = CCP_choose_color_events.desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = { clr_country_flag = CCP_confirm_color_flag }
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	option = {
+		name = CCP_peach_puff
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 218 B = 185 } }
+	}
+	option = {
+		name = CCP_blanched_almond
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 235 B = 205 } }
+	}
+	option = {
+		name = CCP_navajo_white
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 222 B = 173 } }
+	}
+	option = {
+		name = CCP_lavender
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 230 G = 230 B = 250 } }
+	}
+	option = {
+		name = CCP_cornsilk
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 248 B = 220 } }
+	}
+	option = {
+		name = CCP_white
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_set_country_color_effects = { R = 255 G = 255 B = 255 } }
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		ai_chance = { factor = 0 }
+		hidden_effect = { CCP_confirm_color_effects = yes }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = CCP_confirm_color_flag } }
+				country_event = {
+					id = CCP_choose_color_duplicate_events.23
+				}
+			}
+		}
+	}
+}

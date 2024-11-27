@@ -1,0 +1,85 @@
+﻿l_french:
+ #Decision
+ CCP_config_decision_title: "Country Color Picker"
+ CCP_config_decision_desc: "Enact decision to configure features of the mod."
+
+ #Main Decision Event
+ CCP_config_events.country_color_picker: "[Root.GetName] Map Color"
+ CCP_config_events.country_color_picker_desc: "This mod allows customizing country map color. This include changing your own country color or setting rules that would apply to country groups worldwide.\n\n Available interactions are listed below."
+ 
+ CCP.choose_root_color: "Choose Color for [Root.GetName]"
+ CCP.restore_root_original_color: "Restore [Root.GetName] Original Color"
+ CCP.save_root_color: "Save [Root.GetName] Color"
+ CCP.restore_saved_color: "Restore Saved Color"
+ CCP.unified_country_color_rules: "Unified Country Color Rules"
+
+ CCP_save_root_color_tt: "Used to retain country color when forming a new country.\nAfter new country formed, select §YRestore Saved Color§!."
+
+ #Foreign Action Event
+ CCP_foreign_action_events.title: "[CCP_selected_target.GetName] Map Color"
+ CCP_foreign_action_events.desc: "Manage [CCP_selected_target.GetName] map color. Available interactions are listed below."
+
+ CCP.choose_selected_target_color: "Choose Color for [CCP_selected_target.GetName]"
+ CCP.copy_selected_target_color: "Copy [CCP_selected_target.GetName] Color to [Root.GetName]"
+ CCP.share_root_color: "Share [Root.GetName] Color to [CCP_selected_target.GetName]"
+ CCP.restore_selected_target_original_color: "Restore [CCP_selected_target.GetName] Original Color"
+
+ #Choose Color Event
+ CCP_choose_color_events.title: "Choose Map Color"
+ CCP_choose_color_events.desc: "Choose a new color for [CCP_selected_target.GetName]. The country original color can be restored."
+ CCP.category_beige: "Beige"
+ CCP.category_brown: "Brown"
+ CCP.category_reddish_brown: "Reddish Brown"
+ CCP.category_black: "Black"
+ CCP.category_cyan: "Cyan"
+ CCP.category_blue: "Blue"
+ CCP.category_dark_blue: "Dark Blue"
+ CCP.category_turqoise: "Turqoise"
+ CCP.category_pale_blue: "Pale Blue"
+ CCP.category_green: "Green"
+ CCP.category_olive: "Olive"
+ CCP.category_grey: "Grey"
+ CCP.category_light_grey: "Light Grey"
+ CCP.category_violet: "Violet"
+ CCP.category_magenta: "Magenta"
+ CCP.category_pink: "Pink"
+ CCP.category_purple: "Purple"
+ CCP.category_red: "Red"
+ CCP.category_bright_red: "Bright Red"
+ CCP.category_orange: "Orange"
+ CCP.category_yellow: "Yellow"
+ CCP.category_pale_yellow: "Pale Yellow"
+ CCP.category_white: "White"
+
+ #Unified Country Color
+ CCP_config_events.unified_color: "Unified Country Color"
+ CCP_config_events.unified_color_desc: "When set to 'ENABLED', members of the specified country group will have same map color as their leader.\n\nIn case the country group got disbanded (HRE and Trade League) or member stop being part of the group (subjects gaining independence or breaking the relationship, HRE countries quitting HRE, and Trade League members quitting Trade League), they will gain back their original map color.\n\nCheck for the countries is conducted quarterly."
+
+ CCP.HRE_status: "HRE = [CCP_HRE_status_localization]"
+ CCP.trade_league_status: "Trade League = [CCP_trade_league_status_localization]"
+ CCP.subject_status: "Subject = [CCP_subject_status_localization]"
+ CCP.vassal_status: "Vassal = [CCP_vassal_status_localization]"
+ CCP.march_status: "March = [CCP_march_status_localization]"
+ CCP.personal_union_status: "Personal Union = [CCP_personal_union_status_localization]"
+ CCP.colonial_subject_status: "Colonial Subject = [CCP_colonial_subject_status_localization]"
+ CCP.tributary_status: "Tributary = [CCP_tributary_status_localization]"
+ CCP.shogunate_status: "Shogunate = [CCP_shogunate_status_localization]"
+ CCP.eyalet_status: "Eyalet = [CCP_eyalet_status_localization]"
+ CCP.appanage_status: "Appanage = [CCP_appanage_status_localization]"
+ CCP.commercial_enterprise_status: "Commercial Enterprise = [CCP_commercial_enterprise_status_localization]"
+ CCP.trade_protectorate_status: "Trade Protectorate = [CCP_trade_protectorate_status_localization]"
+ 
+ #Base
+ CCP.enabled: "§GENABLED§!"
+ CCP.disabled: "§RDISABLED§!"
+
+ CCP.confirm: "Confirm"
+ CCP.return: "Return"
+
+ CCP_periodic_color_check_province_triggered_modifier: "Periodic Color Check"
+
+ #Diplomatic action: Manage Map Color
+ CCP_manage_color_diplomatic_action: "Manage Map Color"
+ CCP_manage_color_diplomatic_action_title: "Manage Map Color"
+ CCP_manage_color_diplomatic_action_desc: "This would allow us to:\n- Choose a new color for §Y[From.GetName]§!\n- Copy §Y[From.GetName]§! color to our country\n- Share our color to §Y[From.GetName]§!\n\nThe changes made can be reverted back."
+ CCP_manage_color_diplomatic_action_tooltip: "Interact with target map color"

@@ -1,0 +1,28 @@
+CCP_manage_color_diplomatic_action = {
+	category = relation
+	require_acceptance = no
+	is_visible = {
+		ai = no
+		NOT = { has_country_flag = CCP_open_menu_flag }
+	}
+	is_allowed = {
+		hidden_trigger = {
+			ai = no
+			NOT = { has_country_flag = CCP_open_menu_flag }
+		}
+		always = yes
+	}
+	on_accept = {
+		FROM = { set_country_flag = CCP_color_management_target@ROOT }
+		set_country_flag = CCP_open_menu_flag
+
+		country_event = {
+			id = CCP_script_events.1
+		}
+
+		FROM = { clr_country_flag = CCP_color_management_target@ROOT }
+	}
+	ai_will_do = {
+		always = no
+	}
+}

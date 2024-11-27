@@ -1,0 +1,24 @@
+namespace = CCP_script_events
+country_event = { #Save FROM as event target (Trigerred from diplomatic action)
+	id = CCP_script_events.1
+	title = NONE
+	desc = NONE
+	picture = NONE
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = { has_country_flag = CCP_color_management_target@ROOT }
+				save_event_target_as = CCP_selected_target
+			}
+			country_event = {
+				id = CCP_foreign_action_events.1
+			}
+		}
+	}
+	option = {
+		#hidden
+	}
+}
