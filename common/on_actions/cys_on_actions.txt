@@ -1,0 +1,174 @@
+on_startup = {
+	emperor = {
+		save_global_event_target_as = Emperor
+	}
+	if = {
+		limit = {
+			is_emperor_of_china = yes
+		}
+		save_global_event_target_as = EmperorOfChina
+	}
+	events = {
+		muslim_school_events.20		#Pick School
+		flavor_got.1		#Event for Gotland to select their mission tree
+		flavor_mng.42		#Event for the starting situation of the Ming 
+		#flavor_fra.15000 #Make the French Revolution happen if starting in 1789
+		flavor_mos.1		#Event regarding the Tatar Yoke
+		flavor_fra.206		# Setup the general for missions
+		flavor_geo.1		# Disaster info
+		flavor_mam.111		# Mamluks-Syria relations
+	}
+	on_startup_effect = yes
+	on_startup_dlc_cleanup_effect = yes
+	initialize_schools_effect = yes	#This is only used here but is used for readability of on_action file.
+	random_country = {
+		limit = {
+			ai = no
+		}
+		country_event = {
+			id = cys.1
+		}
+	}
+}
+
+on_dependency_gained = {
+	if = {
+		limit = {
+			FROM = {
+				has_government_attribute = has_dutch_election
+			}
+		}
+		ROOT = {
+			country_event = {
+				id = dutch_republic.31
+			}
+			# States General falls under a PU
+		}
+	}
+	if = {
+		limit = {
+			FROM = {
+				tag = AVE
+				government_rank = 1
+			}
+		}
+		FROM = {
+			country_event = {
+				id = flavor_gbr.20
+			}
+		}
+	}
+	if = {
+		limit = {
+			FROM = {
+				is_colonial_nation = no
+			}
+		}
+		subject_color_effect = yes
+	}
+}
+
+# ROOT = Overlord, FROM = Minor
+on_dependency_lost = {
+	if = {
+		limit = {
+			has_country_modifier = mng_tibetan_horses_monopoly_modifier
+		}
+		remove_country_modifier = mng_tibetan_horses_monopoly_modifier
+	}
+	if = {
+		limit = {
+			has_country_modifier = tur_tatar_vanguard_modifier
+			FROM = {
+				tag = CRI
+				NOT = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		remove_country_modifier = tur_tatar_vanguard_modifier
+	}
+	if = {
+		limit = {
+			has_country_modifier = rus_grand_duke_of_finland
+			FROM = {
+				tag = FIN
+			}
+		}
+		remove_country_modifier = rus_grand_duke_of_finland
+	}
+	FROM = {
+		if = {
+			limit = {
+				has_country_modifier = revoked_war_rights
+			}
+			remove_country_modifier = revoked_war_rights
+		}
+	}
+	FROM = {
+		if = {
+			limit = {
+				has_country_modifier = grain_trade_imports_modifier
+			}
+			remove_country_modifier = grain_trade_imports_modifier
+		}
+	}
+	FROM = {
+		if = {
+			limit = {
+				is_colonial_nation = no
+				is_dynamic_tag = no
+			}
+			restore_country_color = yes
+			every_subject_country = {
+				limit = {
+					is_colonial_nation = yes
+				}
+				change_country_color = {
+					country = FROM
+				}
+			}
+		}
+	}
+}
+
+# ROOT = New vassal, FROM = Overlord
+on_create_vassal = {
+	on_religion_change_estate_privileges_effect = yes
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			FROM = {
+				is_revolutionary = yes
+			}
+		}
+		change_government = republic
+		add_government_reform = junior_revolutionary_republic_reform
+		set_country_flag = had_revolution
+	}
+	if = {
+		limit = {
+			tag = PAP
+		}
+		change_government = theocracy
+		change_religion = catholic
+		add_government_reform = papacy_reform
+		adopt_reform_progress = FROM
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_year = 1445
+			}
+		}
+		set_country_flag = released_in_1444
+	}
+	if = {
+		limit = {
+			ROOT = {
+				is_colonial_nation = no
+			}
+		}
+		create_subject_color_effect = yes
+	}
+}
