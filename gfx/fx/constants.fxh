@@ -20,10 +20,10 @@ Code
 
 
 static const float3 LIGHT_DIFFUSE				= float3( 1.0f, 1.0f, 1.0f );
-static const float  LIGHT_INTENSITY   			= 1.0f;
-static const float  AMBIENT						= 1.0f;
+static const float  LIGHT_INTENSITY   			= 1.1f;
+static const float  AMBIENT						= 0.2f;
 static const float3 MAP_LIGHT_DIFFUSE			= float3( 1.0f, 1.0f, 1.0f );
-static const float  MAP_LIGHT_INTENSITY   		= 1.5f;
+static const float  MAP_LIGHT_INTENSITY   		= 1.25f;
 static const float  MAP_AMBIENT					= 0.0f;
 static const float	LIGHT_HDR_RANGE 			= 0.8f;
 
@@ -62,7 +62,7 @@ static const float 	TREE_SEASON_FADE_TWEAK 		= 2.5f;
 
 
 static const float 	WATER_TILE					= 1.0f;
-static const float 	WATER_TIME_SCALE			= 0.0f;
+static const float 	WATER_TIME_SCALE			= 12.0f;
 
 
 // --------------------------------------------------------------
@@ -82,7 +82,7 @@ static const float 	WATER_TIME_SCALE			= 0.0f;
 static const float 	FOG_BEGIN					= 80.0f;
 static const float 	FOG_END 					= 150.0f;
 static const float 	FOG_MAX 					= 0.7f;
-static const float3 FOG_COLOR 					= float3( 0.0f, 0.0f, 0.0f );
+static const float3 FOG_COLOR 					= float3( 0.5f, 0.5f, 0.6f );
 
 
 
@@ -95,7 +95,7 @@ static const float  SHADOW_WEIGHT_TERRAIN    	= 0.7f;
 static const float  SHADOW_WEIGHT_MAP    		= 0.7f;
 static const float  SHADOW_WEIGHT_BORDER   		= 0.7f;
 static const float  SHADOW_WEIGHT_WATER   		= 0.5f;
-static const float  SHADOW_WEIGHT_RIVER   		= 0.0f;
+static const float  SHADOW_WEIGHT_RIVER   		= 0.4f;
 static const float  SHADOW_WEIGHT_TREE   		= 0.7f;
 
 // LIGHT_SHADOW_DIRECTION_X = -8.0				defines.lua   (reload defines)
