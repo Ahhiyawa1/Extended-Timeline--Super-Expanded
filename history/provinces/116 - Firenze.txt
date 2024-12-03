@@ -1,5 +1,4 @@
-#116 - Firenze
-
+# 116 - Firenze
 owner = ROM
 controller = ROM
 culture = etruscan
@@ -17,69 +16,112 @@ base_production = 5
 trade_goods = wine
 base_manpower = 4
 fort_15th = yes
-capital = "Florentia" 
+capital = "Florentia"
 is_city = yes
 add_core = ROM
 center_of_trade = 2
+1800.1.1 = { religion = rasenna } 
+2328.1.1 = { religion = hellenism }
+2348.1.1 = { culture = roman } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2348.1.1 = { culture = roman }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2518.1.1 = { religion = chalcedonism }
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2638.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
-2667.6.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST remove_core = BYZ capital = "Firenze" culture = tuscan }
-2698.1.1 = { base_tax = 6 base_production = 6 }
-2798.1.1 = { base_manpower = 5 }
-2872.1.1 = { owner = FRK controller = FRK add_core = FRK remove_core = LOM }
-2898.1.1 = { base_tax = 7 base_production = 7 }
-2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
-2944.1.1 = { owner = TUS controller = TUS add_core = TUS remove_core = FRD }
-2948.1.1 = { fort_15th = yes }
-2965.1.1 = { religion = catholic }
-2998.1.1 = { base_tax = 8 base_production = 8 }
-3060.2.2 = { hre = yes }
-3098.1.1 = { base_manpower = 6 }
-3198.1.1 = { base_tax = 9 base_production = 9 }
-3213.7.24 = { owner = LAN controller = LAN add_core = LAN remove_core = TUS }
-3298.1.1 = { base_tax = 10 base_production = 10 }
-3398.1.1 = { base_production = 12 }
+2518.1.1 = { religion = chalcedonism } 
+2574.9.4 = { owner = ITA controller = ITA add_core = ITA } 
+2578.1.1 = { remove_core = ROW } 
+2587.1.1 = { 
+    owner = OST
+    controller = OST
+    add_core = OST
+    remove_core = ITA
+}
 
-3593.1.1 = { hre = no }
+2638.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
+2667.6.1 = { 
+    owner = LOM
+    controller = LOM
+    add_core = LOM
+    remove_core = OST
+    remove_core = BYZ
+    capital = "Firenze"
+    culture = tuscan
+}
+
+2698.1.1 = { base_tax = 6 base_production = 6 } 
+2798.1.1 = { base_manpower = 5 } 
+2872.1.1 = { 
+    owner = FRK
+    controller = FRK
+    add_core = FRK
+    remove_core = LOM
+}
+
+2898.1.1 = { base_tax = 7 base_production = 7 } 
+2938.6.21 = { 
+    owner = FRD
+    controller = FRD
+    add_core = FRD
+    remove_core = FRK
+}
+
+2944.1.1 = { 
+    owner = TUS
+    controller = TUS
+    add_core = TUS
+    remove_core = FRD
+}
+
+2948.1.1 = { fort_15th = yes } 
+2965.1.1 = { religion = catholic } 
+2998.1.1 = { base_tax = 8 base_production = 8 } 
+3060.2.2 = { hre = yes } 
+3098.1.1 = { base_manpower = 6 } 
+3198.1.1 = { base_tax = 9 base_production = 9 } 
+3213.7.24 = { 
+    owner = LAN
+    controller = LAN
+    add_core = LAN
+    remove_core = TUS
+}
+
+3298.1.1 = { base_tax = 10 base_production = 10 } 
+3398.1.1 = { base_production = 12 } 
+3593.1.1 = { hre = no } 
 3625.1.1 = { controller = SPA } # War of the League of Cognac
 3627.8.3 = { controller = LAN } # Treaty of Cambrai
-3667.8.1 = {
-	owner = TUS
-	controller = TUS
-	add_core = TUS
-	remove_core = LAN
+3667.8.1 = { 
+    owner = TUS
+    controller = TUS
+    add_core = TUS
+    remove_core = LAN
 }
-3681.1.1 = { fort_15th = no fort_16th = yes }
-3746.1.1 = { fort_16th = no fort_17th = yes }
-3848.1.1 = { add_core = ITA } 
-3899.2.9 = {
-	owner = FRA
-	controller = FRA
-	add_core = FRA
-} # The Treaty of Lunéville
-3899.3.21 = {
-	owner = ETR
-	controller = ETR
-	add_core = ETR
-} # The Kingdom of Etruria
-3905.12.10 = {
-	owner = FRA
-	controller = FRA
-	remove_core = ETR
-} # Etruria is annexed to France
-3912.4.11 = {
-	owner = TUS
-	controller = TUS
-	remove_core = FRA
-} # Napoleon abdicates and Tuscany is restored
 
-3957.12.8  = { owner = ITC controller = ITC add_core = ITC }
-3958.3.22  = { owner = SPI controller = SPI add_core = SPI remove_core = PAP remove_core = ITC }
-3959.3.17  = { owner = ITA controller = ITA add_core = ITA remove_core = SPI remove_core = TUS }
-4008.1.1 = { discovered_by = asian }
+3681.1.1 = { fort_15th = no fort_16th = yes } 
+3746.1.1 = { fort_16th = no fort_17th = yes } 
+3848.1.1 = { add_core = ITA } 
+3899.2.9 = { owner = FRA controller = FRA add_core = FRA } # The Treaty of Lunéville
+3899.3.21 = { owner = ETR controller = ETR add_core = ETR } # The Kingdom of Etruria
+3905.12.10 = { owner = FRA controller = FRA remove_core = ETR } # Etruria is annexed to France
+3912.4.11 = { owner = TUS controller = TUS remove_core = FRA } # Napoleon abdicates and Tuscany is restored
+3957.12.8 = { owner = ITC controller = ITC add_core = ITC } 
+3958.3.22 = { 
+    owner = SPI
+    controller = SPI
+    add_core = SPI
+    remove_core = PAP
+    remove_core = ITC
+}
+
+3959.3.17 = { 
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    remove_core = SPI
+    remove_core = TUS
+}
+
+4008.1.1 = { discovered_by = asian } 
