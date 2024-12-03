@@ -1,0 +1,29 @@
+theocratic_monarchy_ancient_reform = {
+	icon = "divine_guidance_reform"
+	monarchy = yes
+	allow_normal_conversion = yes
+	potential = {
+		NOT = { religion_group = secular }
+		has_reform = theocratic_monarchy_ancient_reform
+	}
+	
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	lock_level_when_selected = no
+	
+	nation_designer_trigger = {
+		NOT = { religion_group = secular }
+	}
+	
+	has_devotion = yes		#Monarchy that uses Devotion
+	
+	modifiers = {
+		missionaries = 1
+		global_missionary_strength = 0.01
+		tolerance_own = 2
+		church_loyalty_modifier = 0.05
+		brahmins_hindu_loyalty_modifier = 0.05
+		tolerance_own = 2
+		governing_capacity = 50
+	}
+}

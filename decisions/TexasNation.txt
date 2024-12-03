@@ -1,0 +1,192 @@
+country_decisions = {
+	
+	texas_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = TEX }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			OR = {
+				capital_scope = {
+					OR = {
+						area = coastal_prarie_area
+						area = texas_area 
+						area = pecos_area
+						area = texas_plains_area
+					}
+				}
+				capital = 885
+				capital = 2497
+			}
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 888
+				owns_core_province = 4627
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_prestige = 25
+			change_tag = TEX
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	tegsas_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = TE4 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			OR = {
+				capital_scope = {
+					OR = {
+						area = coastal_prarie_area
+						area = texas_area 
+						area = pecos_area
+						area = texas_plains_area
+					}
+				}
+				capital = 885
+				capital = 2497
+			}
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 888
+				owns_core_province = 4627
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_prestige = 25
+			change_tag = TE4
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	tejas_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = TE1 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			OR = {
+				capital_scope = {
+					OR = {
+						area = coastal_prarie_area
+						area = texas_area 
+						area = pecos_area
+						area = texas_plains_area
+					}
+				}
+				capital = 885
+				capital = 2497
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 888
+				owns_core_province = 4627
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_prestige = 25
+			change_tag = TE1
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

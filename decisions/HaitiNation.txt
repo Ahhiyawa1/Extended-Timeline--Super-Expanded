@@ -1,0 +1,67 @@
+country_decisions = {
+
+	haiti_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = HAT }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_the_carribean = {
+				owned_by = ROOT
+			}
+			capital_scope = {
+				OR = {
+					area = dominica_area
+					area = hispaniola_area
+				}
+			}
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				owns_core_province = 4618
+				owns_core_province = 4619
+				owns_core_province = 490
+			}
+		}
+		effect = {
+			change_tag = HAT
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_the_carribean = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HAT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

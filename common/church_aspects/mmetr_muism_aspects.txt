@@ -1,0 +1,340 @@
+hwanin_kut_aspect = {
+	sprite = "GFX_hwanin_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = hwanin_kut_aspect.tt
+		hidden_effect = {
+			add_country_modifier = {
+				name = "hwanin_kut_modifier"
+				duration = 1825
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+dangun_kut_aspect = {
+	sprite = "GFX_dangun_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = dangun_kut_aspect.tt
+		hidden_effect = {
+			add_legitimacy = 10
+			add_country_modifier = {
+				name = "dangun_kut_modifier"
+				duration = 3650
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+munsin_kut_aspect = {
+	sprite = "GFX_munsin_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = munsin_kut_aspect.tt
+		hidden_effect = {
+			add_country_modifier = {
+				name = "munsin_kut_modifier"
+				duration = 3650
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+yeongdeung_kut_aspect = {
+	sprite = "GFX_yeongdeung_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			has_port = yes
+		}
+	}
+	effect = {
+		custom_tooltip = yeongdeung_kut_aspect.tt
+		hidden_effect = {
+			add_navy_tradition = 5
+			add_country_modifier = {
+				name = "yeongdeung_kut_modifier"
+				duration = 3650
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+samsin_halmeoni_kut_aspect = {
+	sprite = "GFX_samsin_halmeoni_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = samsin_halmeoni_kut_aspect.tt
+		hidden_effect = {
+			add_country_modifier = {
+				name = "samsin_halmeoni_kut_modifier"
+				duration = 5475
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+bari_gongju_kut_aspect = {
+	sprite = "GFX_bari_gongju_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			OR = {
+				region = korea_region
+				culture_group = korean_g
+			}
+			NOT = {
+				province_id = 2741	#Jeju
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = bari_gongju_kut_aspect.tt
+		hidden_effect = {
+			add_war_exhaustion = -5
+			add_country_modifier = {
+				name = "bari_gongju_kut_modifier"
+				duration = 1825
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+naerim_kut_aspect = {
+	sprite = "GFX_naerim_kut_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = naerim_kut_aspect.tt
+		hidden_effect = {
+			add_country_modifier = {
+				name = "naerim_kut_modifier"
+				duration = 1825
+			}
+			define_advisor = {
+				type = theologian
+				skill = 2
+				female = yes
+				discount = yes
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+sinjang_kut_aspect = {
+	sprite = "GFX_sinjang_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = sinjang_kut_aspect.tt
+		hidden_effect = {
+			add_country_modifier = {
+				name = "sinjang_kut_modifier"
+				duration = 1825
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+sansin_kut_aspect = {
+	sprite = "GFX_sansin_aspect_icon"
+	cost = 70		#costs less
+	potential = {
+		always = yes
+	}
+	trigger = {}
+	effect = {
+		custom_tooltip = sansin_kut_aspect.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+buddha_kut_aspect = {
+	sprite = "GFX_buddha_kut_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			religion_group = buddhic
+		}
+	}
+	effect = {
+		custom_tooltip = buddha_kut_aspect.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					religion_group = buddhic
+				}
+				add_nationalism = -5
+				add_province_modifier = {
+					name = "buddha_kut_modifier"
+					duration = 1825
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+jade_emperor_aspect = {
+	sprite = "GFX_jade_emperor_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			OR = {
+				religion = confucianism
+				religion = daoism
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = jade_emperor_aspect.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						religion = confucianism
+						religion = daoism
+					}
+				}
+				add_province_modifier = {
+					name = "jade_emperor_kut_modifier"
+					duration = 1825
+				}
+			}
+			add_country_modifier = {
+				name = "jade_emperor_kut_country_modifier"
+				duration = 1825
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+tengri_kut_aspect = {
+	sprite = "GFX_tengri_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			religion = tengri_pagan_reformed
+		}
+	}
+	effect = {
+		custom_tooltip = tengri_kut_aspect.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					religion = tengri_pagan_reformed
+				}
+				add_province_modifier = {
+					name = "tengri_kut_modifier"
+					duration = 1825
+				}
+			}
+			add_country_modifier = {
+				name = "tengri_kut_country_modifier"
+				duration = 1825
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+indra_kut_aspect = {
+	sprite = "GFX_indra_aspect_icon"
+	cost = 100
+	potential = {
+		always = yes
+	}
+	trigger = {
+		any_owned_province = {
+			religion = hinduism
+		}
+	}
+	effect = {
+		custom_tooltip = indra_kut_aspect.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					religion = hinduism
+				}
+				add_nationalism = -5
+				add_province_modifier = {
+					name = "indra_kut_modifier"
+					duration = 1825
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}

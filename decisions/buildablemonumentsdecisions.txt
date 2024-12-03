@@ -1,0 +1,38 @@
+country_decisions = {
+	
+	construct_custom_monument = {
+		major = yes
+		potential = {
+			OR = {
+				cm_potential_build = yes
+				AND = {
+					NOT = { GBM_adm_category_available = yes }
+					NOT = { GBM_rel_category_available = yes }
+					NOT = { GBM_dip_category_available = yes }
+					NOT = { GBM_tra_category_available = yes }
+					NOT = { GBM_mil_category_available = yes }
+				}
+			}
+		}
+		provinces_to_highlight = {
+		
+		}
+		allow = {
+			hidden_trigger = { GBM_can_build_any = yes }
+			GBM_decision_trigger = yes
+		}
+		effect = {
+			country_event = { id = buildablemonuments.1 }
+			GBM_oepws = yes
+			if = {
+				limit = {
+					GBM_can_build_any = no
+				}
+				custom_tooltip = GBM_you_cant_build_any_tooltip
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}

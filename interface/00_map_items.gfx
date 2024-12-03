@@ -1,0 +1,25 @@
+spriteTypes = {
+    # Define a new font sprite for province names using an invisible texture
+    spriteType = {
+        name = "GFX_map_font_province"
+        texturefile = "gfx/fonts/empty_font.dds"  # Use the transparent DDS file
+        noOfFrames = 1
+        norefcount = yes
+        legacy_lazy_load = no
+    }
+}
+
+objectTypes = {
+    # Modify the province_text item to use the new transparent sprite
+    mapitemType = {
+        name = "province_text"
+        font = "GFX_map_font_province"  # Use the transparent sprite font
+        size = { x = 1 y = 1 }  # Minimal size to prevent rendering
+        border_size = { x = 0 y = 0 }
+        text_color = { 0 0 0 0 }  # Transparent color (RGBA)
+        border_color = { 0 0 0 0 }
+        orientation = lower_left
+        in_map = yes
+        selectable = no
+    }
+}

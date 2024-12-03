@@ -1,0 +1,57 @@
+#######################################################################
+# Tier 18 consolidation_of_power_category
+#######################################################################
+
+presidential_cabinet_t19_reform = {
+	icon = "self_governing_colony_government"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = USA
+			tag = CSA
+			AND = {
+				OR = {
+					has_reform = federal_republic
+					has_reform = american_republic
+					has_reform = presidential_despot_reform
+					has_reform = samurai_republic_government_reform
+				}
+				capital_scope = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		OR = {
+			tag = USA
+			tag = CSA
+			AND = {
+				OR = {
+					has_reform = federal_republic
+					has_reform = american_republic
+					has_reform = presidential_despot_reform
+					has_reform = samurai_republic_government_reform
+				}
+				capital_scope = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+				}
+			}
+		}
+	}
+	
+	government_abilities = {
+		presidential_doctrines_mechanic
+	}
+	
+	modifiers = {
+		advisor_pool = 1
+	}
+}
+

@@ -1,0 +1,54 @@
+on_mercenary_recruited = {
+	if = {
+        limit = {
+            FROM = { 
+                has_country_flag = hun_no_prof_black_army
+            }
+            OR = {
+                ROOT = { mercenary_company = merc_black_army }
+                ROOT = { mercenary_company = merc_black_army_2 }
+            }
+        }
+        FROM = { 
+			add_army_professionalism = 0.01 
+			country_event = {
+				id = RW_MERCS.001
+			}
+		}
+    }
+	if = {
+		limit = {
+			FROM = { has_not_free_mercs_trait = yes }
+			is_not_free_merc_company = yes
+			OR = {
+				FROM = { NOT = { has_country_flag = oyo_cavalry_do_not_consume_ap } }
+				ROOT = { NOT = { mercenary_company = merc_oyo_cavalry } }
+				FROM = { NOT = { has_country_modifier = hsn_turkoman_mercenaries } }
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					OR = {
+						has_country_flag = fifty_percent_merc_army_professionalism_cost 
+						has_country_modifier = pol_cheap_ap_mercs_modifier
+					}
+				}
+			}
+			FROM = { 
+				add_army_professionalism = -0.025
+				country_event = {
+					id = RW_MERCS.001
+				}
+			}
+		}
+		else = { 
+			FROM = { 
+				add_army_professionalism = -0.05 
+				country_event = {
+					id = RW_MERCS.001
+				}
+			} 
+		}
+	}
+}

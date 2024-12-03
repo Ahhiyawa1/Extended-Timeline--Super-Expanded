@@ -1,0 +1,935 @@
+country_decisions = {
+	###########################################
+	# SPQR REPUBLIC
+	###########################################
+	restore_byzantium = {
+		major = yes
+		potential = {
+				NOT = {
+						exists = BYZ
+				}
+				primary_culture = greek
+				OR = {
+						tag = NCA
+						tag = TRE
+						tag = THS
+						tag = EPI
+						tag = MOE
+				}
+		}
+		allow = {
+				is_subject = no
+				is_at_war = no
+				NOT = {
+						exists = LAT
+				}
+				owns = 151
+				is_core = 151
+		}
+		effect = {
+				change_tag = BYZ
+				add_prestige = 25
+				swap_free_idea_group = yes
+		}
+		ai_will_do = {
+				factor = 1
+		}
+}
+	
+	
+	byz_spqr = {
+		major = yes
+		potential = {
+			NOT = {
+				exists = PQR
+			}
+			NOT = {
+				num_of_cities = 60
+			}
+			OR = {
+				tag = ROM
+				tag = BYZ
+				tag = ROW
+			}
+		}
+		allow = {
+			owns = 118			# Roma
+			adm_tech = 10
+			stability = 1
+			is_at_war = no
+			adm_power = 50
+		}
+		effect = {
+			country_event = {
+				id = byz_main.32
+			}
+			add_stability = -1
+			add_adm_power = -50
+			italy_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = PQR
+			}
+			add_government_reform = roman_republic_reform
+			add_prestige = 50
+			change_tag = PQR
+			swap_free_idea_group = yes			#keep progress
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	###########################################
+	# INDIA
+	###########################################
+	indias_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = {
+				exists = IND
+			}
+			NOT = {
+				tag = MUG
+			}
+			capital_scope = {
+				superregion = india_superregion
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 522
+			owns_core_province = 523
+			owns_core_province = 558
+			owns_core_province = 539
+			owns_core_province = 2196
+			owns_core_province = 2214
+		}
+		effect = {
+			india_superregion = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = IND
+			}
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 10
+					}
+				}
+				set_government_rank = 10
+			}
+			add_prestige = 25
+			change_tag = IND
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_importance = 400
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###########################################
+	# LATIN EMPIRE
+	###########################################
+	restore_latin = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = GRE
+			}
+			NOT = {
+				exists = LAT
+			}
+			religion = catholic
+		}
+		allow = {
+			religion = catholic
+			adm_tech = 3
+			is_at_war = no
+			owns = 151			# Constantinople
+		}
+		effect = {
+			change_technology_group = eastern
+			change_religion = catholic
+			add_prestige = 5
+			swap_non_generic_missions = yes
+			change_tag = LAT
+			swap_free_idea_group = yes			#keep progress
+		}
+		ai_importance = 400
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###########################################
+	# WEST ROME EMPIRE
+	###########################################
+	restore_rome_west = {
+		major = yes
+		potential = {
+			NOT = {
+				tag = HLR
+			}
+			NOT = {
+				tag = PAP
+			}
+			NOT = {
+				tag = ITA
+			}
+			NOT = {
+				tag = TUR
+			}
+			NOT = {
+				tag = BYZ
+			}
+			NOT = {
+				tag = ROM
+			}
+			NOT = {
+				exists = ROW
+			}
+			OR = {
+				tag = SOI
+				culture_group = latin
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns_core_province = 118			# Roma	
+		}
+		provinces_to_highlight = {
+			region = italy_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 118			# Roma	
+			italy_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			change_tag = ROW
+			swap_non_generic_missions = yes
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_owner_culture = yes
+					}
+					change_culture = roman
+				}
+			}
+			change_primary_culture = roman
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_government_reform = roman_imperial_reform
+			add_prestige = 10
+			set_capital = 118			# Rome
+			add_core = 118			# Rome
+			118 = {
+				change_culture = roman
+			}
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					NOT = {
+						has_country_modifier = european_union
+					}
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 10
+			country_event = {
+				id = ideagroups.1
+			}			#Swap Ideas
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+	###########################################
+	# Persia march
+	###########################################	
+	restore_persia_decision_march = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			owns = 4457
+			OR = {
+				tag = ROM
+				tag = ROW
+				tag = BYZ
+			}
+			NOT = {
+				has_country_flag = restored_persia_decision_flag
+			}
+			NOT = {
+				exists = PER
+			}
+			NOT = {
+				capital_scope = {
+					region = persia_region
+				}
+			}
+		}
+		provinces_to_highlight = {
+			region = persia_region
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			persia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			set_country_flag = restored_persia_decision_flag
+			persia_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = PER
+			}
+			release = PER
+			create_march = PER
+			PER = {
+				change_government = monarchy
+				set_legacy_government = despotic_monarchy
+				change_primary_culture = ROOT
+				change_religion = ROOT
+				define_ruler = {
+					dynasty = ROOT
+					culture = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###########################################
+	# CARTHAGE
+	###########################################
+	restore_carthage = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = {
+				exists = CRG
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 50
+				}
+			}
+			OR = {
+				primary_culture = punic
+				primary_culture = tunisian
+			}
+		}
+		allow = {
+			adm_tech = 1
+			stability = 1
+			is_at_war = no
+			OR = {
+				primary_culture = punic
+				primary_culture = tunisian
+			}
+			owns_core_province = 341			# Carthage
+		}
+		effect = {
+			add_prestige = 25
+			change_tag = CRG
+			set_capital = 341
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_owner_culture = yes
+					}
+					change_culture = punic
+				}
+			}
+			# Carthage
+			change_primary_culture = punic
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###########################################
+	# NORTH GERMANY
+	###########################################
+	norddeutscher_bund = {
+		major = yes
+		potential = {
+			NOT = {
+				exists = GER
+			}
+			NOT = {
+				exists = NDB
+			}
+			NOT = {
+				tag = HLR
+			}
+			NOT = {
+				tag = PAP
+			}
+			NOT = {
+				tag = PAL
+			}
+			OR = {
+				primary_culture = hannoverian
+				primary_culture = pommeranian
+				primary_culture = hessian
+				primary_culture = saxon
+				primary_culture = prussian
+			}
+		}
+		allow = {
+			adm_tech = 60
+			is_subject = no
+			is_at_war = no
+			owns_or_vassal_of = 50			# Berlin
+			owns_or_vassal_of = 46			# Rostock
+			owns_or_vassal_of = 61			# Sachsen
+			owns_or_vassal_of = 1874			# Bremen
+			OR = {
+				owns_or_vassal_of = 85				# Köln
+				owns_or_vassal_of = 83				# Nassau
+			}
+		}
+		effect = {
+			change_tag = NDB
+			add_prestige = 25
+			50 = { #Berlin
+				move_capital_effect = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# SOUTH GERMANY
+	###########################################	
+	sueddeutscher_bund = {
+		major = yes
+		potential = {
+			NOT = {
+				exists = GER
+			}
+			NOT = {
+				exists = SDB
+			}
+			NOT = {
+				tag = HLR
+			}
+			NOT = {
+				tag = PAP
+			}
+			OR = {
+				primary_culture = bavarian
+				primary_culture = swabian
+				primary_culture = franconian
+				tag = PAL
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_subject = no
+			is_at_war = no
+			owns_or_vassal_of = 65			# München
+			owns_or_vassal_of = 70			# Württemberg
+			owns_or_vassal_of = 78			# Mainz
+			owns_or_vassal_of = 66			# Bamberg	
+		}
+		effect = {
+			change_tag = SDB
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# GERMANY AS CONFEDERATE
+	###########################################		
+	form_german_nation_confd = {
+		major = yes
+		potential = {
+			NOT = {
+				exists = GER
+			}
+			NOT = {
+				tag = HLR
+			}
+			NOT = {
+				tag = PAP
+			}
+			exists = NDB
+			exists = SDB
+			OR = {
+				AND = {
+					tag = NDB
+					SDB = {
+						ai = yes
+					}
+				}
+				AND = {
+					tag = SDB
+					NDB = {
+						ai = yes
+					}
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_subject = no
+			is_at_war = no
+			OR = {
+				SDB = {
+					is_subject_of = NDB
+				}
+				NDB = {
+					is_subject_of = SDB
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = NDB
+				}
+				inherit = SDB
+			}
+			if = {
+				limit = {
+					tag = SDB
+				}
+				inherit = NDB
+			}
+			change_tag = GER
+			emperor = {
+				add_opinion = {
+					who = ROOT
+					modifier = opinion_left_empire
+				}
+			}
+			set_in_empire = no
+			emperor = {
+				country_event = {
+					id = hre_event.5
+				}
+			}
+			set_government_rank = 10
+			north_german_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_claim = GER
+			}
+			south_german_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_claim = GER
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# Reform Jerusalem
+	###########################################	
+	reform_kingdom_of_jerusalem = {
+		major = yes
+		potential = {
+			tag = PAP
+			ai = yes
+			NOT = {
+				exists = KOJ
+			}
+			religion = catholic
+			owns = 379
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2151				#Gazzah
+				province_id = 379				#Jerusalem
+				province_id = 4466				#Jaffa
+			}
+			OR = {
+				NOT = {
+					owned_by = ROOT
+				}
+				NOT = {
+					is_core = ROOT
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 2151
+			owns_core_province = 379			#Jerusalem
+			owns_core_province = 4466			#Jaffa
+		}
+		effect = {
+			add_prestige = 25
+			every_province = {
+				limit = {
+					OR = {
+						area = trans_jordan_area
+						area = palestine_area
+						province_id = 1855						#Sayda
+						province_id = 4392						#Aqaba
+					}
+				}
+				add_core = KOJ
+			}
+			release = KOJ
+			KOJ = {
+				change_primary_culture = ROOT
+			}
+			KOJ = {
+				create_alliance = PAP
+			}
+			KOJ = {
+				set_capital = 379				#Jerusalem
+				change_religion = catholic
+				if = {
+					limit = {
+						NOT = {
+							government = monarchy
+						}
+					}
+					change_government = monarchy
+					set_legacy_government = feudal_monarchy
+				}
+				if = {
+					limit = {
+						NOT = {
+							government_rank = 8
+						}
+					}
+					set_government_rank = 8
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# REFORM TRIPOLI
+	###########################################	
+	reform_kingdom_of_tripoli = {
+		major = yes
+		potential = {
+			tag = PAP
+			NOT = {
+				exists = TPL
+			}
+			religion = catholic
+			owns = 378
+		}
+		provinces_to_highlight = {
+			province_id = 378			#Tripoli
+			OR = {
+				NOT = {
+					owned_by = ROOT
+				}
+				NOT = {
+					is_core = ROOT
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 378			#Tripoli
+		}
+		effect = {
+			add_prestige = 25
+			every_province = {
+				limit = {
+					province_id = 378					#County of Tripoli
+				}
+				add_core = TPL
+			}
+			release = TPL
+			TPL = {
+				change_primary_culture = ROOT
+			}
+			TPL = {
+				create_alliance = PAP
+			}
+			TPL = {
+				set_capital = 378				#Tripoli
+				change_religion = catholic
+				if = {
+					limit = {
+						NOT = {
+							government = monarchy
+						}
+					}
+					change_government = monarchy
+					set_legacy_government = feudal_monarchy
+				}
+				if = {
+					limit = {
+						NOT = {
+							government_rank = 8
+						}
+					}
+					set_government_rank = 8
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# REFORM ANTIOCH
+	###########################################	
+	reform_kingdom_of_antioch = {
+		major = yes
+		potential = {
+			tag = PAP
+			NOT = {
+				exists = KOJ
+			}
+			religion = catholic
+			owns = 2313
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2313
+				province_id = 1849
+				province_id = 2546
+				province_id = 4419
+			}
+			OR = {
+				NOT = {
+					owned_by = ROOT
+				}
+				NOT = {
+					is_core = ROOT
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 2313
+			owns_core_province = 1849
+			owns_core_province = 2546
+			owns_core_province = 4419
+		}
+		effect = {
+			add_prestige = 25
+			every_province = {
+				limit = {
+					province_id = 2313
+					province_id = 1849
+					province_id = 2546
+					province_id = 4419
+				}
+				add_core = ANC
+			}
+			release = ANC
+			ANC = {
+				change_primary_culture = ROOT
+			}
+			ANC = {
+				create_alliance = PAP
+			}
+			ANC = {
+				set_capital = 2313				#Antioch
+				change_religion = catholic
+				if = {
+					limit = {
+						NOT = {
+							government = monarchy
+						}
+					}
+					change_government = monarchy
+					set_legacy_government = feudal_monarchy
+				}
+				if = {
+					limit = {
+						NOT = {
+							government_rank = 8
+						}
+					}
+					set_government_rank = 8
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	###########################################
+	# UMAYYAD
+	###########################################
+	restore_umayyad_rule = {
+		major = yes
+		potential = {
+			OR = {
+				tag = GRA
+				tag = ADU
+			}
+			NOT = {
+				exists = UMA
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 382
+			owns_core_province = 347
+			owns_core_province = 341
+			owns_core_province = 358
+			owns_core_province = 385
+		}
+		effect = {
+			change_tag = UMA
+			swap_non_generic_missions = yes
+			swap_free_idea_group = yes			#keep progress
+			add_prestige = 50
+			add_accepted_culture = al_suryah_arabic
+			if = {
+				limit = {
+					NOT = {
+						dynasty = "Ummayad"
+					}
+				}
+				define_heir = {
+					dynasty = "Ummayad"
+				}
+			}
+			arabia_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+				}
+				add_permanent_claim = UMA
+			}
+			mashriq_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+				}
+				add_permanent_claim = UMA
+			}
+			egypt_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+				}
+				add_permanent_claim = UMA
+			}
+			persia_region = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						is_permanent_claim = ROOT
+					}
+				}
+				add_permanent_claim = UMA
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = {
+					id = ideagroups.1
+				}				#Swap Ideas
+			}
+		}
+		ai_importance = 400
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	####
+	#END
+	####
+}

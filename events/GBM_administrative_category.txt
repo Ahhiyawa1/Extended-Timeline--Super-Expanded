@@ -1,0 +1,148 @@
+namespace = buildablemonuments
+
+country_event = {
+	id = buildablemonuments.11 #Administrative Monuments
+	title = buildablemonuments.11.tit
+	desc = buildablemonuments.11.desc
+	picture = PRINCELY_PALACE_TRANSYLVANIA_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = buildablemonuments.11.a #Ministry Of Taxation
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_1_built
+			}
+		}
+		trigger {
+			cm_adm_1_nb = yes #See GBM_basic_triggers.txt in scripted_triggers
+			cm_adm_1_rq = yes
+		}
+		cm_adm_1_addition = yes #See GNM_monuments_addition.txt in scripted_effects
+		GBM_oepw = yes #Technical, see GNM_oepw.txt in scripted_effects
+	}
+	option = {
+		name = buildablemonuments.11.b #Ministry Of Production
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_2_built
+			}
+		}
+		trigger {
+			cm_adm_2_nb = yes
+			cm_adm_2_rq = yes
+		}
+		cm_adm_2_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.c #Grand Bank
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_3_built
+			}
+		}
+		trigger {
+			cm_adm_3_nb = yes
+			cm_adm_3_rq = yes
+		}
+		cm_adm_3_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.d #School of National Unity
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_4_built
+			}
+		}
+		trigger {
+			cm_adm_4_nb = yes
+			cm_adm_4_rq = yes
+		}
+		cm_adm_4_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.e #Royal University
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_5_built
+			}
+		}
+		trigger {
+			cm_adm_5_nb = yes
+			cm_adm_5_rq = yes
+		}
+		cm_adm_5_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.f #Administrative School
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_6_built
+			}
+		}
+		trigger {
+			cm_adm_6_nb = yes
+			cm_adm_6_rq = yes
+		}
+		cm_adm_6_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.g #Grand Library
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_7_built
+			}
+		}
+		trigger {
+			AND = {
+				cm_adm_7_nb = yes
+				cm_adm_7_rq = yes
+			}
+		}
+		cm_adm_7_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.h #Royal Architectural College
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_adm_8_built
+			}
+		}
+		trigger {
+			AND = {
+				cm_adm_8_nb = yes
+				cm_adm_8_rq = yes
+			}
+		}
+		cm_adm_8_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.11.z #No Thanks
+		ai_chance = { factor = 1 }
+		GBM_oepw = yes
+	}
+}

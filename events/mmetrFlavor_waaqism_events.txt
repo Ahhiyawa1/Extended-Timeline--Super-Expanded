@@ -1,0 +1,429 @@
+namespace = mmetrFlavor_waaqism_events
+
+# Rainfall of Waaq
+country_event = {
+	id = mmetrFlavor_waaqism_events.1
+	title = "mmetrFlavor_waaqism_events.1.t"
+	desc = "mmetrFlavor_waaqism_events.1.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		capital_scope = {
+			NOT = {
+				has_province_modifier = mmetr_rainfall_of_waaq
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.1.a"
+		
+		capital_scope = {
+			add_province_modifier = {
+				name = "mmetr_rainfall_of_waaq"
+				duration = 1825
+			}
+		}
+	}
+}
+
+# The Tomb of Arawelo
+province_event = {
+	id = mmetrFlavor_waaqism_events.2
+	title = "mmetrFlavor_waaqism_events.2.t"
+	desc = "mmetrFlavor_waaqism_events.2.desc"
+	picture = NZINGHA_eventPicture
+	
+	trigger = {
+		province_id = 2169	#Sanaag, where the tomb in Erigavo is believed to be
+		owner = {
+			religion = waaqism
+			NOT = {
+				has_country_flag = tomb_of_arawelo_event_flag
+			}
+		}
+		religion = waaqism
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.2.a"
+		
+		add_province_modifier = {
+			name = "mmetr_renovated_tomb_of_arawelo"
+			duration = 1825
+		}
+		hidden_effect = {
+			owner = {
+				set_country_flag = tomb_of_arawelo_event_flag
+			}
+		}
+	}
+}
+
+# New Qaaluu Chosen
+country_event = {
+	id = mmetrFlavor_waaqism_events.3
+	title = "mmetrFlavor_waaqism_events.3.t"
+	desc = "mmetrFlavor_waaqism_events.3.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.3.a"
+		
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		define_advisor = {
+			type = theologian
+			skill = 1
+			religion = waaqism
+			discount = yes
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.3.b"
+		
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		define_advisor = {
+			type = theologian
+			skill = 1
+			religion = waaqism
+			discount = yes
+		}
+	}
+}
+
+# Qaallitti Enters the Capital
+country_event = {
+	id = mmetrFlavor_waaqism_events.4
+	title = "mmetrFlavor_waaqism_events.4.t"
+	desc = "mmetrFlavor_waaqism_events.4.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		NOT = {
+			has_ruler_flag = waaqism_qaallitti_hired
+		}
+		religion = waaqism
+		any_owned_province = {
+			religion = waaqism
+			NOT = {
+				has_province_modifier = mmetr_respected_qaallitti
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 280
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.4.a"
+		
+		define_advisor = {
+			type = theologian
+			skill = 1
+			religion = waaqism
+			discount = yes
+			female = yes
+		}
+		hidden_effect = {
+			set_ruler_flag = waaqism_qaallitti_hired
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.4.b"
+		
+		define_advisor = {
+			type = inquisitor
+			skill = 1
+			religion = waaqism
+			discount = yes
+			female = yes
+		}
+		hidden_effect = {
+			set_ruler_flag = waaqism_qaallitti_hired
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.4.c"
+		
+		random_owned_province = {
+			limit = {
+				religion = waaqism
+			}
+			add_province_modifier = {
+				name = "mmetr_respected_qaallitti"
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			set_ruler_flag = waaqism_qaallitti_hired
+		}
+	}
+}
+
+# Qaalluu Breaks the Safuu
+country_event = {
+	id = mmetrFlavor_waaqism_events.5
+	title = "mmetrFlavor_waaqism_events.5.t"
+	desc = "mmetrFlavor_waaqism_events.5.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		OR = {
+			NOT = { stability = 0 }
+			corruption = 10
+			yearly_corruption_increase = 0.1
+			estate_influence = {
+				estate = estate_church
+				influence = 70
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_CHECKED_QAALLUU
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_QAALLUU_PARTIALITY
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.5.a"
+		
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_CHECKED_QAALLUU
+			influence = -5
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.5.b"
+		
+		add_prestige = -10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_QAALLUU_PARTIALITY
+			influence = 5
+			duration = 1825
+		}
+	}
+}
+
+# Qaalluu Partiality in Politics
+country_event = {
+	id = mmetrFlavor_waaqism_events.6
+	title = "mmetrFlavor_waaqism_events.6.t"
+	desc = "mmetrFlavor_waaqism_events.6.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		OR = {
+			
+			corruption = 10
+			estate_influence = {
+				estate = estate_church
+				influence = 70
+			}
+		}
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_CHECKED_QAALLUU
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = EST_VAL_QAALLUU_PARTIALITY
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.6.a"
+		
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_CHECKED_QAALLUU
+			influence = -10
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.6.b"
+		
+		add_legitimacy = -10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 5
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_QAALLUU_PARTIALITY
+			influence = 10
+			duration = 1825
+		}
+	}
+}
+
+# Waaq Blesses the River
+province_event = {
+	id = mmetrFlavor_waaqism_events.7
+	title = "mmetrFlavor_waaqism_events.7.t"
+	desc = "mmetrFlavor_waaqism_events.7.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		owner = {
+			religion = waaqism
+		}
+		NOT = {
+			owner = {
+				has_ruler_flag = waaqism_river_alaanye_flag
+				any_owned_province = {
+					has_province_modifier = mmetr_river_alaanye_blessings
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.7.a"
+		
+		add_province_modifier = {
+			name = "mmetr_river_alaanye_blessings"
+			duration = 3650
+		}
+		hidden_effect = {
+			owner = {
+				set_ruler_flag = waaqism_river_alaanye_flag
+			}
+		}
+	}
+}
+
+# Warding Off Demons
+province_event = {
+	id = mmetrFlavor_waaqism_events.8
+	title = "mmetrFlavor_waaqism_events.8.t"
+	desc = "mmetrFlavor_waaqism_events.8.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		owner = {
+			religion = waaqism
+		}
+		NOT = {
+			has_province_modifier = mmetr_river_demon_repelled
+			has_province_modifier = mmetr_river_concerns_ignored
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.8.a"
+		
+		owner = {
+			add_mil_power = -25
+		}
+		add_province_modifier = {
+			name = "mmetr_demon_repelled"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.8.b"
+		
+		owner = {
+			add_prestige = -5
+		}
+		add_province_modifier = {
+			name = "mmetr_local_concerns_ignored"
+			duration = 3650
+		}
+	}
+}
+
+# Alaanye of Horses
+country_event = {
+	id = mmetrFlavor_waaqism_events.9
+	title = "mmetrFlavor_waaqism_events.9.t"
+	desc = "mmetrFlavor_waaqism_events.9.desc"
+	picture = MMETR_QAALLUU_eventPicture
+	
+	trigger = {
+		religion = waaqism
+		num_of_cavalry = 1
+		NOT = {
+			has_country_modifier = mmetr_alaanye_blessed_horses
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+	
+	option = {
+		name = "mmetrFlavor_waaqism_events.9.a"
+		
+		add_country_modifier = {
+			name = "mmetr_alaanye_blessed_horses"
+			duration = 1825
+		}
+	}
+}
+

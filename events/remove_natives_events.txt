@@ -1,0 +1,66 @@
+namespace = remove_natives_events
+country_event = { #You guessed it, removes natives
+	id = remove_natives_events.1
+	title = remove_natives_events.1.t
+	desc = remove_natives_events.1.d
+	picture = NATIVES_eventPicture
+	
+	trigger = {
+		NOT = { has_global_flag = natives_removed_flag }
+		ai = no	
+	}
+	
+	mean_time_to_happen = { 
+		days = 2
+	}
+	immediate = {
+		set_global_flag = natives_removed_flag
+	}
+	fire_only_once = yes
+	option = { #Remove
+		name = remove_natives_events.1.a		
+		custom_tooltip = "The migratory natives of North and South America as well as Oceania will be removed"
+		hidden_effect = {
+			south_america = {
+				limit = {
+					owner = {
+						technology_group = south_american
+					}
+				}
+				cede_province = ---
+				every_owned_province = {
+					limit = { has_building = fort_15th }
+					remove_building = fort_15th
+				}
+			}
+			north_america = {
+				limit = {
+					owner = {
+						technology_group = north_american
+					}
+				}
+				cede_province = ---
+				every_owned_province = {
+					limit = { has_building = fort_15th }
+					remove_building = fort_15th
+				}
+			}
+			oceania = {
+				limit = {
+					owner = {
+						OR = { technology_group = aboriginal_tech technology_group = polynesian_tech }
+					}
+				}
+				cede_province = ---
+				every_owned_province = {
+					limit = { has_building = fort_15th }
+					remove_building = fort_15th
+				}
+			}
+		}
+	}
+	option = { #Keep
+		name = remove_natives_events.1.b
+		custom_tooltip = "The natives will remain for this campaign."
+	}
+}

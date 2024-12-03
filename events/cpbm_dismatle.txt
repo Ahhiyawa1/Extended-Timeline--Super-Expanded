@@ -1,0 +1,88 @@
+namespace = cpbm_dismantle
+
+#Break-up of Austria-Hungary
+country_event = {
+	id = cpbm_dismantle.1
+	title = cpbm_dismantle.1.t
+	desc = cpbm_dismantle.1.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		NOT = { exists = HAB }
+		OR = { 
+			tag = AH0
+			tag = AH8
+			tag = AH7
+			tag = AH6
+		}
+		culture_group = germanic
+		capital_scope = { culture_group = germanic }
+		AND = { 
+			owns_core_province = 134 #Vienna
+			NOT = { owns_core_province = 153 } #Budapest
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+
+	option = {
+		name = cpbm_dismantle.1.a
+		change_tag = HAB
+		clr_country_flag = formed_austria_hungary_flag
+	}
+}
+
+#Break-up of Iberian Union
+country_event = {
+	id = cpbm_dismantle.2
+	title = cpbm_dismantle.2.t
+	desc = cpbm_dismantle.2.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		has_country_flag = formed_iberian_union_flag
+		tag = IB0
+		culture_group = iberian
+		capital_scope = { culture_group = iberian }
+		OR = { 
+			SPA = { owns_core_province = 217 } #Madrid
+			POR = { owns_core_province = 227 } #Lisbon
+		}
+		OR = { 
+			owns_core_province = 217
+			owns_core_province = 227
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1		
+	}
+
+	option = {
+		name = cpbm_dismantle.2.a
+		trigger = {
+			AND = {
+				owns_core_province = 217 #Madrid
+				POR = { owns_core_province = 227 } #Lisbon
+			}
+			NOT = { exists = SPA }
+		}
+		change_tag = SPA
+		clr_country_flag = formed_iberian_union_flag
+	}
+
+	option = {
+		name = cpbm_dismantle.2.b
+		trigger = {
+			AND = {
+				owns_core_province = 227 #Lisbon
+				SPA = { owns_core_province = 217 } #Madrid
+			}
+			NOT = { exists = POR }
+		}
+		change_tag = POR
+		clr_country_flag = formed_iberian_union_flag
+	}
+}

@@ -1,0 +1,540 @@
+country_decisions = {
+
+	usa_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = USA }
+			NOT = { exists = US9 }
+			NOT = { exists = US7 }
+			NOT = { exists = US6 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = USA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = USA
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sambandsstatene_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = SA2 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = scandinavian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = SA2
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = SA2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	etats_unis_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = EU0 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = EU0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = EU0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	estados_unidos_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = EU1 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = EU1
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = EU1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	vereinigte_staaten_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = VS0 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = germanic
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = VS0 
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = VS0 
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	stati_uniti_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = SU3 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_eastern_america = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_eastern_america 
+						colonial_region = colonial_louisiana 
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			culture_group = latin
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = SU3
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = SU3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

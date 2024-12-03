@@ -1,0 +1,495 @@
+namespace = CCP_config_events
+country_event = {
+	id = CCP_config_events.0
+	title = CCP_config_events.country_color_picker
+	desc = CCP_config_events.country_color_picker_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	option = {
+		#Choose Root Color
+		name = CCP.choose_root_color
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			save_event_target_as = CCP_selected_target
+			country_event = {
+				id = CCP_choose_color_events.0
+			}
+		}
+	}
+	option = {
+		#Restore Root Original Color
+		name = CCP.restore_root_original_color
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_country_flag = CCP_color_selected_flag
+		}
+		hidden_effect = {
+			restore_country_color = yes
+			clr_country_flag = CCP_color_selected_flag
+			country_event = {
+				id = CCP_config_events.1
+			}
+		}
+	}
+	option = {
+		#Save Root Color
+		name = CCP.save_root_color
+		ai_chance = { factor = 0 }
+		custom_tooltip = CCP_save_root_color_tt
+		trigger = {
+			NOT = { has_country_flag = CCP_saved_country_color_flag }
+		}
+		hidden_effect = {
+			set_country_flag = CCP_saved_country_color_flag
+			CLR = { change_country_color = { country = ROOT } }
+			country_event = {
+				id = CCP_config_events.1
+			}
+		}
+	}
+	option = {
+		#Restore Saved Color
+		name = CCP.restore_saved_color
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_country_flag = CCP_saved_country_color_flag
+		}
+		hidden_effect = {
+			clr_country_flag = CCP_saved_country_color_flag
+			change_country_color = { country = CLR } 
+			CLR = { restore_country_color = yes }
+			country_event = {
+				id = CCP_config_events.1
+			}
+		}
+	}
+	option = {
+		#Unified Country Color Rules
+		name = CCP.unified_country_color_rules
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_config_events.2
+			}
+		}
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		clr_country_flag = CCP_open_menu_flag
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = CCP_config_events.1
+	title = CCP_config_events.country_color_picker
+	desc = CCP_config_events.country_color_picker_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	option = {
+		#Choose Root Color
+		name = CCP.choose_root_color
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			save_event_target_as = CCP_selected_target
+			country_event = {
+				id = CCP_choose_color_events.0
+			}
+		}
+	}
+	option = {
+		#Restore Root Original Color
+		name = CCP.restore_root_original_color
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_country_flag = CCP_color_selected_flag
+		}
+		hidden_effect = {
+			restore_country_color = yes
+			clr_country_flag = CCP_color_selected_flag
+			country_event = {
+				id = CCP_config_events.0
+			}
+		}
+	}
+	option = {
+		#Save Root Color
+		name = CCP.save_root_color
+		ai_chance = { factor = 0 }
+		custom_tooltip = CCP_save_root_color_tt
+		trigger = {
+			NOT = { has_country_flag = CCP_saved_country_color_flag }
+		}
+		hidden_effect = {
+			set_country_flag = CCP_saved_country_color_flag
+			CLR = { change_country_color = { country = ROOT } }
+			country_event = {
+				id = CCP_config_events.0
+			}
+		}
+	}
+	option = {
+		#Restore Saved Color
+		name = CCP.restore_saved_color
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_country_flag = CCP_saved_country_color_flag
+		}
+		hidden_effect = {
+			clr_country_flag = CCP_saved_country_color_flag
+			change_country_color = { country = CLR } 
+			CLR = { restore_country_color = yes }
+			country_event = {
+				id = CCP_config_events.0
+			}
+		}
+	}
+	option = {
+		#Unified Country Color Rules
+		name = CCP.unified_country_color_rules
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = CCP_config_events.2
+			}
+		}
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		clr_country_flag = CCP_open_menu_flag
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = CCP_config_events.2
+	title = CCP_config_events.unified_color
+	desc = CCP_config_events.unified_color_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = CCP_stay_in_unified_color_menu_flag
+	}
+	option = {
+		#HRE
+		name = CCP.HRE_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = HRE }
+		}
+	}
+	option = {
+		#Trade League
+		name = CCP.trade_league_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = trade_league }
+		}
+	}
+	option = {
+		#Subject
+		name = CCP.subject_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = subject }
+		}
+	}
+	option = {
+		#Vassal
+		name = CCP.vassal_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = vassal }
+		}
+	}
+	option = {
+		#March
+		name = CCP.march_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = march }
+		}
+	}
+	option = {
+		#Personal Union
+		name = CCP.personal_union_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = personal_union }
+		}
+	}
+	option = {
+		#Colonial Subject
+		name = CCP.colonial_subject_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = colonial_subject }
+		}
+	}
+	option = {
+		#Tributary
+		name = CCP.tributary_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = tributary }
+		}
+	}
+	option = {
+		#Shogunate
+		name = CCP.shogunate_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = shogunate }
+		}
+	}
+	option = {
+		#Eyalet
+		name = CCP.eyalet_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = eyalet }
+		}
+	}
+	option = {
+		#Appanage
+		name = CCP.appanage_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = appanage }
+		}
+	}
+	option = {
+		#Commercial Enterprise
+		name = CCP.commercial_enterprise_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = commercial_enterprise }
+		}
+	}
+	option = {
+		#Trade Protectorate
+		name = CCP.trade_protectorate_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = trade_protectorate }
+		}
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		hidden_effect = {
+			clr_country_flag = CCP_stay_in_unified_color_menu_flag
+			country_event = {
+				id = CCP_config_events.0
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	after = {
+		CCP_unified_color_effects = yes
+		if = {
+			limit = { has_country_flag = CCP_stay_in_unified_color_menu_flag }
+			country_event = {
+				id = CCP_config_events.3
+			}
+		}
+	}
+}
+country_event = {
+	id = CCP_config_events.3
+	title = CCP_config_events.unified_color
+	desc = CCP_config_events.unified_color_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = CCP_stay_in_unified_color_menu_flag
+	}
+	option = {
+		#HRE
+		name = CCP.HRE_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = HRE }
+		}
+	}
+	option = {
+		#Trade League
+		name = CCP.trade_league_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = trade_league }
+		}
+	}
+	option = {
+		#Subject
+		name = CCP.subject_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = subject }
+		}
+	}
+	option = {
+		#Vassal
+		name = CCP.vassal_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = vassal }
+		}
+	}
+	option = {
+		#March
+		name = CCP.march_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = march }
+		}
+	}
+	option = {
+		#Personal Union
+		name = CCP.personal_union_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = personal_union }
+		}
+	}
+	option = {
+		#Colonial Subject
+		name = CCP.colonial_subject_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = colonial_subject }
+		}
+	}
+	option = {
+		#Tributary
+		name = CCP.tributary_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = tributary }
+		}
+	}
+	option = {
+		#Shogunate
+		name = CCP.shogunate_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = shogunate }
+		}
+	}
+	option = {
+		#Eyalet
+		name = CCP.eyalet_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = eyalet }
+		}
+	}
+	option = {
+		#Appanage
+		name = CCP.appanage_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = appanage }
+		}
+	}
+	option = {
+		#Commercial Enterprise
+		name = CCP.commercial_enterprise_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = commercial_enterprise }
+		}
+	}
+	option = {
+		#Trade Protectorate
+		name = CCP.trade_protectorate_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_global_flag = CCP_unified_subject_color_enabled_global_flag }
+		}
+		hidden_effect = {
+			CCP_enable_disable_unified_color_effects = { WHICH = trade_protectorate }
+		}
+	}
+	option = {
+		#Confirm
+		name = CCP.confirm
+        highlight = yes
+		hidden_effect = {
+			clr_country_flag = CCP_stay_in_unified_color_menu_flag
+			country_event = {
+				id = CCP_config_events.0
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	after = {
+		CCP_unified_color_effects = yes
+		if = {
+			limit = { has_country_flag = CCP_stay_in_unified_color_menu_flag }
+			country_event = {
+				id = CCP_config_events.2
+			}
+		}
+	}
+}

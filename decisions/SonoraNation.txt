@@ -1,0 +1,78 @@
+country_decisions = {
+
+	sonora_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = SNA }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}	
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			capital_scope = { area = sonora_area }
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no	
+			owns_core_province = 862
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_prestige = 25
+			change_tag = SNA
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	al_sayida_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AS2 }
+			is_nomad = no
+			is_random_new_world = no
+			colonial_mexico = {
+				owned_by = ROOT
+			}	
+			NOT = { owns_core_province = 852 } #NOT MEXICO
+			capital_scope = { area = sonora_area }
+			OR = {
+				culture_group = maghrebi
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no	
+			owns_core_province = 862
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_prestige = 25
+			change_tag = AS2
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

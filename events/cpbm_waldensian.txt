@@ -1,0 +1,94 @@
+########################################
+# Events for Waldensian Faith
+########################################
+
+namespace = cpbm_waldensian
+
+# Birth of Waldensian Faith
+
+province_event = {
+	id = cpbm_waldensian.1
+	title = cpbm_waldensian.EVTNAME1
+	desc = cpbm_waldensian.EVTDESC1
+	picture = CPBM_RELIGION_WALDENSIAN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_religion_enabled = catholic
+		NOT = { is_religion_enabled = waldensian }
+		is_year = 3268
+		OR = {
+			area = lombardy_area
+			area = switzerland_area
+			area = savoy_dauphine_area
+		}
+		religion = catholic
+	}
+
+	mean_time_to_happen = {
+		years = 7
+	}
+
+	option = {
+		name = cpbm_waldensian.EVTOPT1
+		enable_religion = waldensian
+		change_religion = waldensian
+		add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+	}
+
+}
+
+# Waldensians Spread
+
+province_event = {
+	id = cpbm_waldensian.2
+	title = cpbm_waldensian.EVTNAME2
+	desc = cpbm_waldensian.EVTDESC2
+	picture = CPBM_RELIGION_WALDENSIAN_eventPicture
+
+	trigger = {
+		any_neighbor_province = {
+			religion = waldensian
+		}
+		NOT = { religion = waldensian }
+		NOT = { is_year = 3448 }
+	}
+
+	mean_time_to_happen = {
+		months = 1400
+
+		modifier = {
+			factor = 0.7
+			area = lombardy_area
+		}
+
+		modifier = {
+			factor = 0.8
+			area = switzerland_area
+		}
+
+		modifier = {
+			factor = 2
+			is_year = 3398
+		}
+
+		modifier = {
+			factor = 20
+			NOT = { owner = { religion_group = christian } }
+		}
+
+	}
+
+	option = {
+		name = cpbm_waldensian.EVTOPT2
+		change_religion = waldensian
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}

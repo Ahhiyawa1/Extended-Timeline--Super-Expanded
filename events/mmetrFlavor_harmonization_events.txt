@@ -1,0 +1,68 @@
+
+namespace = mmetr_harmonization
+
+#Daoism Harmonization
+country_event = {
+	id = mmetr_harmonization.1
+	title = "mmetr_harmonization.1.t"
+	desc = "mmetr_harmonization.1.desc"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { religion = daoism }
+				save_event_target_as = daoism_province
+			}
+			clr_country_flag = harmonization_shangdi_conflict
+			clr_country_flag = harmonization_han_kitab
+			clr_country_flag = harmonization_fate_of_advisor
+			clr_country_flag = harmonization_empowering_ceremonies
+		}
+	}
+	
+	option = {
+		name = "mmetr_harmonization.1.a"
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_daoism"
+				duration = -1
+			}
+		}
+	}
+}
+
+#Confucian Harmonization
+country_event = {
+	id = mmetr_harmonization.2
+	title = "mmetr_harmonization.2.t"
+	desc = "mmetr_harmonization.2.desc"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { religion = confucianism }
+				save_event_target_as = confucianism_province
+			}
+			clr_country_flag = harmonization_shangdi_conflict
+			clr_country_flag = harmonization_han_kitab
+			clr_country_flag = harmonization_fate_of_advisor
+			clr_country_flag = harmonization_empowering_ceremonies
+		}
+	}
+	
+	option = {
+		name = "mmetr_harmonization.2.a"
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_confucianism"
+				duration = -1
+			}
+		}
+	}
+}

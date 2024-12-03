@@ -1,0 +1,168 @@
+country_decisions = {
+	bulgaria_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						religion_group = hellenic
+					}
+					NOT = { exists = TH1 }
+				}
+				AND = {
+					culture_group = eastern_balkan
+					NOT = { religion_group = hellenic }
+					NOT = { exists = ODR }
+				}
+				AND = {
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = eastern_balkan }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = BUL }
+					NOT = { exists = BU8 }
+					NOT = { exists = BU7 }
+					NOT = { exists = BU6 }
+				}
+			}
+			OR = {
+				ai = no
+				num_of_cities = 3 #Carnage
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = HR8 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR6 }
+			NOT = { tag = PAP }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+                        OR = {
+                            capital_scope = {
+                                OR = {
+                                    area = bulgaria_area
+                                    area = silistria_area
+                                    area = serbia_area
+                                }
+                            }
+                            capital = 140
+                            capital = 143
+                            capital = 1764
+                            capital = 1766
+                            capital = 1827
+                            capital = 1828
+                            capital = 1853
+                            capital = 3001
+                            capital = 3002
+                            capital = 4174
+                            capital = 4750
+                            capital = 4755
+                            capital = 4780
+                        } 
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1765	# Sofia
+				province_id = 150	# Nigbolu
+				province_id = 2746	# Vidin
+				province_id = 2750	# Plodiv
+				province_id = 4703	# Kostendil
+				province_id = 4704	# Tirnovo
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_nomad = no
+			owns_core_province = 1765	# Sofia
+			owns_core_province = 150	# Nigbolu
+			owns_core_province = 2746	# Vidin
+			owns_core_province = 2750	# Plodiv
+			owns_core_province = 4703	# Kostendil
+			owns_core_province = 4704	# Tirnovo
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						religion_group = hellenic
+					}
+				}
+				change_tag = TH1
+			}
+			if = {
+				limit = { 
+					culture_group = eastern_balkan
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = ODR
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = eastern_balkan }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = BUL
+			}
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			set_capital = 1765
+			if = {
+				limit = {
+					NOT = { owns = 1764 }
+					NOT = { is_core = 1764 }
+					NOT = { is_permanent_claim = 1764 }
+				}
+				add_permanent_claim = 1764
+			}
+			silistria_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = BUL_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400 #
+	}
+	
+}

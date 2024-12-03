@@ -1,0 +1,32 @@
+# Hellenic City State reform
+hellenic_city_state = {
+    icon = 1
+    category = oligarchic_republic
+
+    allowed_rulers = {
+        is_monarch = yes
+    }
+
+    valid_for_nation_designer = yes
+
+    country = {
+        stability_cost_modifier = -0.1
+        yearly_republican_tradition = 0.5
+        national_tax_modifier = 0.1
+        trade_efficiency = 0.3
+        global_trade_power = 0.1
+        institution_spread = 0.15
+        land_morale = 0.1
+        yearly_corruption = -0.05
+        national_unrest = 2.5         # Reflects internal strife and factionalism
+        governing_capacity_modifier = -0.1  # Reflects limited centralization
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    potential = {
+        government = oligarchy
+    }
+}

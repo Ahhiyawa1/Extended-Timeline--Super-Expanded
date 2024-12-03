@@ -1,0 +1,356 @@
+namespace = mmetr_SEL_mission_events
+
+# Persian Government
+country_event = {
+	id = mmetr_SEL_mission_events.1
+	title = "mmetr_SEL_mission_events.1.t"
+	desc = "mmetr_SEL_mission_events.1.desc"
+	picture = muslimgfx_ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.1.a"
+		
+		add_country_modifier = {
+			name = "me_sel_persianization"
+			duration = -1
+		}
+	}
+}
+
+# The [Root.Monarch.GetTitle] Enters Cairo
+country_event = {
+	id = mmetr_SEL_mission_events.2
+	title = "mmetr_SEL_mission_events.2.t"
+	desc = "mmetr_SEL_mission_events.2.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.2.a"
+		
+		add_country_modifier = {
+			name = "me_sel_malik_al_mashriq_wal_maghrib"
+			duration = 10950
+		}
+	}
+}
+
+# The Pious [Root.Monarch.GetTitle]
+country_event = {
+	id = mmetr_SEL_mission_events.3
+	title = "mmetr_SEL_mission_events.3.t"
+	desc = "mmetr_SEL_mission_events.3.desc"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.3.a"
+		
+		add_country_modifier = {
+			name = "me_sel_doctrine_of_orthodoxy"
+			duration = 10950
+		}
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.3.b"
+		
+		add_country_modifier = {
+			name = "me_sel_doctrine_of_integration"
+			duration = 10950
+		}
+	}
+}
+
+# A Sultan Among the Oghuz
+country_event = {
+	id = mmetr_SEL_mission_events.4
+	title = "mmetr_SEL_mission_events.4.t"
+	desc = "mmetr_SEL_mission_events.4.desc"
+	picture = muslimgfx_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.4.a"
+		
+		add_country_modifier = {
+			name = "me_sel_sultan_of_persia"
+			duration = 10950
+		}
+	}
+}
+
+# Scholars of the Nezamiyeh
+country_event = {
+	id = mmetr_SEL_mission_events.5
+	title = "mmetr_SEL_mission_events.5.t"
+	desc = "mmetr_SEL_mission_events.5.desc"
+	picture = muslimgfx_INVENTION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.5.a"
+		
+		define_advisor = {
+			type = theologian
+			skill = 2
+			culture = al_iraqiya_arabic
+			cost_multiplier = 0.5
+		}
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.5.b"
+		
+		define_advisor = {
+			type = inquisitor
+			skill = 2
+			culture = persian
+			cost_multiplier = 0.5
+		}
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.5.c"
+		
+		define_advisor = {
+			type = philosopher
+			skill = 2
+			culture = khorasani
+			cost_multiplier = 0.5
+		}
+	}
+}
+
+# Caliph Offers Daughter in Marriage
+country_event = {
+	id = mmetr_SEL_mission_events.6
+	title = "mmetr_SEL_mission_events.6.t"
+	desc = "mmetr_SEL_mission_events.6.desc"
+	picture = muslimgfx_COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.6.a"
+		
+		define_consort = {
+			culture = al_iraqiya_arabic
+			dynasty = "Abbasid"
+		}
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.6.b"
+		
+		add_prestige = 5
+	}
+}
+
+# Conclusion of the Georgian Wars
+country_event = {
+	id = mmetr_SEL_mission_events.7
+	title = "mmetr_SEL_mission_events.7.t"
+	desc = "mmetr_SEL_mission_events.7.desc"
+	picture = MMETR_BATTLEFIELD_AFTERMATH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.7.a"
+		
+		kartli_kakheti_area = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			add_province_modifier = {
+				name = "me_sel_georgian_cultivation"
+				duration = 10950
+			}
+		}
+		imereti_area = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			add_province_modifier = {
+				name = "me_sel_georgian_cultivation"
+				duration = 10950
+			}
+		}
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.7.b"
+		
+		kartli_kakheti_area = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			add_province_modifier = {
+				name = "me_sel_georgian_grazing_grounds"
+				duration = 10950
+			}
+		}
+		imereti_area = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			add_province_modifier = {
+				name = "me_sel_georgian_grazing_grounds"
+				duration = 10950
+			}
+		}
+	}
+}
+
+# Siege of Lahore
+country_event = {
+	id = mmetr_SEL_mission_events.8
+	title = "mmetr_SEL_mission_events.8.t"
+	desc = "mmetr_SEL_mission_events.8.desc"
+	picture = NUSANTARA_THRONE_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.8.a"
+		
+		add_army_tradition = 20
+		add_country_modifier = {
+			name = "me_sel_hindustani_ambitions"
+			duration = 10950
+		}
+	}
+}
+
+# The Throne of the Romans
+country_event = {
+	id = mmetr_SEL_mission_events.9
+	title = "mmetr_SEL_mission_events.9.t"
+	desc = "mmetr_SEL_mission_events.9.desc"
+	picture = MMETR_HAGIA_SOPHIA_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.9.a"
+		
+		add_country_modifier = {
+			name = "me_sel_city_of_the_worlds_desire"
+			duration = 10950
+		}
+	}
+}
+
+# The Holy Cities of Islam
+country_event = {
+	id = mmetr_SEL_mission_events.10
+	title = "mmetr_SEL_mission_events.10.t"
+	desc = "mmetr_SEL_mission_events.10.desc"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.10.a"
+		
+		add_country_modifier = {
+			name = "me_sel_defender_of_the_holy_cities"
+			duration = 10950
+		}
+	}
+}
+
+# Legacy of the Kara-Khanids
+country_event = {
+	id = mmetr_SEL_mission_events.11
+	title = "mmetr_SEL_mission_events.11.t"
+	desc = "mmetr_SEL_mission_events.11.desc"
+	picture = MMETR_MONGOL_THRONEROOM_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.11.a"
+		
+		add_country_modifier = {
+			name = "me_sel_turkic_heritage"
+			duration = 10950
+		}
+	}
+}
+
+# Lord of the Eastern Elephants
+country_event = {
+	id = mmetr_SEL_mission_events.12
+	title = "mmetr_SEL_mission_events.12.t"
+	desc = "mmetr_SEL_mission_events.12.desc"
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.12.a"
+		
+		add_country_modifier = {
+			name = "me_sel_war_elephants"
+			duration = 10950
+		}
+		hindusthan_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+# Sultan of the Roman Lands
+country_event = {
+	id = mmetr_SEL_mission_events.13
+	title = "mmetr_SEL_mission_events.13.t"
+	desc = "mmetr_SEL_mission_events.13.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.13.a"
+		
+		override_country_name = RUM
+	}
+	
+	option = {
+		name = "mmetr_SEL_mission_events.13.b"
+		
+		custom_tooltip = mmetr_SEL_mission_events.13.tt
+	}
+}
+
+# Protector of the Caliph of Baghdad
+country_event = {
+	id = mmetr_SEL_mission_events.14
+	title = "mmetr_SEL_mission_events.14.t"
+	desc = "mmetr_SEL_mission_events.14.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_SEL_mission_events.14.a"
+		
+		add_country_modifier = {
+			name = "me_sel_rukn_al_dawla"
+			duration = 10950
+		}
+	}
+}
+

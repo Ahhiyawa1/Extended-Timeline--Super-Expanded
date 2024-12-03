@@ -1,0 +1,236 @@
+custom_button = {
+	name = pte_custom_gui_cultural_hegemons_open_button
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = pte_custom_gui_cultural_hegemons_hidden
+		}
+	}
+	effect = {
+		hidden_effect = {
+			FROM = {
+				clr_country_flag = pte_custom_gui_cultural_hegemons_hidden
+			}
+		}
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_open_button_tt
+}
+custom_button = {
+	name = pte_custom_gui_cultural_hegemons_close_button
+	potential = {
+		FROM = {
+			ai = no
+			NOT = { has_country_flag = pte_custom_gui_cultural_hegemons_hidden }
+		}
+	}
+	effect = {
+		hidden_effect = {
+			FROM = {
+				set_country_flag = pte_custom_gui_cultural_hegemons_hidden
+			}
+		}
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_close_button_tt
+}
+
+custom_window = {
+	name = pte_custom_gui_cultural_hegemons_window
+	potential = {
+		FROM = {
+			ai = no
+			NOT = { has_country_flag = pte_custom_gui_cultural_hegemons_hidden }
+		}
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_header
+    potential = {
+		always = yes
+	}
+}
+custom_button = {
+	name = pte_custom_gui_cultural_hegemons_window_close_button
+	effect = {
+		hidden_effect = {
+			FROM = {
+				set_country_flag = pte_custom_gui_cultural_hegemons_hidden
+			}
+		}
+	}
+	tooltip = CLOSE
+}
+
+custom_icon = {
+	name = pte_custom_gui_cultural_hegemons_entry_1_bg
+	potential = {
+		always = yes
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_entry_1_bg_tt
+}
+custom_shield = {
+    name = pte_custom_gui_cultural_hegemons_entry_1_shield
+    potential = {
+		has_saved_global_event_target = pte_cultural_hegemony_target_1
+	}
+    tooltip = pte_custom_gui_cultural_hegemons_entry_1_bg_tt
+    global_event_target = pte_cultural_hegemony_target_1
+    open_country = yes
+}
+custom_button = {
+    name = pte_custom_gui_cultural_hegemons_entry_1_shield_empty
+    potential = {
+		NOT = { has_saved_global_event_target = pte_cultural_hegemony_target_1 }
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_1_name
+    potential = {
+		always = yes
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_1_desc
+    potential = {
+		always = yes
+	}
+}
+
+custom_icon = {
+	name = pte_custom_gui_cultural_hegemons_entry_2_bg
+	potential = {
+		always = yes
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_entry_2_bg_tt
+}
+custom_shield = {
+    name = pte_custom_gui_cultural_hegemons_entry_2_shield
+    potential = {
+		has_saved_global_event_target = pte_cultural_hegemony_target_2
+	}
+    tooltip = pte_custom_gui_cultural_hegemons_entry_2_bg_tt
+    global_event_target = pte_cultural_hegemony_target_2
+    open_country = yes
+}
+custom_button = {
+    name = pte_custom_gui_cultural_hegemons_entry_2_shield_empty
+    potential = {
+		NOT = { has_saved_global_event_target = pte_cultural_hegemony_target_2 }
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_2_name
+    potential = {
+		always = yes
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_2_desc
+    potential = {
+		always = yes
+	}
+}
+
+custom_icon = {
+	name = pte_custom_gui_cultural_hegemons_entry_3_bg
+	potential = {
+		always = yes
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_entry_3_bg_tt
+}
+custom_shield = {
+    name = pte_custom_gui_cultural_hegemons_entry_3_shield
+    potential = {
+		has_saved_global_event_target = pte_cultural_hegemony_target_3
+	}
+    tooltip = pte_custom_gui_cultural_hegemons_entry_3_bg_tt
+    global_event_target = pte_cultural_hegemony_target_3
+    open_country = yes
+}
+custom_button = {
+    name = pte_custom_gui_cultural_hegemons_entry_3_shield_empty
+    potential = {
+		NOT = { has_saved_global_event_target = pte_cultural_hegemony_target_3 }
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_3_name
+    potential = {
+		always = yes
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_3_desc
+    potential = {
+		always = yes
+	}
+}
+
+custom_icon = {
+	name = pte_custom_gui_cultural_hegemons_entry_4_bg
+	potential = {
+		always = yes
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_entry_4_bg_tt
+}
+custom_shield = {
+    name = pte_custom_gui_cultural_hegemons_entry_4_shield
+    potential = {
+		has_saved_global_event_target = pte_cultural_hegemony_target_4
+	}
+    tooltip = pte_custom_gui_cultural_hegemons_entry_4_bg_tt
+    global_event_target = pte_cultural_hegemony_target_4
+    open_country = yes
+}
+custom_button = {
+    name = pte_custom_gui_cultural_hegemons_entry_4_shield_empty
+    potential = {
+		NOT = { has_saved_global_event_target = pte_cultural_hegemony_target_4 }
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_4_name
+    potential = {
+		always = yes
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_4_desc
+    potential = {
+		always = yes
+	}
+}
+
+custom_icon = {
+	name = pte_custom_gui_cultural_hegemons_entry_5_bg
+	potential = {
+		always = yes
+	}
+	tooltip = pte_custom_gui_cultural_hegemons_entry_5_bg_tt
+}
+custom_shield = {
+    name = pte_custom_gui_cultural_hegemons_entry_5_shield
+    potential = {
+		has_saved_global_event_target = pte_cultural_hegemony_target_5
+	}
+    tooltip = pte_custom_gui_cultural_hegemons_entry_5_bg_tt
+    global_event_target = pte_cultural_hegemony_target_5
+    open_country = yes
+}
+custom_button = {
+    name = pte_custom_gui_cultural_hegemons_entry_5_shield_empty
+    potential = {
+		NOT = { has_saved_global_event_target = pte_cultural_hegemony_target_5 }
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_5_name
+    potential = {
+		always = yes
+	}
+}
+custom_text_box = {
+    name = pte_custom_gui_cultural_hegemons_entry_5_desc
+    potential = {
+		always = yes
+	}
+}

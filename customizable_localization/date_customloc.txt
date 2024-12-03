@@ -1,0 +1,15 @@
+defined_text = {
+	random = no
+	name = GetDateEra # Get whether the current year is AD or BC
+	text = {
+		trigger = {
+			1 = {
+				check_variable = { which = year value = 0 }
+			}
+		}
+		localisation_key = date_gui_AD
+	}
+	text = {
+		localisation_key = date_gui_BC
+	}
+}

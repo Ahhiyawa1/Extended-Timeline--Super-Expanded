@@ -1,0 +1,64 @@
+namespace = buildablemonuments
+
+country_event = {
+	id = buildablemonuments.13 #Diplomatic Monuments
+	title = buildablemonuments.13.tit
+	desc = buildablemonuments.13.desc
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = buildablemonuments.13.a #Diplomatic Centre
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_dip_1_built
+			}
+		}
+		trigger {
+			cm_dip_1_nb = yes
+			cm_dip_1_rq = yes
+		}
+		cm_dip_1_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.13.b #Ministry of Espionage
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_dip_2_built
+			}
+		}
+		trigger {
+			cm_dip_2_nb = yes
+			cm_dip_2_rq = yes
+		}
+		cm_dip_2_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.13.c #Ministry of Expansion
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0
+				has_global_flag = cm_dip_3_built
+			}
+		}
+		trigger {
+			cm_dip_3_nb = yes
+			cm_dip_3_rq = yes
+		}
+		cm_dip_3_addition = yes
+		GBM_oepw = yes
+	}
+	option = {
+		name = buildablemonuments.13.z #No Thanks
+		ai_chance = { factor = 0 }
+		GBM_oepw = yes
+	}
+}

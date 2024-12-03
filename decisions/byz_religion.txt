@@ -1,0 +1,127 @@
+country_decisions = {
+	submit_to_rome = {
+		major = yes
+		potential = {
+			ai = no
+			PAP = {
+				exists = yes
+				is_subject = no
+			}
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			religion = orthodox
+		}
+		allow = {
+			NOT = {
+				num_of_cities = 10
+			}
+			has_regency = no
+		}
+		effect = {
+			change_religion = catholic
+			add_stability = -1
+			create_alliance = PAP
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	broke_with_rome = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+			religion = catholic
+			is_excommunicated = yes
+		}
+		allow = {
+			has_regency = no
+		}
+		effect = {
+			change_religion = orthodox
+			add_stability = -1
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	papal_to_empire = {
+		major = yes
+		potential = {
+			ai = no
+			PAP = {
+				exists = yes
+				is_subject = no
+			}
+			OR = {
+				tag = BYZ
+				tag = ROM
+				tag = PQR
+				tag = ROW
+			}
+		}
+		allow = {
+			num_of_cities = 60
+			PAP = {
+				owns = 118
+				has_opinion = {
+					who = ROOT
+					value = 200
+				}
+			}
+			has_opinion = {
+				who = PAP
+				value = 200
+			}
+		}
+		effect = {
+			PAP = {
+				change_religion = orthodox
+				add_stability = -1
+			}
+			vassalize = PAP
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	convert_to_hellenic = {
+		major = yes
+		potential = {
+			ai = no
+			NOT = {
+				religion_group = hellenic
+			}
+			NOT = {
+				tag = PAP
+			}
+			is_emperor = no
+			owns_or_vassal_of = 146
+		}
+		allow = {
+			is_at_war = no
+			is_subject = no
+			is_defender_of_faith = no
+			owns_or_vassal_of = 146
+		}
+		effect = {
+			change_religion = hellenism
+			capital_scope = {
+				change_religion = hellenism
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

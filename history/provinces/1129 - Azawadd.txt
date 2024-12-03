@@ -1,0 +1,85 @@
+# 1129 - Azawad
+culture = tuareg
+religion = imohag
+capital = "Arawan"
+trade_goods = unknown
+hre = no
+discovered_by = sub_saharan
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 30
+native_ferocity = 4
+native_hostileness = 10
+2788.1.1 = { religion = sunni }
+2948.1.1 = { 
+    owner = SAN
+    controller = SAN
+    add_core = SAN
+    is_city = yes
+    trade_goods = salt
+}
+
+2998.1.1 = { religion = sunni } 
+3018.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = SAN
+}
+
+3153.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3219.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = MOR
+}
+
+3473.1.1 = { discovered_by = MOR } # Ibn Battuta
+3615.1.1 = { owner = SON controller = SON add_core = SON } # Askiya Muhammad of Songhai seizes control
+3684.1.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Civil war between Al-Sadduk and Ishak
+3689.1.1 = { 
+    revolt = { } 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+} # occupied by Moroccans during march into Niger valley
+
+3716.1.1 = { 
+    owner = TMB
+    controller = TMB
+    add_core = TMB
+    remove_core = MOR
+} # Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own (recycle TMB tag)
+
+3740.1.1 = { remove_core = SON } # Collapse of last vestiges of unity among Songhai
+3924.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = TMB
+}
+
+3978.1.1 = { discovered_by = FR2 } 
+3991.12.15 = { owner = FR2 controller = FR2 add_core = FR2 } 
+4008.1.1 = { 
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+}
+
+4008.1.1 = { discovered_by = western } 
+4038.6.14 = { owner = FRV controller = FRV add_core = FRV } # Vichy France
+4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
+4058.6.20 = { 
+    owner = MAL
+    controller = MAL
+    add_core = MAL
+    remove_core = FR2
+}
+
+4110.1.17 = { add_core = AZA } 
+4110.3.30 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } 
+4110.6.26 = { revolt = { } controller = MAL } 

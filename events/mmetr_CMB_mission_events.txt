@@ -1,0 +1,171 @@
+namespace = mmetr_CMB_mission_events
+
+# Dharmic Ambassadors in $CAPITAL_CITY$
+country_event = {
+	id = mmetr_CMB_mission_events.1
+	title = "mmetr_CMB_mission_events.1.t"
+	desc = "mmetr_CMB_mission_events.1.desc"
+	picture = MMETR_KHMER_KING_eventPicture
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "mmetr_CMB_mission_events.1.a"
+		
+		trigger = {
+			NOT = {
+				religion = hinduism
+			}
+			any_known_country = {
+				religion = hinduism
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		
+		change_religion = hinduism
+		hidden_effect = {
+			add_stability = 3		#to offset stab hit in religion change effect
+		}
+		custom_tooltip = mmetr_CMB_mission_events.1.tt
+		
+		capital_scope = {
+			change_religion = hinduism
+		}
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmic_coexistence"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = "mmetr_CMB_mission_events.1.b"
+		
+		trigger = {
+			NOT = {
+				religion = buddhism
+			}
+			any_known_country = {
+				religion = buddhism
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		
+		change_religion = buddhism		#Theravada
+		hidden_effect = {
+			add_stability = 3		#to offset stab hit in religion change effect
+		}
+		custom_tooltip = mmetr_CMB_mission_events.1.tt
+		
+		capital_scope = {
+			change_religion = buddhism
+		}
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmic_coexistence"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = "mmetr_CMB_mission_events.1.c"
+		
+		trigger = {
+			NOT = {
+				religion = mahayana
+			}
+			any_known_country = {
+				religion = mahayana
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		
+		change_religion = mahayana
+		hidden_effect = {
+			add_stability = 3		#to offset stab hit in religion change effect
+		}
+		custom_tooltip = mmetr_CMB_mission_events.1.tt
+		
+		capital_scope = {
+			change_religion = mahayana
+		}
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmic_coexistence"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = "mmetr_CMB_mission_events.1.d"
+		
+		trigger = {
+			NOT = {
+				religion = vajrayana
+			}
+			any_known_country = {
+				religion = vajrayana
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		
+		change_religion = vajrayana
+		hidden_effect = {
+			add_stability = 3		#to offset stab hit in religion change effect
+		}
+		custom_tooltip = mmetr_CMB_mission_events.1.tt
+		
+		capital_scope = {
+			change_religion = vajrayana
+		}
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmic_coexistence"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = "mmetr_CMB_mission_events.1.e"
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmic_coexistence"
+			duration = 5475
+		}
+	}
+}
+
+# Construction of Dharmasala
+country_event = {
+	id = mmetr_CMB_mission_events.2
+	title = "mmetr_CMB_mission_events.2.t"
+	desc = "mmetr_CMB_mission_events.2.desc"
+	picture = NUSANTARA_QUEEN_eventPicture
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "mmetr_CMB_mission_events.2.a"
+		
+		add_country_modifier = {
+			name = "me_cmb_dharmasala"
+			duration = 10950
+		}
+	}
+}

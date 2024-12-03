@@ -1,0 +1,280 @@
+country_decisions = {
+
+	north_german_federation_nation = {
+		major = yes
+		potential = {
+			adm_tech = 50
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_north_german_federation_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = GER }
+			NOT = { exists = NGF }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = FRK }
+			NOT = { tag = ENG }
+			NOT = { tag = EUR }
+			NOT = { tag = GER }
+			NOT = { tag = NGF }
+			OR = {
+				primary_culture = prussian
+				primary_culture = pommeranian
+				primary_culture = lower_saxon
+				primary_culture = hannoverian
+				primary_culture = hessian
+				primary_culture = saxon
+			}
+			NOT = { government = tribal }
+			NOT = { government = theocracy }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+					adm_tech = 50
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						region = north_german_region
+					}
+					root = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								is_core = ROOT
+								OR = {
+									region = north_german_region
+								}
+								value = 30
+							}
+						}
+					}
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				province_id = 50	#Berlin
+				province_id = 57	#Brunswick
+				province_id = 1758	#Hannover
+				province_id = 41 	# Königsberg
+				province_id = 1876 	# Frankfurt
+				province_id = 49	# Neumark
+				province_id = 61	# Dresden
+				province_id = 63	# Thüringen
+				province_id = 81	# Hessen
+				province_id = 85	# Köln
+				province_id = 44	# Hamburg
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 68		#year 1700
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 50			#Berlin
+			owns_core_province = 57			#Brunswick
+			owns_core_province = 1758		#Hannover
+			owns_core_province = 41 		# Königsberg
+			owns_core_province = 1876 		# Frankfurt
+			owns_core_province = 49			# Neumark
+			owns_core_province = 61			# Dresden
+			owns_core_province = 63			# Thüringen
+			owns_core_province = 81			# Hessen
+			owns_core_province = 85			# Köln
+			owns_core_province = 44			# Hamburg
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					region = north_german_region
+				}
+				value = 30
+			}
+		}
+		effect = {
+			change_tag = NGF
+			restore_country_name_effect = yes
+			if = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				emperor = {
+					add_opinion = {
+						who = root
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+			}
+			north_german_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NGF
+			}		
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 20
+			set_country_flag = formed_north_german_federation_flag
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 70 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { 
+					num_of_owned_provinces_with = { 
+						region = north_german_region
+						value = 30 
+					} 
+				}
+			}
+		}
+	}
+	
+	austria_hungary_nation = {
+		major = yes
+		potential = {
+			adm_tech = 50
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_austria_hungary_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = AH0 }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = FRK }
+			NOT = { tag = ENG }
+			NOT = { tag = EUR }
+			NOT = { tag = GER }
+			NOT = { tag = NGF }
+			OR = {
+				primary_culture = austrian
+				tag = HAB
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+					adm_tech = 50
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 134 	#Wien
+				area = transdanubia_area
+				area = alfold_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			government = monarchy
+			stability = 2
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 134 	#Wien
+			any_owned_province = {
+				culture = hungarian
+			}
+			accepted_culture = hungarian
+			num_of_cities = 50
+			transdanubia_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			alfold_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			OR = {
+				adm_tech = 78	#1848
+				num_of_owned_provinces_with = {
+					is_core = ROOT
+					nationalism_institution = 50
+					value = 5
+				}
+			}
+		}
+		effect = {
+			change_tag = AH0
+			restore_country_name_effect = yes
+			add_government_reform = austria_dual_monarchy
+			if = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				emperor = {
+					add_opinion = {
+						who = root
+						modifier = opinion_left_empire
+					}
+				}
+				set_in_empire = no
+			}
+			set_country_flag = formed_austria_hungary_flag
+			if = {
+				limit = {
+					NOT = { government_rank = 10 }
+				}
+				set_government_rank = 4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				is_year = 3965
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { average_unrest = 3 }
+			}
+		}
+	}
+	
+	
+}

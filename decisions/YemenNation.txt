@@ -1,0 +1,199 @@
+country_decisions = {
+
+	yemen_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+						religion_group = christian
+					}
+					NOT = { exists = AF2 }
+				}
+				AND = {
+					religion_group = jewish_group
+					NOT = { exists = HIM }
+				}
+				AND = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { religion_group = christian }
+					NOT = { religion_group = jewish_group }
+					NOT = { exists = YEM }
+				}
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = HR6 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR8 }
+			NOT = { tag = PAP }
+			NOT = { tag = ARB }
+			NOT = { tag = UA6 }
+			NOT = { tag = UA7 }
+			NOT = { tag = UA8 }
+			NOT = { tag = SAU }
+			NOT = { tag = AA3 }
+			NOT = { tag = RAS }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+                        OR = {
+                            capital_scope = {
+                                OR = {
+                                    area = upper_yemen_area 
+                                    area = yemen_area
+                                    area = hadramut_area
+                                    area = mahra_area
+                                    area = tihama_al_yemen_area
+                                    area = asir_area
+                                }
+                            }
+                            capital = 4278
+                        }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 387	# Mocha
+				province_id = 388	# Aden
+				province_id = 390	# Sa'ana
+				province_id = 4280	# Taiz
+				AND = {
+					province_id = 389
+					ROOT = { NOT = { owns_core_province = 391 } }
+					ROOT = { NOT = { owns_core_province = 2346 } }
+				}
+				AND = {
+					province_id = 2346
+					ROOT = { NOT = { owns_core_province = 391 } }
+					ROOT = { NOT = { owns_core_province = 389 } }
+				}
+				AND = {
+					province_id = 391
+					ROOT = { NOT = { owns_core_province = 2346 } }
+					ROOT = { NOT = { owns_core_province = 389 } }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no		
+			owns_core_province = 387	# Mocha
+			owns_core_province = 388	# Aden
+			owns_core_province = 390	# Sa'ana
+			owns_core_province = 4280	# Taiz
+			OR = {
+				owns_core_province = 389 #Mukalla
+				owns_core_province = 391 #Najran
+				owns_core_province = 2346 #Jazan
+			}
+			capital_scope = {
+				OR = {
+					area = tihama_al_yemen_area 
+					area = upper_yemen_area 
+					area = yemen_area 
+					area = hadramut_area 
+					area = mahra_area 
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { religion_group = christian }
+					NOT = { religion_group = jewish_group }
+				}
+				change_tag = YEM
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = AF2
+			}
+			if = {
+				limit = { religion_group = jewish_group }
+				change_tag = HIM
+			}
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			yemen_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_yemen_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tihama_al_yemen_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hadramut_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = YEM_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_yemen_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400 #
+	}
+	
+}

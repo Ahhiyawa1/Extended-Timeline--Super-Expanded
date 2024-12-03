@@ -1,0 +1,137 @@
+namespace = mmetr_PON_mission_events
+
+# Friend of the Romans
+country_event = {
+	id = mmetr_PON_mission_events.1
+	title = "mmetr_PON_mission_events.1.t"
+	desc = "mmetr_PON_mission_events.1.desc"
+	picture = MMETR_CAESARS_LEGIONS_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = {
+					OR = {
+						tag = ROM
+						tag = ROW
+						tag = BYZ
+						was_tag = ROM
+						was_tag = ROW
+						was_tag = BYZ
+					}
+					overlord_of = ROOT
+				}
+				create_subject = {
+					subject_type = foederatus_subject
+					subject = ROOT
+				}
+				save_event_target_as = pon_roman_overlord_event_target
+			}
+			
+			#avoids joining wars that Rome has already started
+			every_country = {
+				limit = {
+					war_with = event_target:pon_roman_overlord_event_target
+				}
+				white_peace = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "mmetr_PON_mission_events.1.a"
+		
+		add_country_modifier = {
+			name = "me_pon_trustworthy_friend"
+			duration = 14600	#40 years
+		}
+		custom_tooltip = mmetr_PON_mission_events.1.tt
+		custom_tooltip = pon_amicitia_of_rome_mission.tt
+		tooltip = {
+			event_target:pon_roman_overlord_event_target = {
+				create_subject = {
+					subject_type = foederatus_subject
+					subject = ROOT
+				}
+			}
+			every_country = {
+				limit = {
+					war_with = event_target:pon_roman_overlord_event_target
+				}
+				white_peace = ROOT
+			}
+		}
+	}
+}
+
+# Successor of Mithridates the Great
+country_event = {
+	id = mmetr_PON_mission_events.2
+	title = "mmetr_PON_mission_events.2.t"
+	desc = "mmetr_PON_mission_events.2.desc"
+	picture = MMETR_CAESARS_LEGIONS_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "me_pon_pontic_restoration"
+				duration = 14600	#40 years
+			}
+		}
+	}
+	
+	option = {
+		name = "mmetr_PON_mission_events.2.a"
+		
+		set_dynasty = "Mithridatid"
+		
+		custom_tooltip = mmetr_PON_mission_events.1.tt
+		tooltip = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "me_pon_pontic_restoration"
+				duration = 14600	#40 years
+			}
+		}
+	}
+	
+	option = {
+		name = "mmetr_PON_mission_events.2.b"
+		
+		custom_tooltip = mmetr_PON_mission_events.1.tt
+		tooltip = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "me_pon_pontic_restoration"
+				duration = 14600	#40 years
+			}
+		}
+	}
+}
+
+# Palace in Sinope
+country_event = {
+	id = mmetr_PON_mission_events.3
+	title = "mmetr_PON_mission_events.3.t"
+	desc = "mmetr_PON_mission_events.3.desc"
+	picture = CPBM_ROMAN_TEMPLE_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "mmetr_PON_mission_events.3.a"
+		
+		set_capital = 328	#Sinope
+	}
+	
+	option = {
+		name = "mmetr_PON_mission_events.3.b"
+		
+		
+	}
+}

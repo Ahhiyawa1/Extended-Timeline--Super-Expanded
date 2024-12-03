@@ -1,0 +1,35 @@
+SM_basic_monument_decision_check_triggers = {
+	has_global_flag = $MONUMENT$_enabled_global_flag
+	NOT = { has_global_flag = $MONUMENT$_spawned_global_flag }
+	NOT = { has_country_flag = SM_spawn_event_open_flag }
+	has_dlc = Leviathan
+}
+SM_basic_province_check_triggers = {
+	hidden_trigger = {
+		controlled_by = owner
+		is_city = yes
+	}
+}
+SM_ai_is_not_at_war_or_deficit_triggers = {
+	if = {
+		limit = { ai = yes }
+		NOT = { has_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag }
+		NOT = { is_at_war = yes }
+		monthly_income = 1
+	}
+}
+SM_other_potential_province_exists_triggers = {
+	any_owned_province = {
+		has_province_flag = SM_valid_province_flag
+		NOT = { has_province_flag = SM_skip_target_flag }
+		NOT = {
+			OR = {
+				province_id = event_target:SM_spawn_target_1
+				province_id = event_target:SM_spawn_target_2
+				province_id = event_target:SM_spawn_target_3
+				province_id = event_target:SM_spawn_target_4
+				province_id = event_target:SM_spawn_target_5
+			}
+		}
+	}
+}

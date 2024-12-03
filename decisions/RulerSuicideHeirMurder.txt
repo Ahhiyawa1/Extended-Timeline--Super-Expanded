@@ -1,0 +1,49 @@
+country_decisions = {
+    
+    murder_heir = {
+        major = yes
+        potential = {
+            government = monarchy
+			has_regency = no
+			ai = no
+		}
+		allow = {
+			has_regency = no
+			has_heir = yes
+		}
+		effect = {
+            add_treasury = -300
+            random_list = {
+                30 = {
+                    country_event  = { id = RulerSuicideHeirMurder.2}
+                    kill_heir = yes
+                    
+                }
+                9 = {
+                    country_event  = { id = RulerSuicideHeirMurder.3}
+                    kill_heir = yes
+                    add_stability = -1
+                    add_prestige = -10
+                    add_legitimacy = -20
+                }
+                12 = {
+                    country_event  = { id = RulerSuicideHeirMurder.4}
+                    add_prestige = -20
+                    add_legitimacy = -30
+                    capital_scope = {
+                        spawn_rebels = {
+                            type = noble_rebels
+                            size = 2
+                        }
+                    }
+                }
+                9 = {
+                    country_event  = { id = RulerSuicideHeirMurder.5}
+                }
+            }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

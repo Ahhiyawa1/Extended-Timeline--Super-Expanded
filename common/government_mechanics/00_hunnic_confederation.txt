@@ -1,0 +1,139 @@
+hunnic_confederation_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 10
+	available = {
+		always = yes
+	}
+
+	powers = {
+		hunnic_centralization_gov_mech = {
+			max = 100
+			reset_on_new_ruler = yes			#Goes down to zero, incurring maluses on ruler death
+			base_monthly_growth = 0
+			development_scaled_monthly_growth = 0
+			scaled_modifier = {
+				modifier = {
+					manpower_recovery_speed = 0.2
+					global_tax_modifier = 0.1
+					raze_power_gain = 0.1
+					vassal_income = 0.2
+					vassal_forcelimit_bonus = 0.2
+					horde_unity = 1
+				}
+			}
+			reverse_scaled_modifier = {
+				modifier = {
+                    global_autonomy = 0.05
+					stability_cost_modifier = 0.1
+				}
+            }
+		}
+	}
+	
+	interactions = {
+		hunnic_centralization_increase_gov = {
+			gui = hunnic_confederation_interaction_mech
+			icon = GFX_hunnic_centralization_increase_button
+			trigger = {
+				mil_power = 25
+				horde_unity = 10
+			}
+			effect = { 
+				add_mil_power = -25
+				add_horde_unity = -10
+				add_government_power = {
+					mechanic_type = hunnic_confederation_mechanic
+					power_type = hunnic_centralization_gov_mech
+					value = 10
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 10
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = prussian_militarization_mechanic_3
+						power_type = prussian_militarized_society_3
+						value = 90
+					}
+				}
+				modifier = {
+					factor = 0
+					not = { mil_power = 500 }
+				}
+			}
+		}
+		
+		hunnic_appoint_logades_gov = {
+			gui = hunnic_confederation_interaction_mech
+			icon = GFX_hunnic_appoint_logades_button
+			trigger = {
+				has_government_power = {
+					mechanic_type = hunnic_confederation_mechanic
+					power_type = hunnic_centralization_gov_mech
+					value = 20
+				}
+			}
+			effect = { 
+				add_government_power = {
+					mechanic_type = hunnic_confederation_mechanic
+					power_type = hunnic_centralization_gov_mech
+					value = -20
+				}
+				add_country_modifier = {
+					name = gov_hunnic_logades_appointed
+					duration = 1825
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 0
+				
+			}
+		}
+		
+		hunnic_recruit_foreign_warriors_gov = {
+			gui = hunnic_confederation_interaction_mech
+			icon = GFX_hunnic_recruit_foreign_warriors_button	
+			trigger = {
+				has_government_power = {
+					mechanic_type = hunnic_confederation_mechanic
+					power_type = hunnic_centralization_gov_mech
+					value = 20
+				}
+			}
+			effect = { 
+				add_government_power = {
+					mechanic_type = hunnic_confederation_mechanic
+					power_type = hunnic_centralization_gov_mech
+					value = -20
+				}
+				add_country_modifier = {
+					name = gov_hunnic_non_hunnic_leaders
+					duration = 1825
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 10
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = hunnic_confederation_mechanic
+						power_type = hunnic_centralization_gov_mech
+						value = 90
+					}
+				}
+				modifier = {
+					factor = 0
+					not = { mil_power = 600 }
+				}
+				modifier = {
+					factor = 0
+					not = { mil = 4 }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,1040 @@
+ROM_persia = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+	}
+	has_country_shield = yes
+	conquest_persia = {
+		icon = mission_pf_cross
+		required_missions = {
+			mesopotamia_rom
+		}
+		provinces_to_highlight = {
+			region = persia_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			persia_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			khorasan_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+		}
+	}
+	conquest_khorasan = {
+		icon = mission_pf_cross
+		required_missions = {
+			conquest_persia
+		}
+		provinces_to_highlight = {
+			region = khorasan_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			khorasan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			khorasan_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+		}
+	}
+	convert_persia_lands = {
+		icon = mission_pf_cross
+		required_missions = {
+			conquest_khorasan
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = mashriq_region
+				region = persia_region
+				region = khorasan_region
+			}
+			NOT = {
+				religion = ROOT
+			}
+		}
+		trigger = {
+			mashriq_region = {
+				type = all
+				religion = ROOT
+			}
+			persia_region = {
+				type = all
+				religion = ROOT
+			}
+			khorasan_region = {
+				type = all
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+		}
+	}
+}
+
+ROM_germany = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+	}
+	has_country_shield = yes
+	recover_germania_rom = {
+		icon = mission_pf_map_table
+		provinces_to_highlight = {
+			region = south_german_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			south_german_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+			south_german_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			north_german_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	recover_germania_north_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_germania_rom
+		}
+		provinces_to_highlight = {
+			region = north_german_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			north_german_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			north_german_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+
+ROM_dacia = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+	}
+	has_country_shield = yes
+	recover_wallachia_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			area = wallachia_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			wallachia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+			wallachia_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			carpathia_region = {
+				limit = {
+					NOT = {
+						is_core = ROOT
+					}
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	recover_dacia_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			recover_wallachia_rom
+		}
+		provinces_to_highlight = {
+			region = carpathia_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			carpathia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 20
+			}
+			add_country_modifier = {
+				name = "roman_builder"
+				duration = 5475
+			}
+			carpathia_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+
+ROM_west_east = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+	}
+	has_country_shield = yes
+	revive_agriculture_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+		}
+		provinces_to_highlight = {
+			calc_true_if = {
+				all_owned_province = {
+					
+				
+					owned_by = ROM
+					OR = {
+						has_building = storehouse
+						has_building = windmill
+						has_building = workshop
+						has_building = counting_house
+						has_building = factory
+					}
+					OR = {
+						region = iberia_region
+						region = france_region
+						region = italy_region
+						region = british_isles_region
+					}
+				}
+				amount = 50
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						has_building = storehouse
+						has_building = windmill
+						has_building = workshop
+						has_building = counting_house
+						has_building = factory
+					}
+					OR = {
+						region = iberia_region
+						region = france_region
+						region = italy_region
+						region = british_isles_region
+					}
+				}
+				amount = 50
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "revive_agriculture"
+				duration = 5475
+			}
+		}
+	}
+	strengthen_maritime_trade_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			revive_agriculture_rom
+		}
+		provinces_to_highlight = {
+			calc_true_if = {
+				all_owned_province = {
+					owned_by = ROM
+					province_has_center_of_trade_of_level = 3
+					OR = {
+						region = iberia_region
+						region = france_region
+					}
+				}
+				amount = 5
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					province_has_center_of_trade_of_level = 3
+					OR = {
+						region = iberia_region
+						region = france_region
+						region = italy_region
+						region = british_isles_region
+					}
+				}
+				amount = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "strengthen_maritime_trade"
+				duration = 5475
+			}
+		}
+	}
+	exploit_mineral_resources_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			strengthen_maritime_trade_rom
+		}
+		provinces_to_highlight = {
+			4558 = {
+				NOT = {
+					trade_goods = gold
+				}
+			}
+		}
+		trigger = {
+			4558 = {
+				trade_goods = gold
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "exploit_mineral_resources"
+				duration = 5475
+			}
+		}
+	}
+	rebuild_infrastructure_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			exploit_mineral_resources_rom
+		}
+		provinces_to_highlight = {
+			all_province = {
+				owned_by = ROM
+				NOT = {
+					has_building = road
+				}
+			}
+		}
+		trigger = {
+			all_owned_province = {
+				has_building = road
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "rebuild_infrastructure"
+				duration = 5475
+			}
+		}
+	}
+	promote_art_and_culture_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rebuild_infrastructure_rom
+		}
+		provinces_to_highlight = {
+			all_province = {
+				owned_by = ROM
+				OR = {
+					region = iberia_region
+					region = france_region
+					region = italy_region
+					region = british_isles_region
+				}
+				NOT = {
+					culture = roman
+				}
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					culture = roman
+					OR = {
+						region = iberia_region
+						region = france_region
+						region = italy_region
+						region = british_isles_region
+					}
+				}
+				amount = 50
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "promote_art_and_culture"
+				duration = 5475
+			}
+		}
+	}
+	advance_military_technology_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			promote_art_and_culture_rom
+		}
+		provinces_to_highlight = {
+		}
+		trigger = {
+			has_country_modifier = mil3_reform
+		}
+		effect = {
+			add_country_modifier = {
+				name = "advance_military_technology"
+				duration = 5475
+			}
+		}
+	}
+	innovate_legal_system_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			advance_military_technology_rom
+		}
+		provinces_to_highlight = {
+		}
+		trigger = {
+			has_country_modifier = adm2_reform
+		}
+		effect = {
+			add_country_modifier = {
+				name = "innovate_legal_system"
+				duration = 5475
+			}
+		}
+	}
+	promote_wine_production_rom = {
+		icon = mission_pf_map_table
+		required_missions = {
+			innovate_legal_system_rom
+		}
+		provinces_to_highlight = {
+				OR = {
+					region = iberia_region
+					region = france_region
+					region = italy_region
+					region = british_isles_region
+				}
+				trade_goods = wine
+				NOT = {
+					base_production = 3
+				}
+			
+		}
+		trigger = {
+			all_owned_province = {
+				OR = {
+					region = iberia_region
+					region = france_region
+					region = italy_region
+					region = british_isles_region
+				}
+				trade_goods = wine
+				base_production = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "promote_wine_production"
+				duration = 5475
+			}
+		}
+	}
+}
+
+ROM_silk_road = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+	}
+	has_country_shield = yes
+	rom_hormuz_control = {
+		icon = mission_pf_map_table
+		provinces_to_highlight = {
+			2999 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			2999 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 504
+			}
+			give_claims = {
+				area = ahmedabad_area
+			}
+			add_country_modifier = {
+				name = ROM_control_hormuz
+				duration = 7300
+			}
+		}
+	}
+	rom_india_west_ports = {
+		icon = roman_india_port
+		required_missions = {
+			rom_hormuz_control
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = ahmedabad_area
+				province_id = 504
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			504 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ahmedabad_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 2030
+			}
+			give_claims = {
+				province = 4410
+			}
+			give_claims = {
+				province = 536
+			}
+			give_claims = {
+				province = 2029
+			}
+			add_country_modifier = {
+				name = ROM_west_india
+				duration = 5475
+			}
+		}
+	}
+	rom_india_south_ports = {
+		icon = roman_india_port
+		required_missions = {
+			rom_india_west_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 536
+				province_id = 4410
+				province_id = 2030
+				province_id = 2029
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			536 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4410 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2030 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2029 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 539
+			}
+			give_claims = {
+				province = 2084
+			}
+			give_claims = {
+				province = 552
+			}
+			give_claims = {
+				province = 561
+			}
+			add_country_modifier = {
+				name = ROM_south_india
+				duration = 5475
+			}
+		}
+	}
+	rom_india_east_ports = {
+		icon = roman_india_port
+		required_missions = {
+			rom_india_south_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 539
+				province_id = 2084
+				province_id = 552
+				province_id = 561
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			539 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2084 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			552 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			561 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 2402
+			}
+			give_claims = {
+				province = 2404
+			}
+			give_claims = {
+				province = 2387
+			}
+			give_claims = {
+				province = 2390
+			}
+			add_country_modifier = {
+				name = ROM_east_india
+				duration = 5475
+			}
+		}
+	}
+	rom_indochina_west_ports = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_india_east_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2402
+				province_id = 2404
+				province_id = 2387
+				province_id = 2390
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			2402 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2404 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2387 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2390 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 4831
+			}
+			give_claims = {
+				province = 2377
+			}
+			give_claims = {
+				province = 607
+			}
+			2686 = {
+				cede_province = ROM
+				add_core = ROM
+				change_culture = root
+				change_religion = root
+				add_building = fort_15th
+			}
+			add_country_modifier = {
+				name = ROM_west_indo
+				duration = 5475
+			}
+		}
+	}
+	rom_indochina_east_ports = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_indochina_west_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4831
+				province_id = 2377
+				province_id = 607
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			4831 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2377 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			607 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 2160
+			}
+			give_claims = {
+				province = 666
+			}
+			give_claims = {
+				province = 3005
+			}
+			add_country_modifier = {
+				name = ROM_east_indo
+				duration = 5475
+			}
+		}
+	}
+	rom_south_china_ports = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_indochina_east_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2160
+				province_id = 666
+				province_id = 3005
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			2160 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			666 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3005 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				area = taiwan_area
+			}
+			add_country_modifier = {
+				name = ROM_south_china
+				duration = 5475
+			}
+		}
+	}
+	rom_taiwan = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_south_china_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = taiwan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			taiwan_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			give_claims = {
+				province = 684
+			}
+			give_claims = {
+				province = 1822
+			}
+			give_claims = {
+				province = 3009
+			}
+			give_claims = {
+				province = 3010
+			}
+			add_country_modifier = {
+				name = ROM_taiwan
+				duration = 5475
+			}
+		}
+	}
+	rom_east_china = {
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_taiwan
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 684
+				province_id = 1822
+				province_id = 3009
+				province_id = 3010
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			684 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1822 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3009 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3010 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = ROM_east_china
+				duration = 5475
+			}
+			add_country_modifier = {
+				name = ROM_silk_china_tea
+				duration = -1
+			}
+			## ADD SOMETHING FOR THE SILK SEA ROTE
+		}
+	}
+	rom_steal_tea_secret = {
+		# Spy network in a couyntry that produces tea
+		# change 3009 and 3010 to tea if own 4700 change to tea - Lesbian tea
+		icon = mission_pf_map_table
+		required_missions = {
+			rom_east_china
+		}
+		provinces_to_highlight = {
+			trade_goods = tea
+		}
+		trigger = {
+			any_known_country = {
+				tea = 1
+				has_spy_network_from = {
+					who = ROOT
+					value = 70
+				}
+			}
+			3009 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			3010 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4700 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			3009 = {
+				change_trade_goods = tea
+			}
+			3010 = {
+				change_trade_goods = tea
+			}
+			4700 = {
+				change_trade_goods = tea
+			}
+			add_country_modifier = {
+				name = ROM_lesbiantea
+				duration = 5475
+			}
+		}
+	}
+}
+
+ROM_religion = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ROM
+		is_religion_enabled = orthodox
+	}
+	has_country_shield = yes
+	the_pentarchy_rom = {
+		icon = mission_pf_cross
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118
+				province_id = 151
+				province_id = 358
+				province_id = 379
+				province_id = 2313
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			is_religion_enabled = orthodox
+			owns = 118			#Rome
+			owns = 151			#Constantinople
+			owns = 358			#Alexandria
+			owns = 379			#Jerusalem
+			owns = 2313			#Antioch
+			is_year = 3198
+		}
+		effect = {
+			add_patriarch_authority = 0.1
+			add_country_modifier = {
+				name = "healing_the_schism"
+				duration = -1
+			}
+			country_event = {
+				id = catholic_flavor.3
+			}
+		}
+	}
+}

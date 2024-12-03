@@ -1,0 +1,27 @@
+CCP_periodic_color_check_province_triggered_modifier = {
+	potential = {
+		always = yes
+	}
+	trigger = {
+		hidden_trigger = {
+			NOT = {
+				had_global_flag = {
+					flag = CCP_periodic_color_check_global_flag
+					days = 30
+				}
+			}
+		}
+	}
+	hidden = yes
+	#Province scope
+	on_activation = {
+		CCP_unified_color_effects = yes
+	}
+	
+	on_deactivation = {
+		hidden_effect = {
+			clr_global_flag = CCP_periodic_color_check_global_flag
+			set_global_flag = CCP_periodic_color_check_global_flag
+		}
+	}
+}

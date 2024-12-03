@@ -1,0 +1,1138 @@
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+#
+# Additional arguments: allow_only_male/allow_only_female
+# Contains skill_scaled_modifier for which the effects get multiplied by the advisor's skill level
+# Uses all 'modifiers' possible that are exported as a Modifier.
+# Note that ai_will_do calculates a priority.
+# An advisor may be chosen over another if its random priority exceeds it. RandomPriority(advisor) := rand[1, 2[ * Priority(advisor).
+######################################################
+# Administrative Advisors
+######################################################
+######################################################
+philosopher_2 = {
+	monarch_power = ADM
+	# Bonus
+	prestige = 1
+	war_exhaustion = -0.05
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = philosopher
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			NOT = {
+				prestige = 0
+			}
+		}
+	}
+}
+
+######################################################
+natural_scientist_2 = {
+	monarch_power = ADM
+	# Bonus
+	adm_tech_cost_modifier = -0.06
+	idea_cost = -0.08
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = natural_scientist
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_adm_personality = yes
+		}
+	}
+}
+
+######################################################
+######################################################
+artist_2 = {
+	monarch_power = ADM
+	# Bonus
+	stability_cost_modifier = -0.05
+	diplomatic_reputation = 3
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = artist
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_adm_personality = yes
+		}
+	}
+}
+
+######################################################
+######################################################
+treasurer_2 = {
+	monarch_power = ADM
+	# Bonus
+	skill_scaled_modifier = {
+		modifier = {
+			global_tax_modifier = 0.05
+			war_exhaustion = 0.01
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = treasurer
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			is_at_war = no
+		}
+	}
+}
+
+######################################################
+######################################################
+theologian_2 = {
+	monarch_power = ADM
+	# Bonus
+	global_unrest = -3
+	tolerance_own = 1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = protestant
+			}
+			NOT = {
+				religion = reformed
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			OR = {
+				religion = protestant
+				religion = reformed
+			}
+		}
+	}
+}
+
+######################################################
+theologian_3 = {
+	monarch_power = ADM
+	# Bonus
+	religious_unity = 0.05
+	skill_scaled_modifier = {
+		modifier = {
+			global_unrest = -1
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = orthodox
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			religion = orthodox
+		}
+	}
+}
+
+######################################################
+theologian_4 = {
+	monarch_power = ADM
+	# Bonus
+	skill_scaled_modifier = {
+		modifier = {
+			global_unrest = -1
+			land_morale = 0.05
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				religion_group = muslim
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			religion_group = muslim
+		}
+	}
+}
+
+######################################################
+theologian_5 = {
+	monarch_power = ADM
+	# Bonus
+	skill_scaled_modifier = {
+		modifier = {
+			global_unrest = -1
+		}
+	}
+	prestige_decay = -0.01
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				religion_group = eastern
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			religion_group = eastern
+		}
+	}
+}
+
+######################################################
+theologian_6 = {
+	monarch_power = ADM
+	# Bonus
+	skill_scaled_modifier = {
+		modifier = {
+			global_unrest = -1
+		}
+	}
+	technology_cost = -0.01
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = {
+				religion_group = pagan
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			religion_group = pagan
+		}
+	}
+}
+
+######################################################
+master_of_mint_2 = {
+	monarch_power = ADM
+	# Bonus
+	inflation_reduction = 0.1
+	land_maintenance_modifier = -0.05
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = master_of_mint
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_adm_personality = yes
+		}
+	}
+}
+
+######################################################
+inquisitor_2 = {
+	monarch_power = ADM
+	# Bonus
+	global_missionary_strength = 0.01
+	religious_unity = 0.1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = inquisitor
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			NOT = {
+				religious_unity = 1
+			}
+		}
+	}
+}
+
+######################################################
+architect = {
+	monarch_power = ADM
+	# Bonus
+	build_cost = -0.1
+	production_efficiency = 0.04
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = architect_2
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_bad_adm_personality = yes
+		}
+	}
+}
+
+######################################################
+architect_2 = {
+	monarch_power = ADM
+	# Bonus
+	build_cost = -0.05
+	production_efficiency = 0.08
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = architect
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_bad_adm_personality = yes
+		}
+	}
+}
+
+######################################################
+# Diplomatic Advisors
+######################################################
+######################################################
+statesman_2 = {
+	monarch_power = DIP
+	# Bonus
+	diplomatic_reputation = 3
+	production_efficiency = 0.08
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = statesman
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_dip_personality = yes
+		}
+	}
+}
+
+######################################################
+######################################################
+naval_reformer_2 = {
+	monarch_power = DIP
+	# Bonus
+	dip_tech_cost_modifier = -0.05
+	global_ship_cost = -0.12
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_port = no
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = naval_reformer
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_dip_personality = yes
+		}
+	}
+}
+
+######################################################
+######################################################
+trader_2 = {
+	monarch_power = DIP
+	# Bonus
+	global_trade_power = 0.05
+	trade_steering = 0.15
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = trader
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_dip_personality = yes
+		}
+	}
+}
+
+######################################################
+spymaster_2 = {
+	monarch_power = DIP
+	# Bonus
+	spy_offence = 0.05
+	global_spy_defence = 0.1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = spymaster
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_dip_personality = yes
+		}
+	}
+}
+
+######################################################
+colonial_governor_2 = {
+	monarch_power = DIP
+	# Bonus
+	global_tariffs = 0.05
+	global_colonial_growth = 10
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = {
+					num_of_colonists = 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = colonial_governor
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			num_of_colonists = 1
+		}
+	}
+}
+
+######################################################
+diplomat_2 = {
+	monarch_power = DIP
+	# Bonus
+	diplomatic_upkeep = 1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = diplomat
+			}
+		}
+		modifier = {
+		factor = 0
+		NOT = {
+				culture_group = latin
+		}
+	}
+	}
+	
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_dip_personality = yes
+		}
+	}
+}
+
+######################################################
+navigator_2 = {
+	monarch_power = DIP
+	# Bonus
+	range = 0.1
+	colonist_placement_chance = 0.1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = {
+					num_of_colonists = 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = navigator
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			num_of_colonists = 1
+		}
+	}
+}
+
+######################################################
+grand_admiral = {
+	monarch_power = DIP
+	# Bonus
+	heavy_ship_power = 0.1
+	transport_power = 0.15
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_port = no
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = grand_admiral_2
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			num_of_heavy_ship = 1
+		}
+	}
+}
+
+######################################################
+grand_admiral_2 = {
+	monarch_power = DIP
+	# Bonus
+	light_ship_power = 0.1
+	galley_power = 0.15
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_port = no
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = grand_admiral
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			num_of_galley = 1
+		}
+	}
+}
+
+######################################################
+# Military Advisors
+######################################################
+######################################################
+army_reformer_2 = {
+	monarch_power = MIL
+	# Bonus
+	mil_tech_cost_modifier = -0.1
+	cavalry_cost = -0.05
+	chance = {
+		factor = 0.67
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = army_reformer
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+army_reformer_3 = {
+	monarch_power = MIL
+	# Bonus
+	mil_tech_cost_modifier = -0.1
+	artillery_cost = -0.05
+	chance = {
+		factor = 0.67
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = army_reformer_2
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+army_organiser_2 = {
+	monarch_power = MIL
+	# Bonus
+	land_forcelimit_modifier = 0.15
+	land_maintenance_modifier = -0.05
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = army_organiser
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+commandant_2 = {
+	monarch_power = MIL
+	# Bonus
+	discipline = 0.05
+	cavalry_power = 0.05
+	chance = {
+		factor = 0.67
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = commandant
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+commandant_3 = {
+	monarch_power = MIL
+	# Bonus
+	discipline = 0.05
+	artillery_power = 0.05
+	chance = {
+		factor = 0.67
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = commandant_2
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+quartermaster_2 = {
+	monarch_power = MIL
+	# Bonus
+	reinforce_speed = 0.15
+	recover_army_morale_speed = 0.05
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = quartermaster
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+recruitmaster_2 = {
+	monarch_power = MIL
+	# Bonus
+	global_manpower_modifier = 0.05
+	global_regiment_recruit_speed = -0.15
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = recruitmaster
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+fortification_expert_2 = {
+	monarch_power = MIL
+	# Bonus
+	defensiveness = 0.2
+	land_attrition = -0.1
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			fort_level = 1
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = fortification_expert
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+grand_captain_2 = {
+	monarch_power = MIL
+	# Bonus
+	land_morale = 0.1
+	army_tradition = 2
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = grand_captain
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+marshal = {
+	monarch_power = MIL
+	# Bonus
+	free_leader_pool = 1
+	leader_siege = 1
+	chance = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_2
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_3
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_4
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+marshal_2 = {
+	monarch_power = MIL
+	# Bonus
+	free_leader_pool = 1
+	leader_siege = 1
+	chance = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_3
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_4
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+marshal_3 = {
+	monarch_power = MIL
+	# Bonus
+	free_leader_pool = 1
+	leader_siege = 1
+	chance = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_2
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_4
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}
+
+######################################################
+marshal_4 = {
+	monarch_power = MIL
+	# Bonus
+	free_leader_pool = 1
+	leader_land_manuever = 1
+	chance = {
+		factor = 0.5
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_2
+			}
+		}
+		modifier = {
+			factor = 0.25
+			owner = {
+				advisor = marshal_3
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+					culture_group = latin
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			ruler_has_good_mil_personality = yes
+		}
+	}
+}

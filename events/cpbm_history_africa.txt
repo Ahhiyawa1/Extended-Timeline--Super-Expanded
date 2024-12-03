@@ -1,0 +1,2259 @@
+namespace = cpbm_history_africa
+
+###################
+##### MOROCCO #####
+###################
+
+#Rise of the Idrisids
+country_event = {
+	id = cpbm_history_africa.1
+	title = cpbm_history_africa.1.t
+	desc = cpbm_history_africa.1.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 334 #Tangiers
+		385 = { owner = { NOT = { religion = shiite } } }
+		religion_group = muslim
+		is_year = 2886
+		NOT = { is_year = 2888 }
+		NOT = { dynasty = "Idrisid" }
+		capital_scope = { region = maghreb_region }
+	}
+	
+	mean_time_to_happen = {
+		months = 12		
+	}
+	
+	option = {
+		name = cpbm_history_africa.1.a
+		add_legitimacy = -25
+		add_prestige = 10
+		every_owned_province = {
+			limit = { area = northern_morocco_area }
+			change_religion = shiite
+		}
+		northern_morocco_area = { add_core = MOR }
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.1.b
+		add_legitimacy = 20
+		add_stability = -1
+		change_tag = MOR
+		change_religion = shiite
+		define_ruler = {
+			name = "Idris I"
+			dynasty = "Idrisid"
+			age = 43
+			adm = 4
+			dip = 2
+			mil = 2
+		}
+		define_heir = {
+			name = "Idris"
+			monarch_name = "Idris II"
+			dynasty = "Idrisid"
+			birth_date = 761.1.1
+			claim = 95
+			adm = 0
+			dip = 1
+			mil = 4
+		}
+		hidden_effect = {
+			add_core = 2465
+			add_core = 336
+			add_core = 337
+			add_core = 349
+			add_core = 4711
+			add_core = 4712
+			add_core = 2571
+			add_core = 4713
+			add_core = 348
+			add_core = 1110
+			add_core = 347
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.1.c
+		highlight = yes
+		trigger = { ruler_has_personality = zealot_personality }
+		required_personality = zealot_personality
+		add_legitimacy = -25
+		add_prestige = 100
+		change_tag = MOR
+		every_owned_province = {
+			change_religion = ROOT
+		}
+		hidden_effect = {
+			add_core = 2465
+			add_core = 336
+			add_core = 337
+			add_core = 349
+			add_core = 4711
+			add_core = 4712
+			add_core = 2571
+			add_core = 4713
+			add_core = 348
+			add_core = 1110
+			add_core = 347
+		}
+		ai_chance = { factor = 10 }
+	}
+}
+
+#Western Sahara Colonisation
+country_event = {
+	id = cpbm_history_africa.2
+	title = cpbm_history_africa.2.t
+	desc = cpbm_history_africa.2.d
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = { owns = 3029 owns = 347 }
+		is_year = 3158
+		NOT = { is_year = 3178 }
+		OR = {
+			3259 = { is_empty = yes }
+			1111 = { is_empty = yes }
+			4569 = { is_empty = yes }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600	
+	}
+	
+	option = {
+		name = cpbm_history_africa.2.a
+		3259 = {
+			cede_province = ROOT
+			add_colonysize = 1000	
+		}
+		1111 = {
+			cede_province = ROOT
+			add_colonysize = 1000	
+		}
+		4569 = {
+			cede_province = ROOT
+			add_colonysize = 1000	
+		}
+	}
+}
+
+#Rise of the Hintata
+country_event = {
+	id = cpbm_history_africa.3
+	title = cpbm_history_africa.3.t
+	desc = cpbm_history_africa.3.d
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = { owns = 348 owns = 2464 owns = 2466 owns = 346 owns = 2460 }
+		is_year = 3448
+		NOT = { is_year = 3468 }
+		NOT = { has_country_flag = hintata_controls_atlas }
+		NOT = { has_country_flag = hintata_expansion_halted }
+		AND = {
+			NOT = { capital = 346 }
+			NOT = { capital = 348 }
+			NOT = { capital = 2464 }
+			NOT = { capital = 2460 }
+			NOT = { capital = 2466 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24		
+	}
+	
+	option = {
+		name = cpbm_history_africa.3.a
+		346 = { cede_province = ATL add_core = ATL }
+		348 = { cede_province = ATL add_core = ATL }
+		2464 = { cede_province = ATL add_core = ATL }
+		2460 = { cede_province = ATL add_core = ATL }
+		2466 = { cede_province = ATL add_core = ATL }
+		ROOT = { vassalize = ATL }
+		maghreb_region = {
+			discover_country = ATL
+		}
+		set_country_flag = hintata_controls_atlas
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.3.b
+		346 = { 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+			remove_core = ROOT
+			add_core = ATL
+		}
+		348 = { 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+			remove_core = ROOT
+			add_core = ATL
+		}
+		2464 = { 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+			remove_core = ROOT
+			add_core = ATL
+		}
+		2460 = { 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+			remove_core = ROOT
+			add_core = ATL
+		}
+		2466 = { 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+			remove_core = ROOT
+			add_core = ATL
+		}
+		set_country_flag = hintata_expansion_halted
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.3.c
+		highlight = yes
+		trigger = { mil = 4 }
+		346 = { 
+			add_core = ATL 
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}	
+		}
+		348 = { 
+			add_core = ATL 
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}	
+		}
+		2464 = { 
+			add_core = ATL 
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}	
+		}
+		2460 = { 
+			add_core = ATL 
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}	
+		}
+		2466 = { 
+			add_core = ATL 
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}	
+		}
+		set_country_flag = hintata_expansion_halted
+		ai_chance = { factor = 10 }
+	}
+}
+
+#Hintata Expansion
+country_event = {
+	id = cpbm_history_africa.4
+	title = cpbm_history_africa.4.t
+	desc = cpbm_history_africa.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = hintata_controls_atlas
+		owns = 344
+		NOT = { 
+			capital_scope = {
+				OR = {
+					area = western_morocco_area
+					area = marrekesh_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+			}
+		}
+		NOT = { year = 3372 }
+	}
+	
+	mean_time_to_happen = {
+		months = 72	
+	}
+	
+	immediate = {
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 344
+					province_id = 4167
+					province_id = 342
+					province_id = 345
+					province_id = 2470
+					province_id = 346
+					province_id = 2460
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = ATL
+			cede_province = ATL
+		}
+		clr_country_flag = hintata_controls_atlas
+	}
+	
+	option = {
+		name = cpbm_history_africa.4.a
+		trigger = {
+			NOT = { stability = 2 }
+			stability = -1
+		}
+		add_stability = -1
+		set_country_flag = hintata_expansion_halted
+	}
+	
+	option = {
+		name = cpbm_history_africa.4.b
+		trigger = {
+			NOT = { stability = 2 }
+			stability = -1
+			legitimacy = ATL
+		}
+		add_stability = -1
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 348
+					province_id = 2464
+					area = southern_morocco_area
+				}
+				owned_by = ATL
+			}
+			add_core = SOS
+			cede_province = SOS
+			remove_core = ATL
+			ROOT = { vassalize = SOS }
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 346
+					province_id = 2460
+					province_id = 2466
+				}
+				owned_by = ATL
+			}
+			add_core = TFL
+			cede_province = TFL
+			remove_core = ATL
+			ROOT = { vassalize = TFL}
+		}
+		ATL = { change_tag = MRK }
+		ROOT = { vassalize = MRK }
+		MRK = { 
+			set_capital = 344 
+			define_ruler = {
+				name = "Abd al-Rahman"
+				dynasty = "Marinid"
+				adm = 2
+				dip = 2
+				mil = 3
+			}
+		}
+		SOS = { 
+			set_capital = 348 
+			define_ruler = {
+				name = "Abdallah"
+				dynasty = "Banu Amghar"
+				adm = 2
+				dip = 2
+				mil = 1
+			}
+		}
+		TFL = {
+			define_ruler = {
+				name = "Abd Allah"
+				dynasty = "Saadi"
+				adm = 2
+				dip = 1
+				mil = 1
+			}
+		}
+		set_country_flag = hintata_expansion_halted
+	}
+	
+	option = {
+		name = cpbm_history_africa.4.c
+		trigger = {
+			NOT = { stability = 2 }
+			stability = -1
+		}
+		ATL = {
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		set_country_flag = hintata_expansion_halted
+	}
+	
+	option = {
+		name = cpbm_history_africa.4.dd
+		trigger = {
+			stability = 2
+		}
+		every_province = {
+			limit = {
+				owned_by = ATL
+			}
+			add_core = ROOT
+			cede_province = ROOT
+		}
+		set_country_flag = hintata_expansion_halted
+	}
+	
+	option = {
+		name = cpbm_history_africa.4.e
+		trigger = {
+			NOT = { stability = -1 }
+		}
+		ATL = { grant_independence = yes }
+	}
+}
+
+#Ibadi Spreads in the Maghreb
+province_event = {
+	id = cpbm_history_africa.5
+	title = cpbm_history_africa.5.t
+	desc = cpbm_history_africa.5.d
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		region = maghreb_region
+		is_religion_enabled = ibadi
+		NOT = { religion = ibadi }
+		is_year = 2798
+		NOT = { is_year = 2838 }
+		NOT = { has_global_flag = berber_revolt }
+	}
+
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 5
+			OR = {
+				area = kabylia_area
+				area = tunisia_area 
+				area = djerba_area 
+				area = tripolitania_area 
+				area = fezzan_area 
+				area = western_morocco_area
+				area = sus_area
+				area = southern_morocco_area
+				owner = {
+					religion = amanaiism
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			religion_group = amanaiism
+		}
+
+		modifier = {
+			factor = 0.2
+			owner = {
+				religion = ibadi
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			any_neighbor_province = {
+				religion = ibadi
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.5.a
+		change_religion = ibadi
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.5.b
+		highlight = yes
+		trigger = { 
+			owner = { ruler_has_personality = tolerant_personality }
+			NOT = { owner = { religion = ibadi } }
+			owner = { capital_scope = { region = maghreb_region } }
+		}
+		owner = { required_personality = tolerant_personality }
+		owner = { change_religion = ibadi }
+		change_religion = ibadi
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}
+
+#Berber Revolt
+country_event = {
+	id = cpbm_history_africa.6
+	title = cpbm_history_africa.6.t
+	desc = cpbm_history_africa.6.d
+	picture = MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = { owns = 343 owns = 345 owns = 4167 owns = 3236 owns = 336 }
+		is_year = 2798
+		NOT = { is_year = 2898 }
+		NOT = { religion = amanaiism religion = ibadi }
+		NOT = { culture_group = maghrebi }
+		NOT = { tag = MOR }
+		any_owned_province = {
+			AND = {
+				region = maghreb_region
+				religion = ibadi
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 40		
+	}
+	
+	option = {
+		name = cpbm_history_africa.6.a
+		every_owned_province = { 
+			limit = { region = maghreb_region }
+			cede_province = MOR
+			add_core = MOR
+		}
+		ROOT = { vassalize = MOR }
+		maghreb_region = {
+			discover_country = MOR
+		}
+		set_global_flag = berber_revolt
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.6.b
+		if = {
+			limit = {
+				AND = { owns = 343 owns = 338 owns = 341 owns = 354 }
+			}
+			add_treasury = -5000
+		}
+		else = { add_treasury = -2000 }
+		set_global_flag = berber_revolt
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.6.c
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 343
+					province_id = 2467
+					province_id = 2468
+					province_id = 2469
+					province_id = 4563
+					province_id = 4569
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			cede_province = FEZ
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 346
+					province_id = 349
+					province_id = 2460
+				}
+				owned_by = ROOT
+			}
+			add_core = SIJ
+			cede_province = SIJ
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 334
+					province_id = 335
+					province_id = 1751
+					province_id = 3236
+					province_id = 4561
+				}
+				owned_by = ROOT
+			}
+			add_core = NEK
+			cede_province = NEK
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4167
+					province_id = 4568
+				}
+				owned_by = ROOT
+			}
+			add_core = ATL
+			cede_province = ATL
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 342
+					province_id = 344
+					province_id = 345
+					province_id = 2470
+					province_id = 4564
+				}
+				owned_by = ROOT
+			}
+			add_core = BGW
+			cede_province = BGW
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 347
+					province_id = 348
+					province_id = 1110
+					province_id = 2464
+					province_id = 2466
+				}
+				owned_by = ROOT
+			}
+			add_core = SOS
+			cede_province = SOS
+			remove_core = ROOT
+		}
+		add_treasury = 10000
+		set_global_flag = berber_revolt
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.6.dd
+		every_owned_province = { 
+			limit = { region = maghreb_region }
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+		set_global_flag = berber_revolt
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.6.e
+		highlight = yes
+		trigger = { mil = 5 }
+		every_owned_province = { 
+			limit = { region = maghreb_region }
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 3650
+			}	
+		}
+		ai_chance = { factor = 10 }
+	}
+}
+
+#Viking Raid of Nekor
+province_event = {
+	id = cpbm_history_africa.7
+	title = cpbm_history_africa.7.t
+	desc = cpbm_history_africa.7.d
+	picture = BATTLE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		province_id = 3236
+		is_year = 2953
+		NOT = { is_year = 2958 }
+	}
+	
+	mean_time_to_happen = {
+		years = 4		
+	}
+	
+	option = {
+		name = cpbm_history_africa.7.a
+		add_province_modifier = {
+			name = viking_raider_violence
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.7.b
+		add_province_modifier = {
+			name = viking_raider_massacre
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.7.c
+		random = {
+			chance = 50
+			heretic_rebels = 1
+		}
+		owner = { add_piety = -0.05 }
+	}
+}
+
+#Rise of the Almoravids
+country_event = {
+	id = cpbm_history_africa.8
+	title = cpbm_history_africa.8.t
+	desc = cpbm_history_africa.8.d
+	picture = STREET_SPEACH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4167 #High Atlas, Tin Mal
+		4167 = { religion_group = muslim }
+		is_year = 3123
+		NOT = { is_year = 3185 }
+		NOT = { dynasty = "Almoravid" }
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+
+		modifier = {
+			factor = 0.8
+			NOT = { legitimacy = 80 }
+		}		
+	}
+	
+	option = {
+		name = cpbm_history_africa.8.a
+		add_legitimacy = -25
+		add_prestige = 10
+		every_owned_province = {
+			limit = { area = marrekesh_area }
+			change_religion = sunni
+		}
+		marrekesh_area = { add_core = MOR }
+		every_owned_province = {
+			limit = { 
+				AND = {
+					area = marrekesh_area 
+					base_tax = 3 
+				}
+				add_base_tax = -2
+			}
+		}
+		every_owned_province = {
+			limit = { 
+				AND = {
+					area = marrekesh_area 
+					base_production = 3 
+				}
+				add_base_production = -2
+			}
+		}
+		every_owned_province = {
+			limit = { 
+				AND = {
+					area = marrekesh_area 
+					base_manpower = 3 
+				}
+				add_base_manpower = -2
+			}
+		}
+		every_owned_province = { 
+			limit = { region = maghreb_region }
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.8.b
+		trigger = { capital_scope = { region = maghreb_region } }
+		add_legitimacy = 20
+		add_stability = -1
+		change_tag = MOR
+		change_religion = sunni
+		every_owned_province = {
+			limit = { area = marrekesh_area }
+			change_religion = sunni
+		}
+		add_country_modifier = {
+			name = morale_boost
+			duration = 3650
+		}
+		define_ruler = {
+			name = "Abdallah"
+			dynasty = "Almoravid"
+			birth_date = 1010.1.1
+			adm = 4
+			dip = 5
+			mil = 4
+		}
+		define_heir = {
+			name = "Abu Bakr"
+			monarch_name = "Abu Bakr"
+			dynasty = "Almoravid"
+			birth_date = 1029.1.1
+			death_date = 1087.1.1
+			claim = 95
+			adm = 4
+			dip = 4
+			mil = 5
+		}
+		hidden_effect = {
+			add_core = 2465
+			add_core = 336
+			add_core = 347
+			marrekesh_area = { add_core = MOR }
+			fez_area = { add_core = MOR }
+			tafilalt_area = { add_core = MOR }
+			sus_area = { add_core = MOR }
+			western_morocco_area = { add_core = MOR }
+			northern_morocco_area = { add_core = MOR }
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.8.c
+		trigger = { NOT = { capital_scope = { region = maghreb_region } } }
+		add_stability = 1
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 334
+					province_id = 335
+					province_id = 343
+					province_id = 1751
+					province_id = 2465
+					province_id = 3236
+					province_id = 4561
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			cede_province = FEZ
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 342
+					province_id = 345
+					province_id = 2470
+					province_id = 4564
+				}
+				owned_by = ROOT
+			}
+			add_core = BGW
+			cede_province = BGW
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 346
+					province_id = 2460
+				}
+				owned_by = ROOT
+			}
+			add_core = SIJ
+			cede_province = SIJ
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4167
+					province_id = 344
+					province_id = 4568
+					province_id = 2468
+					province_id = 2464
+					province_id = 348
+					province_id = 2466
+					province_id = 2467
+					province_id = 2469
+					province_id = 1110
+					province_id = 347
+					province_id = 4563
+					province_id = 349
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+			remove_core = ROOT
+		}
+		FEZ = { set_capital = 343 }
+		MOR = {
+			define_ruler = {
+				name = "Abdallah"
+				dynasty = "Almoravid"
+				birth_date = 1010.1.1
+				adm = 4
+				dip = 5
+				mil = 4
+			}
+			define_heir = {
+				name = "Abu Bakr"
+				monarch_name = "Abu Bakr"
+				dynasty = "Almoravid"
+				birth_date = 1029.1.1
+				death_date = 1087.1.1
+				claim = 95
+				adm = 4
+				dip = 4
+				mil = 5
+			}
+			set_capital = 4167
+			every_neighbor_country = { add_truce_with = MOR }
+		}
+	}
+}
+
+#Almohad Dynasty
+country_event = {
+	id = cpbm_history_africa.9
+	title = cpbm_history_africa.9.t
+	desc = cpbm_history_africa.9.d
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4167 #High Atlas, Tin Mal
+		NOT = { capital = 4167 }
+		is_year = 3198
+		NOT = { is_year = 3228 }
+		NOT = { dynasty = "Almohad" }
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+	}
+	
+	option = {
+		name = cpbm_history_africa.9.a
+		trigger = { 
+			OR = {
+				capital_scope = { region = maghreb_region } 
+				tag = MOR
+			}
+		}
+		ai_chance = { 
+			factor = 20
+		}
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		define_ruler = {
+			name = "Abd al-Mu'min"
+			dynasty = "Almohad"
+			birth_date = 1094.1.1
+			dip = 5
+			adm = 5
+			mil = 6
+		}
+		define_heir = {
+			name = "Abu Ya'qub Yusuf"
+			monarch_name = "Abu Ya'qub Yusuf I"
+			dynasty = "Almohad"
+			birth_date = 1135.1.1
+			death_date = 1184.10.14
+			claim = 95
+			adm = 5
+			dip = 5
+			mil = 5
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 10950
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.9.b
+		trigger = { 
+			OR = {
+				capital_scope = { region = maghreb_region } 
+				tag = MOR
+			}
+		}
+		ai_chance = { 
+			factor = 80
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4167
+					province_id = 4568
+					province_id = 2464
+					province_id = 348
+					province_id = 2466
+					province_id = 1110
+					province_id = 347
+				}
+				owned_by = ROOT
+			}
+			add_core = SOS
+			cede_province = SOS
+		}
+		SOS = {
+			define_ruler = {
+				name = "Abd al-Mu'min"
+				dynasty = "Almohad"
+				birth_date = 1094.1.1
+				dip = 5
+				adm = 5
+				mil = 6
+			}
+			define_heir = {
+				name = "Abu Ya'qub Yusuf"
+				monarch_name = "Abu Ya'qub Yusuf I"
+				dynasty = "Almohad"
+				birth_date = 1135.1.1
+				death_date = 1184.10.14
+				claim = 95
+				adm = 5
+				dip = 5
+				mil = 5
+			}
+			set_capital = 4167
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_declining
+				duration = 10950
+			}
+		}
+		hidden_effect = {
+			SOS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.9.c
+		trigger = { 
+			AND = {
+				NOT = { capital_scope = { region = maghreb_region } } 
+				NOT = { tag = MOR }
+			}
+		}
+		ai_chance = { 
+			factor = 20
+		}
+		add_stability = -1
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					area = tafilalt_area
+					area = marrekesh_area
+					area = western_morocco_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+			remove_core = ROOT
+		}
+		MOR = {
+			define_ruler = {
+				name = "Abd al-Mu'min"
+				dynasty = "Almohad"
+				birth_date = 1094.1.1
+				dip = 5
+				adm = 5
+				mil = 6
+			}
+			define_heir = {
+				name = "Abu Ya'qub Yusuf"
+				monarch_name = "Abu Ya'qub Yusuf I"
+				dynasty = "Almohad"
+				birth_date = 1135.1.1
+				death_date = 1184.10.14
+				claim = 95
+				adm = 5
+				dip = 5
+				mil = 5
+			}
+			set_capital = 344
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 10950
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.9.dd
+		trigger = { 
+			AND = {
+				NOT = { capital_scope = { region = maghreb_region } } 
+				NOT = { tag = MOR }
+			}
+		}
+		ai_chance = { 
+			factor = 80
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					area = tafilalt_area
+					area = marrekesh_area
+					area = western_morocco_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+		}
+		MOR = {
+			define_ruler = {
+				name = "Abd al-Mu'min"
+				dynasty = "Almohad"
+				birth_date = 1094.1.1
+				dip = 5
+				adm = 5
+				mil = 6
+			}
+			define_heir = {
+				name = "Abu Ya'qub Yusuf"
+				monarch_name = "Abu Ya'qub Yusuf I"
+				dynasty = "Almohad"
+				birth_date = 1135.1.1
+				death_date = 1184.10.14
+				claim = 95
+				adm = 5
+				dip = 5
+				mil = 5
+			}
+			set_capital = 344
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_declining
+				duration = 10950
+			}
+		}
+		add_estate_loyalty = {
+    			estate = estate_nobles
+   			loyalty = 20
+		}
+		hidden_effect = {
+			MOR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+}
+
+#Marinid Dynasty
+country_event = {
+	id = cpbm_history_africa.10
+	title = cpbm_history_africa.10.t
+	desc = cpbm_history_africa.10.d
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 343 #Fez
+		NOT = { capital = 343 }
+		is_year = 3313
+		NOT = { is_year = 3384 }
+		NOT = { dynasty = "Marinid" }
+	}
+	
+	mean_time_to_happen = {
+		years = 70
+
+		modifier = {
+			factor = 0.1
+			war_exhaustion = 2
+		}	
+	}
+	
+	option = {
+		name = cpbm_history_africa.10.a
+		trigger = { 
+			OR = {
+				capital_scope = { region = maghreb_region } 
+				tag = MOR
+			}
+		}
+		ai_chance = { 
+			factor = 2
+		}
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		define_ruler = {
+			name = "Abu Yusuf Yaqub"
+			dynasty = "Marinid"
+			birth_date = 1198.1.1
+			adm = 4
+			dip = 5
+			mil = 4
+		}
+		define_heir = {
+			name = "Abu Yaqub Yusuf"
+			monarch_name = "Abu Yaqub Yusuf"
+			dynasty = "Marinid"
+			birth_date = 1250.1.1
+			death_date = 1307.5.13
+			claim = 95
+			adm = 3
+			dip = 5
+			mil = 5
+		}
+		set_capital = 343
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.10.b
+		trigger = { 
+			OR = {
+				capital_scope = { region = maghreb_region } 
+				tag = MOR
+			}
+		}
+		ai_chance = { 
+			factor = 8
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			cede_province = FEZ
+		}
+		FEZ = {
+			define_ruler = {
+				name = "Abu Yusuf Yaqub"
+				dynasty = "Marinid"
+				birth_date = 1198.1.1
+				adm = 4
+				dip = 5
+				mil = 4
+			}
+			define_heir = {
+				name = "Abu Yaqub Yusuf"
+				monarch_name = "Abu Yaqub Yusuf"
+				dynasty = "Marinid"
+				birth_date = 1250.1.1
+				death_date = 1307.5.13
+				claim = 95
+				adm = 3
+				dip = 5
+				mil = 5
+			}
+			set_capital = 343
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 1825
+			}
+		}
+		add_stability = -1
+		hidden_effect = {
+			FEZ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.10.c
+		trigger = { 
+			OR = {
+				capital_scope = { region = maghreb_region } 
+				tag = MOR
+			}
+		}
+		ai_chance = { 
+			factor = 4
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 3650
+			}
+		}
+		add_stability = -2
+	}
+
+	option = {
+		name = cpbm_history_africa.10.dd
+		trigger = { 
+			AND = {
+				NOT = { capital_scope = { region = maghreb_region } } 
+				NOT = { tag = MOR }
+			}
+		}
+		ai_chance = { 
+			factor = 2
+		}
+		add_stability = -1
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					area = tafilalt_area
+					area = marrekesh_area
+					area = western_morocco_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+			remove_core = ROOT
+		}
+		MOR = {
+			define_ruler = {
+				name = "Abu Yusuf Yaqub"
+				dynasty = "Marinid"
+				birth_date = 1198.1.1
+				adm = 4
+				dip = 5
+				mil = 4
+			}
+			define_heir = {
+				name = "Abu Yaqub Yusuf"
+				monarch_name = "Abu Yaqub Yusuf"
+				dynasty = "Marinid"
+				birth_date = 1250.1.1
+				death_date = 1307.5.13
+				claim = 95
+				adm = 3
+				dip = 5
+				mil = 5
+			}
+			set_capital = 343
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.10.e
+		trigger = { 
+			AND = {
+				NOT = { capital_scope = { region = maghreb_region } } 
+				NOT = { tag = MOR }
+			}
+		}
+		ai_chance = { 
+			factor = 8
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					area = tafilalt_area
+					area = marrekesh_area
+					area = western_morocco_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+		}
+		MOR = {
+			define_ruler = {
+				name = "Abu Yusuf Yaqub"
+				dynasty = "Marinid"
+				birth_date = 1198.1.1
+				adm = 4
+				dip = 5
+				mil = 4
+			}
+			define_heir = {
+				name = "Abu Yaqub Yusuf"
+				monarch_name = "Abu Yaqub Yusuf"
+				dynasty = "Marinid"
+				birth_date = 1250.1.1
+				death_date = 1307.5.13
+				claim = 95
+				adm = 3
+				dip = 5
+				mil = 5
+			}
+			set_capital = 343
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 1825
+			}
+		}
+		add_estate_loyalty = {
+    			estate = estate_nobles
+   			loyalty = 20
+		}
+		hidden_effect = {
+			MOR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_africa.10.f
+		trigger = { 
+			AND = {
+				NOT = { capital_scope = { region = maghreb_region } } 
+				NOT = { tag = MOR }
+			}
+		}
+		ai_chance = { 
+			factor = 4
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					area = tafilalt_area
+					area = marrekesh_area
+					area = western_morocco_area
+					area = sus_area
+					area = southern_morocco_area
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 3650
+			}
+		}
+	}
+}
+
+#Collapse of the Saadians, Rise of the Dilawites and Alaouites
+country_event = {
+	id = cpbm_history_africa.11
+	title = cpbm_history_africa.11.t
+	desc = cpbm_history_africa.11.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		AND = { owns = 343 owns = 344 } #Fez & Marrakesh
+		NOT = { stability = 1 }
+		is_year = 3728
+		NOT = { is_year = 3770 }
+		NOT = { 
+			OR = {
+				dynasty = "Alaouite" 
+				dynasty = "al-Dila'i" 
+			}
+		}
+		capital_scope = { region = maghreb_region }
+	}
+	
+	mean_time_to_happen = {
+		years = 20
+
+		modifier = {
+			factor = 0.2
+			NOT = { stability = -2 }
+		}
+
+		modifier = {
+			factor = 5
+			NOT = { stability = 2 }
+		}		
+	}
+	
+	option = {
+		name = cpbm_history_africa.11.a #Side with the Dilawites
+		change_tag = FEZ
+		define_ruler = {
+			name = "Mohammed al-Hajj"
+			dynasty = "al-Dila'i"
+			adm = 2
+			dip = 2
+			mil = 4
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 344
+					province_id = 4167
+					province_id = 345
+					province_id = 2470
+					province_id = 347
+					province_id = 1110
+					province_id = 4568
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+		}
+		MOR = {
+			define_ruler = {
+				name = "Muhammad"
+				dynasty = "Alaouite"
+				birth_date = 1600.1.1
+				death_Date = 1664.1.1
+				claim = 95
+				adm = 2
+				dip = 2
+				mil = 1
+			}
+			define_heir = {
+				name = "Ahmad"
+				monarch_name = "Ahmad III"
+				dynasty = "Alaouite"
+				birth_Date = 1610.1.1
+				death_Date = 1659.1.1
+				claim = 95
+				adm = 2
+				dip = 1
+				mil = 1
+			}
+			set_capital = 344
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = tafilalt_area
+					area = sus_area
+					area = western_sahara_area
+					area = azawad_area
+				}
+				owned_by = ROOT
+			}
+			add_core = TFL
+			cede_province = TFL
+		}
+		TFL = {
+			define_ruler = {
+				name = "Muhammad ibn Sharif"
+				dynasty = "Alaouite"
+				birth_date = 1590.1.1
+				death_Date = 1668.8.2
+				claim = 95
+				adm = 3
+				dip = 4
+				mil = 5
+			}
+			define_heir = {
+				name = "ar-Rashid"
+				dynasty = "Alaouite"
+				claim = 95
+				adm = 4
+				dip = 3
+				mil = 5
+			}
+			set_capital = 346
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+			declare_war_with_cb = {
+				who = MOR
+				casus_belli = cb_imperial
+			}
+		}
+		hidden_effect = {
+			MOR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			TFL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.11.b #Side with Muhammad V Alaouite
+		change_tag = MOR
+		define_ruler = {
+			name = "Muhammad V"
+			dynasty = "Alaouite"
+			birth_date = 1600.1.1
+			death_Date = 1664.1.1
+			claim = 95
+			adm = 2
+			dip = 2
+			mil = 1
+		}
+		define_heir = {
+			name = "Ahmad"
+			monarch_name = "Ahmad III"
+			dynasty = "Alaouite"
+			birth_Date = 1610.1.1
+			death_Date = 1659.1.1
+			claim = 95
+			adm = 2
+			dip = 1
+			mil = 1
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					province_id = 2469
+					province_id = 4564
+					province_id = 342
+					province_id = 2468
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			cede_province = FEZ
+		}
+		FEZ = {
+			define_ruler = {
+				name = "Mohammed al-Hajj"
+				dynasty = "al-Dila'i"
+				adm = 2
+				dip = 2
+				mil = 4
+			}
+			set_capital = 343
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = tafilalt_area
+					area = sus_area
+					area = western_sahara_area
+					area = azawad_area
+				}
+				owned_by = ROOT
+			}
+			add_core = TFL
+			cede_province = TFL
+		}
+		TFL = {
+			define_ruler = {
+				name = "Muhammad ibn Sharif"
+				dynasty = "Alaouite"
+				birth_date = 1590.1.1
+				death_Date = 1668.8.2
+				claim = 95
+				adm = 3
+				dip = 4
+				mil = 5
+			}
+			define_heir = {
+				name = "ar-Rashid"
+				dynasty = "Alaouite"
+				claim = 95
+				adm = 4
+				dip = 3
+				mil = 5
+			}
+			set_capital = 346
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+			declare_war_with_cb = {
+				who = FEZ
+				casus_belli = cb_imperial
+			}
+		}
+		hidden_effect = {
+			FEZ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			TFL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.11.c #Side with Muhammad ibn Sharif Alaouite
+		change_tag = TFL
+		define_ruler = {
+			name = "Muhammad ibn Sharif"
+			dynasty = "Alaouite"
+			birth_date = 1590.1.1
+			death_Date = 1668.8.2
+			claim = 95
+			adm = 3
+			dip = 4
+			mil = 5
+		}
+		define_heir = {
+			name = "ar-Rashid"
+			dynasty = "Alaouite"
+			claim = 95
+			adm = 4
+			dip = 3
+			mil = 5
+		}
+		set_capital = 346
+		every_province = {
+			limit = {
+				OR = {
+					area = fez_area
+					area = northern_morocco_area
+					area = algiers_area
+					province_id = 2469
+					province_id = 4564
+					province_id = 342
+					province_id = 2468
+				}
+				owned_by = ROOT
+			}
+			add_core = FEZ
+			cede_province = FEZ
+		}
+		FEZ = {
+			define_ruler = {
+				name = "Mohammed al-Hajj"
+				dynasty = "al-Dila'i"
+				adm = 2
+				dip = 2
+				mil = 4
+			}
+			set_capital = 343
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 344
+					province_id = 4167
+					province_id = 345
+					province_id = 2470
+					province_id = 347
+					province_id = 1110
+					province_id = 4568
+				}
+				owned_by = ROOT
+			}
+			add_core = MOR
+			cede_province = MOR
+		}
+		MOR = {
+			define_ruler = {
+				name = "Muhammad"
+				dynasty = "Alaouite"
+				birth_date = 1600.1.1
+				death_Date = 1664.1.1
+				claim = 95
+				adm = 2
+				dip = 2
+				mil = 1
+			}
+			define_heir = {
+				name = "Ahmad"
+				monarch_name = "Ahmad III"
+				dynasty = "Alaouite"
+				birth_Date = 1610.1.1
+				death_Date = 1659.1.1
+				claim = 95
+				adm = 2
+				dip = 1
+				mil = 1
+			}
+			set_capital = 344
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_imperial
+			}
+			declare_war_with_cb = {
+				who = FEZ
+				casus_belli = cb_imperial
+			}
+		}
+		hidden_effect = {
+			FEZ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			MOR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.11.dd #Concede to Muhammad V Alaouite
+		add_stability = -1
+		add_prestige = -20
+		change_tag = MOR
+		define_ruler = {
+			name = "Muhammad V"
+			dynasty = "Alaouite"
+			birth_date = 1600.1.1
+			death_Date = 1664.1.1
+			claim = 95
+			adm = 2
+			dip = 2
+			mil = 1
+		}
+		define_heir = {
+			name = "Ahmad"
+			monarch_name = "Ahmad III"
+			dynasty = "Alaouite"
+			birth_Date = 1610.1.1
+			death_Date = 1659.1.1
+			claim = 95
+			adm = 2
+			dip = 1
+			mil = 1
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_africa.11.e #Retain dynasty
+		kill_ruler = yes
+		add_legitimacy = -25
+		add_prestige = 20
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						area = western_morocco_area
+						area = marrekesh_area
+						area = sus_area
+						area = tafilalt_area
+						area = southern_morocco_area
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = fez_area
+						area = northern_morocco_area
+						area = algiers_area
+						province_id = 2469
+						province_id = 4564
+						province_id = 342
+						province_id = 2468
+					}
+					owned_by = ROOT
+				}
+				add_core = FEZ
+				cede_province = FEZ
+			}
+			FEZ = {
+				define_ruler = {
+					name = "Mohammed al-Hajj"
+					dynasty = "al-Dila'i"
+					adm = 2
+					dip = 2
+					mil = 4
+				}
+				set_capital = 343
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_imperial
+				}
+			}
+			hidden_effect = {
+				FEZ = {
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+							artillery = 0.4
+						}
+					}
+				}
+			}
+		}
+		else = {
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 344
+						province_id = 4167
+						province_id = 345
+						province_id = 2470
+						province_id = 347
+						province_id = 1110
+						province_id = 4568
+					}
+					owned_by = ROOT
+				}
+				add_core = MRK
+				cede_province = MRK
+			}
+			MRK = {
+				define_ruler = {
+					name = "Muhammad"
+					dynasty = "Alaouite"
+					birth_date = 1600.1.1
+					death_Date = 1664.1.1
+					claim = 95
+					adm = 2
+					dip = 2
+					mil = 1
+				}
+				define_heir = {
+					name = "Ahmad"
+					monarch_name = "Ahmad III"
+					dynasty = "Alaouite"
+					birth_Date = 1610.1.1
+					death_Date = 1659.1.1
+					claim = 95
+					adm = 2
+					dip = 1
+					mil = 1
+				}
+				set_capital = 344
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_imperial
+				}
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = tafilalt_area
+						area = sus_area
+						area = western_sahara_area
+						area = azawad_area
+					}
+					owned_by = ROOT
+				}
+				add_core = TFL
+				cede_province = TFL
+			}
+			TFL = {
+				define_ruler = {
+					name = "Muhammad ibn Sharif"
+					dynasty = "Alaouite"
+					birth_date = 1590.1.1
+					death_Date = 1668.8.2
+					claim = 95
+					adm = 3
+					dip = 4
+					mil = 5
+				}
+				define_heir = {
+					name = "ar-Rashid"
+					dynasty = "Alaouite"
+					claim = 95
+					adm = 4
+					dip = 3
+					mil = 5
+				}
+				set_capital = 346
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_imperial
+				}
+				declare_war_with_cb = {
+					who = MRK
+					casus_belli = cb_imperial
+				}
+			}
+			hidden_effect = {
+				MRK = {
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+							artillery = 0.4
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				TFL = {
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+							artillery = 0.4
+						}
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+#British Colonisation of Tangier
+country_event = {
+	id = cpbm_history_africa.12
+	title = cpbm_history_africa.12.t
+	desc = cpbm_history_africa.12.d
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 334
+		NOT = { capital_scope = { region = maghreb_region } }
+		government = monarchy
+		236 = { 
+			owner = { 
+				OR = {
+					culture_group = british
+					primary_culture = anglo_saxon
+				}
+				government = monarchy
+				alliance_with = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+	}
+	
+	option = {
+		name = cpbm_history_africa.12.a
+		236 = { 
+			owner = {
+				334 = { 
+					cede_province = PREV
+					add_core = PREV
+					remove_core = ROOT
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = gifted_province
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_africa.12.b
+		add_treasury = -100
+		add_prestige = -5
+		add_legitimacy = -5
+	}
+}

@@ -1,0 +1,112 @@
+establish_crown_protector = {
+	category = influence
+
+	require_acceptance = no
+
+	is_visible = { # ONLY FOR PLAYERS
+		ROOT = {
+			ai = no
+		}
+	}
+
+	is_allowed = { 
+		FROM = { 
+			is_subject_of = ROOT # NEED TO BE OUR SUBJECT
+			OR = {
+				is_subject_of_type = vassal
+				is_subject_of_type = march
+				is_subject_of_type = personal_union
+				is_subject_of_type = client_vassal
+				is_subject_of_type = client_march
+				is_subject_of_type = eyalet
+				is_subject_of_type = core_eyalet
+				is_subject_of_type = commercial_enterprise
+				is_subject_of_type = hereditary_pronoia_subject_type
+				is_subject_of_type = pronoia_subject_type
+			}
+			NOT = { # MUST BE LOYAL TO THE CROWN
+				liberty_desire = 50 
+			}
+			has_opinion = { # OFC MUST HAVE POSITIVE OPINION
+				who = ROOT
+				value = 25
+			}
+			NOT = { # MUST BE SMALLER THAN US
+				development_of_overlord_fraction = 100.00 
+			}
+		}
+		# NOT = { # CAN'T repeat
+		# 	FROM = {
+		# 		OR = {
+		# 			is_subject_of_type = crown_protector
+		# 			is_subject_of_type = royal_viceroyalty
+		# 		}
+		# 	}
+		# }
+		ROOT = {
+			adm_power = 5
+			dip_power = 5
+			mil_power = 5
+
+			government = monarchy
+			government_rank = 8
+		}
+	}
+
+	on_accept = {
+		if = {
+			limit = {
+				FROM = { 
+					is_subject_of = ROOT # NEED TO BE OUR SUBJECT
+					NOT = { # MUST BE LOYAL TO THE CROWN
+						liberty_desire = 50 
+					}
+					has_opinion = { # OFC MUST HAVE POSITIVE OPINION
+						who = ROOT
+						value = 25
+					}
+					NOT = { # MUST BE SMALLER THAN US
+						development_of_overlord_fraction = 100.00 
+					}
+				}
+				NOT = { # CAN'T repeat
+					FROM = { is_subject_of_type = crown_protector }
+				}
+				ROOT = {
+					adm_power = 5
+					dip_power = 5
+					mil_power = 5
+				}
+			}
+
+			FROM = {
+				grant_independence = yes
+			}
+
+			create_subject = {
+				subject = FROM
+				subject_type = crown_protector
+			}
+
+			FROM = {
+				change_government = republic
+				# change_religion = ROOT
+				# change_primary_culture = ROOT
+				add_adm_power = 10
+				add_dip_power = 10
+				add_mil_power = 10
+				add_treasury = 10
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}			
+
+			ROOT ={
+				add_adm_power = -5
+				add_dip_power = -5
+				add_mil_power = -5
+			}
+		}
+	}
+
+	ai_will_do = 0 # for stability, AI shouldn't mess with this
+}

@@ -1,0 +1,6336 @@
+#EU Region / CK Empire ~ 100 development req
+
+country_decisions = {
+
+	#EUROPE
+	albion_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = AL3 }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = HR8 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR6 }
+			NOT = { tag = EUR }
+			OR = { culture_group = gaelic culture_group = celtic }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			capital_scope = { region = british_isles_region }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 236		# London
+				province_id = 237		# Oxfordshire
+				province_id = 234		# Wessex
+				province_id = 248		# Lothian
+				province_id = 251		# Aberdeen
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#is_at_war = no
+			owns_core_province = 236		# London
+			owns_core_province = 237		# Oxfordshire
+			owns_core_province = 234		# Wessex
+			owns_core_province = 248		# Lothian
+			owns_core_province = 251		# Aberdeen
+			capital_scope = { region = british_isles_region }
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						tag = SCO
+					}
+					complete_mission = eng_mighty_army
+					complete_mission = conquer_scotland
+					complete_mission = eng_rb_war_of_roses
+				}	
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						tag = IRE
+					}
+					complete_mission = eng_mighty_army
+					complete_mission = conquer_scotland
+					complete_mission = eng_rb_war_of_roses
+					complete_mission = conquer_ireland
+				}	
+			}
+			change_tag = AL3
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			british_isles_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AL3
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_great_britain_flag
+			if = {
+				limit = {
+					mission_completed = conquer_scotland
+					has_dlc = "Rule Britannia"
+				}
+				369 = {
+					add_permanent_claim = AL3
+				}
+				1978 = {
+					add_permanent_claim = AL3
+				}
+				1979 = {
+				add_permanent_claim = AL3
+				}
+				iceland_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+					add_claim = AL3
+				}
+			}
+			if = {
+				limit = {
+					mission_completed = eng_rb_spice_islands
+					has_dlc = "Rule Britannia"
+				}
+				west_bengal_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = AL3
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	iberian_union_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_iberian_union_flag }
+			culture_group = iberian
+			religion_group = christian
+			NOT = { 
+				OR = { 
+					tag = CAS 
+					tag = CS6 
+					tag = CS7 
+					tag = CS8  
+					tag = ARA 
+				} 
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			OR = {
+				AND = {
+					OR = {
+						exists = SPA
+						exists = SP6
+						exists = SP7
+						exists = SP8
+					}
+					NOT = { 
+						exists = POR
+						exists = PR6
+						exists = PR7
+						exists = PR8 
+					}
+				}
+				AND = {
+					NOT = {
+						exists = SPA
+						exists = SP6
+						exists = SP7
+						exists = SP8
+					}
+					OR = { 
+						exists = POR
+						exists = PR6
+						exists = PR7
+						exists = PR8 
+					}
+				}
+			}
+			capital_scope = { region = iberia_region }
+			owns_core_province = 217
+			owns_core_province = 227
+			total_development = 100
+		}
+		effect = {
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			change_tag = IB0
+			hidden_effect = {
+				iberia_region = {
+					add_permanent_claim = IB0
+				}
+			}
+			set_country_flag = formed_iberian_union_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	caucasia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = CA4 }
+			culture_group = caucasian
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 423		# Tbilisi
+				province_id = 463		# Circassia/Cherkessk
+				province_id = 2198		# Chechnya
+				province_id = 419		# Yerevan
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#is_at_war = no
+			owns_core_province = 423		# Tbilisi
+			owns_core_province = 463		# Circassia/Cherkessk
+			owns_core_province = 2198		# Chechnya
+			owns_core_province = 419		# Yerevan
+			capital_scope = { region = caucasia_region }
+			total_development = 100
+		}
+		effect = {
+			change_tag = CA4
+			set_country_flag = formed_caucasia_flag
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			caucasia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CA4
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	sami_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { owns_core_province = 28 } #NOT FINLAND
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = finnic_pagan
+						culture = sapmi
+					}
+					NOT = { exists = SMI }
+				}
+				AND = {
+					religion_group = christian
+					NOT = { culture = sapmi }
+					NOT = { exists = LA2 }
+				}
+			}
+			OR = {
+				tag = SMI
+				tag = LA2
+			}
+			culture_group = finno_ugric
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				owns_core_province = 315 #Finnmark
+				owns_core_province = 4152 #Inari
+			}
+		}
+		effect = {
+			add_prestige = 25
+			if = {
+				limit = { 
+					OR = {
+						religion_group = finnic_pagan
+						culture = sapmi
+					} 
+				}
+				change_tag = SMI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					religion_group = christian
+					NOT = { culture = sapmi }
+				}
+				change_tag = LA2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ryazan_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { religion_group = secular }
+			OR = {
+				capital = 301
+				capital = 1778
+				capital = 4255
+			} #MINOR
+			NOT = { owns_core_province = 295 } #NOT RUSSIA
+			OR = {
+				AND = {
+					religion_group = finnic_pagan
+					NOT = { exists = MES }
+				}
+				AND = {
+					religion_group = christian
+					NOT = { exists = RYA }
+				}
+			}
+			OR = {
+				culture_group = finno_ugric
+				culture_group = east_slavic
+			}
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				capital = 301
+				capital = 1778
+				capital = 4255
+			}
+			owns_core_province = 301 #Ryazan
+		}
+		effect = {
+			add_prestige = 25
+			if = {
+				limit = { religion_group = finnic_pagan }
+				change_tag = MES
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { religion_group = christian }
+				change_tag = RYA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	luxembourg_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					OR = { culture_group = gaelic culture_group = celtic }
+					NOT = { exists = TR3 }
+				}
+				AND = {
+					OR = {
+						culture_group = french
+						culture_group = germanic
+					}
+					NOT = { exists = LUX }
+				}
+			}
+                        capital = 94
+		}
+		allow = {
+			capital = 94
+		}
+		effect = {
+			if = {
+				limit = { OR = { culture_group = gaelic culture_group = celtic } }
+				change_tag = TR3
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = french
+						culture_group = germanic
+					}
+				}
+				change_tag = LUX
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	france_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { exists = GLL }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = FRA }
+					NOT = { exists = FR2 }
+					NOT = { exists = FR7 }
+					NOT = { exists = FRV }
+				}
+			}
+			OR = {
+				tag = FRA
+				tag = FR2
+				tag = FR7
+				tag = FRV
+				tag = GLL
+			}
+		}
+		allow = {
+			owns_core_province = 183
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					} 
+				}
+				change_tag = GLL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = FRA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	portugal_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+					NOT = { exists = LU5 }
+				}
+				AND = {
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+					NOT = { exists = GA0 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = POR }
+					NOT = { exists = PR8 }
+					NOT = { exists = PR7 }
+					NOT = { exists = PR6 }
+				}
+			}
+			OR = {
+				tag = POR
+				tag = PR8
+				tag = PR7
+				tag = PR6
+				tag = GA0
+				tag = LU5
+			}
+		}
+		allow = {
+			owns_core_province = 227
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+				}
+				change_tag = LU5
+			}
+			if = {
+				limit = { 
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+				}
+				change_tag = GA0
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = POR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	spain_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+					NOT = { exists = HC0 }
+				}
+				AND = {
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+					NOT = { exists = ADU }
+					NOT = { exists = AD8 }
+					NOT = { exists = AD7 }
+					NOT = { exists = AD6 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = SPA }
+					NOT = { exists = SP8 }
+					NOT = { exists = SP7 }
+					NOT = { exists = SP6 }
+				}
+			}
+			OR = {
+				tag = SPA
+				tag = SP8
+				tag = SP7
+				tag = SP6
+				tag = ADU
+				tag = AD8
+				tag = AD7
+				tag = AD6
+				tag = HC0
+			}
+		}
+		allow = {
+			AND = {
+				owns_core_province = 215
+				owns_core_province = 217
+				owns_core_province = 219
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+				}
+				change_tag = HC0
+			}
+			if = {
+				limit = { 
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+				}
+				change_tag = ADU
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = SPA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	germany_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = west_slavic
+					NOT = { exists = WE1 }
+				}
+				AND = {
+					religion_group = german_pagan
+					NOT = { exists = GE1 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = west_slavic
+							religion_group = german_pagan
+							religion_group = hellenic
+						}
+					}
+					NOT = { exists = GER }
+					NOT = { exists = GE8 }
+					NOT = { exists = GE7 }
+					NOT = { exists = GE6 }
+				}
+			}
+			OR = {
+				tag = GER
+				tag = GE8
+				tag = GE7
+				tag = GE6
+				tag = GE1
+				tag = WE1
+			}
+		}
+		allow = {
+			owns_core_province = 50
+		}
+		effect = {
+			if = {
+				limit = { culture_group = west_slavic }
+				change_tag = WE1
+			}
+			if = {
+				limit = { religion_group = german_pagan }
+				change_tag = GE1
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {	
+							culture_group = west_slavic
+							religion_group = german_pagan
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = GER
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	austria_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { exists = NO3 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = HAB }
+					NOT = { exists = AU8 }
+					NOT = { exists = AU7 }
+					NOT = { exists = AU6 }
+				}
+			}
+			OR = {
+				tag = HAB
+				tag = AU8
+				tag = AU7
+				tag = AU6
+				tag = NO3
+			}
+		}
+		allow = {
+			owns_core_province = 134
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					} 
+				}
+				change_tag = NO3
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = HAB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	switzerland_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { exists = HE2 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = SWI }
+				}
+			}
+			OR = {
+				tag = SWI
+				tag = HE2
+			}
+		}
+		allow = {
+			owns_core_province = 134
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					} 
+				}
+				change_tag = HE2
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {	
+							culture_group = gaelic
+							culture_group = celtic
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = SWI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	slovenia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = latin
+					NOT = { exists = NP0 }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = CNL }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = latin
+							culture_group = germanic
+						}
+					}
+					NOT = { exists = SVN }
+				}
+			}
+			OR = {
+				tag = SVN
+				tag = CNL
+				tag = NP0
+			}
+		}
+		allow = {
+			owns_core_province = 1769
+		}
+		effect = {
+			if = {
+				limit = { culture_group = latin }
+				change_tag = NP0
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = CNL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {		
+							culture_group = latin
+							culture_group = germanic
+						}
+					}
+				}
+				change_tag = SVN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	malta_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = byzantine
+					NOT = { religion_group = muslim }
+					NOT = { exists = ME3 }
+				}
+				AND = {
+					culture_group = french
+					NOT = { religion_group = muslim }
+					NOT = { exists = KNI }
+				}
+				AND = {
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = french }
+					NOT = { exists = JAI }
+				}
+			}
+			OR = {
+				tag = JAI
+				tag = KNI
+				tag = ME3
+			}
+			capital = 126
+		}
+		allow = {
+			capital = 126
+		}
+		effect = {
+			if = {
+				limit = { 
+					culture_group = byzantine
+					NOT = { religion_group = muslim } 
+				}
+				change_tag = ME3
+			}
+			if = {
+				limit = { 
+					culture_group = french
+					NOT = { religion_group = muslim } 
+				}
+				change_tag = KNI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = french }
+				}
+				change_tag = JAI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	poland_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = baltic
+					NOT = { exists = NRI }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = SP1 }
+				}
+				AND = {
+					NOT = { culture_group = baltic }
+					NOT = { culture_group = germanic }
+					NOT = { exists = POL }
+					NOT = { exists = PO8 }
+					NOT = { exists = PO7 }
+					NOT = { exists = PO6 }
+				}
+			}
+			OR = {
+				tag = POL
+				tag = PO8
+				tag = PO7
+				tag = PO6
+				tag = SP1
+				tag = NRI
+			}
+		}
+		allow = {
+                   	AND = { 
+				owns_core_province = 956
+				owns_core_province = 965
+				owns_core_province = 953
+			}
+		}
+		effect = {
+			if = {
+				limit = { culture_group = baltic }
+				change_tag = NRI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = SP1
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = baltic }
+					NOT = { culture_group = germanic }
+				}
+				change_tag = POL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	czechia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = germanic
+					NOT = { exists = MRM }
+				}
+				AND = {
+					NOT = { culture_group = germanic }
+					NOT = { exists = BOH }
+					NOT = { exists = CZE }
+					NOT = { exists = BO7 }
+					NOT = { exists = BO6 }
+				}
+			}
+			OR = {
+				tag = BOH
+				tag = CZE
+				tag = BO7
+				tag = BO6
+				tag = MRM
+				AND = {
+					tag = CZS
+					NOT = { owns = 1772 }
+				}
+			}
+		}
+		allow = {
+                   	owns_core_province = 266
+		}
+		effect = {
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = MRM
+				override_country_name = MARKOMANNEN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = germanic } }
+				change_tag = BOH
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	slovakia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = western_balkan
+					NOT = { exists = GTN }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = KR0 }
+				}
+				AND = {
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = germanic }
+					NOT = { exists = SVK }
+				}
+			}
+			OR = {
+				tag = SVK
+				tag = KR0
+				tag = GTN
+				AND = {
+					tag = CZS
+					NOT = { owns = 266 }
+				}
+			}
+		}
+		allow = {
+                   	owns_core_province = 1772
+		}
+		effect = {
+			if = {
+				limit = { culture_group = western_balkan }
+				change_tag = GTN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = KR0
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan } 
+					NOT = { culture_group = germanic } 
+				}
+				change_tag = SVK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	hungary_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = iranian
+					NOT = { exists = IAZ }
+				}
+				AND = {
+					OR = { 
+						culture_group = western_balkan
+						culture_group = south_slavic
+					}
+					NOT = { exists = PNN }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = DS0 }
+				}
+				AND = {
+					culture = avar
+					NOT = { exists = AVR }
+				}
+				AND = {
+					NOT = { culture_group = iranian }
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = south_slavic }
+					NOT = { culture_group = germanic }
+					NOT = { culture = avar }
+					NOT = { exists = HUN }
+					NOT = { exists = HU8 }
+					NOT = { exists = HU7 }
+					NOT = { exists = HU6 }
+				}
+			}
+			OR = {
+				tag = HUN
+				tag = HU8
+				tag = HU7
+				tag = HU6
+				tag = AVR
+				tag = DS0
+				tag = PNN
+				tag = IAZ
+			}
+		}
+		allow = {
+                   	owns_core_province = 153
+		}
+		effect = {
+			if = {
+				limit = { culture_group = iranian }
+				change_tag = IAZ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					OR = { 
+						culture_group = western_balkan
+						culture_group = south_slavic
+					} 
+				}
+				change_tag = PNN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = DS0
+			}
+			if = {
+				limit = { culture = avar }
+				change_tag = AVR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan } 
+					NOT = { culture_group = germanic } 
+					NOT = { culture = avar }
+				}
+				change_tag = HUN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	serbia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = western_balkan
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { exists = MO5 }
+				}
+				AND = {
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = SER }
+				}
+			}
+			OR = {
+				tag = SER
+				tag = MO5
+				AND = {
+					tag = YUG
+					NOT = { 
+						OR = {
+							owns_core_province = 131
+							owns_core_province = 1769
+							owns_core_province = 3001
+							owns_core_province = 3002
+							owns_core_province = 4750
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			AND = { 
+				owns_core_province = 141
+				owns_core_province = 1827
+				owns_core_province = 4239
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = western_balkan
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+				}
+				change_tag = MO5
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = SER
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	bosnia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = western_balkan
+					NOT = { exists = DA0 }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = BO3 }
+				}
+				AND = {
+					NOT = { culture_group = western_balkan }
+					NOT = { culture_group = germanic }
+					NOT = { exists = BOS }
+					NOT = { exists = BHE }
+				}
+			}
+			OR = {
+				tag = BOS
+				tag = BHE
+				tag = BO3
+				tag = DA0
+			}
+		}
+		allow = {
+                   	owns_core_province = 3002
+		}
+		effect = {
+			if = {
+				limit = { culture_group = western_balkan }
+				change_tag = DA0
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = BO3
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan } 
+					NOT = { culture_group = germanic } 
+				}
+				change_tag = BOS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kosovo_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = eastern_balkan
+						AND = {
+							culture_group = western_balkan
+							NOT = { culture = albanian }
+						}
+					}
+					NOT = { exists = DA1 }
+				}
+				AND = {
+					NOT = { culture_group = eastern_balkan }
+					OR = {
+						NOT = { culture_group = western_balkan }
+						culture = albanian 
+					}
+					NOT = { exists = KOS }
+				}
+			}
+			OR = {
+				tag = KOS
+				tag = DA1
+			}
+		}
+		allow = {
+                   	owns_core_province = 1766
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = eastern_balkan
+						AND = {
+							culture_group = western_balkan
+							NOT = { culture = albanian }
+						}
+					}
+				}
+				change_tag = DA1
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = eastern_balkan }
+					OR = {
+						NOT = { culture_group = western_balkan }
+						culture = albanian 
+					}
+				}
+				change_tag = KOS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	montenegro_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = western_balkan
+						religion_group = hellenic
+					}
+					NOT = { exists = LA3 }
+				}
+				AND = {
+					NOT = { culture_group = western_balkan }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = MON }
+				}
+			}
+			OR = {
+				tag = LA3
+				tag = MON
+			}
+		}
+		allow = {
+                   	owns_core_province = 138
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = western_balkan
+						religion_group = hellenic
+					}
+				}
+				change_tag = LA3
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = western_balkan }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = MON
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	north_macedonia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						religion_group = hellenic
+					}
+					NOT = { exists = PE4 }
+				}
+				AND = {
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = latin }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = MAC }
+				}
+			}
+			OR = {
+				tag = PE4
+				tag = MAC
+			}
+		}
+		allow = {
+                   	owns_core_province = 3001
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						religion_group = hellenic
+					}
+				}
+				change_tag = PE4
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = latin }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = MAC
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	estonia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = scandinavian
+						culture_group = germanic
+						religion_group = german_pagan
+					}
+					NOT = { 
+						AND = {
+							government = theocracy
+							religion_group = christian 
+						}
+					}
+					NOT = { exists = ES0 }
+				}
+				AND = {
+					government = theocracy
+					religion_group = christian
+					NOT = { exists = LIV }
+				}				
+				AND = {
+					NOT = { culture_group = scandinavian }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = slavic_pagan }
+					NOT = { exists = EST }
+				}
+			}		
+                        OR = {
+                        	capital_scope = { area = estonia_ingria_area }
+                        	capital = 35
+                        	capital = 37
+                        } 
+		}
+		allow = {
+                   	owns_core_province = 36
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						culture_group = scandinavian
+						culture_group = germanic
+						religion_group = german_pagan
+					}
+					NOT = { 
+						AND = {
+							government = theocracy
+							religion_group = christian 
+						}
+					}
+				}
+				change_tag = ES0
+			}
+			if = {
+				limit = {
+					government = theocracy
+					religion_group = christian
+				}
+				change_tag = LIV
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = scandinavian }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = slavic_pagan }
+				}
+				change_tag = EST
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	latvia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					AND = {
+						NOT = { culture_group = germanic }
+						OR = {
+							religion_group = slavic_pagan
+							religion_group = finnic_pagan
+						}
+					}
+					NOT = { exists = LTG }
+				}
+				AND = {
+					culture_group = germanic
+					NOT = { exists = LIV }
+				}
+				AND = {
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = slavic_pagan }
+					NOT = { religion_group = finnic_pagan }
+					NOT = { exists = LTV }
+				}
+			}
+			OR = {
+				tag = LTV
+				tag = LIV
+				tag = LTG
+			}
+		}
+		allow = {
+                   	owns_core_province = 38
+		}
+		effect = {
+			if = {
+				limit = { 
+					AND = {
+						NOT = { culture_group = germanic }
+						OR = {
+							religion_group = slavic_pagan
+							religion_group = finnic_pagan
+						}
+					}
+				}
+				change_tag = LTG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = LIV
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = slavic_pagan }
+					NOT = { religion_group = finnic_pagan }
+				}
+				change_tag = LTV
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	belarus_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = slavic_pagan
+					NOT = { exists = DRE }
+				}
+				AND = {
+					NOT = { religion_group = slavic_pagan }
+					NOT = { exists = BLR }
+					NOT = { exists = BE9 }
+					NOT = { exists = BE7 }
+					NOT = { exists = BE6 }
+				}
+			}
+			OR = {
+				tag = BLR
+				tag = BE9
+				tag = BE7
+				tag = BE6
+				tag = DRE
+			}
+		}
+		allow = {
+                   	owns_core_province = 276
+		}
+		effect = {
+			if = {
+				limit = { religion_group = slavic_pagan }
+				change_tag = DRE
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = slavic_pagan } }
+				change_tag = BLR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	moldova_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = germanic
+					NOT = { exists = BU1 }
+				}
+				AND = {
+					NOT = { culture_group = germanic }
+					NOT = { exists = MOL }
+					NOT = { exists = MDV }
+					NOT = { exists = ML7 }
+					NOT = { exists = ML6 }
+				}
+			}
+			OR = {
+				tag = MOL
+				tag = MDV
+				tag = ML7
+				tag = ML6
+				tag = BU1
+			}
+		}
+		allow = {
+                   	owns_core_province = 2405
+		}
+		effect = {
+			if = {
+				limit = { culture_group = germanic }
+				change_tag = BU1
+			}
+			if = {
+				limit = { NOT = { culture_group = germanic } }
+				change_tag = MOL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ukraine_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = slavic_pagan
+					NOT = { exists = ANE }
+				}
+				AND = {
+					NOT = { religion_group = slavic_pagan }
+					NOT = { exists = KIE }
+					NOT = { exists = UKR }
+					NOT = { exists = UK7 }
+					NOT = { exists = UK6 }
+				}
+			}
+			OR = {
+				tag = KIE
+				tag = UKR
+				tag = UK7
+				tag = UK6
+				tag = ANE
+			}
+		}
+		allow = {
+                   	owns_core_province = 280
+		}
+		effect = {
+			if = {
+				limit = { religion_group = slavic_pagan }
+				change_tag = ANE
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = slavic_pagan } }
+				change_tag = UKR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_moldova_cpbm = {
+		major = yes
+		potential = {
+			NOT = { exists = MOL }
+			NOT = { exists = MDV }
+			NOT = { exists = ML7 }
+			NOT = { exists = ML6 }
+			tag = CI3
+		}
+		allow = {
+                   	AND = { 
+				owns_core_province = 2405 
+				owns_core_province = 3249 
+			}
+		}
+		effect = {
+			change_tag = MDV
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	saxony_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = west_slavic
+					NOT = { exists = SRB }
+				}
+				AND = {
+					NOT = { culture_group = west_slavic }
+					NOT = { exists = SAX }
+				}
+			}
+			OR = {
+				tag = SAX
+				tag = SRB
+			}
+		}
+		allow = {
+                   	AND = { owns_core_province = 61 owns_core_province = 62 }
+		}
+		effect = {
+			if = {
+				limit = { culture_group = west_slavic }
+				change_tag = SRB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = west_slavic } }
+				change_tag = SAX
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	lisbon_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+					NOT = { exists = OL0 }
+				}
+				AND = {
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+					NOT = { exists = AI0 }
+				}
+				AND = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+					NOT = { exists = LI0 }
+				}
+			}
+			OR = {
+				tag = LI0
+				tag = OL0
+				tag = AI0
+			}
+			capital = 227
+		}
+		allow = {
+			capital = 227
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = hellenic
+						religion_group = celtic_pagan
+					}
+					NOT = { culture_group = maghrebi }
+				}
+				change_tag = OL0
+			}
+			if = {
+				limit = { 
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+				}
+				change_tag = AI0
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {	
+							culture_group = maghrebi
+							religion_group = muslim
+							religion_group = hellenic
+							religion_group = celtic_pagan
+						}
+					}
+				}
+				change_tag = LI0
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_portugal_cpbm = {
+		major = yes
+		potential = {
+                   	NOT = { exists = POR }
+                    	NOT = { exists = PR8 }
+                    	NOT = { exists = PR7 }
+                   	NOT = { exists = PR6 }
+                    	NOT = { exists = GA0 }
+                    	NOT = { exists = LU5 }
+			OR = {
+				tag = LI0
+				tag = PO2
+				tag = CI4
+			}
+		}
+		allow = {
+                   	beieras_area = { type = all is_core = ROOT }
+                   	alentejo_area = { type = all is_core = ROOT }
+		}
+		effect = {
+			change_tag = POR
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	castile_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+					NOT = { exists = TOL }
+				}
+				AND = {
+					NOT = { culture_group = maghrebi }
+					NOT = { religion_group = muslim }
+					NOT = { exists = CAS }
+					NOT = { exists = CS8 }
+					NOT = { exists = CS7 }
+					NOT = { exists = CS6 }
+				}
+			}
+			OR = {
+				tag = TOL
+				tag = CAS
+				tag = CS8
+				tag = CS7
+				tag = CS6
+			}
+		}
+		allow = {
+			owns_core_province = 219
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {	
+						culture_group = maghrebi
+						religion_group = muslim
+					}
+				}
+				change_tag = TOL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					NOT = { culture_group = maghrebi }
+					NOT = { religion_group = muslim }
+				}
+				change_tag = CAS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	brandenburg_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = west_slavic
+					NOT = { exists = KOP }
+				}
+				AND = {
+					NOT = { culture_group = west_slavic }
+					NOT = { exists = BRA }
+					NOT = { exists = BA8 }
+					NOT = { exists = EGE }
+					NOT = { exists = BA6 }
+				}
+			}
+			OR = {
+				tag = BRA
+				tag = BA8
+				tag = EGE
+				tag = BA6
+				tag = KOP
+			}
+		}
+		allow = {
+			owns_core_province = 50
+		}
+		effect = {
+			if = {
+				limit = { culture_group = west_slavic }
+				change_tag = KOP
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = west_slavic } }
+				change_tag = BRA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	west_francia_neustria_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					dynasty = "Carolingian"
+					NOT = { exists = FRW }
+				}
+				AND = {
+					dynasty = "Merovingian"
+					NOT = { exists = NEU }
+				}
+			}
+                   	OR = { 
+				tag = FRA
+				tag = FRW 
+				tag = FRK 
+				tag = FRD 
+				tag = FRE
+				tag = NEU 
+				tag = AUT  
+			}
+                   	NOT = {
+				AND = {
+					owns_core_province = 183
+                   			owns_core_province = 189
+                   			owns_core_province = 1876
+				}
+			}
+		}
+		allow = {
+                   	owns_core_province = 183
+                   	NOT = { owns_core_province = 189 }
+                   	NOT = { owns_core_province = 1876 }
+		}
+		effect = {
+			if = {
+				limit = { dynasty = "Carolingian" }
+				change_tag = FRW
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { dynasty = "Merovingian" }
+				change_tag = NEU
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	east_francia_reform = {
+		major = yes
+		potential = {
+			dynasty = "Carolingian"
+			NOT = { exists = FRE }
+                   	OR = { 
+				tag = FRA
+				tag = FRW 
+				tag = FRK 
+				tag = FRD 
+				tag = NEU 
+				tag = AUT  
+			}
+                   	NOT = {
+				AND = {
+					owns_core_province = 183
+                   			owns_core_province = 189
+                   			owns_core_province = 1876
+				}
+			}
+		}
+		allow = {
+                   	NOT = { owns_core_province = 183 }
+                   	NOT = { owns_core_province = 189 }
+                   	owns_core_province = 1876
+		}
+		effect = {
+			change_tag = FRE
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_francia_cpbm = {
+		major = yes
+		potential = {
+                   	NOT = { exists = FRK }
+			OR = {
+				tag = FRA
+				tag = FRW
+				tag = FRD
+				tag = FRE
+				tag = NEU 
+				tag = AUT 
+			}
+			OR = {
+				dynasty = "Carolingian"
+				dynasty = "Merovingian"
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					tag = FRW
+					NOT = { exists = FRD }
+					NOT = { exists = FRE }
+				}
+				AND = {
+					tag = FRD
+					NOT = { exists = FRW }
+					NOT = { exists = FRE }
+				}
+				AND = {
+					tag = FRE
+					NOT = { exists = FRW }
+					NOT = { exists = FRD }
+				}
+				AND = {
+					tag = NEU
+					NOT = { exists = AUT }
+				}
+				AND = {
+					tag = AUT
+					NOT = { exists = NEU }
+				}
+			}
+                   	owns_core_province = 183
+                   	owns_core_province = 189
+                   	owns_core_province = 1876
+			government_rank = 10
+		}
+		effect = {
+			change_tag = FRK
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	strathclyde_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = celtic_pagan
+					NOT = { exists = DNN }
+				}
+				AND = {
+					NOT = { religion_group = celtic_pagan }
+					NOT = { exists = STR }
+				}
+			}
+			OR = {
+				tag = DNN
+				tag = STR
+			}
+		}
+		allow = {
+			owns_core_province = 249
+		}
+		effect = {
+			if = {
+				limit = { religion_group = celtic_pagan }
+				change_tag = DNN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = celtic_pagan } }
+				change_tag = STR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_lithuania_cpbm = {
+		major = yes
+		potential = {
+                   	NOT = { exists = LIT }
+                    	NOT = { exists = LI8 }
+                    	NOT = { exists = LI7 }
+                   	NOT = { exists = LI6 }
+			tag = VI3
+		}
+		allow = {
+                   	samogitia_area = { type = all is_core = ROOT }
+                   	owns_core_province = 40
+                   	owns_core_province = 272
+                   	owns_core_province = 4535
+		}
+		effect = {
+			change_tag = LIT
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	york_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						culture_group = germanic
+						culture_group = scandinavian
+					}
+					NOT = { exists = DEI }
+				}
+				AND = {
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = germanic }
+					NOT = { culture_group = scandinavian }
+					NOT = { exists = YO0 }
+				}
+			}
+			OR = {
+				tag = YO0
+				tag = DEI
+			}
+		}
+		allow = {
+			owns_core_province = 245
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = gaelic
+						culture_group = celtic
+						culture_group = germanic
+						culture_group = scandinavian
+					}
+				}
+				change_tag = DEI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+					NOT = { culture_group = germanic }
+					NOT = { culture_group = scandinavian }
+				}
+				change_tag = YO0
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	east_prussia_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = east_slavic
+					NOT = { exists = KL1 }
+				}
+				AND = {
+					NOT = { culture_group = east_slavic }
+					NOT = { exists = EP0 }
+				}
+			}
+			OR = {
+				tag = KL1
+				tag = EP0
+			}
+		}
+		allow = {
+			owns_core_province = 41
+		}
+		effect = {
+			if = {
+				limit = { culture_group = east_slavic }
+				change_tag = KL1
+			}
+			if = {
+				limit = { NOT = { culture_group = east_slavic } }
+				change_tag = EP0
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	byzantium_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = oghuz
+						religion_group = muslim
+					}
+					NOT = { exists = IS1 }
+				}
+				AND = {
+					religion = catholic
+					NOT = { culture_group = oghuz }
+					NOT = { exists = LAE }
+				}
+				AND = {
+					NOT = { culture_group = oghuz }
+					NOT = { religion_group = muslim }
+					NOT = { religion = catholic }
+					NOT = { exists = BYZ }
+					NOT = { exists = BY8 }
+					NOT = { exists = BY7 }
+					NOT = { exists = BY6 }
+				}
+			}
+			OR = {
+				tag = BYZ
+				tag = BY8
+				tag = BY7
+				tag = BY6
+				tag = LAE
+				tag = IS1
+			}
+		}
+		allow = {
+			owns_core_province = 151
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = oghuz
+						religion_group = muslim
+					}
+				}
+				change_tag = IS1
+			}
+			if = {
+				limit = { 
+					religion = catholic
+					NOT = { culture_group = oghuz }
+				}
+				change_tag = LAE
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = oghuz }
+					NOT = { religion_group = muslim }
+					NOT = { religion = catholic }
+				}
+				change_tag = BYZ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pereyaslav_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = west_slavic
+					NOT = { exists = PE5 }
+				}
+				AND = {
+					religion_group = slavic_pagan
+					NOT = { exists = ULI }
+				}
+				AND = {
+					NOT = { culture_group = west_slavic }
+					NOT = { religion_group = slavic_pagan }
+					NOT = { exists = PEY }
+				}
+			}
+			capital = 2407
+			NOT = { owns_core_province = 280 }
+		}
+		allow = {
+			capital = 2407
+		}
+		effect = {
+			if = {
+				limit = { culture_group = west_slavic }
+				change_tag = PE5
+			}
+			if = {
+				limit = { religion_group = slavic_pagan }
+				change_tag = ULI
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = west_slavic }
+					NOT = { religion_group = slavic_pagan } 
+				}
+				change_tag = PEY
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#NORTH AMERICA
+	indian_states_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = IS0 }
+			is_nomad = no
+			is_random_new_world = no
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			OR = {
+				culture_group = central_algonquian
+				culture_group = plains_algonquian
+				culture_group = eastern_algonquian
+				culture_group = iroquoian
+				culture_group = siouan
+				culture_group = caddoan
+				culture_group = muskogean
+				culture_group = sonoran
+				culture_group = apachean
+				culture_group = na_dene
+				culture_group = penutian
+			}
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			OR = {
+				capital_scope = {
+					OR = {
+						area = texas_area
+						area = coastal_prarie_area
+						area = texas_plains_area
+						area = pecos_area
+						area = llano_estacado_area
+						area = new_mexico_area
+						area = apacheria_area
+						area = arizona_area
+						area = colorado_plateau_area
+						area = utah_area
+						area = badlands_area
+						area = montana_area
+						area = snake_river_area
+						area = great_basin_area
+						area = central_valley_area
+						area = california_area
+						area = northern_california_area
+						area = oregon_area
+						area = salish_sea_area
+					}
+				}
+				capital = 2486
+				capital = 2487
+				capital = 2488
+			}
+			owns_core_province = 956
+			owns_core_province = 965
+			owns_core_province = 953
+		}
+		effect = {
+			change_tag = IS0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			colonial_eastern_america = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = IS0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#AFRICA
+	morocco_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = MOO }
+				}
+				AND = {
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = MRN }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+					NOT = { exists = MOR }
+                    			NOT = { exists = MR6 }
+                    			NOT = { exists = MR7 }
+                    			NOT = { exists = MR8 }
+				}
+			}
+			OR = {
+				tag = MOO
+				tag = MRN
+				tag = MOR
+				tag = MR6
+				tag = MR7
+				tag = MR8
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			AND = { 
+				owns_core_province = 343 
+				owns_core_province = 344 
+				owns_core_province = 2467 
+				owns_core_province = 2469 
+			}
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = MOO
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = MRN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = MOR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	algeria_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = CE1 }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+					NOT = { exists = ALG }
+				}
+			}
+			OR = {
+				tag = CE1
+				tag = ALG
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			owns_core_province = 338
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = CE1
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = ALG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tunisia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = AF1 }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+					NOT = { exists = TUN }
+				}
+			}
+			OR = {
+				tag = AF1
+				tag = TUN
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			OR = {
+				owns_core_province = 341
+				owns_core_province = 4566
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = AF1
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = TUN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	libya_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = LAG }
+				}
+				AND = {
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = TR2 }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+					NOT = { exists = LBY }
+				}
+			}
+			OR = {
+				tag = LAG
+				tag = TR2
+				tag = LBY
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			owns_core_province = 354
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = LAG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = TR2
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = LBY
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	egypt_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = hellenic
+					NOT = { exists = PT0 }
+				}
+				AND = {
+					OR = {
+						religion_group = christian
+						primary_culture = old_egyptian
+						primary_culture = kushite
+						primary_culture = nubian
+					}
+					NOT = { religion_group = hellenic }
+					NOT = { exists = EGP }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+							primary_culture = old_egyptian
+							primary_culture = kushite
+							primary_culture = nubian
+						}
+					}
+					NOT = { exists = EGY }
+					NOT = { exists = EG8 }
+					NOT = { exists = EG7 }
+					NOT = { exists = EG6 }
+				}
+			}
+			OR = {
+				tag = PT0
+				tag = EGP
+				tag = EGY
+				tag = EG8
+				tag = EG7
+				tag = EG6
+			}
+			OR = {
+				culture_group = nilotic
+				culture_group = turko_semitic
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			owns_core_province = 361
+		}
+		effect = {
+			if = {
+				limit = { religion_group = hellenic }
+				change_tag = PT0
+			}
+			if = {
+				limit = { religion_group = christian }
+				change_tag = EGP
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = christian
+							religion_group = hellenic
+						}
+					}
+				}
+				change_tag = EGY
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sudan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = nilotic
+					religion_group = african_pagan
+					NOT = { exists = ALO }
+				}
+				AND = {
+					culture_group = nilotic
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = NBI }
+					NOT = { tag = ALO }
+					NOT = { tag = NUB }
+				}
+				AND = {
+					culture_group = turko_semitic
+					NOT = { exists = SUD }
+				}
+			}
+			OR = {
+				tag = ALO
+				tag = NBI
+				tag = SUD
+			}
+			OR = {
+				culture_group = nilotic
+				culture_group = turko_semitic
+			}
+		}
+		allow = {
+			owns_core_province = 2798
+		}
+		effect = {
+			if = {
+				limit = { 
+					culture_group = nilotic
+					religion_group = african_pagan 
+				}
+				change_tag = ALO
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					culture_group = nilotic
+					NOT = { religion_group = african_pagan } 
+				}
+				change_tag = NBI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = turko_semitic }
+				change_tag = SUD
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	eritrea_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = muslim
+						religion_group = secular
+					}
+					NOT = { exists = ERT }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = muslim
+							religion_group = secular
+						}
+					}
+					NOT = { exists = MED }
+				}
+			}
+			OR = {
+				tag = ERT
+				tag = MED
+			}
+			culture_group = cushitic
+		}
+		allow = {
+			owns_core_province = 2766
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = muslim
+						religion_group = secular
+					} 
+				}
+				change_tag = ERT
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = muslim
+							religion_group = secular
+						}
+					}
+				}
+				change_tag = MED
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ethiopia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = african_pagan
+						religion_group = mesopotamian
+					}
+					NOT = { exists = AKS }
+				}
+				AND = {
+					religion_group = muslim
+					NOT = { exists = SOA }
+				}
+				AND = {
+					religion_group = jewish_group
+					NOT = { exists = BTI }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = mesopotamian
+							religion_group = muslim
+							religion_group = jewish_group
+						}
+					}
+					NOT = { exists = ETH }
+					NOT = { exists = AKS }
+				}
+			}
+			OR = {
+				tag = AKS
+				tag = SOA
+				tag = BTI
+				tag = ETH
+			}
+			culture_group = cushitic
+		}
+		allow = {
+			OR = {
+				owns_core_province = 1213
+				owns_core_province = 1224
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = african_pagan
+						religion_group = mesopotamian
+					} 
+				}
+				change_tag = AKS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { religion_group = muslim }
+				change_tag = SOA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { religion_group = jewish_group }
+				change_tag = BTI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = african_pagan
+							religion_group = mesopotamian
+							religion_group = muslim
+							religion_group = jewish_group
+						}
+					}
+				}
+				change_tag = ETH
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	noncolonial_somalia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_somalia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { 
+				AND = { exists = SOM owns_core_province = 1205 }
+				AND = { exists = SML owns_core_province = 2793 }
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+			is_colonial_nation = no
+			culture_group = cushitic
+			religion_group = muslim
+			government = republic
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			#is_at_war = no
+			OR = {
+				capital_scope = {
+					OR = {
+						area = mogadishu_area
+						area = ajuuran_area
+						area = majarteen_area
+						area = somaliland_area
+					}
+				}
+				capital = 1212
+				capital = 2774
+				capital = 2777
+				capital = 2793
+			}
+			OR = {
+				owns_core_province = 1205 #Mogadishu
+				owns_core_province = 2793 #Hargeisa
+			}
+			capital_scope = { culture_group = cushitic }
+		}
+		effect = {
+			add_prestige = 25
+			if = {
+				limit = {
+					OR = {
+						capital = 1209
+						capital = 1212
+						capital = 2789
+						capital = 2790
+						capital = 2792
+						capital = 2793
+					}
+				}
+				change_tag = SML
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						capital = 1209
+						capital = 1212
+						capital = 2789
+						capital = 2790
+						capital = 2792
+						capital = 2793
+					}
+				}
+				change_tag = SOM
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_somalia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	uganda_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = christian
+					NOT = { exists = UGA }
+				}
+				AND = {
+					NOT = { religion_group = christian }
+					NOT = { exists = BUG }
+				}
+			}
+			OR = {
+				tag = UGA
+				tag = BUG
+			}
+			culture_group = great_lakes_group
+		}
+		allow = {
+			owns_core_province = 4064
+		}
+		effect = {
+			if = {
+				limit = { religion_group = christian }
+				change_tag = UGA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = christian } }
+				change_tag = BUG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	mali_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = KAG }
+				}
+				AND = {
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = MAL }
+				}
+			}
+			OR = {
+				tag = KAG
+				tag = MAL
+			}
+			culture_group = mande
+		}
+		allow = {
+			owns_core_province = 1124
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = KAG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = african_pagan } }
+				change_tag = MAL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	burkina_faso_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = WGD }
+				}
+				AND = {
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = BFA }
+				}
+			}
+			OR = {
+				tag = WGD
+				tag = BFA
+			}
+			culture_group = west_african
+		}
+		allow = {
+			owns_core_province = 1137
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = WGD
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = african_pagan } }
+				change_tag = BFA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	chad_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = SA0 }
+				}
+				AND = {
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = CDD }
+				}
+			}
+			OR = {
+				tag = SA0
+				tag = CDD
+			}
+			culture_group = sahelian
+		}
+		allow = {
+			owns_core_province = 2287
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = SA0
+			}
+			if = {
+				limit = { NOT = { religion_group = african_pagan } }
+				change_tag = CDD
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	congo_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = TYO }
+				}
+				AND = {
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = CNG }
+				}
+			}
+			OR = {
+				tag = TYO
+				tag = CNG
+			}
+			culture_group = kongo_group
+		}
+		allow = {
+			owns_core_province = 1169
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = TYO
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = african_pagan } }
+				change_tag = CNG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	malawi_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = MRA }
+				}
+				AND = {
+					NOT = { religion_group = african_pagan }
+					NOT = { exists = MWI }
+				}
+			}
+			OR = {
+				tag = MRA
+				tag = MWI
+			}
+			culture_group = southern_african
+		}
+		allow = {
+			owns_core_province = 4040
+		}
+		effect = {
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = MRA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = african_pagan } }
+				change_tag = MWI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tlemcen_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = african_pagan
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = ATV }
+				}
+				AND = {
+					NOT = { 
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						} 
+					}
+					NOT = { exists = TLC }
+				}
+			}
+			OR = {
+				tag = ATV
+				tag = TLC
+			}
+			OR = {
+				culture_group = maghrebi
+				culture_group = latin
+				culture_group = byzantine
+			}
+		}
+		allow = {
+			owns_core_province = 336
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = african_pagan
+						religion_group = christian
+						religion_group = hellenic
+					}
+				}
+				change_tag = ATV
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { 
+						OR = {
+							religion_group = african_pagan
+							religion_group = christian
+							religion_group = hellenic
+						} 
+					} 
+				}
+				change_tag = TLC
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tangier_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { exists = TI1 }
+				}
+				AND = {
+					NOT = { 
+						OR = {
+							culture_group = latin
+							culture_group = byzantine
+							religion_group = hellenic
+						} 
+					}
+					NOT = { exists = TA5 }
+				}
+			}
+			OR = {
+				tag = TA5
+				tag = TI1
+			}
+		}
+		allow = {
+			owns_core_province = 334
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+				}
+				change_tag = TI1
+			}
+			if = {
+				limit = { 
+					NOT = { 
+						OR = {
+							culture_group = latin
+							culture_group = byzantine
+							religion_group = hellenic
+						} 
+					} 
+				}
+				change_tag = TA5
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#ASIA
+	anatolia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = AN1 }
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_anatolia_flag }
+			NOT = { has_country_flag = formed_byzantium_flag }
+			NOT = { has_country_flag = restored_rome_flag }
+			NOT = { tag = BYZ }
+			NOT = { tag = ROM }
+			religion_group = christian
+			OR =  {
+				culture_group = byzantine
+				culture_group = latin
+			}
+			capital_scope = { region = anatolia_region }
+		}
+		provinces_to_highlight = {
+			province_id = 326
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 326
+			total_development = 100
+		}
+		effect = {
+			change_tag = AN1
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_anatolia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	uttar_pradesh_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { exists = UP0 }
+			NOT = { has_country_flag = formed_india_flag }
+			NOT = { owns_core_province = 522 } #NOT INDIA
+			OR = {
+				religion_group = dharmic
+				AND = {
+					religion_group = secular
+					capital_scope = { religion_group = dharmic }
+				}
+			}
+			culture_group = hindusthani
+			government = republic
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 523 #Lucknow
+			OR = {
+				capital_scope = {
+					OR = {
+						area = oudh_area
+						area = lower_doab_area
+						area = purvanchal_area
+						area = katehar_area
+					}
+					is_core = ROOT
+				}
+				capital = 2060
+				capital = 2059
+				capital = 559
+			}
+		}
+		effect = {
+			change_tag = UP0
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	west_bengal_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { exists = WB0 }
+			NOT = { has_country_flag = formed_india_flag }
+			NOT = { owns_core_province = 522 } #NOT INDIA
+			NOT = { owns_core_province = 564 } #NOT BANGLADESH
+			OR = {
+				religion_group = dharmic
+				AND = {
+					religion_group = secular
+					capital_scope = { religion_group = dharmic }
+				}
+			}
+			culture_group = eastern_aryan
+			government = republic
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 561
+				province_id = 562
+				province_id = 563
+				province_id = 2038
+				province_id = 2081
+				province_id = 4471
+				province_id = 4476
+				province_id = 4477
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 561 #Kolkata
+			OR = {
+				capital = 561
+				capital = 562
+				capital = 563
+				capital = 2038
+				capital = 2081
+				capital = 4471
+				capital = 4476
+				capital = 4477
+			}
+		}
+		effect = {
+			change_tag = WB0
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	chhattisgarh_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CH2 }
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			NOT = { has_country_flag = formed_nagpur_flag }
+			NOT = { owns_core_province = 522 } #NOT INDIA
+			OR = {
+				religion_group = dharmic
+				AND = {
+					religion_group = secular
+					capital_scope = { religion_group = dharmic }
+				}
+			}
+			culture_group = hindusthani
+			government = republic
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 547
+				province_id = 551
+				province_id = 2233
+				province_id = 4564
+				province_id = 4571
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 2082 #Raipur
+			OR = {
+				capital = 547
+				capital = 2082
+				capital = 2098
+				capital = 4445
+				capital = 4452
+			}
+			NOT = { government = tribal }
+		}
+		effect = {
+			change_tag = CH2
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tamil_nadu_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { exists = TN1 }
+			NOT = { has_country_flag = formed_india_flag }
+			NOT = { owns_core_province = 522 } #NOT INDIA
+			OR = {
+				religion_group = dharmic
+				AND = {
+					religion_group = secular
+					capital_scope = { religion_group = dharmic }
+				}
+			}
+			culture = tamil
+			government = republic
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 539 #Chennai
+			capital_scope = {
+				OR = {
+					area = south_carnatic_area
+					area = tanjore_area
+					area = kongu_area
+					area = madura_area
+				}
+			}
+		}
+		effect = {
+			change_tag = TN1
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	manchukuo_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				AND = {
+					is_subject = yes
+					overlord = { culture_group = japanese_g }
+					NOT = { exists = MCK }
+					OR = { tag = MCH tag = MC8 tag = MC7 tag = MC6 }
+				}
+				AND = {
+					NOT = { overlord = { culture_group = japanese_g } }
+					NOT = { exists = MCH }
+					tag = MCK
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					is_subject = yes
+					overlord = { culture_group = japanese_g }
+					NOT = { exists = MCK }
+					OR = { tag = MCH tag = MC8 tag = MC7 tag = MC6 }
+				}
+				AND = {
+					NOT = { overlord = { culture_group = japanese_g } }
+					NOT = { exists = MCH }
+					tag = MCK
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_subject = yes
+					overlord = { culture_group = japanese_g } 
+				} 
+				change_tag = MCK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			else = { 
+				change_tag = MCH 
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ottoman_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+					}
+					NOT = { exists = AN1 }
+				}
+				AND = {
+					OR = { culture_group = gaelic culture_group = celtic }
+					NOT = { exists = GA1 }
+				}
+				AND = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+					NOT = { exists = TUR }
+					NOT = { exists = TKY }
+					NOT = { exists = OT7 }
+					NOT = { exists = OT6 }
+				}
+			}
+			OR = {
+				tag = TUR
+				tag = TKY
+				tag = OT7
+				tag = OT6
+				tag = AN1
+				tag = GA1
+			}
+		}
+		allow = {
+			AND = {
+				owns_core_province = 317
+				owns_core_province = 326
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+					}
+				}
+				change_tag = AN1
+			}
+			if = {
+				limit = { OR = { culture_group = gaelic culture_group = celtic } }
+				change_tag = GA1
+			}
+			if = {
+				limit = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+				}
+				change_tag = TUR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	hindustan_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					religion_group = muslim
+					NOT = { exists = HIN }
+					NOT = { exists = HI8 }
+					NOT = { exists = HI7 }
+					NOT = { exists = HI6 }
+				}
+				AND = {
+					NOT = { religion_group = muslim }
+					NOT = { exists = BHA }
+				}
+			}
+			OR = {
+				tag = BHA
+				tag = HIN
+				tag = HI8
+				tag = HI7
+				tag = HI6
+			}
+		}
+		allow = {
+			OR = {
+				tag = BHA
+				tag = HIN
+				tag = HI8
+				tag = HI7
+				tag = HI6
+			}
+		}
+		effect = {
+			if = {
+				limit = { religion_group = muslim }
+				change_tag = HIN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = muslim } }
+				change_tag = BHA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	azerbaijan_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = caucasian
+					NOT = { exists = CAA }
+				}
+				AND = {
+					NOT = { culture_group = caucasian }
+					NOT = { exists = AZE }
+				}
+			}
+			OR = {
+				tag = AZE
+				tag = CAA
+			}
+		}
+		allow = {
+			owns_core_province = 421
+		}
+		effect = {
+			if = {
+				limit = { culture_group = caucasian }
+				change_tag = CAA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = caucasian } }
+				change_tag = AZE
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	syria_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = mesopotamian
+					NOT = { exists = PLM }
+				}
+				AND = {
+					NOT = { culture_group = mesopotamian }
+					NOT = { exists = SYR }
+				}
+			}
+			OR = {
+				tag = SYR
+				tag = PLM
+			}
+		}
+		allow = {
+			owns_core_province = 377
+			owns_core_province = 382
+			owns_core_province = 2314
+		}
+		effect = {
+			if = {
+				limit = { culture_group = mesopotamian }
+				change_tag = PLM
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = mesopotamian } }
+				change_tag = SYR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	lebanon_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = christian
+					NOT = { exists = TPL }
+				}
+				AND = {
+					NOT = { religion_group = christian }
+					NOT = { exists = LEB }
+				}
+			}
+			OR = {
+				tag = LEB
+				tag = TPL
+			}
+		}
+		allow = {
+			owns_core_province = 378
+		}
+		effect = {
+			if = {
+				limit = { religion_group = christian }
+				change_tag = TPL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = christian } }
+				change_tag = LEB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	israel_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = christian
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { exists = KOJ }
+				}
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { exists = JUD }
+				}
+				AND = {
+					culture_group = israeli_group
+					NOT = { religion_group = christian }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = ISR }
+				}
+				AND = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = israeli_group }
+					NOT = { religion_group = christian }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = PLS }
+				}
+			}
+			OR = {
+				tag = KOJ
+				tag = ISR
+				tag = PLS
+			}
+		}
+		allow = {
+			owns_core_province = 379
+		}
+		effect = {
+			if = {
+				limit = { 
+					religion_group = christian
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine } 
+				}
+				change_tag = KOJ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					} 
+				}
+				change_tag = JUD
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					culture_group = israeli_group
+					NOT = { religion_group = christian }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = ISR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { culture_group = israeli_group }
+					NOT = { religion_group = christian }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = PLS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	jordan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion = nabataean
+					NOT = { exists = NAB }
+				}
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { religion = nabataean }
+					NOT = { exists = AP1 }
+				}
+				AND = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { exists = JOR }
+				}
+			}
+			OR = {
+				tag = JOR
+				tag = NAB
+				tag = AP1
+			}
+		}
+		allow = {
+			owns_core_province = 381
+		}
+		effect = {
+			if = {
+				limit = { religion = nabataean }
+				change_tag = NAB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+					}
+					NOT = { religion = nabataean }
+				}
+				change_tag = AP1
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+				}
+				change_tag = JOR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	iraq_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = mesopotamian
+						religion_group = mesopotamian
+					}
+					NOT = { exists = ASY }
+				}
+				AND = {
+					OR = {
+						culture_group = iranian
+						religion_group = zoroastrian_group
+					}
+					NOT = { exists = AS4 }
+				}
+				AND = {
+					NOT = { culture_group = mesopotamian }
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = mesopotamian }
+					NOT = { religion_group = zoroastrian_group }
+					NOT = { exists = IRQ }
+					NOT = { exists = IR6 }
+					NOT = { exists = IR7 }
+					NOT = { exists = IR8 }
+				}
+			}
+			OR = {
+				tag = IRQ
+				tag = IR6
+				tag = IR7
+				tag = IR8
+				tag = ASY
+				tag = AS4
+			}
+		}
+		allow = {
+			owns_core_province = 410
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						culture_group = mesopotamian
+						religion_group = mesopotamian
+					} 
+				}
+				change_tag = ASY
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					OR = {
+						culture_group = iranian
+						religion_group = zoroastrian_group
+					} 
+				}
+				change_tag = AS4
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = mesopotamian }
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = mesopotamian }
+					NOT = { religion_group = zoroastrian_group } 
+				}
+				change_tag = IRQ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	arabia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = israeli_group
+						religion_group = jewish_group
+					}
+					NOT = { exists = AA3 }
+				}
+				AND = {
+					NOT = { culture_group = israeli_group }
+					NOT = { religion_group = jewish_group }
+					NOT = { exists = ARB }
+					NOT = { exists = UA8 }
+					NOT = { exists = UA7 }
+					NOT = { exists = UA6 }
+				}
+				#SAU tag covered in cpbm_dynastic_countries
+			}
+			OR = {
+				tag = ARB
+				tag = UA8
+				tag = UA7
+				tag = UA6
+				tag = AA3
+			}
+		}
+		allow = {
+			owns_core_province = 385
+			owns_core_province = 392
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = israeli_group
+						religion_group = jewish_group
+					}
+				}
+				change_tag = AA3
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = israeli_group }
+					NOT = { religion_group = jewish_group }
+				}
+				change_tag = ARB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	bahrain_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+						religion_group = christian
+					}
+					NOT = { exists = TY0 }
+				}
+				AND = {
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { religion_group = christian }
+					NOT = { exists = BHR }
+				}
+			}
+			OR = {
+				tag = BHR
+				tag = TY0
+			}
+		}
+		allow = {
+			owns_core_province = 396
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = latin
+						culture_group = byzantine
+						religion_group = hellenic
+						religion_group = christian
+					}
+				}
+				change_tag = TY0
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = latin }
+					NOT = { culture_group = byzantine }
+					NOT = { religion_group = hellenic }
+					NOT = { religion_group = christian }
+				}
+				change_tag = BHR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	turkmenistan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = iranian
+						religion_group = iranian
+					}
+					NOT = { exists = PRT }
+				}
+				AND = {
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = iranian }
+					NOT = { exists = TRK }
+				}
+			}
+			OR = {
+				tag = PRT
+				tag = TRK
+			}
+		}
+		allow = {
+			owns_core_province = 2350
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = iranian
+						religion_group = iranian
+					}
+				}
+				change_tag = PRT
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = iranian }
+				}
+				change_tag = TRK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	afghanistan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = dharmic
+						religion_group = buddhic
+					}
+					NOT = { exists = SHH }
+				}
+				AND = {
+					NOT = { religion_group = dharmic }
+					NOT = { religion_group = buddhic }
+					NOT = { exists = AFG }
+					NOT = { exists = AF8 }
+					NOT = { exists = AF7 }
+					NOT = { exists = AF6 }
+				}
+			}
+			OR = {
+				tag = AFG
+				tag = AF8
+				tag = AF7
+				tag = AF6
+				tag = SHH
+			}
+		}
+		allow = {
+			owns_core_province = 451
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = dharmic
+						religion_group = buddhic
+					} 
+				}
+				change_tag = SHH
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { religion_group = dharmic }
+					NOT = { religion_group = buddhic }
+				}
+				change_tag = AFG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	uzbekistan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = iranian
+						religion_group = iranian
+					}
+					NOT = { exists = CAC }
+				}
+				AND = {
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = iranian }
+					NOT = { exists = UZB }
+				}
+			}
+			OR = {
+				tag = CAC
+				tag = UZB
+			}
+		}
+		allow = {
+			owns_core_province = 457
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = iranian
+						religion_group = iranian
+					}
+				}
+				change_tag = CAC
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = iranian }
+					NOT = { religion_group = iranian }
+				}
+				change_tag = UZB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kyrgyzstan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = eastern
+					NOT = { exists = WGO }
+				}
+				AND = {
+					NOT = { religion_group = eastern }
+					NOT = { exists = KYR }
+				}
+			}
+			OR = {
+				tag = KYR
+				tag = WGO
+			}
+		}
+		allow = {
+			owns_core_province = 2126		
+		}
+		effect = {
+			if = {
+				limit = { religion_group = eastern }
+				change_tag = WGO
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = eastern } }
+				change_tag = KYR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	crimea_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = east_slavic
+					NOT = { exists = KR1 }
+				}
+				AND = {
+					OR = {
+						culture_group = germanic
+						religion_group = german_pagan
+					}
+					NOT = { exists = GCR }
+				}
+				AND = {
+					NOT = { culture_group = east_slavic }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = german_pagan }
+					NOT = { exists = CRI }
+				}
+			}
+			OR = {
+				tag = KR1
+				tag = GCR
+				tag = CRI
+			}
+		}
+		allow = {
+			owns_core_province = 284
+		}
+		effect = {
+			if = {
+				limit = { culture_group = east_slavic }
+				change_tag = KR1
+			}
+			if = {
+				limit = { 
+					OR = {
+						culture_group = germanic
+						religion_group = german_pagan
+					}
+				}
+				change_tag = GCR
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = east_slavic }
+					NOT = { culture_group = germanic }
+					NOT = { religion_group = german_pagan }
+				}
+				change_tag = CRI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ural_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = oghur
+					NOT = { exists = VBU }
+				}
+				AND = {
+					culture_group = tartar
+					NOT = { exists = KAZ }
+				}
+				AND = {
+					NOT = { culture_group = oghur }
+					NOT = { culture_group = tartar }
+					NOT = { exists = UR0 }
+				}
+			}
+			OR = {
+				tag = UR0
+				tag = KAZ
+				tag = VBU
+			}
+		}
+		allow = {
+			owns_core_province = 1082
+		}
+		effect = {
+			if = {
+				limit = { culture_group = oghur }
+				change_tag = VBU
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { culture_group = tartar }
+				change_tag = KAZ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = oghur }
+					NOT = { culture_group = tartar }
+				}
+				change_tag = UR0
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sibir_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					NOT = { exists = YU1 }
+				}
+				AND = {
+					culture_group = east_slavic
+					NOT = { exists = SI1 }
+				}
+				AND = {
+					NOT = { culture_group = finno_ugric }
+					NOT = { culture_group = east_slavic }
+					NOT = { exists = SIB }
+				}
+			}
+			OR = {
+				tag = SIB
+				tag = SI1
+				tag = YU1
+			}
+		}
+		allow = {
+			owns_core_province = 1074
+			owns_core_province = 1075
+		}
+		effect = {
+			if = {
+				limit = { culture_group = finno_ugric }
+				change_tag = YU1
+			}
+			if = {
+				limit = { culture_group = east_slavic }
+				change_tag = SI1
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = finno_ugric }
+					NOT = { culture_group = east_slavic }
+				}
+				change_tag = SIB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	buryatia_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = east_slavic
+					NOT = { exists = CI6 }
+				}
+				AND = {
+					NOT = { culture_group = east_slavic }
+					NOT = { exists = BRT }
+				}
+			}
+			OR = {
+				tag = BRT
+				tag = CI6
+			}
+		}
+		allow = {
+			owns_core_province = 1056
+			owns_core_province = 1057
+			owns_core_province = 1058
+		}
+		effect = {
+			if = {
+				limit = { culture_group = east_slavic }
+				change_tag = CI6
+				set_capital = 1058
+			}
+			if = {
+				limit = { NOT = { culture_group = east_slavic } }
+				change_tag = BRT
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pskov_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					NOT = { exists = SE3 }
+				}
+				AND = {
+					NOT = { culture_group = finno_ugric }
+					NOT = { exists = PSK }
+				}
+			}
+			OR = {
+				tag = PSK
+				tag = SE3
+			}
+		}
+		allow = {
+			owns_core_province = 274
+		}
+		effect = {
+			if = {
+				limit = { culture_group = finno_ugric }
+				change_tag = SE3
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = finno_ugric }
+				}
+				change_tag = PSK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	novgorod_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = slavic_pagan
+					NOT = { exists = ILM }
+				}
+				AND = {
+					NOT = { religion_group = slavic_pagan }
+					NOT = { exists = NOV }
+					NOT = { exists = NV9 }
+					NOT = { exists = NV7 }
+					NOT = { exists = NV6 }
+				}
+			}
+			OR = {
+				tag = NOV
+				tag = NV9
+				tag = NV7
+				tag = NV6
+				tag = ILM
+			}
+		}
+		allow = {
+			owns_core_province = 310
+		}
+		effect = {
+			if = {
+				limit = { religion_group = slavic_pagan }
+				change_tag = ILM
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { religion_group = slavic_pagan }
+				}
+				change_tag = NOV
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ryazan_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = finno_ugric
+					NOT = { exists = MES }
+				}
+				AND = {
+					NOT = { culture_group = finno_ugric }
+					NOT = { exists = RYA }
+				}
+			}
+			OR = {
+				tag = RYA
+				tag = MES
+			}
+		}
+		allow = {
+			owns_core_province = 301
+		}
+		effect = {
+			if = {
+				limit = { culture_group = finno_ugric }
+				change_tag = MES
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = finno_ugric }
+				}
+				change_tag = RYA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_saudi_arabia_cpbm = {
+		major = yes
+		potential = {
+                   	NOT = { exists = SAU }
+                    	NOT = { exists = UA8 }
+                    	NOT = { exists = UA7 }
+                    	NOT = { exists = UA6 }
+                    	NOT = { exists = SAU }
+                    	NOT = { exists = AA3 }
+			dynasty = "Sa'ud"
+		}
+		allow = {
+                    	NOT = { exists = SHM }
+                    	NOT = { exists = HED }
+                   	owns_core_province = 385
+                   	owns_core_province = 392
+                   	owns_core_province = 393
+		}
+		effect = {
+			change_tag = SAU
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	angora_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = muslim
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+					NOT = { exists = ANG }
+				}
+				AND = {
+					OR = { culture_group = gaelic culture_group = celtic }
+					NOT = { exists = GLT }
+				}
+				AND = {
+					NOT = { religion_group = muslim }
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+					NOT = { exists = AK0 }
+				}
+			}
+			OR = {
+				tag = ANG
+				tag = GLT
+				tag = AK0
+			}
+		}
+		allow = {
+			owns_core_province = 326
+		}
+		effect = {
+			if = {
+				limit = { 
+					religion_group = muslim
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+				}
+				change_tag = ANG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { OR = { culture_group = gaelic culture_group = celtic } }
+				change_tag = GLT
+			}
+			if = {
+				limit = { 
+					NOT = { religion_group = muslim }
+					NOT = { culture_group = gaelic }
+					NOT = { culture_group = celtic }
+				}
+				change_tag = AK0
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_gallo_asia_cpbm = {
+		major = yes
+		potential = {
+                   	NOT = { exists = TUR }
+                    	NOT = { exists = TKY }
+                    	NOT = { exists = OT7 }
+                    	NOT = { exists = OT6 }
+                    	NOT = { exists = AN1 }
+                    	NOT = { exists = GA1 }
+			tag = GLT
+		}
+		allow = {
+                   	anatolia_region = { type = all is_core = ROOT }
+		}
+		effect = {
+			change_tag = GA1
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ingria_reform = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					culture_group = east_slavic
+					NOT = { exists = SP2 }
+				}
+				AND = {
+					NOT = { culture_group = east_slavic }
+					NOT = { exists = IN1 }
+				}
+			}
+			OR = {
+				tag = IN1
+				tag = SP2
+			}
+		}
+		allow = {
+			owns_core_province = 33
+		}
+		effect = {
+			if = {
+				limit = { culture_group = east_slavic }
+				change_tag = SP2
+			}
+			if = {
+				limit = { NOT = { culture_group = east_slavic } }
+				change_tag = IN1
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cilicia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						culture_group = oghuz
+						religion_group = muslim
+					}
+					NOT = { exists = RAM }
+				}
+				AND = {
+					NOT = { culture_group = oghuz }
+					NOT = { religion_group = muslim }
+					NOT = { exists = CIL }
+				}
+			}
+			OR = {
+				tag = CIL
+				tag = RAM
+			}
+		}
+		allow = {
+			owns_core_province = 327
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						culture_group = oghuz
+						religion_group = muslim
+					}
+				}
+				change_tag = RAM
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { culture_group = oghuz }
+					NOT = { religion_group = muslim }
+				}
+				change_tag = CIL
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	pakistan_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = muslim
+					NOT = { exists = PAK }
+				}
+				AND = {
+					NOT = { religion_group = muslim }
+					NOT = { exists = GND }
+				}
+			}
+			OR = {
+				tag = GND
+				tag = PAK
+			}
+		}
+		allow = {
+			owns_core_province = 2077
+		}
+		effect = {
+			if = {
+				limit = { religion_group = muslim }
+				change_tag = PAK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = muslim } }
+				change_tag = GND
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	bengal_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = muslim
+					NOT = { exists = BNG }
+					NOT = { exists = BGD }
+					NOT = { exists = BN7 }
+					NOT = { exists = BN6 }
+				}
+				AND = {
+					NOT = { religion_group = muslim }
+					NOT = { exists = NIZ }
+				}
+			}
+			OR = {
+				tag = BNG
+				tag = BGD
+				tag = BN7
+				tag = BN6
+				tag = NIZ
+			}
+		}
+		allow = {
+			owns_core_province = 564
+		}
+		effect = {
+			if = {
+				limit = { religion_group = muslim }
+				change_tag = BNG
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = muslim } }
+				change_tag = NIZ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	burma_reform = {
+		major = yes
+		potential = {
+			tag = MY8
+		}
+		allow = {
+			owns_core_province = 4395
+			owns_core_province = 4399
+			OR = {
+				absolutism = 50
+				NOT = { republican_tradition = 50 }
+			}
+		}
+		effect = {
+			change_tag = MNM
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	thailand_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					culture_group = southeastasian_group
+					NOT = { exists = MNX }
+				}
+				AND = {
+					NOT = { culture_group = southeastasian_group }
+					NOT = { exists = SIA }
+					NOT = { exists = TH8 }
+					NOT = { exists = TH7 }
+					NOT = { exists = TH6 }
+				}
+			}
+			OR = {
+				tag = SIA
+				tag = TH8
+				tag = TH7
+				tag = TH6
+				tag = MNX
+			}
+		}
+		allow = {
+			owns_core_province = 4831
+		}
+		effect = {
+			if = {
+				limit = { culture_group = southeastasian_group }
+				change_tag = MNX
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { culture_group = southeastasian_group } }
+				change_tag = SIA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cambodia_reform = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					religion_group = dharmic
+					NOT = { exists = FUN }
+				}
+				AND = {
+					NOT = { religion_group = dharmic }
+					NOT = { exists = CMB }
+				}
+			}
+			OR = {
+				tag = CMB
+				tag = FUN
+			}
+		}
+		allow = {
+			owns_core_province = 2380
+		}
+		effect = {
+			if = {
+				limit = { religion_group = dharmic }
+				change_tag = FUN
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { NOT = { religion_group = dharmic } }
+				change_tag = CMB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			restore_country_name = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#OCEANIA
+	indonesia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { exists = IDN }
+			NOT = { has_country_flag = formed_indonesia_flag }
+			NOT = { has_country_flag = formed_malaya_flag }
+			NOT = { owns_core_province = 596 } #NOT MALAYSIA
+			NOT = { owns_core_province = 656 } #NOT PHILIPPINES
+			government = republic
+			culture_group = malay
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 630
+			OR = {
+				capital_scope = {
+					OR = {
+						region = indonesia_region
+						area = south_sumatra_area
+						area = rejang_area
+						area = jambi_area
+						area = minangkabau_area
+						area = central_sumatra_area
+						area = batak_area
+						area = north_sumatra_area
+						area = makassar_area
+						area = south_sulawesi_area
+						area = sulawesi_area
+						area = molluca_area
+						area = timor_area
+						area = spice_islands_area
+					}
+				}
+				capital = 2686
+				capital = 3213
+			}
+		}
+		effect = {
+			change_tag = IDN
+			if = {
+				limit = {
+					OR = {
+						religion_group = dharmic
+						religion_group = buddhic
+					}
+				}
+				override_country_name = NUSANTARA
+			}
+			add_prestige = 25
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			set_country_flag = formed_indonesia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	kahuripan_nation = {
+		major = yes
+		potential = {
+			tag = MTR
+			NOT = { exists = KAH }
+			dynasty = "Isyana"
+			culture_group = malay
+		}
+		allow = {
+			is_at_war = no
+			capital_scope = {
+				OR = {
+					area = central_java_area
+					area = surabaya_area
+				}
+			}
+			owns = 628
+			dynasty = "Isyana"
+		}
+		effect = {
+			change_tag = KAH
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			add_prestige = 10
+			if = {
+				limit = { owns = 628 }
+				set_capital = 628
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	aceh_nation = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			OR = {
+				AND = {
+					OR = {
+						religion_group = pagan
+						religion_group = buddhic
+						religion_group = dharmic
+					}
+					NOT = { exists = LAM }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = pagan
+							religion_group = buddhic
+							religion_group = dharmic
+						}
+					}
+					NOT = { exists = ATJ }
+				}
+			}
+			NOT = {
+				tag = IDN
+				tag = MSA
+				tag = MS8
+				tag = MS7
+				tag = MS6
+			}
+			NOT = { owns_core_province = 630 } #NOT INDONESIA
+			culture_group = malay
+		}
+		allow = {
+			capital = 617
+			culture_group = malay
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = pagan
+						religion_group = buddhic
+						religion_group = dharmic
+					} 
+				}
+				change_tag = LAM
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = pagan
+							religion_group = buddhic
+							religion_group = dharmic
+						}
+					}
+				}
+				change_tag = ATJ
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	palembang_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			religion_group = muslim
+			NOT = { exists = PLB }
+			NOT = { tag = MLA }
+			NOT = { tag = MSA }
+			NOT = { tag = MS8 }
+			NOT = { tag = MS7 }
+			NOT = { tag = MS6 }
+			NOT = { tag = MAJ }
+			NOT = { tag = IDN }
+			culture_group = malay
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			adm_tech = 55
+			is_at_war = no
+			capital = 622
+		}
+		effect = {
+			change_tag = PLB
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			north_sumatra_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			batak_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_sumatra_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			minangkabau_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_sumatra_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			indonesian_islands_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			johor_area  = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 20
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400		
+	}
+
+	blambangan_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = BLM }
+			capital = 627
+			NOT = { owns = 630 }
+			NOT = { owns = 4794 }
+			NOT = {
+				tag = IDN
+				tag = MSA
+				tag = MS8
+				tag = MS7
+				tag = MS6
+			}
+		}
+		allow = {
+			capital = 627
+			religion_group = dharmic
+			culture_group = malay
+			NOT = { owns = 4794 }
+			4794 = {
+				owner = { religion = sunni }
+			}
+		}
+		effect = {
+			change_tag = BLM
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			swap_non_generic_missions = yes
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sumatran_minor_nations = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					NOT = { exists = PNA }
+					capital = 618
+				}
+				AND = {
+					NOT = { exists = KDS }
+					NOT = { religion_group = muslim }
+					capital = 620
+				}
+				AND = {
+					NOT = { exists = SAK }
+					religion_group = muslim
+					capital = 620
+				}
+				AND = {
+					NOT = { exists = RIA }
+					capital = 2675
+				}
+				AND = {
+					NOT = { exists = JMB }
+					capital = 4816
+				}
+				AND = {
+					NOT = { exists = KOY }
+					capital = 4844
+				}
+			}
+			NOT = { owns = 630 }
+			NOT = {
+				tag = IDN
+				tag = MSA
+				tag = MS8
+				tag = MS7
+				tag = MS6
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					NOT = { exists = PNA }
+					capital = 618
+				}
+				AND = {
+					NOT = { exists = KDS }
+					NOT = { religion_group = muslim }
+					capital = 620
+				}
+				AND = {
+					NOT = { exists = SAK }
+					religion_group = muslim
+					capital = 620
+				}
+				AND = {
+					NOT = { exists = RIA }
+					capital = 2675
+				}
+				AND = {
+					NOT = { exists = JMB }
+					capital = 4816
+				}
+				AND = {
+					NOT = { exists = KOY }
+					capital = 4844
+				}
+			}
+			culture = malayan
+		}
+		effect = {
+			if = {
+				limit = { capital = 618 }
+				change_tag = PNA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { 
+					NOT = { religion_group = muslim }
+					capital = 620
+				}
+				change_tag = KDS
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					religion_group = muslim
+					capital = 620
+				}
+				change_tag = SAK
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { capital = 2675 }
+				change_tag = RIA
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { capital = 4816 }
+				change_tag = JMB
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = { capital = 4844 }
+				change_tag = KOY
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	philippine_nation = {
+		major = yes
+		potential = {
+			NOT = { religion_group = secular }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				AND = {
+					OR = {
+						religion_group = pagan
+						religion_group = buddhic
+						religion_group = dharmic
+					}
+					NOT = { exists = MI5 }
+					NOT = { tag = TDO }
+				}
+				AND = {
+					NOT = {
+						OR = {
+							religion_group = pagan
+							religion_group = buddhic
+							religion_group = dharmic
+						}
+					}
+					NOT = { exists = PHI }
+					NOT = { tag = MNA }
+				}
+			}
+			culture_group = filipino_group
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 656
+			OR = {
+				capital_scope = {
+					OR = {
+						area = southern_luzon_area
+						area = luzon_area
+						area = palawan_area
+						area = visayas_area
+						area = mindanao_area
+						area = west_mindanao_area
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					OR = {
+						religion_group = pagan
+						religion_group = buddhic
+						religion_group = dharmic
+					} 
+				}
+				change_tag = MI5
+			}
+			if = {
+				limit = { 
+					NOT = {
+						OR = {
+							religion_group = pagan
+							religion_group = buddhic
+							religion_group = dharmic
+						}
+					}
+				}
+				change_tag = PHI
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				swap_non_generic_missions = yes
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}			
+}

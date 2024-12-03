@@ -1,0 +1,2613 @@
+namespace = cpbm_history_oceania
+
+#####################
+##### INDONESIA #####
+#####################
+
+#Tarumanagara
+country_event = {
+	id = cpbm_history_oceania.1
+	title = cpbm_history_oceania.1.t
+	desc = cpbm_history_oceania.1.d
+	picture = NEW_HEIR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 630 #Jakarta/Sundapura
+		capital_scope = { area = west_java_area }
+		NOT = { stability = 1 }
+		is_year = 2428
+		exists = GUP
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			factor = 0.5
+			NOT = { stability = 0 }
+		}		
+	}
+	
+	option = {
+		name = cpbm_history_oceania.1.a
+		630 = { cede_province = TRM add_core = TRM remove_core = ROOT }
+		624 = { cede_province = TRM add_core = TRM remove_core = ROOT }
+		2688 = { cede_province = TRM add_core = TRM remove_core = ROOT }
+		4791 = { cede_province = TRM add_core = TRM remove_core = ROOT }
+		TRM = {
+			define_ruler = {
+				name = "Rajadirajaguru Jayasingawarman"
+				dynasty = "Tarumanagara"
+				adm = 3
+				dip = 3
+				mil = 0
+			}
+			set_capital = 630
+			every_neighbor_country = { add_truce_with = TRM }
+		}
+		add_corruption = -10
+	}
+	
+	option = {
+		name = cpbm_history_oceania.1.b
+		change_tag = TRM
+		TRM = {
+			define_ruler = {
+				name = "Rajadirajaguru Jayasingawarman"
+				dynasty = "Tarumanagara"
+				adm = 3
+				dip = 3
+				mil = 0
+			}
+			set_capital = 630
+			every_neighbor_country = { add_truce_with = TRM }
+		}
+		2687 = { cede_province = SLK add_core = SLK remove_core = TRM }
+		625 = { cede_province = SLK add_core = SLK remove_core = TRM }
+		4790 = { cede_province = SLK add_core = SLK remove_core = TRM }
+		add_corruption = -10
+	}
+	
+	option = {
+		name = cpbm_history_oceania.1.c
+		add_stability = -1
+		add_corruption = 10
+		630 = { 
+			remove_core = ROOT
+			add_core = TRM 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+		624 = { 
+			remove_core = ROOT
+			add_core = TRM
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			}  
+		}
+		2688 = { 
+			remove_core = ROOT
+			add_core = TRM 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+		4791 = { 
+			remove_core = ROOT
+			add_core = TRM 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.1.dd
+		add_stability = -1
+		add_corruption = 10
+		change_tag = TRM
+		TRM = {
+			define_ruler = {
+				name = "Rajadirajaguru Jayasingawarman"
+				dynasty = "Tarumanagara"
+				adm = 3
+				dip = 3
+				mil = 0
+			}
+			set_capital = 630
+			every_neighbor_country = { add_truce_with = TRM }
+		}
+		2687 = { 
+			remove_core = TRM
+			add_core = SLK 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+		625 = { 
+			remove_core = TRM
+			add_core = SLK 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+		4790 = { 
+			remove_core = TRM
+			add_core = SLK 
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+	}
+}
+
+#Malacca Colonisation
+country_event = {
+	id = cpbm_history_oceania.2
+	title = cpbm_history_oceania.2.t
+	desc = cpbm_history_oceania.2.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 622
+		is_year = 2798
+		OR = {
+			596 = { is_empty = yes }
+			597 = { is_empty = yes }
+			4815 = { is_empty = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+	
+	option = {
+		name = cpbm_history_oceania.2.a
+		if = {
+			limit = { 
+				596 = { is_empty = yes }
+				620 = { owned_by = SRI }
+				622 = { owned_by = SRI }
+				4816 = { owned_by = SRI }
+				2677 = { owned_by = SRI }
+			}
+			596 = { 
+				cede_province = SRI
+				add_core = SRI
+				change_trade_goods = spices 
+			}
+		}
+		else_if = {
+			limit = { 
+				596 = { is_empty = yes }
+			}
+			596 = { 
+				cede_province = MLC
+				add_core = MLC
+				change_trade_goods = spices 
+			}
+		}
+		if = {
+			limit = { 
+				597 = { is_empty = yes }
+				620 = { owned_by = SRI }
+				622 = { owned_by = SRI }
+				4816 = { owned_by = SRI }
+				2677 = { owned_by = SRI }
+			}
+			597 = { 
+				cede_province = SRI
+				add_core = SRI
+				change_trade_goods = chinaware
+			}
+		}
+		else_if = {
+			limit = { 
+				597 = { is_empty = yes }
+			}
+			597 = { 
+				cede_province = MLC
+				add_core = MLC
+				change_trade_goods = chinaware
+			}
+		}
+		if = {
+			limit = { 
+				4815 = { is_empty = yes }
+				620 = { owned_by = SRI }
+				622 = { owned_by = SRI }
+				4816 = { owned_by = SRI }
+				2677 = { owned_by = SRI }
+			}
+			4815 = { 
+				cede_province = SRI
+				add_core = SRI
+				change_trade_goods = fish
+			}
+		}
+		else_if = {
+			limit = { 
+				4815 = { is_empty = yes }
+			}
+			4815 = { 
+				cede_province = MLC
+				add_core = MLC
+				change_trade_goods = fish
+			}
+		}
+		MLC = { every_neighbor_country = { add_truce_with = MLC } }
+	}
+}
+
+#Janggala, Kediri, Bali - Split
+country_event = {
+	id = cpbm_history_oceania.3
+	title = cpbm_history_oceania.3.t
+	desc = cpbm_history_oceania.3.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		AND = { owns = 631 owns = 2691 }
+		is_year = 3118
+		NOT = { is_year = 3158 }
+		NOT = { stability = 1 }
+		NOT = { OR = { exists = KDR exists = BLI } }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.3.a
+		change_tag = JGL
+		add_adm_power = -500
+		add_dip_power = -500
+		add_mil_power = -500
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = banten_area
+					area = west_java_area
+					area = central_java_area
+					province_id = 629
+					province_id = 2691
+					province_id = 4793
+				}
+			}
+			cede_province = KDR
+			add_core = KDR
+			remove_core = ROOT 
+		}
+		every_owned_province = { 
+			limit = { area = lesser_sunda_islands_area }
+			cede_province = BLI
+			add_core = BLI
+			remove_core = ROOT 
+		}
+		KDR = { set_capital = 2691 }
+		BLI = { set_capital = 631 }
+		vassalize = KDR
+		vassalize = BLI
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.3.b
+		change_tag = JGL
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = banten_area
+					area = west_java_area
+					area = central_java_area
+					province_id = 629
+					province_id = 2691
+					province_id = 4793
+				}
+			}
+			cede_province = KDR
+			add_core = KDR
+			remove_core = ROOT 
+		}
+		every_owned_province = { 
+			limit = { area = lesser_sunda_islands_area }
+			cede_province = BLI
+			add_core = BLI
+			remove_core = ROOT 
+		}
+		KDR = { 
+			set_capital = 2691
+			every_neighbor_country = { add_truce_with = KDR } 
+		}
+		BLI = { 
+			set_capital = 631
+			every_neighbor_country = { add_truce_with = BLI } 
+		}
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.3.c
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 7300
+			}
+		}
+		add_years_of_income = -2
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.3.dd
+		change_tag = JGL
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = banten_area
+					area = west_java_area
+					area = central_java_area
+					province_id = 629
+					province_id = 2691
+					province_id = 4793
+				}
+			}
+			cede_province = KDR
+			add_core = KDR
+		}
+		every_owned_province = { 
+			limit = { area = lesser_sunda_islands_area }
+			cede_province = BLI
+			add_core = BLI
+		}
+		KDR = { 
+			set_capital = 2691
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		BLI = { 
+			set_capital = 631
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		hidden_effect = {
+			KDR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+			BLI = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.3.e
+		highlight = yes
+		trigger = { mil = 5 }
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = banten_area
+					area = west_java_area
+					area = central_java_area
+					province_id = 629
+					province_id = 2691
+					province_id = 4793
+				}
+			}
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 3650
+			}	
+		}
+		ai_chance = { factor = 10 }
+	}
+}
+
+#Pannai State
+country_event = {
+	id = cpbm_history_oceania.4
+	title = cpbm_history_oceania.4.t
+	desc = cpbm_history_oceania.4.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { exists = PNA }
+		capital_scope = { 
+			NOT = { 
+				OR = {
+					area = north_sumatra_area
+					area = central_sumatra_area
+				} 
+			} 
+		}
+		owns = 2675
+		NOT = { AND = { owns = 620 owns = 2674 } }
+		is_year = 3248
+		NOT = { is_year = 3348 }
+		NOT = { prestige = 50 }
+		NOT = { army_tradition = 60 }
+	}
+	
+	mean_time_to_happen = {
+		years = 50
+	}
+	
+	option = {
+		name = cpbm_history_oceania.4.a
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 618
+					province_id = 2675
+					province_id = 4809
+					province_id = 4810
+				}
+			}
+			cede_province = PNA
+			add_core = PNA
+			remove_core = ROOT 
+		}
+		PNA = { 
+			set_capital = 2675 
+			every_neighbor_country = { add_truce_with = PNA } 
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.4.b
+		add_adm_power = -500
+		add_years_of_income = -2
+		add_estate_loyalty = {
+    			estate = estate_nobles
+   			loyalty = 20
+		}
+		ROOT = {
+			add_country_modifier = {
+				name = empire_destabilized
+				duration = 7300
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.4.c
+		add_dip_power = -500
+		add_corruption = 10
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 618
+					province_id = 2675
+					province_id = 4809
+					province_id = 4810
+				}
+			}
+			cede_province = PNA
+			add_core = PNA
+			remove_core = ROOT 
+		}
+		PNA = { set_capital = 2675 }
+		vassalize = PNA
+	}
+	
+	option = {
+		name = cpbm_history_oceania.4.dd
+		add_mil_power = -500
+		add_stability = -1
+		change_government_reform_progress = -100
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 618
+					province_id = 2675
+					province_id = 4809
+					province_id = 4810
+				}
+			}
+			cede_province = PNA
+			add_core = PNA
+		}
+		PNA = { 
+			set_capital = 2675
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			add_country_modifier = {
+				name = good_discipline
+				duration = 1825
+			}
+		}
+		hidden_effect = {
+			PNA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+						artillery = 0.4
+					}
+				}
+			}
+		}
+	}
+}
+
+#Sanggau
+country_event = {
+	id = cpbm_history_oceania.5
+	title = cpbm_history_oceania.5.t
+	desc = cpbm_history_oceania.5.d
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			AND = {
+				owns = 640
+				owns = 2706
+				owns = 4802
+				owns = 4804
+				owns = 4843
+			}
+		}
+		owns = 4803 #Sanggau
+		is_year = 3398
+		NOT = { is_year = 3458 }
+		NOT = { exists = SGG }
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+	}
+
+	option = {
+		name = cpbm_history_oceania.5.a
+		4803 = { 
+			remove_core = ROOT
+			add_core = SGG
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 5
+				leader = "Dara Nante Sanggau"
+			} 
+		}
+		add_stability = -1
+	}
+
+	option = {
+		name = cpbm_history_oceania.5.b
+		4803 = { cede_province = SGG add_core = SGG remove_core = ROOT }
+		SGG = {
+			define_ruler = {
+				name = "Dara Nante"
+				dynasty = "Sanggau"
+				female = yes
+				adm = 3
+				dip = 0
+				mil = 4
+			}
+			every_neighbor_country = { add_truce_with = SGG }
+		}
+	}
+}
+
+# Singhasari Established
+country_event = {
+	id = cpbm_history_oceania.6
+	title = cpbm_history_oceania.6.t
+	desc = cpbm_history_oceania.6.d
+	picture = STREET_SPEECH_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		AND = { owns = 628 owns = 4794 }
+		is_year = 3318
+		NOT = { is_year = 3328 }
+		NOT = { exists = SIN }
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = cpbm_history_oceania.6.a
+		trigger = { 
+			legitimacy = 50 
+			NOT = { legitimacy = 95 }
+		}
+		add_years_of_income = -0.2
+		4794 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Ken Arok Singhasari"
+			}
+		}
+		set_country_flag = ken_arok_rebellion
+	}
+
+	option = {
+		name = cpbm_history_oceania.6.b
+		trigger = { NOT = { legitimacy = 95 } }
+		change_tag = SIN
+		SIN = {
+			define_ruler = {
+				name = "Ken Arok"
+				dynasty = "Singhasari"
+				adm = 3
+				dip = 2
+				mil = 0
+			}
+			set_capital = 628
+			every_neighbor_country = { add_truce_with = SIN }
+		}
+		add_prestige = 2
+	}
+
+	option = {
+		name = cpbm_history_oceania.6.c
+		trigger = {
+			NOT = { 
+				capital_scope = { area = east_java_area } 
+			}
+			legitimacy = 50
+			NOT = { legitimacy = 95 }
+		}
+		2691 = { cede_province = SIN add_core = SIN remove_core = ROOT }
+		627 = { cede_province = SIN add_core = SIN remove_core = ROOT }
+		628 = { cede_province = SIN add_core = SIN remove_core = ROOT }
+		2692 = { cede_province = SIN add_core = SIN remove_core = ROOT }
+		4794 = { cede_province = SIN add_core = SIN remove_core = ROOT }
+		SIN = {
+			define_ruler = {
+				name = "Ken Arok"
+				dynasty = "Singhasari"
+				adm = 3
+				dip = 2
+				mil = 0
+			}
+			set_capital = 628
+			every_neighbor_country = { add_truce_with = SIN }
+		}
+		ROOT = { vassalize = SIN }
+		add_legitimacy = -10
+		add_country_modifier = {
+			name = extra_diplomat
+			duration = 9125
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.6.dd
+		trigger = { legitimacy = 95 }
+		2691 = { add_core = SIN }
+		627 = { add_core = SIN }
+		628 = { add_core = SIN }
+		2692 = { add_core = SIN }
+		4794 = { add_core = SIN }
+		add_prestige = 5
+	}
+
+	option = {
+		name = cpbm_history_oceania.6.e
+		trigger = { 
+			NOT = { legitimacy = 95 }
+			estate_loyalty = {
+				estate = estate_burghers
+  				loyalty = 60
+			}
+		}
+		add_prestige = -5
+		add_years_of_income = -10
+		add_estate_loyalty = {
+    			estate = estate_burghers
+    			loyalty = -30
+		}
+	}
+}
+
+# Ken Arok Victory
+country_event = {
+	id = cpbm_history_oceania.7
+	title = cpbm_history_oceania.7.t
+	desc = cpbm_history_oceania.7.d
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = ken_arok_rebellion
+		dynasty = "Singhasari"
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = cpbm_history_oceania.7.a
+		change_tag = SIN
+		SIN = { set_capital = 628 }
+		add_prestige = 10
+		add_legitimacy = 10
+		remove_country_flag = ken_arok_rebellion
+	}
+}
+
+# Islam arrives in Sumatra
+country_event = {
+	id = cpbm_history_oceania.8
+	title = cpbm_history_oceania.8.t
+	desc = cpbm_history_oceania.8.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { religion_group = muslim }
+		is_year = 3148
+		NOT = { is_year = 3548 }
+		OR = { owns = 618 owns = 4809 owns = 4810 }
+		618 = { NOT = { religion_group = muslim } }
+		4809 = { NOT = { religion_group = muslim } }
+		4810 = { NOT = { religion_group = muslim } }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+	
+	option = {
+		name = cpbm_history_oceania.8.a
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 618
+					province_id = 4809
+					province_id = 4810
+				}
+			}
+			change_religion = sunni
+			add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+		}
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+	}
+
+	option = {
+		name = cpbm_history_oceania.8.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 618
+					province_id = 4809
+					province_id = 4810
+				}
+			}
+			change_religion = sunni
+			add_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 3650
+			}
+		}
+		change_religion = sunni
+	}
+}
+
+#Spread of Islam in Indonesia
+province_event = {
+	id = cpbm_history_oceania.9
+	title = cpbm_history_oceania.9.t
+	desc = cpbm_history_oceania.9.d
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		NOT = { religion_group = muslim }
+		is_year = 3148
+		NOT = { is_year = 3548 }
+		OR = {
+			any_neighbor_province = { religion = sunni }
+			owner = { religion = sunni }
+		}
+		superregion = east_indies_superregion
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.25
+			controller = { has_country_modifier = rise_of_islam }
+		}
+		modifier = {
+			factor = 0.25
+			controller = { religion = sunni }
+		}
+		modifier = {
+			factor = 0.25
+			controller = { religion = islam }
+		}
+		modifier = {
+			factor = 0.25
+			culture_group = turko_semitic
+		}
+		modifier = {
+			factor = 10
+			religion_group = christian
+		}
+		modifier = {
+			factor = 5
+			controller = { religion_group = christian }
+		}
+		modifier = {
+			factor = 20
+			NOT = { controller = { religion = sunni } }
+			NOT = { controller = { religion = islam } }
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.9.a
+		if = {
+			limit = {
+				OR = {
+					any_neighbor_province = { religion = sunni }
+					owner = { religion = sunni }
+				}
+			}
+			change_religion = sunni
+		}
+		add_province_modifier = {
+			name = "religious_zeal_at_conv"
+			duration = 3650
+		}
+	}
+}
+
+#Pasai
+country_event = {
+	id = cpbm_history_oceania.10
+	title = cpbm_history_oceania.10.t
+	desc = cpbm_history_oceania.10.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2673
+		2673 = { religion_group = muslim }
+		is_year = 3358
+		NOT = { is_year = 3368 }
+		NOT = { AND = { owns = 617 owns = 4809 } }
+		NOT = { exists = PSA }
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = cpbm_history_oceania.10.a
+		add_stability = 1
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 2673
+					province_id = 2674
+				}
+			}
+			cede_province = PSA
+			add_core = PSA
+			remove_core = ROOT
+		}
+		PSA = { 
+			set_capital = 2673 
+			define_ruler = {
+				name = "Malik as-Saleh"
+				dynasty = "Pasai"
+				adm = 3
+				dip = 3
+				mil = 4
+			}
+			add_piety = -0.1
+			every_neighbor_country = { add_truce_with = PSA }
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.10.b
+		add_prestige = 25
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 2673
+					province_id = 2674
+				}
+			}
+			cede_province = PSA
+			add_core = PSA
+		}
+		PSA = { 
+			set_capital = 2673
+			define_ruler = {
+				name = "Malik as-Saleh"
+				dynasty = "Pasai"
+				adm = 3
+				dip = 3
+				mil = 4
+			}
+			add_piety = -0.1
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			add_country_modifier = {
+				name = good_discipline
+				duration = 1825
+			}
+		}
+		hidden_effect = {
+			PSA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.10.c
+		highlight = yes
+		trigger = { ruler_has_personality = benevolent_personality }
+		set_capital = 2673
+		change_tag = PSA
+		set_dynasty = "Pasai"
+		change_religion = sunni
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+	}
+}
+
+#Majapahit Established
+country_event = {
+	id = cpbm_history_oceania.11
+	title = cpbm_history_oceania.11.t
+	desc = cpbm_history_oceania.11.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		AND = { owns = 628 owns = 4794 }
+		is_year = 3368
+		NOT = { is_year = 3408 }
+		NOT = { exists = MAJ }
+		war_exhaustion = 4
+		NOT = { legitimacy = 90 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = cpbm_history_oceania.11.a
+		4794 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Raden Wijaya Rajasanagara"
+			}
+		}
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		set_country_flag = raden_wijaya_rebellion
+	}
+
+	option = {
+		name = cpbm_history_oceania.11.b
+		change_tag = MAJ
+		MAJ = {
+			define_ruler = {
+				name = "Raden Wijaya"
+				dynasty = "Rajasanagara"
+				adm = 4
+				dip = 4
+				mil = 4
+			}
+			set_capital = 628
+			every_neighbor_country = { add_truce_with = MAJ }
+		}
+		add_adm_power = 50
+		add_legitimacy = 10
+	}
+
+	option = {
+		name = cpbm_history_oceania.11.c
+		trigger = { 
+			estate_loyalty = {
+				estate = estate_nobles
+  				loyalty = 60
+			}
+		}
+		4794 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Raden Wijaya Rajasanagara"
+			}
+		}
+		add_country_modifier = { 
+			name = stand_the_ground_mod
+			duration = 3650  
+		}
+		set_country_flag = raden_wijaya_rebellion
+	}
+}
+
+#Raden Wijaya Victory
+country_event = {
+	id = cpbm_history_oceania.12
+	title = cpbm_history_oceania.12.t
+	desc = cpbm_history_oceania.12.d
+	picture = REVOLUTION_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		has_country_flag = raden_wijaya_rebellion
+		dynasty = "Rajasanagara"
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = cpbm_history_oceania.12.a
+		change_tag = MAJ
+		MAJ = { set_capital = 628 }
+		add_prestige = 10
+		add_legitimacy = 10
+		remove_country_flag = raden_wijaya_rebellion
+	}
+}
+
+#Dharmasraya Collapse
+country_event = {
+	id = cpbm_history_oceania.13
+	title = cpbm_history_oceania.13.t
+	desc = cpbm_history_oceania.13.d
+	picture = REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = { owns = 2677 owns = 2681 owns = 4818 }
+		NOT = { AND = { owns = 620 owns = 622 owns = 2673 } }
+		is_year = 3428
+		NOT = { is_year = 3468 }
+		NOT = { 
+			OR = {
+				tag = JMB
+				tag = PGR
+				tag = IND
+			}
+		}
+		OR = {
+			2677 = { unrest = 3 }
+			2681 = { unrest = 3 }
+			4818 = { unrest = 3 }
+		}
+	}
+	
+	mean_time_to_happen = {
+        	months = 480
+	}
+	
+	option = {
+		name = cpbm_history_oceania.13.a
+		add_stability = -1
+		change_mil = -1
+		add_treasury = 50
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						area = batak_area
+						province_id = 2681
+						province_id = 4817
+					}
+				}
+			}
+			change_tag = PGR
+		}
+		else = {
+			every_owned_province = { 
+				limit = {
+					OR = { 
+						area = batak_area
+						province_id = 2681
+						province_id = 4817
+					}
+				}
+				cede_province = PGR
+				add_core = PGR
+			}
+			PGR = { 
+				define_ruler = { dynasty = "Mauli" }
+				every_neighbor_country = { add_truce_with = PGR }
+			}
+		}
+		every_owned_province = { 
+			limit = { area = jambi_area }
+			cede_province = JMB
+			add_core = JMB
+		}
+		JMB = { every_neighbor_country = { add_truce_with = JMB } }
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = rejang_area
+					province_id = 4818
+				}
+			}
+			cede_province = IND
+			add_core = IND
+		}
+		IND = { every_neighbor_country = { add_truce_with = IND } }
+		east_indies_superregion = { 
+			discover_country = JMB 
+			discover_country = PGR
+			discover_country = IND
+		}
+		indian_pacific_sea_superregion = { 
+			discover_country = JMB 
+			discover_country = PGR
+			discover_country = IND
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.13.b	
+		random_list = {
+			90 = {
+				if = {
+					limit = {
+						capital_scope = {
+							OR = {
+								area = batak_area
+								province_id = 2681
+								province_id = 4817
+							}
+						}
+					}
+					change_tag = PGR
+				}
+				else = {
+					every_owned_province = { 
+						limit = {
+							OR = { 
+								area = batak_area
+								province_id = 2681
+								province_id = 4817
+							}
+						}
+						add_core = PGR
+						spawn_rebels = {
+    							type = nationalist_rebels
+    							size = 2
+						}
+					}
+					PGR = { 
+						define_ruler = { dynasty = "Mauli" }
+						every_neighbor_country = { add_truce_with = PGR }
+					}
+					vassalize = PGR
+				}
+				every_owned_province = {
+					limit = { area = jambi_area }
+					add_core = JMB
+					spawn_rebels = {
+    						type = nationalist_rebels
+    						size = 2
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = { 
+							area = rejang_area
+							province_id = 4818
+						}
+					}
+					add_core = IND
+					spawn_rebels = {
+    						type = nationalist_rebels
+    						size = 2
+					}
+				}
+			}
+			10 = {
+				kill_ruler = yes
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.13.c
+		trigger = { dip_power = 200 }
+		add_dip_power = -200
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						area = batak_area
+						province_id = 2681
+						province_id = 4817
+					}
+				}
+			}
+			change_tag = PGR
+		}
+		else = {
+			every_owned_province = { 
+				limit = {
+					OR = { 
+						area = batak_area
+						province_id = 2681
+						province_id = 4817
+					}
+				}
+				cede_province = PGR
+				add_core = PGR
+				remove_core = ROOT
+			}
+			PGR = { 
+				define_ruler = { dynasty = "Mauli" }
+				every_neighbor_country = { add_truce_with = PGR }
+			}
+			vassalize = PGR
+		}
+		every_owned_province = { 
+			limit = { area = jambi_area }
+			cede_province = JMB
+			add_core = JMB
+			remove_core = ROOT
+		}
+		JMB = { every_neighbor_country = { add_truce_with = JMB } }
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = rejang_area
+					province_id = 4818
+				}
+			}
+			cede_province = IND
+			add_core = IND
+			remove_core = ROOT
+		}
+		IND = { every_neighbor_country = { add_truce_with = IND } }
+		east_indies_superregion = { 
+			discover_country = JMB 
+			discover_country = PGR
+			discover_country = IND
+		}
+		indian_pacific_sea_superregion = { 
+			discover_country = JMB 
+			discover_country = PGR
+			discover_country = IND
+		}
+		vassalize = JMB
+		vassalize = IND
+	}
+}
+
+#Bulungan
+country_event = {
+	id = cpbm_history_oceania.14
+	title = cpbm_history_oceania.14.t
+	desc = cpbm_history_oceania.14.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2711
+		NOT = { AND = { owns = 2710 owns = 2703 } }
+		is_year = 3828
+		NOT = { is_year = 4062 }
+		NOT = { exists = BLN }
+		war_exhaustion = 4
+		NOT = { culture_group = malay }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = cpbm_history_oceania.14.a
+		add_estate_loyalty = {
+    			estate = estate_nobles
+   			loyalty = -10
+		}
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 2709
+					province_id = 2711
+				}
+			}
+			cede_province = BLN
+			add_core = BLN
+			remove_core = ROOT
+		}
+		BLN = { every_neighbor_country = { add_truce_with = BLN } }
+	}
+
+	option = {
+		name = cpbm_history_oceania.14.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 2709
+					province_id = 2711
+				}
+			}
+			cede_province = BLN
+			add_core = BLN
+			remove_core = ROOT
+		}
+		BLN = { every_neighbor_country = { add_truce_with = BLN } }
+		vassalize = BLN
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+	}
+
+	option = {
+		name = cpbm_history_oceania.14.c
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					province_id = 2709
+					province_id = 2711
+				}
+			}
+			add_core = BLN
+		}
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_mercantilism = 10
+	}
+}
+
+#Melayu Kingdom (Early)
+country_event = {
+	id = cpbm_history_oceania.15
+	title = cpbm_history_oceania.15.t
+	desc = cpbm_history_oceania.15.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2677
+		NOT = { OR = { capital = 659 capital = 2677 capital = 4816 } }
+		is_year = 2698
+		NOT = { is_year = 2798 }
+		NOT = { exists = JMB }
+		war_exhaustion = 4
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
+
+	option = {
+		name = cpbm_history_oceania.15.a
+		659 = { 
+			remove_core = ROOT
+			add_core = JMB
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 5
+			} 
+		}
+		2677 = { 
+			remove_core = ROOT
+			add_core = JMB
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 5
+			} 
+		}
+		4816 = { 
+			remove_core = ROOT
+			add_core = JMB
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 5
+			} 
+		}
+		add_stability = -1
+	}
+
+	option = {
+		name = cpbm_history_oceania.15.b
+		659 = { cede_province = JMB add_core = JMB remove_core = ROOT }
+		2677 = { cede_province = JMB add_core = JMB remove_core = ROOT }
+		4816 = { cede_province = JMB add_core = JMB remove_core = ROOT }
+		JMB = { 
+			every_neighbor_country = { add_truce_with = JMB } 
+			set_capital = 2677
+		}
+	}
+}
+
+#Dharmasraya/Melayu Kingdom
+country_event = {
+	id = cpbm_history_oceania.16
+	title = cpbm_history_oceania.16.t
+	desc = cpbm_history_oceania.16.d
+	picture = MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2681
+		NOT = { OR = { capital = 2681 capital = 4817 capital = 4818 } }
+		is_year = 3098
+		NOT = { is_year = 3398 }
+		NOT = { exists = DHA }
+		war_exhaustion = 4
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = cpbm_history_oceania.16.a
+		add_stability = 1
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = minangkabau_area
+					area = jambi_area
+					area = central_sumatra_area
+					area = batak_area
+					area = north_sumatra_area
+				}
+			}
+			cede_province = DHA
+			add_core = DHA
+			remove_core = ROOT
+		}
+		DHA = { 
+			set_capital = 2681
+			every_neighbor_country = { add_truce_with = DHA }
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.16.b
+		add_prestige = 25
+		every_owned_province = { 
+			limit = {
+				OR = { 
+					area = minangkabau_area
+					area = jambi_area
+					area = central_sumatra_area
+					area = batak_area
+					area = north_sumatra_area
+				}
+			}
+			cede_province = DHA
+			add_core = DHA
+			remove_core = ROOT
+		}
+		DHA = { 
+			set_capital = 2681
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			add_country_modifier = {
+				name = good_discipline
+				duration = 1825
+			}
+		}
+		hidden_effect = {
+			DHA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.16.c
+		highlight = yes
+		trigger = { diplomatic_reputation = 5 }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+	}
+}
+
+#Berau
+country_event = {
+	id = cpbm_history_oceania.17
+	title = cpbm_history_oceania.17.t
+	desc = cpbm_history_oceania.17.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2710
+		NOT = { capital_scope = { area = berau_area } }
+		is_year = 3468
+		NOT = { is_year = 3508 }
+		NOT = { exists = BEU }
+		overextension_percentage = 0.2
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = cpbm_history_oceania.17.a
+		add_stability = 1
+		every_owned_province = { 
+			limit = { area = berau_area }
+			cede_province = BEU
+			add_core = BEU
+			remove_core = ROOT
+		}
+		BEU = { 
+			set_capital = 2710 
+			define_ruler = {
+				name = "Surya Natakesuma"
+		
+		dynasty = "Berau"
+		
+		birth_date = 1347.1.1
+
+				adm = 1
+		
+		dip = 1
+
+				mil = 3
+			}
+			every_neighbor_country = { add_truce_with = BEU }
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.17.b
+		every_owned_province = { 
+			limit = { area = berau_area }
+			cede_province = BEU
+			add_core = BEU
+			remove_core = ROOT
+		}
+		BEU = { 
+			set_capital = 2710 
+			define_ruler = {
+				name = "Surya Natakesuma"
+		
+		dynasty = "Berau"
+		
+		birth_date = 1347.1.1
+
+				adm = 1
+		
+		dip = 1
+
+				mil = 3
+			}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			add_country_modifier = {
+				name = good_discipline
+				duration = 1825
+			}
+		}
+		hidden_effect = {
+			BEU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.17.c
+		highlight = yes
+		trigger = { adm = 4 }
+		every_owned_province = { 
+			limit = { area = berau_area }
+			cede_province = BEU
+			add_core = BEU
+			remove_core = ROOT
+			add_claim = ROOT
+		}
+		BEU = { 
+			set_capital = 2710 
+			define_ruler = {
+				name = "Surya Natakesuma"
+		
+		dynasty = "Berau"
+		
+		birth_date = 1347.1.1
+
+				adm = 1
+		
+		dip = 1
+
+				mil = 3
+			}
+			every_neighbor_country = { add_truce_with = BEU }
+		}
+		vassalize = BEU
+	}
+}
+
+#Cirebon
+country_event = {
+	id = cpbm_history_oceania.18
+	title = cpbm_history_oceania.18.t
+	desc = cpbm_history_oceania.18.d
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4791 #Cirebon
+		NOT = { OR = { capital = 2688 capital = 4791 } }
+		is_year = 3518
+		NOT = { is_year = 3588 }
+		NOT = { exists = CRB }
+		NOT = { religion_group = muslim }
+		any_neighbor_country = { religion_group = muslim }
+		NOT = { 
+			OR = { 
+				government = republic 
+				government = theocracy
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12	
+	}
+	
+	option = {
+		name = cpbm_history_oceania.18.a
+		2688 = { cede_province = CRB add_core = CRB remove_core = ROOT change_religion = sunni }
+		4791 = { cede_province = CRB add_core = CRB remove_core = ROOT change_religion = sunni }
+		CRB = {
+			define_ruler = {
+				name = "Sharif Hidayatullah" # Sunan Gunungjati
+				dynasty = "Muara Jati"
+				adm = 4
+				dip = 5
+				mil = 5
+			}
+			set_capital = 4791
+			change_religion = sunni
+			every_neighbor_country = { add_truce_with = CRB }
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.18.b
+		
+		add_years_of_income = -0.25
+		add_stability = -1
+		2688 = { 
+			remove_core = ROOT
+			add_core = CRB 
+			change_religion = sunni
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			} 
+		}
+		4791 = { 
+			remove_core = ROOT
+			add_core = CRB 
+			change_religion = sunni
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 1
+			}  
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.18.c
+		highlight = yes
+		trigger = { dip = 4 }
+		2688 = { 
+			add_core = CRB 
+			change_religion = sunni
+		}
+		4791 = { 
+			add_core = CRB 
+			change_religion = sunni
+		}
+	}
+}
+
+#Purchase of Tapaktuan (Sent)
+country_event = {
+	id = cpbm_history_oceania.19
+	title = cpbm_history_oceania.19.t
+	desc = cpbm_history_oceania.19.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { capital_scope = { superregion = east_indies_superregion } }
+		any_owned_province = { 
+			OR = {
+				region = indonesia_region 
+				region = malaya_region
+				region = moluccas_region
+			}
+		}
+		treasury = 500
+		NOT = { owns = 2685 }
+		has_discovered = 2685
+		2685 = { 
+			owner = { 
+				capital_scope = { superregion = east_indies_superregion }
+				NOT = { capital = 2685 }
+				has_opinion = {
+					who = ROOT
+					value = 20
+				}
+			} 
+		}
+		NOT = { is_year = 3998 }
+		NOT = { has_country_flag = sent_tapaktuan_purchase_offer }
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+
+		modifier = {
+			factor = 0.5
+			is_claim = 2685
+		}		
+	}
+	
+	option = {
+		name = cpbm_history_oceania.19.a
+		set_country_flag = sent_tapaktuan_purchase_offer
+		add_treasury = -200
+		2685 = { 
+			owner = { 
+				country_event = { id = cpbm_history_oceania.20 }
+			}  
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.19.b
+		add_sailors = 20	
+	}
+}
+
+#Purchase of Tapaktuan (Received)
+country_event = {
+	id = cpbm_history_oceania.20
+	title = cpbm_history_oceania.20.t
+	desc = cpbm_history_oceania.20.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_history_oceania.20.a
+		set_country_flag = sent_tapaktuan_purchase_offer
+		add_treasury = 200
+		2685 = { 
+			remove_core = ROOT
+			cede_province = FROM
+		}
+		add_truce_with = FROM
+	}
+	
+	option = {
+		name = cpbm_history_oceania.20.b
+		FROM = { country_event = { id = cpbm_history_oceania.21 } }	
+	}
+}
+
+#Purchase of Tapaktuan (Negative Response)
+country_event = {
+	id = cpbm_history_oceania.21
+	title = cpbm_history_oceania.21.t
+	desc = cpbm_history_oceania.21.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_history_oceania.21.a
+		add_treasury = 200
+	}
+	
+	option = {
+		name = cpbm_history_oceania.21.b
+		highlight = yes
+		trigger = {
+			capital_scope = { superregion = europe_superregion }
+		}
+		add_treasury = 200
+		2685 = { add_claim = ROOT }
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_conquest
+			war_goal_province = 2685
+		}
+		add_spy_network_in = {
+			who = FROM
+			value = 25
+		}
+	}
+}
+
+#Indonesian Independence
+country_event = {
+	id = cpbm_history_oceania.22
+	title = cpbm_history_oceania.22.t
+	desc = cpbm_history_oceania.22.d
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		capital_scope = { NOT = { superregion = east_indies_superregion } }
+		owns = 630
+		is_year = 3998
+		in_golden_age = no
+		NOT = { exists = IDN }
+	}
+	
+	mean_time_to_happen = {
+		years = 50
+	}
+	
+	option = {
+		name = cpbm_history_oceania.22.a
+		every_owned_province = { 
+			limit = { superregion = east_indies_superregion }
+			cede_province = IDN
+			add_core = IDN
+			remove_core = ROOT
+		}
+		east_indies_superregion = {
+			discover_country = IDN
+		}
+		ROOT = { vassalize = IDN }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.22.b
+		trigger = { NOT = { is_year = 4043 } }
+		every_owned_province = { 
+			limit = { superregion = east_indies_superregion }
+			add_core = IDN
+			spawn_rebels = {
+    				type = nationalist_rebels
+    				size = 2
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.22.c
+		highlight = yes
+		trigger = { 630 = { religion = ROOT } }
+		if = {
+			limit = {
+				AND = { owns = 630 owns = 4861 owns = 613 owns = 596 owns = 656 }
+			}
+			add_years_of_income = -5
+		}
+		else = { add_years_of_income = -2 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.22.dd
+		trigger = { is_year = 4043 }
+		every_owned_province = { 
+			limit = { superregion = east_indies_superregion }
+			cede_province = IDN
+			add_core = IDN
+		}
+		east_indies_superregion = {
+			discover_country = IDN
+		}
+		IDN = {
+			change_government = republic
+			define_ruler = {
+				name = "Sukarno"
+				adm = 3
+				dip = 4
+				mil = 3
+			}
+			set_capital = 630
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		hidden_effect = {
+			IDN = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+#######################
+##### PHILIPPINES #####
+#######################
+
+#Brunei Conquest of Mindoro
+country_event = {
+	id = cpbm_history_oceania.23
+	title = cpbm_history_oceania.23.t
+	desc = cpbm_history_oceania.23.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 636
+		NOT = { owns = 4350 }
+		is_year = 3398
+		NOT = { is_year = 3798 }
+		4350 = {
+			owner = {
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 200
+	}
+	
+	option = {
+		name = cpbm_history_oceania.23.a
+		4350 = { 
+			owner = { 
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_imperial
+					}
+				}
+				add_spy_network_from = {
+   					who = ROOT
+   					value = 10
+				}
+			}
+			add_claim = ROOT 
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.23.b
+		add_prestige = -50
+		ai_chance = { factor = 1 }
+	}
+}
+
+#Colonisation of the Philippines
+country_event = {
+	id = cpbm_history_oceania.24
+	title = cpbm_history_oceania.24.t
+	desc = cpbm_history_oceania.24.d
+	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = circumnavigation_first
+		num_of_colonists = 1
+	}
+	
+	mean_time_to_happen = {
+		years = 40
+	}
+	
+	option = {
+		name = cpbm_history_oceania.24.a
+		654 = { add_claim = ROOT }
+		2700 = { add_claim = ROOT }
+		4351 = { add_claim = ROOT }
+		4352 = { add_claim = ROOT }
+		4353 = { add_claim = ROOT }
+		if = {
+			limit = { 654 = { is_empty = yes } }
+			654 = { create_colony = 200 }
+		}
+		if = {
+			limit = { 2700 = { is_empty = yes } }
+			2700 = { create_colony = 200 }
+		}
+		if = {
+			limit = { 4351 = { is_empty = yes } }
+			4351 = { create_colony = 200 }
+		}
+		if = {
+			limit = { 4352 = { is_empty = yes } }
+			4352 = { create_colony = 200 }
+		}
+		if = {
+			limit = { 4353 = { is_empty = yes } }
+			4353 = { create_colony = 200 }
+		}
+		add_legitimacy = -10
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_history_oceania.24.b
+		if = {
+			limit = { 654 = { is_empty = yes } }
+			654 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+				add_colonysize = 1000
+			}
+		}
+		else = {
+			654 = { 
+				owner = { 
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_imperial
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		if = {
+			limit = { 2700 = { is_empty = yes } }
+			2700 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+				add_colonysize = 1000
+			}
+		}
+		else = {
+			2700 = { 
+				owner = { 
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_imperial
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		if = {
+			limit = { 4351 = { is_empty = yes } }
+			4351 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+				add_colonysize = 1000
+			}
+		}
+		else = {
+			4351 = { 
+				owner = { 
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_imperial
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		if = {
+			limit = { 4352 = { is_empty = yes } }
+			4352 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+				add_colonysize = 1000
+			}
+		}
+		else = {
+			4352 = { 
+				owner = { 
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_imperial
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		if = {
+			limit = { 4353 = { is_empty = yes } }
+			4353 = { 
+				cede_province = ROOT 
+				add_core = ROOT
+				add_colonysize = 1000
+			}
+		}
+		else = {
+			4353 = { 
+				owner = { 
+					ROOT = {
+						declare_war_with_cb = {
+							who = PREV
+							casus_belli = cb_imperial
+						}
+					}
+				}
+				add_claim = ROOT 
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+	}
+}
+
+#Capture of Philippines by American Continents Based Nation
+country_event = {
+	id = cpbm_history_oceania.25
+	title = cpbm_history_oceania.25.t
+	desc = cpbm_history_oceania.25.d
+	picture = COLONIZATION_eventPicture
+
+	trigger = {
+		capital_scope = { 
+			OR = { 
+				continent = north_america 
+				continent = south_america
+			} 
+		}
+		num_of_ports = 10
+		NOT = { ruler_has_personality = kind_hearted_personality }
+		NOT = { owns = 656 }
+		controls = 656
+		656 = {
+			owner = {
+				capital_scope = { 
+					NOT = { 
+						OR = { 
+							continent = asia
+							continent = oceania 
+						} 
+					}
+				}
+			}
+			has_owner_culture = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = cpbm_history_oceania.25.a
+		656 = {
+			owner = {
+				every_owned_province = { 
+					limit = { region = moluccas_region }
+					cede_province = ROOT
+					add_core = PHI
+				}
+			}
+		}
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+	}
+	
+	option = {
+		name = cpbm_history_oceania.25.b
+		656 = {
+			owner = {
+				every_owned_province = { 
+					limit = { region = moluccas_region }
+					add_core = PHI
+					add_unrest = 10
+				}
+			}
+		}
+	}
+}
+
+#Philippines Independence
+country_event = {
+	id = cpbm_history_oceania.26
+	title = cpbm_history_oceania.26.t
+	desc = cpbm_history_oceania.26.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { capital_scope = { region = moluccas_region } }
+		owns = 656
+		is_year = 4008
+		NOT = { exists = PHI }
+		NOT = { exists = MNA }
+		NOT = { ruler_has_personality = tolerant_personality }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+
+	option = {
+		name = cpbm_history_oceania.26.a	
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+			}
+		}
+		every_owned_province = { 
+			limit = {
+				OR = {
+					area = southern_luzon_area
+					area = luzon_area
+					area = palawan_area
+					area = visayas_area
+					area = mindanao_area
+					area = west_mindanao_area
+				}
+			}
+			cede_province = MNA
+			add_core = MNA
+			remove_core = ROOT
+		}
+		MNA = { 
+			set_capital = 656
+			define_ruler = {
+				name = "Manuel Roxas"
+				adm = 4
+				dip = 3
+				mil = 3
+			}
+			every_neighbor_country = { add_truce_with = MNA }
+			change_tag = PHI
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.26.b
+		if = {
+			limit = {
+				government = monarchy
+				is_lesser_in_union = no
+			}
+			add_legitimacy = -15
+		}
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		every_owned_province = { 
+			limit = {
+				OR = {
+					area = southern_luzon_area
+					area = luzon_area
+					area = palawan_area
+					area = visayas_area
+					area = mindanao_area
+					area = west_mindanao_area
+				}
+			}
+			cede_province = MNA
+			add_core = MNA
+		}
+		MNA = { 
+			set_capital = 656
+			define_ruler = {
+				name = "Manuel Roxas"
+				adm = 4
+				dip = 3
+				mil = 3
+			}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			hidden_effect = {	
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+			change_tag = PHI
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.26.c
+		highlight = yes
+		trigger = { stability = 3 }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = {
+					area = southern_luzon_area
+					area = luzon_area
+					area = palawan_area
+					area = visayas_area
+					area = mindanao_area
+					area = west_mindanao_area
+				}
+			}
+			add_core = PHI
+		}
+	}
+}
+
+#Arrival of Islam in Sulu
+province_event = {
+	id = cpbm_history_oceania.27
+	title = cpbm_history_oceania.27.t
+	desc = cpbm_history_oceania.27.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		province_id = 651
+		is_religion_enabled = sunni
+		is_year = 3408
+		NOT = { religion_group = muslim }
+		NOT = { owner = { religion_group = muslim } }
+	}
+
+	mean_time_to_happen = {
+		years = 100	
+		modifier = {
+			factor = 0.1
+			owner = { num_of_rebel_controlled_provinces = 1 }
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.27.a
+		change_religion = sunni
+		owner = {
+			add_estate_loyalty = {
+   				 estate = estate_church
+   				 loyalty = -10
+			}
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.27.b
+		spawn_rebels = {
+    			type = sunni_rebels
+    			size = 2
+		}
+	}
+
+	option = {
+		name = cpbm_history_oceania.27.c
+		highlight = yes
+		trigger = { 
+			OR = { 
+				ruler_has_personality = secretive_personality 
+				ruler_has_personality = pious_personality 
+				ruler_has_personality = tolerant_personality
+			}
+		}
+		change_religion = sunni
+		owner = {
+			change_religion = sunni 
+			capital_scope = { area = { change_religion = sunni } } 
+		}
+	}
+}
+
+# Arrival of Makhdum Karim
+country_event = {
+	id = cpbm_history_oceania.28
+	title = cpbm_history_oceania.28.t
+	desc = cpbm_history_oceania.28.d
+	picture = HARBOUR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 651
+		religion = sunni
+		is_year = 3448
+		NOT = { is_year = 3508 }
+		NOT = { 651 = { has_building = temple } }
+	}
+
+	mean_time_to_happen = {
+		years = 30
+	}
+	
+	option = {
+		name = cpbm_history_oceania.28.a
+		651 = { add_building = temple }
+		add_legitimacy = 5
+		if = {
+			limit = {
+				NOT = { 651 = { religion_group = muslim } }
+			}
+			add_permanent_province_modifier = { 
+   				name = disgruntled_nobles
+    				duration = 3650
+			}
+		}
+	}
+	
+	option = {
+		name = cpbm_history_oceania.28.b
+		add_adm_power = 200
+	}
+	
+	option = {
+		name = cpbm_history_oceania.28.c
+		highlight = yes
+		trigger = { corruption = 10 }
+		add_years_of_income = 2
+	}
+}
+
+#1645 Luzon Earthquake
+country_event = {
+	id = cpbm_history_oceania.29
+	title = cpbm_history_oceania.29.t
+	desc = cpbm_history_oceania.29.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	trigger = {
+		OR = { 
+			owns = 656
+			owns = 657
+			owns = 658
+			owns = 2697
+			owns = 2698
+			owns = 4348
+			owns = 4349
+		}
+		is_year = 3743
+		is_month = 10 #November
+		NOT = { is_year = 3744 }
+		NOT = { has_country_flag = luzon_earthquake_1645 }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		set_country_flag = luzon_earthquake_1645
+	}
+	
+	option = {
+		name = cpbm_history_oceania.29.a
+		every_owned_province = { 
+			limit = {
+				OR = {
+					province_id = 656
+					province_id = 657
+					province_id = 658
+					province_id = 2697
+					province_id = 2698
+					province_id = 4348
+					province_id = 4349
+				}
+			}
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 10
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

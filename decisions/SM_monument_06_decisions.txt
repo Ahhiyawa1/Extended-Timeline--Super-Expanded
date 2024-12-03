@@ -1,0 +1,146 @@
+country_decisions = {
+	SM_library_of_muslim_schools_decision = {
+		potential = {
+			has_dlc = "Cradle of Civilization" 
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_library_of_muslim_schools }
+			religion_group = muslim
+			OR = {
+				check_variable = {
+					which = SM_num_of_good_relation_with_religious_school_var
+					value = 2
+				}
+				has_ruler_modifier = islamic_scholarly_centre
+			}
+		}
+		allow = {
+			treasury = 1000
+			religion_group = muslim
+			has_ruler_modifier = islamic_scholarly_centre
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_GOOD_RELATIONSHIP_WITH_RELIGIOUS_SCHOOLS
+				check_variable = {
+					which = SM_num_of_good_relation_with_religious_school_var
+					value = 4
+				}
+			}
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			any_owned_province = {
+				SM_library_of_muslim_schools_province_triggers = yes
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_library_of_muslim_schools_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_grand_caravan_trading_square_decision = {
+		potential = {
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_grand_caravan_trading_square }
+			any_active_trade_node = {
+				has_province_flag = SM_is_inland_trade_node_flag
+				is_strongest_trade_power = ROOT
+			}
+		}
+		allow = {
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			custom_trigger_tooltip = {
+				tooltip = SM_STRONGEST_TRADE_POWER_IN_INLAND_NODE
+				calc_true_if = {
+					all_trade_node = {
+						SM_grand_caravan_trading_square_trade_node_triggers = yes
+					}
+					amount = 3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_LEVEL_3_COT_AS_STRONGEST_TRADE_POWER_IN_INLAND_NODE
+				any_trade_node = {
+					SM_grand_caravan_trading_square_trade_node_triggers = yes
+					any_trade_node_member_province = {
+						SM_grand_caravan_trading_square_province_triggers = yes
+					}
+				}
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_grand_caravan_trading_square_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_the_caliphate_great_hall_decision = {
+		potential = {
+			has_dlc = "Star and Crescent"
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_the_caliphate_great_hall }
+			has_country_flag = unified_islam
+			religion_group = muslim
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_UNIFIED_ISLAM
+				has_country_flag = unified_islam
+			}
+			legitimacy_equivalent = 95
+			religion_group = muslim
+			OR = {
+				full_idea_group = court_ideas
+				custom_trigger_tooltip = {
+					tooltip = SM_HAS_EXCELLENT_RULER
+					AND = {
+						adm = 3
+						dip = 3
+						mil = 3
+						OR = {
+							adm = 5
+							dip = 5
+							mil = 5
+						}
+					}
+				}
+			}
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_the_caliphate_great_hall_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_garden_metropolis_decision = {
+		potential = {
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_garden_metropolis }
+			technology_group = high_american
+		}
+		allow = {
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			any_owned_province = {
+				SM_garden_metropolis_province_triggers = yes
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_garden_metropolis_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+}

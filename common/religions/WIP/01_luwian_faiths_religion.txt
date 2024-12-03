@@ -1,0 +1,35 @@
+western_luwian_faith_group = {
+
+	flags_with_emblem_percentage = 10
+	flag_emblem_index_range = { 83 96 }
+
+	lycian_faith = {
+		color = { 100 0 80 }
+		icon = 131
+		province = {
+			local_missionary_strength = 0.08
+		}
+		country = {
+			global_tax_modifier = 0.5
+			tolerance_heathen = 2
+			infantry_power = 0.2
+			global_tax_modifier = 0.3
+			caravan_power = 0.2
+			local_years_of_nationalism = -3
+		}
+		country_as_secondary = {
+			infantry_power = 0.2
+			global_tax_modifier = 0.3
+			caravan_power = 0.2
+		}
+
+		misguided_heretic = yes
+		can_have_secondary_religion = yes
+		heretic = { SERAPIS }
+	}
+
+	harmonized_modifier = harmonized_western_luwian
+	
+	crusade_name = CRUSADE
+	can_form_personal_unions = yes
+}

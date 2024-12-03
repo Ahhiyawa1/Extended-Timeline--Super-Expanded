@@ -1,0 +1,54 @@
+country_decisions = {
+
+	paraguay_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = PRG }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_la_plata = {
+				owned_by = ROOT
+			}
+			OR = {
+				capital_scope = { area = paraguay_area }
+				capital = 2858
+				capital = 2859
+			}
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 775
+		}
+		effect = {
+			change_tag = PRG
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

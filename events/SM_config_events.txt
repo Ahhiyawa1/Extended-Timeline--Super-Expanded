@@ -1,0 +1,748 @@
+namespace = SM_config_events
+country_event = {
+	id = SM_config_events.0
+	title = SM_config_events.dynamically_spawning_monuments
+	desc = SM_config_events.dynamically_spawning_monuments_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	option = {
+		#Confirm
+		name = SM.confirm
+        highlight = yes
+		clr_global_flag = SM_open_config_menu_flag
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#Enabled Every Monument
+		name = SM.enable_every_monument
+		hidden_effect = {
+			SM_enable_every_monuments_effects = yes
+			country_event = {
+				id = SM_config_events.2
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#Disable Every Monument
+		name = SM.disable_every_monument
+		hidden_effect = {
+			SM_disable_every_monuments_effects = yes
+			country_event = {
+				id = SM_config_events.2
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#AI cannot spawn monument
+		name = SM.ai_cannot_spawn_monument_status
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag }
+				clr_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag
+			}
+			else = { set_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag }
+			country_event = {
+				id = SM_config_events.2
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = { #Towering Granary
+		name = SM_towering_granary_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.0
+			}
+		}
+	}
+	option = { #Exclusive Cloves Market
+		name = SM_exclusive_cloves_market_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.1
+			}
+		}
+	}
+	option = { #Arctic Research Center
+		name = SM_arctic_research_center_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.2
+			}
+		}
+	}
+	option = { #Privateering Haven and Emporium
+		name = SM_privateering_haven_and_emporium_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.3
+			}
+		}
+	}
+	option = { #City State of the World
+		name = SM_city_state_of_the_world_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.4
+			}
+		}
+	}
+	option = { #Great Observatory
+		name = SM_great_observatory_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.5
+			}
+		}
+	}
+	option = { #High Seas Navigation Academy
+		name = SM_high_seas_navigation_academy_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "El Dorado"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.6
+			}
+		}
+	}
+	option = { #Sanctuary of Harmony
+		name = SM_sanctuary_of_harmony_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.7
+			}
+		}
+	}
+	option = { #World Heritage Exhibition
+		name = SM_world_heritage_exhibition_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.8
+			}
+		}
+	}
+	option = { #Trade Company Quarter
+		name = SM_trade_company_quarter_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Wealth of Nations"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.9
+			}
+		}
+	}
+	option = { #Pillar of Independence
+		name = SM_pillar_of_independence_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.10
+			}
+		}
+	}
+	option = { #World Merchant Organization
+		name = SM_world_merchant_organization_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.11
+			}
+		}
+	}
+	option = { #Center of Diplomatic Studies
+		name = SM_center_of_diplomatic_studies_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.12
+			}
+		}
+	}
+	option = { #Heavenly Imperial Court
+		name = SM_heavenly_imperial_court_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.13
+			}
+		}
+	}
+	option = { #March Military Institute
+		name = SM_march_military_institute_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.14
+			}
+		}
+	}
+	option = { #Imperial Italy Memorial
+		name = SM_imperial_italy_memorial_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Emperor"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.15
+			}
+		}
+	}
+	option = { #Naval Engineering Complex
+		name = SM_naval_engineering_complex_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.16
+			}
+		}
+	}
+	option = { #Beacon of the Sea
+		name = SM_beacon_of_the_sea_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.17
+			}
+		}
+	}
+	option = { #Seat of Colonial Authority
+		name = SM_seat_of_colonial_authority_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "The Cossacks"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.18
+			}
+		}
+	}
+	option = { #Wondrous Garden in the Desert
+		name = SM_wondrous_garden_in_the_desert_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.19
+			}
+		}
+	}
+	option = { #The Golden Mosque
+		name = SM_the_golden_mosque_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.20
+			}
+		}
+	}
+	option = { #Wonderwork Workshop
+		name = SM_wonderwork_workshop_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.21
+			}
+		}
+	}
+	option = { #Institute of Progress and Reforms
+		name = SM_institute_of_progress_and_reforms_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.22
+			}
+		}
+	}
+	option = { #House of Dharmic Learning
+		name = SM_house_of_dharmic_learning_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Wealth of Nations"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.23
+			}
+		}
+	}
+	option = { #The Stark Palace and Fortress
+		name = SM_the_stark_palace_and_fortress_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.24
+			}
+		}
+	}
+	option = { #Library of Muslim Schools
+		name = SM_library_of_muslim_schools_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Cradle of Civilization" 
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.25
+			}
+		}
+	}
+	option = { #Grand Caravan Trading Square
+		name = SM_grand_caravan_trading_square_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.26
+			}
+		}
+	}
+	option = { #The Caliphate Great Hall
+		name = SM_the_caliphate_great_hall_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Star and Crescent"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.27
+			}
+		}
+	}
+	option = { #Garden Metropolis
+		name = SM_garden_metropolis_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.28
+			}
+		}
+	}
+	option = {
+		#Confirm
+		name = SM.confirm
+        highlight = yes
+		clr_global_flag = SM_open_config_menu_flag
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = SM_config_events.2
+	title = SM_config_events.dynamically_spawning_monuments
+	desc = SM_config_events.dynamically_spawning_monuments_desc
+	picture = INVENTION_eventPicture
+	is_triggered_only = yes
+	option = {
+		#Confirm
+		name = SM.confirm
+        highlight = yes
+		clr_global_flag = SM_open_config_menu_flag
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#Enabled Every Monument
+		name = SM.enable_every_monument
+		hidden_effect = {
+			SM_enable_every_monuments_effects = yes
+			country_event = {
+				id = SM_config_events.0
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#Disable Every Monument
+		name = SM.disable_every_monument
+		hidden_effect = {
+			SM_disable_every_monuments_effects = yes
+			country_event = {
+				id = SM_config_events.0
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		#AI cannot spawn monument
+		name = SM.ai_cannot_spawn_monument_status
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag }
+				clr_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag
+			}
+			else = { set_global_flag = SM_ai_cannot_spawn_monument_enabled_global_flag }
+			country_event = {
+				id = SM_config_events.0
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = { #Towering Granary
+		name = SM_towering_granary_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.0
+			}
+		}
+	}
+	option = { #Exclusive Cloves Market
+		name = SM_exclusive_cloves_market_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.1
+			}
+		}
+	}
+	option = { #Arctic Research Center
+		name = SM_arctic_research_center_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.2
+			}
+		}
+	}
+	option = { #Privateering Haven and Emporium
+		name = SM_privateering_haven_and_emporium_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.3
+			}
+		}
+	}
+	option = { #City State of the World
+		name = SM_city_state_of_the_world_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.4
+			}
+		}
+	}
+	option = { #Great Observatory
+		name = SM_great_observatory_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.5
+			}
+		}
+	}
+	option = { #High Seas Navigation Academy
+		name = SM_high_seas_navigation_academy_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "El Dorado"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.6
+			}
+		}
+	}
+	option = { #Sanctuary of Harmony
+		name = SM_sanctuary_of_harmony_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.7
+			}
+		}
+	}
+	option = { #World Heritage Exhibition
+		name = SM_world_heritage_exhibition_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.8
+			}
+		}
+	}
+	option = { #Trade Company Quarter
+		name = SM_trade_company_quarter_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Wealth of Nations"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.9
+			}
+		}
+	}
+	option = { #Pillar of Independence
+		name = SM_pillar_of_independence_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.10
+			}
+		}
+	}
+	option = { #World Merchant Organization
+		name = SM_world_merchant_organization_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.11
+			}
+		}
+	}
+	option = { #Center of Diplomatic Studies
+		name = SM_center_of_diplomatic_studies_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.12
+			}
+		}
+	}
+	option = { #Heavenly Imperial Court
+		name = SM_heavenly_imperial_court_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.13
+			}
+		}
+	}
+	option = { #March Military Institute
+		name = SM_march_military_institute_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.14
+			}
+		}
+	}
+	option = { #Imperial Italy Memorial
+		name = SM_imperial_italy_memorial_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Emperor"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.15
+			}
+		}
+	}
+	option = { #Naval Engineering Complex
+		name = SM_naval_engineering_complex_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.16
+			}
+		}
+	}
+	option = { #Beacon of the Sea
+		name = SM_beacon_of_the_sea_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.17
+			}
+		}
+	}
+	option = { #Seat of Colonial Authority
+		name = SM_seat_of_colonial_authority_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "The Cossacks"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.18
+			}
+		}
+	}
+	option = { #Wondrous Garden in the Desert
+		name = SM_wondrous_garden_in_the_desert_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.19
+			}
+		}
+	}
+	option = { #The Golden Mosque
+		name = SM_the_golden_mosque_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.20
+			}
+		}
+	}
+	option = { #Wonderwork Workshop
+		name = SM_wonderwork_workshop_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.21
+			}
+		}
+	}
+	option = { #Institute of Progress and Reforms
+		name = SM_institute_of_progress_and_reforms_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.22
+			}
+		}
+	}
+	option = { #House of Dharmic Learning
+		name = SM_house_of_dharmic_learning_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Wealth of Nations"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.23
+			}
+		}
+	}
+	option = { #The Stark Palace and Fortress
+		name = SM_the_stark_palace_and_fortress_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			OR = {
+				has_dlc = "Emperor"
+				has_dlc = "Rights of Man"
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.24
+			}
+		}
+	}
+	option = { #Library of Muslim Schools
+		name = SM_library_of_muslim_schools_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Cradle of Civilization" 
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.25
+			}
+		}
+	}
+	option = { #Grand Caravan Trading Square
+		name = SM_grand_caravan_trading_square_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.26
+			}
+		}
+	}
+	option = { #The Caliphate Great Hall
+		name = SM_the_caliphate_great_hall_status
+		ai_chance = { factor = 0 }
+		trigger = {
+			has_dlc = "Star and Crescent"
+		}
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.27
+			}
+		}
+	}
+	option = { #Garden Metropolis
+		name = SM_garden_metropolis_status
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			country_event = {
+				id = SM_info_events.28
+			}
+		}
+	}
+	option = {
+		#Confirm
+		name = SM.confirm
+        highlight = yes
+		clr_global_flag = SM_open_config_menu_flag
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = { #Set mod setting
+	id = SM_config_events.1
+	title = NONE
+	desc = NONE
+	picture = NONE
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	hidden = yes
+	trigger = { always = yes }
+	immediate = {
+		hidden_effect = {
+			set_global_flag = SM_initial_set_up_global_flag
+			SM_enable_every_monuments_effects = yes
+		}
+	}
+	option = {
+		#hidden
+	}
+}

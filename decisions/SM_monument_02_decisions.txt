@@ -1,0 +1,188 @@
+country_decisions = {
+	SM_great_observatory_decision = {
+		potential = {
+			has_dlc = "Rule Britannia"
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_great_observatory }
+			OR = {
+				has_idea_group = innovativeness_ideas
+				any_owned_province = {
+					has_terrain = mountain
+					development = 25
+				}
+			}
+		}
+		allow = {
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			full_idea_group = innovativeness_ideas
+			innovativeness = 70
+			any_owned_province = {
+				SM_great_observatory_province_triggers = yes
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			custom_tooltip = SM_NO_MORE_COMET_SIGHTED_EVENT
+			country_event = {
+				id = SM_great_observatory_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_high_seas_navigation_academy_decision = {
+		potential = {
+			has_dlc = "El Dorado"
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_high_seas_navigation_academy }
+			OR = {
+				has_country_flag = circumnavigation_first
+				num_of_explorers = 1
+			}
+		}
+		allow = {
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			custom_trigger_tooltip = {
+				tooltip = SM_IS_FIRST_TO_COMPLETE_CIRCUMNAVIGATION
+				has_global_flag = circumnavigation_completed
+				has_country_flag = circumnavigation_first
+			}
+			treasury = 1000
+			num_of_explorers = 1
+			any_owned_province = {
+				SM_high_seas_navigation_academy_province_triggers = yes
+			}
+			
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_high_seas_navigation_academy_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_sanctuary_of_harmony_decision = {
+		potential = {
+			has_dlc = "Mandate of Heaven"
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_sanctuary_of_harmony }
+			religion = confucianism
+		}
+		allow = {
+			num_of_harmonized = 4
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			harmony = 80
+			any_owned_province = {
+				SM_sanctuary_of_harmony_province_triggers = yes
+			}
+			
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_sanctuary_of_harmony_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_world_heritage_exhibition_decision = {
+		potential = {
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_world_heritage_exhibition }
+			num_of_continents = 2
+		}
+		allow = {
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			prestige = 50
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_EUROPE
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = europe
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_ASIA
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = asia
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_AFRICA
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = africa
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_OCEANIA
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = oceania
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_NORTH_AMERICA
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = north_america
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SM_OWN_OR_SUBJECT_OWN_PROVINCE_IN_SOUTH_AMERICA
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					is_city = yes
+					continent = south_america
+				}
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_world_heritage_exhibition_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+	SM_trade_company_quarter_decision = {
+		potential = {
+			has_dlc = "Wealth of Nations"
+			SM_basic_monument_decision_check_triggers = { MONUMENT = SM_trade_company_quarter }
+			num_of_strong_trade_companies = 1
+		}
+		allow = {
+			treasury = 1000
+			SM_ai_is_not_at_war_or_deficit_triggers = yes
+			custom_trigger_tooltip = {
+				tooltip = SM_HAS_AT_LEAST_4_STRONG_TRADE_COMPANY
+				num_of_strong_trade_companies = 4
+			}
+			any_owned_province = {
+				SM_trade_company_quarter_province_triggers = yes
+			}
+		}
+		effect = {
+			add_treasury = -1000
+			country_event = {
+				id = SM_trade_company_quarter_events.0
+			}
+		}
+		ai_will_do = {
+			factor = 400
+		}
+	}
+}

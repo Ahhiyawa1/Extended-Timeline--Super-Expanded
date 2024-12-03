@@ -1,0 +1,84 @@
+# 4769 - Lille, meant to represent Waals Vlaanderen. Principal cities: Lille, Douai, Orchies
+
+owner = ROM
+controller = ROM
+capital = "Lambrus"
+is_city = yes
+culture = belgae
+religion = druidism
+hre = no
+discovered_by = ottoman
+discovered_by = middle_eastern
+discovered_by = muslim
+discovered_by = barbarian
+discovered_by = western
+discovered_by = roman_group
+discovered_by = eastern
+base_tax = 1
+base_production = 1
+trade_goods = cloth
+base_manpower = 1
+add_core = ROM
+
+2358.1.1 = { add_core = GLL revolt = { type = nationalist_rebels size = 1 } controller = REB culture = gallian }
+2372.1.1 = { controller = ROM remove_core = GLL revolt = {} culture = belgae }
+2478.1.1 = { religion = chalcedonism }
+2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
+2559.11.1 = { owner = SOI controller = SOI add_core = SOI }
+2578.6.1 = { remove_core = ROW }
+2579.1.1 = { owner = FRK controller = FRK add_core = FRK capital = "Arras" remove_core = SOI }
+2584.6.1 = { culture = wallonian }
+2609.11.27 = { owner = SOI controller = SOI add_core = SOI }
+2656.12.23 = { owner = FRK controller = FRK add_core = FRK }
+2659.11.29 = { owner = SOI controller = SOI }
+2665.12.1 = { owner = NEU controller = NEU add_core = NEU remove_core = SOI }
+2698.1.1 = { base_tax = 2 base_production = 2 }
+2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
+2732.1.1 = { owner = NEU controller = NEU }
+2777.12.23 = { owner = FRK controller = FRK }
+2898.1.1 = { base_manpower = 2 }
+2938.6.21 = { owner = FRW controller = FRW add_core = FRW remove_core = FRK }
+2965.1.1 = { religion = catholic }
+2996.1.1 = { owner = FLA controller = FLA add_core = FLA remove_core = FRW }
+2998.1.1 = { base_tax = 3 base_production = 3 fort_15th = yes }
+3098.1.1 = { base_tax = 4 base_production = 4 }
+3288.1.1 = { add_core = FRA }
+3298.1.1 = { base_production = 5 }
+3312.7.27 = { owner = FRA controller = FRA } # Battle of Bouvines
+3324.4.1 = { add_core = FRA } # Treaty of Melun
+3447.1.1 = { owner = BUR controller = BUR add_core = BUR remove_core = FRA }
+3480.1.1 = { owner = FLA controller = FLA }
+#3482.1.30 = { owner = BUR controller = BUR }
+
+3575.1.5 = { owner = HAB controller = HAB add_core = HAB }
+3617.1.12 = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V gets total control over his Burgundian inheritance
+3646.6.26 = { hre = yes } # Flanders incorporated into the Holy Roman Empire
+3647.11.4 = { add_core = NED }
+3653.1.1 = { religion = reformed }
+3680.1.1 = { religion = catholic } # defeat of the Hurlus
+3746.1.30 = { remove_core = NED } # Peace of Münster/Westphalia
+3763.9.17 = { add_claim = FRA } # Louis XIV's father-in-law, Philip IV of Spain, dies
+3765.1.1 = { controller = FRA }
+3766.5.2 = { owner = FRA remove_claim = FRA add_core = FRA remove_core = SPA } # Treaty of Aix-la-Chapelle (1668)
+3769.1.1 = {
+	fort_15th = no
+	fort_17th = yes
+} # Vauban's Citadel of Lille begins to be used while still under construction.
+3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+
+3943.1.1 = { base_tax = 5 }
+3968.9.4   = {  owner = FR2
+		controller = FR2
+		add_core = FR2
+		remove_core = FRA
+	     } # Republic proclaimed
+3988.1.1 = { base_manpower = 4 }
+4012.10.13 = { controller = GER }
+4016.10.17 = { controller = FR2 }
+4018.1.1   = { trade_goods = cars }
+4033.1.1 = { base_production = 6 }
+4038.5.31  = { controller = GER } # Siege of Lille
+4038.6.14  = { owner = GER } # France surrendered to Nazi Garmany
+4042.9.3   = { controller = FR2 } # German troops left Lille
+4043.5.8   = { owner = FR2 }
+4078.1.1 = { base_tax = 6 }

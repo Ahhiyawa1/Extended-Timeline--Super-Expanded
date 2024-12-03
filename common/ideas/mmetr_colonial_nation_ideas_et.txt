@@ -1,0 +1,421 @@
+######################################################################################
+################# AMERICAS ###########################################################
+######################################################################################
+
+#New Spain
+SPA_new_spain_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		auto_explore_adjacent_to_colony = yes
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = SPA
+			is_colonial_nation_of = CAS 
+			is_colonial_nation_of = ARA 
+			is_colonial_nation_of = LON
+		}
+		capital_scope = { 
+			colonial_region = colonial_mexico
+		}
+	}
+	
+	free = yes
+	
+	SPA_new_spain_adelantados = {
+		free_leader_pool = 1
+	}
+	SPA_new_spain_encomiendas = {
+		native_assimilation = 0.3
+	}
+	SPA_new_spain_casta = {
+		num_accepted_cultures = 1
+	}
+	SPA_new_spain_mexican_inquisition = {
+		global_missionary_strength = 0.01
+		global_heretic_missionary_strength = 0.02
+	}
+	SPA_new_spain_silver_mining = {
+		production_efficiency = 0.1
+	}
+	SPA_new_spain_el_primero_virreinato = {
+		diplomats = 1
+	}
+	SPA_new_spain_pan_oceanic_trade = {
+		trade_range_modifier = 0.3
+	}
+}
+
+#Spanish Peru
+SPA_spanish_peru_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		auto_explore_adjacent_to_colony = yes
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = SPA
+			is_colonial_nation_of = CAS 
+			is_colonial_nation_of = ARA 
+			is_colonial_nation_of = LON
+		}
+		capital_scope = { 
+			colonial_region = colonial_peru
+		}
+	}
+	
+	free = yes
+	
+	SPA_spanish_peru_mita = {
+		build_cost = -0.1
+		build_time = -0.1
+	}
+	SPA_spanish_peru_kurakas = {
+		state_maintenance_modifier = -0.15
+	}
+	SPA_spanish_peru_tribute_tax = {
+		global_tax_modifier = 0.1
+	}
+	SPA_spanish_peru_la_armada_del_mar_del_sur = {
+		global_ship_trade_power = 0.1
+	}
+	SPA_spanish_peru_intendencias = {
+		yearly_corruption = -0.1
+	}
+	SPA_spanish_peru_potosi_silver = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	SPA_spanish_peru_spanish_officers = {
+		free_leader_pool = 1
+	}
+}
+
+#Isla Juana / Spanish West Indies
+SPA_isla_juana_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		navy_tradition = 1
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = SPA
+			is_colonial_nation_of = CAS 
+			is_colonial_nation_of = ARA 
+			is_colonial_nation_of = LON
+		}
+		capital_scope = { 
+			colonial_region = colonial_the_carribean
+		}
+	}
+	
+	free = yes
+	
+	SPA_isla_juana_cristobal_colon = {
+		prestige = 1
+	}
+	SPA_isla_juana_encomiendas = {
+		native_assimilation = 0.5
+	}
+	SPA_isla_juana_mercedes_reales = {
+		global_colonial_growth = 10
+	}
+	SPA_isla_juana_tobacco_monopoly = {
+		global_own_trade_power = 0.25
+	}
+	SPA_isla_juana_ship_repairing_industry = {
+		global_ship_repair = 0.15
+	}
+	SPA_isla_juana_antipiracy_and_buccaneers = {
+		global_ship_trade_power = 0.15
+		privateer_efficiency = 0.1
+	}
+	SPA_isla_juana_sugar_plantations = {
+		global_trade_goods_size_modifier = 0.15
+	}
+}
+
+#Spanish California
+SPA_california_ideas = {
+	start = {
+		native_assimilation = 0.2
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		global_foreign_trade_power = 0.1
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = SPA
+			is_colonial_nation_of = CAS 
+			is_colonial_nation_of = ARA 
+			is_colonial_nation_of = LON
+		}
+		capital_scope = { 
+			colonial_region = colonial_california
+		}
+	}
+	
+	free = yes
+	
+	SPA_california_mission_system = {
+		global_missionary_strength = 0.02
+		build_cost = -0.1
+	}
+	SPA_california_presidios = {
+		fort_maintenance_modifier = -0.1
+	}
+	SPA_california_ranchos_de_california = {
+		state_maintenance_modifier = -0.15
+	}
+	SPA_california_transpacific_fur_trade = {
+		trade_efficiency = 0.1
+		global_ship_trade_power = 0.1
+	}
+	SPA_california_pueblos = {
+		development_cost = -0.1
+	}
+	SPA_california_gente_de_razon = {
+		same_culture_advisor_cost = -0.2
+		culture_conversion_cost = -0.2
+	}
+	SPA_california_far_eastern_markets = {
+		trade_range_modifier = 0.3
+	}
+}
+
+#Thirteen Colonies
+GBR_thirteen_colonies_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		global_tax_modifier = 0.15
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = GBR
+			is_colonial_nation_of = ENG
+		}
+		capital_scope = { 
+			colonial_region = colonial_eastern_america
+		}
+	}
+	
+	free = yes
+	
+	GBR_thirteen_colonies_tobacco_trade = {
+		production_efficiency = 0.1
+	}
+	GBR_thirteen_colonies_democratic_roots = {
+		republican_tradition = 0.4
+	}
+	GBR_thirteen_colonies_army_rangers = {
+		rival_border_fort_maintenance = -0.1
+		leader_land_shock = 1
+	}
+	GBR_thirteen_colonies_provincial_troops = {
+		global_regiment_cost = -0.1
+	}
+	GBR_thirteen_colonies_melting_pot = {
+		num_accepted_cultures = 2
+	}
+	GBR_thirteen_colonies_questionable_trading = {
+		global_own_trade_power = 0.2
+	}
+	GBR_thirteen_colonies_colonies_united = {
+		land_morale = 0.15
+		advisor_pool = 1
+	}
+}
+
+#British Columbia
+GBR_british_columbia_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		naval_tradition_from_trade = 0.1
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = GBR
+			is_colonial_nation_of = ENG
+		}
+		capital_scope = { 
+			colonial_region = colonial_california
+		}
+	}
+	
+	free = yes
+	
+	GBR_british_columbia_cooks_legacy = {
+		may_explore = yes
+	}
+	GBR_british_columbia_trading_posts = {
+		global_own_trade_power = 0.1
+	}
+	GBR_british_columbia_fur_trading_companies = {
+		build_cost = -0.1
+	}
+	GBR_british_columbia_british_privateers = {
+		privateer_efficiency = 0.2
+	}
+	GBR_british_columbia_york_factory_express = {
+		global_prov_trade_power_modifier = 0.15
+	}
+	GBR_british_columbia_bulwark_in_the_farthest_west = {
+		fort_maintenance_modifier = -0.15
+	}
+	GBR_british_columbia_gold_rush = {
+		global_colonial_growth = 15
+		production_efficiency = 0.1
+	}
+}
+
+#French Canada - New France
+FRA_french_canada_ideas = {
+	start = {
+		development_cost = -0.1
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		trade_efficiency = 0.1
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = FRA
+			is_colonial_nation_of = FR2
+		}
+		capital_scope = { 
+			colonial_region = colonial_canada
+		}
+	}
+	
+	free = yes
+	
+	FRA_french_canada_voyageurs = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	FRA_french_canada_la_petite_guerre = {
+		hostile_attrition = 1
+	}
+	FRA_french_canada_native_intermarriage = {
+		num_accepted_cultures = 1
+		native_assimilation = 0.25
+	}
+	FRA_french_canada_beaver_trade_monopolies = {
+		global_own_trade_power = 0.2
+	}
+	FRA_french_canada_indigenous_allies = {
+		native_uprising_chance = -0.5
+	}
+	FRA_french_canada_trade_forts = {
+		rival_border_fort_maintenance = -0.1
+	}
+	FRA_french_canada_chemin_du_roy = {
+		caravan_power = 0.2
+	}
+}
+
+
+
+
+####################################################################################
+################# AFRICA ###########################################################
+####################################################################################
+
+#Portuguese Mozambique
+POR_mozambique_colony_ideas = {
+	start = {
+		trade_range_modifier = 0.2
+		global_heathen_missionary_strength = 0.02
+		
+		#no_religion_penalty = yes	#removed from vanilla, no religious unity penalties from heretic/heathen
+	}
+	
+	bonus = {
+		num_accepted_cultures = 1
+	}
+	
+	trigger = {
+		is_colonial_nation = yes
+		OR = { 
+			is_colonial_nation_of = POR
+		}
+		capital_scope = { 
+			colonial_region = colonial_zambezi
+		}
+	}
+	
+	free = yes
+	
+	POR_mozambique_colony_prazos = {
+		global_colonial_growth = 15
+	}
+	POR_mozambique_colony_charter_companies = {
+		development_cost = -0.1
+	}
+	POR_mozambique_colony_indigenato = {
+		state_maintenance_modifier = -0.15
+	}
+	POR_mozambique_colony_cosmopolitan = {
+		num_accepted_cultures = 1
+	}
+	POR_mozambique_colony_civilizing_mission = {
+		culture_conversion_cost = -0.15
+	}
+	POR_mozambique_colony_lorenco_marques_architecture = {
+		prestige = 1
+	}
+	POR_mozambique_colony_investment_incentives = {
+		build_cost = -0.15
+		colonist_placement_chance = 0.05
+	}
+}
+

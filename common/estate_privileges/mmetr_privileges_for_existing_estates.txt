@@ -1,0 +1,127 @@
+#########################################
+#Church / Clergy
+#########################################
+estate_church_synods_of_francia = {
+	icon = privilege_devotion_red
+	loyalty = -0.05
+	influence = -0.05		#more centralized control over clergy by allowing the king exclusive right to call most synods
+	is_valid = {
+		has_country_flag = frk_can_use_estate_privilege_synods_of_francia_flag
+	}
+	can_select = {
+		has_country_flag = frk_can_use_estate_privilege_synods_of_francia_flag
+	}
+	on_granted = {
+		add_adm_power = -50
+	}
+	penalties = {
+	}
+	benefits = {
+		estate_interaction_cooldown_modifier = -0.1
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_royal_abbots_francia = {
+	icon = privilege_missionary
+	influence = 0.05
+	is_valid = {
+		has_country_flag = frk_can_use_estate_privilege_royal_abbots_flag
+	}
+	can_select = {
+		has_country_flag = frk_can_use_estate_privilege_royal_abbots_flag
+		has_reform = salic_reform
+	}
+	on_granted = {
+		custom_tooltip = estate_royal_abbots_francia.tt
+	}
+	on_revoked = {
+	}
+	on_invalid = {
+	}
+	penalties = {
+		global_tax_modifier = -0.1
+		nobles_influence_modifier = 0.05
+	}
+	benefits = {
+	}
+	mechanics = {
+		exempt_from_seize_land		#protects abbots from losing land
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_church_vow_of_ahimsa = {
+	icon = privilege_estate_church_karma
+	loyalty = 0.15
+	is_valid = {
+		OR = {
+			religion = jainism
+			religion_group = buddhic
+		}
+	}
+	can_select = {
+		is_at_war = no
+	}
+	on_granted = {
+	}
+	on_revoked = {
+	}
+	on_invalid = {
+	}
+	penalties = {
+		stability_cost_to_declare_war = 2
+		spy_offence = -0.1
+	}
+	benefits = {
+		monthly_karma_accelerator = 0.03
+		diplomatic_reputation = 1
+		global_unrest = -3
+		development_cost = -0.15
+		improve_relation_modifier = 0.1
+		global_monthly_devastation = -0.05
+	}
+	mechanics = {
+	}
+	cooldown_years = 5		#must wait 5 years
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+
+#########################################
+#Nobles
+#########################################
+estate_queens_once_slaves_francia = {
+	icon = privilege_royal_marriage
+	loyalty = -0.05
+	is_valid = {
+		has_country_flag = frk_can_use_estate_privilege_queens_once_slaves_flag
+	}
+	can_select = {
+		has_country_flag = frk_can_use_estate_privilege_queens_once_slaves_flag
+	}
+	on_granted = {
+		custom_tooltip = estate_queens_once_slaves_francia.tt
+	}
+	on_revoked = {
+	}
+	on_invalid = {
+	}
+	penalties = {
+	}
+	benefits = {
+		heir_chance = 0.3
+	}
+	mechanics = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+

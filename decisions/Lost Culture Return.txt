@@ -1,0 +1,63 @@
+country_decisions = {
+	
+	Lost_Culture_Return = {
+	
+		mayor = yes
+		
+		potential = {
+			NOT = {
+				tag = ROM
+			}
+			OR = {
+				owns_core_province = 2451 #Thubaqt
+				tag = BYZ
+			}
+		}
+		allow = {
+			stability = 3
+			owns_core_province = 2451 #Thubaqt
+			is_at_war = no
+			OR = {
+				NOT = {
+					exists = BYZ
+				}
+				tag = BYZ
+			}
+			accepted_culture = greek
+			2451 = {
+				culture = greek
+				has_great_project = {
+					type = leptis_magna
+					tier = 3
+				}
+			}
+			NOT = { has_country_flag = lost_culture_returned }
+			
+		}
+		effect = {
+			add_prestige = 50
+			add_splendor = 100
+			add_accepted_culture = old_egyptian
+			add_accepted_culture = phoenician
+			add_accepted_culture = roman
+			361 = {
+				change_culture = old_egyptian
+				add_permanent_claim = ROOT
+			}
+			118 = {
+				change_culture = roman
+				add_permanent_claim = ROOT
+			}
+			151 = {
+				change_culture = greek
+				add_permanent_claim = ROOT
+			}
+			341 = {
+				change_culture = phoenician
+				add_permanent_claim = ROOT
+			}
+			set_country_flag = lost_culture_returned
+		}
+	}
+}
+				

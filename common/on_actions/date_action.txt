@@ -1,0 +1,9 @@
+on_startup = {
+    if = {
+        limit = {
+            NOT = { has_global_flag = date_setup }
+        }
+        set_global_flag = date_setup
+        date_setup = yes
+    }
+}

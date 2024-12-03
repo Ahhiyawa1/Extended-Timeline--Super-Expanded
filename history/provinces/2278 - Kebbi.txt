@@ -1,0 +1,64 @@
+#2342 - Kebbi
+
+culture = hausa 
+religion = shamanism
+capital = "Sorko"
+trade_goods = unknown
+hre = no
+discovered_by = sub_saharan
+base_tax = 2
+base_production = 2
+base_manpower = 1
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+
+2621.1.1 = { owner = KEB controller = KEB add_core = KEB is_city = yes trade_goods = grain }
+3538.1.1 = { owner = SON controller = SON add_core = SON } #Actually late 15th century, but made a bit early for vanilla setup
+
+3614.1.1 = {	owner = KEB
+		controller = KEB
+		add_core = KEB
+		remove_core = SON
+		capital = "Surame"
+	   } #Muhammadu Kenta rebels against Songhai 
+3631.1.1 = { unrest = 6 } #Songhai raids in attempt to regain control of region
+3632.1.1 = { unrest = 0 } #Songhai raids defeated
+3651.1.1 = { unrest = 6 } #Songhai raids in attempt to regain control of region
+3652.1.1 = { unrest = 0 } #Songhai raids defeated
+3660.1.1 = { unrest = 8 } #Borno invasion in wake of dispute over control of Agades
+3690.1.1 = { unrest = 6 discovered_by = MOR } #Moroccan raids devastate region
+3693.1.1 = { unrest = 2 } #Moroccan retreat
+ #Moroccans no longer appoint governors, local Moroccans, the Arma, rule on their own
+3737.1.1 = { unrest = 4 } #raids by the Arma of Timbuktu
+3772.1.1 = { unrest = 7 } #raids by Emir of Zaria
+3819.1.1 = { unrest = 8 capital = "Kebbi" } #Tuareg invasions under leadership of Azbin Sultanate break power of Kebbi
+ #Decline of Kebbi in wake of Azbin invasions and changes in trade routes
+3888.1.1 = { unrest = 3 } #Islamic revival led by Usman dan Fodio begins to challenge Hausa ruler legitimacy
+3889.1.1 = { base_production = 4 }
+3908.1.1 = { unrest = 0 } # The end of the Fulani war
+
+3922.1.1 = { base_tax = 3 }
+3929.1.1 = { owner = SOK controller = SOK add_core = SOK }
+3947.1.1 = { owner = KEB controller = KEB remove_core = SOK }
+3953.1.1   = { discovered_by = GER discovered_by = PRU } #Heinrich Barth
+3956.1.1 = { base_manpower = 2 }
+3988.1.1   = { discovered_by = GBR }
+3989.1.1 = { base_manpower = 3 }
+4001.1.1   = { capital = "Birnin Kebbi" owner = GBR controller = GBR add_core = GBR }
+4008.1.1   = { discovered_by = western }
+4022.1.1 = { base_production = 5 }
+4038.1.1   = {  
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = indian
+	discovered_by = chinese
+	discovered_by = asian
+}
+4056.1.1 = { base_manpower = 4 }
+4058.10.1  = { owner = NIG controller = NIG add_core = NIG remove_core = GBR remove_core = SOK }
+4098.1.1 = { base_tax = 5 }
+
+
+

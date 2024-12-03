@@ -1,0 +1,219 @@
+country_decisions = {
+
+	quebec_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = QUE }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			NOT = { owns_core_province = 4892 } #NOT CANADA
+			OR = {
+				capital_scope = {
+					OR = {
+						area = lower_canada_area
+						area = notre_dame_mountains_area
+						area = laurentian_area
+						area = cote_nord_area
+						area = ungava_area
+						area = trois_rivieres_area
+					}
+				}
+				capital = 999
+				capital = 1000
+			}
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 994
+		}
+		effect = {
+			change_tag = QUE
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = QUE
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cwibec_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CW0 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			NOT = { owns_core_province = 4892 } #NOT CANADA
+			OR = {
+				capital_scope = {
+					OR = {
+						area = lower_canada_area
+						area = notre_dame_mountains_area
+						area = laurentian_area
+						area = cote_nord_area
+						area = ungava_area
+						area = trois_rivieres_area
+					}
+				}
+				capital = 999
+				capital = 1000
+			}
+			OR = { culture_group = gaelic culture_group = celtic }
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 994
+		}
+		effect = {
+			change_tag = CW0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CW0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	sankt_laurentius_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = SL1 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_canada = {
+				owned_by = ROOT
+			}
+			NOT = { owns_core_province = 4892 } #NOT CANADA
+			OR = {
+				capital_scope = {
+					OR = {
+						area = lower_canada_area
+						area = notre_dame_mountains_area
+						area = laurentian_area
+						area = cote_nord_area
+						area = ungava_area
+						area = trois_rivieres_area
+					}
+				}
+				capital = 999
+				capital = 1000
+			}
+			culture_group = scandinavian
+		}
+		allow = {
+			adm_tech = 55
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 994
+		}
+		effect = {
+			change_tag = SL1
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = SL1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -1,0 +1,470 @@
+country_decisions = {
+
+	louisiana_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LOU }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			} #NOT USA
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			} #NOT CSA
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = british
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = LOU
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LOU
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	erikia_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = ER0 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			}
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = scandinavian
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = ER0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ER0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	louisiane_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LO0 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			}
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = french
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = LO0
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LO0
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	luisiana_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LU4 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			}
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = iberian
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = LU4
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LU4
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ludwigen_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LU1 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			}
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = germanic
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = LU1
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LU1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	ludoviciana_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = LU2 }
+			is_nomad = no
+			is_random_new_world = no			
+			colonial_louisiana = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 956
+					owns_core_province = 965
+					owns_core_province = 953
+				}
+			}
+			NOT = {
+				AND = {		
+					owns_core_province = 924
+					owns_core_province = 952
+				}
+			}
+			capital_scope = { area = lower_louisiana_area }
+			culture_group = latin
+		}
+		allow = {
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			OR = {
+				owns_core_province = 893
+				owns_core_province = 921
+			}
+		}
+		effect = {
+			change_tag = LU2
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 8 }
+				}
+				set_government_rank = 8
+			}
+			colonial_louisiana = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LU2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

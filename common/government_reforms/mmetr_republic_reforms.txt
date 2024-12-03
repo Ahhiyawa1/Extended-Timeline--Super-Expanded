@@ -1,0 +1,172 @@
+
+#Removed trade company, since added in 1.35
+
+#Ezo Federal Republic
+samurai_republic_government_reform = {
+	icon = "ezo_republic"
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	allow_normal_conversion = no
+	
+	potential = {
+		OR = {
+			tag = TKG
+			has_country_flag = adopted_samurai_republic_government
+		}
+	}
+	
+	modifiers = {
+		discipline = 0.025
+		
+	}
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+	}
+	conditional = {		#from American federal republic, which Ezo Republic was based on
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
+	}
+}
+
+#Pisan Consulate
+pisan_consulate_reform = {
+	icon = "trading_city"
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = -10
+		merchants = 1
+		republican_tradition = 0.2
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	potential = {
+		OR = {
+			tag = PIS
+			was_tag = PIS
+			has_reform = pisan_consulate_reform
+		}
+	}
+	trigger = {
+		OR = {
+			has_reform = pisan_consulate_reform
+			tag = PIS
+			was_tag = PIS
+		}
+	}
+	boost_income = yes
+	duration = 2			#2 year terms
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		is_merchant_republic = yes
+	}
+	government_abilities = {
+		pisan_republic_mechanic			#New added in MMETR mod
+	}
+	ai = {
+		factor = 2
+		modifier = {
+			factor = 0
+			capital_scope = { has_port = no }
+		}
+	}
+}
+
+#Pisan Podesteria
+pisan_podesteria_reform = {
+	icon = "merchant"
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = -10
+		merchants = 1
+		yearly_corruption = -0.1
+		stability_cost_modifier = -0.05
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	potential = {
+		OR = {
+			tag = PIS
+			was_tag = PIS
+			has_reform = pisan_consulate_reform
+		}
+	}
+	trigger = {
+		OR = {
+			has_reform = pisan_consulate_reform
+			tag = PIS
+			was_tag = PIS
+		}
+	}
+	boost_income = yes
+	duration = 2			#2 year terms
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		is_merchant_republic = yes
+	}
+	government_abilities = {
+		pisan_republic_mechanic			#New added in MMETR mod
+	}
+	ai = {
+		factor = 2
+		modifier = {
+			factor = 0
+			capital_scope = { has_port = no }
+		}
+	}
+}
+
+
+

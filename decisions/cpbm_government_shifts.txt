@@ -1,0 +1,9758 @@
+country_decisions = {
+
+###FRANCE###
+	form_french_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = FR2 tag = FR7 tag = FRV }
+			NOT = { exists = FRA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = FRA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_french_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = FRA tag = FR7 tag = FRV }
+			NOT = { exists = FR2 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = FR2
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_france = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = FRA tag = FR2 tag = FRV }
+			NOT = { exists = FR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = FR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_france = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = FRA tag = FR2 tag = FR7 }
+			NOT = { exists = FRV }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = FRV
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BRITAIN###
+	form_british_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = GB6 tag = GB7 tag = GB8 }
+			NOT = { exists = GBR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GBR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_british_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = GBR tag = GB6 tag = GB7 }
+			NOT = { exists = GB8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GB8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_great_britain = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = GBR tag = GB6 tag = GB8 }
+			NOT = { exists = GB7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GB7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_great_britain = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = GBR tag = GB7 tag = GB8 }
+			NOT = { exists = GB6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GB6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###GERMANY###
+	form_german_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = GE6 tag = GE7 tag = GE8 }
+			NOT = { exists = GER }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GER
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_german_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = GER tag = GE6 tag = GE7 }
+			NOT = { exists = GE8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GE8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_germany = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = GER tag = GE6 tag = GE8 }
+			NOT = { exists = GE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GE7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_germany = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = GER tag = GE7 tag = GE8 }
+			NOT = { exists = GE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = GE6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###AUSTRIA-HUNGARY###
+	form_austro_hungarian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AH6 tag = AH7 tag = AH8 }
+			NOT = { exists = AUH }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AUH
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_austro_hungarian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AUH tag = AH6 tag = AH7 }
+			NOT = { exists = AH8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AH8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_austria_hungary = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AUH tag = AH6 tag = AH8 }
+			NOT = { exists = AH7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AH7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_austria_hungary = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AUH tag = AH7 tag = AH8 }
+			NOT = { exists = AH6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AH6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###RUSSIA###
+	form_russian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RU6 tag = RU8 }
+			NOT = { exists = RUS }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RUS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_russian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RUS tag = RU6 }
+			NOT = { exists = RU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_russia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = RUS tag = RU8 }
+			NOT = { exists = RU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###OTTOMANS/TURKEY###
+	form_ottoman_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = OT6 tag = OT7 tag = TKY }
+			NOT = { exists = TUR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TUR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_turkish_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TUR tag = OT6 tag = OT7 }
+			NOT = { exists = TKY }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TKY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_ottomans = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TUR tag = OT6 tag = TKY }
+			NOT = { exists = OT7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = OT7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_ottomans = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TUR tag = OT7 tag = TKY }
+			NOT = { exists = OT6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = OT6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###ITALY###
+	form_italian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = IT6 tag = IT7 tag = IT8 }
+			NOT = { exists = ITA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ITA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_italian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ITA tag = IT6 tag = IT7 }
+			NOT = { exists = IT8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IT8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_italy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ITA tag = IT6 tag = IT8 }
+			NOT = { exists = IT7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IT7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_italy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ITA tag = IT7 tag = IT8 }
+			NOT = { exists = IT6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IT6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BULGARIA###
+	form_bulgarian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BU6 tag = BU7 tag = BU8 }
+			NOT = { exists = BUL }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BUL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_bulgarian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BUL tag = BU6 tag = BU7 }
+			NOT = { exists = BU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_bulgaria = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BUL tag = BU6 tag = BU8 }
+			NOT = { exists = BU7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BU7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_bulgaria = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BUL tag = BU7 tag = BU8 }
+			NOT = { exists = BU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###USA###
+	form_USA_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = US6 tag = US7 tag = USA }
+			NOT = { exists = US9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = US9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_USA_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = US9 tag = US6 tag = US7 }
+			NOT = { exists = USA }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = USA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_USA = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = US9 tag = US6 tag = USA }
+			NOT = { exists = US7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = US7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_USA = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = US9 tag = US7 tag = USA }
+			NOT = { exists = US6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = US6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MONGOLIA###
+	form_mongolian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MO6 tag = MO7 tag = MO8 }
+			NOT = { exists = KHA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KHA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_mongolian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KHA tag = MO6 tag = MO7 }
+			NOT = { exists = MO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_mongolia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KHA tag = MO6 tag = MO8 }
+			NOT = { exists = MO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_mongolia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KHA tag = MO7 tag = MO8 }
+			NOT = { exists = MO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###JAPAN###
+	form_japanese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = JA6 tag = JA7 tag = JA8 }
+			NOT = { exists = JAP }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = JAP
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_japanese_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = JAP tag = JA6 tag = JA7 }
+			NOT = { exists = JA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = JA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_japan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = JAP tag = JA6 tag = JA8 }
+			NOT = { exists = JA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = JA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_japan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = JAP tag = JA7 tag = JA8 }
+			NOT = { exists = JA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = JA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###CHINA###
+	form_chinese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = chinese_monarchy }
+			OR = { tag = CH6 tag = CH7 tag = CHN }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			country_event = { id = et_china.1 }
+			set_country_flag = chinese_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	### chinese_republic see et_country_formations
+
+	form_communist_china = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			culture_group = east_asian
+			#NOT = { primary_culture = manchu_new }
+			if = {
+				limit = { 
+					NOT = { tag = QNG } 
+				}
+				NOT = { primary_culture = manchu_new }
+			}
+			owns_core_province = 1816
+			NOT = { exists = CH7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CH7
+			clr_country_flag = chinese_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_china = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			culture_group = east_asian
+			if = {
+				limit = { 
+					NOT = { tag = QNG } 
+				}
+				NOT = { primary_culture = manchu_new }
+			}
+			owns_core_province = 1816
+			NOT = { exists = CH6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CH6
+			clr_country_flag = chinese_monarchy
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###ROMANIA###
+	form_romanian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RO6 tag = RO7 tag = RO8 }
+			NOT = { exists = RMN }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RMN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_romanian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RMN tag = RO6 tag = RO7 }
+			NOT = { exists = RO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_romania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = RMN tag = RO6 tag = RO8 }
+			NOT = { exists = RO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_romania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = RMN tag = RO7 tag = RO8 }
+			NOT = { exists = RO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###POLAND###
+	form_polish_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PO6 tag = PO7 tag = PO8 }
+			NOT = { exists = POL }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = POL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_polish_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = POL tag = PO6 tag = PO7 }
+			NOT = { exists = PO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_poland = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = POL tag = PO6 tag = PO8 }
+			NOT = { exists = PO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_poland = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = POL tag = PO7 tag = PO8 }
+			NOT = { exists = PO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###HUNGARY###
+	form_hungarian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HU6 tag = HU7 tag = HU8 }
+			NOT = { exists = HUN }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HUN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_hungarian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HUN tag = HU6 tag = HU7 }
+			NOT = { exists = HU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_hungary = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HUN tag = HU6 tag = HU8 }
+			NOT = { exists = HU7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HU7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_hungary = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HUN tag = HU7 tag = HU8 }
+			NOT = { exists = HU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###CANADA###
+	form_canadian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CA6 tag = CA7 tag = CAN }
+			NOT = { exists = CA9 }
+			government = monarchy
+		}
+		allow = {
+			is_subject = no
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CA9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_canadian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CA9 tag = CA6 tag = CA7 }
+			NOT = { exists = CAN }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			is_subject = no
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CAN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_canada = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CA9 tag = CA6 tag = CAN }
+			NOT = { exists = CA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			is_subject = no
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_canada = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CA9 tag = CA7 tag = CAN }
+			NOT = { exists = CA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			is_subject = no
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###PORTUGAL###
+	form_portuguese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PR6 tag = PR7 tag = PR8 }
+			NOT = { exists = POR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = POR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_portuguese_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = POR tag = PR6 tag = PR7 }
+			NOT = { exists = PR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_portugal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = POR tag = PR6 tag = PR8 }
+			NOT = { exists = PR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_portugal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = POR tag = PR7 tag = PR8 }
+			NOT = { exists = PR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###SPAIN###
+	form_spanish_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SP6 tag = SP7 tag = SP8 }
+			NOT = { exists = SPA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SPA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_spanish_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SPA tag = SP6 tag = SP7 }
+			NOT = { exists = SP8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SP8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_spain = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SPA tag = SP6 tag = SP8 }
+			NOT = { exists = SP7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SP7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_spain = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SPA tag = SP7 tag = SP8 }
+			NOT = { exists = SP6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SP6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###ENGLAND###
+	form_english_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = EN6 tag = EN7 tag = EN8 }
+			NOT = { exists = ENG }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ENG
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_english_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ENG tag = EN6 tag = EN7 }
+			NOT = { exists = EN8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EN8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_england = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ENG tag = EN6 tag = EN8 }
+			NOT = { exists = EN7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EN7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_england = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ENG tag = EN7 tag = EN8 }
+			NOT = { exists = EN6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EN6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###AUSTRIA###
+	form_austrian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AU6 tag = AU7 tag = AU8 }
+			NOT = { exists = HAB }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HAB
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_austrian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HAB tag = AU6 tag = AU7 }
+			NOT = { exists = AU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_austria = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HAB tag = AU6 tag = AU8 }
+			NOT = { exists = AU7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AU7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_austria = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HAB tag = AU7 tag = AU8 }
+			NOT = { exists = AU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###ARABIA###
+	form_arabian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = UA6 tag = UA7 tag = UA8 }
+			NOT = { exists = ARB }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ARB
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_arabian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ARB tag = UA6 tag = UA7 }
+			NOT = { exists = UA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_arabia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ARB tag = UA6 tag = UA8 }
+			NOT = { exists = UA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_arabia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ARB tag = UA7 tag = UA8 }
+			NOT = { exists = UA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###CASTILLE###
+	form_castillian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CS6 tag = CS7 tag = CS8 }
+			NOT = { exists = CAS }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CAS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_castillian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CAS tag = CS6 tag = CS7 }
+			NOT = { exists = CS8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CS8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_castille = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CAS tag = CS6 tag = CS8 }
+			NOT = { exists = CS7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CS7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_castille = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CAS tag = CS7 tag = CS8 }
+			NOT = { exists = CS6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CS6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MOROCCO###
+	form_moroccan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MR6 tag = MR7 tag = MR8 }
+			NOT = { exists = MOR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MOR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_moroccan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MOR tag = MR6 tag = MR7 }
+			NOT = { exists = MR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_morocco = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MOR tag = MR6 tag = MR8 }
+			NOT = { exists = MR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_morocco = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MOR tag = MR7 tag = MR8 }
+			NOT = { exists = MR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###NORWAY###
+	form_norwegian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NO6 tag = NO7 tag = NO8 }
+			NOT = { exists = NOR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NOR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_norwegian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NOR tag = NO6 tag = NO7 }
+			NOT = { exists = NO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_norway = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NOR tag = NO6 tag = NO8 }
+			NOT = { exists = NO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_norway = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NOR tag = NO7 tag = NO8 }
+			NOT = { exists = NO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MEXICO###
+	form_mexican_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ME6 tag = ME7 tag = MEX }
+			NOT = { exists = ME9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ME9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_mexican_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ME9 tag = ME6 tag = ME7 }
+			NOT = { exists = MEX }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MEX
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_mexico = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ME9 tag = CA6 tag = MEX }
+			NOT = { exists = ME7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ME7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_mexico = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ME9 tag = ME7 tag = MEX }
+			NOT = { exists = ME6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ME6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###EGYPT###
+	form_egyptian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = EG6 tag = EG7 tag = EG8 }
+			NOT = { exists = EGY }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EGY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_egyptian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = EGY tag = EG6 tag = EG7 }
+			NOT = { exists = EG8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EG8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_egypt = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = EGY tag = EG6 tag = EG8 }
+			NOT = { exists = EG7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EG7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_egypt = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = EGY tag = EG7 tag = EG8 }
+			NOT = { exists = EG6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EG6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###HINDUSTAN###
+	form_hindustani_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HI6 tag = HI7 tag = HI8 }
+			NOT = { exists = HIN }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HIN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_hindustani_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HIN tag = HI6 tag = HI7 }
+			NOT = { exists = HI8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HI8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_hindustan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HIN tag = HI6 tag = HI8 }
+			NOT = { exists = HI7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HI7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_hindustan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HIN tag = HI7 tag = HI8 }
+			NOT = { exists = HI6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HI6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BYZANTIUM/CONSTANTINOPLE###
+	form_byzantine_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BY6 tag = BY7 tag = BY8 }
+			NOT = { exists = BYZ }
+			government = monarchy
+			NOT = { capital_scope = { religion = catholic } }
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BYZ
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_constantinople_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BY6 tag = BY7 tag = BY8 }
+			NOT = { exists = LAE }
+			government = monarchy
+			capital_scope = { religion = catholic }
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LAE
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_byzantine_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BYZ tag = BY6 tag = BY7 tag = LAE }
+			NOT = { exists = BY8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BY8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_byzantium = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BYZ tag = BY6 tag = BY8 tag = LAE }
+			NOT = { exists = BY7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BY7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_byzantium = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BYZ tag = BY7 tag = BY8 tag = LAE }
+			NOT = { exists = BY6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BY6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###HOLY ROMAN EMPIRE###
+	form_HRE_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HR6 tag = HR7 tag = HR8 }
+			NOT = { exists = HLR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HLR 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_HRE_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = HLR tag = HR6 tag = HR7 }
+			NOT = { exists = HR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HR8
+			change_religion = secularism
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_HRE = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HLR tag = HR6 tag = HR8 }
+			NOT = { exists = HR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_HRE = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = HLR tag = HR7 tag = HR8 }
+			NOT = { exists = HR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = HR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BURGUNDY###
+	form_burgundian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BR8 tag = BR7 tag = BR6 }
+			NOT = { exists = BUR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BUR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_burgundian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BUR tag = BR7 tag = BR6 }
+			NOT = { exists = BR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_burgundy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BUR tag = BR8 tag = BR6 }
+			NOT = { exists = BR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_burgundy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BUR tag = BR8 tag = BR7 }
+			NOT = { exists = BR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###TEUTONIC ORDER###
+	form_teutonic_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TO8 tag = TO7 tag = TO6 }
+			NOT = { exists = TEU }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TEU
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_teutonic_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TEU tag = TO7 tag = TO6 }
+			NOT = { exists = TO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_teutonic_order = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TEU tag = TO8 tag = TO6 }
+			NOT = { exists = TO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_teutonic_order = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TEU tag = TO8 tag = TO7 }
+			NOT = { exists = TO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MUGHALS###
+	form_mughal_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MU8 tag = MU7 tag = MU6 }
+			NOT = { exists = MUG }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MUG
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_mughal_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MUG tag = MU7 tag = MU6 }
+			NOT = { exists = MU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_mughal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MUG tag = MU8 tag = MU6 }
+			NOT = { exists = MU7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MU7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_mughal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MUG tag = MU8 tag = MU7 }
+			NOT = { exists = MU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###LITHUANIA###
+	form_lithuanian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LI8 tag = LI7 tag = LI6 }
+			NOT = { exists = LIT }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LIT
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_lithuanian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LIT tag = LI7 tag = LI6 }
+			NOT = { exists = LI8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LI8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_lithuania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LIT tag = LI8 tag = LI6 }
+			NOT = { exists = LI7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LI7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_lithuania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LIT tag = LI8 tag = LI7 }
+			NOT = { exists = LI6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LI6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BOHEMIA/CZECH REPUBLIC/CZECHIA###
+	form_bohemian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CZE tag = BO7 tag = BO6 }
+			NOT = { exists = BOH }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BOH
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_bohemian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BOH tag = BO7 tag = BO6 }
+			NOT = { exists = CZE }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CZE
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_bohemia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BOH tag = CZE tag = BO6 }
+			NOT = { exists = BO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_bohemia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BOH tag = CZE tag = BO7 }
+			NOT = { exists = BO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###COLOMBIA###
+	form_colombian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = COL tag = CO7 tag = CO6 }
+			NOT = { exists = CO9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CO9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_colombian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CO9 tag = CO7 tag = CO6 }
+			NOT = { exists = COL }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = COL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_colombia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CO9 tag = COL tag = CO6 }
+			NOT = { exists = CO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_colombia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CO9 tag = COL tag = CO7 }
+			NOT = { exists = CO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###NOVGOROD###
+	form_novgorodian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NOV tag = NV7 tag = NV6 }
+			NOT = { exists = NV9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NV9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_novgorodian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NV9 tag = NV7 tag = NV6 }
+			NOT = { exists = NOV }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NOV
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_novgorod = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NV9 tag = NOV tag = NV6 }
+			NOT = { exists = NV7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NV7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_novgorod = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NV9 tag = NOV tag = NV7 }
+			NOT = { exists = NV6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NV6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###PAPAL STATES###
+	form_papal_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PA6 tag = PA7 tag = ITC }
+			NOT = { exists = PAP }
+			OR = { 
+				government = monarchy
+				government = theocracy
+			}
+		}
+		allow = {
+			OR = { 
+				government = monarchy
+				government = theocracy
+			}
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PAP
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_papal_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PAP tag = PA6 tag = PA7 }
+			NOT = { exists = ITC }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ITC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_papacy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PAP tag = PA6 tag = ITC }
+			NOT = { exists = PA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_papacy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PAP tag = PA7 tag = ITC }
+			NOT = { exists = PA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###ANDALUSIA###
+	form_andalusian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AD6 tag = AD7 tag = AD8 }
+			NOT = { exists = ADU }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ADU
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_andalusian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ADU tag = AD6 tag = AD7 }
+			NOT = { exists = AD8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AD8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_andalusia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ADU tag = AD6 tag = AD8 }
+			NOT = { exists = AD7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AD7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_andalusia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ADU tag = AD7 tag = AD8 }
+			NOT = { exists = AD6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AD6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MALAYA###
+	form_malay_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MS6 tag = MS7 tag = MS8 }
+			NOT = { exists = MSA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MSA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_malay_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MSA tag = MS6 tag = MS7 }
+			NOT = { exists = MS8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MS8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_malaya = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MSA tag = MS6 tag = MS8 }
+			NOT = { exists = MS7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MS7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_malaya = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MSA tag = MS7 tag = MS8 }
+			NOT = { exists = MS6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MS6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###VENEZUELA###
+	form_venezuelan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = VNZ tag = VE7 tag = VE6 }
+			NOT = { exists = VE9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VE9 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_venezuelan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = VE9 tag = VE7 tag = VE6 }
+			NOT = { exists = VNZ }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VNZ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_venezuela = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = VE9 tag = VNZ tag = VE6 }
+			NOT = { exists = VE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VE7 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_venezuela = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = VE9 tag = VNZ tag = VE7 }
+			NOT = { exists = VE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VE6 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###PERSIA/IRAN###
+	form_persian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = IRA tag = PE7 tag = PE6 }
+			NOT = { exists = PER }
+			government = monarchy
+			is_revolutionary = no
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PER 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_persian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PER tag = PE7 tag = PE6 }
+			NOT = { exists = IRA }
+			OR = {
+				government = republic
+				government = theocracy
+			}
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IRA 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_persia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PER tag = IRA tag = PE6 }
+			NOT = { exists = PE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+			is_revolutionary = no
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PE7 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_persia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PER tag = IRA tag = PE7 }
+			NOT = { exists = PE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+			is_revolutionary = no
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PE6 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###LORRAINE###
+	form_lorrainian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LO8 tag = LO7 tag = LO6 }
+			NOT = { exists = LOR }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LOR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_lorrainian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LOR tag = LO7 tag = LO6 }
+			NOT = { exists = LO8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LO8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_lorraine = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LOR tag = LO8 tag = LO6 }
+			NOT = { exists = LO7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LO7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_lorraine = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LOR tag = LO8 tag = LO7 }
+			NOT = { exists = LO6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MOLDAVIA###
+	form_moldavian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MDV tag = ML7 tag = ML6 }
+			NOT = { exists = MOL }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MOL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_moldavian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MOL tag = ML7 tag = ML6 }
+			NOT = { exists = MDV }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MDV
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_moldavia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MOL tag = MDV tag = ML6 }
+			NOT = { exists = ML7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ML7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_moldavia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MOL tag = MDV tag = ML7 }
+			NOT = { exists = ML6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ML6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###TUSCANY###
+	form_tuscan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TU6 tag = TU7 tag = TU8 }
+			NOT = { exists = TUS }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TUS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_tuscan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TUS tag = TU6 tag = TU7 }
+			NOT = { exists = TU8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TU8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_tuscany = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TUS tag = TU6 tag = TU8 }
+			NOT = { exists = TU7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TU7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_tuscany = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = TUS tag = TU7 tag = TU8 }
+			NOT = { exists = TU6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TU6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###KIEVAN RUS###
+	form_kievan_rus_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KR8 tag = KR7 tag = KR6 }
+			NOT = { exists = KRU }
+			OR = {
+				government = monarchy
+				government = tribal
+			}
+		}
+		allow = {
+			OR = {
+				government = monarchy
+				government = tribal
+			}
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KRU
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_kievan_rus_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KRU tag = KR7 tag = KR6 }
+			NOT = { exists = KR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_kievan_rus = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KRU tag = KR8 tag = KR6 }
+			NOT = { exists = KR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_kievan_rus = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KRU tag = KR8 tag = KR7 }
+			NOT = { exists = KR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###CORDOBA###
+	form_cordoban_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CR6 tag = CR7 tag = CR8 }
+			NOT = { exists = CRD }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CRD
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_cordoban_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CRD tag = CR6 tag = CR7 }
+			NOT = { exists = CR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_cordoba = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CRD tag = CR6 tag = CR8 }
+			NOT = { exists = CR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_cordoba = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CRD tag = CR7 tag = CR8 }
+			NOT = { exists = CR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###SILESIA###
+	form_silesian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SI6 tag = SI7 tag = SI8 }
+			NOT = { exists = SIL }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SIL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_silesian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SIL tag = SI6 tag = SI7 }
+			NOT = { exists = SI8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SI8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_silesia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SIL tag = SI6 tag = SI8 }
+			NOT = { exists = SI7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SI7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_silesia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SIL tag = SI7 tag = SI8 }
+			NOT = { exists = SI6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SI6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###PERM###
+	form_permian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PM6 tag = PM7 tag = PM8 }
+			NOT = { exists = PRM }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PRM
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_permian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PRM tag = PM6 tag = PM7 }
+			NOT = { exists = PM8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PM8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_perm = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PRM tag = PM6 tag = PM8 }
+			NOT = { exists = PM7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PM7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_perm = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PRM tag = PM7 tag = PM8 }
+			NOT = { exists = PM6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PM6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BRAZIL###
+	form_brazilian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BZ6 tag = BZ7 tag = BZ8 }
+			NOT = { exists = BRZ }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BRZ
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_brazilian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BRZ tag = BZ6 tag = BZ7 }
+			NOT = { exists = BZ8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BZ8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_brazil = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRZ tag = BZ6 tag = BZ8 }
+			NOT = { exists = BZ7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BZ7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_brazil = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRZ tag = BZ7 tag = BZ8 }
+			NOT = { exists = BZ6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BZ6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###AUSTRALIA###
+	form_australian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AS6 tag = AS7 tag = AUS }
+			NOT = { exists = AS9 }
+			government = monarchy
+		}
+		allow = {
+			is_subject = no
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AS9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_australian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AS9 tag = AS6 tag = AS7 }
+			NOT = { exists = AUS }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			is_subject = no
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AUS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_australia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AS9 tag = AS6 tag = AUS }
+			NOT = { exists = AS7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			is_subject = no
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AS7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_australia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AS9 tag = AS7 tag = AUS }
+			NOT = { exists = AS6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			is_subject = no
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AS6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###INCA###
+	form_incan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = IN6 tag = IN7 tag = IN8 }
+			NOT = { exists = INC }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = INC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_incan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = INC tag = IN6 tag = IN7 }
+			NOT = { exists = IN8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IN8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_inca = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = INC tag = IN6 tag = IN8 }
+			NOT = { exists = IN7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IN7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_inca = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = INC tag = IN7 tag = IN8 }
+			NOT = { exists = IN6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IN6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BRABANT###
+	form_brabantian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BB6 tag = BB7 tag = BB8 }
+			NOT = { exists = BRB }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BRB
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_brabantian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BRB tag = BB6 tag = BB7 }
+			NOT = { exists = BB8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BB8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_brabant = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRB tag = BB6 tag = BB8 }
+			NOT = { exists = BB7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BB7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_brabant = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRB tag = BB7 tag = BB8 }
+			NOT = { exists = BB6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BB6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BELARUS###
+	form_belarusian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BE6 tag = BE7 tag = BLR }
+			NOT = { exists = BE9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BE9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_belarusian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BE9 tag = BE6 tag = BE7 }
+			NOT = { exists = BLR }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BLR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_belarus = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BE9 tag = BE6 tag = BLR }
+			NOT = { exists = BE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BE7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_belarus = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BE9 tag = BE7 tag = BLR }
+			NOT = { exists = BE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BE6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###RYAZAN###
+	form_ryazanian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RY6 tag = RY7 tag = RY8 }
+			NOT = { exists = RYA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RYA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_ryazanian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = RYA tag = RY6 tag = RY7 }
+			NOT = { exists = RY8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RY8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_ryazan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = RYA tag = RY6 tag = RY8 }
+			NOT = { exists = RY7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RY7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_ryazan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = RYA tag = RY7 tag = RY8 }
+			NOT = { exists = RY6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = RY6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###SCANDINAVIA###
+	form_scandinavian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SC6 tag = SC7 tag = SC8 }
+			NOT = { exists = SCA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SCA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_scandinavian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SCA tag = SC6 tag = SC7 }
+			NOT = { exists = SC8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SC8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_scandinavia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SCA tag = SC6 tag = SC8 }
+			NOT = { exists = SC7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SC7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_scandinavia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SCA tag = SC7 tag = SC8 }
+			NOT = { exists = SC6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SC6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###DELHI###
+	form_delhian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = DL6 tag = DL7 tag = DL8 }
+			NOT = { exists = DLH }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = DLH
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_delhian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = DLH tag = DL6 tag = DL7 }
+			NOT = { exists = DL8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = DL8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_delhi = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = DLH tag = DL6 tag = DL8 }
+			NOT = { exists = DL7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = DL7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_delhi = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = DLH tag = DL7 tag = DL8 }
+			NOT = { exists = DL6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = DL6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###AFGHANISTAN###
+	form_afghan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AF6 tag = AF7 tag = AF8 }
+			NOT = { exists = AFG }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AFG
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_afghan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AFG tag = AF6 tag = AF7 }
+			NOT = { exists = AF8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AF8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_afghanistan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AFG tag = AF6 tag = AF8 }
+			NOT = { exists = AF7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AF7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_afghanistan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AFG tag = AF7 tag = AF8 }
+			NOT = { exists = AF6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AF6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+###NAPLES###
+	form_neapolitan_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NA6 tag = NA7 tag = NA8 }
+			NOT = { exists = NAP }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NAP
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_neapolitan_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NAP tag = NA6 tag = NA7 }
+			NOT = { exists = NA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_naples = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NAP tag = NA6 tag = NA8 }
+			NOT = { exists = NA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_naples = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NAP tag = NA7 tag = NA8 }
+			NOT = { exists = NA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###WALES###
+	form_welsh_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = WA6 tag = WA7 tag = WA8 }
+			NOT = { exists = WLS }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WLS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_welsh_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = WLS tag = WA6 tag = WA7 }
+			NOT = { exists = WA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_wales = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = WLS tag = WA6 tag = WA8 }
+			NOT = { exists = WA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_wales = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = WLS tag = WA7 tag = WA8 }
+			NOT = { exists = WA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###NETHERLANDS###
+	form_dutch_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NE6 tag = NE7 tag = NE8 }
+			NOT = { exists = NED }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NED
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_dutch_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = NED tag = NE6 tag = NE7 }
+			NOT = { exists = NE8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NE8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_netherlands = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NED tag = NE6 tag = NE8 }
+			NOT = { exists = NE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NE7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_netherlands = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = NED tag = NE7 tag = NE8 }
+			NOT = { exists = NE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NE6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+###ARGENTINA###
+	form_argentine_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AG6 tag = AG7 tag = LAP }
+			NOT = { exists = AG9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AG9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_argentine_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = AG9 tag = AG6 tag = AG7 }
+			NOT = { exists = LAP }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LAP
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_argentina = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AG9 tag = AG6 tag = LAP }
+			NOT = { exists = AG7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AG7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_argentina = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = AG9 tag = AG7 tag = LAP }
+			NOT = { exists = AG6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = AG6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###SAVOY###
+	form_savoyard_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SV6 tag = SV7 tag = SV8 }
+			NOT = { exists = SAV }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SAV
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_savoyard_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SAV tag = SV6 tag = SV7 }
+			NOT = { exists = SV8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SV8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_savoy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SAV tag = SV6 tag = SV8 }
+			NOT = { exists = SV7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SV7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_savoy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SAV tag = SV7 tag = SV8 }
+			NOT = { exists = SV6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SV6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###THAILAND###
+	form_thai_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TH6 tag = TH7 tag = TH8 }
+			NOT = { exists = SIA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SIA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_thai_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = SIA tag = TH6 tag = TH7 }
+			NOT = { exists = TH8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TH8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_thailand = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SIA tag = TH6 tag = TH8 }
+			NOT = { exists = TH7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TH7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_thailand = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = SIA tag = TH7 tag = TH8 }
+			NOT = { exists = TH6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TH6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###KHMER/CAMBODIA###
+	form_khmer_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KH6 tag = KH7 tag = KH8 }
+			NOT = { exists = KHM }
+			government = monarchy
+			OR = {
+				dynasty = "Khmer"
+				dynasty = "Varman" 
+			}
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KHM
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_cambodian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KH6 tag = KH7 tag = KH8 }
+			NOT = { exists = CMB }
+			government = monarchy
+			NOT = { dynasty = "Khmer" }
+			NOT = { dynasty = "Varman" }
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CMB
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_khmer_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KHM tag = KH6 tag = KH7 tag = CMB }
+			NOT = { exists = KH8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KH8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_khmer = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KHM tag = KH6 tag = KH8 tag = CMB }
+			NOT = { exists = KH7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KH7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_khmer = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KHM tag = KH7 tag = KH8 tag = CMB }
+			NOT = { exists = KH6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KH6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###MANCHU###
+	form_manchu_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MC6 tag = MC7 tag = MC8 }
+			NOT = { exists = MCH }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MCH
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_manchu_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MCH tag = MC6 tag = MC7 }
+			NOT = { exists = MC8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MC8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_manchu = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MCH tag = MC6 tag = MC8 }
+			NOT = { exists = MC7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MC7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_manchu = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = MCH tag = MC7 tag = MC8 }
+			NOT = { exists = MC6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MC6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###WESTPHALIA###
+	form_westphalian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = WE6 tag = WE7 tag = WE8 }
+			NOT = { exists = WES }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WES
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_westphalian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = WES tag = WE6 tag = WE7 }
+			NOT = { exists = WE8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WE8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_westphalia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = WES tag = WE6 tag = WE8 }
+			NOT = { exists = WE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WE7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_westphalia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = WES tag = WE7 tag = WE8 }
+			NOT = { exists = WE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = WE6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###COMMONWEALTH###
+	form_commonwealth_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PL6 tag = PL7 tag = PL8 }
+			NOT = { exists = PLC }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PLC
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_commonwealth_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = PLC tag = PL6 tag = PL7 }
+			NOT = { exists = PL8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PL8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PLC tag = PL6 tag = PL8 }
+			NOT = { exists = PL7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PL7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = PLC tag = PL7 tag = PL8 }
+			NOT = { exists = PL6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = PL6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###KAZAKH###
+	form_kazakh_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KZ6 tag = KZ7 tag = KZK }
+			NOT = { exists = KZH }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KZH
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_kazakh_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KZH tag = KZ6 tag = KZ7 }
+			NOT = { exists = KZK }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KZK
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_kazakh = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KZH tag = KZ6 tag = KZK }
+			NOT = { exists = KZ7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KZ7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_kazakh = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KZH tag = KZ7 tag = KZK }
+			NOT = { exists = KZ6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KZ6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+###UKRAINE###
+	form_ukrainian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = UK6 tag = UK7 tag = UKR }
+			NOT = { exists = KIE }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KIE
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_ukrainian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KIE tag = UK6 tag = UK7 }
+			NOT = { exists = UKR }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UKR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_ukraine = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KIE tag = UK6 tag = UKR }
+			NOT = { exists = UK7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UK7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_ukraine = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KIE tag = UK7 tag = UKR }
+			NOT = { exists = UK6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = UK6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+###ORISSA###
+	form_orissi_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = OR6 tag = OR7 tag = OR8 }
+			NOT = { exists = ORI }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ORI
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_orissi_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ORI tag = OR6 tag = OR7 }
+			NOT = { exists = OR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = OR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_orissa = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ORI tag = OR6 tag = OR8 }
+			NOT = { exists = OR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = OR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_orissa = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ORI tag = OR7 tag = OR8 }
+			NOT = { exists = OR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = OR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BRANDENBURG###
+	form_brandenburger_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BA6 tag = EGE tag = BA8 }
+			NOT = { exists = BRA }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BRA
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_brandenburger_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BRA tag = BA6 tag = EGE }
+			NOT = { exists = BA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_brandenburg = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRA tag = BA6 tag = BA8 }
+			NOT = { exists = EGE }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = EGE
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_brandenburg = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRA tag = EGE tag = BA8 }
+			NOT = { exists = BA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###CEYLON###
+	form_ceylonese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CE6 tag = CE7 tag = SRL }
+			NOT = { exists = CEY }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CEY
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_ceylonese_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = CEY tag = CE6 tag = CE7 }
+			NOT = { exists = SRL }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = SRL
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_ceylon = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CEY tag = CE6 tag = SRL }
+			NOT = { exists = CE7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CE7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_ceylon = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = CEY tag = CE7 tag = SRL }
+			NOT = { exists = CE6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = CE6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BENGAL###
+	form_bengali_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BN6 tag = BN7 tag = BGD }
+			NOT = { exists = BNG }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BNG
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_bengali_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BNG tag = BN6 tag = BN7 }
+			NOT = { exists = BGD }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BGD
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_bengal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BNG tag = BN6 tag = BGD }
+			NOT = { exists = BN7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BN7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_bengal = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BNG tag = BN7 tag = BGD }
+			NOT = { exists = BN6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BN6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###VIETNAM###
+	form_vietnamese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = VI6 tag = VI7 tag = VTN }
+			NOT = { exists = DAI }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = DAI
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_vietnamese_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = DAI tag = VI6 tag = VI7 }
+			NOT = { exists = VTN }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VTN
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_vietnam = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = DAI tag = VI6 tag = VTN }
+			NOT = { exists = VI7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VI7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_vietnam = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = DAI tag = VI7 tag = VTN }
+			NOT = { exists = VI6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = VI6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###LAOS###
+	form_lao_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LA6 tag = LAO tag = LA8 }
+			NOT = { exists = LA9 }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LA9
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_lao_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = LA9 tag = LA6 tag = LAO }
+			NOT = { exists = LA8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LA8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_laos = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LA9 tag = LA6 tag = LA8 }
+			NOT = { exists = LAO }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LAO
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_laos = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = LA9 tag = LAO tag = LA8 }
+			NOT = { exists = LA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = LA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###BURMA###
+	form_burmese_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = MY6 tag = MY7 tag = MY8 tag = MNM }
+			NOT = { exists = BRM }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = BRM
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_burmese_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = BRM tag = MY6 tag = MY7 }
+			NOT = { exists = MY8 }
+			NOT = { exists = MNM }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MY8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_burma = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRM tag = MY6 tag = MY8 tag = MNM }
+			NOT = { exists = MY7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MY7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_burma = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = BRM tag = MY7 tag = MY8 tag = MNM }
+			NOT = { exists = MY6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = MY6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###IRAQ###
+	form_iraqi_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = IR6 tag = IR7 tag = IR8 }
+			NOT = { exists = IRQ }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IRQ
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_iraqi_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = IRQ tag = IR6 tag = IR7 }
+			NOT = { exists = IR8 }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IR8
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_iraq = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = IRQ tag = IR6 tag = IR8 }
+			NOT = { exists = IR7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IR7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_iraq = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = IRQ tag = IR7 tag = IR8 }
+			NOT = { exists = IR6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = IR6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###TANZANIA###
+	form_tanzanian_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = TA6 tag = TA7 tag = TNZ }
+			NOT = { exists = ZZB }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = ZZB
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_tanzanian_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = ZZB tag = TA6 tag = TA7 }
+			NOT = { exists = TNZ }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TNZ
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_tanzania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ZZB tag = TA6 tag = TNZ }
+			NOT = { exists = TA7 }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TA7
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_tanzania = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = ZZB tag = TA7 tag = TNZ }
+			NOT = { exists = TA6 }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = TA6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###KOREA###
+	form_korean_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KO6 tag = NOK tag = JOE }
+			NOT = { exists = KOR exists = SKO }
+			government = monarchy
+		}
+		allow = {
+			government = monarchy
+			NOT = { 
+				OR = {
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KOR
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_korean_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = { tag = KOR tag = KO6 tag = NOK }
+			NOT = { exists = JOE exists = SKO }
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		allow = {
+			government = republic
+			NOT = { 
+				OR = {
+					has_reform = communist_dictatorship
+					has_reform = socialist_republic
+					has_reform = communist_government
+					has_reform = fascist_dictatorship
+					has_reform = fascist_government
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = JOE
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_communist_korea = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KOR tag = KO6 tag = JOE }
+			NOT = { exists = NOK }
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		allow = {
+			government = republic
+			OR = {
+				has_reform = communist_dictatorship
+				has_reform = socialist_republic
+				has_reform = communist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = NOK
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	form_fascist_korea = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_year = 3848
+			OR = { tag = KOR tag = NOK tag = JOE }
+			NOT = { exists = KO6 exists = SKO }
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		allow = {
+			OR = {
+				has_reform = fascist_dictatorship
+				has_reform = fascist_government
+			}
+		}
+		effect = {
+			add_prestige = 20
+			change_tag = KO6
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

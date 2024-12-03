@@ -1,0 +1,2765 @@
+namespace = cpbm_independence_oceania
+
+##########################
+###MODERN NATION STATES###
+##########################
+
+#Indonesia
+country_event = {
+	id = cpbm_independence_oceania.1
+	title = cpbm_independence_oceania.1.t
+	desc = cpbm_independence_oceania.1.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.1.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = indonesia_region }
+			cede_province = IDN
+			add_core = IDN
+			remove_core = ROOT 
+		}
+		vassalize = IDN
+		IDN = { set_capital = 630 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.1.b
+		every_owned_province = { 
+			limit = { region = indonesia_region }
+			cede_province = IDN
+			add_core = IDN
+			remove_core = ROOT 
+		}
+		IDN = { 
+			every_neighbor_country = { add_truce_with = IDN } 
+			set_capital = 630
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.1.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = indonesia_region }
+			add_unrest = 5
+			add_core = IDN
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.1.dd
+		every_owned_province = { 
+			limit = { region = indonesia_region }
+			cede_province = IDN
+			add_core = IDN
+		}
+		IDN = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 630
+		}
+		hidden_effect = {
+			IDN = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 630 = { every_core_country = { limit = { tag = IDN } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		IDN = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Brunei
+country_event = {
+	id = cpbm_independence_oceania.2
+	title = cpbm_independence_oceania.2.t
+	desc = cpbm_independence_oceania.2.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.2.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = sabah_area
+                    area = brunei_area
+				}
+			}
+			cede_province = BEI
+			add_core = BEI
+			remove_core = ROOT 
+		}
+		vassalize = BEI
+		BEI = { set_capital = 636 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.2.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = sabah_area
+                    area = brunei_area
+				}
+			}
+			cede_province = BEI
+			add_core = BEI
+			remove_core = ROOT 
+		}
+		BEI = { 
+			every_neighbor_country = { add_truce_with = BEI } 
+			set_capital = 636
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.2.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = sabah_area
+                    area = brunei_area
+				}
+			}
+			add_unrest = 5
+			add_core = BEI
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.2.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = sabah_area
+                    area = brunei_area
+				}
+			}
+			cede_province = BEI
+			add_core = BEI
+		}
+		BEI = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 636
+		}
+		hidden_effect = {
+			BEI = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 636 = { every_core_country = { limit = { tag = BEI } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BEI = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Philippines
+country_event = {
+	id = cpbm_independence_oceania.3
+	title = cpbm_independence_oceania.3.t
+	desc = cpbm_independence_oceania.3.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.3.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = southern_luzon_area
+                    area = luzon_area
+                    area = palawan_area
+                    area = visayas_area
+                    area = mindanao_area
+                    area = west_mindanao_area
+				}
+			}
+			cede_province = PHI
+			add_core = PHI
+			remove_core = ROOT 
+		}
+		vassalize = PHI
+		PHI = { set_capital = 656 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.3.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = southern_luzon_area
+                    area = luzon_area
+                    area = palawan_area
+                    area = visayas_area
+                    area = mindanao_area
+                    area = west_mindanao_area
+				}
+			}
+			cede_province = PHI
+			add_core = PHI
+			remove_core = ROOT 
+		}
+		PHI = { 
+			every_neighbor_country = { add_truce_with = PHI } 
+			set_capital = 656
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.3.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = southern_luzon_area
+                    area = luzon_area
+                    area = palawan_area
+                    area = visayas_area
+                    area = mindanao_area
+                    area = west_mindanao_area
+				}
+			}
+			add_unrest = 5
+			add_core = PHI
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.3.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = southern_luzon_area
+                    area = luzon_area
+                    area = palawan_area
+                    area = visayas_area
+                    area = mindanao_area
+                    area = west_mindanao_area
+				}
+			}
+			cede_province = PHI
+			add_core = PHI
+		}
+		PHI = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 656
+		}
+		hidden_effect = {
+			PHI = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 656 = { every_core_country = { limit = { tag = PHI } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PHI = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#East Timor
+country_event = {
+	id = cpbm_independence_oceania.4
+	title = cpbm_independence_oceania.4.t
+	desc = cpbm_independence_oceania.4.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.4.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 2695 }
+			cede_province = ETI
+			add_core = ETI
+			remove_core = ROOT 
+		}
+		vassalize = ETI
+		ETI = { set_capital = 2695 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.4.b
+		every_owned_province = { 
+			limit = { province_id = 2695 }
+			cede_province = ETI
+			add_core = ETI
+			remove_core = ROOT 
+		}
+		ETI = { 
+			every_neighbor_country = { add_truce_with = ETI } 
+			set_capital = 2695
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.4.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 2695 }
+			add_unrest = 5
+			add_core = ETI
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.4.dd
+		every_owned_province = { 
+			limit = { province_id = 2695 }
+			cede_province = ETI
+			add_core = ETI
+		}
+		ETI = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2695
+		}
+		hidden_effect = {
+			ETI = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2695 = { every_core_country = { limit = { tag = ETI } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ETI = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Australia
+country_event = {
+	id = cpbm_independence_oceania.5
+	title = cpbm_independence_oceania.5.t
+	desc = cpbm_independence_oceania.5.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.5.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { region = australia_region }
+			cede_province = AUS
+			add_core = AUS
+			remove_core = ROOT 
+		}
+		vassalize = AUS
+		AUS = { set_capital = 4859 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.5.b
+		every_owned_province = { 
+			limit = { region = australia_region }
+			cede_province = AUS
+			add_core = AUS
+			remove_core = ROOT 
+		}
+		AUS = { 
+			every_neighbor_country = { add_truce_with = AUS } 
+			set_capital = 4859
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.5.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { region = australia_region }
+			add_unrest = 5
+			add_core = AUS
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.5.dd
+		every_owned_province = { 
+			limit = { region = australia_region }
+			cede_province = AUS
+			add_core = AUS
+		}
+		AUS = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 4859
+		}
+		hidden_effect = {
+			AUS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 4859 = { every_core_country = { limit = { tag = AUS } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		AUS = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#New Zealand
+country_event = {
+	id = cpbm_independence_oceania.6
+	title = cpbm_independence_oceania.6.t
+	desc = cpbm_independence_oceania.6.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.6.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = te_ika_a_maui_hauauru_area
+                    area = te_ika_a_maui_waho_area
+                    area = te_waipounamu_area
+                    area = cook_islands_area
+                    province_id = 1243
+                    province_id = 3215
+				}
+			}
+			cede_province = NZL
+			add_core = NZL
+			remove_core = ROOT 
+		}
+		vassalize = NZL
+		NZL = { set_capital = 1107 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.6.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = te_ika_a_maui_hauauru_area
+                    area = te_ika_a_maui_waho_area
+                    area = te_waipounamu_area
+                    area = cook_islands_area
+                    province_id = 1243
+                    province_id = 3215
+				}
+			}
+			cede_province = NZL
+			add_core = NZL
+			remove_core = ROOT 
+		}
+		NZL = { 
+			every_neighbor_country = { add_truce_with = NZL } 
+			set_capital = 1107
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.6.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = te_ika_a_maui_hauauru_area
+                    area = te_ika_a_maui_waho_area
+                    area = te_waipounamu_area
+                    area = cook_islands_area
+                    province_id = 1243
+                    province_id = 3215
+				}
+			}
+			add_unrest = 5
+			add_core = NZL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.6.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = te_ika_a_maui_hauauru_area
+                    area = te_ika_a_maui_waho_area
+                    area = te_waipounamu_area
+                    area = cook_islands_area
+                    province_id = 1243
+                    province_id = 3215
+				}
+			}
+			cede_province = NZL
+			add_core = NZL
+		}
+		NZL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1107
+		}
+		hidden_effect = {
+			NZL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1107 = { every_core_country = { limit = { tag = NZL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		NZL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Palau
+country_event = {
+	id = cpbm_independence_oceania.7
+	title = cpbm_independence_oceania.7.t
+	desc = cpbm_independence_oceania.7.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.7.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1996 }
+			cede_province = PLU
+			add_core = PLU
+			remove_core = ROOT 
+		}
+		vassalize = PLU
+		PLU = { set_capital = 1996 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.7.b
+		every_owned_province = { 
+			limit = { province_id = 1996 }
+			cede_province = PLU
+			add_core = PLU
+			remove_core = ROOT 
+		}
+		PLU = { 
+			every_neighbor_country = { add_truce_with = PLU } 
+			set_capital = 1996
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.7.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1996 }
+			add_unrest = 5
+			add_core = PLU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.7.dd
+		every_owned_province = { 
+			limit = { province_id = 1996 }
+			cede_province = PLU
+			add_core = PLU
+		}
+		PLU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1996
+		}
+		hidden_effect = {
+			PLU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1996 = { every_core_country = { limit = { tag = PLU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PLU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Papua New Guinea
+country_event = {
+	id = cpbm_independence_oceania.8
+	title = cpbm_independence_oceania.8.t
+	desc = cpbm_independence_oceania.8.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.8.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = papua_area
+                    province_id = 1236
+				}
+			}
+			cede_province = PNG
+			add_core = PNG
+			remove_core = ROOT 
+		}
+		vassalize = PNG
+		PNG = { set_capital = 1237 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.8.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = papua_area
+                    province_id = 1236
+				}
+			}
+			cede_province = PNG
+			add_core = PNG
+			remove_core = ROOT 
+		}
+		PNG = { 
+			every_neighbor_country = { add_truce_with = PNG } 
+			set_capital = 1237
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.8.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = papua_area
+                    province_id = 1236
+				}
+			}
+			add_unrest = 5
+			add_core = PNG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.8.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = papua_area
+                    province_id = 1236
+				}
+			}
+			cede_province = PNG
+			add_core = PNG
+		}
+		PNG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1237
+		}
+		hidden_effect = {
+			PNG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1237 = { every_core_country = { limit = { tag = PNG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PNG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Micronesia
+country_event = {
+	id = cpbm_independence_oceania.9
+	title = cpbm_independence_oceania.9.t
+	desc = cpbm_independence_oceania.9.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.9.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1995 }
+			cede_province = MIC
+			add_core = MIC
+			remove_core = ROOT 
+		}
+		vassalize = MIC
+		MIC = { set_capital = 1995 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.9.b
+		every_owned_province = { 
+			limit = { province_id = 1995 }
+			cede_province = MIC
+			add_core = MIC
+			remove_core = ROOT 
+		}
+		MIC = { 
+			every_neighbor_country = { add_truce_with = MIC } 
+			set_capital = 1995
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.9.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1995 }
+			add_unrest = 5
+			add_core = MIC
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.9.dd
+		every_owned_province = { 
+			limit = { province_id = 1995 }
+			cede_province = MIC
+			add_core = MIC
+		}
+		MIC = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1995
+		}
+		hidden_effect = {
+			MIC = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1995 = { every_core_country = { limit = { tag = MIC } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		MIC = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Solomon Islands
+country_event = {
+	id = cpbm_independence_oceania.10
+	title = cpbm_independence_oceania.10.t
+	desc = cpbm_independence_oceania.10.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.10.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1238 }
+			cede_province = SLM
+			add_core = SLM
+			remove_core = ROOT 
+		}
+		vassalize = SLM
+		SLM = { set_capital = 1238 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.10.b
+		every_owned_province = { 
+			limit = { province_id = 1238 }
+			cede_province = SLM
+			add_core = SLM
+			remove_core = ROOT 
+		}
+		SLM = { 
+			every_neighbor_country = { add_truce_with = SLM } 
+			set_capital = 1238
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.10.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1238 }
+			add_unrest = 5
+			add_core = SLM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.10.dd
+		every_owned_province = { 
+			limit = { province_id = 1238 }
+			cede_province = SLM
+			add_core = SLM
+		}
+		SLM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1238
+		}
+		hidden_effect = {
+			SLM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1238 = { every_core_country = { limit = { tag = SLM } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SLM = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Nauru
+country_event = {
+	id = cpbm_independence_oceania.11
+	title = cpbm_independence_oceania.11.t
+	desc = cpbm_independence_oceania.11.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.11.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1992 }
+			cede_province = NAU
+			add_core = NAU
+			remove_core = ROOT 
+		}
+		vassalize = NAU
+		NAU = { set_capital = 1992 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.11.b
+		every_owned_province = { 
+			limit = { province_id = 1992 }
+			cede_province = NAU
+			add_core = NAU
+			remove_core = ROOT 
+		}
+		NAU = { 
+			every_neighbor_country = { add_truce_with = NAU } 
+			set_capital = 1992
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.11.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1992 }
+			add_unrest = 5
+			add_core = NAU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.11.dd
+		every_owned_province = { 
+			limit = { province_id = 1992 }
+			cede_province = NAU
+			add_core = NAU
+		}
+		NAU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1992
+		}
+		hidden_effect = {
+			NAU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1992 = { every_core_country = { limit = { tag = NAU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		NAU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Vanuatu
+country_event = {
+	id = cpbm_independence_oceania.12
+	title = cpbm_independence_oceania.12.t
+	desc = cpbm_independence_oceania.12.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.12.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1239 }
+			cede_province = VNU
+			add_core = VNU
+			remove_core = ROOT 
+		}
+		vassalize = VNU
+		VNU = { set_capital = 1239 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.12.b
+		every_owned_province = { 
+			limit = { province_id = 1239 }
+			cede_province = VNU
+			add_core = VNU
+			remove_core = ROOT 
+		}
+		VNU = { 
+			every_neighbor_country = { add_truce_with = VNU } 
+			set_capital = 1239
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.12.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1239 }
+			add_unrest = 5
+			add_core = VNU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.12.dd
+		every_owned_province = { 
+			limit = { province_id = 1239 }
+			cede_province = VNU
+			add_core = VNU
+		}
+		VNU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1239
+		}
+		hidden_effect = {
+			VNU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1239 = { every_core_country = { limit = { tag = VNU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		VNU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Marshall Islands
+country_event = {
+	id = cpbm_independence_oceania.13
+	title = cpbm_independence_oceania.13.t
+	desc = cpbm_independence_oceania.13.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.13.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1993 }
+			cede_province = MRS
+			add_core = MRS
+			remove_core = ROOT 
+		}
+		vassalize = MRS
+		MRS = { set_capital = 1993 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.13.b
+		every_owned_province = { 
+			limit = { province_id = 1993 }
+			cede_province = MRS
+			add_core = MRS
+			remove_core = ROOT 
+		}
+		MRS = { 
+			every_neighbor_country = { add_truce_with = MRS } 
+			set_capital = 1993
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.13.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1993 }
+			add_unrest = 5
+			add_core = MRS
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.13.dd
+		every_owned_province = { 
+			limit = { province_id = 1993 }
+			cede_province = MRS
+			add_core = MRS
+		}
+		MRS = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1993
+		}
+		hidden_effect = {
+			MRS = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1993 = { every_core_country = { limit = { tag = MRS } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		MRS = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kiribati
+country_event = {
+	id = cpbm_independence_oceania.14
+	title = cpbm_independence_oceania.14.t
+	desc = cpbm_independence_oceania.14.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.14.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1241
+                    province_id = 1991
+                    province_id = 3112
+				}
+			}
+			cede_province = KIR
+			add_core = KIR
+			remove_core = ROOT 
+		}
+		vassalize = KIR
+		KIR = { set_capital = 1991 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.14.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1241
+                    province_id = 1991
+                    province_id = 3112
+				}
+			}
+			cede_province = KIR
+			add_core = KIR
+			remove_core = ROOT 
+		}
+		KIR = { 
+			every_neighbor_country = { add_truce_with = KIR } 
+			set_capital = 1991
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.14.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1241
+                    province_id = 1991
+                    province_id = 3112
+				}
+			}
+			add_unrest = 5
+			add_core = KIR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.14.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1241
+                    province_id = 1991
+                    province_id = 3112
+				}
+			}
+			cede_province = KIR
+			add_core = KIR
+		}
+		KIR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1991
+		}
+		hidden_effect = {
+			KIR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1991 = { every_core_country = { limit = { tag = KIR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KIR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Fiji
+country_event = {
+	id = cpbm_independence_oceania.15
+	title = cpbm_independence_oceania.15.t
+	desc = cpbm_independence_oceania.15.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.15.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = fiji_area }
+			cede_province = VIT
+			add_core = VIT
+			remove_core = ROOT 
+		}
+		vassalize = VIT
+		VIT = { set_capital = 1242 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.15.b
+		every_owned_province = { 
+			limit = { area = fiji_area }
+			cede_province = VIT
+			add_core = VIT
+			remove_core = ROOT 
+		}
+		VIT = { 
+			every_neighbor_country = { add_truce_with = VIT } 
+			set_capital = 1242
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.15.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = fiji_area }
+			add_unrest = 5
+			add_core = VIT
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.15.dd
+		every_owned_province = { 
+			limit = { area = fiji_area }
+			cede_province = VIT
+			add_core = VIT
+		}
+		VIT = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1242
+		}
+		hidden_effect = {
+			VIT = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1242 = { every_core_country = { limit = { tag = VIT } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		VIT = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Tuvalu
+country_event = {
+	id = cpbm_independence_oceania.16
+	title = cpbm_independence_oceania.16.t
+	desc = cpbm_independence_oceania.16.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.16.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 1990 }
+			cede_province = TVL
+			add_core = TVL
+			remove_core = ROOT 
+		}
+		vassalize = TVL
+		TVL = { set_capital = 1990 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.16.b
+		every_owned_province = { 
+			limit = { province_id = 1990 }
+			cede_province = TVL
+			add_core = TVL
+			remove_core = ROOT 
+		}
+		TVL = { 
+			every_neighbor_country = { add_truce_with = TVL } 
+			set_capital = 1990
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.16.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 1990 }
+			add_unrest = 5
+			add_core = TVL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.16.dd
+		every_owned_province = { 
+			limit = { province_id = 1990 }
+			cede_province = TVL
+			add_core = TVL
+		}
+		TVL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1990
+		}
+		hidden_effect = {
+			TVL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1990 = { every_core_country = { limit = { tag = TVL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TVL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Tonga
+country_event = {
+	id = cpbm_independence_oceania.17
+	title = cpbm_independence_oceania.17.t
+	desc = cpbm_independence_oceania.17.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.17.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1989
+                    province_id = 3240
+				}
+			}
+			cede_province = TOG
+			add_core = TOG
+			remove_core = ROOT 
+		}
+		vassalize = TOG
+		TOG = { set_capital = 1989 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.17.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1989
+                    province_id = 3240
+				}
+			}
+			cede_province = TOG
+			add_core = TOG
+			remove_core = ROOT 
+		}
+		TOG = { 
+			every_neighbor_country = { add_truce_with = TOG } 
+			set_capital = 1989
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.17.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1989
+                    province_id = 3240
+				}
+			}
+			add_unrest = 5
+			add_core = TOG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.17.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1989
+                    province_id = 3240
+				}
+			}
+			cede_province = TOG
+			add_core = TOG
+		}
+		TOG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1989
+		}
+		hidden_effect = {
+			TOG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1989 = { every_core_country = { limit = { tag = TOG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		TOG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Samoa
+country_event = {
+	id = cpbm_independence_oceania.18
+	title = cpbm_independence_oceania.18.t
+	desc = cpbm_independence_oceania.18.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.18.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1243
+                    province_id = 3217
+				}
+			}
+			cede_province = SAM
+			add_core = SAM
+			remove_core = ROOT 
+		}
+		vassalize = SAM
+		SAM = { set_capital = 1243 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.18.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1243
+                    province_id = 3217
+				}
+			}
+			cede_province = SAM
+			add_core = SAM
+			remove_core = ROOT 
+		}
+		SAM = { 
+			every_neighbor_country = { add_truce_with = SAM } 
+			set_capital = 1243
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.18.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1243
+                    province_id = 3217
+				}
+			}
+			add_unrest = 5
+			add_core = SAM
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.18.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1243
+                    province_id = 3217
+				}
+			}
+			cede_province = SAM
+			add_core = SAM
+		}
+		SAM = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1243
+		}
+		hidden_effect = {
+			SAM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1243 = { every_core_country = { limit = { tag = SAM } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SAM = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Niue
+country_event = {
+	id = cpbm_independence_oceania.19
+	title = cpbm_independence_oceania.19.t
+	desc = cpbm_independence_oceania.19.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.19.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 3216 }
+			cede_province = NIU
+			add_core = NIU
+			remove_core = ROOT 
+		}
+		vassalize = NIU
+		NIU = { set_capital = 3216 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.19.b
+		every_owned_province = { 
+			limit = { province_id = 3216 }
+			cede_province = NIU
+			add_core = NIU
+			remove_core = ROOT 
+		}
+		NIU = { 
+			every_neighbor_country = { add_truce_with = NIU } 
+			set_capital = 3216
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.19.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 3216 }
+			add_unrest = 5
+			add_core = NIU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.19.dd
+		every_owned_province = { 
+			limit = { province_id = 3216 }
+			cede_province = NIU
+			add_core = NIU
+		}
+		NIU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 3216
+		}
+		hidden_effect = {
+			NIU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 3216 = { every_core_country = { limit = { tag = NIU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		NIU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Cook Islands
+country_event = {
+	id = cpbm_independence_oceania.20
+	title = cpbm_independence_oceania.20.t
+	desc = cpbm_independence_oceania.20.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.20.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 3214
+                    province_id = 3238
+				}
+			}
+			cede_province = COK
+			add_core = COK
+			remove_core = ROOT 
+		}
+		vassalize = COK
+		COK = { set_capital = 3238 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.20.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 3214
+                    province_id = 3238
+				}
+			}
+			cede_province = COK
+			add_core = COK
+			remove_core = ROOT 
+		}
+		COK = { 
+			every_neighbor_country = { add_truce_with = COK } 
+			set_capital = 3238
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.20.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 3214
+                    province_id = 3238
+				}
+			}
+			add_unrest = 5
+			add_core = COK
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.20.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 3214
+                    province_id = 3238
+				}
+			}
+			cede_province = COK
+			add_core = COK
+		}
+		COK = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 3238
+		}
+		hidden_effect = {
+			COK = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 3238 = { every_core_country = { limit = { tag = COK } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		COK = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#######################
+###ADDITIONAL STATES###
+#######################
+
+#Hawaii
+country_event = {
+	id = cpbm_independence_oceania.21
+	title = cpbm_independence_oceania.21.t
+	desc = cpbm_independence_oceania.21.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.21.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1240
+                    province_id = 4934
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = HAW
+			add_core = HAW
+			remove_core = ROOT 
+		}
+		vassalize = HAW
+		HAW = { set_capital = 1240 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.21.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1240
+                    province_id = 4934
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = HAW
+			add_core = HAW
+			remove_core = ROOT 
+		}
+		HAW = { 
+			every_neighbor_country = { add_truce_with = HAW } 
+			set_capital = 1240
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.21.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1240
+                    province_id = 4934
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			add_unrest = 5
+			add_core = HAW
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.21.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 1240
+                    province_id = 4934
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = HAW
+			add_core = HAW
+		}
+		HAW = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 1240
+		}
+		hidden_effect = {
+			HAW = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 1240 = { every_core_country = { limit = { tag = HAW } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		HAW = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Pasai
+country_event = {
+	id = cpbm_independence_oceania.22
+	title = cpbm_independence_oceania.22.t
+	desc = cpbm_independence_oceania.22.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.22.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2673
+                    province_id = 2674
+                    province_id = 4809
+				}
+			}
+			cede_province = PSA
+			add_core = PSA
+			remove_core = ROOT 
+		}
+		vassalize = PSA
+		PSA = { set_capital = 2673 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.22.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2673
+                    province_id = 2674
+                    province_id = 4809
+				}
+			}
+			cede_province = PSA
+			add_core = PSA
+			remove_core = ROOT 
+		}
+		PSA = { 
+			every_neighbor_country = { add_truce_with = PSA } 
+			set_capital = 2673
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.22.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2673
+                    province_id = 2674
+                    province_id = 4809
+				}
+			}
+			add_unrest = 5
+			add_core = PSA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.22.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2673
+                    province_id = 2674
+                    province_id = 4809
+				}
+			}
+			cede_province = PSA
+			add_core = PSA
+		}
+		PSA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2673
+		}
+		hidden_effect = {
+			PSA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2673 = { every_core_country = { limit = { tag = PSA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PSA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Pagarruyung
+country_event = {
+	id = cpbm_independence_oceania.23
+	title = cpbm_independence_oceania.23.t
+	desc = cpbm_independence_oceania.23.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.23.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2681
+                    province_id = 2682
+                    province_id = 4817
+				}
+			}
+			cede_province = PGR
+			add_core = PGR
+			remove_core = ROOT 
+		}
+		vassalize = PGR
+		PGR = { set_capital = 2681 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.23.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2681
+                    province_id = 2682
+                    province_id = 4817
+				}
+			}
+			cede_province = PGR
+			add_core = PGR
+			remove_core = ROOT 
+		}
+		PGR = { 
+			every_neighbor_country = { add_truce_with = PGR } 
+			set_capital = 2681
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.23.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2681
+                    province_id = 2682
+                    province_id = 4817
+				}
+			}
+			add_unrest = 5
+			add_core = PGR
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.23.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 2681
+                    province_id = 2682
+                    province_id = 4817
+				}
+			}
+			cede_province = PGR
+			add_core = PGR
+		}
+		PGR = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2681
+		}
+		hidden_effect = {
+			PGR = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2681 = { every_core_country = { limit = { tag = PGR } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PGR = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Aceh
+country_event = {
+	id = cpbm_independence_oceania.24
+	title = cpbm_independence_oceania.24.t
+	desc = cpbm_independence_oceania.24.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.24.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = north_sumatra_area
+                    province_id = 618
+                    province_id = 619
+                    province_id = 2675
+                    province_id = 4810
+                    province_id = 4811
+				}
+			}
+			cede_province = ATJ
+			add_core = ATJ
+			remove_core = ROOT 
+		}
+		vassalize = ATJ
+		ATJ = { set_capital = 617 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.24.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = north_sumatra_area
+                    province_id = 618
+                    province_id = 619
+                    province_id = 2675
+                    province_id = 4810
+                    province_id = 4811
+				}
+			}
+			cede_province = ATJ
+			add_core = ATJ
+			remove_core = ROOT 
+		}
+		ATJ = { 
+			every_neighbor_country = { add_truce_with = ATJ } 
+			set_capital = 617
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.24.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = north_sumatra_area
+                    province_id = 618
+                    province_id = 619
+                    province_id = 2675
+                    province_id = 4810
+                    province_id = 4811
+				}
+			}
+			add_unrest = 5
+			add_core = ATJ
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.24.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = north_sumatra_area
+                    province_id = 618
+                    province_id = 619
+                    province_id = 2675
+                    province_id = 4810
+                    province_id = 4811
+				}
+			}
+			cede_province = ATJ
+			add_core = ATJ
+		}
+		ATJ = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 617
+		}
+		hidden_effect = {
+			ATJ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 617 = { every_core_country = { limit = { tag = ATJ } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ATJ = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Sarawak
+country_event = {
+	id = cpbm_independence_oceania.25
+	title = cpbm_independence_oceania.25.t
+	desc = cpbm_independence_oceania.25.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.25.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = brunei_area
+                    province_id = 4805
+				}
+			}
+			cede_province = SRW
+			add_core = SRW
+			remove_core = ROOT 
+		}
+		vassalize = SRW
+		SRW = { set_capital = 4804 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.25.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = brunei_area
+                    province_id = 4805
+				}
+			}
+			cede_province = SRW
+			add_core = SRW
+			remove_core = ROOT 
+		}
+		SRW = { 
+			every_neighbor_country = { add_truce_with = SRW } 
+			set_capital = 4804
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.25.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = brunei_area
+                    province_id = 4805
+				}
+			}
+			add_unrest = 5
+			add_core = SRW
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.25.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    area = brunei_area
+                    province_id = 4805
+				}
+			}
+			cede_province = SRW
+			add_core = SRW
+		}
+		SRW = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 4804
+		}
+		hidden_effect = {
+			SRW = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 4804 = { every_core_country = { limit = { tag = SRW } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SRW = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Palembang
+country_event = {
+	id = cpbm_independence_oceania.26
+	title = cpbm_independence_oceania.26.t
+	desc = cpbm_independence_oceania.26.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.26.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 622
+                    province_id = 623
+                    province_id = 2678
+                    province_id = 4808
+				}
+			}
+			cede_province = PLB
+			add_core = PLB
+			remove_core = ROOT 
+		}
+		vassalize = PLB
+		PLB = { set_capital = 622 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.26.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 622
+                    province_id = 623
+                    province_id = 2678
+                    province_id = 4808
+				}
+			}
+			cede_province = PLB
+			add_core = PLB
+			remove_core = ROOT 
+		}
+		PLB = { 
+			every_neighbor_country = { add_truce_with = PLB } 
+			set_capital = 622
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.26.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 622
+                    province_id = 623
+                    province_id = 2678
+                    province_id = 4808
+				}
+			}
+			add_unrest = 5
+			add_core = PLB
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.26.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 622
+                    province_id = 623
+                    province_id = 2678
+                    province_id = 4808
+				}
+			}
+			cede_province = PLB
+			add_core = PLB
+		}
+		PLB = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 622
+		}
+		hidden_effect = {
+			PLB = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 622 = { every_core_country = { limit = { tag = PLB } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PLB = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Kauai
+country_event = {
+	id = cpbm_independence_oceania.27
+	title = cpbm_independence_oceania.27.t
+	desc = cpbm_independence_oceania.27.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.27.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = KAA
+			add_core = KAA
+			remove_core = ROOT 
+		}
+		vassalize = KAA
+		KAA = { set_capital = 4936 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.27.b
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = KAA
+			add_core = KAA
+			remove_core = ROOT 
+		}
+		KAA = { 
+			every_neighbor_country = { add_truce_with = KAA } 
+			set_capital = 4936
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.27.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			add_unrest = 5
+			add_core = KAA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.27.dd
+		every_owned_province = { 
+			limit = {
+				OR = { 
+                    province_id = 4935
+                    province_id = 4936
+				}
+			}
+			cede_province = KAA
+			add_core = KAA
+		}
+		KAA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 4936
+		}
+		hidden_effect = {
+			KAA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 4936 = { every_core_country = { limit = { tag = KAA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		KAA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Awngthim
+country_event = {
+	id = cpbm_independence_oceania.28
+	title = cpbm_independence_oceania.28.t
+	desc = cpbm_independence_oceania.28.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_oceania.28.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 2730 }
+			cede_province = AWN
+			add_core = AWN
+			remove_core = ROOT 
+		}
+		vassalize = AWN
+		AWN = { set_capital = 2730 }
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.28.b
+		every_owned_province = { 
+			limit = { province_id = 2730 }
+			cede_province = AWN
+			add_core = AWN
+			remove_core = ROOT 
+		}
+		AWN = { 
+			every_neighbor_country = { add_truce_with = AWN } 
+			set_capital = 2730
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.28.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 2730 }
+			add_unrest = 5
+			add_core = AWN
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_oceania.28.dd
+		every_owned_province = { 
+			limit = { province_id = 2730 }
+			cede_province = AWN
+			add_core = AWN
+		}
+		AWN = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2730
+		}
+		hidden_effect = {
+			AWN = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2730 = { every_core_country = { limit = { tag = AWN } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		AWN = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}

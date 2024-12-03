@@ -1,0 +1,341 @@
+CCP_enable_disable_unified_color_effects = {
+	if = {
+		limit = { NOT = { has_global_flag = CCP_unified_$WHICH$_color_enabled_global_flag } }
+		set_global_flag = CCP_unified_$WHICH$_color_enabled_global_flag
+	}
+	else = { clr_global_flag = CCP_unified_$WHICH$_color_enabled_global_flag }
+}
+###
+CCP_set_country_color_effects = {
+	event_target:CCP_selected_target = {
+		set_country_flag = CCP_color_selected_flag
+		change_country_color = { color = { $R$ $G$ $B$ } }
+	}
+	CCP_unified_color_effects = yes
+}
+CCP_confirm_color_effects = {
+	set_country_flag = CCP_confirm_color_flag
+	country_event = {
+		id = CCP_choose_color_events.0
+	}
+}
+###
+CCP_unified_color_effects = {
+	every_country = {
+		limit = { has_country_flag = CCP_unified_color_flag }
+		restore_country_color = yes
+		clr_country_flag = CCP_unified_color_flag
+	}
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = CCP_unified_HRE_color_enabled_global_flag
+				has_global_flag = CCP_unified_subject_color_enabled_global_flag
+				has_global_flag = CCP_unified_tributary_color_enabled_global_flag
+				has_global_flag = CCP_unified_personal_union_color_enabled_global_flag
+				has_global_flag = CCP_unified_trade_league_color_enabled_global_flag
+				has_global_flag = CCP_unified_vassal_color_enabled_global_flag
+				has_global_flag = CCP_unified_march_color_enabled_global_flag
+				has_global_flag = CCP_unified_shogunate_color_enabled_global_flag
+				has_global_flag = CCP_unified_eyalet_color_enabled_global_flag
+				has_global_flag = CCP_unified_commercial_enterprise_color_enabled_global_flag
+				has_global_flag = CCP_unified_appanage_color_enabled_global_flag
+				has_global_flag = CCP_unified_colonial_subject_color_enabled_global_flag
+				has_global_flag = CCP_unified_trade_protectorate_color_enabled_global_flag
+			}
+		}
+		every_country = {
+			if = {
+				limit = { 
+					has_global_flag = CCP_unified_HRE_color_enabled_global_flag
+					NOT = { has_country_flag = CCP_excluded_country_flag }
+					NOT = { tag = emperor }
+					is_part_of_hre = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				change_country_color = { country = emperor } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_subject_color_enabled_global_flag
+					is_subject = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_tributary_color_enabled_global_flag
+					is_subject_of_type = tributary_state
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord }
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_personal_union_color_enabled_global_flag
+					is_subject_of_type = personal_union
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_trade_league_color_enabled_global_flag
+					NOT = { has_country_flag = CCP_excluded_country_flag }
+					is_in_trade_league = yes
+					is_trade_league_leader = no
+				}
+				random_country = {
+					limit = {
+						is_in_trade_league_with = PREV
+						is_trade_league_leader = yes
+					}
+					save_global_event_target_as = CCP_trade_league_leader
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = event_target:CCP_trade_league_leader } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_vassal_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = client_vassal
+						is_subject_of_type = vassal
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_march_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = march
+						is_subject_of_type = client_march
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_shogunate_color_enabled_global_flag
+					is_subject_of_type = daimyo_vassal
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_eyalet_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = eyalet
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_commercial_enterprise_color_enabled_global_flag
+					is_subject_of_type = commercial_enterprise
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_appanage_color_enabled_global_flag
+					is_subject_of_type = appanage
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_colonial_subject_color_enabled_global_flag
+					is_colonial_nation = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_trade_protectorate_color_enabled_global_flag
+					is_subject_of_type = trade_protectorate
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = CCP_unified_HRE_color_enabled_global_flag
+				has_global_flag = CCP_unified_subject_color_enabled_global_flag
+				has_global_flag = CCP_unified_tributary_color_enabled_global_flag
+				has_global_flag = CCP_unified_personal_union_color_enabled_global_flag
+				has_global_flag = CCP_unified_trade_league_color_enabled_global_flag
+				has_global_flag = CCP_unified_vassal_color_enabled_global_flag
+				has_global_flag = CCP_unified_march_color_enabled_global_flag
+				has_global_flag = CCP_unified_shogunate_color_enabled_global_flag
+				has_global_flag = CCP_unified_eyalet_color_enabled_global_flag
+				has_global_flag = CCP_unified_commercial_enterprise_color_enabled_global_flag
+				has_global_flag = CCP_unified_appanage_color_enabled_global_flag
+				has_global_flag = CCP_unified_colonial_subject_color_enabled_global_flag
+				has_global_flag = CCP_unified_trade_protectorate_color_enabled_global_flag
+			}
+		}
+		every_country = {
+			if = {
+				limit = { 
+					has_global_flag = CCP_unified_HRE_color_enabled_global_flag
+					NOT = { has_country_flag = CCP_excluded_country_flag }
+					NOT = { tag = emperor }
+					is_part_of_hre = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				change_country_color = { country = emperor } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_subject_color_enabled_global_flag
+					is_subject = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_tributary_color_enabled_global_flag
+					is_subject_of_type = tributary_state
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord }
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_personal_union_color_enabled_global_flag
+					is_subject_of_type = personal_union
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_trade_league_color_enabled_global_flag
+					NOT = { has_country_flag = CCP_excluded_country_flag }
+					is_in_trade_league = yes
+					is_trade_league_leader = no
+				}
+				random_country = {
+					limit = {
+						is_in_trade_league_with = PREV
+						is_trade_league_leader = yes
+					}
+					save_global_event_target_as = CCP_trade_league_leader
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = event_target:CCP_trade_league_leader } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_vassal_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = client_vassal
+						is_subject_of_type = vassal
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_march_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = march
+						is_subject_of_type = client_march
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_shogunate_color_enabled_global_flag
+					is_subject_of_type = daimyo_vassal
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord } 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_eyalet_color_enabled_global_flag
+					OR = {
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = eyalet
+					}
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_commercial_enterprise_color_enabled_global_flag
+					is_subject_of_type = commercial_enterprise
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_appanage_color_enabled_global_flag
+					is_subject_of_type = appanage
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_colonial_subject_color_enabled_global_flag
+					is_colonial_nation = yes
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+			if = {
+				limit = {
+					has_global_flag = CCP_unified_trade_protectorate_color_enabled_global_flag
+					is_subject_of_type = trade_protectorate
+				}
+				set_country_flag = CCP_unified_color_flag
+				clr_country_flag = CCP_color_selected_flag
+				change_country_color = { country = overlord	} 
+			}
+		}
+	}
+}

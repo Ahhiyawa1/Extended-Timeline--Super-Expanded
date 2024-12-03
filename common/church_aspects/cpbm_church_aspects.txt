@@ -1,0 +1,127 @@
+cathar_castles_aspect = {
+	effect = {
+		defensiveness = 0.2
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+}
+
+sacrement_consolament_aspect = {
+	effect = {
+		land_morale = 0.2
+	}
+	ai_will_do = {
+		factor = 15
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+}
+
+regle_justice_verite_aspect = {
+	effect = {
+		stability_cost_modifier = -0.10
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 2
+			unrest = 4
+			NOT = { stability = 0 }
+		}
+	}
+}
+
+vegetarian_aspect = {
+	effect = { 
+		production_efficiency = 0.1
+	}
+	ai_will_do = {
+		factor = 14
+	}
+}
+
+propagation_textes_cathares_aspect = {
+	effect = { 
+		global_missionary_strength = 0.01
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.8 }
+		}
+	}
+}
+
+connaissance_salvatrice_aspect = {
+	effect = { 
+		advisor_cost = -0.5
+	}
+	ai_will_do = {
+		factor = 11
+	}
+}
+
+congregationalism_aspect = {
+	effect = { 
+		development_cost = -0.1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+ecumenicalism_aspect = {
+	effect = { 
+		tolerance_heretic = 1
+	}
+	ai_will_do = {
+		factor = 11
+	}
+}
+
+evangelical_missions_aspect = {
+	effect = { 
+		colonists = 1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			num_of_colonies = 1
+		}
+		modifier = {
+			factor = 3
+			num_of_colonists = 2
+		}
+	}
+}
+
+eschatology_aspect = {
+	effect = { 
+		build_cost = -0.1
+	}
+	ai_will_do = {
+		factor = 12
+	}
+}
+
+glossolalia_aspect = {
+	effect = { 
+		religious_unity = 0.5
+	}
+	ai_will_do = {
+		factor = 13
+	}
+}
