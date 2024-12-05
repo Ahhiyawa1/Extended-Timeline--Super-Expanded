@@ -1,0 +1,61 @@
+namespace = no_more_rebels
+
+country_event = {
+	id = no_more_rebels.1
+	title = "no_more_rebels.1.t"
+	desc = "no_more_rebels.1.d"
+	picture = INVENTION_eventPicture
+
+	trigger = { 
+		ai = no
+		NOT = { has_global_flag = no_more_rebels_setup_complete } 
+	}
+	
+	#immediate = {  }
+
+	#EVERYONE INCLUDING AI
+	option = {
+		name = "no_more_rebels.1.option1"
+
+		clr_global_flag = no_more_rebels_ai_blocker
+
+		set_global_flag = no_more_rebels_setup_complete
+	}
+
+	#PLAYER ONLY
+	option = {
+		name = "no_more_rebels.1.option2"
+
+		set_global_flag = no_more_rebels_ai_blocker
+
+		set_global_flag = no_more_rebels_setup_complete
+	}
+}
+
+country_event = {
+	id = no_more_rebels.2
+	title = "no_more_rebels.2.n"
+	desc = "no_more_rebels.2.d"
+	picture = GREAT_BUILDING_eventPicture
+
+	trigger = { 	
+		NOT = { has_country_flag = no_more_rebels_on } 
+		has_global_flag = no_more_rebels_setup_complete
+		NOT = {
+			AND = {
+				ai = yes
+				has_global_flag = no_more_rebels_ai_blocker
+			}
+		}
+	}
+	
+	immediate = { set_country_flag = no_more_rebels_on }
+
+	option = {
+		name = "no_more_rebels.2.option1"
+		add_country_modifier = {
+			name = no_more_rebels_active
+			duration = -1
+		}
+	}
+}
