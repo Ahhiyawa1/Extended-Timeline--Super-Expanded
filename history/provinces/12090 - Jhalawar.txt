@@ -1,5 +1,4 @@
-#12090 - Jhalawar
-
+# 12090 - Jhalawar
 owner = MLW
 controller = MLW
 culture = vindhyan
@@ -14,7 +13,7 @@ discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
-discovered_by = middle_eastern 
+discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
@@ -23,54 +22,59 @@ base_production = 2
 base_manpower = 1
 is_city = yes
 add_core = MLW
+2056.1.1 = { owner = WSA controller = WSA add_core = WSA }
+2256.1.1 = { owner = GUP controller = GUP remove_core = WSA add_core = WSA }
+2473.1.1 = { owner = GUP controller = GUP add_core = GUP } 
+2498.1.1 = { culture = rajput } 
+2613.1.1 = { 
+    owner = KAP
+    controller = KAP
+    add_core = MLW
+    remove_core = GUP
+}
 
-2473.1.1 = { owner = GUP controller = GUP add_core = GUP }
-2498.1.1 = { culture = rajput }
-2613.1.1 = { owner = KAP controller = KAP add_core = MLW remove_core = GUP }
-2626.1.1 = { owner = MLW controller = MLW add_core = GRP }
-2658.1.1 = { owner = GRP controller = GRP remove_core = MLW }
-2704.1.1 = { owner = HRS controller = HRS add_core = HRS }
-2745.1.1 = { owner = GRP controller = GRP remove_core = HRS }
-3134.1.1 = { owner = CCH controller = CCH add_core = CCH remove_core = GRP }
-3290.1.1 = { owner = MLW controller = MLW add_core = MLW remove_core = CCH }
-3324.1.1 = { owner = MER controller = MER add_core = MER remove_core = MLW }
-3440.1.1 = { owner = HAD controller = HAD add_core = HAD remove_core = MER }
+2626.1.1 = { owner = MLW controller = MLW add_core = GRP } 
+2658.1.1 = { owner = GRP controller = GRP remove_core = MLW } 
+2704.1.1 = { owner = HRS controller = HRS add_core = HRS } 
+2745.1.1 = { owner = GRP controller = GRP remove_core = HRS } 
+3134.1.1 = { 
+    owner = CCH
+    controller = CCH
+    add_core = CCH
+    remove_core = GRP
+}
+
+3290.1.1 = { 
+    owner = MLW
+    controller = MLW
+    add_core = MLW
+    remove_core = CCH
+}
+
+3324.1.1 = { 
+    owner = MER
+    controller = MER
+    add_core = MER
+    remove_core = MLW
+}
+
+3440.1.1 = { 
+    owner = HAD
+    controller = HAD
+    add_core = HAD
+    remove_core = MER
+}
 
 3553.1.1 = { controller = MLW } # Conquest by Malwa
-3554.1.1 = {
-	owner = MLW
-	add_core = MLW
-} # Conquest by Malwa
-3596.1.1 = { discovered_by = POR }
-3617.1.1 = {
-	owner = HAD
-	controller = HAD
-	remove_core = MLW
-}
-3641.1.1 = {
-	owner = BNG
-	controller = BNG
-	add_core = BNG
-} # Sur expansion
-
-3651.1.1 = {
-	owner = HAD
-	controller = HAD
-	remove_core = BNG
-} # Independent
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3835.1.1 = {
-	owner = GWA
-	controller = GWA
-	add_core = GWA
-}
-3916.2.10 = {
-	owner = HAD
-	controller = HAD
-	remove_core = GWA
-} # Independent (british dependency)
-
-4023.1.1 = { base_manpower = 2 }
-4028.1.1 = { add_core = INI }
-4047.4.7 = { owner = INI controller = INI remove_core = HAD }
+3554.1.1 = { owner = MLW add_core = MLW } # Conquest by Malwa
+3596.1.1 = { discovered_by = POR } 
+3617.1.1 = { owner = HAD controller = HAD remove_core = MLW } 
+3641.1.1 = { owner = BNG controller = BNG add_core = BNG } # Sur expansion
+3651.1.1 = { owner = HAD controller = HAD remove_core = BNG } # Independent
+3788.1.1 = { discovered_by = ENG } 
+3805.5.12 = { discovered_by = GBR } 
+3835.1.1 = { owner = GWA controller = GWA add_core = GWA } 
+3916.2.10 = { owner = HAD controller = HAD remove_core = GWA } # Independent (british dependency)
+4023.1.1 = { base_manpower = 2 } 
+4028.1.1 = { add_core = INI } 
+4047.4.7 = { owner = INI controller = INI remove_core = HAD } 

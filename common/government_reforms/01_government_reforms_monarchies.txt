@@ -202,11 +202,13 @@ indian_sultanate_reform = {
 			has_reform = indian_sultanate_reform
 		}
 		religion_group = muslim
+		is_year = 2890.1.1 
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 
 		capital_scope = {
 			superregion = india_superregion
 		}
@@ -266,7 +268,7 @@ shogunate = {
 	can_change_primary_culture = no
 
 	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
+		allow = { has_dlc = "Manis_year of Heaven" }
 		government_abilities = {
 			shogunate_mechanic
 		}
@@ -468,7 +470,7 @@ celestial_empire = {
 	potential = {
 		if = {
 			limit = {
-				has_dlc = "Mandate of Heaven"
+				has_dlc = "Manis_year of Heaven"
 			}
 			is_emperor_of_china = yes
 		}
@@ -527,7 +529,7 @@ celestial_empire = {
 	}
 
 	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
+		allow = { has_dlc = "Manis_year of Heaven" }
 		has_meritocracy = yes
 		factions = {}
 	}
@@ -770,11 +772,13 @@ iqta = {
 	allow_normal_conversion = yes
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 
 	legacy_equivalent = iqta_legacy
@@ -994,6 +998,7 @@ ottoman_government = {
 	icon = "ottoman_government"
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			AND = {
 				tag = TUR
@@ -1009,6 +1014,7 @@ ottoman_government = {
 	nation_designer_cost = 20
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	legacy_equivalent = ottoman_government_legacy
 	maintain_dynasty = yes
@@ -1156,7 +1162,7 @@ serbian_despotate_reform = {
 	}
 	trigger = {
 		if = {
-			limit = { has_updated_culture = { culture = slavic } }
+			limit = { has_upis_yeard_culture = { culture = slavic } }
 			primary_culture = serbian_new
 		}
 		else = {
@@ -1201,7 +1207,7 @@ bulgarian_tsardom_reform = {
 	trigger = {
 		religion = orthodox
 		if = {
-			limit = { has_updated_culture = { culture = slavic } }
+			limit = { has_upis_yeard_culture = { culture = slavic } }
 			primary_culture = bulgarian_new
 		}
 		else = {
@@ -1343,6 +1349,7 @@ sharifate_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		owns = 385
 	}
 	trigger = {
@@ -1350,6 +1357,7 @@ sharifate_reform = {
 	}
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		owns = 385
 	}
 	valid_for_nation_designer = yes
@@ -1389,10 +1397,12 @@ caliphate_reform = {
 	}
 	trigger = {
 		religion_group = muslim
+		is_year = 2698.1.1 # This makes the reform available starting from this is_year.
 	}
 	lock_level_when_selected = yes
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2698.1.1 # This makes the reform available starting from this is_year.
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 50
@@ -1448,11 +1458,13 @@ barbary_sultanate_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		culture_group = maghrebi
 	}
 	queen = no
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		culture_group = maghrebi
 	}
 	valid_for_nation_designer = yes
@@ -1940,6 +1952,7 @@ modernized_ottoman_government = {
 	icon = "modernized_ottoman_government"
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			has_reform = modernized_ottoman_government
 			has_unlocked_government_reform = { government_reform = modernized_ottoman_government }
@@ -1953,6 +1966,7 @@ modernized_ottoman_government = {
 	nation_designer_cost = 50
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	maintain_dynasty = yes
 	modifiers = {
@@ -2003,6 +2017,7 @@ reorganized_ottoman_government = {
 	icon = "ottoman_government"
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			has_reform = reorganized_ottoman_government
 			has_unlocked_government_reform = { government_reform = reorganized_ottoman_government }
@@ -2016,6 +2031,7 @@ reorganized_ottoman_government = {
 	nation_designer_cost = 50
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	maintain_dynasty = yes
 	modifiers = {
@@ -2054,6 +2070,7 @@ sultanate_of_rum_reform = {
 	icon = "rum_sultanate"
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			AND = {
 				tag = RUM
@@ -2069,6 +2086,7 @@ sultanate_of_rum_reform = {
 	nation_designer_cost = 40
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	maintain_dynasty = yes
 	modifiers = {
@@ -2217,12 +2235,14 @@ beylik_government = {
 	allow_normal_conversion = yes
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		primary_culture = turkish
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 5
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		primary_culture = turkish
 	}
 	modifiers = {
@@ -2252,12 +2272,14 @@ al_andalusia_government = {
 	}
 	trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		primary_culture = andalucian
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 5
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		primary_culture = andalucian
 	}
 	modifiers = {
@@ -2684,6 +2706,7 @@ mamluk_government = {
 	allow_normal_conversion = yes
 	potential = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			AND = {
 				tag = MAM
@@ -2700,6 +2723,7 @@ mamluk_government = {
 
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 
 	modifiers = {
@@ -2729,6 +2753,7 @@ feudal_theocracy = {
 		OR = {
 			AND = {
 				religion_group = muslim
+				is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 				OR = {
 					has_reform = feudal_theocracy
 					have_had_reform = feudal_theocracy
@@ -2742,6 +2767,7 @@ feudal_theocracy = {
 	}
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	legacy_equivalent = feudal_theocracy_legacy
 	valid_for_nation_designer = yes
@@ -3122,6 +3148,7 @@ mandala_reform = {
 			religion_group = eastern
 			religion_group = dharmic
 			religion_group = muslim
+			is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 			religion = animism
 		}
 		technology_group = chinese
@@ -3139,6 +3166,7 @@ mandala_reform = {
 			religion_group = eastern
 			religion_group = dharmic
 			religion_group = muslim
+			is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		}
 		technology_group = chinese
 		OR = {
@@ -5013,6 +5041,7 @@ bengali_reform = {
 		has_dlc = "Dharma"
 		primary_culture = bengali
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	modifiers = {
 		merchants = 1
@@ -5030,6 +5059,7 @@ sufi_syncretism_reform = {
 		has_dlc = "Dharma"
 		primary_culture = bengali
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	modifiers = {
 		global_missionary_strength = 0.01
@@ -5086,6 +5116,7 @@ deccani_society_reform = {
 		is_revolutionary = no
 		technology_group = indian
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
@@ -5672,7 +5703,7 @@ regional_council_reform = {
 		state_maintenance_modifier = -0.33
 	}
 	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
+		allow = { has_dlc = "Manis_year of Heaven" }
 		custom_attributes = {
 			unlock_special_state_edicts = yes
 		}
@@ -5705,6 +5736,7 @@ sidhi_recruitment = {
 		has_dlc = "Dharma"
 		technology_group = indian
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
@@ -6038,6 +6070,7 @@ meritocratic_focus_reform = {
 			OR = {
 				AND = {
 					religion_group = muslim
+					is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 					OR = {
 						estate_influence = {
 							estate = estate_rajput
@@ -6072,6 +6105,7 @@ dakhni_culture_reform = {
 		has_dlc = "Dharma"
 		technology_group = indian
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
@@ -6373,6 +6407,7 @@ ottoman_siyasah_tax_reform = {
 	}
 	trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 	effect = {
 		hidden_effect = {
@@ -7276,6 +7311,7 @@ egyptian_government_reform = {
 
 	nation_designer_trigger = {
 		religion_group = muslim
+		is_year = 2890.1.1 # This makes the reform available starting from this is_year.
 	}
 
 	modifiers = {
