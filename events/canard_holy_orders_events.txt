@@ -1,0 +1,340 @@
+# Jesuits arrive
+country_event = {
+	id = canard_order.1
+	title = "canard_order_name.1"
+	desc = "canard_order_event.1"
+	picture = JESUIT_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				culture_group = japanese_g
+				religion = catholic
+				is_year = 1540
+				AI = no
+			}
+			AND = { 
+				culture_group = kongo_group
+				religion = catholic
+				is_year = 1540
+				AI = no
+			}
+			AND = { 
+				culture_group = latin
+				religion = catholic
+				is_year = 1540
+				AI = no
+			}
+			AND = { 
+				culture_group = korean_g
+				religion = catholic
+				is_year = 1540
+				AI = no
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1640
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}
+
+
+# Sufism spread
+country_event = {
+	id = canard_order.2
+	title = "canard_order_name.1"
+	desc = "canard_order_event.2"
+	picture = COURT_INTRIGUE_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			
+			AND = { 
+				culture_group = south_slavic
+				is_year = 1550
+				AI = no
+			}
+			AND = { 
+				culture_group = byzantine
+				is_year = 1550
+				AI = no
+			}
+			AND = { 
+				culture_group = caucasian 
+				is_year = 1550
+				AI = no
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1640
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}
+
+
+
+# Naqshbandi spreading
+country_event = {
+	id = canard_order.3
+	title = "canard_order_name.1"
+	desc = "canard_order_event.3"
+	picture = COURT_INTRIGUE_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				culture_group = hindusthani
+				religion_group = muslim
+				is_year = 1600
+				AI = no
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1750
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}
+
+
+# Sheik Mansour
+country_event = {
+	id = canard_order.4
+	title = "canard_order_mansour_name"
+	desc = "canard_order_event.4"
+	picture = SWORD_OF_OSMAN_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				accepted_culture = circassian
+				is_year = 1784
+				AI = no
+			}
+			AND = { 
+				accepted_culture = dagestani
+				is_year = 1784
+				AI = no
+			}
+		}
+		
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_mansour.1"
+		add_adm_power = 200
+		add_mil_power = 200
+		add_yearly_manpower = 1
+	}
+	
+}
+
+
+# Ascetism spreading
+country_event = {
+	id = canard_order.5
+	title = "canard_order_name.1"
+	desc = "canard_order_event.6"
+	picture = ENLIGHTENMENT_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				culture_group = british
+				religion = anglican
+				is_year = 1700
+				AI = no
+			}
+			AND = { 
+				culture_group = scandinavian
+				religion = protestant 
+				is_year = 1700
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}
+
+
+
+# Perpetual Adoration
+country_event = {
+	id = canard_order.6
+	title = "canard_order_name.1"
+	desc = "canard_order_event.7"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				culture_group = french
+				religion = catholic
+				is_year = 1693
+				AI = no
+			}
+			AND = { 
+				culture_group = british
+				religion_group = christian
+				is_year = 1693
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}
+
+
+# Constantinian Order
+country_event = {
+	id = canard_order.7
+	title = "canard_order_name.1"
+	desc = "canard_order_event.8"
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		
+			AND = { 
+				culture_group = south_slavic
+				is_year = 1545
+				AI = no
+			}
+			AND = { 
+				culture_group = latin
+				is_year = 1698
+				AI = no
+			}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_mil_power = 50
+	}
+}
+
+# Trappist Order
+country_event = {
+	id = canard_order.8
+	title = "canard_order_name.1"
+	desc = "canard_order_event.9"
+	picture = PRAYING_eventPicture
+
+	fire_only_once = yes
+
+
+	trigger = {
+		OR = { 
+			AND = { 
+				culture_group = french
+				religion = catholic
+				is_year = 1664
+				AI = no
+			}
+			AND = { 
+				culture = flemish
+				religion_group = catholic
+				is_year = 1664
+				AI = no
+			}
+			AND = { 
+				culture = hebrew
+				is_year = 1664
+				AI = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	
+	option = {		
+		name = "canard_order_ok.1"
+		add_adm_power = 50
+	}
+}

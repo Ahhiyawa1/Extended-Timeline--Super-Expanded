@@ -29,12 +29,17 @@ add_core = M10
 
 2348.1.1 = { religion = chalcedonism } 
 2492.1.1 = { culture = greek } 
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ } 
+2493.1.17 = { 
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+	remove_core = ROM
+}
 2965.1.1 = { religion = orthodox } 
 3288.1.1 = { owner = RUM controller = RUM add_core = RUM } 
 3348.1.1 = { religion = sunni culture = turkish } 
-3358.1.1 = { owner = MEN controller = MEN add_core = MEN } 
-3488.1.1 = { owner = TUR controller = TUR add_core = TUR } 
+3358.1.1 = { owner = MEN controller = MEN add_core = MEN remove_core = RUM } 
+3488.1.1 = { owner = TUR controller = TUR add_core = TUR remove_core = BYZ } 
 3500.7.20 = { owner = MEN controller = MEN } 
 3522.1.1 = { owner = TUR controller = TUR } 
 3579.6.1 = { controller = REB revolt = { type = pretender_rebels size = 0 } } 

@@ -1,0 +1,1997 @@
+benedictines = {
+    icon = GFX_holy_order_benedictines
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = germanic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = latin
+				religion = catholic
+			}
+			AND = { 
+				culture_group = west_slavic
+				religion = catholic
+			}
+			
+		}
+	
+    }
+  
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+        local_unrest = -1 
+		trade_goods_size_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+carthusians = {
+    icon = GFX_holy_order_carthusians
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = gaelic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = british
+				religion = catholic
+			}
+		}
+		
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_build_cost = -0.1
+		local_state_maintenance_modifier = -0.2
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+augustinians = {
+    icon = GFX_holy_order_augustinians
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = byzantine
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = germanic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = gaelic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = japanese_g
+				religion = catholic
+			}
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = christian
+			}
+			AND = { 
+				culture = hebrew
+				religion_group = judaism
+			}
+		}
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+    modifier = {
+		institution_growth = 6 
+		local_missionary_maintenance_cost = -0.5
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+
+dominican_order = {
+    icon = GFX_holy_order_dominicans
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = caucasian
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = iranian
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = british
+				religion = catholic
+			}
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = carpathian
+				religion = catholic
+			}
+			AND = { 
+				culture = hebrew
+				religion_group = judaism
+			}
+		}
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_missionary_strength = 0.02
+		local_institution_spread = 0.15
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+jesuit_order = {
+    icon = GFX_holy_order_jesuits
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = japanese_g
+				religion = catholic
+				is_year = 1540
+			}
+			AND = { 
+				culture_group = kongo_group
+				religion = catholic
+				is_year = 1540
+			}
+			AND = { 
+				culture_group = latin
+				religion = catholic
+				is_year = 1540
+			}
+			AND = { 
+				culture_group = west_slavic
+				religion = catholic
+				is_year = 1540
+			}
+			AND = { 
+				culture_group = korean_g
+				religion = catholic
+				is_year = 1540
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1640
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_development_cost_modifier = -0.05
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+franciscan_order = {
+    icon = GFX_holy_order_franciscans
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = british
+				religion = anglican
+			}
+			AND = { 
+				culture_group = carpathian
+				religion = catholic
+			}
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = west_slavic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = germanic
+				religion = protestant
+			}
+		}
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+    modifier = {
+		local_unrest = -2
+        local_prosperity_growth = 0.1
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+shadhili_order = {
+    icon = GFX_holy_order_shadhili
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = maghrebi
+				religion_group = muslim
+			}
+			
+			AND = { 
+				culture_group = western_aryan
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = eastern_aryan
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = hindusthani
+				religion_group = muslim
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+        local_missionary_strength = 0.015
+        local_institution_spread = 0.10
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+qadiri_order = {
+    icon = GFX_holy_order_qadiri
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = iranian
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1640
+			}
+			AND = { 
+				culture_group = altaic
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = sahelian
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = hindusthani
+				religion_group = muslim
+			}
+		}
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_culture_conversion_cost = -0.3
+        local_build_cost = -0.1
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+aissawa_order = {
+    icon = GFX_holy_order_aissawa
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = maghrebi
+				religion_group = muslim
+			}
+			
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = muslim
+				is_year = 1700
+			}
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+        local_missionary_strength = 0.015
+        local_institution_spread = 0.10
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+mevlevi_order = {
+    icon = GFX_holy_order_mevlevi
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = iranian
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = south_slavic
+				is_year = 1550
+			}
+			AND = { 
+				culture_group = byzantine
+				is_year = 1550
+			}
+		}
+	}
+ 
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_unrest = -1
+        local_development_cost = -0.05
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+bektashi_order = {
+    icon = GFX_holy_order_bektashi
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = south_slavic
+				is_year = 1650
+			}
+			AND = { 
+				culture_group = byzantine
+				is_year = 1650
+			}
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+        local_unrest = -1
+        local_production_efficiency = 0.1
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+
+ba'alawiyya = {
+    icon = GFX_holy_order_baalawiyya
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = malay
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = eastern_aryan
+				religion_group = muslim
+			}
+		}
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+     modifier = {
+        local_missionary_strength = 0.015
+        local_institution_spread = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+naqshbandi = {
+    icon = GFX_holy_order_naqshbandi
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = iranian
+				religion_group = muslim
+			}
+			
+			AND = { 
+				culture_group = hindusthani
+				religion_group = muslim
+				is_year = 1600
+			}
+			AND = { 
+				culture_group = east_asian
+				is_year = 1750
+			}
+			AND = { 
+				accepted_culture = circassian
+				is_year = 1784
+			}
+			AND = { 
+				accepted_culture = dagestani
+				is_year = 1784
+			}
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_piety = 0.03 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+        province_trade_power_modifier = 0.1
+         	local_manpower_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+poor_clares = {
+    icon = GFX_holy_order_poor_clares
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = latin
+				religion = catholic
+			}
+			AND = { 
+				culture_group = british
+				religion = catholic
+			}
+			AND = { 
+				culture_group = west_slavic
+				religion = catholic
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_development_cost = -0.05
+		local_state_maintenance_modifier = -0.15
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+desert_fathers = {
+    icon = GFX_holy_order_desert_fathers
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = turko_semitic
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = caucasian
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = cushitic
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = british
+				religion = anglican
+				is_year = 1700
+			}
+			AND = { 
+				culture_group = scandinavian
+				religion = protestant 
+				is_year = 1700
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_unrest = -1
+		local_build_cost = -0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+olivetans = {
+    icon = GFX_holy_order_olivetans
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = latin
+				religion = catholic
+			}
+			AND = { 
+				culture_group = french
+				religion = catholic
+			}
+			AND = { 
+				culture_group = cushitic
+				religion_group = christian
+			}
+			AND = { 
+				culture = swiss
+				religion = catholic
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_production_efficiency = 0.1
+		local_governing_cost = -0.05
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+perpetual_adoration = {
+    icon = GFX_holy_order_perpetual_adoration
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = french
+				religion = catholic
+				is_year = 1693
+			}
+			AND = { 
+				culture_group = british
+				religion_group = christian
+				is_year = 1693
+			}
+			AND = { 
+				culture_group = germanic
+				religion = protestant
+			}
+		}
+	}
+ 
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+		
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_unrest = -1
+        local_missionary_strength = 0.015
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+pauline_order = {
+    icon = GFX_holy_order_pauline_order
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = carpathian
+				religion = catholic
+			}
+			AND = { 
+				culture_group = south_slavic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = west_slavic
+				religion = catholic
+			}
+			AND = { 
+				culture_group = scandinavian
+				religion = catholic
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_unrest = -2
+		local_build_cost = -0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+servites = {
+    icon = GFX_holy_order_servites
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = latin
+				religion = catholic
+			}
+			AND = { 
+				culture_group = carpathian
+				religion = catholic
+			}
+			AND = { 
+				culture_group = byzantine
+				religion_group = christian
+			}
+			AND = { 
+				culture_group = dravidian
+				religion_group = christian
+			}
+		}
+	}
+ 
+    cost = 40
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_institution_spread = 0.1
+        local_prosperity_growth = 0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+golden_fleece = {
+    icon = GFX_holy_order_golden_fleece
+    trigger = {
+    	OR = { 
+			is_emperor = yes
+			tag = BUR
+			was_tag = BUR
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_prestige = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_defensiveness = 0.15
+       local_manpower_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+leper_order = {
+    icon = GFX_holy_order_leper_order
+    trigger = {
+    	OR = { 
+			tag = SAV
+			was_tag = SAV
+			tag = SAR
+			was_tag = SAR
+			tag = SIC
+			was_tag = SIC
+			tag = ITA
+			tag = SPI
+			was_tag = SPI
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_army_tradition = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_defender_dice_roll_bonus = 1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+blackhead = {
+    icon = GFX_holy_order_blackhead
+    trigger = {
+    	OR = { 
+			culture_group = baltic
+			tag = LVA
+			was_tag = LVA 
+			tag = GOT
+			was_tag = GOT
+			tag = TEU
+			was_tag = TEU
+			tag = RIG
+			was_tag = RIG
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_army_tradition = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_hostile_attrition = 1
+	   local_defensiveness = 0.15
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+georges_order = {
+    icon = GFX_holy_order_georges_order
+    trigger = {
+    	OR = { 
+			culture_group = germanic
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_manpower_modifier = 0.1
+	   local_regiment_cost = -0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+constantinian_order = {
+    icon = GFX_holy_order_constantinian_order
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = byzantine
+				is_year = 1420
+			}
+			AND = { 
+				culture_group = south_slavic
+				is_year = 1545
+			}
+			AND = { 
+				culture_group = latin
+				is_year = 1698
+			}
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_manpower_modifier = 0.1
+	   local_own_coast_naval_combat_bonus = 1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+tendai = {
+    icon = GFX_holy_order_tendai
+    trigger = {
+    	OR = { 
+			culture_group = japanese_g
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_manpower_modifier = 0.1
+	   local_garrison_size = 0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+shingon = {
+    icon = GFX_holy_order_shingon
+    trigger = {
+    	OR = { 
+			culture_group = japanese_g
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+       local_tax_modifier = 0.1
+	   local_institution_spread = 0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+
+bailiwick_utrecht = {
+    icon = GFX_holy_order_bailiwick_utrecht
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture = dutch
+				religion_group = christian
+			}
+			AND = { 
+				culture = flemish
+				religion_group = christian
+			}
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_army_tradition = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_fort_maintenance_modifier = -0.15
+	   local_garrison_damage = 0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+khalsa = {
+    icon = GFX_holy_order_khalsa
+    trigger = {
+    	OR = { 
+			religion = sikhism
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_army_tradition = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_hostile_movement_speed = -0.2
+	   local_manpower_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+keshig = {
+    icon = GFX_holy_order_keshig
+    trigger = {
+    	OR = { 
+			culture_group = altaic
+			culture_group = tartar
+			culture_group = evenks
+			religion = tengri_pagan_reformed
+			
+		}
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_manpower_modifier = 0.1
+	   local_friendly_movement_speed = 0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+youxia = {
+    icon = GFX_holy_order_youxia
+    trigger = {
+    	OR = { 
+			culture_group = altaic 
+			culture_group = evenks
+			culture_group = east_asian
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_prosperity_growth = 0.25
+	   local_unrest = -1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+
+guecha = {
+    icon = GFX_holy_order_guecha
+    trigger = {
+    	OR = { 
+			religion = inti
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_hostile_attrition = 1
+	   local_manpower_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+qollqa = {
+    icon = GFX_holy_order_qollqa
+    trigger = {
+    	OR = { 
+			religion = inti
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_development_cost = -0.1
+	    supply_limit_modifier = 0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+bogatyr = {
+    icon = GFX_holy_order_bogatyr
+    trigger = {
+    	OR = { 
+			has_estate = estate_cossacks
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+        local_defender_dice_roll_bonus = 1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+akhi_brotherhood = {
+    icon = GFX_holy_order_akhi_brotherhood
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = caucasian 
+				is_year = 1550
+			}
+			culture_group = turko_semitic
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_manpower_modifier = 0.1
+	    local_production_efficiency = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+vojne_krajine = {
+    icon = GFX_holy_order_vojne_krajine
+    trigger = {
+    	OR = { 
+			AND = { 
+				NOT = {
+				tag = TUR
+				}
+				accepted_culture = serbian
+			}
+			AND = { 
+				NOT = {
+				tag = TUR
+				}
+				accepted_culture = croatian
+			}
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_culture_conversion_cost = -0.25
+	   local_defensiveness = 0.15
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+binou = {
+    icon = GFX_holy_order_binou
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = mande
+				religion = shamanism
+			} 
+			AND = { 
+				culture_group = sahelian
+				religion = shamanism
+			} 
+			AND = { 
+				culture_group = west_african
+				religion = shamanism
+			} 
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_unrest = -1
+	    local_missionary_strength = 0.02
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+medicine_lodge = {
+    icon = GFX_holy_order_medicine_lodge
+    trigger = {
+    	OR = { 
+			religion = totemism
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_unrest = -1
+	    local_tax_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+kiva = {
+    icon = GFX_holy_order_kiva
+    trigger = {
+    	OR = { 
+			culture_group = sonoran
+			culture_group = apachean
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_development_cost = -0.15
+	    local_build_cost = -0.25
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+tukkums = {
+    icon = GFX_holy_order_tukkums
+    trigger = {
+    	OR = { 
+			accepted_culture = circassian
+			accepted_culture = dagestani
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_defensiveness = 0.2
+	   local_manpower_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+
+gompa = {
+    icon = GFX_holy_order_gompa
+    trigger = {
+    	OR = { 
+			religion = buddhism
+			religion = vajrayana
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+		local_governing_cost = -0.1
+	    local_institution_spread = 0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+eagle_warrior = {
+    icon = GFX_holy_order_eagle_warrior
+    trigger = {
+    	OR = { 
+			religion = nahuatl 
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+		owner = { add_army_tradition = 1 }
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       local_tax_modifier = 0.1
+	   local_unrest = -1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+jaguar_warrior = {
+    icon = GFX_holy_order_jaguar_warrior
+    trigger = {
+    	OR = { 
+			religion = nahuatl 
+		}
+    }
+   cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_manpower = 1 } }
+                set_base_manpower = 1
+            }
+        }
+    }
+     modifier = {
+       trade_goods_size_modifier = 0.1
+	   local_culture_conversion_cost = -0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+
+calmecac = {
+    icon = GFX_holy_order_calmecac
+    trigger = {
+    	OR = { 
+			religion = nahuatl 
+			religion = mesoamerican_religion
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+       local_tax_modifier = 0.1
+	   local_institution_spread = 0.2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+matha = {
+    icon = GFX_holy_order_matha
+    trigger = {
+    	OR = { 
+			religion_group = dharmic
+		}
+	}
+ 
+	cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+	modifier = {
+        local_missionary_strength = 0.01
+		local_institution_spread = 0.25
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+
+
+
+ashram = {
+    icon = GFX_holy_order_ashram
+    trigger = {
+    	OR = { 
+			religion_group = dharmic
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+      
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+       local_manpower_modifier = 0.1
+	   local_development_cost = -0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+chishti_order = {
+    icon = GFX_holy_order_chishti_order
+    trigger = {
+    	OR = { 
+			AND = { 
+				culture_group = western_aryan
+				religion_group = muslim
+			}
+			
+			AND = { 
+				culture = afghani
+				religion_group = muslim
+			}
+			AND = { 
+				culture_group = hindusthani
+				religion_group = muslim
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+		owner = { add_piety = -0.02 }
+        custom_tooltip = order_piety_tooltip
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+			if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+     modifier = {
+        local_unrest = -1
+        local_tolerance_of_heathens = 2
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
+
+
+
+trappists = {
+    icon = GFX_holy_order_trappists
+    trigger = {
+    	OR = { 
+			
+			AND = { 
+				culture_group = french
+				religion = catholic
+				is_year = 1664
+			}
+			AND = { 
+				culture = flemish
+				religion_group = catholic
+				is_year = 1664
+			}
+			AND = { 
+				culture = hebrew
+				is_year = 1664
+			}
+		}
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+		local_production_efficiency = 0.1
+		trade_goods_size_modifier = 0.1
+    }
+    ai_priority = {
+        factor = 1
+    }
+    localization = holy_order
+}
