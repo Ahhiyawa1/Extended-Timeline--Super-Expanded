@@ -1,12 +1,10 @@
 #407 - Ar Raqqa
-
 owner = ARM
 controller = ARM
 culture = armenian
 religion = armenian_religion
 capital = "Marida"
 trade_goods = livestock
-hre = no
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -23,12 +21,11 @@ base_manpower = 2
 is_city = yes
 add_core = ARM
 center_of_trade = 1
-
 2212.1.1 = { owner = ROM controller = ROM add_core = ROM }
 2215.1.1 = { owner = ARM controller = ARM remove_core = ROM }
 2277.1.1 = { religion = chalcedonism }
 2485.1.1 = { owner = ROM controller = ROM add_core = ROM remove_core = ARM }
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM }
 2549.11.1 = { religion = coptic }
 2711.1.1 = { controller = ERS }
 2725.1.1 = { controller = BYZ }
@@ -40,47 +37,46 @@ center_of_trade = 1
 3009.1.1 = { owner = ZNG controller = ZNG add_core = ZNG remove_core = ABA }
 3081.1.1 = { owner = KRD controller = KRD add_core = KRD remove_core = ZNG }
 3098.1.1 = { culture = kurdish }
-3153.1.1 = { remove_core = ABA }
 3177.1.1 = { owner = SEL controller = SEL add_core = SEL }
 3196.1.1 = { owner = EDE controller = EDE add_core = EDE remove_core = SEL }
 3242.12.24 = { owner = ZNG controller = ZNG add_core = ZNG remove_core = EDE }
 3248.1.1 = { religion = sunni capital = "Mardin" }
 3281.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = ZNG }
 3296.1.1 = { owner = HSN controller = HSN add_core = HSN }
-3329.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = HSN }
+3329.1.1 = { owner = EGY controller = EGY remove_core = HSN }
 3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = EGY }
 3433.1.1 = { owner = JAL controller = JAL add_core = JAL remove_core = ILK }
-
-3500.1.1  = { owner = AKK controller = AKK add_core = AKK remove_core = JAL } # The Ak Koyunlu
-3533.1.1 = { unrest = 10 } #Ak Koyunlu Civil War
-3551.1.1 = { unrest = 0 } #Ak Koyunlu Civil War
-3551.1.1  = { discovered_by = western }
-3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 1 name = "Qasim Jahangir's Faction" leader = "Qasim Jahangir Ak Koyunlu" } } # Civil war in Ak Koyunlu
-3605.1.1  = {	owner = PER
-		controller = PER
-		add_core = PER
-		revolt = { }
-		remove_core = AKK
-	    } # The Safavids took over
-3612.8.23 = { add_core = TUR  } # Diyarbakir conquered by Ottomans, Van remains Persian
-3632.7.1  = { controller = TUR } # Wartime occupation
-3633.1.1  = { controller = PER } # Persians recapture Van
+3500.1.1 = { owner = AKK controller = AKK add_core = AKK remove_core = JAL }
+3594.2.8 = { controller = REB revolt = { type = pretender_rebels name = "Qasim Jahangir's Faction" size = 1 leader = "Qasim Jahangir Ak Koyunlu" } }
+3605.1.1 = { 
+	owner = PER
+	controller = PER
+	add_core = PER
+	remove_core = AKK
+	revolt = { size = 1 }
+}
+3612.8.23 = { add_core = TUR }
+3632.7.1 = { controller = TUR }
+3633.1.1 = { controller = PER }
 3646.8.25 = { controller = TUR }
-3647.12.1 = {	owner = TUR
-		remove_core = PER		
-	    } # Part of the Ottoman empire
-3820.1.1  = { unrest = 5 } # Rebellion against the Ottomans
-3828.1.1  = { unrest = 0 }
+3647.12.1 = { 
+	owner = TUR
+	remove_core = PER
+}
 3850.1.1 = { base_manpower = 3 }
 3877.1.1 = { base_manpower = 4 }
-
 3904.1.1 = { base_manpower = 5 }
 3932.1.1 = { base_manpower = 6 }
-3948.1.1   = { capital = "Mardin" remove_core = DUL }
+3948.1.1 = { capital = "Mardin" }
 3959.1.1 = { base_tax = 4 }
 3986.1.1 = { base_tax = 5 }
 4008.1.1 = { discovered_by = asian }
 4013.1.1 = { base_production = 5 }
-4014.2.16  = { controller = RUS }
-4016.3.3   = { controller = TUR }
-4018.4.24  = { owner = TKY controller = TKY add_core = TKY }
+4014.2.16 = { controller = RUS }
+4016.3.3 = { controller = TUR }
+4018.4.24 = { owner = TKY controller = TKY add_core = TKY }
+4222.6.15 = { 
+	remove_core = BYZ
+	remove_core = TUR
+	remove_core = KRD
+}
