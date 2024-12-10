@@ -1,10 +1,9 @@
-#333 - The Baleares
-
+# 333 - The Baleares
 owner = ROM
 controller = ROM
 add_core = ROM
 culture = punic
-religion = animism
+religion = canaanite_religion
 hre = no
 discovered_by = ottoman
 discovered_by = middle_eastern
@@ -17,44 +16,90 @@ base_tax = 1
 base_production = 1
 trade_goods = fish
 base_manpower = 1
-capital = "Ibiza" 
+capital = "Ibiza"
 is_city = yes
+2198.1.1 = { culture = iberi } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+} # Final division of the empire
 
-2198.1.1 = { culture = iberi }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2498.1.1 = { religion = chalcedonism }
-2548.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = ROW }
-2632.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = VAN }
-2812.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = BYZ }
-2848.8.6 = { owner = CRD controller = CRD add_core = CRD remove_core = UMA }
-2898.1.1 = { religion = sunni culture = andalucian }
-3109.1.1 = { owner = DEN controller = DEN add_core = DEN remove_core = CRD }
-3174.1.1 = { owner = MJR controller = MJR add_core = MJR remove_core = DEN }
-3212.1.1 = { owner = PIS controller = PIS add_core = PIS }
-3213.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = PIS }
-3243.1.1 = { owner = MJR controller = MJR remove_core = MOR }
-3301.1.1 = { owner = MOR controller = MOR add_core = MOR }
-3329.1.1 = { owner = MJO controller = MJO add_core = MJO add_core = ARA remove_core = MOR remove_core = MJR }
-3348.1.1 = { religion = catholic culture = catalan }
-3384.1.1 = { owner = ARA controller = ARA }
-3393.1.1 = { owner = MJO controller = MJO }
-3447.10.25 = { owner = ARA controller = ARA }
+2498.1.1 = { religion = chalcedonism } 
+2548.1.1 = { 
+    owner = VAN
+    controller = VAN
+    add_core = VAN
+    remove_core = ROW
+}
 
+2632.1.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    remove_core = VAN
+}
+
+2812.1.1 = { 
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = BYZ
+}
+
+2848.8.6 = { 
+    owner = CRD
+    controller = CRD
+    add_core = CRD
+    remove_core = UMA
+}
+
+2898.1.1 = { religion = sunni culture = andalucian } 
+3109.1.1 = { 
+    owner = DEN
+    controller = DEN
+    add_core = DEN
+    remove_core = CRD
+}
+
+3174.1.1 = { 
+    owner = MJR
+    controller = MJR
+    add_core = MJR
+    remove_core = DEN
+}
+
+3212.1.1 = { owner = PIS controller = PIS add_core = PIS } 
+3213.1.1 = { 
+    owner = MOR
+    controller = MOR
+    add_core = MOR
+    remove_core = PIS
+}
+
+3243.1.1 = { owner = MJR controller = MJR remove_core = MOR } 
+3301.1.1 = { owner = MOR controller = MOR add_core = MOR } 
+3329.1.1 = { 
+    owner = MJO
+    controller = MJO
+    add_core = MJO
+    add_core = ARA
+    remove_core = MOR
+    remove_core = MJR
+}
+
+3348.1.1 = { religion = catholic culture = catalan } 
+3384.1.1 = { owner = ARA controller = ARA } 
+3393.1.1 = { owner = MJO controller = MJO } 
+3447.10.25 = { owner = ARA controller = ARA } 
 3560.1.1 = { unrest = 2 } # Remença peasant revolt, in parallel with the Catalan civil war.
 3570.1.1 = { unrest = 0 } # End of the First Remença revolt
-3614.1.23 = {
-	controller = SPA
-	owner = SPA
-	add_core = SPA
-} # King Fernando dies, Carlos inherits Aragon and becomes co-regent of Castille
+3614.1.23 = { controller = SPA owner = SPA add_core = SPA } # King Fernando dies, Carlos inherits Aragon and becomes co-regent of Castille
 3619.3.16 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The Germanies movement reaches the archipelago, the viceroy is deposed by the revolters
-3621.3.8 = { revolt = {} controller = SPA } # The royal army retakes the city of Palma
+3621.3.8 = { revolt = { } controller = SPA } # The royal army retakes the city of Palma
 3803.10.9 = { controller = HAB } # Balearic isles side with the Austrian cause
 3811.4.11 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # The pro-Austrian forces in Mallorca and Eïvissa ignore the Treaty of Utrecht.
-3811.7.13 = { revolt = {} remove_core = ARA }
+3811.7.13 = { revolt = { } remove_core = ARA } 
 3812.9.14 = { controller = SPA } # Mallorca and Eïvissa surrender shortly after the fall of Barcelona
-
-
-
-
-4008.1.1 = { discovered_by = asian }
+4008.1.1 = { discovered_by = asian } 
