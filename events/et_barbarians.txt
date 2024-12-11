@@ -302,49 +302,6 @@ country_event = {#high glory attracts migrants
     }
 
 }
-country_event = {#barbarians demand a war!
-     id = barbarian.8
-    title = barbarian.8.t
-    desc = barbarian.8.d
-    picture = OVEREXTENSION_eventPicture
-      mean_time_to_happen = {
-        years = 10
-    }
-    trigger = {
-        NOT = {
-         has_government_power = {
-					mechanic_type = barbarian_glory_mechanic
-					power_type = barbarian_glory
-					value = 30
-			}
-        }
-        is_at_war = no
-
-    }
-    option = {#to battle
-    name = barbarian.8.a
-        random_owned_province = {
-            spawn_rebels = {
-                type = warrior_rebels
-                size = 1
-            }
-        }
-        if = {
-            limit={
-                total_development = 100
-            }
-             random_owned_province = {
-            spawn_rebels = {
-                type = warrior_rebels
-                size = 1
-            }
-        }
-        }
-       
-    }
-
-
-}
 country_event = {#warriors reject civ
     id = barbarian.9
     title = barbarian.9.t
