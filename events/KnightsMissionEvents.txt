@@ -122,8 +122,8 @@ country_event = {
 	option = {
 		name = "knights_missions.3.a"
 		if = {
-			limit = { NOT = { government_rank = 3 } }
-			set_government_rank = 3
+			limit = { NOT = { government_rank = 10 } }
+			set_government_rank = 10
 		}
 		if = {
 			limit = {
@@ -157,9 +157,9 @@ country_event = {
 		if = {
 			limit = {
 				NOT = { has_reform = monastic_order_reform }
-				NOT = { government_rank = 3 }
+				NOT = { government_rank = 10 }
 			}
-			set_government_rank = 3
+			set_government_rank = 10
 		}
 		add_prestige_or_monarch_power = {
 			amount = 50

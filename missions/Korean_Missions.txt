@@ -12,7 +12,7 @@ korea_nomad_group = {
 	has_country_shield = yes
 
 	kor_conquer_changbai = {
-		icon = mission_unite_home_region
+		icon = mission_korean_castle_assault		#MMETR just adds new icons, because aesthetic
 		required_missions = { }
 		position = 1
 		
@@ -143,7 +143,7 @@ korea_nomad_group = {
 	}
 	
 	goguryeo_restoration = {
-		icon = mission_conquer_50_development
+		icon = mission_chinese_monarch_horseback
 		required_missions = { kor_seize_southern_manchuria }
 		position = 4
 		
@@ -209,7 +209,7 @@ korea_nomad_group = {
 	}
 
 	kor_end_manchuria = {
-		icon = mission_steppe_warriors
+		icon = mission_tumu_crisis
 		required_missions = { goguryeo_restoration }
 		position = 5
 		
@@ -354,7 +354,7 @@ kor_military_missions = {
 	
 	#duplicate of generic mission
 	kor_build_army_mission = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_chinese_army_mobilization_medieval
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -392,7 +392,7 @@ kor_military_missions_2 = {
 	has_country_shield = yes
 		
 	kor_harness_seokleon = {
-		icon = mission_non-western_soldiers
+		icon = mission_chinese_training
 		position = 2
 		required_missions = { kor_build_army_mission }
 		trigger = {
@@ -450,7 +450,7 @@ korea_conquer_china_group = {
 	has_country_shield = yes
 
 	kor_control_yellow_sea = {
-		icon = mission_galleys_in_port
+		icon = mission_junk_boat
 		required_missions = { kor_seize_southern_manchuria }
 		position = 4
 		
@@ -631,7 +631,7 @@ kor_diplo_missions = {
 	has_country_shield = yes
 	
 	kor_befriend_ming = {
-		icon = mission_noble_council
+		icon = mission_chinese_warlords_alliance
 		required_missions = {  }
 		trigger = {
 			if = {
@@ -824,7 +824,7 @@ kor_fortify_missions = {
 		}
 	}
 	kor_fortify_korea_2 = {
-		icon = mission_conquer_50_development
+		icon = mng_kingdom_joseon
 		position = 3
 		required_missions = { kor_fortify_korea }
 		
@@ -857,7 +857,7 @@ kor_righteous_army_tree = {
 	has_country_shield = yes
 	
 	kor_righteous_army = {
-		icon = mission_assemble_an_army
+		icon = mission_korean_archer_defense
 		position = 1
 		required_missions = {  }
 
@@ -897,7 +897,7 @@ kor_japan_tree = {
 	has_country_shield = yes
 	
 	kor_japanese_piracy = {
-		icon = mission_establish_high_seas_navy
+		icon = mission_korean_naval_battle_panokseon
 		position = 2
 		required_missions = {  }
 
@@ -1066,7 +1066,7 @@ kor_japan_tree = {
 	}
 	
 	kor_defeat_shogun = {
-		icon = mission_japanese_samurai
+		icon = mission_korean_archer_imjin_war
 		position = 5
 		required_missions = { kor_foothold_in_japan }
 		
@@ -1129,7 +1129,7 @@ kor_turtle_ships_tree = {
 	has_country_shield = yes
 	
 	kor_turtle_ships = {
-		icon = mission_junk_boat
+		icon = mission_korean_turtleship
 		position = 3
 		required_missions = { kor_japanese_piracy }
 
@@ -1163,7 +1163,7 @@ kor_settle_land = {
 	has_country_shield = yes
 	
 	kor_settle_north = {
-		icon = mission_rice_field
+		icon = mission_chinese_land_survey
 		position = 4
 		required_missions = {  }
 		
@@ -1241,7 +1241,7 @@ kor_harmony_with_japan = {
 	has_country_shield = yes
 	
 	kor_harmonise_shinto = {
-		icon = mission_hands_praying
+		icon = mission_japanese_temple_gate
 		position = 6
 		required_missions = { kor_defeat_shogun }
 
@@ -1451,7 +1451,7 @@ korea_economic_social_political_path_2 = {
 	has_country_shield = yes
 	
 	kor_develop_capital = {
-		icon = mission_early_game_buildings
+		icon = mission_korean_hwaseong_fortress_18th
 		required_missions = { kor_peasant_struggles }
 		position = 7
 		
@@ -1511,7 +1511,7 @@ korea_economic_social_political_path_3 = {
 			OR = {
 				crown_land_share = 90
 				custom_trigger_tooltip = {
-					tooltip = KOR_two_pleased_estates_tooltip #Two Â§YestatesÂ§! have at least Â§Y70 loyaltyÂ§!, the other has at least Â§Y50 loyaltyÂ§!.
+					tooltip = KOR_two_pleased_estates_tooltip #Two §Yestates§! have at least §Y70 loyalty§!, the other has at least §Y50 loyalty§!.
 					OR = {
 						AND = {
 							estate_loyalty = {
@@ -1639,7 +1639,7 @@ korea_trade_group = {
 	has_country_shield = yes
 
 	kor_korean_trade_ports = {
-		icon = mission_dominate_home_trade_node
+		icon = mission_chinese_market
 		required_missions = {  }
 		position = 6
 
@@ -1672,7 +1672,7 @@ korea_trade_group = {
 	}
 
 	kor_japanese_trade = {
-		icon = mission_market_place_with_asian_traders
+		icon = mission_japanese_western_trade
 		required_missions = { kor_korean_trade_ports }
 		position = 7
 
@@ -1897,7 +1897,7 @@ korean_missions_eoc_2 = {
 				}
 				OR = { 
 					empire_of_china_reform_passed = reform_civil_registration_decision
-					imperial_mandate = 85 
+					imperial_mandate = 2183 
 				}
 			}
 			OR = {
@@ -2185,7 +2185,7 @@ korean_missions_eoc_2 = {
 							has_reform = centralize_reform 
 						}
 					} 
-					add_mandate = 5
+					add_mandate = 2103
 				}
 				else_if = {
 					limit = { 
@@ -2475,7 +2475,7 @@ korean_missions_eoc_2 = {
 									value = 70
 								}
 							}
-							ROOT = { add_mandate = 5 } 
+							ROOT = { add_mandate = 2103 } 
 						}
 					}
 					else = { 
@@ -2708,7 +2708,7 @@ korean_missions_eoc_3 = {
 					has_dlc = "Mandate of Heaven" 
 					is_emperor_of_china = yes 
 				}
-				imperial_mandate = 95 
+				imperial_mandate = 2193 
 			}
 			else = { prestige = 90 } 
 			if = {
@@ -2717,7 +2717,7 @@ korean_missions_eoc_3 = {
 					is_emperor_of_china = yes 
 				}
 				empire_of_china_num_reforms_passed = 10
-				imperial_mandate = 95 
+				imperial_mandate = 2193 
 			}
 			else = { prestige = 90 } 
 			NOT = { 
@@ -3049,7 +3049,7 @@ korean_missions_eoc_4 = {
 					has_dlc = "Mandate of Heaven" 
 					is_emperor_of_china = yes 
 				}
-				imperial_mandate = 80 
+				imperial_mandate = 2178 
 			}
 			else = { prestige = 40 }
 			num_of_owned_provinces_with = { 
@@ -3289,11 +3289,11 @@ korean_missions_eoc_5 = {
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" }
 					add_prosperity = 100 
-					add_mandate = 5 
+					add_mandate = 2103 
 				}
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" }
-					add_mandate = 5 
+					add_mandate = 2103 
 				}
 				else = { 
 					add_base_production = 1 
@@ -3316,7 +3316,7 @@ korean_missions_eoc_5 = {
 						is_emperor_of_china = yes
 						has_dlc = "Mandate of Heaven" 
 					}
-					add_mandate = 10 
+					add_mandate = 2108 
 				}
 				else = { add_prestige_or_monarch_power = { amount = 35 } }
 				change_government_reform_progress = 100 
@@ -3334,7 +3334,7 @@ korean_missions_eoc_5 = {
 							is_emperor_of_china = yes
 							has_dlc = "Mandate of Heaven" 
 						}
-						add_mandate = 10 
+						add_mandate = 2108 
 					}
 					else = { 
 						add_prestige_or_monarch_power = { amount = 35 }
@@ -3351,7 +3351,7 @@ korean_missions_eoc_5 = {
 					if = {
 						limit = { has_dlc = "Mandate of Heaven" }
 						add_prosperity = 100 
-						add_mandate = 5 
+						add_mandate = 2103 
 					}
 					else = { 
 						add_base_production = 1 

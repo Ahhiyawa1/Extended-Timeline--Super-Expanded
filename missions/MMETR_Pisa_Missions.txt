@@ -3,7 +3,13 @@ pisan_mmetr_missions_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PIS
+		OR = {
+			tag = PIS
+			AND = {
+				tag = TUS
+				was_tag = PIS
+			}
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -225,7 +231,13 @@ pisan_mmetr_missions_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PIS
+		OR = {
+			tag = PIS
+			AND = {
+				tag = TUS
+				was_tag = PIS
+			}
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -465,7 +477,13 @@ pisan_mmetr_missions_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PIS
+		OR = {
+			tag = PIS
+			AND = {
+				tag = TUS
+				was_tag = PIS
+			}
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -781,7 +799,13 @@ pisan_mmetr_missions_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PIS
+		OR = {
+			tag = PIS
+			AND = {
+				tag = TUS
+				was_tag = PIS
+			}
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -871,35 +895,44 @@ pisan_mmetr_missions_4 = {
 		}
 		trigger = {
 			owns_core_province = 115
-			
-			treasury = 1000
-			
-			#if = {
-			#	limit = {
-			#		has_dlc = "Leviathan"
-			#	}
-			#	115 = {
-			#		has_great_project = {
-			#			type = tower_of_pisa
-			#			tier = 2
-			#		}
-			#	}
-			#}
-			#else = {
-			#	treasury = 1000
-			#}
-		}
-		effect = {
-			add_prestige = 30
-			115 = {
-				add_province_modifier = {
-					name = "me_pis_tower_of_pisa"
-					duration = -1
+			if = {				#If clause can be used in triggers, see DH Taungu missions
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				115 = {
+					has_great_project = {
+						type = tower_of_pisa
+						tier = 2
+					}
 				}
 			}
-			add_country_modifier = {
-				name = "me_pis_pisan_engineers"
-				duration = 10950
+			else = {
+				treasury = 1000
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				add_prestige = 30
+				add_country_modifier = {
+					name = "me_pis_pisan_engineers"
+					duration = 10950
+				}
+			}
+			else = {
+				add_prestige = 30
+				115 = {
+					add_province_modifier = {
+						name = "me_pis_tower_of_pisa"
+						duration = -1
+					}
+				}
+				add_country_modifier = {
+					name = "me_pis_pisan_engineers"
+					duration = 10950
+				}
 			}
 		}
 	}
@@ -1061,7 +1094,13 @@ pisan_mmetr_missions_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PIS
+		OR = {
+			tag = PIS
+			AND = {
+				tag = TUS
+				was_tag = PIS
+			}
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1207,11 +1246,9 @@ pisan_mmetr_missions_5 = {
 				add_permanent_claim = ROOT
 			}
 			2473 = {
-				if = {
-					limit = {
-						NOT = { owned_by = ROOT }
-						NOT = { is_core = ROOT }
-					}
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}

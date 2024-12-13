@@ -7,7 +7,7 @@ kha_et_missions_1 = {
 			tag = KHA		#Mongolia
 			tag = KMO		#Khamag Mongol
 		}
-		started_in = 3223.1.1
+		#started_in = 3223.1.1		#removed, since Khamag Mongol exists beforehand
 		NOT = { started_in = 3398.1.1 }
 		NOT = { map_setup = map_setup_random }
 	}
@@ -136,8 +136,22 @@ kha_et_missions_1 = {
 			}
 		}
 		effect = {
+			add_army_tradition = 10
 			country_event = {
 				id = mmetr_KHA_mission_events.3
+			}
+			tooltip = {
+				capital_scope = {
+					add_base_tax = 1
+					add_base_production = 1
+				}
+				define_advisor = {
+					type = artist
+					skill = 2
+					culture = persian
+					religion = sunni
+					discount = yes
+				}
 			}
 		}
 	}
@@ -163,6 +177,14 @@ kha_et_missions_1 = {
 			add_dip_power = 75
 			country_event = {
 				id = mmetr_KHA_mission_events.4
+			}
+			tooltip = {
+				410 = {
+					add_province_modifier = {
+						name = "me_kha_et_reconstruction_efforts"
+						duration = 10950
+					}
+				}
 			}
 		}
 	}
@@ -409,7 +431,7 @@ kha_et_missions_1 = {
 			}
 		}
 		effect = {
-			add_horde_unity = 50
+			add_legitimacy_equivalent = 100
 			add_prestige = 50
 			add_adm_power = 100
 			add_dip_power = 100
@@ -431,7 +453,7 @@ kha_et_missions_2 = {
 			tag = KHA		#Mongolia
 			tag = KMO		#Khamag Mongol
 		}
-		started_in = 3223.1.1
+		#started_in = 3223.1.1
 		NOT = { started_in = 3398.1.1 }
 		NOT = { map_setup = map_setup_random }
 	}
@@ -444,7 +466,7 @@ kha_et_missions_2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = turpan_kumul_area
-				area = east_altishahr_area
+				area = tarim_basin_area		#North Altishahr
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -456,7 +478,7 @@ kha_et_missions_2 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			east_altishahr_area = {
+			tarim_basin_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -464,6 +486,30 @@ kha_et_missions_2 = {
 		effect = {
 			country_event = {
 				id = mmetr_KHA_mission_events.7
+			}
+			tooltip = {
+				add_prestige = 10
+				define_advisor = {
+					type = statesman
+					name = "Tata-tunga"
+					skill = 2
+					culture = uyghur
+					religion = tengri_pagan_reformed
+					discount = yes
+				}
+				if = {
+					limit = {
+						capital_scope = {
+							NOT = { writing = 100 }
+						}
+					}
+					capital_scope = {
+						add_institution_embracement = {
+							which = writing
+							value = 100
+						}
+					}
+				}
 			}
 		}
 	}
@@ -776,7 +822,7 @@ kha_et_missions_3 = {
 			tag = KHA		#Mongolia
 			tag = KMO		#Khamag Mongol
 		}
-		started_in = 3223.1.1
+		#started_in = 3223.1.1
 		NOT = { started_in = 3398.1.1 }
 		NOT = { map_setup = map_setup_random }
 	}
@@ -863,6 +909,20 @@ kha_et_missions_3 = {
 		effect = {
 			country_event = {
 				id = mmetr_KHA_mission_events.8
+			}
+			tooltip = {
+				add_country_modifier = {
+					name = "me_kha_et_taxation_policy"
+					duration = 7300
+				}
+				define_advisor = {
+					type = statesman
+					name = "Yelü Chucai"
+					skill = 3
+					culture = khitan
+					religion = confucianism		#Was a Confucian scholar
+					discount = yes
+				}
 			}
 		}
 	}
@@ -1117,7 +1177,7 @@ kha_et_missions_3 = {
 				}
 				custom_tooltip = kha_et_establish_the_yam_mission.tt
 				hidden_effect = {
-					set_country_flag = enables_estate_burghers_flag
+					set_country_flag = mmetr_enable_burghers_estate_flag
 				}
 			}
 		}
@@ -1183,7 +1243,7 @@ kha_et_missions_4 = {
 			tag = KHA		#Mongolia
 			tag = KMO		#Khamag Mongol
 		}
-		started_in = 3223.1.1
+		#started_in = 3223.1.1
 		NOT = { started_in = 3398.1.1 }
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1208,20 +1268,24 @@ kha_et_missions_4 = {
 			tannu_uriankhai_area = {
 				type = all
 				OR = {
-					country_or_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = ROOT
 					is_empty = yes
 				}
 			}
 			irkutsk_area = {
 				type = all
 				OR = {
-					country_or_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = ROOT
 					is_empty = yes
 				}
 			}
 		}
 		effect = {
-			add_manpower = 1
+			add_yearly_manpower = 1
+			add_country_modifier = {
+				name = "me_kre_agricultural_colonies"
+				duration = 10950
+			}
 		}
 	}
 	kha_et_besiege_kaifeng_mission = {
@@ -1241,6 +1305,9 @@ kha_et_missions_4 = {
 		effect = {
 			country_event = {
 				id = mmetr_KHA_mission_events.10
+			}
+			tooltip = {
+				add_years_of_income = 0.75
 			}
 		}
 	}
@@ -1507,7 +1574,7 @@ kha_et_missions_5 = {
 			tag = KHA		#Mongolia
 			tag = KMO		#Khamag Mongol
 		}
-		started_in = 3223.1.1
+		#started_in = 3223.1.1
 		NOT = { started_in = 3398.1.1 }
 		NOT = { map_setup = map_setup_random }
 	}

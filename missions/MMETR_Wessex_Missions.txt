@@ -6,10 +6,7 @@ wessex_missions_1 = {
 		AND = {
 			OR = {
 				tag = WSX
-				AND = {
-					tag = ENG	#Anglo-Saxon England
-					primary_culture = anglo_saxon	
-				}
+				tag = EN0		#Anglo-Saxon England tag
 			}
 			NOT = { map_setup = map_setup_random }
 		}
@@ -238,10 +235,7 @@ wessex_missions_2 = {
 		AND = {
 			OR = {
 				tag = WSX
-				AND = {
-					tag = ENG	#Anglo-Saxon England
-					primary_culture = anglo_saxon	
-				}
+				tag = EN0		#Anglo-Saxon England tag
 			}
 			NOT = { map_setup = map_setup_random }
 		}
@@ -366,6 +360,13 @@ wessex_missions_2 = {
 		}
 		effect = {
 			add_army_tradition = 10
+			denmark_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	wsx_north_sea_empire_mission = {
@@ -437,10 +438,7 @@ wessex_missions_3 = {
 		AND = {
 			OR = {
 				tag = WSX
-				AND = {
-					tag = ENG	#Anglo-Saxon England
-					primary_culture = anglo_saxon	
-				}
+				tag = EN0		#Anglo-Saxon England tag
 			}
 			NOT = { map_setup = map_setup_random }
 		}
@@ -730,10 +728,7 @@ wessex_missions_4 = {
 		AND = {
 			OR = {
 				tag = WSX
-				AND = {
-					tag = ENG	#Anglo-Saxon England
-					primary_culture = anglo_saxon	
-				}
+				tag = EN0		#Anglo-Saxon England tag
 			}
 			NOT = { map_setup = map_setup_random }
 		}
@@ -954,10 +949,7 @@ wessex_missions_5 = {
 		AND = {
 			OR = {
 				tag = WSX
-				AND = {
-					tag = ENG	#Anglo-Saxon England
-					primary_culture = anglo_saxon	
-				}
+				tag = EN0		#Anglo-Saxon England tag
 			}
 			NOT = { map_setup = map_setup_random }
 		}

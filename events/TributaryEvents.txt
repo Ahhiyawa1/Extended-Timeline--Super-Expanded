@@ -191,12 +191,12 @@ country_event = {
 			}
 			OR = {
 				AND = {
-					government_rank = 3
-					ROOT = { NOT = { government_rank = 3 } }
+					government_rank = 10
+					ROOT = { NOT = { government_rank = 10 } }
 				}
 				AND = {
-					government_rank = 2
-					ROOT = { NOT = { government_rank = 2 } }
+					government_rank = 8
+					ROOT = { NOT = { government_rank = 8 } }
 				}
 			}
 		}
@@ -233,8 +233,8 @@ country_event = {
 		can_be_overlord = tributary_state #Block when it doesn't make sense.
 		OR = {
 			AND = {
-				government_rank = 2
-				NOT = { government_rank = 3 }
+				government_rank = 8
+				NOT = { government_rank = 10 }
 				calc_true_if = {
 					all_subject_country = {
 						is_subject_of_type = tributary_state
@@ -243,7 +243,7 @@ country_event = {
 				}
 			}
 			AND = {
-				government_rank = 3
+				government_rank = 10
 				calc_true_if = {
 					all_subject_country = {
 						is_subject_of_type = tributary_state
@@ -577,8 +577,8 @@ country_event = {
 		can_be_overlord = tributary_state #Block when it doesn't make sense.
 		OR = {
 			AND = {
-				government_rank = 2
-				NOT = { government_rank = 3 }
+				government_rank = 8
+				NOT = { government_rank = 10 }
 				calc_true_if = {
 					all_subject_country = {
 						is_subject_of_type = tributary_state
@@ -587,7 +587,7 @@ country_event = {
 				}
 			}
 			AND = {
-				government_rank = 3
+				government_rank = 10
 				calc_true_if = {
 					all_subject_country = {
 						is_subject_of_type = tributary_state

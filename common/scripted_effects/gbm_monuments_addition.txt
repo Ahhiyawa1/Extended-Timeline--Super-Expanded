@@ -6,14 +6,21 @@ cm_cancel_construction = {
 
 cm_adm_1_addition = {
 	set_country_flag = building_monument #Technical
-	cm_adm_1_add_tooltips = yes #See the gbm_event_tooltips.txt
-	capital_scope = {
+	cm_adm_1_add_tooltips = yes #See the GNM_event_tooltips.txt
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_1 }
 		cm_adm_1_tracking_effect = yes
 	}
 	clr_country_flag = building_monument #Technical
-	GBM_1000d_cost = yes #Default 1000 ducats cost, see the gbm_monuments_price.txt
+	GBM_1000d_cost = yes #Default 1000 ducats cost, see the GNM_monuments_price.txt
 }
 
 cm_adm_2_addition = {
@@ -26,6 +33,7 @@ cm_adm_2_addition = {
 				has_owner_accepted_culture = yes
 			}
 			NOT = { trade_goods = gold }
+			NOT = { has_construction = great_project }
 		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_2 }
@@ -38,7 +46,14 @@ cm_adm_2_addition = {
 cm_adm_3_addition = {
 	set_country_flag = building_monument 
 	cm_adm_3_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_3 }
 		cm_adm_3_tracking_effect = yes
@@ -50,7 +65,14 @@ cm_adm_3_addition = {
 cm_adm_4_addition = {
 	set_country_flag = building_monument 
 	cm_adm_4_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_4 }
 		cm_adm_4_tracking_effect = yes
@@ -62,7 +84,14 @@ cm_adm_4_addition = {
 cm_adm_5_addition = {
 	set_country_flag = building_monument 
 	cm_adm_5_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_5 }
 		cm_adm_5_tracking_effect = yes
@@ -74,7 +103,14 @@ cm_adm_5_addition = {
 cm_adm_6_addition = {
 	set_country_flag = building_monument 
 	cm_adm_6_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_6 }
 		cm_adm_6_tracking_effect = yes
@@ -86,7 +122,14 @@ cm_adm_6_addition = {
 cm_adm_7_addition = {
 	set_country_flag = building_monument 
 	cm_adm_7_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_7 }
 		cm_adm_7_tracking_effect = yes
@@ -94,10 +137,18 @@ cm_adm_7_addition = {
 	clr_country_flag = building_monument 
 	GBM_1000d_cost = yes 
 }
+
 cm_adm_8_addition = {
 	set_country_flag = building_monument 
 	cm_adm_8_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_adm_8 }
 		cm_adm_8_tracking_effect = yes
@@ -109,7 +160,14 @@ cm_adm_8_addition = {
 cm_rel_1_addition = {
 	set_country_flag = building_monument 
 	cm_rel_1_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_rel_1 }
 		cm_rel_1_tracking_effect = yes
@@ -121,7 +179,14 @@ cm_rel_1_addition = {
 cm_rel_2_addition = {
 	set_country_flag = building_monument 
 	cm_rel_2_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_rel_2 }
 		cm_rel_2_tracking_effect = yes
@@ -133,7 +198,14 @@ cm_rel_2_addition = {
 cm_dip_1_addition = {
 	set_country_flag = building_monument 
 	cm_dip_1_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_dip_1 }
 		cm_dip_1_tracking_effect = yes
@@ -145,7 +217,14 @@ cm_dip_1_addition = {
 cm_dip_2_addition = {
 	set_country_flag = building_monument 
 	cm_dip_2_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_dip_2 }
 		cm_dip_2_tracking_effect = yes
@@ -157,7 +236,14 @@ cm_dip_2_addition = {
 cm_dip_3_addition = {
 	set_country_flag = building_monument 
 	cm_dip_3_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_dip_3 }
 		cm_dip_3_tracking_effect = yes
@@ -176,6 +262,7 @@ cm_tra_1_addition = {
 				has_owner_accepted_culture = yes
 			}
 			NOT = { trade_goods = gold }
+			NOT = { has_construction = great_project }
 		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_tra_1 }
@@ -195,6 +282,7 @@ cm_tra_2_addition = {
 				has_owner_accepted_culture = yes
 			}
 			NOT = { trade_goods = gold }
+			NOT = { has_construction = great_project }
 		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_tra_2 }
@@ -214,6 +302,7 @@ cm_tra_3_addition = {
 				has_owner_accepted_culture = yes
 			}
 			NOT = { trade_goods = gold }
+			NOT = { has_construction = great_project }
 		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_tra_3 }
@@ -226,10 +315,17 @@ cm_tra_3_addition = {
 cm_tra_5_addition = {
 	set_country_flag = building_monument 
 	cm_tra_5_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_tra_5 }
-		cm_dip_5_tracking_effect = yes
+		cm_tra_5_tracking_effect = yes
 	}
 	clr_country_flag = building_monument 
 	GBM_1000d_cost = yes 
@@ -238,7 +334,14 @@ cm_tra_5_addition = {
 cm_mil_1_addition = {
 	set_country_flag = building_monument 
 	cm_mil_1_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_1 }
 		cm_mil_1_tracking_effect = yes
@@ -250,7 +353,14 @@ cm_mil_1_addition = {
 cm_mil_2_addition = {
 	set_country_flag = building_monument 
 	cm_mil_2_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_2 }
 		cm_mil_2_tracking_effect = yes
@@ -262,7 +372,14 @@ cm_mil_2_addition = {
 cm_mil_3_addition = {
 	set_country_flag = building_monument 
 	cm_mil_3_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_3 }
 		cm_mil_3_tracking_effect = yes
@@ -274,7 +391,14 @@ cm_mil_3_addition = {
 cm_mil_4_addition = {
 	set_country_flag = building_monument 
 	cm_mil_4_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_4 }
 		cm_mil_4_tracking_effect = yes
@@ -286,7 +410,14 @@ cm_mil_4_addition = {
 cm_mil_5_addition = {
 	set_country_flag = building_monument 
 	cm_mil_5_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_5 }
 		cm_mil_5_tracking_effect = yes
@@ -298,7 +429,14 @@ cm_mil_5_addition = {
 cm_mil_6_addition = {
 	set_country_flag = building_monument 
 	cm_mil_6_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_6 }
 		cm_mil_6_tracking_effect = yes
@@ -331,7 +469,14 @@ cm_mil_7_addition = {
 cm_mil_8_addition = {
 	set_country_flag = building_monument 
 	cm_mil_8_add_tooltips = yes 
-	capital_scope = {
+	random_owned_province = {
+		limit = {
+			OR = {
+				culture = ROOT
+				has_owner_accepted_culture = yes
+			}
+			NOT = { has_construction = great_project }
+		}
 		cm_cancel_construction = yes
 		add_great_project = { type = cm_mil_8 }
 		cm_mil_8_tracking_effect = yes

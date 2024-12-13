@@ -1,0 +1,1230 @@
+manipur_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MLB	#Manipur
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mlb_allies_of_the_ningthouja_mission = {
+		icon = mission_reliable_allies
+		required_missions = {  }
+		position = 1
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_trustworthy_king"
+				duration = 10950
+			}
+			define_advisor = {
+				type = diplomat
+				skill = 1
+				culture = ROOT
+				religion = ROOT
+				cost_multiplier = 0.5
+			}
+		}
+	}
+	mlb_meitei_mandala_mission = {
+		icon = mission_rule_the_garjats
+		required_missions = { mlb_allies_of_the_ningthouja_mission }
+		position = 2
+		trigger = {
+			num_of_non_tributary_subjects = 2
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "me_mlb_meitei_mandala"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "tau_mandala"
+				duration = 10950
+			}
+			every_subject_country = {
+				add_liberty_desire = -10
+			}
+		}
+	}
+	mlb_huiyen_lallong_mission = {
+		icon = mission_upper_burma_campaign
+		required_missions = {  }
+		position = 3
+		trigger = {
+			OR = {
+				army_tradition = 40
+				army_professionalism = 0.3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_huiyen_lallong"
+				duration = -1
+			}
+		}
+	}
+	mlb_rakhine_port_cities_mission = {
+		icon = mission_end_arakan_piracy
+		required_missions = { mlb_cavalry_of_the_ningthou_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 579
+				province_id = 2402
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 579
+			owns_or_non_sovereign_subject_of = 2402
+		}
+		effect = {
+			add_dip_power = 75
+			add_country_modifier = {
+				name = "me_mlb_shipbuilders_of_arakan"
+				duration = 10950
+			}
+		}
+	}
+	mlb_raja_of_vanga_mission = {
+		icon = mission_bengal_campaign
+		required_missions = { mlb_assamese_annexation_mission }
+		position = 5
+		provinces_to_highlight = {
+			area = east_bengal_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			east_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = mlb_raja_of_vanga_mission.tt2
+			west_bengal_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = mmetr_MLB_mission_events.1
+			}
+			custom_tooltip = mlb_raja_of_vanga_mission.tt
+			tooltip = {
+				add_country_modifier = {
+					name = "me_mlb_ningthou_of_vanga"
+					duration = 1
+				}
+				add_country_modifier = {
+					name = "me_mlb_raja_of_vanga"
+					duration = -1
+				}
+			}
+		}
+	}
+	mlb_meitei_vaishnavism_mission = {
+		icon = mission_vedic_education
+		required_missions = { mlb_raja_of_vanga_mission }
+		position = 6
+		provinces_to_highlight = {
+			owned_by = ROOT
+			religion = hinduism
+			NOT = {
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					NOT = { religion = hinduism }
+				}
+				NOT = { dominant_religion = hinduism }
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				religion = hinduism
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				religion = hinduism
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { religion = hinduism }
+				}
+				add_country_modifier = {
+					name = "me_mlb_meitei_vaishnavists"
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					religion = hinduism
+				}
+				add_country_modifier = {
+					name = "me_mlb_meitei_vaishnava_doctrine"
+					duration = -1
+				}
+			}
+		}
+	}
+	mlb_maharaja_of_magadha_mission = {
+		icon = mission_magadna_and_varanasi
+		required_missions = { mlb_indian_ambitions_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					area = bihar_area
+					NOT = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				AND = {
+					province_id = 558
+					NOT = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 558	#Pataliputra
+			bihar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			purvanchal_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			oudh_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_doab_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "me_mlb_maharaja"
+				duration = -1
+			}
+			add_ruler_modifier = {
+				name = "me_mlb_legacy_of_empire"
+				duration = -1
+			}
+		}
+	}
+	mlb_ganges_hegemon_mission = {
+		icon = mission_the_ganges_campaign
+		required_missions = { mlb_maharaja_of_magadha_mission }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = purvanchal_area
+				area = oudh_area
+				area = lower_doab_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			purvanchal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			oudh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_doab_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = hindusthan_region
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "me_mlb_mahadhiraja_of_the_ganges"
+				duration = -1
+			}
+			add_ruler_modifier = {
+				name = "me_mlb_respected_conqueror"
+				duration = -1
+			}
+		}
+	}
+}
+
+manipur_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MLB	#Manipur
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mlb_control_the_clan_chiefs_mission = {
+		icon = mission_annex_prome
+		required_missions = {  }
+		position = 1
+		trigger = {
+			if = {
+				limit = { has_estate = estate_nobles }
+				OR = {
+					estate_loyalty = {
+						estate = estate_nobles 
+						loyalty = 60 
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_nobles
+							influence = 10
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { has_estate = estate_maratha }
+				OR = {
+					estate_loyalty = {
+						estate = estate_maratha 
+						loyalty = 60 
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_maratha
+							influence = 10
+						}
+					}
+				}
+			}
+			else = {
+				stability = 3
+				prestige = 25
+			}
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "me_mlb_hill_clans_united"
+				duration = 10950
+			}
+		}
+	}
+	mlb_loiyumpa_silyel_mission = {
+		icon = mission_court_education
+		required_missions = { mlb_control_the_clan_chiefs_mission mlb_kangla_palace_mission }
+		position = 2
+		trigger = {
+			government_reform_progress = 50
+			OR = {
+				monthly_adm = 9
+				adm = 5
+				ruler_has_personality = free_thinker_personality
+				ruler_has_personality = lawgiver_personality
+				ruler_has_personality = reformist_personality
+				ruler_has_personality = enlightened_personality
+			}
+		}
+		effect = {
+			change_government_reform_progress = -50
+			country_event = {
+				id = mmetr_MLB_mission_events.2
+			}
+			tooltip = {
+				add_country_modifier = {
+					name = "me_mlb_loiyumpa_silyel"
+					duration = -1
+				}
+			}
+		}
+	}
+	mlb_assamese_annexation_mission = {
+		icon = mission_conquer_assam
+		required_missions = { mlb_cavalry_of_the_ningthou_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 571
+				province_id = 2042
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 571
+			owns_or_non_sovereign_subject_of = 2042
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_country_modifier = {
+				name = "me_mlb_multi_ethnic_kingdom"
+				duration = -1
+			}
+			east_bengal_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_bengal_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			gaur_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mlb_khasi_of_the_pnar_clan_mission = {
+		icon = mission_prosperity_in_bengal
+		required_missions = { mlb_assamese_annexation_mission }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1950
+				province_id = 4478
+				province_id = 567
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 1950
+			owns_or_non_sovereign_subject_of = 4478
+			owns_or_non_sovereign_subject_of = 567
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_country_modifier = {
+				name = "me_mlb_land_of_many_gods"
+				duration = 10950
+			}
+			custom_tooltip = claim_neighbor_province
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						limit = {
+							NOT = { owned_by = ROOT }
+							NOT = { is_permanent_claim = ROOT	}
+							NOT = { is_core = ROOT	}
+						}
+						add_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+	mlb_indian_ambitions_mission = {
+		icon = mission_hills_of_gondwana
+		required_missions = { mlb_khasi_of_the_pnar_clan_mission mlb_raja_of_vanga_mission }
+		position = 6
+		provinces_to_highlight = {
+			superregion = india_superregion
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+				value = 25
+				superregion = india_superregion
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_greater_ambitions"
+				duration = 10950
+			}
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bihar_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mlb_kalingan_campaign_mission = {
+		icon = mission_conquer_orissa_dlh
+		required_missions = { mlb_indian_ambitions_mission }
+		position = 7
+		provinces_to_highlight = {
+			area = orissa_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			orissa_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "me_mlb_lord_of_kalinga"
+				duration = -1
+			}
+		}
+	}
+}
+
+manipur_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MLB	#Manipur
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mlb_kangla_palace_mission = {
+		icon = mission_end_manipuri_raids
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 2041
+			NOT = {
+				num_of_times_improved_by_owner = 3
+				fort_level = 2
+				is_capital_of = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			capital = 2041	#Manipur
+			2041 = {
+				num_of_times_improved_by_owner = 3
+			}
+			2041 = {
+				fort_level = 2
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_MLB_mission_events.3
+			}
+			tooltip = {
+				add_prestige = 10
+				2041 = {
+					add_province_modifier = {
+						name = "me_mlb_kangla_palace"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	mlb_temples_to_the_lai_mission = {
+		icon = mission_conquer_malwa_bng
+		required_missions = { mlb_kangla_palace_mission }
+		position = 2
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			NOT = {
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+			capital_scope = {
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_protection_of_the_apokpa"
+				duration = 10950
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						has_building = glorious_monument
+					}
+				}
+				capital_scope = {
+					remove_building = glorious_monument
+					add_building = temple
+				}
+			}
+		}
+	}
+	mlb_cavalry_of_the_ningthou_mission = {		#Lallup
+		icon = mission_control_the_ganges_delta
+		required_missions = {  }
+		position = 3
+		trigger = {
+			num_of_generals = 1
+			army_size_percentage = 0.9
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_lallup_system_expanded"
+				duration = 10950
+			}
+			naga_hills_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			assam_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_assam_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kachin_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mlb_seize_the_brahmaputra_mission = {
+		icon = mission_follow_the_brahmaputra
+		required_missions = { mlb_cavalry_of_the_ningthou_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 566
+				province_id = 4440
+				province_id = 2040
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 566
+			owns_or_non_sovereign_subject_of = 4440
+			owns_or_non_sovereign_subject_of = 2040
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_country_modifier = {
+				name = "me_mlb_waters_of_the_brahmaputra"
+				duration = 10950
+			}
+			kachin_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mlb_subdue_tripura_mission = {
+		icon = mission_junnagadh_fort
+		required_missions = { mlb_seize_the_brahmaputra_mission }
+		position = 5
+		provinces_to_highlight = {
+			province_id = 2091
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 2091
+		}
+		effect = {
+			add_army_tradition = 5
+			add_country_modifier = {
+				name = "me_mlb_martial_tripuri"
+				duration = 10950
+			}
+		}
+	}
+	mlb_spice_trade_mission = {
+		icon = mission_dominate_persian_gulf
+		required_missions = { mlb_indian_ambitions_mission }
+		position = 7
+		provinces_to_highlight = {
+			trade_goods = spices
+			NOT = {
+				owned_by = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				trade_goods = spices
+			}
+			OR = {
+				trader = 1
+				ruler_has_personality = entrepreneur_personality
+				ruler_has_personality = industrious_personality
+				any_owned_province = {
+					province_has_center_of_trade_of_level = 2
+				}
+				home_trade_node = {
+					is_strongest_trade_power = ROOT
+				}
+				home_trade_node = {
+					trade_share = {
+						country = ROOT
+						share = 25
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_spice_merchants"
+				duration = -1
+			}
+		}
+	}
+}
+
+manipur_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MLB	#Manipur
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mlb_kings_of_kangleipak_mission = {
+		icon = mission_integrate_the_gonds
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 2041
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 2041
+			stability = 3
+			legitimacy_equivalent = 3
+		}
+		effect = {
+			custom_tooltip = mlb_kings_of_kangleipak_mission.tt
+			country_event = {
+				id = mmetr_MLB_mission_events.7
+			}
+			add_country_modifier = {
+				name = "me_mlb_legacy_of_kings"
+				duration = 10950
+			}
+		}
+	}
+	mlb_cheitharol_kumbaba_mission = {
+		icon = mission_ahmadabad_paper
+		required_missions = { mlb_kings_of_kangleipak_mission mlb_kangla_palace_mission }
+		position = 2
+		trigger = {
+			OR = {
+				prestige = 50
+				AND = {
+					prestige = 40
+					OR = {
+						ruler_has_personality = scholar_personality
+						adm = 5
+					}
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_country_modifier = {
+				name = "me_mlb_cheitharol_kumbaba"
+				duration = 10950
+			}
+		}
+	}
+	mlb_drive_back_the_pong_mission = {
+		icon = mission_restore_the_pagan_kingdom
+		required_missions = { mlb_cavalry_of_the_ningthou_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2397
+				area = kachin_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			OR = {
+				alliance_with = POG
+				AND = {
+					owns_or_non_sovereign_subject_of = 2397
+					kachin_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_MLB_mission_events.4		#Pheiya sacred stone
+			}
+			tooltip = {
+				add_manpower = 2
+				add_country_modifier = {
+					name = "me_mlb_the_sacred_stone_pheiya"
+					duration = 10950
+				}
+			}
+		}
+	}
+	mlb_a_million_rice_fields_mission = {
+		icon = mission_a_million_rice_fields
+		required_missions = { mlb_march_into_burma_mission }
+		position = 6
+		provinces_to_highlight = {
+			area = northern_thai_area
+			is_empty = no
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			northern_thai_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_land_of_a_million_rice_fields"
+				duration = 10950
+			}
+		}
+	}
+	mlb_a_million_elephants_mission = {
+		icon = mission_a_million_elephants
+		required_missions = { mlb_a_million_rice_fields_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = north_laos_area		#Luang Prabang
+				area = vientiane_area
+				area = champasak_area
+			}
+			is_empty = no
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			north_laos_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+			vientiane_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+			champasak_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_country_modifier = {
+				name = "me_mlb_koupalus_white_elephant"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "me_mlb_land_of_a_million_elephants"
+				duration = 10950
+			}
+		}
+	}
+}
+
+manipur_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MLB	#Manipur
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	mlb_blessings_of_imoinu_mission = {
+		icon = mission_rice_field
+		required_missions = {  }
+		position = 1
+		trigger = {
+			grown_by_development = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_imoinu_of_the_hearth"
+				duration = 10950
+			}
+		}
+	}
+	mlb_consult_the_manu_loishang_mission = {
+		icon = mission_rajput_trade_guilds
+		required_missions = {  }
+		position = 2
+		trigger = {
+			religion = sanamahism
+			if = {
+				limit = { has_estate = estate_church }
+				OR = {
+					num_of_estate_agendas_completed = {
+						estate = estate_church
+						value = 2
+					}
+					theologian = 2
+					inquisitor = 2
+				}
+			}
+			else = {
+				OR = {
+					theologian = 2
+					inquisitor = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_wisdom_of_the_maiba"
+				duration = 10950
+			}
+		}
+	}
+	mlb_the_way_of_kangleism_mission = {
+		icon = mission_patronize_local_gods
+		required_missions = {  }
+		position = 3
+		trigger = {
+			religion = sanamahism
+			dominant_religion = sanamahism
+			num_of_owned_provinces_with = {
+				value = 15
+				NOT = { province_id = 2041 }
+				religion = sanamahism
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_spreading_the_pantheon"
+				duration = 10950
+			}
+		}
+	}
+	mlb_the_hills_of_the_shan_mission = {
+		icon = mission_suppress_the_saophasa
+		required_missions = { mlb_cavalry_of_the_ningthou_mission }
+		position = 4
+		provinces_to_highlight = {
+			area = shan_hill_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			shan_hill_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			add_country_modifier = {
+				name = "me_mlb_hill_expert"
+				duration = 10950
+			}
+		}
+	}
+	mlb_march_into_burma_mission = {
+		icon = mission_end_the_shan_domination
+		required_missions = { mlb_drive_back_the_pong_mission }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = upper_burma_area
+				area = central_burma_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			upper_burma_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_burma_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			add_country_modifier = {
+				name = "me_mlb_burmese_kingship"
+				duration = 10950
+			}
+			country_event = {
+				id = mmetr_MLB_mission_events.5
+			}
+			custom_tooltip = mlb_march_into_burma_mission.tt
+		}
+	}
+	mlb_down_the_irrawaddy_mission = {
+		icon = mission_lower_burma_campaign
+		required_missions = { mlb_march_into_burma_mission }
+		position = 6
+		provinces_to_highlight = {
+			area = lower_burma_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			lower_burma_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			add_country_modifier = {
+				name = "me_mlb_pegu_commerce"
+				duration = 10950
+			}
+		}
+	}
+	mlb_rule_the_chao_phraya_mission = {
+		icon = mission_taksin_the_great
+		required_missions = { mlb_a_million_rice_fields_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = sukhothai_area
+				area = central_thai_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			sukhothai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_thai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_adm_power = 100
+			add_country_modifier = {
+				name = "me_mlb_war_elephants_of_siam"
+				duration = 10950
+			}
+		}
+	}
+	mlb_supplant_the_khmer_mission = {
+		icon = mission_mnd_khm_resurgence
+		required_missions = { mlb_rule_the_chao_phraya_mission }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = angkor_area
+				area = cambodia_area
+				area = mekong_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			sukhothai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cambodia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mekong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_mlb_chakravartin_of_angkor"
+				duration = -1
+			}
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				country_event = {
+					id = flavor_lna.3		#option to change to Chakravartin government reform type
+				}
+			}
+		}
+	}
+}

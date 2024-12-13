@@ -5,6 +5,7 @@ parthia_missions_1 = {
 	potential = {
 		OR = {
 			tag = PRT
+			tag = MD1	#Media
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -62,7 +63,7 @@ parthia_missions_1 = {
 		}
 	}
 	prt_successors_of_the_diadochi_mission = {
-		icon = mission_dice_roll_roman
+		icon = mission_alexander_macedonian_flag
 		required_missions = { prt_control_the_twin_rivers_mission }
 		position = 3
 		provinces_to_highlight = {
@@ -245,7 +246,7 @@ parthia_missions_1 = {
 			}
 		}
 		effect = {
-			add_province_modifier = {
+			add_country_modifier = {
 				name = "me_par_persian_council"
 				duration = -1
 			}
@@ -324,6 +325,7 @@ parthia_missions_2 = {
 	potential = {
 		OR = {
 			tag = PRT
+			tag = MD1	#Media
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -519,6 +521,10 @@ parthia_missions_2 = {
 		effect = {
 			add_prestige = 40
 			add_legitimacy = 80
+			country_event = {
+				id = mmetr_PAR_mission_events.10
+			}
+			custom_tooltip = prt_heirs_of_the_achaemenids_mission.tt
 		}
 	}
 	prt_develop_ctesiphon_mission = {
@@ -583,36 +589,30 @@ parthia_missions_2 = {
 		}
 		effect = {
 			2312 = {
-				if = {
-					limit = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					add_province_modifier = {
-						name = "me_par_hellenic_patronage"
-						duration = 14600
-					}
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_province_modifier = {
+					name = "me_par_hellenic_patronage"
+					duration = 14600
 				}
 			}
 			4291 = {
-				if = {
-					limit = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					add_province_modifier = {
-						name = "me_par_hellenic_patronage"
-						duration = 14600
-					}
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_province_modifier = {
+					name = "me_par_hellenic_patronage"
+					duration = 14600
 				}
 			}
 			4288 = {
-				if = {
-					limit = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					add_province_modifier = {
-						name = "me_par_hellenic_patronage"
-						duration = 14600
-					}
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_province_modifier = {
+					name = "me_par_hellenic_patronage"
+					duration = 14600
 				}
 			}
 		}
@@ -664,6 +664,7 @@ parthia_missions_3 = {
 	potential = {
 		OR = {
 			tag = PRT
+			tag = MD1	#Media
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -800,7 +801,7 @@ parthia_missions_3 = {
 		}
 	}
 	prt_client_king_in_pontus_mission = {
-		icon = mission_the_ganges_campaign
+		icon = mission_mithridates
 		required_missions = { prt_march_to_cappadocia_mission }
 		position = 5
 		provinces_to_highlight = {
@@ -835,7 +836,7 @@ parthia_missions_3 = {
 		}
 	}
 	prt_dominate_hellas_mission = {
-		icon = cross_the_pindus
+		icon = mission_greek_general_surrendering
 		required_missions = { prt_lord_of_asia_mission }
 		position = 6
 		provinces_to_highlight = {
@@ -930,6 +931,12 @@ parthia_missions_3 = {
 					owned_by = ROOT
 				}
 			}
+			439 = {
+				OR = {
+					is_empty = yes
+					owned_by = ROOT
+				}
+			}
 			2349 = {
 				OR = {
 					is_empty = yes
@@ -938,25 +945,24 @@ parthia_missions_3 = {
 			}
 		}
 		effect = {
-			if = {
-				limit = { 438 = { is_empty = yes } }
+			custom_tooltip = prt_parthian_heartland_mission.tt
+			country_event = {
+				id = mmetr_PAR_mission_events.16
+			}
+			tooltip = {
 				438 = {
-					cede_province = ROOT
-					add_core = ROOT
+					cede_province = DHE
 				}
-			}
-			else = {
-				add_prestige = 10
-			}
-			if = {
-				limit = { 2349 = { is_empty = yes } }
+				439 = {
+					cede_province = DHE
+				}
 				2349 = {
-					cede_province = ROOT
-					add_core = ROOT
+					cede_province = DHE
 				}
-			}
-			else = {
-				add_adm_power = 25
+				create_subject = {
+					subject_type = client_kingdom
+					subject = DHE
+				}
 			}
 		}
 	}
@@ -965,8 +971,14 @@ parthia_missions_3 = {
 		required_missions = { prt_parthian_heartland_mission }
 		position = 10
 		trigger = {
-			prestige = 80
-			power_projection = 90
+			reverse_has_opinion = {
+				who = DHE
+				value = 125
+			}
+			OR = {
+				prestige = 80
+				power_projection = 90
+			}
 		}
 		effect = {
 			add_country_modifier = {
@@ -984,13 +996,14 @@ parthia_missions_4 = {
 	potential = {
 		OR = {
 			tag = PRT
+			tag = MD1	#Media
 		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
 	prt_influence_armenia_mission = {
-		icon = mission_rajput_mansabdars
+		icon = arm_artaxiad_legacy
 		required_missions = {  }
 		position = 1
 		provinces_to_highlight = {
@@ -1246,13 +1259,14 @@ parthia_missions_5 = {
 	potential = {
 		OR = {
 			tag = PRT
+			tag = MD1	#Media
 		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
 	prt_silk_road_mission = {
-		icon = mission_conquer_malwa_bah
+		icon = mission_silk_road
 		required_missions = {  }
 		position = 1
 		provinces_to_highlight = {
@@ -1322,7 +1336,7 @@ parthia_missions_5 = {
 		}
 	}
 	prt_the_jade_gate_mission = {
-		icon = mission_asian_trader
+		icon = mission_the_ganges_campaign
 		required_missions = { prt_rein_in_house_suren_mission }
 		position = 3
 		provinces_to_highlight = {
@@ -1382,9 +1396,14 @@ parthia_missions_5 = {
 		required_missions = { prt_adur_burzen_mihr_mission }
 		position = 9
 		trigger = {
+			OR = {
+				religion = zoroastrian
+				religion = zurvaniyyan		#New MMETR religion
+				religion = mithraic		#New MMETR religion
+			}
 			num_of_owned_provinces_with = {
 				value = 10
-				religion = zoroastrian
+				has_owner_religion = yes
 				OR = {
 					has_building = glorious_monument
 					has_building = temple

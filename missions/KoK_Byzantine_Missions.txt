@@ -999,7 +999,7 @@ MEE_BYZ_conquest_4 = {
 				custom_tooltip = " "
 			}
 			else = {
-				add_accepted_culture_or_dip_power = { culture = turkish value = 100 }
+				add_accepted_culture_or_dip_power = { culture = turkish dip_reward = yes }
 				
 				custom_tooltip = " "
 			}
@@ -1047,7 +1047,7 @@ MEE_BYZ_conquest_4 = {
 				id = MEE_Byzantine_Events.8
 				
 				option_1 = "
-					add_accepted_culture_or_dip_power = { culture = turkish value = 100 }
+					add_accepted_culture_or_dip_power = { culture = turkish dip_reward = yes }
 			
 					custom_tooltip = \" \"
 					
@@ -1374,7 +1374,6 @@ MEE_BYZ_defense_5 = {
 					tooltip = BYZ_upgraded_either_walls_to_level_2
 					OR = {
 						151 = { has_province_modifier = BYZ_theodosian_wall_2 } #should't be possible without ownership anyway.
-						151 = { has_province_modifier = BYZ_theodosian_wall_3 } #should't be possible without ownership anyway.
 						4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
 					}
 				}
@@ -2957,7 +2956,7 @@ MEE_BYZ_religion_1 = {
 				has_orthodox_religious_icon_trigger = yes
 			}
 			else = {
-				patriarch_authority = 0.20
+				patriarch_authority = 20
 			}
 		}
 		effect = {

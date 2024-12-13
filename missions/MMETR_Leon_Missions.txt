@@ -408,6 +408,10 @@ leon_mmetr_missions_2 = {
 		effect = {
 			add_prestige = 10
 			add_legitimacy = 50
+			add_country_modifier = {
+				name = "me_lon_christian_lands_united"
+				duration = 10950
+			}
 		}
 	}
 	lon_begin_the_repoblacion_mission = {
@@ -549,6 +553,7 @@ leon_mmetr_missions_2 = {
 			}
 		}
 		effect = {
+			add_mil_power = 50
 			add_estate_loyalty = {
 				estate = estate_holy_orders
 				loyalty = 15
@@ -584,7 +589,14 @@ leon_mmetr_missions_2 = {
 			religious_unity = 1.00
 		}
 		effect = {
-			add_prestige = 10
+			add_prestige = 20
+			add_adm_power = 75
+			add_dip_power = 75
+			add_mil_power = 75
+			add_country_modifier = {
+				name = "me_lon_champion_of_christendom"
+				duration = 10950
+			}
 		}
 	}
 }
@@ -613,45 +625,48 @@ leon_mmetr_missions_3 = {
 				name = "oma_buildforces_mod"
 				duration = 5475
 			}
-			asturias_area = {
-				limit = {
-					owner = {
-						NOT = { religion_group = christian }
+			custom_tooltip = lon_la_reconquista_mission.tt
+			hidden_effect = {
+				asturias_area = {
+					limit = {
+						owner = {
+							NOT = { religion_group = christian }
+						}
 					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			castille_area = {
-				limit = {
-					owner = {
-						NOT = { religion_group = christian }
+				castille_area = {
+					limit = {
+						owner = {
+							NOT = { religion_group = christian }
+						}
 					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			leon_area = {
-				limit = {
-					owner = {
-						NOT = { religion_group = christian }
+				leon_area = {
+					limit = {
+						owner = {
+							NOT = { religion_group = christian }
+						}
 					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			galicia_area = {
-				limit = {
-					owner = {
-						NOT = { religion_group = christian }
+				galicia_area = {
+					limit = {
+						owner = {
+							NOT = { religion_group = christian }
+						}
 					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			toledo_area = {
-				limit = {
-					owner = {
-						NOT = { religion_group = christian }
+				toledo_area = {
+					limit = {
+						owner = {
+							NOT = { religion_group = christian }
+						}
 					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -851,6 +866,10 @@ leon_mmetr_missions_3 = {
 			add_papal_influence = 20
 			add_church_power = 20
 			add_fervor = 40
+			add_country_modifier = {
+				name = "me_lon_african_missionaries"
+				duration = 10950
+			}
 		}
 	}
 }
@@ -873,7 +892,7 @@ leon_mmetr_missions_4 = {
 			num_of_owned_provinces_with = {
 				value = 2
 				fort_level = 2
-				is_core = yes
+				is_core = ROOT
 				has_owner_religion = yes
 			}
 		}
@@ -1034,6 +1053,10 @@ leon_mmetr_missions_4 = {
 		effect = {
 			add_prestige = 10
 			add_army_tradition = 10
+			add_country_modifier = {
+				name = "me_lon_victorious_army"
+				duration = 10950
+			}
 		}
 	}
 	lon_west_african_ports_mission = {
@@ -1175,7 +1198,7 @@ leon_mmetr_missions_5 = {
 		required_missions = { lon_control_extremadura_mission }
 		position = 4
 		provinces_to_highlight = {
-			province_id = 2927		#Alcantara
+			province_id = 1747		#Where town of Alcantara is located in Iberia
 			NOT = {
 				num_of_times_improved_by_owner = 3
 				base_manpower = 4
@@ -1184,8 +1207,8 @@ leon_mmetr_missions_5 = {
 		}
 		trigger = {
 			adm_tech = 36
-			owns_core_province = 2927
-			2927 = {
+			owns_core_province = 1747
+			1747 = {
 				num_of_times_improved_by_owner = 3
 				base_manpower = 4
 			}

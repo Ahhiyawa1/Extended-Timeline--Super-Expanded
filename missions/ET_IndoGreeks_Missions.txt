@@ -9,7 +9,7 @@ slot_1 = {
 	has_country_shield = yes
 	
 	religious_choice_igr = {
-		icon = mission_religious
+		icon = mission_parthenon		#MMETR changed icons for aesthetic reasons
 		required_missions = {  }
 		position = 1
 		
@@ -135,7 +135,7 @@ slot_1 = {
 		}
 	}
 	beyond_the_known_igr = {
-		icon = mission_conquer_air
+		icon = mission_silk_road
 		required_missions = { lost_colonies_igr }
 		position = 5
 		provinces_to_highlight = {
@@ -192,7 +192,7 @@ slot_1 = {
 		}
 	}
 	vassalization_of_Armenia = {
-		icon = mission_have_two_subjects
+		icon = arm_artaxiad_legacy
 		required_missions = { integrate_persia_igr }
 		position = 8
 		
@@ -236,762 +236,10 @@ slot_1 = {
 			}
 		}
 	}
-}
-slot_2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = IGR
-		NOT = { map_setup = map_setup_random }
-	}
-	has_country_shield = yes
 	
-	conquest_of_hindu_kush_igr = {
-		icon = mission_arabian_fort
-		required_missions = { unsave_times_igr }
-		position = 2
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 448
-				province_id = 449
-				province_id = 451
-				province_id = 2225
-				province_id = 2226
-			}
-		}
-		trigger = {
-			448 = { owned_by = ROOT }
-			449 = { owned_by = ROOT }
-			451 = { owned_by = ROOT }
-			2225 = { owned_by = ROOT }
-			2226 = { owned_by = ROOT }
-		}
-		effect = {
-			balkh_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			transoxiana_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			444 = {
-				add_permanent_claim = ROOT
-			}
-			445 = {
-				add_permanent_claim = ROOT
-			}
-			add_prestige = 10
-		}
-	}
-	former_homeland_igr = {
-		icon = mission_crusade_for_varna
-		required_missions = { conquest_of_hindu_kush_igr }
-		position = 3
-		provinces_to_highlight = {
-			OR = {
-				province_id = 444
-				province_id = 445
-				area = balkh_area
-				area = transoxiana_area
-			}
-			NOT = { owned_by = ROOT }
-		}	
-		trigger = {
-			444 = { owned_by = ROOT }
-			445 = { owned_by = ROOT }
-			balkh_area = {
-				type = all
-				owned_by = ROOT
-			}
-			transoxiana_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "peaceful_times_et"
-				duration = 5475
-			}
-			ferghana_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			457 = { add_permanent_claim = ROOT }
-		}
-	}
-	samarkandian_domination = { 
-		icon = mission_bedouins
-		required_missions = { former_homeland_igr }
-		position = 4
-		
-		trigger = {
-			454 = {
-				is_strongest_trade_power = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "more_merchants"
-				duration = -1
-			}
-		}
-	}
-	the_northern_route_igr = {
-		icon = mission_control_the_ganges_delta
-		position = 6
-		required_missions = { a_bigger_threat_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 437
-				province_id = 2350
-				province_id = 2224
-				area = birjand_area
-				area = herat_area
-				area = mashhad_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			birjand_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			herat_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			mashhad_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			437 = { country_or_non_sovereign_subject_holds = ROOT }
-			2350 = { country_or_non_sovereign_subject_holds = ROOT }
-			2224 = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		effect = {
-			tabarestan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			iraq_e_ajam_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			azerbaijan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_country_modifier = {
-				name = "conquest_ambition_et"
-				duration = 3650
-			}
-		}
-	}
-	integrate_persia_igr = {
-		icon = mission_abu_saids_dream
-		position = 7
-		required_missions = { the_northern_route_igr }
-		required_missions = { the_southern_route_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2211
-				area = azerbaijan_area
-				area = tabarestan_area
-				area = luristan_area
-				area = iraq_e_ajam_area
-				area = isfahan_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			azerbaijan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			tabarestan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			luristan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			iraq_e_ajam_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			isfahan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			2211 = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		effect = {
-			shahrizor_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			al_jazira_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			iraq_arabi_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			basra_area = {
-				limit = {
-					is_city = yes
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			2340 = { add_permanent_claim = ROOT }
-			add_prestige = 30
-			add_treasury = 500
-		}
-	}
-	advance_to_mesopotamia_igr = {
-		icon = mission_egyptian_mamluk_soldier
-		required_missions = { integrate_persia_igr }
-		position = 8
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2340
-				area = shahrizor_area
-				area = al_jazira_area
-				area = iraq_arabi_area
-				area = basra_area
-			}
-			NOT = { owned_by = ROOT }
-			is_city = yes
-		}
-		trigger = {
-			2340 = { country_or_non_sovereign_subject_holds = ROOT }
-			basra_area = {
-				type = all
-				OR = {
-					country_or_non_sovereign_subject_holds = ROOT
-					is_city = no
-				}
-			}
-			shahrizor_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			al_jazira_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			iraq_arabi_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = { 
-			add_country_modifier = {
-				name = "at_the_gates_of_europe"
-				duration = 5475
-			}
-			dulkadir_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			aleppo_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			syria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			karaman_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			cukurova_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			405 = { add_permanent_claim = ROOT }
-			4271 = { add_permanent_claim = ROOT }
-		}
-	}
-	claim_small_asia_igr = {
-		icon = mission_assemble_an_army
-		required_missions = { advance_to_mesopotamia_igr }
-		position = 9
-		
-		provinces_to_highlight = {
-			OR = {
-				area = germiyan_area
-				area = ankara_area
-				area = rum_area
-				area = cukurova_area
-				area = karaman_area
-				area = dulkadir_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			germiyan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			ankara_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			rum_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			cukurova_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			karaman_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			dulkadir_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = {
-			hudavendigar_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			thrace_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			kastamonu_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			aydin_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			macedonia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			aegean_archipelago_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			morea_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_adm_power = 150
-		}
-	}
-	greek_unification_igr = {
-		icon = mission_spanish_netherlands
-		required_missions = { claim_small_asia_igr }
-		position = 10
-		
-		provinces_to_highlight = {
-			OR = {
-				area = hudavendigar_area
-				area = thrace_area
-				area = kastamonu_area
-				area = aydin_area
-				area = macedonia_area
-				area = aegean_archipelago_area
-				area = morea_area
-				area = northern_greece_area
-				area = central_greece_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			hudavendigar_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			northern_greece_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			central_greece_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			thrace_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			kastamonu_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			aydin_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			macedonia_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			aegean_archipelago_area = {
-				type = all
-				owned_by  = ROOT
-			}
-			morea_area = {
-				type = all
-				owned_by  = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 75
-			add_treasury = 1000
-			add_manpower = 25
-		}
-	}			
-}
-slot_3 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = IGR
-		NOT = { map_setup = map_setup_random }
-	}
-	has_country_shield = yes
-	
-	unsave_times_igr = {
-		icon = mission_noble_council
-		required_missions = { }
-		position = 1
-		
-		trigger = {
-			army_size_percentage = 1
-			num_of_allies = 1
-		}
-		effect = {
-			578 = { add_permanent_claim = ROOT }
-			2078 = {add_permanent_claim = ROOT }
-			4509 = { add_permanent_claim = ROOT }
-		}
-	}
-	all_or_nothing_igr = {
-		icon = mission_conquer_maharashtra
-		required_missions = { unsave_times_igr }
-		position = 2
-		
-		trigger = {
-			is_in_war = {
-				attacker_leader = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "emi_victorious_army"
-				duration = 1825
-			}
-		}
-	}
-	reach_the_indian_coast_igr = {
-		icon = mission_advance_to_the_arabian_sea
-		position = 3
-		required_missions = { all_or_nothing_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 504
-				province_id = 2231
-				province_id = 4503
-				province_id = 4504
-				area = northern_sindh_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		trigger = {
-			504 = { owned_by = ROOT }
-			2231 = { owned_by = ROOT }
-			4503 = { owned_by = ROOT }
-			4504 = { owned_by = ROOT }
-			northern_sindh_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "indian_ocean_ambition"
-				duration = 3650
-			}
-			kalat_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			447 = { add_permanent_claim = ROOT }
-			575 = { add_permanent_claim = ROOT }
-			2232 = { add_permanent_claim = ROOT }
-			2230 = { add_permanent_claim = ROOT }
-			2229 = { add_permanent_claim = ROOT }
-			4328 = { add_permanent_claim = ROOT }
-		}
-	}	
-	destroy_indo_parthia_igr = {
-		icon = mission_steppe_warriors
-		position = 4
-		required_missions = { reach_the_indian_coast_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 447
-				province_id = 575
-				province_id = 2232
-				province_id = 2230
-				province_id = 2229
-				province_id = 4328
-				area = kalat_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		trigger = {
-			447 = { owned_by = ROOT }
-			575 = { owned_by = ROOT }
-			2232 = { owned_by = ROOT }
-			2230 = { owned_by = ROOT }
-			2229 = { owned_by = ROOT }
-			4328 = { owned_by = ROOT }
-			kalat_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			434 = { add_permanent_claim = ROOT }
-			2300 = { add_permanent_claim = ROOT }
-			mogostan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			kerman_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_prestige = 10
-		}
-	}
-	a_bigger_threat_igr = {
-		icon = mission_unite_home_region
-		position = 5
-		required_missions = { destroy_indo_parthia_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 434
-				province_id = 2233
-				area = mogostan_area
-				area = kerman_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		trigger = {
-			434 = { owned_by = ROOT }
-			2233 = { owned_by = ROOT }
-			mogostan_area = {
-				type = all
-				owned_by = ROOT
-			}
-			kerman_area = {
-				type = all
-				owned_by = ROOT
-			}
-			AND = { 
-				if = {
-					limit = {
-						exists = PRT
-					}
-					OR = {
-						is_rival = PRT
-						army_size = PRT
-					}
-				}
-				if = {
-					limit = {
-						NOT = { exists = PRT }
-					}
-				}
-			}
-		}
-		effect = {
-			herat_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			mashhad_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			persian_gulf_coast = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			farsistan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			435 = { add_permanent_claim = ROOT }
-			2224 = { add_permanent_claim = ROOT }
-			4171 = { add_permanent_claim = ROOT }
-			add_treasury = 250
-		}
-	}
-	the_southern_route_igr = {
-		icon = mission_invade_arakan
-		position = 6
-		required_missions = { a_bigger_threat_igr }
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2217
-				province_id = 4171
-				area = farsistan_area
-				area = persian_gulf_coast
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			farsistan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			persian_gulf_coast = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			2217 = { country_or_non_sovereign_subject_holds = ROOT }
-			4171 = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		effect = {
-			isfahan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			luristan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			khuzestan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			2211 = { add_permanent_claim = ROOT }
-		}
-	}
+	#MMETR moved here to make space for extended missions
 	march_into_syria_igr = {
-		icon = mission_prepare_an_invasion_force
+		icon = mission_camel_cataphracts_prt_sas
 		required_missions = { advance_to_mesopotamia_igr }
 		position = 9
 		
@@ -1092,7 +340,7 @@ slot_3 = {
 		}
 	}
 	conquer_egypt_igr = {
-		icon = mission_subdue_the_afghans
+		icon = mission_conquer_alexandria
 		required_missions = { march_into_syria_igr }
 		position = 10
 		
@@ -1145,6 +393,762 @@ slot_3 = {
 		}
 	}
 }
+slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = IGR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	conquest_of_hindu_kush_igr = {
+		icon = mission_conquer_mewar
+		required_missions = { unsave_times_igr }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 448
+				province_id = 449
+				province_id = 451
+				province_id = 2225
+				province_id = 2226
+			}
+			NOT = { owned_by ROOT }
+		}
+		trigger = {
+			448 = { owned_by = ROOT }
+			449 = { owned_by = ROOT }
+			451 = { owned_by = ROOT }
+			2225 = { owned_by = ROOT }
+			2226 = { owned_by = ROOT }
+		}
+		effect = {
+			balkh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			transoxiana_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			444 = {
+				add_permanent_claim = ROOT
+			}
+			445 = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+		}
+	}
+	former_homeland_igr = {
+		icon = mission_greek_general_surrendering
+		required_missions = { conquest_of_hindu_kush_igr }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				province_id = 444
+				province_id = 445
+				area = balkh_area
+				area = transoxiana_area
+			}
+			NOT = { owned_by = ROOT }
+		}	
+		trigger = {
+			444 = { owned_by = ROOT }
+			445 = { owned_by = ROOT }
+			balkh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "peaceful_times_et"
+				duration = 5475
+			}
+			ferghana_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			457 = { add_permanent_claim = ROOT }
+		}
+	}
+	samarkandian_domination = { 
+		icon = mission_bedouins
+		required_missions = { former_homeland_igr }
+		position = 4
+		
+		trigger = {
+			454 = {
+				is_strongest_trade_power = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "more_merchants"
+				duration = -1
+			}
+		}
+	}
+	the_northern_route_igr = {
+		icon = mission_sassanid_golden_cataphract
+		position = 6
+		required_missions = { a_bigger_threat_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 437
+				province_id = 2350
+				province_id = 2224
+				area = birjand_area
+				area = herat_area
+				area = mashhad_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			birjand_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			herat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mashhad_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			437 = { country_or_non_sovereign_subject_holds = ROOT }
+			2350 = { country_or_non_sovereign_subject_holds = ROOT }
+			2224 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			tabarestan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "conquest_ambition_et"
+				duration = 3650
+			}
+		}
+	}
+	integrate_persia_igr = {
+		icon = mission_persian_heavy_cataphract_cavalry
+		position = 7
+		required_missions = { the_northern_route_igr }
+		required_missions = { the_southern_route_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2211
+				area = azerbaijan_area
+				area = tabarestan_area
+				area = luristan_area
+				area = iraq_e_ajam_area
+				area = isfahan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			azerbaijan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tabarestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			luristan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			iraq_e_ajam_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			isfahan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2211 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			shahrizor_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			al_jazira_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					is_city = yes
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2340 = { add_permanent_claim = ROOT }
+			add_prestige = 30
+			add_treasury = 500
+		}
+	}
+	advance_to_mesopotamia_igr = {
+		icon = mission_cradle_of_civilization
+		required_missions = { integrate_persia_igr }
+		position = 8
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2340
+				area = shahrizor_area
+				area = al_jazira_area
+				area = iraq_arabi_area
+				area = basra_area
+			}
+			NOT = { owned_by = ROOT }
+			is_city = yes
+		}
+		trigger = {
+			2340 = { country_or_non_sovereign_subject_holds = ROOT }
+			basra_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			shahrizor_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = "at_the_gates_of_europe"
+				duration = 5475
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			cukurova_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			405 = { add_permanent_claim = ROOT }
+			4271 = { add_permanent_claim = ROOT }
+		}
+	}
+	claim_small_asia_igr = {
+		icon = mission_greek_city_acropolis
+		required_missions = { advance_to_mesopotamia_igr }
+		position = 9
+		
+		provinces_to_highlight = {
+			OR = {
+				area = germiyan_area
+				area = ankara_area
+				area = rum_area
+				area = cukurova_area
+				area = karaman_area
+				area = dulkadir_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			germiyan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ankara_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cukurova_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			karaman_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			dulkadir_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			macedonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aegean_archipelago_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			morea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_adm_power = 150
+		}
+	}
+	greek_unification_igr = {
+		icon = mission_alexander_macedonian_flag
+		required_missions = { claim_small_asia_igr }
+		position = 10
+		
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = thrace_area
+				area = kastamonu_area
+				area = aydin_area
+				area = macedonia_area
+				area = aegean_archipelago_area
+				area = morea_area
+				area = northern_greece_area
+				area = central_greece_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			northern_greece_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			central_greece_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			thrace_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			kastamonu_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			aydin_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			macedonia_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			aegean_archipelago_area = {
+				type = all
+				owned_by  = ROOT
+			}
+			morea_area = {
+				type = all
+				owned_by  = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 75
+			add_treasury = 1000
+			add_manpower = 25
+		}
+	}			
+}
+slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = IGR
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	unsave_times_igr = {
+		icon = mission_greek_city_burning
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			army_size_percentage = 1
+			num_of_allies = 1
+		}
+		effect = {
+			578 = { add_permanent_claim = ROOT }
+			2078 = {add_permanent_claim = ROOT }
+			4509 = { add_permanent_claim = ROOT }
+		}
+	}
+	all_or_nothing_igr = {
+		icon = mission_greek_phalanx_antiquity
+		required_missions = { unsave_times_igr }
+		position = 2
+		
+		trigger = {
+			is_in_war = {
+				attacker_leader = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "emi_victorious_army"
+				duration = 1825
+			}
+		}
+	}
+	reach_the_indian_coast_igr = {
+		icon = mission_advance_to_the_arabian_sea
+		position = 3
+		required_missions = { all_or_nothing_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 504
+				province_id = 2231
+				province_id = 4503
+				province_id = 4504
+				area = northern_sindh_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			504 = { owned_by = ROOT }
+			2231 = { owned_by = ROOT }
+			4503 = { owned_by = ROOT }
+			4504 = { owned_by = ROOT }
+			northern_sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "indian_ocean_ambition"
+				duration = 3650
+			}
+			kalat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			447 = { add_permanent_claim = ROOT }
+			575 = { add_permanent_claim = ROOT }
+			2232 = { add_permanent_claim = ROOT }
+			2230 = { add_permanent_claim = ROOT }
+			2229 = { add_permanent_claim = ROOT }
+			4328 = { add_permanent_claim = ROOT }
+		}
+	}	
+	destroy_indo_parthia_igr = {
+		icon = mission_crush_delhi
+		position = 4
+		required_missions = { reach_the_indian_coast_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 447
+				province_id = 575
+				province_id = 2232
+				province_id = 2230
+				province_id = 2229
+				province_id = 4328
+				area = kalat_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			447 = { owned_by = ROOT }
+			575 = { owned_by = ROOT }
+			2232 = { owned_by = ROOT }
+			2230 = { owned_by = ROOT }
+			2229 = { owned_by = ROOT }
+			4328 = { owned_by = ROOT }
+			kalat_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			434 = { add_permanent_claim = ROOT }
+			2300 = { add_permanent_claim = ROOT }
+			mogostan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kerman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+		}
+	}
+	a_bigger_threat_igr = {
+		icon = mission_sassanid_golden_cataphract_attack
+		position = 5
+		required_missions = { destroy_indo_parthia_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 434
+				province_id = 2233
+				area = mogostan_area
+				area = kerman_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			434 = { owned_by = ROOT }
+			2233 = { owned_by = ROOT }
+			mogostan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kerman_area = {
+				type = all
+				owned_by = ROOT
+			}
+			AND = { 
+				if = {
+					limit = {
+						exists = PRT
+					}
+					OR = {
+						is_rival = PRT
+						army_size = PRT
+					}
+				}
+				if = {
+					limit = {
+						NOT = { exists = PRT }
+					}
+				}
+			}
+		}
+		effect = {
+			herat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mashhad_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			persian_gulf_coast = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			farsistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			435 = { add_permanent_claim = ROOT }
+			2224 = { add_permanent_claim = ROOT }
+			4171 = { add_permanent_claim = ROOT }
+			add_treasury = 250
+		}
+	}
+	the_southern_route_igr = {
+		icon = per_build_the_fire_temples
+		position = 6
+		required_missions = { a_bigger_threat_igr }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2217
+				province_id = 4171
+				area = farsistan_area
+				area = persian_gulf_coast
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2217 = { country_or_non_sovereign_subject_holds = ROOT }
+			4171 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			isfahan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			luristan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			khuzestan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2211 = { add_permanent_claim = ROOT }
+		}
+	}
+	#made space by moving March to Syria mission, etc. to slot 1
+}
 slot_4 = {
 	slot = 4
 	generic = no
@@ -1191,7 +1195,7 @@ slot_4 = {
 		}
 	}	
 	alexanders_ambitions_igr = {
-		icon = mission_the_ganges_campaign
+		icon = mission_alexander_macedonian_flag
 		required_missions = { path_to_india_igr }
 		required_missions = { home_trade_node_igr }
 		position = 4
@@ -1260,7 +1264,7 @@ slot_4 = {
 		}
 	}	
 	attack_on_rajasthani_igr = {
-		icon = mission_hills_of_gondwana
+		icon = mission_indo_scythians
 		required_missions = { alexanders_ambitions_igr }
 		position = 5
 		
@@ -1432,7 +1436,7 @@ slot_5 = {
 	has_country_shield = yes
 	
 	home_trade_node_igr = {
-		icon = mission_market_place_with_asian_traders
+		icon = mission_greek_city_coastal
 		required_missions = { }
 		position = 3
 		
@@ -1548,7 +1552,7 @@ slot_5 = {
 		}
 	}
 	dharma_powers_igr = {
-		icon = mission_protect_lankan_buddhism
+		icon = mission_sanchi_stupa
 		required_missions = { indian_plains_igr }
 		required_missions = { conquest_of_gujarat_igr }
 		position = 7

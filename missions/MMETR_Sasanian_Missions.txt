@@ -4,7 +4,7 @@ sasanian_missions_1 = {
 	ai = yes
 	potential = {
 		AND = {
-			tag = ERS
+			tag = ERS		#new tag for Sassanids using Eranshahr from vanilla
 			NOT = { map_setup = map_setup_random }
 		}
 	}
@@ -177,7 +177,11 @@ sasanian_missions_1 = {
 		required_missions = { sas_consolidate_eranshahr_mission }
 		position = 6
 		trigger = {
-			religion = zoroastrian
+			OR = {
+				religion = zoroastrian
+				religion = zurvaniyyan		#New MMETR religion
+				religion = mithraic		#New MMETR religion
+			}
 			OR = {
 				estate_loyalty = {
 					estate = estate_church
@@ -208,9 +212,14 @@ sasanian_missions_1 = {
 			has_discovered = ROOT
 		}
 		trigger = {
+			OR = {
+				religion = zoroastrian
+				religion = zurvaniyyan		#New MMETR religion
+				religion = mithraic		#New MMETR religion
+			}
 			owns_core_province = 2212	#Zanjan
 			2212 = {
-				religion = zoroastrian
+				has_owner_religion = yes
 			}
 			2212 = {
 				fort_level = 1
@@ -246,7 +255,7 @@ sasanian_missions_2 = {
 	ai = yes
 	potential = {
 		AND = {
-			tag = ERS
+			tag = ERS		#new tag for Sassanids using Eranshahr from vanilla
 			NOT = { map_setup = map_setup_random }
 		}
 	}
@@ -540,7 +549,7 @@ sasanian_missions_3 = {
 	ai = yes
 	potential = {
 		AND = {
-			tag = ERS
+			tag = ERS		#new tag for Sassanids using Eranshahr from vanilla
 			NOT = { map_setup = map_setup_random }
 		}
 	}
@@ -865,7 +874,7 @@ sasanian_missions_4 = {
 	ai = yes
 	potential = {
 		AND = {
-			tag = ERS
+			tag = ERS		#new tag for Sassanids using Eranshahr from vanilla
 			NOT = { map_setup = map_setup_random }
 		}
 	}
@@ -1093,7 +1102,7 @@ sasanian_missions_5 = {
 	ai = yes
 	potential = {
 		AND = {
-			tag = ERS
+			tag = ERS		#new tag for Sassanids using Eranshahr from vanilla
 			NOT = { map_setup = map_setup_random }
 		}
 	}
