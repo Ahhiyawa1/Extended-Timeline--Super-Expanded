@@ -268,10 +268,15 @@ country_event = {
 							OR = {
 								is_subject = yes
 								is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 }
-								NOT = { culture_group = variable:Root:pte_culture_group_hegemony_var }
-								NOT = {
-									any_owned_province = {
-										culture_group = variable:Root:pte_culture_group_hegemony_var
+								AND = {
+									NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
+									OR = {
+										NOT = { culture_group = variable:Root:pte_culture_group_hegemony_var }
+										NOT = {
+											any_owned_province = {
+												culture_group = variable:Root:pte_culture_group_hegemony_var
+											}
+										}
 									}
 								}
 							}
@@ -781,5 +786,37 @@ country_event = {
 		ai_chance = { factor = 100 }
 
 		clr_global_flag = pte_resetting_cultural_hegemony_event_targets
+	}
+}
+
+# Force Join Trade League
+country_event = {
+	id = pte_events.11
+	title = pte_events.EVTNAME11
+	desc = pte_events.EVTDESC11
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		exists = FROM
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = { join_trade_league = ROOT }
+			add_opinion = {
+				who = FROM
+				modifier = pte_joined_trade_league
+			}
+		}
+	}
+
+	option = {
+		name = pte_events11.EVTOPT1
+
+		ai_chance = { factor = 100 }
 	}
 }

@@ -20,10 +20,12 @@ pte_force_to_join_trade_league = {
 	requires_is_allowed = no
 
 	is_visible = {
-		always = no # doesn't work for some reason
 		has_dlc = "Mare Nostrum"
 		is_trade_league_leader = yes
 		NOT = { is_in_trade_league_with = FROM }
+		FROM = {
+			is_in_trade_league = no
+		}
 	}
 	is_allowed = {
 		FROM = {
@@ -31,24 +33,17 @@ pte_force_to_join_trade_league = {
 		}
 	}
 	effect = {
-		join_trade_league = FROM
+		FROM = {
+			country_event = { id = pte_events.11 days = 1 }
+		}
 	}
 	ai_weight = {
 		export_to_variable = {
 			variable_name = ai_value
-			value = 1
+			value = 0
 		}
 		limit = {
-			FROM = {
-				NOT = {
-					any_owned_province = {
-						OR = {
-							is_claim = ROOT
-							is_core = ROOT
-						}
-					}
-				}
-			}
+			always = yes
 		}
 	}
 }

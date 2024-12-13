@@ -24,12 +24,12 @@ pte_give_up_cultural_hegemony = {
 			has_country_modifier = pte_culture_group_hegemony_modifier
 			NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
 		}
-		NOT = { culture_group = variable:From:pte_culture_group_hegemony_var }
+		NOT = { culture_group = FROM }
 	}
 	is_allowed = {
 		FROM = {
 			any_owned_province = {
-				culture_group = variable:From:pte_culture_group_hegemony_var
+				culture_group = PREV
 				custom_trigger_tooltip = {
 					tooltip = PTE_PROVINCE_CONTROLLED_BY_OUR_SIDE
 					controller = {
@@ -152,7 +152,7 @@ pte_give_up_cultural_hegemony = {
 						any_country = {
 							has_country_modifier = pte_culture_group_hegemony_modifier
 							NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
-							ROOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+							ROOT = { culture_group = PREV }
 						}
 					}
 					development_in_provinces = {

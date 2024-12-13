@@ -13,7 +13,7 @@ country_decisions = {
 				any_country = {
 					has_country_modifier = pte_culture_group_hegemony_modifier
 					NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
-					ROOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+					ROOT = { culture_group = PREV }
 				}
 			}
 		}
@@ -63,7 +63,7 @@ country_decisions = {
 					any_country = {
 						has_country_modifier = pte_culture_group_hegemony_modifier
 						NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
-						ROOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+						ROOT = { culture_group = PREV }
 					}
 				}
 			}
@@ -138,7 +138,7 @@ country_decisions = {
 					any_country = {
 						has_country_modifier = pte_culture_group_hegemony_modifier
 						NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
-						ROOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+						ROOT = { culture_group = PREV }
 					}
 				}
 				random_province = {
@@ -147,7 +147,7 @@ country_decisions = {
 						owner = {
 							has_country_modifier = pte_culture_group_hegemony_modifier
 							NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
-							ROOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+							ROOT = { culture_group = PREV }
 						}
 					}
 					custom_tooltip = PTE_CULTURE_GROUP_HEGEMONY_CURRENT_HEGEMON_TT
@@ -180,7 +180,7 @@ country_decisions = {
 						has_country_modifier = pte_culture_group_hegemony_modifier
 						NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
 						ROOT = {
-							NOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+							NOT = { culture_group = PREV }
 						}
 					}
 				}
@@ -192,7 +192,7 @@ country_decisions = {
 							has_country_modifier = pte_culture_group_hegemony_modifier
 							NOT = { is_variable_equal = { which = pte_culture_group_hegemony_var value = 0 } }
 							ROOT = {
-								NOT = { culture_group = variable:Prev:pte_culture_group_hegemony_var }
+								NOT = { culture_group = PREV }
 							}
 						}
 					}
