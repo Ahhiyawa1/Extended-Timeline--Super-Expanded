@@ -773,6 +773,8 @@ defined_text = {
 	text = { #Texas, 1836
         localisation_key = string_start_tex_1836
         trigger = {
+			is_year = 3933
+			NOT = { is_year = 3959 }
 			tag = TEX
         }
     }
@@ -861,7 +863,7 @@ defined_text = {
         trigger = {
 			is_year = 4086
 			NOT = { is_year = 4093 }
-			tag = GER
+			tag = DEU
         }
     }
 	
@@ -878,6 +880,187 @@ defined_text = {
         trigger = {
 			is_year = 4040
 			tag = HAB
+        }
+    }
+	
+	#ETF
+	
+	text = { # United Kingdom, 1836
+        localisation_key = string_start_gbr_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = GBR
+        }
+    }
+	# text = { # United States, 1836
+        # localisation_key = string_start_usa_1836
+        # trigger = {
+			# is_year = 3934
+			# NOT = { is_year = 3959 }
+			# tag = USA
+        # }
+    # }
+	text = { # Prussia, 1836
+        localisation_key = string_start_pru_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = PRU
+        }
+    }
+	text = { # Austrian Empire, 1836
+        localisation_key = string_start_hab_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = HAB
+        }
+    }
+	text = { # Russian Empire, 1836
+        localisation_key = string_start_rus_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = RUS
+        }
+    }
+	text = { # Ottoman Empire, 1836
+        localisation_key = string_start_tur_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = TUR
+        }
+    }
+	text = { # Netherlands, 1836
+        localisation_key = string_start_ned_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = NED
+        }
+    }
+	text = { # Belgium, 1836
+        localisation_key = string_start_bel_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = BEL
+        }
+    }
+	text = { # Luxembourg, 1836
+        localisation_key = string_start_lux_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = LUX
+        }
+    }
+	# text = { # France, 1836
+        # localisation_key = string_start_fra_1836
+        # trigger = {
+			# is_year = 3934
+			# NOT = { is_year = 3959 }
+			# tag = FRA
+        # }
+    # }
+	text = { # Switzerland, 1836
+        localisation_key = string_start_swi_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			OR = {
+				tag = SWI
+				culture_group = swiss_group
+			}
+        }
+    }
+	text = { # Spain, 1836
+        localisation_key = string_start_spa_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			OR = {
+				tag = SPA
+				tag = SPC
+			}
+        }
+    }
+	text = { # Portugal, 1836
+        localisation_key = string_start_por_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			tag = POR
+        }
+    }
+	text = { # Baltic Governorates, 1836
+        localisation_key = string_start_blp_1836
+        trigger = {
+			is_year = 3934
+			NOT = { is_year = 3959 }
+			OR = {
+				tag = EST
+				tag = LVA
+				tag = KUR
+				tag = BLP
+			}
+        }
+    }
+	
+	text = { # North America, 2022
+        localisation_key = string_start_north_america_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = north_america
+			}
+        }
+    }
+	text = { # South America, 2022
+        localisation_key = string_start_south_america_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = south_america
+			}
+        }
+    }
+	text = { # Europe, 2022
+        localisation_key = string_start_europe_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = europe
+			}
+        }
+    }
+	text = { # Africa, 2022
+        localisation_key = string_start_africa_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = africa
+			}
+        }
+    }
+	text = { # Asia, 2022
+        localisation_key = string_start_asia_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = asia
+			}
+        }
+    }
+	text = { # Oceania, 2022
+        localisation_key = string_start_oceania_2022
+        trigger = {
+			is_year = 4120
+			capital_scope = {
+				continent = oceania
+			}
         }
     }
 	

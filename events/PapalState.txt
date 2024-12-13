@@ -10,10 +10,13 @@ country_event = {
 		owns = 118		# Rome
 		normal_or_historical_nations = yes
 		religion = catholic
-		NOT = { tag = ITA }
+		NOT = {
+			country_is = { tag = ITA }
+		}
 		NOT = { tag = ROM }
 		NOT = { tag = HLR }
 		NOT = { exists = PAP }
+		NOT = { exists = RMR }
 		NOT = { has_country_flag = no_support }
 		NOT = { has_country_flag = general_flag_Rome_flag }	
 	}
@@ -101,7 +104,12 @@ country_event = {
 	trigger = {
 		papacy_active = yes
 		NOT = { exists = PAP }
-		NOT = { exists = ITA }
+		NOT = { exists = RMR }
+		NOT = {
+			any_country = {
+				country_is = { tag = ITA }
+			}
+		}
 		religion = catholic
 		government = theocracy
 		NOT = { has_ruler_flag = refused_papacy }

@@ -1,0 +1,411 @@
+namespace = etf_event_ire
+
+# Beginnings of Irish Resistance
+country_event = {
+	id = etf_event_ire.01
+	title = etf_event_ire.01.t
+	desc = etf_event_ire.01.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		any_owned_province = {
+			culture = irish
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = leinster_area
+				area = ulster_area
+			}
+		}
+		munster_area = {
+			type = all
+			owned_by = ROOT
+		}
+		connacht_area = {
+			type = all
+			owned_by = ROOT
+		}
+		leinster_area = {
+			type = all
+			owned_by = ROOT
+		}
+		ulster_area = {
+			type = all
+			owned_by = ROOT
+		}
+		NOT = {
+			OR = {
+				event_target:_IRE = {
+					exists = yes
+				}
+				primary_culture = irish
+			}
+		}
+		is_year = 3978
+		NOT = { is_year = 3998 }
+	}
+
+	option = {
+		name = etf_event_ire.01.r
+		munster_area = {
+			add_core = IRE
+		}
+		connacht_area = {
+			add_core = IRE
+		}
+		leinster_area = {
+			add_core = IRE
+		}
+		ulster_area = {
+			add_core = IRE
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = munster_area
+						area = connacht_area
+						area = leinster_area
+						area = ulster_area
+					}
+				}
+				remove_core = CNN
+				remove_core = DMS
+				remove_core = FLY
+				remove_core = KID
+				remove_core = LEI
+				remove_core = MCM
+				remove_core = MNS
+				remove_core = MTH
+				remove_core = ORD
+				remove_core = SLN
+				remove_core = TRY
+				remove_core = TYR
+				remove_core = ULS
+			}
+		}
+	}
+}
+
+# Easter Rising
+country_event = {
+	id = etf_event_ire.11
+	title = etf_event_ire.11.t
+	desc = etf_event_ire.11.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		munster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		connacht_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		leinster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		ulster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		NOT = {
+			OR = {
+				event_target:_IRE = {
+					exists = yes
+				}
+				primary_culture = irish
+			}
+		}
+		is_year = 4014
+		NOT = { is_year = 4017 }
+	}
+
+	option = {
+		name = etf_event_ire.11.r
+		373 = { # Dublin
+			nationalist_rebels = 3
+		}
+	}
+}
+
+# Irish War of Independence
+country_event = {
+	id = etf_event_ire.12
+	title = etf_event_ire.12.t
+	desc = etf_event_ire.12.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		munster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		connacht_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		leinster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		ulster_area = {
+			type = all
+			owned_by = ROOT
+			is_core = IRE
+		}
+		NOT = {
+			OR = {
+				event_target:_IRE = {
+					exists = yes
+				}
+				primary_culture = irish
+			}
+		}
+		is_year = 4017
+		NOT = { started_in = 4017.1.1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = irish_woi_attacker_flag
+		}
+	}
+
+	option = {
+		name = etf_event_ire.12.ra
+		start_civil_war = {
+			tag = IRE
+			treasury = 100
+			manpower = 10
+			government = republic
+			capital = 373
+			type = attacker
+		}
+	}
+
+	option = {
+		name = etf_event_ire.12.rb
+		trigger = {
+			ai = no
+		}
+		start_civil_war = {
+			tag = IRE
+			treasury = 100
+			manpower = 10
+			government = republic
+			capital = 373
+			type = attacker
+			play_as = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = etf_event_ire.12.rc
+		add_stability = -1
+		add_prestige = -50
+		tooltip = {
+			release = IRE
+		}
+		hidden_effect = {
+			start_civil_war = {
+				tag = IRE
+				treasury = 100
+				manpower = 10
+				government = republic
+				capital = 373
+				#type = attacker
+			}
+		}
+		clr_country_flag = irish_woi_attacker_flag
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		IRE = {
+			every_owned_province = {
+				clear_rebels = yes # In case any are active
+			}
+		}
+	}
+}
+
+# The depths of Radicalism
+country_event = {
+	id = etf_event_ire.13
+	title = etf_event_ire.13.t
+	desc = etf_event_ire.13.d
+	picture = LIBERUM_VETO_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_IRE
+		OR = {
+			AND = {
+				has_country_flag = is_revolting
+				war_exhaustion = 1
+			}
+			had_country_flag = {
+				flag = is_revolting
+				days = 180
+			}
+		}
+		any_war_enemy_country = {
+			has_country_flag = irish_woi_attacker_flag
+			government = monarchy
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_war_enemy_country = {
+				limit = {
+					has_country_flag = irish_woi_attacker_flag
+					government = monarchy
+				}
+				save_event_target_as = enemy_o_eire
+			}
+		}
+	}
+
+	option = { # Open negotiations
+		name = etf_event_ire.13.ra
+		event_target:enemy_o_eire = {
+			country_event = { id = etf_event_ire.14 }
+		}
+	}
+
+	option = { # Total war!
+		name = etf_event_ire.13.rb
+		add_war_exhaustion = -2
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		event_target:enemy_o_eire = {
+			clr_country_flag = irish_woi_attacker_flag
+		}
+	}
+}
+
+# The Irish seek a compromise
+country_event = {
+	id = etf_event_ire.14
+	title = etf_event_ire.14.t
+	desc = etf_event_ire.14.d
+	picture = LIBERUM_VETO_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_IRE
+	}
+
+	is_triggered_only = yes
+
+	option = { # Create an Irish Free State
+		name = etf_event_ire.14.ra
+		hidden_effect = {
+			white_peace = FROM
+			FROM = {
+				change_government = monarchy
+				add_government_reform = dominion_reform
+				every_owned_province = {
+					remove_core = ROOT
+				}
+			}
+		}
+		create_subject = {
+			subject = FROM
+			subject_type = dominion
+		}
+		FROM = {
+			if = {
+				limit = {
+					any_owned_province = {
+						NOT = { culture = irish }
+					}
+				}
+				custom_tooltip = etf_event_ire.14.tooltip
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							NOT = { culture = irish }
+						}
+						if = { limit = { area = connacht_area NOT = { exists = CNN } } add_core = CNN }
+						if = { limit = { area = leinster_area NOT = { exists = LEI } } add_core = LEI }
+						if = { limit = { area = munster_area  NOT = { exists = DMS } } add_core = DMS }
+						if = { limit = { area = ulster_area   NOT = { exists = NIR } } add_core = NIR }
+						add_core = ROOT
+						cede_province = ROOT
+					}
+				}
+			}
+			hidden_effect = {
+				country_event = { id = etf_event_ire.21 days = 30 }
+			}
+		}
+	}
+
+	option = { # No compromises
+		name = etf_event_ire.14.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Irish Civil War
+country_event = {
+	id = etf_event_ire.21
+	title = etf_event_ire.21.t
+	desc = etf_event_ire.21.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		overlord_of = FROM
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ire.21.r
+		random_owned_province = {
+			limit = {
+				NOT = { is_capital_of = ROOT }
+			}
+			revolutionary_rebels = 1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { is_capital_of = ROOT }
+			}
+			revolutionary_rebels = 1
+		}
+	}
+}

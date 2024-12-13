@@ -628,7 +628,7 @@ gupta_missions_3 = {
 		required_missions = {  }
 		position = 2
 		trigger = {
-			army_size_percentage = 1
+			army_size_percentage = 0.8		#changed from 1.0 since high forcelimit compared to start
 			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
@@ -866,6 +866,7 @@ gupta_missions_4 = {
 		}
 		effect = {
 			4495 = {
+				change_province_name = "Ayodhya"
 				add_province_modifier = {
 					name = "me_gup_birthplace_of_rama"
 					duration = -1

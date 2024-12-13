@@ -1,0 +1,43 @@
+# Buildable in provinces with factories.
+# Automatically removed upon being completed, upgrades permanent province modifier via variables.
+factory_upgrade = {
+	cost = 200
+	time = 4
+	
+	build_trigger = {
+		has_building = factory
+		NOT = { has_province_modifier = mod_factory_99 } # Max level
+	}
+	
+	modifier = {
+		local_tax_modifier = 0.05
+		local_production_efficiency = 0.0075
+		regiment_recruit_speed = -0.005
+		local_development_cost = -0.01
+	}
+	
+	on_built = {
+		hidden_effect = {
+			remove_building = factory_upgrade
+		}
+		# Increments variables and upgrades local modifier:
+		upgrade_factory_modifiers_effect = yes
+	}
+	
+	ai_will_do = {
+		factor = 1.2 # Lower than Factory, higher than other buildings
+		modifier = {
+			factor = 0
+			variable_arithmetic_trigger = {
+				export_to_variable = {
+					which = local_development
+					value = trigger_value:development
+				}
+				check_variable = { # factory_level >= local_development
+					which = factory_level
+					which = local_development
+				}
+			}
+		}
+	}
+}

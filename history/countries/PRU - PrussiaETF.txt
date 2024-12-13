@@ -1,0 +1,128 @@
+set_country_flag = formed_prussia_flag
+
+3623.1.1 = {
+	government = monarchy
+	if = {
+		limit = {
+			NOT = { has_dlc = "Domination" }
+		}
+		add_government_reform = prussian_monarchy_base
+	}
+	else = {
+		add_government_reform = prussian_monarchy
+	}
+}
+
+3786.5.10 = {
+	government = monarchy
+	if = {
+		limit = {
+			NOT = { has_dlc = "Domination" }
+		}
+		add_government_reform = prussian_monarchy_base
+	}
+	else = {
+		add_government_reform = prussian_monarchy
+	}
+}
+
+3913.6.9 = {
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+	add_accepted_culture = hannoverian
+	add_accepted_culture = hessian
+	add_accepted_culture = pommeranian
+	add_accepted_culture = saxon
+	add_accepted_culture = silesian_german
+	historical_rival = HAB
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		complete_mission = emp_brapru_reclaim_neumark
+		complete_mission = emp_brapru_conquer_pomerania
+		complete_mission = emp_brapru_connect_the_prussian_lands
+		complete_mission = emp_brapru_konigsberg_development
+		complete_mission = emp_brapru_army_reforms_1
+		complete_mission = emp_brapru_renovate_berlin
+		complete_mission = emp_brapru_army_reforms_2
+		complete_mission = emp_brapru_army_reforms_3
+		complete_mission = emp_brapru_ansbach_succession
+		complete_mission = emp_brapru_franconian_conquest
+		complete_mission = emp_brapru_conquer_silesia
+		complete_mission = emp_brapru_prussia_partitions_poland
+		complete_mission = emp_brapru_empower_the_junkers
+		complete_mission = emp_brapru_reform_the_state
+		complete_mission = emp_brapru_enlightened_absolutism
+		complete_mission = emp_brapru_show_of_strength
+		complete_mission = emp_brapru_edict_of_potsdam
+		complete_mission = emp_brapru_the_balance_of_power
+		if = {
+			limit = {
+				exists = PRU
+			}
+			41 = {
+				if = {
+					limit = {
+						NOT = { has_building = university }
+					}
+					add_building = university
+				}
+				add_province_modifier = {
+					name = teu_pru_university_of_konigsberg
+					duration = -1
+				}
+			}
+			50 = {
+				add_province_modifier = {
+					name = "pru_unification_of_berlin"
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				add_country_modifier = {
+					name = "pru_space_marines"
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = "pru_space_marines_2"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "empowered_junkers"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "pru_unified_legal_system"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = the_absolutism
+				duration = -1
+			}
+		}
+	}
+}
+
+3915.1.1 = {
+	decision = PRU_unite_the_churches # Prussian Union of Churches
+}
+
+3946.12.5 = {
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+}
+
+3964.7.22 = {
+	remove_historical_rival = HAB
+}

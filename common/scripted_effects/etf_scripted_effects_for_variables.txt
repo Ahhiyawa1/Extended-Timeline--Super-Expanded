@@ -1,0 +1,124 @@
+change_variable_effect = {
+	[[set]
+		set_variable = {
+			which = $which$
+			value = $set$
+		}
+	]
+	[[add]
+		change_variable = {
+			which = $which$
+			value = $add$
+		}
+	]
+	[[subtract]
+		subtract_variable = {
+			which = $which$
+			value = $subtract$
+		}
+	]
+	[[multiply]
+		multiply_variable = {
+			which = $which$
+			value = $multiply$
+		}
+	]
+	[[divide]
+		divide_variable = {
+			which = $which$
+			value = $divide$
+		}
+	]
+	hidden_effect = {
+		change_variable = {
+			which = $which$
+			value = 0.0
+		}
+		change_variable = {
+			which = $which$_min
+			value = 0.0
+		}
+		change_variable = {
+			which = $which$_max
+			value = 0.0
+		}
+		if = {
+			limit = {
+				NOT = {
+					check_variable = { # $which$ < $which$_min
+						which = $which$
+						which = $which$_min
+					}
+				}
+			}
+			set_variable = {
+				which = $which$
+				which = $which$_min
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { # $which$ >= $which$_max
+					which = $which$
+					which = $which$_max
+				}
+			}
+			set_variable = {
+				which = $which$
+				which = $which$_max
+			}
+		}
+	}
+}
+
+get_variables_sum_effect = {
+	set_variable = {
+		which = $var_sum$
+		value = 0
+	}
+	[[var_1] change_variable = { which = $var_sum$ which = $var_1$ }]
+	[[var_2] change_variable = { which = $var_sum$ which = $var_2$ }]
+	[[var_3] change_variable = { which = $var_sum$ which = $var_3$ }]
+	[[var_4] change_variable = { which = $var_sum$ which = $var_4$ }]
+	[[var_5] change_variable = { which = $var_sum$ which = $var_5$ }]
+	[[var_6] change_variable = { which = $var_sum$ which = $var_6$ }]
+	[[var_7] change_variable = { which = $var_sum$ which = $var_7$ }]
+	[[var_8] change_variable = { which = $var_sum$ which = $var_8$ }]
+	[[var_9] change_variable = { which = $var_sum$ which = $var_9$ }]
+}
+
+get_variable_fraction_effect = {
+	# $var$_fraction = $var$ / $sum$
+	set_variable = {
+		which = $var$_fraction
+		which = $var$
+	}
+	divide_variable = {
+		which = $var$_fraction
+		which = $sum$
+	}
+}
+
+set_variables_as_fractions_of_sum_effect = {
+	get_variables_sum_effect = {
+		var_sum = temp_sum
+		[[var_1] var_1 = $var_1$]
+		[[var_2] var_2 = $var_2$]
+		[[var_3] var_3 = $var_3$]
+		[[var_4] var_4 = $var_4$]
+		[[var_5] var_5 = $var_5$]
+		[[var_6] var_6 = $var_6$]
+		[[var_7] var_7 = $var_7$]
+		[[var_8] var_8 = $var_8$]
+		[[var_9] var_9 = $var_9$]
+	}
+	[[var_1] get_variable_fraction_effect = { var = $var_1$ sum = temp_sum } set_variable = { which = $var_1$ which = $var_1$_fraction }]
+	[[var_2] get_variable_fraction_effect = { var = $var_2$ sum = temp_sum } set_variable = { which = $var_2$ which = $var_2$_fraction }]
+	[[var_3] get_variable_fraction_effect = { var = $var_3$ sum = temp_sum } set_variable = { which = $var_3$ which = $var_3$_fraction }]
+	[[var_4] get_variable_fraction_effect = { var = $var_4$ sum = temp_sum } set_variable = { which = $var_4$ which = $var_4$_fraction }]
+	[[var_5] get_variable_fraction_effect = { var = $var_5$ sum = temp_sum } set_variable = { which = $var_5$ which = $var_5$_fraction }]
+	[[var_6] get_variable_fraction_effect = { var = $var_6$ sum = temp_sum } set_variable = { which = $var_6$ which = $var_6$_fraction }]
+	[[var_7] get_variable_fraction_effect = { var = $var_7$ sum = temp_sum } set_variable = { which = $var_7$ which = $var_7$_fraction }]
+	[[var_8] get_variable_fraction_effect = { var = $var_8$ sum = temp_sum } set_variable = { which = $var_8$ which = $var_8$_fraction }]
+	[[var_9] get_variable_fraction_effect = { var = $var_9$ sum = temp_sum } set_variable = { which = $var_9$ which = $var_9$_fraction }]
+}

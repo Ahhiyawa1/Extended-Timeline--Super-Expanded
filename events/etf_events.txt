@@ -1,0 +1,956 @@
+namespace = etf_event
+
+###############
+# Miscellanous:
+###############
+
+# Most events here are hidden, and won't be shown in-game.
+# Most still have a title used, to ease with debugging.
+
+# Monthly Effects
+country_event = {
+	id = etf_event.100
+	title = "Monthly Effects"
+	desc = none
+	picture = none
+	hidden = yes
+
+	trigger = {
+		always = no ## Moved to 'on_actions'
+		OR = {
+			had_global_flag = {
+				flag = monthly_effects_global_flag
+				days = 30
+			}
+			NOT = { has_global_flag = monthly_effects_global_flag }
+		}
+	}
+
+	immediate = {
+		log = "[This.GetName] had 'Monthly Effects' event."
+		# Repeat event, in one month's time:
+		clr_global_flag = monthly_effects_global_flag
+		set_global_flag = monthly_effects_global_flag
+		
+		# Monthly Effects, keep performance in mind:
+		every_country = {
+			limit = {
+				exists = yes
+			}
+			on_monthly_pulse_effect = yes
+		}
+	}
+
+	option = {
+		name = None
+	}
+}
+
+# On Age Change (unused)
+#country_event = {
+#	id = etf_event.100
+#	title = "On Age Change"
+#	desc = none
+#	picture = none
+#	hidden = yes
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		OR = {
+#			AND = {
+#				current_age = industrial_age
+#				NOT = { has_global_flag = had_industrial_age_flag }
+#			}
+#			AND = {
+#				current_age = great_war_age
+#				NOT = { has_global_flag = had_great_war_age_flag }
+#			}
+#			AND = {
+#				current_age = information_age
+#				NOT = { has_global_flag = had_information_age_flag }
+#			}
+#		}
+#	}
+#
+#	option = {
+#		trigger_switch = {
+#			on_trigger = current_age
+#			industrial_age = {
+#				every_province = {
+#					add_permanent_province_modifier = {
+#						name = industrial_age_province_modifier
+#						duration = -1
+#					}
+#				}
+#				set_global_flag = had_industrial_age_flag
+#			}
+#			great_war_age = {
+#				every_province = {
+#					add_permanent_province_modifier = {
+#						name = great_war_age_province_modifier
+#						duration = -1
+#					}
+#					remove_province_modifier = industrial_age_province_modifier
+#				}
+#				set_global_flag = had_great_war_age_flag
+#			}
+#			information_age = {
+#				every_province = {
+#					add_permanent_province_modifier = {
+#						name = information_age_province_modifier
+#						duration = -1
+#					}
+#					remove_province_modifier = industrial_age_province_modifier
+#					remove_province_modifier = great_war_age_province_modifier
+#				}
+#				set_global_flag = had_information_age_flag
+#			}
+#		}
+#	}
+#
+#}
+
+# On Government Change
+country_event = {
+	id = etf_event.101
+	title = "On Government Change"
+	desc = none
+	picture = none
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		catch_up_on_reforms_effect = yes
+	}
+}
+
+# Clear 'Revolting' Flag
+country_event = {
+	id = etf_event.102
+	title = "Clear 'Revolting' Flag"
+	desc = none
+	picture = none
+	hidden = yes
+
+	trigger = {
+		# is_revolting prevents wars while a tag is 
+		# fighting a scripted war against its overlord,
+		# this removes the flag upon peace
+		has_country_flag = is_revolting
+		is_at_war = no
+	}
+
+	option = {
+		clr_country_flag = is_revolting
+	}
+}
+
+# Treaty Port grows through Migration
+# province_event = {
+	# id = etf_event.103
+	# title = "Treaty Port grows through Migration"
+	# desc = none
+	# picture = none
+	# hidden = yes
+
+	# trigger = {
+		# has_active_triggered_province_modifier = treaty_port_asia
+		# NOT = { development = 50 }
+	# }
+
+	# mean_time_to_happen = {
+		# years = 3
+	# }
+
+	# option = {
+		# add_base_tax = 1
+		# add_base_production = 1
+		# add_base_manpower = 1
+	# }
+# }
+
+# Add World-War-Era Starting Troops
+country_event = {
+	id = etf_event.105
+	title = "Add World-War-Era Starting Troops"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_at_war = yes
+		is_civilized = yes
+		is_colonial_nation = no
+	}
+	
+	immediate = {
+		every_province = {
+			limit = {
+				controlled_by = ROOT
+				any_neighbor_province = {
+					controller = {
+						war_with = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					owned_by = controller
+				}
+				create_army = {
+					infantry = 7
+				}
+			}
+			else = {
+				create_army = {
+					infantry = 3
+				}
+			}
+			random_list = {
+				33 = {
+					create_army = {
+						artillery = 1
+					}
+				}
+				33 = {
+					create_army = {
+						artillery = 2
+					}
+				}
+				33 = {
+					create_army = {
+						artillery = 3
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = None
+	}
+}
+
+# Picking a New Capital
+#country_event = {
+#	id = etf_event.110
+#	title = etf_event.110.t
+#	desc = etf_event.110.d
+#	picture = CONQUEST_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		any_owned_province = {
+#			OR = {
+#				has_province_flag = new_capital_1
+#				has_province_flag = new_capital_2
+#				has_province_flag = new_capital_3
+#				has_province_flag = new_capital_4
+#				has_province_flag = new_capital_5
+#			}
+#		}
+#	}
+#
+#	immediate = {
+#		hidden_effect = {
+#			random_owned_province = {
+#				limit = { has_province_flag = new_capital_1 }
+#				save_event_target_as = new_capital_1
+#				clr_province_flag = new_capital_1
+#			}
+#			random_owned_province = {
+#				limit = { has_province_flag = new_capital_2 }
+#				save_event_target_as = new_capital_2
+#				clr_province_flag = new_capital_2
+#			}
+#			random_owned_province = {
+#				limit = { has_province_flag = new_capital_3 }
+#				save_event_target_as = new_capital_3
+#				clr_province_flag = new_capital_3
+#			}
+#			random_owned_province = {
+#				limit = { has_province_flag = new_capital_4 }
+#				save_event_target_as = new_capital_4
+#				clr_province_flag = new_capital_4
+#			}
+#			random_owned_province = {
+#				limit = { has_province_flag = new_capital_5 }
+#				save_event_target_as = new_capital_5
+#				clr_province_flag = new_capital_5
+#			}
+#		}
+#	}
+#
+#	option = { # [new_capital_1.GetCapitalName] would make a great new capital.
+#		name = etf_event.110.ra
+#		trigger = {
+#			event_target:new_capital_1 = {
+#				owned_by = PREV
+#				is_state = yes
+#				NOT = { is_capital_of = PREV }
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { is_core = event_target:new_capital_1 }
+#			}
+#			add_core = event_target:new_capital_1
+#		}
+#		event_target:new_capital_1 = {
+#			move_capital_effect = yes
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					event_target:new_capital_2 = {
+#						higher_development_than = event_target:new_capital_1
+#					}
+#					event_target:new_capital_3 = {
+#						higher_development_than = event_target:new_capital_1
+#					}
+#					event_target:new_capital_4 = {
+#						higher_development_than = event_target:new_capital_1
+#					}
+#					event_target:new_capital_5 = {
+#						higher_development_than = event_target:new_capital_1
+#					}
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_1
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	option = { # [new_capital_2.GetCapitalName] is nice this time of year.
+#		name = etf_event.110.rb
+#		trigger = {
+#			event_target:new_capital_2 = {
+#				owned_by = PREV
+#				is_state = yes
+#				NOT = { is_capital_of = PREV }
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { is_core = event_target:new_capital_2 }
+#			}
+#			add_core = event_target:new_capital_2
+#		}
+#		event_target:new_capital_2 = {
+#			move_capital_effect = yes
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					event_target:new_capital_1 = {
+#						higher_development_than = event_target:new_capital_2
+#					}
+#					event_target:new_capital_3 = {
+#						higher_development_than = event_target:new_capital_2
+#					}
+#					event_target:new_capital_4 = {
+#						higher_development_than = event_target:new_capital_2
+#					}
+#					event_target:new_capital_5 = {
+#						higher_development_than = event_target:new_capital_2
+#					}
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_2
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	option = { # [new_capital_3.GetCapitalName] is in a good central location.
+#		name = etf_event.110.rc
+#		trigger = {
+#			event_target:new_capital_3 = {
+#				owned_by = PREV
+#				is_state = yes
+#				NOT = { is_capital_of = PREV }
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { is_core = event_target:new_capital_3 }
+#			}
+#			add_core = event_target:new_capital_3
+#		}
+#		event_target:new_capital_3 = {
+#			move_capital_effect = yes
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					event_target:new_capital_1 = {
+#						higher_development_than = event_target:new_capital_3
+#					}
+#					event_target:new_capital_2 = {
+#						higher_development_than = event_target:new_capital_3
+#					}
+#					event_target:new_capital_4 = {
+#						higher_development_than = event_target:new_capital_3
+#					}
+#					event_target:new_capital_5 = {
+#						higher_development_than = event_target:new_capital_3
+#					}
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_3
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	option = { # [new_capital_4.GetCapitalName] would make our enemies envious.
+#		name = etf_event.110.rd
+#		trigger = {
+#			event_target:new_capital_4 = {
+#				owned_by = PREV
+#				is_state = yes
+#				NOT = { is_capital_of = PREV }
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { is_core = event_target:new_capital_4 }
+#			}
+#			add_core = event_target:new_capital_4
+#		}
+#		event_target:new_capital_4 = {
+#			move_capital_effect = yes
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					event_target:new_capital_1 = {
+#						higher_development_than = event_target:new_capital_4
+#					}
+#					event_target:new_capital_2 = {
+#						higher_development_than = event_target:new_capital_4
+#					}
+#					event_target:new_capital_3 = {
+#						higher_development_than = event_target:new_capital_4
+#					}
+#					event_target:new_capital_5 = {
+#						higher_development_than = event_target:new_capital_4
+#					}
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_4
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	option = { # [new_capital_5.GetCapitalName] .
+#		name = etf_event.110.re
+#		trigger = {
+#			event_target:new_capital_5 = {
+#				owned_by = PREV
+#				is_state = yes
+#				NOT = { is_capital_of = PREV }
+#			}
+#		}
+#		if = {
+#			limit = {
+#				NOT = { is_core = event_target:new_capital_5 }
+#			}
+#			add_core = event_target:new_capital_5
+#		}
+#		event_target:new_capital_5 = {
+#			move_capital_effect = yes
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				OR = {
+#					event_target:new_capital_1 = {
+#						higher_development_than = event_target:new_capital_5
+#					}
+#					event_target:new_capital_2 = {
+#						higher_development_than = event_target:new_capital_5
+#					}
+#					event_target:new_capital_3 = {
+#						higher_development_than = event_target:new_capital_5
+#					}
+#					event_target:new_capital_4 = {
+#						higher_development_than = event_target:new_capital_5
+#					}
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_5
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	option = { # [This.Capital.GetCapitalName] is already an excellent capital.
+#		name = etf_event.110.rz
+#		capital_scope = {
+#			add_base_tax = 1
+#			add_base_production = 1
+#			add_base_manpower = 1
+#		}
+#		ai_chance = {
+#			modifier = {
+#				factor = 0
+#				NOT = {
+#					capital_scope = {
+#						higher_development_than = event_target:new_capital_1
+#						higher_development_than = event_target:new_capital_2
+#						higher_development_than = event_target:new_capital_3
+#						higher_development_than = event_target:new_capital_4
+#						higher_development_than = event_target:new_capital_5
+#					}
+#				}
+#			}
+#		}
+#	}
+#}
+
+###########################
+# EU Government Rank Fixes:
+###########################
+
+# Setup
+# Because of reused HRE mechanics, EU countries default to Duchy gov. rank.
+# This event adds hidden reforms that lock their government rank, preventing this.
+#country_event = {
+#	id = etf_event.200
+#	title = "Add Fixed Government Rank"
+#	desc = none
+#	picture = none
+#	hidden = yes
+#
+#	is_triggered_only = yes # (Currently unused)
+#
+#	trigger = {
+#		has_country_modifier = european_union
+#		NOT = { has_reform = fixed_rank_empire_reform  }
+#		NOT = { has_reform = fixed_rank_kingdom_reform }
+#		NOT = { has_reform = fixed_rank_duchy_reform   }
+#	}
+#
+#	option = {
+#		trigger_switch = {
+#			on_trigger = government_rank
+#			3 = { add_government_reform =  fixed_rank_empire_reform }
+#			2 = { add_government_reform = fixed_rank_kingdom_reform }
+#			1 = { add_government_reform =   fixed_rank_duchy_reform }
+#		}
+#		set_country_flag = eu_fixed_gov_rank_flag
+#	}
+#}
+
+# Clear fixed government rank if leaving EU
+#country_event = {
+#	id = etf_event.201
+#	title = "Remove Fixed Government Rank"
+#	desc = none
+#	picture = none
+#	hidden = yes
+#
+#	is_triggered_only = yes # (Currently unused)
+#
+#	trigger = {
+#		has_country_flag = eu_fixed_gov_rank_flag
+#		NOT = { has_country_modifier = european_union }
+#	}
+#
+#	option = {
+#		trigger_switch = {
+#			on_trigger = has_reform
+#			fixed_rank_empire_reform  = { remove_government_reform =  fixed_rank_empire_reform }
+#			fixed_rank_kingdom_reform = { remove_government_reform = fixed_rank_kingdom_reform }
+#			fixed_rank_duchy_reform   = { remove_government_reform =   fixed_rank_duchy_reform }
+#		}
+#		clr_country_flag = eu_fixed_gov_rank_flag
+#	}
+#}
+
+################
+# Random Flavor:
+################
+
+# End of the Revolution
+country_event = {
+	id = etf_event.400
+	title = etf_event.400.t
+	desc = etf_event.400.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	major = yes
+
+	trigger = {
+		is_revolutionary = yes
+		post_napoleonic_age = yes
+		NOT = { started_in = 3912.4.11 }
+		NOT = { has_country_flag = revolution_slows }
+	}
+
+	immediate = {
+		hidden_effect = {
+			# Revolution-Cleanup
+			if = {
+				limit = {
+					any_province = {
+						is_center_of_revolution = yes
+					}
+				}
+				remove_center_of_revolution = yes
+			}
+			every_province = {
+				limit = {
+					has_revolution_in_province = yes
+				}
+				set_revolution_in_province = no
+			}
+			set_country_flag = revolution_slows
+		}
+	}
+
+	option = { # Retain Revolutionary Government
+		name = etf_event.400.ra
+		if = {
+			limit = { is_revolution_target = yes }
+			set_revolution_target = ---
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = { # Welcome back the Ancien Regime
+		name = etf_event.400.rb
+		if = {
+			limit = { is_revolution_target = yes }
+			set_revolution_target = ---
+		}
+		# More liberal, yet non-revolutionary regimes take power
+		if = {
+			limit = {
+				government = monarchy
+			}
+			change_government_to_parliamentary_monarchy = yes
+		}
+		if = {
+			limit = {
+				government = republic
+			}
+			change_government_to_democratic_republic = yes
+		}
+	}
+}
+
+# Country goes bankrupt TODO
+country_event = {
+	id = etf_event.401
+	title = etf_event.401.t
+	desc = etf_event.401.d
+	picture = OVEREXTENSION_eventPicture
+	major = yes
+	major_trigger = {
+		has_country_flag = target_of_bailout_flag
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = target_of_bailout_flag
+				}
+				clr_country_flag = target_of_bailout_flag
+			}
+			FROM = { set_country_flag = target_of_bailout_flag }
+		}
+	}
+
+	option = { # We will grant them leniancy.
+		name = etf_event.401.ra
+	}
+
+	option = { # Unfortunate, for them.
+		name = etf_event.401.rb
+	}
+}
+
+# Anarchism Easter-egg
+country_event = {
+	id = etf_event.402
+	title = etf_event.402.t
+	desc = etf_event.402.d
+	picture = THE_CAT_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event.402.r
+		change_government = republic
+		add_government_reform = direct_democracy_system
+		add_government_reform = anarchist_society
+		define_ruler = {
+			name = "Anarchist Council"
+			adm = 6
+			dip = 6
+			mil = 6
+			regency = yes
+		}
+		add_ruler_personality = immortal_personality
+	}
+}
+
+# Saarland Referendum
+# country_event = {
+	# id = etf_event.405
+	# title = etf_event.405.t
+	# desc = etf_event.405.d
+	# picture = REFORM_eventPicture
+	# major = yes
+	# major_trigger = {
+		# is_neighbor_of = FROM
+	# }
+
+	# trigger = {
+		# tag = SLA
+		# is_at_war = no
+		# OR = {
+			# is_free_or_tributary_trigger = yes
+			# AND = {
+				# is_subject = yes
+				# overlord = {
+					# OR = {
+						# country_is = { tag = GER }
+						# country_is = { tag = FRA }
+					# }
+				# }
+			# }
+		# }
+		# any_neighbor_country = {
+			# country_is = { tag = GER }
+		# }
+		# any_neighbor_country = {
+			# country_is = { tag = FRA }
+		# }
+		# is_year = 4053
+		# NOT = { started_in = 4055.1.1 }
+	# }
+
+	# immediate = {
+		# hidden_effect = {
+			# random_neighbor_country = {
+				# limit = {
+					# country_is = { tag = GER }
+				# }
+				# save_event_target_as = GER_target
+			# }
+			# random_neighbor_country = {
+				# limit = {
+					# country_is = { tag = FRA }
+				# }
+				# save_event_target_as = FRA_target
+			# }
+		# }
+	# }
+
+	# option = { # Join Germany
+		# name = etf_event.405.ra
+		# if = {
+			# limit = { ai = no }
+			# custom_tooltip = GAME_OVER
+		# }
+		# event_target:GER_target = {
+			# annex_tag = {
+				# target = ROOT
+				# delete_cores = yes
+			# }
+		# }
+		# ai_chance = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# NOT = { culture_group = event_target:GER_target }
+			# }
+		# }
+	# }
+	
+	# option = { # Join France
+		# name = etf_event.405.rb
+		# if = {
+			# limit = { ai = no }
+			# custom_tooltip = GAME_OVER
+		# }
+		# event_target:FRA_target = {
+			# annex_tag = {
+				# target = ROOT
+				# delete_cores = yes
+			# }
+		# }
+		# ai_chance = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# NOT = { culture_group = event_target:FRA_target }
+			# }
+		# }
+	# }
+	
+	# option = { # Voluntary Economic Union with overlord
+		# name = etf_event.405.rc
+		# trigger = {
+			# is_subject_other_than_tributary_trigger = yes
+		# }
+		# overlord = {
+			# add_to_sphere = { tag = ROOT }
+		# }
+		# ai_chance = {
+			# factor = 0
+		# }
+	# }
+	
+	# option = { # Independence, what's the worst that can happen?
+		# name = etf_event.405.rd
+		# grant_independence = yes
+		# ai_chance = {
+			# factor = 0
+		# }
+	# }
+# }
+
+# Pan-Nationalists join their peers
+# (Released rebel tag joins other country)
+country_event = {
+	id = etf_event.406
+	title = etf_event.406.t # (not localized)
+	desc = etf_event.406.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			culture_group = ROOT
+			capital_scope = {
+				region_for_scope_province = { is_capital_of = ROOT }
+			}
+			NOT = {
+				any_country = {
+					culture_group = ROOT
+					capital_scope = {
+						region_for_scope_province = { is_capital_of = ROOT }
+					}
+					total_development = PREV # No other country that's more developed fulfils the requirements
+				}
+			}
+			NOT = { tag = ROOT }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					culture_group = ROOT
+					capital_scope = {
+						region_for_scope_province = { is_capital_of = ROOT }
+					}
+					NOT = {
+						any_country = {
+							culture_group = ROOT
+							capital_scope = {
+								region_for_scope_province = { is_capital_of = ROOT }
+							}
+							total_development = PREV # No other country that's more developed fulfils the requirements
+						}
+					}
+					NOT = { tag = ROOT }
+				}
+				save_event_target_as = cultural_big_brother
+			}
+		}
+	}
+
+	option = { # Yes please!
+		name = etf_event.406.ra
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		event_target:cultural_big_brother = {
+			inherit = ROOT
+		}
+	}
+
+	option = { # Nope.
+		name = etf_event.406.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Pan-Nationalists join their peers
+# (Rebel tag is released, then joins other country)
+#country_event = {
+#	id = etf_event.407
+#	title = none
+#	desc = none
+#	picture = none
+#	hidden = yes
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = etf_event.407.r
+#		
+#	}
+#}
+
+# We've been recognized!
+country_event = {
+	id = etf_event.408
+	title = etf_event.408.t
+	desc = etf_event.408.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		is_unrecognized = yes
+		check_variable = {
+			which = num_who_recognizes_us
+			value = 4
+		}
+	}
+
+	option = {
+		name = etf_event.408.r
+		become_recognized_effect = yes
+	}
+}

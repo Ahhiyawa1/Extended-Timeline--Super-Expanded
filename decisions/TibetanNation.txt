@@ -15,10 +15,7 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { exists = TIB }
-			OR = {
-				primary_culture = tibetan
-				primary_culture = tibetan_new
-			}
+			culture_group = tibetan_group
 			OR = {
 				ai = no
 				AND = {
@@ -47,7 +44,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			religion = vajrayana
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -65,7 +61,6 @@ country_decisions = {
 			}
 			change_tag = TIB
 			swap_non_generic_missions = yes
-			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }

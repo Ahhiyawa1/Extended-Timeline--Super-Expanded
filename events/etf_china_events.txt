@@ -1,0 +1,1414 @@
+namespace = etf_event_chn
+
+# The Opium Trade in China
+country_event = {
+	id = etf_event_chn.100
+	title = etf_event_chn.100.t
+	desc = etf_event_chn.100.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	major_trigger = {
+		any_owned_province = {
+			has_active_triggered_province_modifier = treaty_port_asia
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		if = {
+			limit = {
+				has_dlc = "Mandate of Heaven"
+			}
+			is_emperor_of_china = yes
+		}
+		else = {
+			has_reform = celestial_empire
+		}
+		post_napoleonic_age = yes
+		any_province = {
+			has_active_triggered_province_modifier = treaty_port_asia
+		}
+		NOT = { has_global_flag = opium_trade_triggered }
+	}
+
+	option = {
+		name = etf_event_chn.100.r
+		add_country_modifier = {
+			name = opium_in_china
+			duration = -1
+		}
+		set_global_flag = opium_trade_triggered
+	}
+}
+
+# China Defeats Opium
+country_event = {
+	id = etf_event_chn.101
+	title = etf_event_chn.101.t
+	desc = etf_event_chn.101.d
+	picture = FLAGSHIP_SUNK_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.101.r
+	}
+}
+
+### Hong Kong ###
+
+# Trouble in Canton
+country_event = {
+	id = etf_event_chn.200
+	title = etf_event_chn.200.t
+	desc = etf_event_chn.200.d
+	picture = MERCHANTS_TALKING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = opium_in_china
+		owns_core_province = 3005 # Hong Kong
+		any_country = {
+			country_is = { tag = GBR }
+			NOT = { war_with = ROOT }
+			NOT = { truce_with = ROOT }
+		}
+		is_year_and_month = {
+			year = 3937
+			september = yes # Battle of Kowloon
+		}
+		NOT = { started_in = 3940.8.29 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					country_is = { tag = GBR }
+					NOT = { war_with = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+				save_event_target_as = GBR_target
+			}
+		}
+	}
+
+	option = { # Not our problem
+		name = etf_event_chn.200.ra
+		event_target:GBR_target = {
+			country_event = { id = etf_event_chn.201 }
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = { # Lets compensate them
+		name = etf_event_chn.200.rb
+		add_prestige = -10
+		event_target:GBR_target = {
+			country_event = { id = etf_event_chn.202 }
+			tooltip = {
+				3005 = {
+					cede_province = PREV
+					hidden_effect = {
+						add_territorial_core = PREV
+						add_to_trade_company = PREV
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				event_target:GBR_target = {
+					military_strength = {
+						who = ROOT
+						value = 1.0
+					}
+				}
+			}
+		}
+	}
+}
+
+# British response to Incident
+country_event = {
+	id = etf_event_chn.201
+	title = etf_event_chn.201.t
+	desc = etf_event_chn.201.d
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # This requires a stern response
+		name = etf_event_chn.201.ra
+		3005 = {
+			add_claim = ROOT
+		}
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_treaty_port
+			war_goal_province = 3005
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.1
+				is_at_war = yes
+			}
+		}
+	}
+
+	option = { # Ignore the issue
+		name = etf_event_chn.201.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_at_war = no
+			}
+		}
+	}
+}
+
+# China cedes Hong Kong
+country_event = {
+	id = etf_event_chn.202
+	title = etf_event_chn.202.t
+	desc = etf_event_chn.202.d
+	picture = MERCHANTS_TALKING_eventPicture
+	goto = 3005
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.202.r
+		3005 = {
+			cede_province = PREV
+			hidden_effect = {
+				add_territorial_core = PREV
+				add_to_trade_company = PREV
+			}
+		}
+	}
+}
+
+### Outer Manchuria ###
+
+# Outer Manchuria/Amur Annexation
+country_event = {
+	id = etf_event_chn.210
+	title = etf_event_chn.210.t
+	desc = etf_event_chn.210.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Flee the region
+		name = etf_event_chn.210.ra
+		add_prestige = -10
+		FROM = {
+			country_event = { id = etf_event_chn.211 }
+		}
+	}
+
+	option = { # We don't fear the bear!
+		name = etf_event_chn.210.rb
+		FROM = {
+			country_event = { id = etf_event_chn.212 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# China cedes Amur
+country_event = {
+	id = etf_event_chn.211
+	title = etf_event_chn.211.t
+	desc = etf_event_chn.211.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.211.r
+		hidden_effect = {
+			every_province = {
+				limit = {
+					owned_by = FROM
+					OR = {
+						outer_manchuria_trigger = yes
+						area = tannu_uriankhai_area
+						province_id = 2118
+						province_id = 2368
+						province_id = 461
+						province_id = 4684
+					}
+					NOT = { province_id = 4679 }
+					NOT = { province_id = 716 }
+				}
+				remove_core = FROM
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+}
+
+# China refuses to cede Amur
+country_event = {
+	id = etf_event_chn.212
+	title = etf_event_chn.212.t
+	desc = etf_event_chn.212.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.212.ra
+		hidden_effect = {
+			every_province = {
+				limit = {
+					owned_by = FROM
+					OR = {
+						outer_manchuria_trigger = yes
+						area = tannu_uriankhai_area
+						province_id = 2118
+						province_id = 2368
+						province_id = 461
+						province_id = 4684
+					}
+					NOT = { province_id = 4679 }
+					NOT = { province_id = 716 }
+				}
+				add_claim = ROOT
+			}
+		}
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_imperial
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.212.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+### First Sino-Japanese War ###
+
+# Donghak Rebellion
+country_event = {
+	id = etf_event_chn.230
+	title = etf_event_chn.230.t
+	desc = etf_event_chn.230.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = KOR }
+		is_at_war = no
+		overlord = {
+			has_country_modifier = opium_in_china
+		}
+		is_year = 3992
+		NOT = { started_in = 3992.1.1 }
+	}
+
+	option = {
+		name = etf_event_chn.230.r
+		capital_scope = {
+			revolutionary_rebels = 3
+		}
+		random_owned_province = {
+			revolutionary_rebels = 3
+		}
+		random_owned_province = {
+			revolutionary_rebels = 3
+		}
+		hidden_effect = {
+			overlord = {
+				country_event = { id = etf_event_chn.231 days = 10 }
+			}
+		}
+	}
+}
+
+# Intervention in Korea?
+country_event = {
+	id = etf_event_chn.231
+	title = etf_event_chn.231.t
+	desc = etf_event_chn.231.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Send troops to Korea!
+		name = etf_event_chn.231.ra
+		FROM = {
+			if = {
+				limit = {
+					ROOT = { manpower = 20 }
+				}
+				hidden_effect = {
+					ROOT = { add_manpower = -20 }
+				}
+				add_manpower = 20
+			}
+			add_opinion = {
+				who = ROOT modifier = generic_good_opinion
+			}
+		}
+		hidden_effect = {
+			random_country = {
+				limit = {
+					if = {
+						limit = { exists = JAP }
+						tag = JAP
+					}
+					else = {
+						OR = {
+							has_reform = shogunate
+							country_name_is = { name = JAP } # Shogun Republic
+						}
+					}
+					NOT = { war_with = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+				country_event = { id = etf_event_chn.232 days = 10 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # We're busy
+		name = etf_event_chn.231.rb
+		FROM = {
+			grant_independence = yes
+			add_opinion = {
+				who = ROOT modifier = generic_terrible_opinion
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Chinese Troops in Korea
+country_event = {
+	id = etf_event_chn.232
+	title = etf_event_chn.232.t
+	desc = etf_event_chn.232.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Invading our common neighbour? How threatening!
+		name = etf_event_chn.232.ra
+		FROM = {
+			country_event = { id = etf_event_chn.233 days = 10 }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # Oh, ok
+		name = etf_event_chn.232.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Japan Protests
+country_event = {
+	id = etf_event_chn.233
+	title = etf_event_chn.233.t
+	desc = etf_event_chn.233.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # They're OUR subject
+		name = etf_event_chn.233.ra
+		FROM = {
+			country_event = { id = etf_event_chn.234 }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # Japan is our friend
+		name = etf_event_chn.233.rb
+		FROM = {
+			add_opinion = {
+				who = ROOT modifier = generic_good_opinion
+			}
+		}
+		KOR = {
+			grant_independence = yes
+			add_opinion = {
+				who = ROOT modifier = generic_terrible_opinion
+			}
+			if = {
+				limit = {
+					manpower = 20
+				}
+				add_manpower = -20
+				hidden_effect = {
+					ROOT = { add_manpower = 20 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Demands Refused
+country_event = {
+	id = etf_event_chn.234
+	title = etf_event_chn.234.t
+	desc = etf_event_chn.234.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # War it is!
+		name = etf_event_chn.234.ra
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_treaty_war
+		}
+		hidden_effect = {
+			save_global_event_target_as = japan_target
+			FROM = {
+				save_global_event_target_as = china_target
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # Atleast we tried
+		name = etf_event_chn.234.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+### Tsingtao ###
+
+# The Tsingtao Concession
+country_event = {
+	id = etf_event_chn.240
+	title = etf_event_chn.240.t
+	desc = etf_event_chn.240.d
+	picture = FLAGSHIP_SUNK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = opium_in_china
+		owns_core_province = 3009 # Tsingtao
+		any_country = {
+			country_is = { tag = GER }
+			NOT = { war_with = ROOT }
+			NOT = { truce_with = ROOT }
+		}
+		is_year = 3993
+		NOT = { started_in = 3996.3.6 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					country_is = { tag = GER }
+					NOT = { war_with = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+				save_event_target_as = GER_target
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_chn.240.ra
+		event_target:GER_target = {
+			country_event = { id = etf_event_chn.241 }
+			tooltip = {
+				3009 = {
+					cede_province = PREV
+					hidden_effect = {
+						add_territorial_core = PREV
+						add_to_trade_company = PREV
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+				event_target:GER_target = {
+					military_strength = {
+						who = ROOT
+						value = 1.0
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_chn.240.rb
+		add_prestige = -10
+		event_target:GER_target = {
+			country_event = { id = etf_event_chn.242 }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# China cedes Tsingtao
+country_event = {
+	id = etf_event_chn.241
+	title = etf_event_chn.241.t
+	desc = etf_event_chn.241.d
+	picture = DIPLOMACY_eventPicture
+	goto = 3009
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.241.r
+		3009 = {
+			cede_province = PREV
+			hidden_effect = {
+				add_territorial_core = PREV
+				add_to_trade_company = PREV
+			}
+		}
+	}
+}
+
+# China refuses to cede Tsingtao
+country_event = {
+	id = etf_event_chn.242
+	title = etf_event_chn.242.t
+	desc = etf_event_chn.242.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.242.ra
+		3009 = {
+			add_claim = ROOT
+		}
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_treaty_port
+			war_goal_province = 3009
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.242.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+### Port Arthur ###
+
+# Dalian Concession
+country_event = {
+	id = etf_event_chn.250
+	title = etf_event_chn.250.t
+	desc = etf_event_chn.250.d
+	picture = BARBARY_PIRATES_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.250.ra
+		FROM = {
+			country_event = { id = etf_event_chn.251 }
+		}
+		tooltip = {
+			3010 = {
+				cede_province = FROM
+				hidden_effect = {
+					add_territorial_core = FROM
+					add_to_trade_company = FROM
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.250.rb
+		FROM = {
+			country_event = { id = etf_event_chn.252 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# China cedes Dalian
+country_event = {
+	id = etf_event_chn.251
+	title = etf_event_chn.251.t
+	desc = etf_event_chn.251.d
+	picture = DIPLOMACY_eventPicture
+	goto = 3010
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.251.r
+		3010 = {
+			cede_province = PREV
+			hidden_effect = {
+				add_territorial_core = PREV
+				add_to_trade_company = PREV
+			}
+		}
+	}
+}
+
+# China refuses to cede Dalian
+country_event = {
+	id = etf_event_chn.252
+	title = etf_event_chn.252.t
+	desc = etf_event_chn.252.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.252.ra
+		3010 = {
+			add_claim = ROOT
+		}
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_treaty_port
+			war_goal_province = 3010
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.252.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# ===================
+# Extraterritoriality
+# ===================
+
+# The Legation Quarter
+country_event = {
+	id = etf_event_chn.300
+	title = etf_event_chn.300.t
+	desc = etf_event_chn.300.d
+	picture = HOUSE_OF_TRADE_eventPicture
+	goto = 1816
+
+	trigger = {
+		has_country_modifier = opium_in_china
+		1816 = { # Beijing
+			owned_by = ROOT
+			is_capital_of = ROOT
+		}
+		is_year = 3959
+		NOT = { has_global_flag = legation_quarter }
+	}
+
+	immediate = {
+		set_global_flag = legation_quarter
+	}
+
+	option = {
+		name = etf_event_chn.300.ra
+		1816 = {
+			add_province_modifier = {
+				name = legation_quarter
+				duration = -1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.300.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Shanghai International Settlement
+country_event = {
+	id = etf_event_chn.301
+	title = etf_event_chn.301.t
+	desc = etf_event_chn.301.d
+	picture = HOUSE_OF_TRADE_eventPicture
+	goto = 1822
+
+	trigger = {
+		has_country_modifier = opium_in_china
+		owns_core_province = 1822 # Shanghai
+		is_year = 3961
+		NOT = { has_global_flag = shanghai_settlement }
+	}
+
+	immediate = {
+		set_global_flag = shanghai_settlement
+	}
+
+	option = {
+		name = etf_event_chn.301.ra
+		1822 = {
+			add_province_modifier = {
+				name = shanghai_international
+				duration = -1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = etf_event_chn.301.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# =====================
+# The Taiping Rebellion
+# =====================
+
+# Hong Xiuquan
+country_event = {
+	id = etf_event_chn.400
+	title = etf_event_chn.400.t
+	desc = etf_event_chn.400.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = opium_in_china
+		NOT = { religion_group = christian }
+		
+		south_jiangsu_area = {
+			owned_by = ROOT
+			is_state = yes
+		}
+		
+		any_province = { # Protestants in the Treaty Ports
+			has_active_triggered_province_modifier = treaty_port_asia
+			owner = {
+				OR = {
+					religion = protestant
+					religion = reformed
+					religion = anglican
+				}
+			}
+		}
+		is_year = 3943
+		NOT = { started_in = 3948.12.1 }
+	}
+
+	option = {
+		name = etf_event_chn.400.r
+		south_jiangsu_area = { # Rebellion starts in Nanjing, spreads outwards from there (Maybe not too historical..., but Nanjing is the preferred capital)
+			limit = {
+				owned_by = ROOT
+			}
+			add_province_modifier = {
+				name = taiping_province_modifier
+				duration = 3650
+			}
+			random = {
+				chance = 10
+				change_religion = protestant
+			}
+		}
+		set_country_flag = the_taiping_flag
+	}
+}
+
+# 'God Worship' Spreads
+province_event = {
+	id = etf_event_chn.401
+	title = etf_event_chn.401.t
+	desc = etf_event_chn.401.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		owner = {
+			has_country_flag = the_taiping_flag
+			NOT = { religion_group = christian }
+		}
+		region = south_china_region
+		is_state = yes
+		NOT = { has_province_modifier = taiping_province_modifier }
+		
+		any_neighbor_province = {
+			has_province_modifier = taiping_province_modifier
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.25
+			taiping_trigger = yes # Prefer historical
+		}
+	}
+
+	option = {
+		name = etf_event_chn.401.r
+		every_province_in_state = {
+			add_province_modifier = {
+				name = taiping_province_modifier
+				duration = 3650
+			}
+			random = {
+				chance = 10
+				change_religion = protestant
+			}
+		}
+	}
+}
+
+# The Taiping Rebellion
+country_event = {
+	id = etf_event_chn.410
+	title = etf_event_chn.410.t
+	desc = etf_event_chn.410.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = the_taiping_flag
+		NOT = { religion_group = christian }
+		any_owned_province = {
+			has_province_modifier = taiping_province_modifier
+		}
+		is_year = 3949
+		NOT = { started_in = 3948.12.1 }
+	}
+
+	option = {
+		name = etf_event_chn.410.ra
+		add_stability = -1
+		start_civil_war = {
+			tag = TPG
+			every_owned_province = "
+				has_province_modifier = taiping_province_modifier
+			"
+			type = mutual
+			delete_cores_after = yes
+			
+			treasury = 500
+			manpower = 100
+			
+			religion = protestant
+			government = monarchy
+			capital = 1821 # Tianjing (Nanjing)
+		}
+	}
+
+	option = {
+		name = etf_event_chn.410.rb
+		trigger = {
+			ai = no
+		}
+		add_stability = -1
+		start_civil_war = {
+			tag = TPG
+			every_owned_province = "
+				has_province_modifier = taiping_province_modifier
+			"
+			type = mutual
+			delete_cores_after = yes
+			play_as = yes
+			
+			treasury = 500
+			manpower = 100
+			
+			religion = protestant
+			government = monarchy
+			capital = 1821 # Tianjing (Nanjing)
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		TPG = {
+			add_government_reform = heavenly_kingdom_reform
+			add_meritocracy = 75
+			change_primary_culture = hakka
+			define_ruler = {
+				name = "Xiuquan"
+				dynasty = "Hong"
+				adm = 3
+				dip = 4
+				mil = 2
+				culture = hakka
+				religion = protestant
+			}
+			add_ruler_personality = zealot_personality
+			add_ruler_personality = inspiring_leader_personality
+			add_ruler_personality = cruel_personality
+		}
+	}
+}
+
+# Taiping Defeat
+country_event = {
+	id = etf_event_chn.420
+	title = etf_event_chn.420.t
+	desc = etf_event_chn.420.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.420.r
+		add_stability = 1
+		custom_tooltip = etf_event_chn.420.tt
+		hidden_effect = {
+			china_superregion = {
+				limit = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+				change_religion = ROOT
+				add_devastation = 25
+			}
+		}
+		clr_country_flag = the_taiping_flag
+	}
+}
+
+# Taiping Victory
+country_event = {
+	id = etf_event_chn.421
+	title = etf_event_chn.421.t
+	desc = etf_event_chn.421.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.421.r
+		add_stability = 1
+		add_prestige = 50
+	}
+}
+
+# ============
+# Modern China
+# ============
+
+# Our ally supports fake China!
+country_event = {
+	id = etf_event_chn.50
+	title = etf_event_chn.50.t
+	desc = etf_event_chn.50.d
+	picture = ACCUSATION_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = PRC
+				any_ally = { alliance_with = TWA }
+			}
+			AND = {
+				tag = TWA
+				any_ally = { alliance_with = PRC }
+			}
+		}
+		started_in = 4047.10.1
+		NOT = { has_global_flag = one_china_controversy_flag }
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = PRC }
+				random_ally = {
+					limit = { alliance_with = TWA }
+					save_event_target_as = one_china_defier
+				}
+				TWA = { save_event_target_as = fake_china }
+			}
+			else_if = {
+				limit = { tag = TWA }
+				random_ally = {
+					limit = { alliance_with = PRC }
+					save_event_target_as = one_china_defier
+				}
+				PRC = { save_event_target_as = fake_china }
+			}
+			set_global_flag = one_china_controversy_flag
+		}
+	}
+
+	option = { # Unacceptable
+		name = etf_event_chn.50.ra
+		event_target:one_china_defier = {
+			country_event = { id = etf_event_chn.51 }
+		}
+	}
+
+	option = { # It's of no concern
+		name = etf_event_chn.50.rb
+		add_prestige = -10
+		clr_global_flag = one_china_controversy_flag
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_great_power = yes
+			}
+		}
+	}
+}
+
+# Chinese Demands
+country_event = {
+	id = etf_event_chn.51
+	title = etf_event_chn.51.t
+	desc = etf_event_chn.51.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				TWA = { save_event_target_as = fake_china }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = TWA }
+				}
+				PRC = { save_event_target_as = fake_china }
+			}
+		}
+	}
+
+	option = { # Side with China
+		name = etf_event_chn.51.ra
+		break_alliance = FROM
+		FROM = {
+			country_event = { id = etf_event_chn.52 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = event_target:fake_china
+					value = 100
+				}
+			}
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = event_target:fake_china
+					value = 150
+				}
+			}
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = event_target:fake_china
+					value = 200
+				}
+			}
+		}
+	}
+
+	option = { # No wait, side with China
+		name = etf_event_chn.51.rb
+		break_alliance = event_target:fake_china
+		event_target:fake_china = {
+			country_event = { id = etf_event_chn.52 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = FROM
+					value = 100
+				}
+			}
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = FROM
+					value = 150
+				}
+			}
+			modifier = {
+				factor = 10
+				has_opinion = {
+					who = FROM
+					value = 200
+				}
+			}
+		}
+	}
+}
+
+# FROM backtracks on alliance
+country_event = {
+	id = etf_event_chn.52
+	title = etf_event_chn.52.t
+	desc = etf_event_chn.52.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_chn.52.r
+		clr_global_flag = one_china_controversy_flag
+	}
+}
+
+# ==================
+# The Fate of Taiwan
+# ==================
+country_event = {
+	id = etf_event_chn.600
+	title = etf_event_chn.600.t
+	desc = etf_event_chn.600.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	# The time for independence is now!
+	option = {
+		name = etf_event_chn.600.ra
+		custom_tooltip = etf_event_chn.600.ra.tt
+		hidden_effect = {
+			asia = {
+				limit = { is_permanent_claim = ROOT }
+				remove_claim = ROOT
+			}
+		}
+		custom_tooltip = etf_event_chn.600.ra.t2
+		hidden_effect = {
+			every_country = {
+				limit = {
+					country_is = { tag = CHN }
+				}
+				taiwan_area = {
+					limit = { is_core = PREV }
+					remove_core = PREV
+					add_permanent_claim = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = taiwanese }
+			}
+			change_primary_culture = taiwanese
+		}
+		change_tag = FRM # Become Formosa tag
+		custom_tooltip = " "
+		random_country = {
+			limit = {
+				country_is = { tag = CHN }
+			}
+			country_event = { id = etf_event_chn.601 } # Alert to Taiwan's change in course
+		}
+	}
+
+	# The time for reconquest is nigh!
+	option = {
+		name = etf_event_chn.600.rb
+		if = {
+			limit = {
+				NOT = { faction_in_power = nationalist_party }
+				NOT = { faction_in_power = national_socialist_party }
+			}
+			add_stability = -1
+		}
+		custom_tooltip = etf_event_chn.600.rb.tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					country_is = { tag = CHN }
+				}
+				every_core_province = {
+					limit = { is_permanent_claim = ROOT }
+					remove_claim = ROOT
+					add_core = ROC
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = chihan }
+			}
+			change_primary_culture = chihan # Beijing culture
+		}
+		if = {
+			limit = {
+				NOT = { government_rank = 3 }
+			}
+			set_government_rank = 3
+		}
+		change_tag = ROC # Return to China!
+		custom_tooltip = " "
+		random_country = {
+			limit = {
+				country_is = { tag = CHN }
+			}
+			country_event = { id = etf_event_chn.601 } # Alert to Taiwan's change in course
+		}
+	}
+
+	# Another day perhaps...
+	option = {
+		name = etf_event_chn.600.rc
+		clr_country_flag = the_fate_of_taiwan
+	}
+}
+
+# Taiwan changes course
+country_event = {
+	id = etf_event_chn.601
+	title = etf_event_chn.601.t
+	desc = {
+		trigger = {
+			FROM = {
+				country_is = { tag = FRM }
+			}
+		}
+		desc = etf_event_chn.601.da
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				country_is = { tag = ROC }
+			}
+		}
+		desc = etf_event_chn.601.db
+	}
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	# Taiwan declares independence, what do?
+	option = {
+		name = etf_event_chn.601.ra # We're glad they abandoned their claims
+		trigger = {
+			FROM = {
+				country_is = { tag = FRM }
+			}
+		}
+		add_stability = -1 # (Goes against the Chinese constitution)
+		taiwan_area = {
+			remove_claim = ROOT
+		}
+		add_50_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+	}
+
+	option = {
+		name = etf_event_chn.601.rb # The island is still ours'
+		trigger = {
+			FROM = {
+				country_is = { tag = FRM }
+			}
+		}
+		sub_100_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+	}
+
+	# Taiwan claims China, what do?
+	option = {
+		name = etf_event_chn.601.rc # The ambition of these fools!
+		trigger = {
+			FROM = {
+				country_is = { tag = ROC }
+			}
+		}
+		sub_100_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+	}
+}

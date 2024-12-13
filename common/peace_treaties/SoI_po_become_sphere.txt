@@ -1,0 +1,59 @@
+po_become_sphere = {
+	category = 6
+	
+	power_projection = humiliated_rival
+	power_cost_base = 1.0
+	prestige_base = 0.2
+	ae_base = 0.2
+	
+	warscore_cost = {
+		all_provinces = 0.75
+	}
+	warscore_cap = 60
+	
+	requires_demand_independence = yes
+	is_make_subject = yes
+	requires_is_allowed = yes
+	
+	is_visible = {
+		always = yes
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				is_great_power_trigger = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = po_become_sphere_tt_1
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_great_power_trigger = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = po_become_sphere_tt_2
+				always = no
+			}
+		}
+	}
+	
+	effect = {
+		add_to_sphere = { tag = FROM }
+		
+		add_diplomatic_influence = {
+			who = FROM
+			value = 80
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 50
+		}
+	}
+}

@@ -1,0 +1,2983 @@
+# Factory province modifiers all use the same description
+defined_text = {
+	name = GetFactoryDesc
+	random = no
+
+	text = {
+		localisation_key = string_factory_desc
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Government Minority/Plurality/Majority Triggered Modifier descriptions
+defined_text = {
+	name = GetFeebleGovDesc
+	random = no
+
+	text = {
+		localisation_key = string_feeble_gov_desc
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetNormalGovDesc
+	random = no
+
+	text = {
+		localisation_key = string_normal_gov_desc
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetStrongGovDesc
+	random = no
+
+	text = {
+		localisation_key = string_strong_gov_desc
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints name of province's US state
+defined_text = {
+	name = GetUSAStateName
+	random = no
+
+	text = { localisation_key = string_washington     trigger = { washington_trigger     = yes } }
+	text = { localisation_key = string_oregon         trigger = { oregon_trigger         = yes } }
+	text = { localisation_key = string_california     trigger = { california_trigger     = yes } }
+	text = { localisation_key = string_nevada         trigger = { nevada_trigger         = yes } }
+	text = { localisation_key = string_idaho          trigger = { idaho_trigger          = yes } }
+	text = { localisation_key = string_utah           trigger = { utah_trigger           = yes } }
+	text = { localisation_key = string_arizona        trigger = { arizona_trigger        = yes } }
+	text = { localisation_key = string_montana        trigger = { montana_trigger        = yes } }
+	text = { localisation_key = string_wyoming        trigger = { wyoming_trigger        = yes } }
+	text = { localisation_key = string_colorado       trigger = { colorado_trigger       = yes } }
+	text = { localisation_key = string_new_mexico     trigger = { new_mexico_trigger     = yes } }
+	text = { localisation_key = string_north_dakota   trigger = { north_dakota_trigger   = yes } }
+	text = { localisation_key = string_south_dakota   trigger = { south_dakota_trigger   = yes } }
+	text = { localisation_key = string_nebraska       trigger = { nebraska_trigger       = yes } }
+	text = { localisation_key = string_kansas         trigger = { kansas_trigger         = yes } }
+	text = { localisation_key = string_oklahoma       trigger = { oklahoma_trigger       = yes } }
+	text = { localisation_key = string_texas          trigger = { texas_trigger          = yes } }
+	text = { localisation_key = string_minnesota      trigger = { minnesota_trigger      = yes } }
+	text = { localisation_key = string_iowa           trigger = { iowa_trigger           = yes } }
+	text = { localisation_key = string_missouri       trigger = { missouri_trigger       = yes } }
+	text = { localisation_key = string_arkansas       trigger = { arkansas_trigger       = yes } }
+	text = { localisation_key = string_louisiana      trigger = { louisiana_trigger      = yes } }
+	text = { localisation_key = string_wisconsin      trigger = { wisconsin_trigger      = yes } }
+	text = { localisation_key = string_illinois       trigger = { illinois_trigger       = yes } }
+	text = { localisation_key = string_mississippi    trigger = { mississippi_trigger    = yes } }
+	text = { localisation_key = string_florida        trigger = { florida_trigger        = yes } }
+	text = { localisation_key = string_alabama        trigger = { alabama_trigger        = yes } }
+	text = { localisation_key = string_georgia        trigger = { georgia_trigger        = yes } }
+	text = { localisation_key = string_tennessee      trigger = { tennessee_trigger      = yes } }
+	text = { localisation_key = string_south_carolina trigger = { south_carolina_trigger = yes } }
+	text = { localisation_key = string_north_carolina trigger = { north_carolina_trigger = yes } }
+	text = { localisation_key = string_kentucky       trigger = { kentucky_trigger       = yes } }
+	text = { localisation_key = string_virginia       trigger = { virginia_trigger       = yes } }
+	text = { localisation_key = string_west_virginia  trigger = { west_virginia_trigger  = yes } }
+	text = { localisation_key = string_indiana        trigger = { indiana_trigger        = yes } }
+	text = { localisation_key = string_michigan       trigger = { michigan_trigger       = yes } }
+	text = { localisation_key = string_ohio           trigger = { ohio_trigger           = yes } }
+	text = { localisation_key = string_pennsylvania   trigger = { pennsylvania_trigger   = yes } }
+	text = { localisation_key = string_new_york       trigger = { new_york_trigger       = yes } }
+	text = { localisation_key = string_maryland       trigger = { maryland_trigger       = yes } }
+	text = { localisation_key = string_delaware       trigger = { delaware_trigger       = yes } }
+	text = { localisation_key = string_new_jersey     trigger = { new_jersey_trigger     = yes } }
+	text = { localisation_key = string_connecticut    trigger = { connecticut_trigger    = yes } }
+	text = { localisation_key = string_rhode_island   trigger = { rhode_island_trigger   = yes } }
+	text = { localisation_key = string_massachusetts  trigger = { massachusetts_trigger  = yes } }
+	text = { localisation_key = string_vermont        trigger = { vermont_trigger        = yes } }
+	text = { localisation_key = string_new_hampshire  trigger = { new_hampshire_trigger  = yes } }
+	text = { localisation_key = string_maine          trigger = { maine_trigger          = yes } }
+	text = { localisation_key = string_alaska         trigger = { alaska_trigger         = yes } }
+	text = { localisation_key = string_hawaii         trigger = { hawaii_trigger         = yes } }
+}
+
+# Prints the title of the German Confederation leader
+defined_text = {
+	name = GetTitleGCF
+	random = no
+
+	text = {
+		localisation_key = PRESIDENT
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints name and numbering of a World War
+defined_text = {
+	name = GetGreatWarName
+	random = no
+
+	text = {
+		localisation_key = string_the_world_war
+		trigger = {
+			REB = {
+				check_variable = { which = nr_of_Great_Wars value = 6 }
+			}
+		}
+	}
+	text = {
+		localisation_key = string_5th_world_war
+		trigger = {
+			REB = {
+				check_variable = { which = nr_of_Great_Wars value = 5 }
+			}
+		}
+	}
+	text = {
+		localisation_key = string_4th_world_war
+		trigger = {
+			REB = {
+				check_variable = { which = nr_of_Great_Wars value = 4 }
+			}
+		}
+	}
+	text = {
+		localisation_key = string_3rd_world_war
+		trigger = {
+			REB = {
+				check_variable = { which = nr_of_Great_Wars value = 3 }
+			}
+		}
+	}
+	text = {
+		localisation_key = string_2nd_world_war
+		trigger = {
+			REB = {
+				check_variable = { which = nr_of_Great_Wars value = 2 }
+			}
+		}
+	}
+	text = {
+		localisation_key = string_the_great_war
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints the short name of Colonial Region province is in
+defined_text = {
+	name = GetShortColonialRegionName
+	random = no
+
+	text = {
+		localisation_key = short_colonial_canada
+		trigger = {
+			colonial_region = colonial_canada
+		}
+	}
+	text = {
+		localisation_key = short_colonial_eastern_america
+		trigger = {
+			colonial_region = colonial_eastern_america
+		}
+	}
+	text = {
+		localisation_key = short_colonial_louisiana
+		trigger = {
+			colonial_region = colonial_louisiana
+		}
+	}
+	text = {
+		localisation_key = short_colonial_california
+		trigger = {
+			colonial_region = colonial_california
+		}
+	}
+	text = {
+		localisation_key = short_colonial_mexico
+		trigger = {
+			colonial_region = colonial_mexico
+		}
+	}
+	text = {
+		localisation_key = short_colonial_the_carribean
+		trigger = {
+			colonial_region = colonial_the_carribean
+		}
+	}
+	text = {
+		localisation_key = short_colonial_colombia
+		trigger = {
+			colonial_region = colonial_colombia
+		}
+	}
+	text = {
+		localisation_key = short_colonial_peru
+		trigger = {
+			colonial_region = colonial_peru
+		}
+	}
+	text = {
+		localisation_key = short_colonial_la_plata
+		trigger = {
+			colonial_region = colonial_la_plata
+		}
+	}
+	text = {
+		localisation_key = short_colonial_brazil
+		trigger = {
+			colonial_region = colonial_brazil
+		}
+	}
+	text = {
+		localisation_key = short_colonial_australia
+		trigger = {
+			colonial_region = colonial_australia
+		}
+	}
+	text = {
+		localisation_key = short_colonial_oceania
+		trigger = {
+			colonial_region = colonial_oceania
+		}
+	}
+	text = {
+		localisation_key = short_colonial_south_africa
+		trigger = {
+			colonial_region = colonial_south_africa
+		}
+	}
+	text = {
+		localisation_key = short_colonial_zambezi
+		trigger = {
+			colonial_region = colonial_zambezi
+		}
+	}
+	text = {
+		localisation_key = short_colonial_congo
+		trigger = {
+			colonial_region = colonial_congo
+		}
+	}
+	text = {
+		localisation_key = short_colonial_east_africa
+		trigger = {
+			colonial_region = colonial_east_africa
+		}
+	}
+	text = {
+		localisation_key = short_colonial_ethiopia
+		trigger = {
+			colonial_region = colonial_ethiopia
+		}
+	}
+	text = {
+		localisation_key = short_colonial_sudan
+		trigger = {
+			colonial_region = colonial_sudan
+		}
+	}
+	text = {
+		localisation_key = short_colonial_central_africa
+		trigger = {
+			colonial_region = colonial_central_africa
+		}
+	}
+	text = {
+		localisation_key = short_colonial_niger
+		trigger = {
+			colonial_region = colonial_niger
+		}
+	}
+	text = {
+		localisation_key = short_colonial_ivory_coast
+		trigger = {
+			colonial_region = colonial_ivory_coast
+		}
+	}
+	text = {
+		localisation_key = short_colonial_mali
+		trigger = {
+			colonial_region = colonial_mali
+		}
+	}
+	text = {
+		localisation_key = short_colonial_west_africa
+		trigger = {
+			colonial_region = colonial_west_africa
+		}
+	}
+}
+
+# Used in Dominion events/decisions to display a fitting Dominion name for country
+defined_text = {
+	name = GetDominionName
+	random = no
+
+	text = {
+		localisation_key = INI # Dominion of India
+		trigger = {
+			country_is = { tag = RHJ }
+		}
+	}
+	text = {
+		localisation_key = NZL # Dominion of New Zealand
+		trigger = {
+			capital_scope = {
+				new_zealand_trigger = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[This.Capital.GetShortColonialRegionName]" # Dominion of <Colonial Region>
+		trigger = {
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_canada
+					colonial_region = colonial_eastern_america
+					colonial_region = colonial_louisiana
+					colonial_region = colonial_california
+					colonial_region = colonial_mexico
+					colonial_region = colonial_the_carribean
+					colonial_region = colonial_colombia
+					colonial_region = colonial_peru
+					colonial_region = colonial_la_plata
+					colonial_region = colonial_brazil
+					colonial_region = colonial_australia
+					colonial_region = colonial_oceania
+					colonial_region = colonial_south_africa
+					colonial_region = colonial_zambezi
+					colonial_region = colonial_congo
+					colonial_region = colonial_east_africa
+					colonial_region = colonial_ethiopia
+					colonial_region = colonial_sudan
+					colonial_region = colonial_central_africa
+					colonial_region = colonial_niger
+					colonial_region = colonial_ivory_coast
+					colonial_region = colonial_mali
+					colonial_region = colonial_west_africa
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = "[This.Capital.GetRegionName]" # Dominion of <Region>
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+# Prints Government type
+defined_text = {
+	name = GetGovernmentType
+	random = no
+
+	text = {
+		localisation_key = monarchy_name
+		trigger = {
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = republic_name
+		trigger = {
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = theocracy_name
+		trigger = {
+			government = theocracy
+		}
+	}
+	text = {
+		localisation_key = tribal_name
+		trigger = {
+			government = tribal
+		}
+	}
+	text = {
+		localisation_key = native_name
+		trigger = {
+			government = native
+		}
+	}
+}
+
+# Prints political ideology group name - These affect relations between countries
+defined_text = {
+	name = GetIdeologyGroupName
+	random = no
+	
+	text = {
+		localisation_key = string_fascism
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	text = {
+		localisation_key = string_socialism
+		trigger = {
+			OR = {
+				has_reform = anarchist_society
+				is_communist = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_democracy
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	text = {
+		localisation_key = string_revolution
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# text = {
+		# localisation_key = string_autocracy
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	text = {
+		localisation_key = string_oligarchy
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+# Prints political ideology group adjective - These affect relations between countries
+defined_text = {
+	name = GetIdeologyGroupAdjective
+	random = no
+	
+	text = {
+		localisation_key = string_fascist
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	text = {
+		localisation_key = string_socialist
+		trigger = {
+			OR = {
+				has_reform = anarchist_society
+				is_communist = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_democratic
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	text = {
+		localisation_key = string_revolutionary
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# text = {
+		# localisation_key = string_autocratic
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	text = {
+		localisation_key = string_oligarchic
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+# Prints political ideology group description
+defined_text = {
+	name = GetIdeologyGroupDesc
+	random = no
+	
+	text = {
+		localisation_key = string_fascism_desc
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	text = {
+		localisation_key = string_socialism_desc
+		trigger = {
+			OR = {
+				has_reform = anarchist_society
+				is_communist = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_democracy_desc
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	text = {
+		localisation_key = string_revolution_desc
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# text = {
+		# localisation_key = string_autocracy_desc
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	text = {
+		localisation_key = string_oligarchy_desc
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+# Prints political ideology name - These have no effect on gameplay, just flavor
+defined_text = {
+	name = GetIdeologyName
+	random = no
+	
+	# Fascism
+	text = {
+		localisation_key = string_national_socialism
+		trigger = {
+			is_fascist = yes
+			OR = {
+				tag = GER
+				AND = {
+					was_tag = GER
+					NOT = { exists = GER }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_austrofascism
+		trigger = {
+			is_fascist = yes
+			OR = {
+				tag = HAB
+				AND = {
+					was_tag = HAB
+					NOT = { exists = HAB }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_francoism
+		trigger = {
+			is_fascist = yes
+			OR = {
+				has_ruler = "Francisco Franco"
+				AND = {
+					has_ruler = "Francisco"
+					dynasty = "Franco"
+				}
+				has_country_flag = is_francoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_falangism
+		trigger = {
+			is_fascist = yes
+			religion = catholic
+			NOT = { culture_group = french }
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupName]"
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	# Socialism
+	text = {
+		localisation_key = string_anarchism
+		trigger = {
+			has_reform = anarchist_society
+		}
+	}
+	text = {
+		localisation_key = string_democratic_socialism
+		trigger = {
+			is_communist = yes
+			is_democracy = yes
+		}
+	}
+	text = {
+		localisation_key = string_leninism
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Vladimir Lenin"
+				has_country_flag = is_leninist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_stalinism
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Joseph Stalin"
+				has_country_flag = is_stalinist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_trotskyism
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Leon Trotsky"
+				has_country_flag = is_trotskyist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_juche
+		trigger = {
+			is_communist = yes
+			OR = {
+				tag = NOK
+				AND = {
+					was_tag = NOK
+					NOT = { exists = NOK }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_titoism
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Josip Broz Tito"
+				has_country_flag = is_titoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_maoism
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Mao Zedong"
+				has_country_flag = is_maoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_baathism
+		trigger = {
+			is_communist = yes
+			is_arab_culture_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = string_marxism-leninism
+		trigger = {
+			is_communist = yes
+			OR = {
+				tag = SOV
+				AND = {
+					was_tag = SOV
+					NOT = { exists = SOV }
+				}
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						OR = {
+							tag = SOV
+							AND = {
+								was_tag = SOV
+								NOT = { exists = SOV }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_authoritarian_socialism
+		trigger = {
+			is_communist = yes
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupName]"
+		trigger = {
+			is_communist = yes
+		}
+	}
+	# Democracy
+	text = {
+		localisation_key = string_direct_democracy
+		trigger = {
+			is_democracy = yes
+			has_reform = direct_democracy_system
+		}
+	}
+	text = {
+		localisation_key = string_conservative_democracy
+		trigger = {
+			is_democracy = yes
+			faction_in_power = conservative_party
+		}
+	}
+	text = {
+		localisation_key = string_liberal_democracy
+		trigger = {
+			is_democracy = yes
+			faction_in_power = liberal_party
+		}
+	}
+	text = {
+		localisation_key = string_nationalist_democracy
+		trigger = {
+			is_democracy = yes
+			faction_in_power = nationalist_party
+		}
+	}
+	text = {
+		localisation_key = string_social_democracy
+		trigger = {
+			is_democracy = yes
+			faction_in_power = social_democratic_party
+		}
+	}
+	text = {
+		localisation_key = string_communist_democracy # These last two are... strange.
+		trigger = {
+			is_democracy = yes
+			faction_in_power = communist_party
+		}
+	}
+	text = {
+		localisation_key = string_fascist_democracy
+		trigger = {
+			is_democracy = yes
+			faction_in_power = national_socialist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupName]"
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	# Revolutionary
+	text = {
+		localisation_key = string_revolutionary_monarchism
+		trigger = {
+			is_revolutionary = yes
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = string_revolutionary_republicanism
+		trigger = {
+			is_revolutionary = yes
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupName]"
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# Autocracy
+	text = {
+		localisation_key = string_absolutism
+		trigger = {
+			is_autocracy = yes
+			government = monarchy
+		}
+	}
+	# text = {
+		# localisation_key = "[This.GetIdeologyGroupName]"
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	# Oligarchy
+	# text = {
+		# localisation_key = string_piracy
+		# trigger = {
+			# has_government_attribute = is_pirate_republic_reform
+		# }
+	# }
+	text = {
+		localisation_key = string_militarism
+		trigger = {
+			OR = {
+				has_government_attribute = generals_become_rulers
+				has_reform = military_government
+			}
+		}
+	}
+	text = {
+		localisation_key = string_despotism
+		trigger = {
+			OR = {
+				government = monarchy
+				government = tribal
+				is_dictatorship = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_corporatocracy
+		trigger = {
+			has_reform = trade_company_government
+		}
+	}
+	text = {
+		localisation_key = string_colonialism
+		trigger = {
+			has_colonial_government = yes
+		}
+	}
+	text = {
+		localisation_key = string_plutocracy
+		trigger = {
+			has_government_attribute = boost_income
+		}
+	}
+	text = {
+		localisation_key = string_theocracy
+		trigger = {
+			government = theocracy
+		}
+	}
+	text = {
+		localisation_key = string_bourgeois_democracy
+		trigger = {
+			is_democracy = no # Not fully Democratic
+			OR = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+				has_faction = national_socialist_party
+			}
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupName]"
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+# Prints political ideology adjective - These have no effect on gameplay, just flavor
+defined_text = {
+	name = GetIdeologyAdjective
+	random = no
+	
+	# Fascist
+	text = {
+		localisation_key = string_nationalist_socialist
+		trigger = {
+			is_fascist = yes
+			OR = {
+				tag = GER
+				AND = {
+					was_tag = GER
+					NOT = { exists = GER }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_austrofascist
+		trigger = {
+			is_fascist = yes
+			OR = {
+				tag = HAB
+				AND = {
+					was_tag = HAB
+					NOT = { exists = HAB }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_francoist
+		trigger = {
+			is_fascist = yes
+			OR = {
+				has_ruler = "Francisco Franco"
+				AND = {
+					has_ruler = "Francisco"
+					dynasty = "Franco"
+				}
+				has_country_flag = is_francoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_falangist
+		trigger = {
+			is_fascist = yes
+			religion = catholic
+			NOT = { culture_group = french }
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupAdjective]"
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	# Socialist
+	text = {
+		localisation_key = string_anarchist
+		trigger = {
+			has_reform = anarchist_society
+		}
+	}
+	text = {
+		localisation_key = string_democratic_socialist
+		trigger = {
+			is_communist = yes
+			is_democracy = yes
+		}
+	}
+	text = {
+		localisation_key = string_leninist
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Vladimir Lenin"
+				has_country_flag = is_leninist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_stalinist
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Joseph Stalin"
+				has_country_flag = is_stalinist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_trotskyist
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Leon Trotsky"
+				has_country_flag = is_trotskyist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_juche
+		trigger = {
+			is_communist = yes
+			OR = {
+				tag = NOK
+				AND = {
+					was_tag = NOK
+					NOT = { exists = NOK }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_titoist
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Josip Broz Tito"
+				has_country_flag = is_titoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_maoist
+		trigger = {
+			is_communist = yes
+			OR = {
+				has_ruler = "Mao Zedong"
+				has_country_flag = is_maoist
+			}
+		}
+	}
+	text = {
+		localisation_key = string_baathist
+		trigger = {
+			is_communist = yes
+			is_arab_culture_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = string_marxist-leninist
+		trigger = {
+			is_communist = yes
+			OR = {
+				tag = SOV
+				AND = {
+					was_tag = SOV
+					NOT = { exists = SOV }
+				}
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						OR = {
+							tag = SOV
+							AND = {
+								was_tag = SOV
+								NOT = { exists = SOV }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_authoritarian_socialist
+		trigger = {
+			is_communist = yes
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupAdjective]"
+		trigger = {
+			is_communist = yes
+		}
+	}
+	# Democratic
+	text = {
+		localisation_key = string_direct_democratic
+		trigger = {
+			is_democracy = yes
+			has_reform = direct_democracy_system
+		}
+	}
+	text = {
+		localisation_key = string_conservative_democratic
+		trigger = {
+			is_democracy = yes
+			faction_in_power = conservative_party
+		}
+	}
+	text = {
+		localisation_key = string_liberal_democratic
+		trigger = {
+			is_democracy = yes
+			faction_in_power = liberal_party
+		}
+	}
+	text = {
+		localisation_key = string_nationalist_democratic
+		trigger = {
+			is_democracy = yes
+			faction_in_power = nationalist_party
+		}
+	}
+	text = {
+		localisation_key = string_social_democratic
+		trigger = {
+			is_democracy = yes
+			faction_in_power = social_democratic_party
+		}
+	}
+	text = {
+		localisation_key = string_communist_democratic # These last two are... strange.
+		trigger = {
+			is_democracy = yes
+			faction_in_power = communist_party
+		}
+	}
+	text = {
+		localisation_key = string_fascist_democratic
+		trigger = {
+			is_democracy = yes
+			faction_in_power = national_socialist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupAdjective]"
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	# Revolutionary
+	text = {
+		localisation_key = string_revolutionary_monarchist
+		trigger = {
+			is_revolutionary = yes
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = string_revolutionary_republican
+		trigger = {
+			is_revolutionary = yes
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupAdjective]"
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# Autocratic
+	text = {
+		localisation_key = string_absolutist
+		trigger = {
+			is_autocracy = yes
+			government = monarchy
+		}
+	}
+	# text = {
+		# localisation_key = "[This.GetIdeologyGroupAdjective]"
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	# Oligarchic
+	# text = {
+		# localisation_key = string_piratic
+		# trigger = {
+			# has_government_attribute = is_pirate_republic_reform
+		# }
+	# }
+	text = {
+		localisation_key = string_militarist
+		trigger = {
+			OR = {
+				has_government_attribute = generals_become_rulers
+				has_reform = military_government
+			}
+		}
+	}
+	text = {
+		localisation_key = string_despotic
+		trigger = {
+			OR = {
+				government = monarchy
+				government = tribal
+				is_dictatorship = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_corporatocratic
+		trigger = {
+			has_reform = trade_company_government
+		}
+	}
+	text = {
+		localisation_key = string_colonialist
+		trigger = {
+			has_colonial_government = yes
+		}
+	}
+	text = {
+		localisation_key = string_plutocratic
+		trigger = {
+			has_government_attribute = boost_income
+		}
+	}
+	text = {
+		localisation_key = string_theocratic
+		trigger = {
+			government = theocracy
+		}
+	}
+	text = {
+		localisation_key = string_bourgeois_democratic
+		trigger = {
+			is_democracy = no # Not fully Democratic
+			OR = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+				has_faction = national_socialist_party
+			}
+		}
+	}
+	text = {
+		localisation_key = "[This.GetIdeologyGroupAdjective]"
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+defined_text = {
+	name = GetParliamentFlavorText
+	random = no
+	
+	text = {
+		localisation_key = ""
+		trigger = {
+			NOT = { has_parliament_or_reform = yes }
+		}
+	}
+	text = {
+		localisation_key = string_parliament_democratic_desc
+		trigger = {
+			has_government_attribute = has_multi_party_election
+		}
+	}
+	text = {
+		localisation_key = string_parliament_one_party_state_desc
+		trigger = {
+			OR = {
+				is_communist = yes
+				is_fascist = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = string_parliament_limited_electorate_desc
+	}
+}
+
+defined_text = {
+	name = GetRulingPartyFlavorText
+	random = no
+	
+	text = {
+		localisation_key = string_feeble_ruling_party_desc
+		trigger = {
+			OR = {
+				AND = {
+					faction_in_power = conservative_party
+					has_country_modifier = feeble_conservatives_modifier
+				}
+				AND = {
+					faction_in_power = liberal_party
+					has_country_modifier = feeble_liberals_modifier
+				}
+				AND = {
+					faction_in_power = nationalist_party
+					has_country_modifier = feeble_nationalists_modifier
+				}
+				AND = {
+					faction_in_power = social_democratic_party
+					has_country_modifier = feeble_social_democrats_modifier
+				}
+				AND = {
+					faction_in_power = communist_party
+					has_country_modifier = feeble_communists_modifier
+				}
+				AND = {
+					faction_in_power = national_socialist_party
+					has_country_modifier = feeble_fascists_modifier
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_normal_ruling_party_desc
+		trigger = {
+			OR = {
+				AND = {
+					faction_in_power = conservative_party
+					has_country_modifier = normal_conservatives_modifier
+				}
+				AND = {
+					faction_in_power = liberal_party
+					has_country_modifier = normal_liberals_modifier
+				}
+				AND = {
+					faction_in_power = nationalist_party
+					has_country_modifier = normal_nationalists_modifier
+				}
+				AND = {
+					faction_in_power = social_democratic_party
+					has_country_modifier = normal_social_democrats_modifier
+				}
+				AND = {
+					faction_in_power = communist_party
+					has_country_modifier = normal_communists_modifier
+				}
+				AND = {
+					faction_in_power = national_socialist_party
+					has_country_modifier = normal_fascists_modifier
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_strong_ruling_party_desc
+		trigger = {
+			OR = {
+				AND = {
+					faction_in_power = conservative_party
+					has_country_modifier = strong_conservatives_modifier
+				}
+				AND = {
+					faction_in_power = liberal_party
+					has_country_modifier = strong_liberals_modifier
+				}
+				AND = {
+					faction_in_power = nationalist_party
+					has_country_modifier = strong_nationalists_modifier
+				}
+				AND = {
+					faction_in_power = social_democratic_party
+					has_country_modifier = strong_social_democrats_modifier
+				}
+				AND = {
+					faction_in_power = communist_party
+					has_country_modifier = strong_communists_modifier
+				}
+				AND = {
+					faction_in_power = national_socialist_party
+					has_country_modifier = strong_fascists_modifier
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = ""
+	}
+}
+
+defined_text = {
+	name = GetRulerPowerFlavorText
+	random = no
+	
+	text = {
+		localisation_key = ""
+		trigger = {
+			has_regency = yes
+		}
+	}
+	text = {
+		localisation_key = string_ruler_absolute_power_desc
+		trigger = {
+			OR = {
+				is_autocracy = yes
+				is_dictatorship = yes
+				has_reform = ministrial_dictatorship
+			}
+		}
+	}
+	text = {
+		localisation_key = string_ruler_in_junta_power_desc
+		trigger = {
+			OR = {
+				has_government_attribute = generals_become_rulers
+				has_reform = military_government
+			}
+		}
+	}
+	text = {
+		localisation_key = string_ruler_limited_power_desc
+		trigger = {
+			has_elected_ruler = yes
+		}
+	}
+	text = {
+		localisation_key = string_ruler_significant_power_desc
+		trigger = {
+			government = monarchy
+			has_parliament_or_reform = yes
+		}
+	}
+	text = {
+		localisation_key = string_ruler_undefined_power_desc
+	}
+}
+
+defined_text = {
+	name = GetRulerPartyFlavorText
+	random = no
+	
+	text = {
+		localisation_key = string_ruler_political_party_desc
+		trigger = {
+			OR = {
+				has_ruler_flag = ruler_from_conservative_party
+				has_ruler_flag = ruler_from_liberal_party
+				has_ruler_flag = ruler_from_nationalist_party
+				has_ruler_flag = ruler_from_social_democratic_party
+				has_ruler_flag = ruler_from_communist_party
+				has_ruler_flag = ruler_from_national_socialist_party
+			}
+		}
+	}
+	text = {
+		localisation_key = ""
+	}
+}
+
+#############
+# Characters:
+#############
+
+# If country is a Monarchy, display the Monarch's full name (even if Prime Minister is ruler)
+defined_text = {
+	name = GetRealMonarchName
+	random = no
+	
+	text = {
+		localisation_key = ""
+		trigger = {
+			NOT = { government = monarchy }
+		}
+	}
+	text = {
+		localisation_key = string_hidden_monarch_name
+		trigger = {
+			has_government_attribute = has_prime_minister
+			has_country_flag = ruler_ceremonial_@THIS
+		}
+	}
+	text = {
+		localisation_key = string_no_hidden_monarch_name
+		trigger = {
+			has_government_attribute = has_prime_minister
+		}
+	}
+	text = {
+		localisation_key = string_ruler_full_name
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# If country has Dynasty mechanic, print first + lastname
+defined_text = {
+	name = GetRulerFullName
+	random = no
+	
+	text = {
+		localisation_key = string_ruler_full_name
+		trigger = {
+			has_reform = monarchy_mechanic
+			NOT = { has_regency = yes }
+		}
+	}
+	text = {
+		localisation_key = string_ruler_first_name
+	}
+}
+
+defined_text = {
+	name = GetRulerPoliticalParty
+	random = no
+	
+	text = {
+		localisation_key = "[This.GetConservativePartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_conservative_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetLiberalPartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_liberal_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalistPartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_nationalist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetSocialDemocraticPartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_social_democratic_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetCommunistPartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_communist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalSocialistPartyName]"
+		trigger = {
+			has_ruler_flag = ruler_from_national_socialist_party
+		}
+	}
+	text = {
+		localisation_key = ""
+	}
+}
+
+# Gets fitting description for "Popular Monarchy" modifier
+defined_text = {
+	name = GetPopularMonarchyDesc
+	random = no
+	
+	text = {
+		localisation_key = string_popular_monarchy_prime_minister_desc
+		trigger = {
+			has_government_attribute = has_prime_minister
+		}
+	}
+	text = {
+		localisation_key = string_popular_monarchy_desc
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+###########
+# Politics:
+###########
+
+# Prints Conservative party's name
+defined_text = {
+	name = GetConservativePartyName
+	random = no
+
+	#text = {
+	#	localisation_key = republican_party
+	#	trigger = {
+	#		is_year = 3952
+	#		primary_culture = american
+	#	}
+	#}
+	text = {
+		localisation_key = conservative_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Conservative party's adjective
+defined_text = {
+	name = GetConservativePartyAdj
+	random = no
+
+	#text = {
+	#	localisation_key = string_republican_party_adj
+	#	trigger = {
+	#		is_year = 3952
+	#		primary_culture = american
+	#	}
+	#}
+	text = {
+		localisation_key = string_conservative_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Liberal party's name
+defined_text = {
+	name = GetLiberalPartyName
+	random = no
+
+	#text = {
+	#	localisation_key = democratic_party
+	#	trigger = {
+	#		is_year = 3926
+	#		primary_culture = american
+	#	}
+	#}
+	text = {
+		localisation_key = liberal_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Liberal party's adjective
+defined_text = {
+	name = GetLiberalPartyAdj
+	random = no
+
+	#text = {
+	#	localisation_key = string_democratic_party_adj
+	#	trigger = {
+	#		is_year = 3926
+	#		primary_culture = american
+	#	}
+	#}
+	text = {
+		localisation_key = string_liberal_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Nationalist party's name
+defined_text = {
+	name = GetNationalistPartyName
+	random = no
+
+	text = {
+		localisation_key = royalist_party
+		trigger = {
+			government = monarchy
+			NOT = { has_government_attribute = has_prime_minister }
+		}
+	}
+	text = {
+		localisation_key = nationalist_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Nationalist party's adjective
+defined_text = {
+	name = GetNationalistPartyAdj
+	random = no
+
+	text = {
+		localisation_key = string_royalist_party_adj
+		trigger = {
+			government = monarchy
+			NOT = { has_government_attribute = has_prime_minister }
+		}
+	}
+	text = {
+		localisation_key = string_nationalist_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Social Democratic party's name
+defined_text = {
+	name = GetSocialDemocraticPartyName
+	random = no
+
+	text = {
+		localisation_key = socialist_party
+		trigger = {
+			NOT = { has_global_flag = etf_communism_enabled }
+		}
+	}
+	text = {
+		localisation_key = social_democratic_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Social Democratic party's adjective
+defined_text = {
+	name = GetSocialDemocraticPartyAdj
+	random = no
+
+	text = {
+		localisation_key = string_socialist_party_adj
+		trigger = {
+			NOT = { has_global_flag = etf_communism_enabled }
+		}
+	}
+	text = {
+		localisation_key = string_social_democratic_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Communist party's name
+defined_text = {
+	name = GetCommunistPartyName
+	random = no
+
+	text = {
+		localisation_key = baath_party
+		trigger = {
+			is_arab_culture_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = communist_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Communist party's adjective
+defined_text = {
+	name = GetCommunistPartyAdj
+	random = no
+
+	text = {
+		localisation_key = string_baath_party_adj
+		trigger = {
+			is_arab_culture_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = string_communist_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Fascist party's name
+defined_text = {
+	name = GetNationalSocialistPartyName
+	random = no
+
+	text = {
+		localisation_key = nazi_party
+		trigger = {
+			OR = {
+				tag = GER
+				tag = DEU
+				tag = WGE
+			}
+		}
+	}
+	text = {
+		localisation_key = national_socialist_party
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints Fascist party's adjective
+defined_text = {
+	name = GetNationalSocialistPartyAdj
+	random = no
+
+	text = {
+		localisation_key = string_nazi_party_adj
+		trigger = {
+			OR = {
+				tag = GER
+				tag = DEU
+				tag = WGE
+			}
+		}
+	}
+	text = {
+		localisation_key = string_fascist_party_adj
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Prints name of current ruling political party
+defined_text = {
+	name = GetRulingParty
+	random = no
+
+	text = {
+		localisation_key = "[This.GetConservativePartyName]"
+		trigger = {
+			faction_in_power = conservative_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetLiberalPartyName]"
+		trigger = {
+			faction_in_power = liberal_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalistPartyName]"
+		trigger = {
+			faction_in_power = nationalist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetSocialDemocraticPartyName]"
+		trigger = {
+			faction_in_power = social_democratic_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetCommunistPartyName]"
+		trigger = {
+			faction_in_power = communist_party
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalSocialistPartyName]"
+		trigger = {
+			faction_in_power = national_socialist_party
+		}
+	}
+	text = {
+		localisation_key = "---"
+	}
+}
+
+defined_text = {
+	name = GetEventTargetPartyName
+	random = no
+
+	text = {
+		localisation_key = "[This.GetConservativePartyName]"
+		trigger = {
+			has_country_flag = conservative_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetLiberalPartyName]"
+		trigger = {
+			has_country_flag = liberal_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalistPartyName]"
+		trigger = {
+			has_country_flag = nationalist_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetSocialDemocraticPartyName]"
+		trigger = {
+			has_country_flag = social_democratic_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetCommunistPartyName]"
+		trigger = {
+			has_country_flag = communist_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalSocialistPartyName]"
+		trigger = {
+			has_country_flag = national_socialist_party:event_target
+		}
+	}
+}
+
+defined_text = {
+	name = GetEventTargetPartyAdj
+	random = no
+
+	text = {
+		localisation_key = "[This.GetConservativePartyAdj]"
+		trigger = {
+			has_country_flag = conservative_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetLiberalPartyAdj]"
+		trigger = {
+			has_country_flag = liberal_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalistPartyAdj]"
+		trigger = {
+			has_country_flag = nationalist_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetSocialDemocraticPartyAdj]"
+		trigger = {
+			has_country_flag = social_democratic_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetCommunistPartyAdj]"
+		trigger = {
+			has_country_flag = communist_party:event_target
+		}
+	}
+	text = {
+		localisation_key = "[This.GetNationalSocialistPartyAdj]"
+		trigger = {
+			has_country_flag = national_socialist_party:event_target
+		}
+	}
+}
+
+#Prints the parliament name with or without "the" before it, e.g. "they want a seat in Parliament/the National Assembly"
+defined_text = {
+	name = GetParliamentWithGrammar
+	random = no
+
+	text = {
+		localisation_key = this_parliament
+		trigger = {
+			has_parliament = yes
+			parliament_with_definite_name_trigger = no
+		}
+	}
+	text = {
+		localisation_key = this_the_parliament
+		trigger = {
+			has_parliament = yes
+			parliament_with_definite_name_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = obj_parliament
+		trigger = {
+			has_parliament = no
+		}
+	}
+}
+
+defined_text = {
+	name = GetParliamentWithGrammarCap
+	random = no
+
+	text = {
+		localisation_key = this_parliament
+		trigger = {
+			has_parliament = yes
+			parliament_with_definite_name_trigger = no
+		}
+	}
+	text = {
+		localisation_key = this_the_parliament_cap
+		trigger = {
+			has_parliament = yes
+			parliament_with_definite_name_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = obj_parliament
+		trigger = {
+			has_parliament = no
+		}
+	}
+}
+
+defined_text = {
+	name = GetParliamentOrFallbackName
+	random = no
+	text = {
+		localisation_key = this_parliament
+		trigger = {
+			has_parliament = yes
+		}
+	}
+	text = {
+		localisation_key = obj_parliament
+		trigger = {
+			has_parliament = no
+		}
+	}
+}
+
+# Prints parliament name, with some added alternatives
+defined_text = {
+	name = GetParliamentNameOrNot
+	random = no
+
+	text = {
+		localisation_key = this_parliament
+		trigger = {
+			has_parliament = yes
+		}
+	}
+	text = {
+		localisation_key = obj_parliament
+		trigger = {
+			has_parliament_or_reform = yes
+		}
+	}
+	text = {
+		localisation_key = "---"
+	}
+}
+
+# Prints current voting suffrage
+defined_text = {
+	name = GetGovernmentSuffrage
+	random = no
+
+	text = {
+		localisation_key = string_no_suffrage
+		trigger = {
+			OR = {
+				has_government_elections = no
+				has_reform = colonial_oppression_system
+			}
+		}
+	}
+	text = {
+		localisation_key = string_universal_suffrage
+		trigger = {
+			OR = {
+				has_government_attribute = has_direct_democracy_election
+				has_government_attribute = has_multi_party_election
+			}
+		}
+	}
+	text = {
+		localisation_key = string_limited_suffrage
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetIndustryScoreRanking
+	random = no
+
+	text = {
+		localisation_key = string_industry_rank_1
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 1
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_2
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 2
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_3
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 3
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_4
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 4
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_5
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 5
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_6
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 6
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_7
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 7
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_industry_rank_8
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_country = {
+						check_variable = { which = industry_score which = PREV }
+					}
+					amount = 8
+				}
+			}
+		}
+	}
+}
+
+# Prints organization nation belongs to (HRE, GCF, EU, etc)
+defined_text = {
+	name = GetOrganizationName
+	random = no
+	
+	text = {
+		localisation_key = string_european_union
+		trigger = {
+			has_country_modifier = european_union
+		}
+	}
+	text = {
+		localisation_key = string_german_confederation
+		trigger = {
+			is_GCF_member = yes
+		}
+	}
+	text = {
+		localisation_key = string_holy_roman_empire
+		trigger = {
+			is_part_of_hre = yes
+		}
+	}
+	text = {
+		localisation_key = "---"
+	}
+}
+
+# Prints Faction-Alliance name
+defined_text = {
+	name = GetFactionAllianceName
+	random = no
+
+	text = {
+		localisation_key = string_alliance_central_powers
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = GER }
+					government = monarchy
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = GER }
+						government = monarchy
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_entente
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = FRA }
+					is_democracy = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = FRA }
+						is_democracy = yes
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_allies
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = GBR }
+					is_democracy = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = GBR }
+						is_democracy = yes
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_nato
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = USA }
+					is_democracy = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+						capital_scope = {
+							continent = europe
+						}
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = USA }
+						is_democracy = yes
+						any_subject_country = {
+							is_subject_of_type = close_alliance
+							capital_scope = {
+								continent = europe
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_rio_pact
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = USA }
+					is_democracy = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+						capital_scope = {
+							continent = south_america
+						}
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = USA }
+						is_democracy = yes
+						any_subject_country = {
+							is_subject_of_type = close_alliance
+							capital_scope = {
+								continent = south_america
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_axis
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = GER }
+					is_fascist = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = GER }
+						is_fascist = yes
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_warsaw_pact
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = RUS }
+					is_communist = yes
+					owns_or_subject_of = 257 # Warsaw
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = RUS }
+						is_communist = yes
+						owns_or_subject_of = 257 # Warsaw
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_comintern
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = RUS }
+					is_communist = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = RUS }
+						is_communist = yes
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_csto
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = RUS }
+					government = republic
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = RUS }
+						government = republic
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_chinese_united_front
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = CHN }
+					government = republic
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+						has_reform = chinese_warlord_clique
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = CHN }
+						government = republic
+						any_subject_country = {
+							is_subject_of_type = close_alliance
+							has_reform = chinese_warlord_clique
+						}
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_shanghai_pact
+		trigger = {
+			OR = {
+				AND = { # Alliance-leader
+					country_is = { tag = CHN }
+					is_communist = yes
+					any_subject_country = {
+						is_subject_of_type = close_alliance
+					}
+				}
+				AND = { # Alliance-subject
+					is_subject_of_type = close_alliance
+					overlord = {
+						country_is = { tag = CHN }
+						is_communist = yes
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_generic_leader
+		trigger = {
+			any_subject_country = {
+				is_subject_of_type = close_alliance
+			}
+		}
+	}
+	text = {
+		localisation_key = string_alliance_generic_subject
+		trigger = {
+			is_subject_of_type = close_alliance
+		}
+	}
+	text = {
+		localisation_key = "---"
+	}
+
+}
+
+# Prints if nation is Faction-Alliance leader
+defined_text = {
+	name = GetIfFactionAllianceLeader
+	random = no
+
+	text = {
+		localisation_key = string_is_alliance_leader
+		trigger = {
+			any_subject_country = {
+				is_subject_of_type = close_alliance
+			}
+		}
+	}
+	text = {
+		localisation_key = ""
+	}
+}
+
+# Prints the Government Rank of a Nation
+defined_text = {
+	name = GetGovernmentRank
+	random = no
+
+	text = {
+		localisation_key = GRAND_DUCHY
+		trigger = {
+			has_reform = grand_duchy_title_reform
+			NOT = { government_rank = 2 }
+		}
+	}
+	text = {
+		localisation_key = RANK_1
+		trigger = {
+			government_rank = 1
+			NOT = { government_rank = 2 }
+		}
+	}
+	text = {
+		localisation_key = RANK_2
+		trigger = {
+			government_rank = 2
+			NOT = { government_rank = 3 }
+		}
+	}
+	text = {
+		localisation_key = RANK_3
+		trigger = {
+			government_rank = 3
+		}
+	}
+}
+
+# Definite Article before name?
+defined_text = {
+    name = GetNameShort
+	random = no
+
+	text = {
+        localisation_key = string_definite_article_before_country_name
+        trigger = {
+			tag_with_definite_name_trigger = yes
+        }
+    }
+    text = {
+        localisation_key = string_no_definite_article
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+# Definite Article before name? ALLCAPS
+defined_text = {
+    name = GetNameShortCap
+	random = no
+
+	text = {
+        localisation_key = string_definite_article_before_country_name_CAP
+        trigger = {
+			tag_with_definite_name_trigger = yes
+        }
+    }
+    text = {
+        localisation_key = string_no_definite_article
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+# Prints the full name of country. Some are special, others use a fallback with government name
+defined_text = {
+    name = GetNameLongNonDefinite
+	random = no
+
+	text = {
+		localisation_key = string_united_kingdom_ireland_fullname
+		trigger = {
+			tag = UKI
+			government = monarchy
+			NOT = { exists = IRE }
+			NOT = { exists = EIR }
+		}
+	}
+	text = {
+		localisation_key = string_united_kingdom_n_ireland_fullname
+		trigger = {
+			tag = UKI
+			government = monarchy
+			any_owned_province = {
+				area = ulster_area
+			}
+			OR = {
+				exists = IRE
+				exists = EIR
+			}
+		}
+	}
+	text = {
+		localisation_key = string_united_kingdom_no_ireland_fullname
+		trigger = {
+			tag = UKI
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = string_united_states_fullname
+		trigger = {
+			country_is = { tag = USA }
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = string_confederate_states_fullname
+		trigger = {
+			country_is = { tag = CSA }
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = string_hellas_fullname
+		trigger = {
+			tag = HEL
+			government = republic
+		}
+	}
+	text = {
+		localisation_key = string_papacy_fullname
+		trigger = {
+			tag = PAP
+			has_reform = papacy_reform
+		}
+	}
+	text = {
+		localisation_key = string_soviet_fullname
+		trigger = {
+			tag = SOV
+			has_reform = communist_government
+		}
+	}
+	text = {
+		localisation_key = string_brunei_fullname
+		trigger = {
+			tag = BEI
+			government = monarchy
+			religion_group = muslim
+		}
+	}
+	text = {
+		localisation_key = string_taiwan_fullname
+		trigger = {
+			OR = {
+				tag = ROC
+				tag = TWA
+			}
+			government = republic
+		}
+	}
+
+	text = { # These nations' fullnames lack prefix or suffix.
+		localisation_key = string_normal_name
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						tag = GE0
+						tag = GE1
+						tag = HUN
+						tag = ICE
+						tag = KHA
+						tag = MON
+						tag = RMN
+						tag = UKR
+						tag = US2
+					}
+					government = republic
+					NOT = { has_reform = communist_government }
+					NOT = { has_reform = fascist_government }
+				}
+				AND = {
+					OR = {
+						tag = ANB
+						tag = BLZ
+						tag = CAN
+						tag = GRN
+						tag = JMC
+						tag = NZL
+						tag = SLM
+						tag = SLU
+						tag = SVG
+						tag = TVL
+					}
+					has_reform = dominion_reform
+					NOT = { is_subject_of_type = dominion }
+				}
+				is_colonial_nation = yes
+				tag = BFA
+				tag = BHE
+				tag = COK
+				tag = EUR
+				tag = MLA
+				tag = NIU
+				tag = UAE
+			}
+		}
+	}
+	text = {
+		localisation_key = string_adjective_government
+		trigger = {
+			OR = {
+				# *Adjective* Republic:
+				AND = {
+					OR = {
+						tag = CAF
+						tag = CZE
+						tag = DOM
+						tag = FR2
+						tag = GAB
+						tag = ITA
+						tag = KYR
+						tag = LAP
+						tag = LEB
+						tag = MEX
+						tag = POR
+						tag = RUS
+						tag = SPR
+						tag = SVK
+						tag = SWI
+						tag = SYR
+						tag = TGO
+					}
+					government = republic
+				}
+				# *Adjective* Empire
+				AND = {
+					government = monarchy
+					government_rank = 3
+					NOT = { tag = IR2 } # Imperial State of Iran
+				}
+				# Irish Free State:
+				AND = {
+					tag = IRE
+					has_reform = dominion_reform
+				}
+				# *Adjective* Tribe/Shogunate/Clique
+				is_primitive = yes
+				has_reform = shogunate
+				has_reform = chinese_warlord_clique
+				tag = SPC # Carlist Kingdom
+				tag = NGC # North German Confederation
+				tag = SGC # South German Confederation
+			}
+		}
+	}
+	text = {
+		localisation_key = string_gov_and_country
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Adds definite article to the text printed above
+defined_text = {
+	name = GetNameLong
+	random = no
+
+	text = {
+        localisation_key = string_get_name_long
+        trigger = {
+			OR = {
+				AND = {
+					OR = {
+						tag = GE0
+						tag = GE1
+						tag = HUN
+						tag = ICE
+						tag = KHA
+						tag = MON
+						tag = RMN
+						tag = UKR
+						tag = US2
+					}
+					government = republic
+					NOT = { has_reform = communist_government }
+					NOT = { has_reform = fascist_government }
+				}
+				AND = {
+					OR = {
+						tag = ANB
+						tag = BLZ
+						tag = CAN
+						tag = GRN
+						tag = JMC
+						tag = NZL
+						tag = SLM
+						tag = SLU
+						tag = SVG
+						tag = TVL
+					}
+					has_reform = dominion_reform
+					NOT = { is_subject_of_type = dominion }
+				}
+				is_colonial_nation = yes
+				tag = BFA
+				tag = BHE
+				tag = COK
+				tag = EUR
+				tag = MLA
+				tag = NIU
+				tag = UAE
+			}
+		}
+    }
+    text = {
+        localisation_key = string_get_name_long_definite
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+defined_text = {
+	name = GetNameLongCap
+	random = no
+
+	text = {
+        localisation_key = string_get_name_long
+        trigger = {
+			OR = {
+				AND = {
+					OR = {
+						tag = GE0
+						tag = GE1
+						tag = HUN
+						tag = ICE
+						tag = KHA
+						tag = MON
+						tag = RMN
+						tag = UKR
+						tag = US2
+					}
+					government = republic
+					NOT = { has_reform = communist_government }
+					NOT = { has_reform = fascist_government }
+				}
+				AND = {
+					OR = {
+						tag = ANB
+						tag = BLZ
+						tag = CAN
+						tag = GRN
+						tag = JMC
+						tag = NZL
+						tag = SLM
+						tag = SLU
+						tag = SVG
+						tag = TVL
+					}
+					has_reform = dominion_reform
+					NOT = { is_subject_of_type = dominion }
+				}
+				is_colonial_nation = yes
+				tag = BFA
+				tag = BHE
+				tag = COK
+				tag = EUR
+				tag = MLA
+				tag = NIU
+				tag = UAE
+			}
+		}
+    }
+    text = {
+        localisation_key = string_get_name_long_definite_CAP
+        trigger = {
+			always = yes
+        }
+    }
+}
+
+# Reorganize region
+defined_text = {
+    name = get_reorganise_lebanon_title
+	random = no
+	
+	text = {
+        localisation_key = reorganise_lebanon_title_TUR
+        trigger = {
+			country_is = { tag = TUR }
+        }
+    }
+    text = {
+        localisation_key = reorganise_lebanon_title_reg
+    }
+}
+
+defined_text = {
+    name = get_reorganise_syria_title
+	random = no
+	
+	text = {
+        localisation_key = reorganise_syria_title_TUR
+        trigger = {
+			country_is = { tag = TUR }
+        }
+    }
+    text = {
+        localisation_key = reorganise_syria_title_reg
+    }
+}
+
+defined_text = {
+    name = get_reorganise_palestine_title
+	random = no
+	
+	text = {
+        localisation_key = reorganise_palestine_title_TUR
+        trigger = {
+			country_is = { tag = TUR }
+        }
+    }
+	text = {
+        localisation_key = reorganise_palestine_title_GBR
+        trigger = {
+			country_is = { tag = GBR }
+        }
+    }
+    text = {
+        localisation_key = reorganise_palestine_title_reg
+    }
+}
+
+defined_text = {
+    name = get_reorganise_jordan_title
+	random = no
+	
+	text = {
+        localisation_key = reorganise_jordan_title_TUR
+        trigger = {
+			country_is = { tag = TUR }
+        }
+    }
+    text = {
+        localisation_key = reorganise_jordan_title_reg
+    }
+}
+
+defined_text = {
+    name = get_reorganise_iraq_title
+	random = no
+	
+	text = {
+        localisation_key = reorganise_iraq_title_TUR
+        trigger = {
+			country_is = { tag = TUR }
+        }
+    }
+    text = {
+        localisation_key = reorganise_iraq_title_reg
+    }
+}
+
+# Custom GUI:
+defined_text = {
+    name = GetMemberofSomethingLoc
+	random = no
+	
+    text = {
+        localisation_key = string_member_of_eur
+        trigger = {
+			has_country_modifier = european_union
+		}
+    }
+    text = {
+        localisation_key = string_member_of_gcf
+        trigger = {
+			is_GCF_member = yes
+		}
+    }
+    text = {
+        localisation_key = string_member_of_hre
+        trigger = {
+			is_part_of_hre = yes
+		}
+    }
+}

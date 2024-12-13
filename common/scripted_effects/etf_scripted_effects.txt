@@ -1,0 +1,4061 @@
+# Annex singular country ($target$)
+annex_tag = {
+	$target$ = {
+		custom_tooltip = annexed_by_tt # ($target$): "Annexed by @[Prev.GetTag] §Y[Prev.GetName]§!."
+	}
+	hidden_effect = {
+		save_event_target_as = annexer_scope
+		$target$ = {
+			save_event_target_as = victim_scope
+		}
+		[[transfer_troops]
+			if = {
+				limit = {
+					NOT = { always = $transfer_troops$ } # = no
+				}
+				event_target:victim_scope = {
+					disband_all_units = yes
+				}
+				## Kills all army units, including ships out to sea.
+				#every_province = {
+				#	kill_units = { who = event_target:victim_scope }
+				#	if = {
+				#		limit = {
+				#			event_target:victim_scope = { navy_size = 1 }
+				#		}
+				#		sea_zone = {
+				#			region = {
+				#				kill_units = { who = event_target:victim_scope }
+				#			}
+				#		}
+				#	}
+				#}
+			}
+		]
+		event_target:annexer_scope = {
+			inherit = event_target:victim_scope
+		}
+		[[transfer_cores]
+			if = {
+				limit = {
+					always = $transfer_cores$ # = yes
+				}
+				event_target:victim_scope = {
+					every_core_province = {
+						add_core = event_target:annexer_scope
+					}
+				}
+			}
+		]
+		[[delete_cores]
+			if = {
+				limit = {
+					always = $delete_cores$ # = yes
+				}
+				event_target:victim_scope = {
+					every_core_province = {
+						remove_core = event_target:victim_scope
+					}
+				}
+			}
+		]
+	}
+}
+
+# Annex multiple countries INTO $target$
+annex_tag_into = {
+	$target$ = {
+		custom_tooltip = will_annex_tt # "Annexed by @[This.GetTag] §Y[This.GetName]§!."
+	}
+	hidden_effect = {
+		$target$ = {
+			annex_tag = {
+				target = PREV
+				[[transfer_troops]
+					transfer_troops = $transfer_troops$
+				]
+				[[transfer_cores]
+					transfer_cores = $transfer_cores$
+				]
+				[[delete_cores]
+					delete_cores = $delete_cores$
+				]
+			}
+		}
+	}
+}
+
+# Clear rebels and rebel occupation nationwide
+clear_rebels_country = {
+	custom_tooltip = clear_rebels_country_tt
+	hidden_effect = {
+		every_owned_province = {
+			clear_rebels = yes
+			if = {
+				limit = {
+					controlled_by = REB
+				}
+				change_controller = ROOT
+			}
+		}
+	}
+}
+
+# Dismantle Country
+national_fragmentation_effect = {
+	custom_tooltip = national_fragmentation_effect_tt # §YNational Fragmentation§! §Rwill occur: Every releasable nation will be released, every subject will become free, and conquered provinces are returned to their original owners.§!
+
+	hidden_effect = {
+		save_event_target_as = scope_ROOT
+		
+		add_country_modifier = {
+			name = recently_dismantled_country
+			duration = 1825 # Five Years
+		}
+		
+		# Subjects are released:
+		every_subject_country = {
+			if = {
+				limit = {
+					is_colonial_subject_type = yes
+				}
+				if = {
+					limit = {
+						NOT = { primary_culture = new_variable:dominant_culture }
+					}
+					change_primary_culture = new_variable:dominant_culture
+				}
+				if = {
+					limit = {
+						NOT = { religion = new_variable:dominant_religion }
+						NOT = { religion = secularism }
+					}
+					if = {
+						limit = { dominant_religion = irreligious }
+						change_religion = secularism
+					}
+					else = {
+						change_religion = new_variable:dominant_religion
+					}
+				}
+			}
+			grant_independence = yes
+		}
+		
+		# consider 'release_all_possible_countries = yes'?
+		
+		every_owned_province = {
+			limit = {
+				owned_by = PREV
+				NOT = {
+					is_capital_of = owner
+				}
+			}
+			# Prioritize return cores:
+			if = {
+				limit = {
+					any_core_country = {
+						exists = yes
+						NOT = { tag = event_target:scope_ROOT }
+						NOT = { war_with = event_target:scope_ROOT }
+						NOT = { has_country_modifier = recently_dismantled_country } # Losers don't win.
+					}
+				}
+				random_core_country = {
+					limit = {
+						exists = yes
+						NOT = { tag = event_target:scope_ROOT }
+						NOT = { war_with = event_target:scope_ROOT }
+						NOT = { has_country_modifier = recently_dismantled_country } # Losers don't win.
+					}
+					PREV = {
+						cede_province = PREV
+					}
+					country_event = { id = etf_dismantle.101 } # "Our Cores Returned"
+				}
+			}
+			# Then release releasables:
+			else_if = {
+				limit = {
+					any_core_country = {
+						exists = no
+						NOT = {
+							has_government_rank = { greater_than = event_target:scope_ROOT }
+						}
+						NOT = {
+							any_core_province = {
+								is_capital_of = event_target:scope_ROOT
+							}
+						}
+					}
+				}
+				random_core_country = {
+					limit = {
+						exists = no
+						NOT = {
+							has_government_rank = { greater_than = event_target:scope_ROOT }
+						}
+						NOT = {
+							any_core_province = {
+								is_capital_of = event_target:scope_ROOT
+							}
+						}
+					}
+					event_target:scope_ROOT = {
+						release = PREV
+					}
+					if = {
+						limit = {
+							NOT = { religion = new_variable:dominant_religion }
+							NOT = { religion = secularism }
+						}
+						if = {
+							limit = { dominant_religion = irreligious }
+							change_religion = secularism
+						}
+						else = {
+							change_religion = new_variable:dominant_religion
+						}
+					}
+				}
+			}
+		}
+		
+		# Become rump-state:
+		capital_scope = {
+			random_core_country = {
+				limit = {
+					exists = no
+					culture_group = event_target:scope_ROOT
+					NOT = {
+						has_government_rank = { greater_than = event_target:scope_ROOT }
+					}
+					NOT = {
+						any_province = {
+							owned_by = event_target:scope_ROOT
+							is_in_capital_area = yes
+							NOT = {
+								is_core = PREV
+							}
+						}
+					}
+				}
+				event_target:scope_ROOT = {
+					every_core_province = {
+						limit = {
+							NOT = { owned_by = PREV }
+						}
+						remove_core = PREV
+					}
+					change_tag = PREV # Become PREV
+				}
+			}
+		}
+	}
+}
+
+add_country_modifier_upgrade_effect = {
+	# Every time effect is used, modifier goes up a tier (1-9).
+	if = {
+		limit = {
+			[[1] NOT = { has_country_modifier = $1$ } ]
+			[[2] NOT = { has_country_modifier = $2$ } ]
+			[[3] NOT = { has_country_modifier = $3$ } ]
+			[[4] NOT = { has_country_modifier = $4$ } ]
+			[[5] NOT = { has_country_modifier = $5$ } ]
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[1]
+			add_country_modifier = {
+				name = $1$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[2] NOT = { has_country_modifier = $2$ } ]
+			[[3] NOT = { has_country_modifier = $3$ } ]
+			[[4] NOT = { has_country_modifier = $4$ } ]
+			[[5] NOT = { has_country_modifier = $5$ } ]
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[2]
+			hidden_effect = {
+				remove_country_modifier = $1$
+			}
+			add_country_modifier = {
+				name = $2$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[3] NOT = { has_country_modifier = $3$ } ]
+			[[4] NOT = { has_country_modifier = $4$ } ]
+			[[5] NOT = { has_country_modifier = $5$ } ]
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[3]
+			hidden_effect = {
+				remove_country_modifier = $2$
+			}
+			add_country_modifier = {
+				name = $3$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[4] NOT = { has_country_modifier = $4$ } ]
+			[[5] NOT = { has_country_modifier = $5$ } ]
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[4]
+			hidden_effect = {
+				remove_country_modifier = $3$
+			}
+			add_country_modifier = {
+				name = $4$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[5] NOT = { has_country_modifier = $5$ } ]
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[5]
+			hidden_effect = {
+				remove_country_modifier = $4$
+			}
+			add_country_modifier = {
+				name = $5$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[6] NOT = { has_country_modifier = $6$ } ]
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[6]
+			hidden_effect = {
+				remove_country_modifier = $5$
+			}
+			add_country_modifier = {
+				name = $6$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[7] NOT = { has_country_modifier = $7$ } ]
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[7]
+			hidden_effect = {
+				remove_country_modifier = $6$
+			}
+			add_country_modifier = {
+				name = $7$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[8] NOT = { has_country_modifier = $8$ } ]
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[8]
+			hidden_effect = {
+				remove_country_modifier = $7$
+			}
+			add_country_modifier = {
+				name = $8$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[9] NOT = { has_country_modifier = $9$ } ]
+		}
+		[[9]
+			hidden_effect = {
+				remove_country_modifier = $8$
+			}
+			add_country_modifier = {
+				name = $9$
+				duration = $duration$
+			}
+		]
+	}
+}
+
+add_province_modifier_upgrade_effect = {
+	# Every time effect is used, modifier goes up a tier (1-9).
+	if = {
+		limit = {
+			[[1] NOT = { has_province_modifier = $1$ } ]
+			[[2] NOT = { has_province_modifier = $2$ } ]
+			[[3] NOT = { has_province_modifier = $3$ } ]
+			[[4] NOT = { has_province_modifier = $4$ } ]
+			[[5] NOT = { has_province_modifier = $5$ } ]
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[1]
+			add_province_modifier = {
+				name = $1$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[2] NOT = { has_province_modifier = $2$ } ]
+			[[3] NOT = { has_province_modifier = $3$ } ]
+			[[4] NOT = { has_province_modifier = $4$ } ]
+			[[5] NOT = { has_province_modifier = $5$ } ]
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[2]
+			hidden_effect = {
+				remove_province_modifier = $1$
+			}
+			add_province_modifier = {
+				name = $2$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[3] NOT = { has_province_modifier = $3$ } ]
+			[[4] NOT = { has_province_modifier = $4$ } ]
+			[[5] NOT = { has_province_modifier = $5$ } ]
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[3]
+			hidden_effect = {
+				remove_province_modifier = $2$
+			}
+			add_province_modifier = {
+				name = $3$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[4] NOT = { has_province_modifier = $4$ } ]
+			[[5] NOT = { has_province_modifier = $5$ } ]
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[4]
+			hidden_effect = {
+				remove_province_modifier = $3$
+			}
+			add_province_modifier = {
+				name = $4$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[5] NOT = { has_province_modifier = $5$ } ]
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[5]
+			hidden_effect = {
+				remove_province_modifier = $4$
+			}
+			add_province_modifier = {
+				name = $5$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[6] NOT = { has_province_modifier = $6$ } ]
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[6]
+			hidden_effect = {
+				remove_province_modifier = $5$
+			}
+			add_province_modifier = {
+				name = $6$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[7] NOT = { has_province_modifier = $7$ } ]
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[7]
+			hidden_effect = {
+				remove_province_modifier = $6$
+			}
+			add_province_modifier = {
+				name = $7$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[8] NOT = { has_province_modifier = $8$ } ]
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[8]
+			hidden_effect = {
+				remove_province_modifier = $7$
+			}
+			add_province_modifier = {
+				name = $8$
+				duration = $duration$
+			}
+		]
+	}
+	else_if = {
+		limit = {
+			[[9] NOT = { has_province_modifier = $9$ } ]
+		}
+		[[9]
+			hidden_effect = {
+				remove_province_modifier = $8$
+			}
+			add_province_modifier = {
+				name = $9$
+				duration = $duration$
+			}
+		]
+	}
+}
+
+# province scope
+remove_all_core_effect = {
+	custom_tooltip = remove_all_core_effect_tt
+	hidden_effect = {
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {
+					always = yes
+				}
+				PREV = {
+					is_core = PREV
+				}
+			}
+			PREV = {
+				remove_core = PREV
+			}
+		}
+	}
+}
+
+remove_core_alias = {
+	tooltip = {
+		$tag$ = {
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+	}
+	hidden_effect = {
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {
+					always = yes
+				}
+				country_is = { tag = $tag$ }
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+	}
+}
+
+# province scope
+add_all_institution_embracement = {
+	custom_tooltip = add_all_institution_embracement_tt
+	hidden_effect = {
+		if = { limit = { is_institution_enabled = writing 				  } add_institution_embracement = { which = writing 					value = 100 } }
+		if = { limit = { is_institution_enabled = legalism 				  } add_institution_embracement = { which = legalism 					value = 100 } }
+		if = { limit = { is_institution_enabled = ancient_imperialism 	  } add_institution_embracement = { which = ancient_imperialism 		value = 100 } }
+		if = { limit = { is_institution_enabled = caste_system 			  } add_institution_embracement = { which = caste_system 				value = 100 } }
+		if = { limit = { is_institution_enabled = organized_religion 	  } add_institution_embracement = { which = organized_religion 			value = 100 } }
+		if = { limit = { is_institution_enabled = serfdom 				  } add_institution_embracement = { which = serfdom 					value = 100 } }
+		if = { limit = { is_institution_enabled = manorialism 			  } add_institution_embracement = { which = manorialism 				value = 100 } }
+		if = { limit = { is_institution_enabled = early_feudalism 		  } add_institution_embracement = { which = early_feudalism 			value = 100 } }
+		if = { limit = { is_institution_enabled = crop_rotation 		  } add_institution_embracement = { which = crop_rotation 				value = 100 } }
+		if = { limit = { is_institution_enabled = civil_service 		  } add_institution_embracement = { which = civil_service 				value = 100 } }
+		if = { limit = { is_institution_enabled = manuscripts 			  } add_institution_embracement = { which = manuscripts 				value = 100 } }
+		if = { limit = { is_institution_enabled = scholasticism 		  } add_institution_embracement = { which = scholasticism 				value = 100 } }
+		if = { limit = { is_institution_enabled = guilds 				  } add_institution_embracement = { which = guilds 						value = 100 } }
+		if = { limit = { is_institution_enabled = medicine 				  } add_institution_embracement = { which = medicine 					value = 100 } }
+		if = { limit = { is_institution_enabled = feudalism 			  } add_institution_embracement = { which = feudalism 					value = 100 } }
+		if = { limit = { is_institution_enabled = renaissance 			  } add_institution_embracement = { which = renaissance 				value = 100 } }
+		if = { limit = { is_institution_enabled = new_world_i 			  } add_institution_embracement = { which = new_world_i 				value = 100 } }
+		if = { limit = { is_institution_enabled = printing_press 		  } add_institution_embracement = { which = printing_press 				value = 100 } }
+		if = { limit = { is_institution_enabled = global_trade 			  } add_institution_embracement = { which = global_trade 				value = 100 } }
+		if = { limit = { is_institution_enabled = manufactories 		  } add_institution_embracement = { which = manufactories 				value = 100 } }
+		if = { limit = { is_institution_enabled = enlightenment 		  } add_institution_embracement = { which = enlightenment 				value = 100 } }
+		if = { limit = { is_institution_enabled = imperialism 			  } add_institution_embracement = { which = imperialism 				value = 100 } }
+		if = { limit = { is_institution_enabled = industrialization 	  } add_institution_embracement = { which = industrialization 			value = 100 } }
+		if = { limit = { is_institution_enabled = nationalism_institution } add_institution_embracement = { which = nationalism_institution 	value = 100 } }
+		if = { limit = { is_institution_enabled = electrification 		  } add_institution_embracement = { which = electrification 			value = 100 } }
+		if = { limit = { is_institution_enabled = globalization 		  } add_institution_embracement = { which = globalization 				value = 100 } }
+		if = { limit = { is_institution_enabled = internet 				  } add_institution_embracement = { which = internet 					value = 100 } }
+	}
+}
+
+# province scope
+add_institution_embracement_up_to = {
+	# Takes an Institution name or 'all' as input.
+	# Adds progress to all preceding Institutions + the one inputted.
+	if = {
+		limit = {
+			is_institution_enabled = writing
+			OR = {
+				[[writing] always = $writing$]
+				[[legalism] always = $legalism$]
+				[[ancient_imperialism] always = $ancient_imperialism$]
+				[[caste_system] always = $caste_system$]
+				[[organized_religion] always = $organized_religion$]
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = writing value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = legalism
+			OR = {
+				[[legalism] always = $legalism$]
+				[[ancient_imperialism] always = $ancient_imperialism$]
+				[[caste_system] always = $caste_system$]
+				[[organized_religion] always = $organized_religion$]
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = legalism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = ancient_imperialism
+			OR = {
+				[[ancient_imperialism] always = $ancient_imperialism$]
+				[[caste_system] always = $caste_system$]
+				[[organized_religion] always = $organized_religion$]
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = ancient_imperialism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = caste_system
+			OR = {
+				[[caste_system] always = $caste_system$]
+				[[organized_religion] always = $organized_religion$]
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = caste_system value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = organized_religion
+			OR = {
+				[[organized_religion] always = $organized_religion$]
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = organized_religion value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = serfdom
+			OR = {
+				[[serfdom] always = $serfdom$]
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = serfdom value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = manorialism
+			OR = {
+				[[manorialism] always = $manorialism$]
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = manorialism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = early_feudalism
+			OR = {
+				[[early_feudalism] always = $early_feudalism$]
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = early_feudalism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = crop_rotation
+			OR = {
+				[[crop_rotation] always = $crop_rotation$]
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = crop_rotation value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = civil_service
+			OR = {
+				[[civil_service] always = $civil_service$]
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = civil_service value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = manuscripts
+			OR = {
+				[[manuscripts] always = $manuscripts$]
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = manuscripts value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = scholasticism
+			OR = {
+				[[scholasticism] always = $scholasticism$]
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = scholasticism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = guilds
+			OR = {
+				[[guilds] always = $guilds$]
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = guilds value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = medicine
+			OR = {
+				[[medicine] always = $medicine$]
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = medicine value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = feudalism
+			OR = {
+				[[feudalism] always = $feudalism$]
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = feudalism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = renaissance
+			OR = {
+				[[renaissance] always = $renaissance$]
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = renaissance value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = new_world_i
+			OR = {
+				[[new_world_i] always = $new_world_i$]
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = new_world_i value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = printing_press
+			OR = {
+				[[printing_press] always = $printing_press$]
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = printing_press value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = global_trade
+			OR = {
+				[[global_trade] always = $global_trade$]
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = global_trade value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = manufactories
+			OR = {
+				[[manufactories] always = $manufactories$]
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = manufactories value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = enlightenment
+			OR = {
+				[[enlightenment] always = $enlightenment$]
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = enlightenment value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = imperialism
+			OR = {
+				[[imperialism] always = $imperialism$]
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = imperialism value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = industrialization
+			OR = {
+				[[industrialization] always = $industrialization$]
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = industrialization value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = nationalism_institution
+			OR = {
+				[[nationalism_institution] always = $nationalism_institution$]
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = nationalism_institution value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = electrification
+			OR = {
+				[[electrification] always = $electrification$]
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = electrification value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = globalization
+			OR = {
+				[[globalization] always = $globalization$]
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = globalization value = 100 }
+	}
+	if = {
+		limit = {
+			is_institution_enabled = internet
+			OR = {
+				[[internet] always = $internet$]
+				[[all] always = $all$]
+				always = no
+			}
+		}
+		add_institution_embracement = { which = internet value = 100 }
+	}
+}
+
+# country scope
+set_tech = {
+	[[adm_tech]
+		while = {
+			limit = {
+				NOT = { adm_tech = $adm_tech$ }
+			}
+			add_adm_tech = 1
+		}
+	]
+	[[dip_tech]
+		while = {
+			limit = {
+				NOT = { dip_tech = $dip_tech$ }
+			}
+			add_dip_tech = 1
+		}
+	]
+	[[mil_tech]
+		while = {
+			limit = {
+				NOT = { mil_tech = $mil_tech$ }
+			}
+			add_mil_tech = 1
+		}
+	]
+}
+
+# province scope, army given to province controller
+create_army = {
+	custom_tooltip = create_army_tt
+	hidden_effect = {
+		[[infantry]
+			set_variable = {
+				which = infantry_to_build
+				value = $infantry$
+			}
+			while = {
+				limit = {
+					check_variable = {
+						which = infantry_to_build
+						value = 1
+					}
+				}
+				infantry = controller
+				subtract_variable = {
+					which = infantry_to_build
+					value = 1
+				}
+			}
+		]
+		[[cavalry]
+			set_variable = {
+				which = cavalry_to_build
+				value = $cavalry$
+			}
+			while = {
+				limit = {
+					check_variable = {
+						which = cavalry_to_build
+						value = 1
+					}
+				}
+				cavalry = controller
+				subtract_variable = {
+					which = cavalry_to_build
+					value = 1
+				}
+			}
+		]
+		[[artillery]
+			set_variable = {
+				which = artillery_to_build
+				value = $artillery$
+			}
+			while = {
+				limit = {
+					check_variable = {
+						which = artillery_to_build
+						value = 1
+					}
+				}
+				artillery = controller
+				subtract_variable = {
+					which = artillery_to_build
+					value = 1
+				}
+			}
+		]
+	}
+}
+
+update_tag_data_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = tag_@THIS }
+		}
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {}
+				PREV = {
+					has_country_flag = tag_@PREV
+				}
+			}
+			log = update_tag_data_effect_log_tt
+			#save_event_target_as = former_tag # This was generating alot of errors.
+			PREV = {
+				save_event_target_as = active_tag
+			}
+			
+			# Update stuff:
+			every_country_including_inactive = { # ex. "dominion_of_GBR" becomes "dominion_of_UKI"
+				limit = {
+					capital_scope = {}
+					has_country_flag = dominion_of_@PREV
+				}
+				clr_country_flag = dominion_of_@PREV
+				set_country_flag = dominion_of_@event_target:active_tag
+			}
+			
+			event_target:active_tag = {
+				clr_country_flag = tag_@PREV
+			}
+		}
+		set_country_flag = tag_@THIS
+	}
+}
+
+mutual_add_opinion = {
+	if = {
+		limit = {
+			NOT = { tag = $who$ }
+			NOT = {
+				has_opinion_modifier = {
+					who = $who$
+					modifier = $modifier$
+				}
+			}
+		}
+		add_opinion = {
+			who = $who$
+			modifier = $modifier$
+			[[years] years = $years$]
+		}
+	}
+	if = {
+		limit = {
+			NOT = { tag = $who$ }
+			NOT = {
+				reverse_has_opinion_modifier = {
+					who = $who$
+					modifier = $modifier$
+				}
+			}
+		}
+		reverse_add_opinion = {
+			who = $who$
+			modifier = $modifier$
+			[[years] years = $years$]
+		}
+	}
+}
+
+mutual_remove_opinion = {
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				who = $who$
+				modifier = $modifier$
+			}
+		}
+		remove_opinion = {
+			who = $who$
+			modifier = $modifier$
+		}
+	}
+	if = {
+		limit = {
+			reverse_has_opinion_modifier = {
+				who = $who$
+				modifier = $modifier$
+			}
+		}
+		reverse_remove_opinion = {
+			who = $who$
+			modifier = $modifier$
+		}
+	}
+}
+
+mutual_add_historical_friend = {
+	$who$ = {
+		custom_tooltip = mutual_add_historical_friend_tt
+	}
+	hidden_effect = {
+		add_historical_friend = $who$
+		$who$ = {
+			add_historical_friend = PREV
+		}
+	}
+}
+
+mutual_remove_historical_friend = {
+	$who$ = {
+		custom_tooltip = mutual_remove_historical_friend_tt
+	}
+	hidden_effect = {
+		remove_historical_friend = $who$
+		$who$ = {
+			remove_historical_friend = PREV
+		}
+	}
+}
+
+mutual_add_historical_rival = {
+	$who$ = {
+		custom_tooltip = mutual_add_historical_rival_tt
+	}
+	hidden_effect = {
+		add_historical_rival = $who$
+		$who$ = {
+			add_historical_rival = PREV
+		}
+	}
+}
+
+mutual_remove_historical_rival = {
+	$who$ = {
+		custom_tooltip = mutual_remove_historical_rival_tt
+	}
+	hidden_effect = {
+		remove_historical_rival = $who$
+		$who$ = {
+			remove_historical_rival = PREV
+		}
+	}
+}
+
+add_100_opinion_effect = {
+	add_opinion = {
+		who = $who$
+		modifier = generic_great_opinion
+	}
+	[[mutual]
+		hidden_effect = {
+			reverse_add_opinion = {
+				who = $who$
+				modifier = generic_great_opinion
+			}
+		}
+	]
+}
+
+add_50_opinion_effect = {
+	add_opinion = {
+		who = $who$
+		modifier = generic_good_opinion
+	}
+	[[mutual]
+		hidden_effect = {
+			reverse_add_opinion = {
+				who = $who$
+				modifier = generic_good_opinion
+			}
+		}
+	]
+}
+
+sub_50_opinion_effect = {
+	add_opinion = {
+		who = $who$
+		modifier = generic_bad_opinion
+	}
+	[[mutual]
+		hidden_effect = {
+			reverse_add_opinion = {
+				who = $who$
+				modifier = generic_bad_opinion
+			}
+		}
+	]
+}
+
+sub_100_opinion_effect = {
+	add_opinion = {
+		who = $who$
+		modifier = generic_terrible_opinion
+	}
+	[[mutual]
+		hidden_effect = {
+			reverse_add_opinion = {
+				who = $who$
+				modifier = generic_terrible_opinion
+			}
+		}
+	]
+}
+
+add_aggressive_expansion_effect = {
+	tooltip = {
+		change_variable = { # "AE changes by: $value$"
+			which = AE_var
+			value = $value$
+		}
+	}
+	hidden_effect = {
+		every_known_country = {
+			limit = {
+				exists = yes
+				NOT = { tag = PREV }
+				NOT = {
+					AND = {
+						is_subject_of = PREV
+						is_subject_other_than_tributary_trigger = yes
+					}
+				}
+			}
+			add_aggressive_expansion = {
+				who = PREV
+				value = $value$
+				[[apply_calc] apply_calc = yes]
+			}
+		}
+	}
+}
+
+break_all_alliances_effect = {
+	every_ally = {
+		PREV = {
+			break_alliance = PREV
+		}
+		[[opinion_penalty]
+			if = { # If "break_alliance" modifier should be applied or not
+				limit = {
+					always = $opinion_penalty$ # opinion_penalty = yes
+				}
+				mutual_add_opinion = {
+					who = PREV
+					modifier = break_alliance
+				}
+			}
+			else = {
+				mutual_remove_opinion = {
+					who = PREV
+					modifier = break_alliance
+				}
+			}
+		]
+	}
+}
+
+set_stability = {
+	custom_tooltip = set_stability_$value$_tt # Tooltip only supports '-3' -> '3', not '+3' though.
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { stability = $value$ }
+			}
+			while = {
+				limit = {
+					NOT = { stability = $value$ }
+				}
+				add_stability = 1
+			}
+		}
+		else = {
+			while = {
+				limit = {
+					variable_arithmetic_trigger = {
+						export_to_variable = {
+							which = current_stability
+							value = stability
+						}
+						export_to_variable = {
+							which = desired_stability
+							value = $value$
+						}
+						# current_stability > desired_stability
+						check_variable = {
+							which = current_stability
+							which = desired_stability
+						}
+						NOT = {
+							is_variable_equal = {
+								which = current_stability
+								which = desired_stability
+							}
+						}
+					}
+				}
+				add_stability = -1
+			}
+		}
+	}
+}
+
+replace_culture_effect = {
+	# Provinces:
+	every_province = {
+		limit = {
+			culture = $old_culture$
+		}
+		change_culture = $new_culture$
+	}
+	# Primary Cultures, Accepted Cultures, Rulers, Heirs, Consorts:
+	every_country_including_inactive = {
+		limit = {
+			capital_scope = {
+				always = yes # Filter to only valid tags.
+			}
+		}
+		if = {
+			limit = {
+				primary_culture = $old_culture$
+			}
+			change_primary_culture = $new_culture$
+		}
+		if = {
+			limit = {
+				accepted_culture = $old_culture$
+			}
+			remove_accepted_culture = $old_culture$
+			add_accepted_culture = $new_culture$
+		}
+		
+		if = {
+			limit = {
+				ruler_culture = $old_culture$
+			}
+			set_ruler_culture = $new_culture$
+		}
+		if = {
+			limit = {
+				heir_culture = $old_culture$
+			}
+			set_heir_culture = $new_culture$
+		}
+		if = {
+			limit = {
+				consort_culture = $old_culture$
+			}
+			set_consort_culture = $new_culture$
+		}
+	}
+}
+
+# Political Party effects:
+#political_party_effects = {
+#	# Traits:
+#	# - radical_trait
+#	# - reformist_trait
+#	# - reactionary_trait
+#	# - laissez_faire_trait
+#	# - agrarian_trait
+#	# - isolationist_trait
+#	# - moralist_trait
+#	# - patriotic_trait
+#	# - militarist_trait
+#	# - jingoist_trait
+#	# - pacifist_trait
+#	# - anti_slavery_trait
+#	# - pro_slavery_trait
+#	[[add_trait]
+#		if = {
+#			limit = {
+#				NOT = { has_country_flag = $party$_$add_trait$ }
+#			}
+#			custom_tooltip = add_$add_trait$
+#			hidden_effect = {
+#				set_country_flag = $party$_$add_trait$
+#			}
+#		}
+#	]
+#	[[remove_trait]
+#		if = {
+#			limit = {
+#				has_country_flag = $party$_$remove_trait$
+#			}
+#			custom_tooltip = remove_$remove_trait$
+#			hidden_effect = {
+#				clr_country_flag = $party$_$remove_trait$
+#			}
+#		}
+#	]
+#}
+
+#conservative_party_scope = {
+#	custom_tooltip = conservative_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = conservative_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#liberal_party_scope = {
+#	custom_tooltip = liberal_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = liberal_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#nationalist_party_scope = {
+#	custom_tooltip = nationalist_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = nationalist_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#social_democratic_party_scope = {
+#	custom_tooltip = social_democratic_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = social_democratic_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#communist_party_scope = {
+#	custom_tooltip = communist_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = communist_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#national_socialist_party_scope = {
+#	custom_tooltip = national_socialist_party_scope_tt
+#	
+#	political_party_effects = {
+#		party = national_socialist_party
+#		
+#		[[add_trait]
+#			add_trait = $add_trait$
+#		]
+#		[[remove_trait]
+#			remove_trait = $remove_trait$
+#		]
+#	}
+#}
+
+#ruling_party_scope = {
+#	trigger_switch = {
+#		on_trigger = faction_in_power
+#		
+#		conservative_party = {
+#			conservative_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#		liberal_party = {
+#			liberal_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#		nationalist_party = {
+#			nationalist_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#		social_democratic_party = {
+#			social_democratic_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#		communist_party = {
+#			communist_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#		national_socialist_party = {
+#			national_socialist_party_scope = {
+#				[[add_trait]
+#					add_trait = $add_trait$
+#				]
+#				[[remove_trait]
+#					remove_trait = $remove_trait$
+#				]
+#			}
+#		}
+#	}
+#}
+
+# ==========================
+# Country State-type Effects
+# ==========================
+
+# Neutrality
+add_neutrality_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = neutral_state_modifier }
+		}
+		custom_tooltip = add_neutrality_effect_tt # Our nation will become a §YNeutral State§!.\n§YThis will prevent alliances with other countries and declarations of war mutually.§!
+		hidden_effect = {
+			add_country_modifier = {
+				name = neutral_state_modifier
+				duration = -1
+			}
+		}
+	}
+}
+remove_neutrality_effect = {
+	if = {
+		limit = {
+			has_country_modifier = neutral_state_modifier
+		}
+		custom_tooltip = remove_neutrality_effect_tt # Our §YNeutrality§! will be revoked.
+		hidden_effect = {
+			remove_country_modifier = neutral_state_modifier
+		}
+	}
+}
+
+# Recognition
+become_unrecognized_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = unrecognized_state_modifier }
+		}
+		custom_tooltip = become_unrecognized_effect_tt # Our nation will become an §YUnrecognized State§!.\n§YThis will prevent diplomatic ties to other countries.§!
+		hidden_effect = {
+			set_variable = {
+				which = num_who_recognizes_us
+				value = 0
+			}
+			add_country_modifier = {
+				name = unrecognized_state_modifier
+				duration = -1
+			}
+		}
+	}
+}
+become_recognized_effect = {
+	if = {
+		limit = {
+			has_country_modifier = unrecognized_state_modifier
+		}
+		custom_tooltip = become_recognized_effect_tt # Our nation will become a §YRecognized State§!.\n§YThis will allow diplomatic ties to other countries.§!
+		hidden_effect = {
+			if = {
+				limit = {
+					is_subject_of_type = unrecognised_state
+				}
+				grant_independence = yes
+			}
+			remove_country_modifier = unrecognized_state_modifier
+		}
+	}
+}
+
+# Isolationism
+add_isolationism_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = isolationist_state_modifier }
+		}
+		custom_tooltip = add_isolationism_effect_tt # Our nation will become an §YIsolationist State§!.\n§YThis will prevent alliances with other countries.§!
+		hidden_effect = {
+			add_country_modifier = {
+				name = isolationist_state_modifier
+				duration = -1
+			}
+		}
+	}
+}
+remove_isolationism_effect = {
+	if = {
+		limit = {
+			has_country_modifier = isolationist_state_modifier
+		}
+		custom_tooltip = remove_isolationism_effect_tt # Our nation will stop being an §YIsolationist State§!.\n§YThis will allow alliances with other countries.§!
+		hidden_effect = {
+			remove_country_modifier = isolationist_state_modifier
+		}
+	}
+}
+
+# Civility
+become_uncivilized_effect = {
+	if = {
+		limit = {
+			has_country_modifier = civilized_state_modifier
+		}
+		custom_tooltip = become_uncivilized_effect_tt # Our nation will be known as an §YUncivilized State§!.
+		hidden_effect = {
+			remove_country_modifier = civilized_state_modifier
+		}
+	}
+}
+become_civilized_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = civilized_state_modifier }
+		}
+		custom_tooltip = become_civilized_effect_tt # Our nation will be known as a §YCivilized State§!.
+		hidden_effect = {
+			add_country_modifier = {
+				name = civilized_state_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+
+add_scaling_modifier_helper_effect = {
+	if = {
+		limit = {
+			check_variable = {
+				which = $which$
+				value = $value$
+			}
+		}
+		subtract_variable = {
+			which = $which$
+			value = $value$
+		}
+		add_$type$_modifier = {
+			name = $name$_$value$
+			duration = $duration$
+			hidden = yes
+		}
+	}
+	else = {
+		remove_$type$_modifier = $name$_$value$
+	}
+}
+
+update_scaling_modifier = { # Thanks to u/Justice_Fighter
+	if = {
+		limit = {
+			check_variable = {
+				which = $which$
+				value = 0.01
+			}
+		}
+		set_variable = {
+			which = $name$_tooltip_var
+			which = $which$
+		}
+		if = {
+			limit = {
+				[[tooltip_name] always = no]
+			}
+			add_$type$_modifier = {
+				name = $name$_tooltip
+				duration = $duration$
+			}
+		}
+		else = {
+			[[tooltip_name]
+				add_$type$_modifier = {
+					name = $tooltip_name$
+					duration = $duration$
+				}
+			]
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = $which$
+					value = 1.00
+				}
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 32.00
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 16.00
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 8.00
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 4.00
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 2.00
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 1.00
+			}
+		}
+		else = {
+			multiply_variable = {
+				which = $name$_tooltip_var
+				value = 100 # Decimal -> Percentage
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.32
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.16
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.08
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.04
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.02
+			}
+			add_scaling_modifier_helper_effect = {
+				name = $name$
+				duration = $duration$
+				type = $type$
+				
+				which = $which$
+				value = 0.01
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			if = {
+				limit = {
+					[[tooltip_name] always = no]
+				}
+				has_$type$_modifier = $name$_tooltip
+			}
+			else = {
+				[[tooltip_name]
+					has_$type$_modifier = $tooltip_name$
+				]
+			}
+		}
+		set_variable = {
+			which = $name$_tooltip_var
+			value = 0
+		}
+		if = {
+			limit = {
+				[[tooltip_name] always = no]
+			}
+			remove_$type$_modifier = $name$_tooltip
+		}
+		else = {
+			[[tooltip_name]
+				remove_$type$_modifier = $tooltip_name$
+			]
+		}
+		remove_$type$_modifier = $name$_32.00
+		remove_$type$_modifier = $name$_16.00
+		remove_$type$_modifier = $name$_8.00
+		remove_$type$_modifier = $name$_4.00
+		remove_$type$_modifier = $name$_2.00
+		remove_$type$_modifier = $name$_1.00
+		remove_$type$_modifier = $name$_0.32
+		remove_$type$_modifier = $name$_0.16
+		remove_$type$_modifier = $name$_0.08
+		remove_$type$_modifier = $name$_0.04
+		remove_$type$_modifier = $name$_0.02
+		remove_$type$_modifier = $name$_0.01
+	}
+}
+
+
+add_country_modifier_until = {
+	add_modifier_until = {
+		type = country
+		name = $name$
+		year = $year$
+	}
+}
+
+add_province_modifier_until = {
+	add_modifier_until = {
+		type = province
+		name = $name$
+		year = $year$
+	}
+}
+
+add_modifier_until = { # Adds a modifier ($name$), country or province ($type$), which expires on a given date ($year$).
+	if = {
+		limit = {
+			NOT = { is_year = $year$ }
+		}
+		hidden_effect = {
+			export_to_variable = {
+				which = amu_year_var
+				value = trigger_value:is_year
+			}
+			subtract_variable = { # Ex. 1900(current) - 1960(year) = -60
+				which = amu_year_var
+				value = $year$
+			}
+			multiply_variable = {
+				which = amu_year_var
+				value = -1 # -60 -> 60
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 100 # Supports max 100 years
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 36500
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 99
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 36135
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 98
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 35770
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 97
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 35405
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 96
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 35040
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 95
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 34675
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 94
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 34310
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 93
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 33945
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 92
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 33580
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 91
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 33215
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 90
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 32850
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 89
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 32485
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 88
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 32120
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 87
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 31755
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 86
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 31390
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 85
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 31025
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 84
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 30660
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 83
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 30295
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 82
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 29930
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 81
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 29565
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 80
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 29200
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 79
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 28835
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 78
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 28470
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 77
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 28105
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 76
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 27740
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 75
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 27375
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 74
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 27010
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 73
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 26645
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 72
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 26280
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 71
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 25915
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 70
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 25550
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 69
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 25185
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 68
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 24820
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 67
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 24455
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 66
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 24090
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 65
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 23725
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 64
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 23360
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 63
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 22995
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 62
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 22630
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 61
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 22265
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 60
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 21900
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 59
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 21535
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 58
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 21170
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 57
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 20805
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 56
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 20440
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 55
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 20075
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 54
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 19710
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 53
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 19345
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 52
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 18980
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 51
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 18615
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 50
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 18250
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 49
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 17885
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 48
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 17520
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 47
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 17155
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 46
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 16790
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 45
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 16425
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 44
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 16060
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 43
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 15695
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 42
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 15330
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 41
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 14965
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 40
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 14600
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 39
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 14235
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 38
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 13870
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 37
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 13505
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 36
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 13140
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 35
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 12775
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 34
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 12410
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 33
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 12045
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 32
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 11680
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 31
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 11315
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 30
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 10950
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 29
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 10585
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 28
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 10220
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 27
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 9855
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 26
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 9490
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 25
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 9125
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 24
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 8760
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 23
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 8395
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 22
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 8030
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 21
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 7665
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 20
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 7300
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 19
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 6935
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 18
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 6570
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 17
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 6205
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 16
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 5840
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 15
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 5475
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 14
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 5110
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 13
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 4745
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 12
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 4380
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 11
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 4015
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 10
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 9
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 3285
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 8
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 2920
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 7
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 2555
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 6
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 2190
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 5
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 1825
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 4
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 1460
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 3
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 1095
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 2
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 730
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = amu_year_var
+					value = 1
+				}
+			}
+			add_$type$_modifier = {
+				name = $name$
+				duration = 365
+			}
+		}
+	}
+}
+
+
+found_big_alliance_effect = {
+	set_saved_name = {
+		key = big_alliance_name
+		type = simple
+		name = "$name$"
+	}
+	set_country_flag = big_alliance_name:$key$
+	
+	set_variable = {
+		which = big_alliance_member_var
+		value = 1
+	}
+	update_scaling_modifier = {
+		name = big_alliance_leader
+		type = country
+		duration = -1
+		which = big_alliance_member_var
+	}
+}
+
+set_big_alliance_flags_effect = {
+	$leader$ = {
+		trigger_switch = {
+			on_trigger = has_country_flag
+			# Add ALL potential names here:
+			big_alliance_name:Entente = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Entente"
+					}
+					set_country_flag = big_alliance_name:Entente
+				}
+			}
+			big_alliance_name:Central_Powers = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Central Powers"
+					}
+					set_country_flag = big_alliance_name:Central_Powers
+				}
+			}
+			big_alliance_name:Allies = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Allies"
+					}
+					set_country_flag = big_alliance_name:Allies
+				}
+			}
+			big_alliance_name:Axis = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Axis"
+					}
+					set_country_flag = big_alliance_name:Axis
+				}
+			}
+			big_alliance_name:Rio_Pact = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Rio Pact"
+					}
+					set_country_flag = big_alliance_name:Rio_Pact
+				}
+			}
+			big_alliance_name:NATO = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "NATO"
+					}
+					set_country_flag = big_alliance_name:NATO
+				}
+			}
+			big_alliance_name:Warsaw_Pact = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "Warsaw Pact"
+					}
+					set_country_flag = big_alliance_name:Warsaw_Pact
+				}
+			}
+			big_alliance_name:CSTO = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "CSTO"
+					}
+					set_country_flag = big_alliance_name:CSTO
+				}
+			}
+			big_alliance_name:European_Alliance = {
+				PREV = {
+					set_saved_name = {
+						key = big_alliance_name
+						type = simple
+						name = "European Alliance"
+					}
+					set_country_flag = big_alliance_name:European_Alliance
+				}
+			}
+		}
+	}
+}
+
+clr_big_alliance_flags_effect = {
+	set_saved_name = {
+		key = big_alliance_name
+		type = simple
+		name = "---"
+	}
+	# Add ALL potential names here:
+	clr_country_flag = big_alliance_name:Entente
+	clr_country_flag = big_alliance_name:Central_Powers
+	clr_country_flag = big_alliance_name:Allies
+	clr_country_flag = big_alliance_name:Axis
+	clr_country_flag = big_alliance_name:Rio_Pact
+	clr_country_flag = big_alliance_name:NATO
+	clr_country_flag = big_alliance_name:Warsaw_Pact
+	clr_country_flag = big_alliance_name:CSTO
+	clr_country_flag = big_alliance_name:European_Alliance
+}
+
+enter_big_alliance_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = big_alliance_member }
+			$leader$ = {
+				has_country_modifier = big_alliance_leader_tooltip
+			}
+		}
+		add_country_modifier = {
+			name = big_alliance_member
+			duration = -1
+		}
+		set_big_alliance_flags_effect = { leader = $leader$ }
+		$leader$ = {
+			change_variable = {
+				which = big_alliance_member_var
+				value = 1
+			}
+			update_scaling_modifier = {
+				name = big_alliance_leader
+				type = country
+				duration = -1
+				which = big_alliance_member_var
+			}
+		}
+	}
+}
+
+leave_big_alliance_effect = {
+	if = {
+		limit = {
+			has_country_modifier = big_alliance_member
+			$leader$ = {
+				has_country_modifier = big_alliance_leader_tooltip
+			}
+		}
+		remove_country_modifier = big_alliance_member
+		clr_big_alliance_flags_effect = yes
+		$leader$ = {
+			change_variable = {
+				which = big_alliance_member_var
+				value = -1
+			}
+			update_scaling_modifier = {
+				name = big_alliance_leader
+				type = country
+				duration = -1
+				which = big_alliance_member_var
+			}
+			if = {
+				limit = {
+					NOT = {
+						calc_true_if = {
+							all_ally = {
+								has_country_modifier = big_alliance_member
+							}
+							amount = 1
+						}
+					}
+				}
+				clr_big_alliance_flags_effect = yes
+			}
+		}
+	}
+}
+
+
+get_province_trade_goods_produced_amount = {
+	hidden_effect = {
+		# Multipliers:
+		export_to_variable = { # province
+			which = trade_goods_size_modifier_var
+			value = modifier:trade_goods_size_modifier
+		}
+		export_to_variable = { # country
+			which = global_trade_goods_size_modifier_var
+			value = modifier:global_trade_goods_size_modifier
+			who = owner
+		}
+		change_variable = {
+			which = trade_goods_size_modifier_var
+			which = global_trade_goods_size_modifier_var
+		}
+		change_variable = {
+			which = trade_goods_size_modifier_var
+			value = 1
+		}
+		
+		# Constants:
+		export_to_variable = { # province
+			which = trade_goods_size_var
+			value = modifier:trade_goods_size
+		}
+		export_to_variable = { # country
+			which = global_trade_goods_size_var
+			value = modifier:global_trade_goods_size
+			who = owner
+		}
+		change_variable = {
+			which = trade_goods_size_var
+			which = global_trade_goods_size_var
+		}
+		multiply_variable = {
+			which = trade_goods_size_var
+			which = trade_goods_size_modifier_var
+		}
+		
+		# Return final value:
+		set_variable = {
+			which = $variable$
+			value = 0
+		}
+		set_variable = {
+			which = $variable$
+			which = trade_goods_size_var
+		}
+	}
+}
+
+add_religious_estate_loyalty = {
+	if = {
+		limit = {
+			has_estate = estate_brahmins
+		}
+		add_estate_loyalty = {
+			estate = estate_brahmins
+			loyalty = $loyalty$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_church
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = $loyalty$
+		}
+	}
+	#if = { # not part of religious establishment?
+	#	limit = {
+	#		has_estate = estate_dhimmi
+	#	}
+	#	add_estate_loyalty = {
+	#		estate = estate_dhimmi
+	#		loyalty = $loyalty$
+	#	}
+	#}
+	#if = {
+	#	limit = {
+	#		has_estate = estate_jains
+	#	}
+	#	add_estate_loyalty = {
+	#		estate = estate_jains
+	#		loyalty = $loyalty$
+	#	}
+	#}
+	if = {
+		limit = {
+			has_estate = estate_holy_orders
+		}
+		add_estate_loyalty = {
+			estate = estate_holy_orders
+			loyalty = $loyalty$
+		}
+	}
+}
+
+add_wealthy_estate_loyalty = {
+	if = {
+		limit = {
+			has_estate = estate_vaisyas
+		}
+		add_estate_loyalty = {
+			estate = estate_vaisyas
+			loyalty = $loyalty$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_burghers
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = $loyalty$
+		}
+	}
+	#if = {
+	#	limit = {
+	#		has_estate = estate_eunuchs
+	#	}
+	#	add_estate_loyalty = {
+	#		estate = estate_eunuchs
+	#		loyalty = $loyalty$
+	#	}
+	#}
+	if = {
+		limit = {
+			has_estate = estate_corporations
+		}
+		add_estate_loyalty = {
+			estate = estate_corporations
+			loyalty = $loyalty$
+		}
+	}
+}
+
+add_aristocratic_estate_loyalty = {
+	if = {
+		limit = {
+			has_estate = estate_maratha
+		}
+		add_estate_loyalty = {
+			estate = estate_maratha
+			loyalty = $loyalty$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = $loyalty$
+		}
+	}
+	#if = {
+	#	limit = {
+	#		has_estate = estate_cossacks
+	#	}
+	#	add_estate_loyalty = {
+	#		estate = estate_cossacks
+	#		loyalty = $loyalty$
+	#	}
+	#}
+	if = {
+		limit = {
+			has_estate = estate_janissaries
+		}
+		add_estate_loyalty = {
+			estate = estate_janissaries
+			loyalty = $loyalty$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_rajput
+		}
+		add_estate_loyalty = {
+			estate = estate_rajput
+			loyalty = $loyalty$
+		}
+	}
+	#if = {
+	#	limit = {
+	#		has_estate = estate_military
+	#	}
+	#	add_estate_loyalty = {
+	#		estate = estate_military
+	#		loyalty = $loyalty$
+	#	}
+	#}
+}
+
+add_freedom_of_religion_effect = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = religious_freedom_modifier }
+			NOT = { religion = secularism }
+		}
+		add_country_modifier = {
+			name = religious_freedom_modifier
+			duration = -1
+		}
+		hidden_effect = {
+			remove_country_modifier = the_societas_jesu
+			remove_country_modifier = de_heretico_comburendo
+			remove_country_modifier = the_advancement_of_true_religion_act
+			remove_country_modifier = the_blasphemy_act
+			remove_country_modifier = the_declaration_of_indulgence
+			remove_country_modifier = the_act_of_uniformity
+			remove_country_modifier = sunday_schools
+			remove_country_modifier = the_conventicle_act
+			remove_country_modifier = the_test_act
+			remove_country_modifier = the_dissolution_of_the_monasteries
+			remove_country_modifier = the_popery_act
+			remove_country_modifier = the_anti_christian_edict
+			remove_country_modifier = muslim_resistance
+			remove_country_modifier = saving_the_burning_world
+			remove_country_modifier = enforcing_heritage
+			remove_country_modifier = restricted_offices
+			remove_country_modifier = spreading_norse_rituals
+			remove_country_modifier = black_shamanism_modifier
+			remove_country_modifier = rites_of_admission_modifier
+			remove_country_modifier = ritual_education_modifier
+			remove_country_modifier = wandering_shamans_modifier
+			remove_country_modifier = purification_movement_modifier
+			remove_country_modifier = codification_of_mayan_faith
+			remove_country_modifier = nahuatl_sacrificial_stones
+			remove_country_modifier = great_inti_festivals
+		}
+	}
+}
+
+clr_city_name_effect = {
+	clr_province_flag = ruthenian_city_name
+	clr_province_flag = german_city_name
+}
+
+ruthenian_city_name_effect = {
+	trigger_switch = {
+		on_trigger = province_id
+		# Ukraine:
+		279	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Lutsk" } }
+		280	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Kyiv" } }
+		282	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Odesa" } }
+		283	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Zaporizhia" } }
+		284	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Simferopol" } }
+		285	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Kerch" } }
+		289	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Chernihiv" } }
+		291	 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Kharkiv" } }
+		1945 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Sumy" } }
+		1974 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Kherson" } }
+		2406 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Mykolaiv" } }
+		2407 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Pereiaslav" } }
+		2409 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Luhansk" } }
+		2410 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Sevastopol" } }
+		2411 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Dnipro" } }
+		2412 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Mariupol" } }
+		2413 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Donetsk" } }
+		2961 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Lviv" } }
+		2962 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Rivne" } }
+		4247 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Ovruch" } }
+		4540 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Vinnytsia" } }
+		4542 = { if = { limit = { NOT = { has_province_flag = ruthenian_city_name } } clr_city_name_effect = yes set_province_flag = ruthenian_city_name rename_capital = "Lubny" } }
+	}
+}
+
+german_city_name_effect = { # unused
+	trigger_switch = {
+		on_trigger = province_id
+		# Czechia:
+		265  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brünn" } } # Brno
+		266  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Prag" } } # Praha
+		267  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pilsen" } } # Plzen
+		1771 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Reichenberg" } } # Erz
+		2967 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Karlsbad" } } # Eger
+		2968 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Budweis" } } # Budejovice
+		2970 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Königgrätz" } } # Hradecko
+		4237 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Olmütz" } } # Olomouc
+		4724 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pardubitz" } } # Pardubice
+		4725 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neuhaus" } } # Jindrichuv Hradec
+		4726 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ostrava" } } # Ostrava
+		# Slovakia:
+		154  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neutra" } } # Érsekújvár
+		162  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Kaschau" } } # Zemplén
+		1318 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Deutschendorf" } } # Spis
+		1772 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pressburg" } } # Pozsony
+		4236 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trentschin" } } # Trencin
+		# Vojvodina:
+		1954 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Großbetschkerek" } } # Torontal
+		4126 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neusatz" } } # Bacs
+		4173 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sremska Mitrovica" } } # Syrmia
+		# Slovenia:
+		129  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Laibach" } } # Krain
+		1769 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Gafers" } } # Görz
+		4751 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Marburg" } } # Cilli
+		# Lombardy-Venetia:
+		104  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mailand" } } # Milan
+		107  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brescia" } } # Brescia
+		108  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Verona" } } # Verona
+		109  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mantua" } } # Mantua
+		110  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trient" } } # Trent
+		111  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Udine" } } # Friuli
+		112  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Venedig" } } # Venezia
+		113  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ferrara" } } # Ferrara
+		1774 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Treviso" } } # Treviso
+		1862 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Cremona" } } # Cremona
+		3141 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sünders" } } # Valtellina
+		4729 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Padua" } } # Padova
+		4738 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Triest" } } # Trieste
+		4739 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bergamo" } } # Bergamo
+		4758 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bozen" } } # Südtirol
+	}
+}
+
+set_directly_ruled_colony_effect = {
+	# Thought this would disable formation of CN's via province history,
+	# didn't work :(
+	
+	#add_province_modifier = {
+	#	name = directly_ruled_colony_modifier
+	#	duration = -1
+	#}
+}
+
+clr_directly_ruled_colony_effect = {
+	#remove_province_modifier = directly_ruled_colony_modifier
+}

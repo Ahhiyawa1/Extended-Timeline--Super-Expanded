@@ -15,8 +15,9 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { tag = HLR }
+			NOT = { tag = ROW }
+			NOT = { tag = BYZ }
 			NOT = { tag = PAP }
-			NOT = { tag = ROM }
 			NOT = { exists = ROM }
 			OR = {
 				religion_group = christian
@@ -42,13 +43,39 @@ country_decisions = {
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
-			num_of_owned_provinces_with = {
-				custom_trigger_tooltip = {
-					tooltip = BYZ_highlighted_by_decision
-					BYZ_roman_empire_decision_trigger = yes
-				}
-				value = 425
+			NOT = { exists = BYZ }
+			NOT = { exists = ROW }
+			italy_region = {
+				type = all
+				owned_by = ROOT
 			}
+			france_region = {
+				type = all
+				owned_by = ROOT
+			}
+			iberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			balkan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			mashriq_region = {
+				type = all
+				owned_by = ROOT
+			}
+			owns = 343 # Fez
+			owns = 341 # Tunis
+			owns = 361 # Cairo
+			owns = 236 # London
+			owns = 245 # Yorkshire
+			owns = 96 # Zeeland
+			owns = 134 # Vienna
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -62,17 +89,8 @@ country_decisions = {
 			}
 			restore_country_name = yes
 			change_tag = ROM
-			swap_non_generic_missions = yes
 			on_change_tag_effect = yes
 			custom_tooltip = roman_culture_provinces_tooltip
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						culture_group = ROOT
-					}
-					change_culture = roman
-				}
-			}
 			change_primary_culture = roman
 			custom_tooltip = restore_roman_empire_tt
 			hidden_effect = {
@@ -83,55 +101,8 @@ country_decisions = {
 					set_in_empire = no
 				}
 			}
-			set_government_rank = 10
+			set_government_rank = 3
 			add_prestige_or_monarch_power = { amount = 50 }
-			if = {
-				limit = {
-					has_dlc = "Domination"
-				}
-				if = {
-					limit = {
-						government = monarchy
-						is_revolutionary = no
-						NOT = { has_reform = celestial_empire }
-						NOT = {
-							has_reform = roman_constitutional_reform
-						}
-					}
-					hidden_effect = {
-						unlock_government_reform = {
-							government_reform = roman_empire_reform
-						}
-						unlock_government_reform = {
-							government_reform = roman_republic_government
-						}
-					}
-					add_government_reform = roman_imperial_reform
-				}
-				else_if = {
-					limit = {
-						government = republic
-						is_revolutionary = no
-					}
-					hidden_effect = {
-						unlock_government_reform = {
-							government_reform = roman_imperial_reform
-						}
-						unlock_government_reform = {
-							government_reform = roman_republic_government
-						}
-					}
-					add_government_reform = roman_republic_government
-				}
-				else = {
-					unlock_government_reform = {
-						government_reform = roman_imperial_reform
-					}
-					unlock_government_reform = {
-						government_reform = roman_republic_government
-					}
-				}
-			}
 			add_core = 118 # Rome
 			#if = {
 			#	limit = {

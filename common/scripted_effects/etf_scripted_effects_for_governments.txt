@@ -1,0 +1,1538 @@
+catch_up_on_reforms_effect = {
+	custom_tooltip = catch_up_on_reforms_tt
+	hidden_effect = {
+		# Basic Early Gov Reforms
+		if = { limit = { is_year = 2198  NOT = { has_reform_on_level = 1  } } add_government_reform = early_gov_reform_1  }
+		if = { limit = { is_year = 2328  NOT = { has_reform_on_level = 2  } } add_government_reform = early_gov_reform_2  }
+		if = { limit = { is_year = 2458  NOT = { has_reform_on_level = 3  } } add_government_reform = early_gov_reform_3  }
+		if = { limit = { is_year = 2588  NOT = { has_reform_on_level = 4  } } add_government_reform = early_gov_reform_4  }
+		if = { limit = { is_year = 2718  NOT = { has_reform_on_level = 5  } } add_government_reform = early_gov_reform_5  }
+		if = { limit = { is_year = 2848  NOT = { has_reform_on_level = 6  } } add_government_reform = early_gov_reform_6  }
+		if = { limit = { is_year = 2978  NOT = { has_reform_on_level = 7  } } add_government_reform = early_gov_reform_7  }
+		if = { limit = { is_year = 3108 NOT = { has_reform_on_level = 8  } } add_government_reform = early_gov_reform_8  }
+		if = { limit = { is_year = 3238 NOT = { has_reform_on_level = 9  } } add_government_reform = early_gov_reform_9  }
+		if = { limit = { is_year = 3368 NOT = { has_reform_on_level = 10 } } add_government_reform = early_gov_reform_10 }
+		
+		# Monarchy
+		if = {
+			limit = {
+				government = monarchy
+				OR = {
+					is_revolutionary = no
+					NOT = { has_dlc = "Emperor" }
+				}
+			}
+			# feudalism_vs_autocracy
+			if = {
+				limit = {
+					NOT = { has_reform_on_level = 0 }
+				}
+				if = {
+					limit = {
+						is_year = 3698
+					}
+					add_government_reform = autocracy_reform
+				}
+				else = {
+					add_government_reform = feudalism_reform
+				}
+			}
+			
+			# hereditary_vs_nobility
+			if = {
+				limit = {
+					has_institution = feudalism
+					NOT = { has_reform_on_level = 11 }
+				}
+				add_government_reform = enforce_privileges_reform
+			}
+			
+			# bureaucracy
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 12 }
+				}
+				add_government_reform = centralize_reform
+			}
+			
+			# state_and_religion
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 13 }
+				}
+				add_government_reform = curtail_clergy_power_reform
+			}
+			
+			# growth_of_administration
+			if = {
+				limit = {
+					has_institution = new_world_i
+					NOT = { has_reform_on_level = 14 }
+				}
+				add_government_reform = organized_military_staff_reform
+			}
+			
+			# deliberative_assembly
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 15 }
+				}
+				if = {
+					limit = {
+						has_parliament_or_reform = yes
+					}
+					add_government_reform = general_estates_reform
+				}
+				else_if = {
+					limit = {
+						has_institution = nationalism_institution
+						is_not_autocracy = yes
+					}
+					add_government_reform = parliamentary_reform
+				}
+				else = {
+					add_government_reform = royal_decree_reform
+				}
+			}
+			
+			# growth_of_administration(?)
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 16 }
+				}
+				add_government_reform = clergy_in_administration_reform
+			}
+			
+			# economical_matters
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 17 }
+				}
+				if = {
+					limit = {
+						is_year = 4048
+					}
+					add_government_reform = free_trade_reform
+				}
+				else = {
+					add_government_reform = curtail_the_burghers_reform
+				}
+			}
+			
+			# legitimation_of_power
+			if = {
+				limit = {
+					has_institution = global_trade
+					NOT = { has_reform_on_level = 18 }
+				}
+				if = {
+					limit = {
+						is_autocracy = yes
+					}
+					add_government_reform = the_leviathan_reform
+				}
+				else = {
+					add_government_reform = the_social_contract_reform
+				}
+			}
+			
+			# absolute_rule_vs_constitutional
+			if = {
+				limit = {
+					has_institution = global_trade
+					NOT = { has_reform_on_level = 19 }
+				}
+				if = {
+					limit = {
+						is_autocracy = yes
+					}
+					add_government_reform = letat_cest_moi_reform
+				}
+				else = {
+					add_government_reform = regional_representation_reform
+				}
+			}
+			
+			# separation_of_power
+			if = {
+				limit = {
+					has_institution = enlightenment
+					NOT = { has_reform_on_level = 20 }
+				}
+				if = {
+					limit = {
+						is_autocracy = yes
+					}
+					add_government_reform = political_absolutism_reform
+				}
+				else = {
+					add_government_reform = legislative_houses_reform
+				}
+			}
+		}
+		
+		# Republic
+		else_if = {
+			limit = {
+				government = republic
+				OR = {
+					is_revolutionary = no
+					NOT = { has_dlc = "Emperor" }
+				}
+			}
+			# oligarchy_merchant_class_noble_elite
+			if = {
+				limit = {
+					NOT = { has_reform_on_level = 0 }
+				}
+				if = {
+					limit = {
+						is_colonial_nation = yes
+					}
+					add_government_reform = colonial_government
+				}
+				else_if = {
+					limit = {
+						is_subject_of_type = colonial_dependency
+					}
+					add_government_reform = colonial_oligarchy_reform
+				}
+				else = {
+					add_government_reform = oligarchy_reform
+				}
+			}
+			
+			# republican_virtues
+			if = {
+				limit = {
+					has_institution = feudalism
+					NOT = { has_reform_on_level = 11 }
+				}
+				if = {
+					limit = {
+						is_dictatorship = yes
+					}
+					add_government_reform = republican_authoritarianism_reform
+				}
+				else = {
+					add_government_reform = republicanism_reform
+				}
+			}
+			
+			# frequent_elections_vs_consolidation_of_power
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 12 }
+				}
+				add_government_reform = balance_of_power_reform
+			}
+			
+			# republic_and_religion
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 13 }
+				}
+				add_government_reform = curtail_clergy_power_reform
+			}
+			
+			# military_doctrines
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 14 }
+				}
+				add_government_reform = organized_military_staff_reform
+			}
+			
+			# parliamentary_vs_presidential
+			if = {
+				limit = {
+					has_institution = new_world_i
+					NOT = { has_reform_on_level = 15 }
+				}
+				if = {
+					limit = {
+						is_dictatorship = yes
+					}
+					add_government_reform = presidential_reform
+				}
+				else = {
+					add_government_reform = parliamentary_reform
+				}
+			}
+			
+			# federalism_vs_unitarism_vs_confederacy
+			if = {
+				limit = {
+					has_institution = new_world_i
+					NOT = { has_reform_on_level = 16 }
+				}
+				if = {
+					limit = {
+						government_rank = 3
+					}
+					add_government_reform = provincial_governments_reform
+				}
+				else = {
+					add_government_reform = administrative_divisions_reform
+				}
+			}
+			
+			# economical_matters_republic
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 17 }
+				}
+				if = {
+					limit = {
+						is_year = 4048
+					}
+					add_government_reform = free_trade_reform
+				}
+				else = {
+					add_government_reform = curtail_the_burghers_reform
+				}
+			}
+			
+			# consolidation_of_power_category
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 18 }
+				}
+				if = {
+					limit = {
+						is_dictatorship = yes
+					}
+					add_government_reform = broaden_executive_powers_reform
+				}
+				else = {
+					add_government_reform = devolution_of_powers_reform
+				}
+			}
+			
+			# guiding_principle_of_administration
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 19 }
+				}
+				add_government_reform = political_principle_reform
+			}
+			
+			# electorate
+			if = {
+				limit = {
+					has_institution = global_trade
+					NOT = { has_reform_on_level = 20 }
+				}
+				if = {
+					limit = {
+						OR = {
+							is_democracy = yes
+							is_communist = yes
+						}
+					}
+					add_government_reform = citizenry_reform
+				}
+				else = {
+					add_government_reform = landholders_reform
+				}
+			}
+			
+			# office_selection
+			if = {
+				limit = {
+					has_institution = manufactories
+					NOT = { has_reform_on_level = 21 }
+				}
+				if = {
+					limit = {
+						is_democracy = yes
+					}
+					add_government_reform = universal_suffrage_reform
+				}
+				else_if = {
+					limit = {
+						is_dictatorship = yes
+					}
+					add_government_reform = appointment_by_committee_reform
+				}
+				else = {
+					add_government_reform = bureaucratic_aparatus_reform
+				}
+			}
+			
+			# question_of_dictatorship
+			if = {
+				limit = {
+					has_institution = enlightenment
+					NOT = { has_reform_on_level = 22 }
+				}
+				if = {
+					limit = {
+						is_dictatorship = yes
+					}
+					add_government_reform = strengthen_executive_powers_reform
+				}
+				else = {
+					add_government_reform = reinforce_republican_values_reform
+				}
+			}
+		}
+		
+		# Theocracy
+		else_if = {
+			limit = {
+				government = theocracy
+			}
+			# theocratic_leadership
+			if = {
+				limit = {
+					NOT = { has_reform_on_level = 0 }
+				}
+				add_government_reform = leading_clergy_reform
+			}
+			
+			# internal_vs_external_mission
+			if = {
+				limit = {
+					has_institution = feudalism
+					NOT = { has_reform_on_level = 11 }
+				}
+				add_government_reform = internal_mission_reform
+			}
+			
+			# education_of_the_state
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 12 }
+				}
+				add_government_reform = education_of_the_people_reform
+			}
+			
+			# religoius_doctrine
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 13 }
+				}
+				add_government_reform = maintain_clergy_balance_of_power_reform
+			}
+			
+			# military_doctrines
+			if = {
+				limit = {
+					has_institution = renaissance
+					NOT = { has_reform_on_level = 14 }
+				}
+				add_government_reform = organized_military_staff_reform
+			}
+			
+			# secularization
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 15 }
+				}
+				add_government_reform = partial_secularisation_reform
+			}
+			
+			# clergy_in_administration
+			if = {
+				limit = {
+					has_institution = new_world_i
+					NOT = { has_reform_on_level = 16 }
+				}
+				add_government_reform = subservient_administrators_reform
+			}
+			
+			# economical_matters
+			if = {
+				limit = {
+					has_institution = printing_press
+					NOT = { has_reform_on_level = 17 }
+				}
+				if = {
+					limit = {
+						is_year = 4048
+					}
+					add_government_reform = free_trade_reform
+				}
+				else = {
+					add_government_reform = curtail_the_burghers_reform
+				}
+			}
+			
+			# divine_cause
+			if = {
+				limit = {
+					has_institution = global_trade
+					NOT = { has_reform_on_level = 18 }
+				}
+				add_government_reform = safeguard_holy_sites_reform
+			}
+			
+			# separation_of_power_theocracy
+			if = {
+				limit = {
+					has_institution = global_trade
+					NOT = { has_reform_on_level = 19 }
+				}
+				add_government_reform = clerical_commission_reform
+			}
+			
+			# nature_of_faith
+			if = {
+				limit = {
+					has_institution = manufactories
+					NOT = { has_reform_on_level = 20 }
+				}
+				add_government_reform = church_and_state_reform
+			}
+			
+			# culture_within_the_state
+			if = {
+				limit = {
+					has_institution = enlightenment
+					NOT = { has_reform_on_level = 21 }
+				}
+				add_government_reform = religious_culture_reform
+			}
+			
+			# faith_and_the_world
+			if = {
+				limit = {
+					has_institution = enlightenment
+					NOT = { has_reform_on_level = 22 }
+				}
+				add_government_reform = religion_in_one_country_reform
+			}
+		}
+		change_government_reform_progress = -99999
+	}
+}
+
+change_government_to_autocratic_monarchy = {
+	custom_tooltip = change_autocracy_tt
+	hidden_effect = {
+		change_government_to_monarchy = yes
+		
+		if = {
+			limit = {
+				has_institution = printing_press
+			}
+			add_government_reform = royal_decree_reform
+		}
+		if = {
+			limit = {
+				has_institution = global_trade
+			}
+			add_government_reform = letat_cest_moi_reform
+		}
+		if = {
+			limit = {
+				has_institution = enlightenment
+			}
+			add_government_reform = political_absolutism_reform
+		}
+		if = {
+			limit = {
+				has_institution = imperialism
+			}
+			add_government_reform = authoritarian_rule
+		}
+		if = {
+			limit = {
+				has_institution = industrialization
+			}
+			add_government_reform = royal_power
+		}
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+			}
+			add_government_reform = oligarchic_reform
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+change_government_to_parliamentary_monarchy = {
+	custom_tooltip = change_parliamentary_tt
+	hidden_effect = {
+		change_government_to_monarchy = yes
+		
+		if = {
+			limit = {
+				has_institution = printing_press
+			}
+			add_government_reform = parliamentary_reform
+		}
+		if = {
+			limit = {
+				has_institution = global_trade
+			}
+			add_government_reform = regional_representation_reform
+		}
+		if = {
+			limit = {
+				has_institution = enlightenment
+			}
+			add_government_reform = legislative_houses_reform
+		}
+		if = {
+			limit = {
+				has_institution = imperialism
+			}
+			add_government_reform = elected_parliament
+		}
+		if = {
+			limit = {
+				has_institution = industrialization
+			}
+			add_government_reform = ceremonial_monarch
+		}
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+			}
+			add_government_reform = democracy_reform
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+change_government_to_fascist_monarchy = {
+	custom_tooltip = change_fascist_tt
+	hidden_effect = {
+		change_government_to_monarchy = yes
+		
+		if = {
+			limit = {
+				has_institution = printing_press
+			}
+			add_government_reform = parliamentary_reform
+		}
+		if = {
+			limit = {
+				has_institution = global_trade
+			}
+			add_government_reform = letat_cest_moi_reform
+		}
+		if = {
+			limit = {
+				has_institution = enlightenment
+			}
+			add_government_reform = political_absolutism_reform
+		}
+		if = {
+			limit = {
+				has_institution = imperialism
+			}
+			add_government_reform = landed_parliament
+		}
+		if = {
+			limit = {
+				has_institution = industrialization
+			}
+			add_government_reform = ministrial_dictatorship
+		}
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+			}
+			add_government_reform = fascist_government
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+change_government_to_democratic_republic = {
+	custom_tooltip = change_democracy_tt
+	hidden_effect = {
+		remove_government_reform = pirate_republic_reform
+		remove_government_reform = noble_elite_reform
+		remove_government_reform = presidential_despot_reform
+		remove_government_reform = military_dictatorship_reform
+		remove_government_reform = protectorate_parliament_reform
+		remove_government_reform = prussian_republic_reform
+		remove_government_reform = trade_company_government
+		remove_government_reform = chinese_warlord_clique
+		
+		remove_government_reform = military_government
+		remove_government_reform = communist_government
+		remove_government_reform = fascist_government
+		
+		change_government_to_republic = yes
+		
+		# republican_virtues
+		if = {
+			limit = {
+				has_institution = feudalism
+				NOT = {
+					OR = {
+						has_reform = republicanism_reform
+						has_reform = liberte_reform
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_revolutionary = no
+						NOT = { has_dlc = "Emperor" }
+					}
+				}
+				add_government_reform = republicanism_reform
+			}
+			else = {
+				add_government_reform = liberte_reform
+			}
+		}
+		
+		# frequent_elections_vs_consolidation_of_power
+		if = {
+			limit = {
+				has_institution = renaissance
+				NOT = {
+					OR = {
+						has_reform = balance_of_power_reform
+						has_reform = legislative_assembly_reform
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_revolutionary = no
+						NOT = { has_dlc = "Emperor" }
+					}
+				}
+				add_government_reform = balance_of_power_reform
+			}
+			else = {
+				add_government_reform = legislative_assembly_reform
+			}
+		}
+		
+		# republic_and_religion
+		if = {
+			limit = {
+				has_institution = renaissance
+				NOT = {
+					OR = {
+						has_reform = maintain_clergy_balance_of_power_reform
+						has_reform = secularization_of_the_state_reform
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_revolutionary = no
+						NOT = { has_dlc = "Emperor" }
+					}
+				}
+				add_government_reform = maintain_clergy_balance_of_power_reform
+			}
+			else = {
+				add_government_reform = secularization_of_the_state_reform
+			}
+		}
+		
+		# federalism_vs_unitarism_vs_confederacy
+		if = {
+			limit = {
+				has_institution = renaissance
+				NOT = {
+					OR = {
+						has_reform = provincial_governments_reform	 # Federation
+						has_reform = administrative_divisions_reform # Unitary
+						has_reform = union_of_states_reform			 # Confederacy
+					}
+				}
+			}
+			if = {
+				limit = {
+					government_rank = 3
+				}
+				add_government_reform = provincial_governments_reform
+			}
+			else = {
+				add_government_reform = administrative_divisions_reform
+			}
+		}
+		
+		# parliamentary_vs_presidential
+		if = {
+			limit = {
+				has_institution = new_world_i
+				NOT = {
+					OR = {
+						has_reform = parliamentary_reform
+						has_reform = attorney_general_reform
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				add_government_reform = parliamentary_reform
+			}
+			else = {
+				add_government_reform = attorney_general_reform
+			}
+		}
+		
+		# economical_matters_republic
+		if = {
+			limit = {
+				has_institution = new_world_i
+				NOT = { has_reform = free_trade_reform }
+			}
+			add_government_reform = free_trade_reform
+		}
+		
+		# consolidation_of_power_category
+		if = {
+			limit = {
+				has_institution = printing_press
+				NOT = { has_reform = devolution_of_powers_reform }
+			}
+			add_government_reform = devolution_of_powers_reform
+		}
+		
+		# guiding_principle_of_administration
+		if = {
+			limit = {
+				has_institution = printing_press
+				NOT = { has_reform = political_principle_reform }
+			}
+			add_government_reform = political_principle_reform
+		}
+		
+		# electorate
+		if = {
+			limit = {
+				has_institution = global_trade
+				NOT = {
+					OR = {
+						has_reform = citizenry_reform
+						has_reform = equal_electorate_reform
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_revolutionary = no
+						NOT = { has_dlc = "Emperor" }
+					}
+				}
+				add_government_reform = citizenry_reform
+			}
+			else = {
+				add_government_reform = equal_electorate_reform
+			}
+		}
+		
+		# office_selection
+		if = {
+			limit = {
+				has_institution = manufactories
+				NOT = { has_reform = universal_suffrage_reform }
+			}
+			add_government_reform = universal_suffrage_reform
+		}
+		
+		# question_of_dictatorship
+		if = {
+			limit = {
+				has_institution = enlightenment
+				NOT = { has_reform = reinforce_republican_values_reform }
+			}
+			add_government_reform = reinforce_republican_values_reform
+		}
+		
+		# political_parties_republic
+		if = {
+			limit = {
+				has_institution = imperialism
+				NOT = { has_reform = multi_party_system }
+			}
+			add_government_reform = multi_party_system
+		}
+		
+		# ruling_class_republic
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+				NOT = { has_reform = democracy_reform }
+			}
+			add_government_reform = democracy_reform
+		}
+		
+		# head_of_state_republic
+		if = {
+			limit = {
+				has_institution = globalization
+				NOT = {
+					OR = {
+						has_reform = ceremonial_president
+						has_reform = abolish_presidency
+					}
+				}
+			}
+			add_government_reform = ceremonial_president
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+change_government_to_oligarchic_republic = {
+	custom_tooltip = change_oligarchy_tt
+	hidden_effect = {
+		change_government_to_republic = yes
+		
+		if = {
+			limit = {
+				has_institution = new_world_i
+			}
+			add_government_reform = parliamentary_reform
+		}
+		if = {
+			limit = {
+				has_institution = printing_press
+			}
+			add_government_reform = broaden_executive_powers_reform
+		}
+		if = {
+			limit = {
+				has_institution = global_trade
+			}
+			add_government_reform = landholders_reform
+		}
+		if = {
+			limit = {
+				has_institution = manufactories
+			}
+			add_government_reform = bureaucratic_aparatus_reform
+		}
+		if = {
+			limit = {
+				has_institution = enlightenment
+			}
+			add_government_reform = strengthen_executive_powers_reform
+		}
+		if = {
+			limit = {
+				has_institution = imperialism
+			}
+			add_government_reform = single_party_system
+		}
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+			}
+			add_government_reform = oligarchic_reform
+		}
+		if = {
+			limit = {
+				has_institution = globalization
+			}
+			add_government_reform = powerful_head_of_state
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+change_government_to_dictatorial_republic = {
+	custom_tooltip = change_dictatorship_tt
+	hidden_effect = {
+		change_government_to_republic = yes
+		
+		if = {
+			limit = {
+				has_institution = new_world_i
+			}
+			add_government_reform = parliamentary_reform
+		}
+		if = {
+			limit = {
+				has_institution = printing_press
+			}
+			add_government_reform = broaden_executive_powers_reform
+		}
+		if = {
+			limit = {
+				has_institution = global_trade
+			}
+			add_government_reform = citizenry_reform
+		}
+		if = {
+			limit = {
+				has_institution = manufactories
+			}
+			add_government_reform = appointment_by_committee_reform
+		}
+		if = {
+			limit = {
+				has_institution = enlightenment
+			}
+			add_government_reform = strengthen_executive_powers_reform
+		}
+		if = {
+			limit = {
+				has_institution = imperialism
+			}
+			add_government_reform = dictatorial_rule
+		}
+		if = {
+			limit = {
+				has_institution = nationalism_institution
+			}
+			add_government_reform = oligarchic_reform
+		}
+		if = {
+			limit = {
+				has_institution = globalization
+			}
+			add_government_reform = powerful_head_of_state
+		}
+		
+		catch_up_on_reforms_effect = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}
+
+exile_royal_family_effect = {
+	if = {
+		limit = {
+			has_heir = yes
+		}
+		exile_heir_as = heir_$name$_@THIS
+		set_country_flag = heir_$name$_@THIS
+	}
+	if = {
+		limit = {
+			has_consort = yes
+		}
+		exile_consort_as = consort_$name$_@THIS
+		set_country_flag = consort_$name$_@THIS
+	}
+	exile_ruler_as = { name = ruler_$name$_@THIS }
+	set_country_flag = ruler_$name$_@THIS
+}
+
+restore_royal_family_effect = {
+	if = {
+		limit = {
+			has_country_flag = ruler_$name$_@THIS
+		}
+		set_ruler = ruler_$name$_@THIS
+		clr_country_flag = ruler_$name$_@THIS
+	}
+	if = {
+		limit = {
+			has_country_flag = consort_$name$_@THIS
+		}
+		set_consort = consort_$name$_@THIS
+		clr_country_flag = consort_$name$_@THIS
+	}
+	if = {
+		limit = {
+			has_country_flag = heir_$name$_@THIS
+		}
+		set_heir = heir_$name$_@THIS
+		clr_country_flag = heir_$name$_@THIS
+	}
+}
+
+change_to_prime_minister_effect = {
+	if = {
+		limit = {
+			government = monarchy
+		}
+		set_country_flag = ruler_is_prime_minister
+		if = {
+			limit = {
+				is_lesser_in_union = yes
+			}
+			# Personal Union is replaced with Dominion
+			overlord = {
+				create_subject = {
+					subject_type = dominion
+					subject = ROOT
+				}
+			}
+			add_government_reform = dominion_reform
+		}
+		else = {
+			if = {
+				limit = { dynasty = "Hashemite" }
+				set_country_flag = hashemite_dynasty_flag
+			}
+			if = {
+				limit = { dynasty = "Osmanoglu" }
+				set_country_flag = osmanoglu_dynasty_flag
+			}
+			set_ruler_flag = monarch_getting_replaced_flag # temporarily disables election event
+			exile_royal_family_effect = { name = ceremonial }
+		}
+		# Create interim Prime Minister
+		set_saved_name = {
+			key = random_new_candidate
+			type = advisor
+			scope = THIS
+		}
+		define_ruler = {
+			name = random_new_candidate
+			max_random_adm = 2 # Not too OP
+			max_random_dip = 2
+			max_random_mil = 2
+		}
+		set_ruler_flag = placeholder_prime_minister # can't be reelected
+		clear_saved_name = random_new_candidate
+	}
+}
+
+remove_prime_minister_effect = {
+	if = {
+		limit = {
+			government = monarchy
+		}
+		clr_country_flag = ruler_is_prime_minister
+		if = {
+			limit = {
+				is_lesser_in_union = no
+			}
+			if = {
+				limit = {
+					has_country_flag = ruler_ceremonial_@THIS
+				}
+				restore_royal_family_effect = { name = ceremonial }
+				clr_ruler_flag = monarch_getting_replaced_flag
+				clr_ruler_flag = ruler_has_died_flag
+			}
+			else = {
+				define_ruler = {}
+			}
+		}
+	}
+}
+
+change_ruling_party_support = {
+	if = {
+		limit = {
+			faction_in_power = conservative_party
+		}
+		add_faction_influence = {
+			faction = conservative_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			faction_in_power = liberal_party
+		}
+		add_faction_influence = {
+			faction = liberal_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			faction_in_power = nationalist_party
+		}
+		add_faction_influence = {
+			faction = nationalist_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			faction_in_power = social_democratic_party
+		}
+		add_faction_influence = {
+			faction = social_democratic_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			faction_in_power = communist_party
+		}
+		add_faction_influence = {
+			faction = communist_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			faction_in_power = national_socialist_party
+		}
+		add_faction_influence = {
+			faction = national_socialist_party
+			influence = $amount$
+		}
+	}
+	else_if = {
+		limit = {
+			legitimacy = 0 # Government with legitimacy
+		}
+		add_legitimacy = $amount$
+	}
+	else = {
+		add_prestige = $amount$
+	}
+}
+
+set_faction_influence = {
+	hidden_effect = {
+		while = {
+			limit = {
+				NOT = {
+					faction_influence = {
+						faction = $faction$
+						influence = $influence$
+					}
+				}
+			}
+			add_faction_influence = {
+				faction = $faction$
+				influence = 1
+				perform_readjustment = no
+			}
+		}
+		while = {
+			limit = {
+				faction_influence = {
+					faction = $faction$
+					influence = $influence$
+				}
+			}
+			add_faction_influence = {
+				faction = $faction$
+				influence = -1
+				perform_readjustment = no
+			}
+		}
+	}
+}
+
+_add_opinion_based_on_relation_modifier = {
+	export_to_variable = {
+		which = this_temp_variable
+		value = modifier:$regular_modifier$
+	}
+	export_to_variable = {
+		which = prev_temp_variable
+		value = modifier:$reverse_modifier$
+		who = PREV
+	}
+	change_variable = {
+		which = this_temp_variable
+		which = prev_temp_variable
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = this_temp_variable
+				value = 1
+			}
+		}
+		add_opinion = {
+			who = PREV
+			modifier = $opinion_modifier$
+		}
+		subtract_variable = {
+			which = this_temp_variable
+			value = 1
+		}
+	}
+	while = {
+		limit = {
+			NOT = {
+				check_variable = {
+					which = this_temp_variable
+					value = 0
+				}
+			}
+		}
+		add_opinion = {
+			who = PREV
+			modifier = $opinion_negative$
+		}
+		change_variable = {
+			which = this_temp_variable
+			value = 1
+		}
+	}
+	
+	export_to_variable = {
+		which = this_temp_variable2
+		value = modifier:$reverse_modifier$
+	}
+	export_to_variable = {
+		which = prev_temp_variable2
+		value = modifier:$regular_modifier$
+		who = PREV
+	}
+	change_variable = {
+		which = this_temp_variable2
+		which = prev_temp_variable2
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = this_temp_variable2
+				value = 1
+			}
+		}
+		reverse_add_opinion = {
+			who = PREV
+			modifier = $opinion_modifier$
+		}
+		subtract_variable = {
+			which = this_temp_variable2
+			value = 1
+		}
+	}
+	while = {
+		limit = {
+			NOT = {
+				check_variable = {
+					which = this_temp_variable2
+					value = 0
+				}
+			}
+		}
+		reverse_add_opinion = {
+			who = PREV
+			modifier = $opinion_negative$
+		}
+		change_variable = {
+			which = this_temp_variable2
+			value = 1
+		}
+	}
+}
+
+ideology_opinion_effect = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				exists = yes
+				NOT = { tag = PREV }
+			}
+			# Same Ideology:
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = same_ideology
+			}
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = same_ideology_negative
+			}
+			if = {
+				limit = {
+					has_ideology_same_as = { who = PREV }
+				}
+				_add_opinion_based_on_relation_modifier = {
+					regular_modifier = relation_with_same_ideology
+					reverse_modifier = reverse_relation_with_same_ideology
+					opinion_modifier = same_ideology
+					opinion_negative = same_ideology_negative
+				}
+			}
+			# Opposing Ideology:
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opposing_ideology
+			}
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opposing_ideology_negative
+			}
+			if = {
+				limit = {
+					has_ideology_opposing = { who = PREV }
+				}
+				_add_opinion_based_on_relation_modifier = {
+					regular_modifier = relation_with_other_ideology
+					reverse_modifier = reverse_relation_with_other_ideology
+					opinion_modifier = opposing_ideology
+					opinion_negative = opposing_ideology_negative
+				}
+			}
+			# Democracies:
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_democracies
+			}
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_democracies_negative
+			}
+			if = {
+				limit = {
+					OR = {
+						is_democracy = yes
+						PREV = {
+							is_democracy = yes
+						}
+					}
+				}
+				_add_opinion_based_on_relation_modifier = {
+					regular_modifier = relation_with_democracies
+					reverse_modifier = reverse_relation_with_democracies
+					opinion_modifier = opinion_of_democracies
+					opinion_negative = opinion_of_democracies_negative
+				}
+			}
+			# Communists:
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_communists
+			}
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_communists_negative
+			}
+			if = {
+				limit = {
+					OR = {
+						is_communist = yes
+						PREV = {
+							is_communist = yes
+						}
+					}
+				}
+				_add_opinion_based_on_relation_modifier = {
+					regular_modifier = relation_with_communists
+					reverse_modifier = reverse_relation_with_communists
+					opinion_modifier = opinion_of_communists
+					opinion_negative = opinion_of_communists_negative
+				}
+			}
+			# Fascists:
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_fascists
+			}
+			mutual_remove_opinion = {
+				who = PREV
+				modifier = opinion_of_fascists_negative
+			}
+			if = {
+				limit = {
+					OR = {
+						is_fascist = yes
+						PREV = {
+							is_fascist = yes
+						}
+					}
+				}
+				_add_opinion_based_on_relation_modifier = {
+					regular_modifier = relation_with_fascists
+					reverse_modifier = reverse_relation_with_fascists
+					opinion_modifier = opinion_of_fascists
+					opinion_negative = opinion_of_fascists_negative
+				}
+			}
+		}
+	}
+}
+
+add_ruler_party_flag = { # Mostly used in history files
+	hidden_effect = {
+		clr_ruler_flag = ruler_from_conservative_party
+		clr_ruler_flag = ruler_from_liberal_party
+		clr_ruler_flag = ruler_from_nationalist_party
+		clr_ruler_flag = ruler_from_social_democratic_party
+		clr_ruler_flag = ruler_from_communist_party
+		clr_ruler_flag = ruler_from_national_socialist_party
+		#clr_ruler_flag = ruler_from_no_party
+	}
+	[[conservative_party]
+		set_ruler_flag = ruler_from_conservative_party
+	]
+	[[liberal_party]
+		set_ruler_flag = ruler_from_liberal_party
+	]
+	[[nationalist_party]
+		set_ruler_flag = ruler_from_nationalist_party
+	]
+	[[social_democratic_party]
+		set_ruler_flag = ruler_from_social_democratic_party
+	]
+	[[communist_party]
+		set_ruler_flag = ruler_from_communist_party
+	]
+	[[national_socialist_party]
+		set_ruler_flag = ruler_from_national_socialist_party
+	]
+	[[none]
+		#set_ruler_flag = ruler_from_no_party
+	]
+	trigger_switch = {
+		on_trigger = has_ruler_flag
+		ruler_from_conservative_party = {
+			add_faction_influence = {
+				faction = conservative_party
+				influence = 10
+			}
+		}
+		ruler_from_liberal_party = {
+			add_faction_influence = {
+				faction = liberal_party
+				influence = 10
+			}
+		}
+		ruler_from_nationalist_party = {
+			add_faction_influence = {
+				faction = nationalist_party
+				influence = 10
+			}
+		}
+		ruler_from_social_democratic_party = {
+			add_faction_influence = {
+				faction = social_democratic_party
+				influence = 10
+			}
+		}
+		ruler_from_communist_party = {
+			add_faction_influence = {
+				faction = communist_party
+				influence = 10
+			}
+		}
+		ruler_from_national_socialist_party = {
+			add_faction_influence = {
+				faction = national_socialist_party
+				influence = 10
+			}
+		}
+	}
+}

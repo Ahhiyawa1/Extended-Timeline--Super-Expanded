@@ -1,0 +1,240 @@
+join_GCF_effect = {
+	if = {
+		limit = {
+			has_global_flag = german_confederation_established
+			NOT = { is_GCF_member = yes }
+		}
+		custom_tooltip = join_GCF_tt
+		hidden_effect = {
+			GCF = {
+				change_variable = {
+					which = member_count_GCF
+					value = 1
+				}
+			}
+			add_country_modifier = {
+				name = GCF_member_state
+				duration = -1
+			}
+			every_country = {
+				limit = {
+					is_GCF_member = yes
+					NOT = { tag = PREV }
+				}
+				# Permanent +25 mutual relations with every other member
+				add_opinion = {
+					modifier = member_ger_confed
+					who = PREV
+				}
+				reverse_add_opinion = {
+					modifier = member_ger_confed
+					who = PREV
+				}
+			}
+		}
+	}
+}
+
+exit_GCF_effect = {
+	if = {
+		limit = {
+			is_GCF_member = yes
+		}
+		custom_tooltip = exit_GCF_tt
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = german_confederation_established }
+				GCF = {
+					change_variable = {
+						which = member_count_GCF
+						value = -1
+					}
+				}
+			}
+			remove_country_modifier = GCF_member_state
+			remove_country_modifier = GCF_leader_state
+			set_country_flag = former_GCF_member_state
+			# Clear opinion modifiers:
+			every_country = {
+				remove_opinion = {
+					modifier = member_ger_confed
+					who = PREV
+				}
+				reverse_remove_opinion = {
+					modifier = member_ger_confed
+					who = PREV
+				}
+				remove_opinion = {
+					modifier = left_ger_confed_leader
+					who = PREV
+				}
+				reverse_remove_opinion = {
+					modifier = left_ger_confed_leader
+					who = PREV
+				}
+				remove_opinion = {
+					modifier = left_ger_confed
+					who = PREV
+				}
+				reverse_remove_opinion = {
+					modifier = left_ger_confed
+					who = PREV
+				}
+			}
+			# Members condemn you, Leader hates you:
+			if = {
+				limit = { has_global_flag = german_confederation_established }
+				every_country = {
+					limit = {
+						is_GCF_member = yes
+					}
+					if = {
+						limit = {
+							is_GCF_leader = yes
+							NOT = {
+								has_opinion_modifier = {
+									who = PREV
+									modifier = left_ger_confed_leader
+								}
+							}
+						}
+						add_opinion = {
+							modifier = left_ger_confed_leader
+							who = PREV
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = {
+								has_opinion_modifier = {
+									who = PREV
+									modifier = left_ger_confed
+								}
+							}
+						}
+						add_opinion = {
+							modifier = left_ger_confed
+							who = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+establish_GCF_effect = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = german_confederation_established }
+		}
+		custom_tooltip = establish_GCF_tt
+		hidden_effect = {
+			clr_global_flag = german_confederation_destroyed
+			set_global_flag = german_confederation_established
+			GCF = {
+				set_variable = {
+					which = member_count_GCF
+					value = 0
+				}
+				set_variable = {
+					which = unity_GCF_var
+					value = 15
+				}
+				set_variable = {
+					which = stability_GCF_var
+					value = 100
+				}
+			}
+			join_GCF_effect = yes
+			# Replace member modifier with leader modifier:
+			add_country_modifier = {
+				name = GCF_leader_state
+				duration = -1
+			}
+			remove_country_modifier = GCF_member_state
+		}
+	}
+}
+
+dismantle_GCF_effect = {
+	if = {
+		limit = {
+			has_global_flag = german_confederation_established
+		}
+		custom_tooltip = dismantle_GCF_tt
+		hidden_effect = {
+			clr_global_flag = german_confederation_established
+			set_global_flag = german_confederation_destroyed
+			GCF = {
+				set_variable = {
+					which = member_count_GCF
+					value = -1
+				}
+				set_variable = {
+					which = unity_GCF_var
+					value = -1
+				}
+				set_variable = {
+					which = stability_GCF_var
+					value = -1
+				}
+			}
+			every_country_including_inactive = {
+				limit = {
+					capital_scope = {
+						always = yes
+					}
+				}
+				exit_GCF_effect = yes
+				clr_country_flag = former_GCF_member_state
+			}
+		}
+	}
+}
+
+# GCF variables like 'unity_GCF_var' and 'stability_GCF_var' should always be somewhere in a range from 0-100.
+# The effect below functions much like 'change_variable',
+# but also contains checks that prevent the variable from going below 0 or exceeding 100.
+change_GCF_variable = {
+	GCF = {
+		change_variable = {
+			which = $which$
+			value = $value$
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					# Value cannot go into negative,
+					# return to 0.
+					NOT = {
+						check_variable = {
+							# !($which$ >= 0)
+							which = $which$
+							value = 0
+						}
+					}
+				}
+				set_variable = {
+					which = $which$
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					# Value cannot go over 100,
+					# return to 100.
+					check_variable = {
+						# $which$ >= 100
+						which = $which$
+						value = 100
+					}
+				}
+				set_variable = {
+					which = $which$
+					value = 100
+				}
+			}
+		}
+	}
+}

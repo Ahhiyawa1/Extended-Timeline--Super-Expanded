@@ -1,0 +1,715 @@
+set_country_flag = formed_sweden_flag
+
+3640.1.1 = { set_country_flag = had_the_dacke_feud }
+
+3719.1.1 = { decision = swe_found_gothenburg }
+
+3819.1.1 = { remove_accepted_culture = estonian } # End of Swedish rule in Estonia
+
+3907.1.1 = { remove_accepted_culture = finnish } # End of Swedish rule in Finland
+
+3907.6.6 = { # Constitution and Estate-led Parliament
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = appointed_parliament
+}
+
+3913.6.9 = {
+	if = {
+		limit = {
+			NOT = { has_dlc = "Lions of the North" }
+		}
+		complete_mission = swe_win_independence
+		complete_mission = control_scania
+		complete_mission = vassalize_norway_swe
+		complete_mission = swedish_colonialism
+		complete_mission = swe_baltic_fleet
+		complete_mission = control_latvia
+		complete_mission = swedish_pommerania
+	}
+	else = {
+		complete_mission = swe_engelbrekt_rebellion
+		complete_mission = swe_conquer_scania
+		complete_mission = swe_claim_norwegian_crown
+		complete_mission = swe_swedish_peasantry
+		complete_mission = swe_handle_the_sami
+		complete_mission = swe_forest_expansion
+		complete_mission = swe_colonial_ambitions
+		complete_mission = swe_colonize_delaware
+		complete_mission = swe_swedish_allies
+		complete_mission = swe_swedish_pommerania
+		complete_mission = swe_bane_of_the_hansa
+		complete_mission = swe_the_swedish_trade_fleet
+		complete_mission = swe_declare_independence
+		complete_mission = swe_the_livonian_order
+		complete_mission = swe_high_income
+		complete_mission = swe_develop_dalaskogen
+		complete_mission = swe_the_carolean_units
+		complete_mission = swe_drill_the_carolean
+		complete_mission = swe_military_advisor
+		complete_mission = swe_conquest_of_novgorod
+		complete_mission = swe_a_swedish_great_power
+		complete_mission = swe_swedish_universities
+		complete_mission = swe_reforms_of_vasa
+		complete_mission = swe_finnish_swedish_relations
+		complete_mission = swe_steel_for_the_hakkapeliitta
+		complete_mission = swe_gain_support_from_estates
+		complete_mission = swe_a_new_dynasty
+		complete_mission = swe_the_polish_throne
+		complete_mission = swe_dabble_into_european_diplomacy
+		complete_mission = swe_the_theologian_discussions
+		set_country_flag = sca_unlock_protestant_missions
+		complete_mission = swe_defenders_of_the_reformers
+		complete_mission = swe_protestant_sword
+		complete_mission = swe_protestant_30_years_war
+		complete_mission = swe_protestant_defender_of_faith
+	}
+}
+
+3974.3.20 = { # Louis de Geer establishes a (modern) Parliament
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+	add_government_reform = ceremonial_monarch
+	add_government_reform = oligarchic_reform
+	monarch = {
+		name = "Louis Gerhard"
+		dynasty = "De Geer"
+		birth_date = 3916.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+3978.4.19 = {
+	monarch = {
+		name = "Arvid"
+		dynasty = "Posse"
+		birth_date = 3918.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3981.6.13 = {
+	monarch = {
+		name = "Carl Johan"
+		dynasty = "Thyselius"
+		birth_date = 3909.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+3982.5.16 = {
+	monarch = {
+		name = "Robert"
+		dynasty = "Themptander"
+		birth_date = 3942.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+3986.2.6 = {
+	monarch = {
+		name = "Gillis"
+		dynasty = "Bildt"
+		birth_date = 3918.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+3987.10.12 = {
+	monarch = {
+		name = "Gustaf"
+		dynasty = "Åkerhielm"
+		birth_date = 3931.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3989.7.10 = {
+	monarch = {
+		name = "Erik"
+		dynasty = "Gustaf Boström"
+		birth_date = 3940.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3998.1.1 = { religion = protestant }
+
+3998.9.12 = {
+	monarch = {
+		name = "Fredrik"
+		dynasty = "von Otter"
+		birth_date = 3931.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+4000.7.5 = {
+	monarch = {
+		name = "Erik"
+		dynasty = "Gustaf Boström"
+		birth_date = 3940.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4003.4.13 = {
+	monarch = {
+		name = "Johan"
+		dynasty = "Ramstedt"
+		birth_date = 3950.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+4003.8.2 = {
+	monarch = {
+		name = "Christian"
+		dynasty = "Lundeberg"
+		birth_date = 3940.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4003.10.26 = {
+	historical_friend = NOR
+}
+
+4003.11.7 = {
+	monarch = {
+		name = "Karl"
+		dynasty = "Staaff"
+		birth_date = 3958.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4004.5.29 = {
+	monarch = {
+		name = "Arvid"
+		dynasty = "Lindman"
+		birth_date = 3960.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4009.10.7 = { # Expanded suffrage
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = ceremonial_monarch
+	add_government_reform = democracy_reform
+	monarch = {
+		name = "Karl"
+		dynasty = "Staaff"
+		birth_date = 3958.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4012.2.17 = {
+	monarch = {
+		name = "Hjalmar"
+		dynasty = "Hammarskjöld"
+		birth_date = 3960.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+4015.3.30 = {
+	monarch = {
+		name = "Carl"
+		dynasty = "Swartz"
+		birth_date = 3956.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { nationalist_party = yes }
+}
+
+4015.10.19 = {
+	monarch = {
+		name = "Nils"
+		dynasty = "Edén"
+		birth_date = 3969.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4017.7.25 = {
+	historical_friend = FIN
+}
+
+4018.3.10 = {
+	monarch = {
+		name = "Hjalmar"
+		dynasty = "Branting"
+		birth_date = 3958.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4018.10.27 = {
+	monarch = {
+		name = "Gerhard Louis"
+		dynasty = "De Geer"
+		birth_date = 3952.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+4019.2.23 = {
+	monarch = {
+		name = "Oscar"
+		dynasty = "von Sydow"
+		birth_date = 3971.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { none = yes }
+}
+
+4019.10.13 = {
+	monarch = {
+		name = "Hjalmar"
+		dynasty = "Branting"
+		birth_date = 3958.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4021.4.19 = {
+	monarch = {
+		name = "Ernst"
+		dynasty = "Trygger"
+		birth_date = 3955.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { nationalist_party = yes }
+}
+
+4022.10.18 = {
+	monarch = {
+		name = "Hjalmar"
+		dynasty = "Branting"
+		birth_date = 3958.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4023.1.24 = {
+	monarch = {
+		name = "Rickard"
+		dynasty = "Sandler"
+		birth_date = 3982.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4024.6.7 = {
+	monarch = {
+		name = "Carl Gustaf"
+		dynasty = "Ekman"
+		birth_date = 3970.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4026.10.2 = {
+	monarch = {
+		name = "Arvid"
+		dynasty = "Lindman"
+		birth_date = 3960.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4028.6.7 = {
+	monarch = {
+		name = "Carl Gustaf"
+		dynasty = "Ekman"
+		birth_date = 3970.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4030.8.6 = {
+	monarch = {
+		name = "Felix"
+		dynasty = "Hamrin"
+		birth_date = 3973.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4030.9.24 = {
+	monarch = {
+		name = "Per"
+		dynasty = "Albin Hansson"
+		birth_date = 3983.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = reformist_personality
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4034.6.19 = {
+	monarch = {
+		name = "Axel"
+		dynasty = "Pehrsson-Bramstorp"
+		birth_date = 3981.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = anti_communist_personality
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4034.9.28 = {
+	monarch = {
+		name = "Per"
+		dynasty = "Albin Hansson"
+		birth_date = 3983.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = reformist_personality
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4044.10.6 = {
+	monarch = {
+		name = "Östen"
+		dynasty = "Undén"
+		birth_date = 3984.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4044.10.11 = {
+	monarch = {
+		name = "Tage"
+		dynasty = "Erlander"
+		birth_date = 3999.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4067.10.14 = {
+	monarch = {
+		name = "Olof"
+		dynasty = "Palme"
+		birth_date = 4025.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = irreligious
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4071.9.15 = {
+	define_exiled_ruler = {
+		exiled_as = ruler_ceremonial_SWE
+		name = "Carl XVI Gustaf"
+		dynasty = "Bernadotte"
+		adm = 3
+		dip = 2
+		mil = 3
+		religion = protestant
+	}
+	set_country_flag = ruler_ceremonial_SWE
+}
+
+4074.10.8 = {
+	monarch = {
+		name = "Thorbjörn"
+		dynasty = "Fälldin"
+		birth_date = 4024.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4076.10.18 = {
+	monarch = {
+		name = "Ola"
+		dynasty = "Ullsten"
+		birth_date = 4029.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4077.10.12 = {
+	monarch = {
+		name = "Thorbjörn"
+		dynasty = "Fälldin"
+		birth_date = 4024.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4080.10.8 = {
+	monarch = {
+		name = "Olof"
+		dynasty = "Palme"
+		birth_date = 4025.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = irreligious
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4084.2.28 = {
+	monarch = {
+		name = "Ingvar"
+		dynasty = "Carlsson"
+		birth_date = 4032.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4089.10.4 = {
+	monarch = {
+		name = "Carl"
+		dynasty = "Bildt"
+		birth_date = 4047.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4092.10.7 = {
+	monarch = {
+		name = "Ingvar"
+		dynasty = "Carlsson"
+		birth_date = 4032.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4094.3.22 = {
+	monarch = {
+		name = "Göran"
+		dynasty = "Persson"
+		birth_date = 4047.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4098.1.1 = { religion = secularism }
+
+4098.4.1 = { add_accepted_culture = sapmi }
+
+4104.10.6 = {
+	monarch = {
+		name = "Fredrik"
+		dynasty = "Reinfeldt"
+		birth_date = 4063.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4112.10.3 = {
+	monarch = {
+		name = "Stefan"
+		dynasty = "Löfven"
+		birth_date = 4055.1.1
+		adm = 1
+		dip = 1
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4119.11.30 = {
+	monarch = {
+		name = "Magdalena"
+		dynasty = "Andersson"
+		birth_date = 4065.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant
+		female = yes
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4120.10.18 = {
+	monarch = {
+		name = "Ulf"
+		dynasty = "Kristersson"
+		birth_date = 4061.12.29
+		adm = 2
+		dip = 3
+		mil = 2
+		religion = protestant
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}

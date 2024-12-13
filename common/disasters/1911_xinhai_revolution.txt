@@ -1,0 +1,85 @@
+xinhai_revolution = {
+	potential = {
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		OR = {
+			AND = {
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					is_emperor_of_china = yes
+				}
+				else = {
+					has_reform = celestial_empire
+				}
+			}
+			AND = {
+				tag = TPG # The Taiping/Heavenly Kingdom
+				NOT = {	  # ... and no Chinese Empire
+					any_country = {
+						if = {
+							limit = { has_dlc = "Mandate of Heaven" }
+							is_emperor_of_china = yes
+						}
+						else = {
+							has_reform = celestial_empire
+						}
+					}
+				}
+			}
+		}
+		owns_core_province = 682 # Can't have a Wuchang Uprising without Wuchang
+		682 = {
+			is_in_capital_area = yes # Wuchang has land connection to capital
+		}
+		num_of_owned_provinces_with = {
+			value = 100
+			superregion = china_superregion
+		}
+		is_year = 3998
+		NOT = { started_in = 4010.1.1 }
+		NOT = { has_global_flag = chinese_revolution_flag }
+	}
+
+	can_start = {
+		if = {
+			limit = { ai = yes }
+			is_year = 4007
+		}
+		else = {
+			NOT = { stability = 1 }
+		}
+	}
+
+	can_stop = {
+		if = {
+			limit = { ai = yes }
+			always = no
+		}
+		else = {
+			stability = 1
+		}
+	}
+
+	progress = {
+		factor = 4
+	}
+
+	can_end = {
+		is_at_war = no
+		stability = 1
+		NOT = {
+			OR = {
+				num_of_rebel_controlled_provinces = 1
+				has_spawned_rebels = revolutionary_rebels
+			}
+		}
+	}
+
+	modifier = {
+		global_unrest = 10
+		stability_cost_modifier = 0.5
+	}
+
+	on_start = etf_event_xinhai.1
+	#on_end = etf_event_xinhai.50
+}

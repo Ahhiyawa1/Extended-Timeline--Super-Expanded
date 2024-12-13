@@ -156,6 +156,132 @@ declarewar = {
 			FROM = { is_part_of_hre = no }
 		}
 	}
+	condition = {
+		tooltip = WE_ARE_NEUTRAL
+		potential = {
+			is_neutral = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = THEY_ARE_NEUTRAL
+		potential = {
+			FROM = {
+				is_neutral = yes
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = GER_CONFED_NO_WAR
+		potential = {
+			OR = {
+				AND = {
+					ROOT = { is_GCF_member = yes }
+					FROM = { is_GCF_member = yes }
+				}
+				AND = {
+					ROOT = { ai = yes }
+					FROM = { is_GCF_member = yes }
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = IS_REVOLTING
+		potential = {
+			FROM = {
+				has_country_flag = is_revolting
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = INTERWAR_PERIOD_CALM
+		potential = {
+			has_global_flag = interwar_calm
+		}
+		allow = {
+			is_year = 4038
+		}
+	}
+	# AI Only:
+	condition = {
+		tooltip = AI_MONROE_DOCTRINE # Not localized
+		potential = {
+			ai = yes
+			any_great_power = {
+				has_country_flag = monroe_doctrine_proclaimed
+			}
+			FROM = {
+				capital_scope = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+				}
+			}
+		}
+		allow = {
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = AI_MONROE_DOCTRINE_USA # Not localized
+		potential = {
+			ai = yes
+			has_country_flag = monroe_doctrine_proclaimed
+			FROM = {
+				has_opinion_modifier = {
+					who = ROOT
+					modifier = monroe_opinion
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = AI_AVOID_CHINESE_CIVIL_WAR # Not localized
+		potential = {
+			ai = yes
+			FROM = {
+				has_country_flag = ccw_participant_flag
+			}
+		}
+		allow = {
+			has_country_flag = ccw_participant_flag
+		}
+	}
+	condition = {
+		tooltip = AI_AVOID_WORLD_WAR # Not localized
+		potential = {
+			ai = yes
+			OR = {
+				current_age = industrial_age
+				is_year = 4048
+			}
+			doW_may_start_world_war_trigger = yes
+		}
+		allow = {
+			always = no
+		}
+	}
 	effect = {
 		on_war_declaration_effect = yes
 		if = {
@@ -242,6 +368,30 @@ declarewar = {
 				}
 			}
 			set_country_flag = forcing_government
+		}
+	}
+	effect = {
+		# Public response to war:
+		random_list = {
+			1 = { country_event = { id = etf_event_war.100 days = 10 } }
+			1 = { country_event = { id = etf_event_war.101 days = 10 } }
+			1 = { country_event = { id = etf_event_war.102 days = 10 } }
+			1 = { country_event = { id = etf_event_war.103 days = 10 } }
+		}
+		FROM = {
+			random_list = {
+				1 = { country_event = { id = etf_event_war.110 days = 10 } }
+			}
+		}
+		# "The Great War" event:
+		if = {
+			limit = {
+				has_casus_belli = {
+					type = cb_great_war
+					target = FROM
+				}
+			}
+			country_event = { id = etf_event_war.300 }
 		}
 	}
 }
@@ -355,6 +505,78 @@ allianceaction = {
 			NOT = { FROM = { has_government_attribute = cannot_form_alliances } }
 		}
 	}
+	# Neutrality
+	condition = {
+		tooltip = WE_ARE_NEUTRAL
+		potential = {
+			is_neutral = yes
+		}
+		allow = { always = no }
+	}
+	condition = {
+		tooltip = THEY_ARE_NEUTRAL
+		potential = {
+			FROM = { is_neutral = yes }
+		}
+		allow = { always = no }
+	}
+	# Recognition
+	condition = {
+		tooltip = WE_ARE_UNRECOGNIZED
+		potential = {
+			is_unrecognized = yes
+		}
+		allow = { always = no }
+	}
+	condition = {
+		tooltip = THEY_ARE_UNRECOGNIZED
+		potential = {
+			FROM = { is_unrecognized = yes }
+		}
+		allow = { always = no }
+	}
+	# Isolationism
+	condition = {
+		tooltip = WE_ARE_ISOLATIONIST
+		potential = {
+			OR = {
+				is_isolationist = yes
+				has_country_modifier = edo_period_sakoku
+				has_country_modifier = qng_isolationism_modifier
+			}
+		}
+		allow = { always = no }
+	}
+	condition = {
+		tooltip = THEY_ARE_ISOLATIONIST
+		potential = {
+			OR = {
+				FROM = { is_isolationist = yes }
+				FROM = { has_country_modifier = edo_period_sakoku }
+				FROM = { has_country_modifier = qng_isolationism_modifier }
+			}
+		}
+		allow = { always = no }
+	}
+	# Civilization
+	condition = {
+		tooltip = DIFFERENT_CIVILIZATION
+		potential = {
+			OR = {
+				AND = {
+					is_civilized = yes
+					FROM = {
+						NOT = { is_civilized = yes }
+					}
+				}
+				AND = {
+					NOT = { is_civilized = yes }
+					FROM = { is_civilized = yes }
+				}
+			}
+		}
+		allow = { always = no }
+	}
 	effect = {
 		change_asha_vahishta = { value = 2 }
 	}
@@ -403,6 +625,14 @@ royal_marriage = {
 		}
 		allow = {
 			NOT = { war_with = FROM }
+		}
+	}
+	condition = {
+		tooltip = NO_MOD_ROYMAR
+		potential = {
+		}
+		allow = {
+			NOT = { post_napoleonic_age = yes }
 		}
 	}
 	effect = {
@@ -568,6 +798,17 @@ annexationaction = {
 			}
 		}
 	}
+	condition = {
+		tooltip = INTEGRATE_DIFFICULT_FROM
+		potential = {
+			FROM = {
+				has_country_modifier = disable_subject_annexation_modifier
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
 	effect = {
 		if = {
 			limit = {
@@ -622,6 +863,26 @@ integrationaction = {
 			FROM = {
 				NOT = { has_country_modifier = tur_mamlukian_administration }
 			}
+		}
+	}
+	condition = {
+		tooltip = INTEGRATE_DIFFICULT_FROM
+		potential = {
+			FROM = {
+				has_country_modifier = disable_subject_annexation_modifier
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = INTEGRATE_GOVERNORATE
+		potential = {
+			FROM = { is_subject_of_type = governorate_subject }
+		}
+		allow = {
+			FROM = { culture_group = ROOT }
 		}
 	}
 }
@@ -748,6 +1009,16 @@ tributary_state_action = {
 			}
 		}
 	}
+	condition = {
+		tooltip = IS_SECULAR
+		potential = {
+			OR = {
+				ROOT = { religion = secularism }
+				FROM = { religion = secularism }
+			}
+		}
+		allow = { always = no }
+	}
 }
 ask_for_tributary_state_action = {
 	condition = {
@@ -770,6 +1041,16 @@ ask_for_tributary_state_action = {
 				}
 			}
 		}
+	}
+	condition = {
+		tooltip = IS_SECULAR
+		potential = {
+			OR = {
+				ROOT = { religion = secularism }
+				FROM = { religion = secularism }
+			}
+		}
+		allow = { always = no }
 	}
 }
 

@@ -16,13 +16,9 @@ italy_odoacer_missions_1 = {
 		required_missions = { }
 		position = 1
 		trigger = {
-			151 = {
-				owner = {
-					has_opinion = {
-						who = ROOT
-						value = 40
-					}
-				}
+			reverse_has_opinion = {
+				who = BYZ
+				value = 40
 			}
 		}
 		effect = {
@@ -187,13 +183,13 @@ italy_odoacer_missions_1 = {
 			has_discovered = ROOT
 		}
 		trigger = {
+			add_army_tradition = 10
 			france_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			add_army_tradition = 10
 			add_country_modifier = {
 				name = "me_ita_governors_of_gallia"
 				duration = 10950
@@ -736,8 +732,15 @@ italy_odoacer_missions_3 = {
 			is_free_or_tributary_trigger = yes
 		}
 		effect = {
-			set_government_rank = 4
-			add_prestige = 30
+			country_event = {
+				id = mmetr_ITA_Odoacer_mission_events.1
+			}
+			
+			tooltip = {
+				change_tag = RO1
+				set_government_rank = 3
+				add_prestige = 30
+			}
 		}
 	}
 	
@@ -933,7 +936,7 @@ italy_odoacer_missions_4 = {
 			mil_power = 50
 		}
 		effect = {
-			add_mil_power = -50
+			mil_power = -50
 			add_ruler_modifier = {
 				name = "me_ita_africanus"
 				duration = -1

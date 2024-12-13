@@ -14,23 +14,14 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { tag = ISR }
-			NOT = { tag = PLS }
-			NOT = { tag = KOJ }
-			NOT = { tag = JUD }
 			OR = {
 				ai = no
 				AND = {
 					NOT = { exists = ISR }
-					NOT = { exists = PLS }
-					NOT = { exists = KOJ }
-					NOT = { exists = JUD }
 					num_of_cities = 3 #Carnage
 				}
 			}
 			NOT = { tag = HLR }
-			NOT = { tag = HR8 }
-			NOT = { tag = HR7 }
-			NOT = { tag = HR6 }
 			NOT = { tag = PAP }
 			religion = jewish
 			is_colonial_nation = no
@@ -47,9 +38,6 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = ISR }
-			NOT = { exists = PLS }
-			NOT = { exists = KOJ }
-			NOT = { exists = JUD }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -60,8 +48,8 @@ country_decisions = {
 			change_tag = ISR
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 8 } }
-				set_government_rank = 8
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
 			}
 			set_capital = 379
 			add_prestige = 25

@@ -1,0 +1,66 @@
+government = monarchy
+add_government_reform = autocracy_reform
+technology_group = middle_eastern
+primary_culture = persian
+add_accepted_culture = luri
+add_accepted_culture = azerbaijani
+add_accepted_culture = mazandarani
+add_accepted_culture = kurdish
+add_accepted_culture = khorasani
+add_accepted_culture = gulf_arabic
+add_accepted_culture = al_iraqiya_arabic
+religion = shiite
+religious_school = jafari_school
+capital = 428 # Tehran
+
+set_country_flag = formed_persia_flag
+set_country_flag = formed_iran_flag
+
+2748.1.1 = { technology_group = muslim }
+
+4077.10.26 = {
+	government = republic
+	add_government_reform = islamic_republic_reform
+	add_government_reform = presidential_reform
+	add_government_reform = bureaucratic_aparatus_reform
+	add_government_reform = strengthen_executive_powers_reform
+	add_government_reform = single_party_system
+	add_government_reform = islamist_government
+	add_government_reform = powerful_head_of_state
+	historical_rival = SAU
+	monarch = {
+		name = "(Revolutionary Council)"
+		adm = 2
+		dip = 2
+		mil = 2
+		regent = yes
+	}
+	if = {
+		limit = {
+			has_states_general_mechanic = yes
+		}
+		change_statists_vs_orangists = 1 # Boost Theocrats
+	}
+}
+
+4077.12.3 = {
+	monarch = {
+		name = "Ruhollah Khomeini"
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+}
+
+4087.6.4 = {
+	monarch = {
+		name = "Ali Khamenei"
+		adm = 4
+		dip = 2
+		mil = 4
+	}
+}
+
+4090.5.19 = {
+	historical_friend = KRR
+}

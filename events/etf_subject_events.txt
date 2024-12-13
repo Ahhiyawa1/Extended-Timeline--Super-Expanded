@@ -1,0 +1,253 @@
+namespace = etf_event_subject
+
+# Select Subject Type of released nation
+country_event = {
+	id = etf_event_subject.100
+	title = etf_event_subject.100.t
+	desc = etf_event_subject.100.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vassal_title
+		change_subject_type_effect = {
+			subject = FROM
+			subject_type = vassal
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = {
+		name = puppet_state_title
+		trigger = {
+			government = republic
+		}
+		change_subject_type_effect = {
+			subject = FROM
+			subject_type = puppet_state
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+
+	option = {
+		name = protectorate_title
+		trigger = {
+			FROM = {
+				NOT = { same_continent = ROOT }
+			}
+		}
+		change_subject_type_effect = {
+			subject = FROM
+			subject_type = protectorate
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = dominion_title
+		trigger = {
+			government = monarchy
+			has_parliament_or_reform = yes
+		}
+		make_dominion = { target = FROM }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				FROM = {
+					culture_group = ROOT
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					religion_group = ROOT
+				}
+			}
+		}
+	}
+
+	option = {
+		name = associated_state_title
+		trigger = {
+			post_victorian_age = yes
+		}
+		change_subject_type_effect = {
+			subject = FROM
+			subject_type = associated_state
+		}
+		FROM = {
+			change_government = republic
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 20
+				is_democracy = yes
+			}
+			modifier = {
+				factor = 0
+				is_democracy = no
+			}
+		}
+	}
+
+	option = {
+		name = sphere_member_title
+		trigger = {
+			is_great_power_trigger = yes
+		}
+		tooltip = {
+			change_subject_type_effect = {
+				subject = FROM
+				subject_type = sphere_member
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				grant_independence = yes
+			}
+			add_to_sphere = { tag = FROM }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 20
+				FROM = {
+					liberty_desire = 75
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					NOT = { liberty_desire = 50 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_subject.100.r
+		FROM = {
+			grant_independence = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 20
+				FROM = {
+					liberty_desire = 75
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					NOT = { liberty_desire = 50 }
+				}
+			}
+		}
+	}
+}
+
+# Crisis in subject country
+country_event = {
+	id = etf_event_subject.101
+	title = etf_event_subject.101.t
+	desc = etf_event_subject.101.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	trigger = {
+		any_subject_country = {
+			OR = {
+				is_subject_of_type = vassal
+				is_protectorate_subject_type = yes
+				is_subject_of_type = puppet_state
+			}
+			liberty_desire = 100
+			NOT = { truce_with = ROOT }
+			NOT = { has_country_modifier = crisis_in_subject_timer } # 365 day timer to reduce spam
+		}
+		post_napoleonic_age = yes
+		NOT = {
+			has_disaster_progress = {
+				disaster = oriental_crisis
+				value = 1
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_subject_country = {
+				limit = {
+					OR = {
+						is_subject_of_type = vassal
+						is_protectorate_subject_type = yes
+						is_subject_of_type = puppet_state
+					}
+					liberty_desire = 100
+					NOT = { truce_with = ROOT }
+					NOT = { has_country_modifier = crisis_in_subject_timer }
+				}
+				save_event_target_as = rebel_subject
+				add_country_modifier = {
+					name = crisis_in_subject_timer
+					duration = 365
+					hidden = yes
+				}
+			}
+		}
+	}
+
+	option = { # They dare question us?
+		name = etf_event_subject.101.ra
+		event_target:rebel_subject = {
+			add_liberty_desire = 10
+		}
+	}
+
+	option = { # Smooth things out
+		name = etf_event_subject.101.rb
+		add_dip_power = -50
+		event_target:rebel_subject = {
+			add_liberty_desire = -10
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				dip_power = 400
+			}
+		}
+	}
+
+	option = { # Give up
+		name = etf_event_subject.101.rc
+		add_prestige = -15
+		event_target:rebel_subject = {
+			grant_independence = yes
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					any_country = {
+						is_supporting_independence_of = event_target:rebel_subject
+						military_strength = {
+							who = ROOT
+							value = 1.2 # Atleast 20% stronger than ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+}

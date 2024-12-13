@@ -1,0 +1,87 @@
+set_country_flag = formed_austria_flag
+
+3598.1.1 = {
+	remove_estate_privilege = estate_nobles_habsburg_disunity
+}
+
+3904.7.12 = { government_rank = 3 }
+
+3913.6.9 = {
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+	remove_accepted_culture = hungarian
+	remove_accepted_culture = croatian
+	remove_accepted_culture = slovak
+	remove_accepted_culture = transylvanian
+	historical_rival = PRU
+	decision = dummy_ger_confed
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		complete_mission = emp_hab_the_hungarian_question
+		complete_mission = emp_hab_all_minorities_are_welcome
+		complete_mission = emp_hab_take_salzburg
+		complete_mission = emp_hab_union_bayern
+		complete_mission = emp_hab_austrian_netherlands
+		complete_mission = emp_hab_veneto_lombardy
+		complete_mission = emp_hab_balanced_estates
+		complete_mission = emp_hab_prospering_nation
+		if = {
+			limit = {
+				exists = HAB
+			}
+			add_country_modifier = {
+				name = hab_tolerant_society
+				duration = -1
+			}
+		}
+	}
+}
+
+3964.7.22 = {
+	remove_historical_rival = PRU
+}
+
+4016.10.31 = {
+	changed_tag_from = AUH
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = royal_power
+	add_government_reform = oligarchic_reform
+}
+
+4016.11.12 = {
+	government = republic
+	add_government_reform = oligarchy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = universal_suffrage_reform
+	add_government_reform = reinforce_republican_values_reform
+	add_government_reform = multi_party_system
+	add_government_reform = democracy_reform
+	add_government_reform = ceremonial_president
+	government_rank = 2
+	decision = reorganise_austria
+}
+
+4032.5.1 = { # Fascist Constitution
+	add_government_reform = presidential_reform
+	add_government_reform = appointment_by_committee_reform
+	add_government_reform = strengthen_executive_powers_reform
+	add_government_reform = dictatorial_rule
+	add_government_reform = fascist_government
+	add_government_reform = powerful_head_of_state
+	religion = catholic
+}
+
+4043.5.8 = {
+	religion = secularism
+}

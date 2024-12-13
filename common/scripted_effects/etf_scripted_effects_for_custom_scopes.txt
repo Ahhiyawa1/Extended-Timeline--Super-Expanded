@@ -1,0 +1,135 @@
+# country scope
+#most_developed_country = {
+#	random_country = {
+#		limit = {
+#			[[limit] $limit$]
+#			NOT = {
+#				any_country = {
+#					[[limit] $limit$]
+#					total_development = PREV # No other country that's more developed fulfils 'limit'
+#				}
+#			}
+#		}
+#		[[effect] $effect$]
+#	}
+#}
+
+#every_country_alias = {
+#	every_country = {
+#		limit = {
+#			[[alias]
+#				country_is = { tag = $alias$ }
+#			]
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#}
+
+#random_country_alias = {
+#	random_country = {
+#		limit = {
+#			[[alias]
+#				country_is = { tag = $alias$ }
+#			]
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#}
+
+# province scope
+#every_sea_province = {
+#	west_american_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	east_american_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	north_european_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	south_european_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	west_african_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	east_african_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	indian_pacific_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#	north_pacific_sea_superregion = {
+#		limit = {
+#			[[limit] $limit$]
+#		}
+#		[[effect] $effect$]
+#	}
+#}
+
+# Iterate through owned provinces, in order of development.
+ordered_owned_province = {
+	hidden_effect = {
+		save_event_target_as = root_country
+		
+		while = {
+			limit = {
+				any_owned_province = {
+					[[limit]
+						$limit$
+					]
+					NOT = { has_province_flag = ordered_owned_province_flag }
+				}
+			}
+			random_owned_province = {
+				limit = {
+					[[limit]
+						$limit$
+					]
+					NOT = { has_province_flag = ordered_owned_province_flag }
+					NOT = {
+						any_province = {
+							owned_by = event_target:root_country
+							[[limit]
+								$limit$
+							]
+							higher_development_than = PREV
+							NOT = { has_province_flag = ordered_owned_province_flag }
+						}
+					}
+				}
+				[[effect]
+					$effect$
+				]
+				set_province_flag = ordered_owned_province_flag
+			}
+		}
+		
+		every_province = {
+			clr_province_flag = ordered_owned_province_flag
+		}
+	}
+}

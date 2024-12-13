@@ -1,0 +1,407 @@
+# ====================
+# Government Ideology:
+# ====================
+
+democracy_reform = {
+	icon = "ballot_box"
+	allow_normal_conversion = yes
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = democracy_reform }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		custom_trigger_tooltip = {
+			tooltip = "NEEDS_REGULAR_ELECTIONS"
+			has_government_attribute = has_term_election
+		}
+		custom_trigger_tooltip = {
+			tooltip = "NEEDS_DEMOCRATIC_ELECTIONS"
+			OR = {
+				has_government_attribute = has_direct_democracy_election
+				has_government_attribute = has_multi_party_election
+			}
+		}
+		OR = {
+			NOT = { government = monarchy }
+			custom_trigger_tooltip = {
+				tooltip = mechanic_has_prime_minister_yes
+				has_government_attribute = has_prime_minister
+			}
+		}
+	}
+	modifiers = {
+		global_unrest = -1
+		legitimacy = 0.5
+		republican_tradition = 0.15
+		max_absolutism = -10
+		max_revolutionary_zeal = -5
+		tolerance_of_heretics_capacity = 1
+		tolerance_of_heathens_capacity = 1
+	}
+	
+	custom_attributes = {
+		is_democratic_ideology = yes
+	}
+	
+	ai = {
+		factor = 1000
+	}
+}
+
+oligarchic_reform = {
+	icon = "man_on_podium"
+	allow_normal_conversion = yes
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = oligarchic_reform }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		# Fallback, no specific triggers.
+	}
+	modifiers = {
+		production_efficiency = 0.1
+		max_absolutism = 10
+		max_revolutionary_zeal = 5
+		governing_capacity = 100
+	}
+	
+	ai = {
+		factor = 0.5
+	}
+}
+
+military_government = {
+	icon = "soldiers_2"
+	allow_normal_conversion = yes
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = military_government }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		if = {
+			limit = {
+				NOT = { has_reform = military_government }
+			}
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = communist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+			else = {
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		OR = {
+			NOT = { government = monarchy }
+			custom_trigger_tooltip = {
+				tooltip = mechanic_has_prime_minister_yes
+				has_government_attribute = has_prime_minister
+			}
+		}
+		NOT = { has_reform = islamic_republic_reform } # Incompatible election events
+	}
+	modifiers = {
+		land_forcelimit_modifier = 0.5
+		discipline = 0.05
+		max_absolutism = 20
+		max_revolutionary_zeal = 10
+	}
+	
+	factions = {}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man"
+		}
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+	
+	custom_attributes = {
+		#is_militarist_ideology = yes
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				faction_in_power = nationalist_party
+			}
+			set_country_flag = nationalist_junta_flag
+		}
+		else_if = {
+			limit = {
+				faction_in_power = communist_party
+			}
+			set_country_flag = communist_junta_flag
+		}
+		else_if = {
+			limit = {
+				faction_in_power = national_socialist_party
+			}
+			set_country_flag = fascist_junta_flag
+		}
+	}
+	removed_effect = {
+		clr_country_flag = nationalist_junta_flag
+		clr_country_flag = communist_junta_flag
+		clr_country_flag = fascist_junta_flag
+	}
+	
+	ai = {
+		factor = 0
+	}
+}
+
+communist_government = {
+	icon = "karl_marx"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_global_flag = etf_communism_enabled
+			has_reform = communist_government
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = communist_government }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		if = {
+			limit = {
+				NOT = { has_government_attribute = is_socialist_ideology }
+			}
+			faction_in_power = communist_party
+		}
+		else = {
+			OR = {
+				faction_in_power = communist_party
+				has_government_attribute_short_desc = is_socialist_ideology
+			}
+		}
+		OR = {
+			NOT = { government = monarchy }
+			custom_trigger_tooltip = {
+				tooltip = mechanic_has_prime_minister_yes
+				has_government_attribute = has_prime_minister
+			}
+		}
+		NOT = { has_reform = islamic_republic_reform } # Incompatible election events
+	}
+	modifiers = {
+		land_forcelimit_modifier = 0.5
+		tolerance_heathen = -1
+		max_revolutionary_zeal = 10
+	}
+	
+	factions = {}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+		}
+		states_general_mechanic = {
+			reformers = {
+				global_unrest = -1
+				diplomatic_reputation = 1
+				years_of_nationalism = -5
+				reform_progress_growth = 0.1
+			}
+			hardliners = {
+				global_autonomy = -0.05
+				yearly_absolutism = 0.1
+				max_absolutism = 20
+				harsh_treatment_cost = -0.1
+			}
+		}
+	}
+	
+	custom_attributes = {
+		is_socialist_ideology = yes
+		blocked_call_diet = yes
+		has_communist_election = yes
+		disables_estate_nobles = yes
+		disables_estate_corporations = yes
+	}
+	
+	ai = {
+		factor = 0.5
+	}
+}
+
+fascist_government = {
+	icon = "fascist_parade"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_global_flag = etf_fascism_enabled
+			has_reform = fascist_government
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = fascist_government }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		if = {
+			limit = {
+				NOT = { has_government_attribute = is_fascist_ideology }
+			}
+			faction_in_power = national_socialist_party
+		}
+		else = {
+			OR = {
+				faction_in_power = national_socialist_party
+				has_government_attribute_short_desc = is_fascist_ideology
+			}
+		}
+		OR = {
+			NOT = { government = monarchy }
+			custom_trigger_tooltip = {
+				tooltip = mechanic_has_prime_minister_yes
+				has_government_attribute = has_prime_minister
+			}
+		}
+		NOT = { has_reform = islamic_republic_reform } # Incompatible election events
+	}
+	modifiers = {
+		land_forcelimit_modifier = 1.0
+		tolerance_heretic = -2
+		tolerance_heathen = -2
+		unjustified_demands = 0.2
+		culture_conversion_cost = -0.2
+		max_absolutism = 30
+		max_revolutionary_zeal = 15
+	}
+	
+	factions = {}
+	
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man"
+		}
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+	
+	custom_attributes = {
+		is_fascist_ideology = yes
+		blocked_call_diet = yes
+		has_fascist_election = yes
+	}
+	
+	ai = {
+		factor = 0.5
+	}
+}
+
+islamist_government = {
+	icon = "muslim"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_global_flag = etf_islamism_enabled
+			has_reform = islamist_government
+		}
+		religion_group = muslim
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = islamist_government }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+		religion_group = muslim
+		if = {
+			limit = {
+				NOT = { has_reform = islamist_government }
+			}
+			country_religion_group_is_dominant = yes
+		}
+	}
+	modifiers = {
+		global_missionary_strength = 0.03
+		land_forcelimit_modifier = 0.5
+		tolerance_heathen = -3
+		max_absolutism = 10
+		max_revolutionary_zeal = 5
+	}
+	
+	custom_attributes = {
+		is_islamist_ideology = yes
+		blocked_call_diet = yes
+	}
+	
+	ai = {
+		factor = 0.5
+		modifier = {
+			factor = 0
+			government = monarchy
+		}
+	}
+}
+
+anarchist_society = {
+	icon = "revolutionary_republic"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	potential = {
+		has_reform = anarchist_society
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = anarchist_society }
+				NOT = { has_institution = nationalism_institution }
+			}
+			has_institution = nationalism_institution
+		}
+	}
+	modifiers = {
+		global_unrest = -3
+		land_morale = 0.15
+		global_regiment_cost = -0.75
+		core_creation = -0.75
+		min_autonomy = 75 # Big oof
+		global_trade_goods_size_modifier = 0.2
+		years_of_nationalism = -10
+		max_absolutism = -20
+		max_revolutionary_zeal = 10
+	}
+	
+	custom_attributes = {
+		blocked_call_diet = yes
+		disables_estate_nobles = yes
+		disables_estate_corporations = yes
+	}
+	
+	ai = {
+		factor = 1000
+	}
+}

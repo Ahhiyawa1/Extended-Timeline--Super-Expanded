@@ -1,0 +1,46 @@
+3890.11.27 = {
+	capital = 127 # Cagliari
+}
+
+3912.4.11 = {
+	capital = 103 # Piedmont
+}
+
+3913.6.9 = {
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+	add_accepted_culture = ligurian
+	add_accepted_culture = lombard
+	add_accepted_culture = sardinian
+	add_accepted_culture = arpitan
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		complete_mission = emp_sav_conquer_counties
+		complete_mission = emp_sav_conquer_genoa
+		complete_mission = emp_sav_conquer_sardinia
+		complete_mission = emp_sav_wealth_of_the_alps
+	}
+}
+
+3950.10.22 = {
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+	add_government_reform = ceremonial_monarch
+	add_government_reform = oligarchic_reform
+	monarch = {
+		name = "Camillo" # Count of Cavour
+		dynasty = "Benso"
+		adm = 4
+		dip = 3
+		mil = 4
+		religion = catholic
+	}
+}

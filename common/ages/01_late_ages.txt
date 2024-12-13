@@ -1,5 +1,5 @@
 industrial_age = {
-	start = 3898
+	start = 1800
 	
 	can_start = {
 		is_institution_enabled = industrialization
@@ -98,7 +98,7 @@ industrial_age = {
 		}
 		ab_industrial_colonization = {
 			modifier = {
-				colonists = 5
+				colonists = 1
 			}
 			ai_will_do = {
 				factor = 10
@@ -138,7 +138,7 @@ industrial_age = {
 		}
 		ab_industrial_british_empire = {
 			allow = {
-				tag = GBR
+				country_is = { tag = GBR }
 			}
 			modifier = {
 				reduced_liberty_desire = 30
@@ -149,10 +149,7 @@ industrial_age = {
 		}
 		ab_industrial_napoleonic_legacy = {
 			allow = {
-				OR = {
-					tag = FRA
-					tag = FR2
-				}
+				country_is = { tag = FRA }
 			}
 			modifier = {
 				leader_land_fire = 1
@@ -165,8 +162,8 @@ industrial_age = {
 		ab_industrial_dutch_traders = {
 			allow = {
 				OR = {
-					tag = NED
 					tag = HOL
+					country_is = { tag = NED }
 				}
 			}
 			modifier = {
@@ -181,7 +178,7 @@ industrial_age = {
 			allow = {
 				OR = {
 					tag = SPI
-					tag = ITA
+					country_is = { tag = ITA }
 					tag = ROM
 				}
 			}
@@ -196,10 +193,10 @@ industrial_age = {
 }
 
 great_war_age = {
-	start = 3988
+	start = 1890
 	
 	can_start = {
-		any_country = { mil_tech = 84 }
+		any_country = { mil_tech = 82 }
 	}
 	
 	papacy = 2.0
@@ -326,7 +323,7 @@ great_war_age = {
 		}
 		ab_greatwar_usa_production = {
 			allow = {
-				tag = USA
+				country_is = { tag = USA }
 			}
 			modifier = {
 				global_trade_goods_size_modifier = 0.25
@@ -337,10 +334,7 @@ great_war_age = {
 		}
 		ab_greatwar_russian_tanks = {
 			allow = {
-				OR = {
-					tag = SOV
-					tag = RUS
-				}
+				country_is = { tag = RUS }
 			}
 			modifier = {
 				cavalry_cost = -0.25
@@ -352,7 +346,7 @@ great_war_age = {
 		
 		ab_greatwar_german_generals = {
 			allow = {
-				tag = GER
+				country_is = { tag = GER }
 			}
 			modifier = {
 				leader_land_shock = 2
@@ -364,7 +358,7 @@ great_war_age = {
 		
 		ab_greatwar_japanese_morale = {
 			allow = {
-				tag = JAP
+				country_is = { tag = JAP }
 			}
 			modifier = {
 				land_morale = 0.15
@@ -378,7 +372,7 @@ great_war_age = {
 }
 
 information_age = {
-	start = 4078
+	start = 1980
 	
 	can_start = {
 		any_country = { adm_tech = 89 }
@@ -497,8 +491,8 @@ information_age = {
 		ab_info_chinese_industry = {
 			allow = {
 				OR = {
-					tag = CHN
 					is_emperor_of_china = yes
+					country_is = { tag = CHN }
 				}
 			}
 			modifier = {
@@ -510,7 +504,7 @@ information_age = {
 		}
 		ab_info_indian_development = {
 			allow = {
-				tag = INI
+				country_is = { tag = INI }
 			}
 			modifier = {
 				development_cost = -0.2

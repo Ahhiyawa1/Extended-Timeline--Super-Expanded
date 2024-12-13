@@ -289,7 +289,9 @@ nanzhao_missions_2 = {
 			}
 			vietnam_area = {
 				type = all
-				NOT = { unrest = 5 }
+				NOT = {
+					local_unrest = 5
+				}
 			}
 		}
 		effect = {
@@ -333,13 +335,11 @@ nanzhao_missions_2 = {
 				add_permanent_claim = ROOT
 			}
 			700 = {		#Chang'an
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
 				}
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -616,10 +616,10 @@ nanzhao_missions_3 = {
 				if = {
 					limit = {
 						NOT = {
-							government_rank = 10
+							government_rank = 3
 						}
 					}
-					set_government_rank = 4
+					set_government_rank = 3
 				}
 			}
 			add_adm_power = 100
@@ -668,7 +668,7 @@ nanzhao_missions_4 = {
 						is_emperor_of_china = yes
 						has_opinion = {
 							who = ROOT
-							value = 80
+							value = 50		#changed from 80
 						}
 					}
 					any_country = {
@@ -1046,6 +1046,7 @@ nanzhao_missions_5 = {
 			num_of_owned_provinces_with = {
 				value = 10
 				OR = {
+					has_building = glorious_monument	#added since earlier starts are before tech for Temples
 					has_building = temple
 					has_building = cathedral
 				}

@@ -1,0 +1,138 @@
+namespace = etf_annexation
+
+# If forming a nation involves annexing subjects, or subject land,
+# these events can be used to give player nations specifically a
+# say in if they want to accept death or not.
+
+# AI have no choice, and effects will trigger *without delay*.
+
+# [From.GetNameShortCap] Demands our Annexation
+country_event = {
+	id = etf_annexation.1
+	title = etf_annexation.1.t
+	desc = etf_annexation.1.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { tag = FROM } # ROOT != FROM
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				annex_tag_into = {
+					target = FROM
+					transfer_troops = no
+				}
+			}
+		}
+	}
+
+	option = { # Of course!
+		name = etf_annexation.1.ra
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = GAME_OVER
+		annex_tag_into = {
+			target = FROM
+			transfer_troops = no
+		}
+		ai_chance = {
+			factor = 0 # AFK players shouldn't pick this
+		}
+	}
+
+	option = { # No way!
+		name = etf_annexation.1.rb
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = etf_annexation.1.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					NOT = { is_core = FROM }
+				}
+				remove_claim = FROM
+				add_core = FROM
+			}
+		}
+	}
+
+	option = { # Fallback
+		trigger = {
+			ai = yes
+		}
+	}
+}
+
+# [From.GetNameShortCap] Demands their Rightful Territories
+country_event = {
+	id = etf_annexation.2
+	title = etf_annexation.2.t
+	desc = etf_annexation.2.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				every_owned_province = {
+					limit = {
+						is_core = FROM
+					}
+					cede_province = FROM
+				}
+			}
+		}
+	}
+
+	option = { # Of course!
+		name = etf_annexation.2.ra
+		trigger = {
+			ai = no
+		}
+		every_owned_province = {
+			limit = {
+				is_core = FROM
+			}
+			cede_province = FROM
+		}
+		FROM = {
+			add_100_opinion_effect = {
+				who = ROOT
+			}
+		}
+		ai_chance = {
+			factor = 0 # AFK players shouldn't pick this
+		}
+	}
+
+	option = { # No way!
+		name = etf_annexation.2.rb
+		trigger = {
+			ai = no
+		}
+		FROM = {
+			sub_100_opinion_effect = {
+				who = ROOT
+			}
+		}
+	}
+
+	option = { # Fallback
+		trigger = {
+			ai = yes
+		}
+	}
+}

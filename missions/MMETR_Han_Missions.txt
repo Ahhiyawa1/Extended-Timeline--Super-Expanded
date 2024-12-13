@@ -50,7 +50,7 @@ hnd_missions_1 = {
 			}
 		}
 		effect = {
-			add_mandate = 10
+			add_mandate = 2108
 		}
 	}
 	hnd_wansui_wanwansui_mission = {
@@ -419,7 +419,7 @@ hnd_missions_3 = {
 		position = 1
 		trigger = {
 			num_of_generals = 2
-			army_size_percentage = 0.9
+			army_size_percentage = 0.7
 			OR = {
 				num_of_cavalry = 15
 				cavalry_fraction = 0.10
@@ -459,14 +459,25 @@ hnd_missions_3 = {
 			}
 		}
 		effect = {
-			country_event = {
-				id = mmetr_HND_mission_events.3
-			}
-			tooltip = {
-				create_subject = {
-					subject_type = client_kingdom
-					subject = QIA
+			if = {
+				limit = {
+					QIA = {
+						ai = yes
+					}
 				}
+				country_event = {
+					id = mmetr_HND_mission_events.3
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = client_kingdom
+						subject = QIA
+					}
+				}
+			}
+			else = {
+				add_dip_power = 100
+				add_manpower = 2
 			}
 		}
 	}
@@ -643,6 +654,10 @@ hnd_missions_4 = {
 		}
 		effect = {
 			add_dip_power = 75
+			custom_tooltip = hnd_western_protectorate_mission.tt
+			country_event = {
+				id = mmetr_HND_mission_events.7
+			}
 		}
 	}
 	hnd_jiaozhi_development_mission = {
@@ -851,7 +866,7 @@ hnd_missions_5 = {
 		}
 		effect = {
 			add_prestige = 40
-			add_mandate = 5
+			add_mandate = 2103
 		}
 	}
 	hnd_land_of_abundance_mission = {
@@ -861,7 +876,12 @@ hnd_missions_5 = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					region = xinan_region
+					OR = {
+						area = chuanbei_area
+						area = sichuan_area
+						area = chuannan_area
+						area = yun_gui_area
+					}
 					NOT = {
 						country_or_vassal_holds = ROOT
 					}
@@ -905,7 +925,28 @@ hnd_missions_5 = {
 			679 = {
 				num_of_times_improved_by_owner = 2
 			}
-			xinan_region = {
+			chuanbei_area = {
+				type = all
+				OR = {
+					country_or_vassal_holds = ROOT
+					is_empty = yes
+				}
+			}
+			sichuan_area = {
+				type = all
+				OR = {
+					country_or_vassal_holds = ROOT
+					is_empty = yes
+				}
+			}
+			chuannan_area = {
+				type = all
+				OR = {
+					country_or_vassal_holds = ROOT
+					is_empty = yes
+				}
+			}
+			yun_gui_area = {
 				type = all
 				OR = {
 					country_or_vassal_holds = ROOT
@@ -944,5 +985,1174 @@ hnd_missions_5 = {
 			}
 		}
 	}
-	
 }
+
+
+#Post-189 Dong Zhuo Missions
+
+hnd_dong_zhuo_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_the_puppet_or_the_tyrant_mission = {
+		icon = mission_defy_the_dragon
+		required_missions = {  }
+		position = 7
+		trigger = {
+			stability = 2
+			is_at_war = no
+			all_known_country = {
+				NOT = {
+					coalition_target = ROOT
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_HND_mission_events.8
+			}
+			custom_tooltip = hnd_the_puppet_or_the_tyrant_mission.tt
+		}
+	}
+}
+
+hnd_dong_zhuo_dummy_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		NOT = { has_country_flag = hnd_branching_missions_sided_tyrant_flag }
+		NOT = { has_country_flag = hnd_branching_missions_sided_han_flag }
+	}
+	has_country_shield = yes
+	
+	hnd_1_8_dummy_mission = {
+		icon = mission_unknown_mission
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission }
+		position = 8
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = hnd_1_8_dummy_mission.tt
+				always = no
+			}
+		}
+		effect = {
+			
+		}
+	}
+	hnd_1_9_dummy_mission = {
+		icon = mission_unknown_mission
+		required_missions = { hnd_1_8_dummy_mission hnd_2_8_dummy_mission }
+		position = 9
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = hnd_1_8_dummy_mission.tt
+				always = no
+			}
+		}
+		effect = {
+			
+		}
+	}
+}
+
+hnd_dong_zhuo_tyrant_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = hnd_branching_missions_sided_tyrant_flag
+	}
+	has_country_shield = yes
+	
+	hnd_make_the_court_grovel_mission = {
+		icon = mission_kowtow
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission }
+		position = 8
+		trigger = {
+			if = {
+				limit = { has_estate = estate_eunuchs } 
+				estate_loyalty = {
+					estate = estate_eunuchs
+					loyalty = 60
+				}
+			}
+			if = {
+				limit = { has_estate = estate_burghers } 
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60 
+				}
+			}
+			if = {
+				limit = { has_estate = estate_nobles } 
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 60 
+				}
+			}
+			if = {
+				limit = { has_estate = estate_church } 
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 60 
+				}
+			}
+			if = {
+				limit = { has_estate = estate_nomadic_tribes } 
+				estate_loyalty = {
+					estate = estate_nomadic_tribes
+					loyalty = 60 
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_loyal_court"
+				duration = 10950
+			}
+		}
+	}
+	hnd_usurp_the_dying_han_mission = {
+		icon = mission_chinese_ruler_in_hall
+		required_missions = { hnd_make_the_court_grovel_mission hnd_purge_the_dogs_of_han_mission }
+		position = 9
+		trigger = {
+			stability = 3
+			prestige = 70
+			OR = {
+				is_emperor_of_china = yes
+				custom_trigger_tooltip = {
+					tooltip = genchinese_fate_of_the_imperial_seal_mission.tt
+					has_country_flag = restored_mandate_of_heaven_mmetr_dec_flag
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes }
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier
+					duration = 10950
+				}
+			}
+			if = {
+				limit = { is_emperor_of_china = no }
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier2
+					duration = 10950
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = mmetr_HND_mission_events.11
+				}
+				custom_tooltip = hnd_usurp_the_dying_han_mission
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_loyalist_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = hnd_branching_missions_sided_han_flag
+	}
+	has_country_shield = yes
+	
+	hnd_death_to_the_tyrant_mission = {
+		icon = mission_chinese_royal_hunt
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission }
+		position = 8
+		trigger = {
+			prestige = 50
+			num_of_generals = 1
+			custom_trigger_tooltip = {
+				tooltip = has_two_hired_advisors.tt
+				has_two_hired_advisors = yes
+			}
+			OR = { 
+				spymaster = 1
+				ruler_has_personality = intricate_web_weaver_personality
+				dip = 5 
+				has_idea = efficient_spies
+				national_focus = DIP 
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_HND_mission_events.10
+			}
+			custom_tooltip = hnd_death_to_the_tyrant_mission.tt
+			tooltip = {
+				if = {
+					limit = {
+						OR = {
+							NOT = { dynasty = "Liu" }
+							has_regency = yes
+						}
+					}
+					kill_ruler = yes
+					define_ruler = {
+						name = "Xie"
+						dynasty = "Liu"
+						claim = 95
+						adm = 5
+						dip = 5
+						mil = 4
+						age = 20
+					}
+				}
+				if = {
+					limit = {
+						NOT = { government_rank = 3 }
+					}
+					set_government_rank = 3
+				}
+				add_ruler_modifier = {
+					name = "me_hnd_han_restoration"
+					duration = -1
+				}
+			}
+		}
+	}
+	hnd_forever_azure_sky_mission = {
+		icon = mission_chinese_ruler_in_hall
+		required_missions = { hnd_death_to_the_tyrant_mission hnd_call_upon_han_loyalists_mission }
+		position = 9
+		trigger = {
+			stability = 3
+			OR = {
+				is_emperor_of_china = yes
+				custom_trigger_tooltip = {
+					tooltip = genchinese_fate_of_the_imperial_seal_mission.tt
+					has_country_flag = restored_mandate_of_heaven_mmetr_dec_flag
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 70
+			add_dip_power = 70
+			add_mil_power = 70
+			add_ruler_modifier = {
+				name = "me_hnd_great_restorer"
+				duration = -1
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_armies_of_the_grand_preceptor_mission = {
+		icon = mission_raid_hosts
+		required_missions = {  }
+		position = 7
+		trigger = {
+			army_tradition = 50
+			num_of_battles = { amount = 30 }
+			OR = {
+				prestige = 50
+				years_of_income = 1.0
+			}
+		}
+		effect = {
+			custom_tooltip = hnd_armies_of_the_grand_preceptor_mission.tt
+			if = {
+				limit = {
+					NOT = {
+						prestige = 50
+					}
+				}
+				add_years_of_income = -1.0
+			}
+			add_country_modifier = {
+				name = "me_hnd_western_armies"
+				duration = 10950
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_dummy_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		NOT = { has_country_flag = hnd_branching_missions_sided_tyrant_flag }
+		NOT = { has_country_flag = hnd_branching_missions_sided_han_flag }
+	}
+	has_country_shield = yes
+	
+	hnd_2_8_dummy_mission = {
+		icon = mission_unknown_mission
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission hnd_armies_of_the_grand_preceptor_mission }
+		position = 8
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = hnd_1_8_dummy_mission.tt
+				always = no
+			}
+		}
+		effect = {
+			
+		}
+	}
+}
+
+hnd_dong_zhuo_tyrant_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = hnd_branching_missions_sided_tyrant_flag
+	}
+	has_country_shield = yes
+	
+	hnd_purge_the_dogs_of_han_mission = {
+		icon = mission_chinese_defeated_banner
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission hnd_armies_of_the_grand_preceptor_mission }
+		position = 8
+		trigger = {
+			custom_trigger_tooltip = {		#fixed script since did not work properly in vanilla
+				tooltip = chi_strongest_warlord_tt
+				NOT = {
+					any_country = { 
+						capital_scope = { superregion = china_superregion }
+						army_size = ROOT
+						total_development = ROOT
+					}	
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_undisputed_hegemon"
+				duration = 10950
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_loyalist_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = hnd_branching_missions_sided_han_flag
+	}
+	has_country_shield = yes
+	
+	hnd_call_upon_han_loyalists_mission = {
+		icon = mission_chinese_recruitment
+		required_missions = { hnd_the_puppet_or_the_tyrant_mission hnd_armies_of_the_grand_preceptor_mission }
+		position = 8
+		trigger = {
+			custom_trigger_tooltip = {		#fixed script since did not work properly in vanilla
+				tooltip = chi_strongest_warlord_tt
+				NOT = {
+					any_country = { 
+						capital_scope = { superregion = china_superregion }
+						army_size = ROOT
+						total_development = ROOT
+					}	
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_undisputed_hegemon"
+				duration = 10950
+			}
+		}
+	}
+}
+
+#Conquest missions for post-189
+
+hnd_dong_zhuo_conquest_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_shatter_the_coalition_mission = {
+		icon = mission_chinese_defeated_banner
+		required_missions = { hnd_the_han_shall_survive_mission }
+		position = 9
+		trigger = {
+			any_war_enemy_country = {
+				is_in_coalition_war = yes
+				coalition_target = ROOT
+				war_score_against = {
+					who = ROOT
+					value = -90
+				}
+			}
+		}
+		effect = {
+			add_mil_power = 50
+			add_country_modifier = {
+				name = "me_hnd_disloyalty_curtailed"
+				duration = 10950
+			}
+		}
+	}
+	hnd_ports_of_qingzhou_mission = {
+		icon = mng_expand_bogue
+		required_missions = { hnd_beyond_hulao_pass_mission }
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = shandong_area
+				area = jiangsu_area
+				area = south_jiangsu_area
+				area = anhui_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			shandong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			jiangsu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_jiangsu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			anhui_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_yellow_river_control"
+				duration = 10950
+			}
+		}
+	}
+	hnd_restore_the_tower_ship_navy_mission = {
+		icon = mission_grand_bengali_shipyards
+		required_missions = { hnd_ports_of_qingzhou_mission hnd_decimate_the_yuan_clan_mission }
+		position = 11
+		trigger = {
+			navy_size = 25
+			num_of_light_ship = 5
+			sailors_percentage = 0.4
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_tower_ship_navy"
+				duration = 10950
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_conquest_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_the_han_shall_survive_mission = {
+		icon = mission_chinese_army_mobilization_medieval
+		required_missions = {  }
+		position = 8
+		trigger = {
+			num_of_generals = 1
+			army_size_percentage = 0.9
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_last_han_armies"
+				duration = 10950
+			}
+			custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+						area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+								NOT = { is_permanent_claim = ROOT    }
+								NOT = { is_core = ROOT    }
+							}
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	hnd_beyond_hulao_pass_mission = {
+		icon = mission_chinese_fortress_siege
+		required_missions = { hnd_the_han_shall_survive_mission }
+		position = 9
+		provinces_to_highlight = {
+			OR = {
+				area = henan_area
+				area = north_henan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			henan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_henan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_forward_momentum"
+				duration = 10950
+			}
+			shanxi_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_hebei_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_shandong_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			huguang_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hunan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	hnd_decimate_the_yuan_clan_mission = {
+		icon = mission_ancient_chinese_army_in_siege
+		required_missions = { hnd_beyond_hulao_pass_mission }
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = shanxi_area
+				area = south_hebei_area
+				area = west_shandong_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			shanxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_shandong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_yuan_armies_absorbed"
+				duration = 10950
+			}
+			hebei_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			liaoning_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shandong_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			anhui_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			jiangsu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_jiangsu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	hnd_rein_in_the_gongsun_mission = {
+		icon = mission_chinese_cavalry_charge
+		required_missions = { hnd_decimate_the_yuan_clan_mission }
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = hebei_area
+				area = liaoning_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			liaoning_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_northern_frontier_cavalry"
+				duration = 10950
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_conquest_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_restore_order_in_liang_mission = {
+		icon = mission_noble_tribes
+		required_missions = { hnd_the_han_shall_survive_mission }
+		position = 9
+		provinces_to_highlight = {
+			OR = {
+				area = gansu_area
+				area = west_gansu_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			gansu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_gansu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_qiang_auxiliaries"
+				duration = 10950
+			}
+		}
+	}
+	hnd_retake_the_riverlands_mission = {
+		icon = mng_jing_hang_grand_canal
+		required_missions = { hnd_beyond_hulao_pass_mission }
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = huguang_area		#Hubei
+				area = hunan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			huguang_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hunan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			add_adm_power = 50
+			add_dip_power = 50
+			jiangxi_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_anhui_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			zhejiang_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			fujian_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	hnd_reconquest_of_yangzhou_mission = {
+		icon = mng_thirteen_provinces
+		required_missions = { hnd_retake_the_riverlands_mission }
+		position = 11
+		provinces_to_highlight = {
+			OR = {
+				area = jiangxi_area
+				area = south_anhui_area
+				area = zhejiang_area
+				area = fujian_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			jiangxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_anhui_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zhejiang_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			fujian_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			country_event = {
+				id = mmetr_Generic_Chinese_mission_events.3
+			}
+			tooltip = {
+				add_prestige = 10
+				add_ruler_modifier = {
+					name = "me_genchnw_great_conqueror"
+					duration = -1
+				}
+			}
+			west_guangdong_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guangzhou_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guangxi_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guangdong_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	hnd_imperial_restoration_mission = {
+		icon = mng_heavens_will
+		required_missions = { hnd_reconquest_of_yangzhou_mission hnd_rein_in_the_gongsun_mission hnd_shi_xies_jiaozhi_mission }
+		position = 13
+		provinces_to_highlight = {
+			superregion = china_superregion
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_empty = no
+			has_discovered = ROOT
+		}
+		trigger = {
+			china_superregion = {
+				type = all 
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" } 
+				OR = { 
+					in_golden_age = yes
+					monthly_income = 100
+					is_emperor_of_china = yes
+				}
+			}
+			prestige = 80 
+		}
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes } 
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier2
+					duration = -1 
+				}
+			}
+			if = {
+				limit = { in_golden_age = yes } 
+				extend_golden_age = 120
+			}
+			else = {
+				add_power_projection = { 
+					type = 25_permanent_power_projection
+					amount = 25 
+				}
+				custom_tooltip = chi_permanent_pp
+			}
+		}
+	}
+}
+
+hnd_dong_zhuo_conquest_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = HND
+		}
+		started_in = 2287.9.28		#after Dong Zhuo takes power
+		NOT = { started_in = 2398.1.1 }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	hnd_ancestral_tombs_mission = {
+		icon = mission_japanese_castle_burning
+		required_missions = {  }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1836	#Luoyang
+				province_id = 700	#Luoyang
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			legitimacy_equivalent = 80
+			is_at_war = no
+			owns_core_province = 1836
+			owns_core_province = 700
+			1836 = {
+				infantry_in_province = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_HND_mission_events.9
+			}
+			custom_tooltip = hnd_ancestral_tombs_mission.tt
+		}
+	}
+	hnd_reconstruct_luoyang_mission = {
+		icon = mng_outer_city_beijing
+		required_missions = { hnd_ancestral_tombs_mission hnd_the_han_shall_survive_mission }
+		position = 9
+		provinces_to_highlight = {
+			province_id = 1836	#Luoyang
+			NOT = {
+				num_of_times_improved_by_owner = 5
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 1836
+			1836 = {
+				num_of_times_improved_by_owner = 5
+			}
+			1836 = {
+				num_of_buildings_in_province = 2
+			}
+		}
+		effect = {
+			add_prestige = 5
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "me_hnd_renovation_projects"
+				duration = 10950
+			}
+		}
+	}
+	hnd_heirs_of_liu_bang_mission = {
+		icon = mission_chinese_victorious_army_parade
+		required_missions = { hnd_restore_order_in_liang_mission }
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				province_id = 689	#Hanzhong
+				area = chuanbei_area
+				area = sichuan_area
+				area = chuannan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns = 689
+			chuanbei_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sichuan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			chuannan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_hnd_heir_of_liu_bang"
+				duration = 10950
+			}
+		}
+	}
+	hnd_shi_xies_jiaozhi_mission = {
+		icon = mission_chinese_land_survey
+		required_missions = { hnd_reconquest_of_yangzhou_mission }
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = west_guangdong_area
+				area = guangzhou_area
+				area = guangxi_area
+				area = guangdong_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			west_guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangzhou_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_shu_jiaozhi_shipyards"
+				duration = 10950
+			}
+		}
+	}
+}
+

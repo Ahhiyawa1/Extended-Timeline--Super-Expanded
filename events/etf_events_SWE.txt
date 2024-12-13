@@ -1,0 +1,256 @@
+namespace = etf_event_swe
+
+################
+# General Events
+################
+
+# Scania, neither Danish nor Swedish
+country_event = {
+	id = etf_event_swe.100
+	title = etf_event_swe.100.t
+	desc = etf_event_swe.100.d
+	picture = FARMING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SCN
+		skaneland_area = {
+			is_capital_of = ROOT
+		}
+		culture_group = scandinavian
+		NOT = { primary_culture = scanian }
+	}
+
+	option = {
+		name = etf_event_swe.100.r
+		change_primary_culture = scanian
+		skaneland_area = {
+			limit = {
+				culture_group = scandinavian
+			}
+			change_culture = scanian
+		}
+		skaneland_area = {
+			limit = {
+				culture = scanian
+				NOT = { is_core = ROOT }
+			}
+			add_core = ROOT
+		}
+	}
+}
+
+# Stora Kopparberget Ceases Mining
+province_event = {
+	id = etf_event_swe.101
+	title = etf_event_swe.101.t
+	desc = etf_event_swe.101.d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+
+	trigger = {
+		province_id = 8 # Dalaskogen
+		has_great_project = {
+			type = falun_copper_mine
+			tier = 1
+		}
+		is_year = 4090
+	}
+
+	option = {
+		name = etf_event_swe.101.r
+		destroy_great_project = {
+			type = falun_copper_mine
+		}
+	}
+}
+
+# Scandinavianism
+country_event = {
+	id = etf_event_swe.102
+	title = etf_event_swe.102.t
+	desc = etf_event_swe.102.d
+	picture = REFORM_eventPicture
+
+	trigger = {
+		culture_group = scandinavian
+		capital_scope = {
+			region = scandinavia_region
+		}
+		is_year = 3913
+		NOT = { is_year = 3963 }
+		NOT = { has_country_flag = had_scandinavianism_event }
+	}
+
+	immediate = {
+		set_country_flag = had_scandinavianism_event
+	}
+
+	option = {
+		name = etf_event_swe.102.ra
+		custom_tooltip = etf_event_swe.102.tt
+		set_country_flag = embraced_scandinavianism_flag
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = embraced_scandinavianism_flag
+				}
+				add_historical_friend = ROOT
+				PREV = {
+					add_historical_friend = PREV
+				}
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_swe.102.rb
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Republic of Jamtland
+province_event = {
+	id = etf_event_swe.103
+	title = etf_event_swe.103.t
+	desc = etf_event_swe.103.d
+	picture = FARMING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		province_id = 10 # Jämtland
+		culture_group = scandinavian
+		is_year = 4061
+		NOT = { started_in = 4061.1.1 }
+		NOT = { exists = JMT }
+	}
+
+	option = {
+		name = etf_event_swe.103.r
+		hidden_effect = {
+			JMT = {
+				change_government = republic
+				change_primary_culture = PREV
+				change_religion = PREV
+			}
+		}
+		add_core = JMT
+	}
+}
+
+#################
+# Specific Events
+#################
+
+# The New Riksdag
+country_event = {
+	id = etf_event_swe.200
+	title = etf_event_swe.200.t
+	desc = etf_event_swe.200.d
+	picture = REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_SWE
+		has_reform = appointed_parliament
+		is_year = 3963
+		NOT = { started_in = 3963.1.1 }
+	}
+
+	option = {
+		name = etf_event_swe.200.ra
+		add_wealthy_estate_loyalty = {
+			loyalty = 5
+		}
+		add_government_reform = landed_parliament # Wealthy get the vote
+	}
+
+	option = {
+		name = etf_event_swe.200.rb
+		add_aristocratic_estate_loyalty = {
+			loyalty = 5
+		}
+		add_wealthy_estate_loyalty = {
+			loyalty = -10
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Branting Arrested for Blasphemy
+country_event = {
+	id = etf_event_swe.201
+	title = etf_event_swe.201.t
+	desc = etf_event_swe.201.d
+	picture = REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_SWE
+		NOT = { has_country_modifier = religious_freedom_modifier }
+		NOT = { religion = secularism }
+		is_year = 3986
+		NOT = { started_in = 3986.1.1 }
+	}
+
+	option = {
+		name = etf_event_swe.201.ra
+		add_religious_estate_loyalty = {
+			loyalty = 5
+		}
+	}
+
+	option = {
+		name = etf_event_swe.201.rb
+		add_religious_estate_loyalty = {
+			loyalty = -10
+		}
+		add_freedom_of_religion_effect = yes
+	}
+}
+
+# The Push for Suffrage
+country_event = {
+	id = etf_event_swe.202
+	title = etf_event_swe.202.t
+	desc = etf_event_swe.202.d
+	picture = REFORM_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_SWE
+		has_reform = landed_parliament
+		is_year = 4005
+		NOT = { started_in = 4005.1.1 }
+	}
+
+	option = {
+		name = etf_event_swe.202.ra
+		add_government_reform = elected_parliament
+	}
+
+	option = {
+		name = etf_event_swe.202.rb
+		add_stability = -1
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_autocracy = yes }
+			}
+			modifier = {
+				factor = 0
+				NOT = { stability = 1 }
+			}
+		}
+	}
+}

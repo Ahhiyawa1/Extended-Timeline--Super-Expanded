@@ -107,25 +107,34 @@ francia_carolingian_missions_1 = {
 		}
 		effect = {
 			add_dip_power = 50
-			catalonia_area = {
-				limit = {
-					owner = {
-						religion_group = christian
+			custom_tooltip = frk_aquitaine_diplomacy_mission.tt
+			hidden_effect = {
+				catalonia_area = {
+					limit = {
+						OR = {
+							religion_group = christian
+							owner = {
+								religion_group = christian
+							}
+						}
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
 					}
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			aragon_area = {
-				limit = {
-					owner = {
-						religion_group = christian
+				aragon_area = {
+					limit = {
+						OR = {
+							religion_group = christian
+							owner = {
+								religion_group = christian
+							}
+						}
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
 					}
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -686,7 +695,7 @@ francia_carolingian_missions_3 = {
 					duration = 10950
 				}
 			}
-			custom_tooltip = frk_saxon_wars_mission.tt
+			custom_trigger_tooltip = frk_saxon_wars_mission.tt
 		}
 	}
 	frk_imperator_romanum_mission = {
@@ -804,7 +813,7 @@ francia_carolingian_missions_3 = {
 						}
 						3104 = { 
 							set_in_empire = no 
-							cede_province = ---
+							cede_province = XXX
 							remove_core = JMN
 						}
 					}
@@ -881,9 +890,9 @@ francia_carolingian_missions_3 = {
 			tooltip = {
 				if = {
 					limit = {
-						NOT = { government_rank = 10 }
+						NOT = { government_rank = 3 }
 					}
-					set_government_rank = 4
+					set_government_rank = 3
 				}
 				add_country_modifier = {
 					name = "me_frk_emperor_of_constantinople"
@@ -1313,7 +1322,7 @@ francia_carolingian_missions_5 = {
 		required_missions = { frk_imperator_romanum_mission frk_slavic_campaign_mission }
 		position = 5
 		trigger = {
-			government_rank = 10
+			government_rank = 3
 			religious_unity = 1.00
 			is_defender_of_faith = yes
 		}

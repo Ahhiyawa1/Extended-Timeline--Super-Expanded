@@ -3,7 +3,10 @@ himyarite_missions_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -13,10 +16,7 @@ himyarite_missions_1 = {
 		required_missions = {  }
 		position = 1
 		trigger = {
-			OR = {
-				navy_size = QAT		#larger than Qataban
-				NOT = { exists = QAT }
-			}
+			navy_size = QAT		#larger than Qataban
 			navy_size = 15
 			num_of_light_ship = 4
 			num_of_admirals = 1
@@ -155,7 +155,10 @@ himyarite_missions_jewish_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = jewish
 		NOT = { map_setup = map_setup_random }
 	}
@@ -220,7 +223,10 @@ himyarite_missions_south_arabian_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = south_arabian
 		NOT = { map_setup = map_setup_random }
 	}
@@ -285,7 +291,10 @@ himyarite_missions_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -308,11 +317,6 @@ himyarite_missions_2 = {
 					who = ROW
 					value = 120
 				}
-				AND = {
-					NOT = { exists = ROM }
-					NOT = { exists = ROW }
-					NOT = { exists = BYZ }
-				}
 			}
 			OR = {
 				reverse_has_opinion = {
@@ -322,10 +326,6 @@ himyarite_missions_2 = {
 				reverse_has_opinion = {
 					who = ERS
 					value = 120
-				}
-				AND = {
-					NOT = { exists = ERS }
-					NOT = { exists = PRT }
 				}
 			}
 		}
@@ -505,7 +505,10 @@ himyarite_missions_jewish_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = jewish
 		NOT = { map_setup = map_setup_random }
 	}
@@ -612,7 +615,10 @@ himyarite_missions_south_arabian_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = south_arabian
 		NOT = { map_setup = map_setup_random }
 	}
@@ -718,7 +724,10 @@ himyarite_missions_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -812,7 +821,8 @@ himyarite_missions_3 = {
 			has_discovered = ROOT
 		}
 		trigger = {
-			any_core_province = {
+			any_owned_province = {
+				is_state_core = ROOT
 				trade_goods = incense
 			}
 			hadramut_area = {
@@ -966,7 +976,10 @@ himyarite_missions_jewish_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = jewish
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1016,7 +1029,10 @@ himyarite_missions_south_arabian_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		religion = south_arabian
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1047,7 +1063,10 @@ himyarite_missions_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1057,27 +1076,22 @@ himyarite_missions_4 = {
 		required_missions = {  }
 		position = 1
 		trigger = {
-			OR = {
-				AND = {
-					army_size = AKS		#Aksum
-					is_rival = AKS
-					AKS = {
-						custom_trigger_tooltip = {
-							tooltip = shu_wu_diplomacy_mission.tt
-							OR = {
-								has_opinion_modifier = {
-									who = ROOT
-									modifier = insulted
-								}
-								has_opinion_modifier = {
-									who = ROOT
-									modifier = scornfully_insulted
-								}
-							}
+			army_size = AKS		#Aksum
+			is_rival = AKS
+			AKS = {
+				custom_trigger_tooltip = {
+					tooltip = shu_wu_diplomacy_mission.tt
+					OR = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = insulted
+						}
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = scornfully_insulted
 						}
 					}
 				}
-				NOT = { exists = AKS }
 			}
 		}
 		effect = {
@@ -1332,7 +1346,10 @@ himyarite_missions_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = HIM
+		OR = {
+			tag = HIM
+			was_tag = HIM
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes

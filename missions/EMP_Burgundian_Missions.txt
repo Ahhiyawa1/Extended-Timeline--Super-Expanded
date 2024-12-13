@@ -145,9 +145,9 @@ emp_burgundy_1 = {
 		effect = {
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 				else = {
 					add_adm_power = 100
 				}
@@ -406,7 +406,7 @@ emp_burgundy_2 = {
 			}
 		}
 		ai_weight = {
-			factor = 500	#Natural Ã®ntegration
+			factor = 500	#Natural întegration
 		}
 	}
 	emp_bur_secure_the_lowlands = {
@@ -1798,7 +1798,7 @@ emp_burgundy_5 = {
 				tooltip = burgundy_has_secured_succession_tt
 				OR = {
 					has_country_flag = bur_crisis_has_happened
-					is_year = 3502
+					is_year = 3598
 				}
 			}
 			is_subject = no
@@ -2254,11 +2254,11 @@ emp_lotharingia_5 = {
 		effect = {
 			if = {
 				limit = {
-					NOT = { government_rank = 10 }
+					NOT = { government_rank = 3 }
 				}
 				custom_tooltip = emp_bur_carolingian_empire_effect_tooltip
 				hidden_effect = {
-					set_government_rank = 4
+					set_government_rank = 3
 				}
 			}
 			add_country_modifier = {

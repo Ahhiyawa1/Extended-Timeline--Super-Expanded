@@ -1,0 +1,584 @@
+namespace = etf_event_balnat
+
+#                                                      #
+# UNUSED! Due to crashes, and all-around poor quality. # 
+#                                                      #
+
+# Instability in the Balkans
+country_event = {
+	id = etf_event_balnat.1
+	title = etf_event_balnat.1.t
+	desc = etf_event_balnat.1.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_neighbor_of = FROM
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = balkan_nationalism_flag
+		hidden_effect = {
+			add_stability = -1
+		}
+	}
+
+	option = { # Fight them!
+		name = etf_event_balnat.1.ra
+		every_owned_province = {
+			limit = {
+				region = balkan_region
+			}
+			add_province_modifier = {
+				name = balnat_province_unrest
+				duration = 720
+			}
+		}
+		set_country_flag = balnat_fight_path
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = { # Appease them!
+		name = etf_event_balnat.1.rb
+		every_owned_province = {
+			limit = {
+				region = balkan_region
+			}
+			add_province_modifier = {
+				name = balnat_province_autonomy
+				duration = 720
+			}
+		}
+		set_country_flag = balnat_appease_path
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Situation in [region]
+province_event = {
+	id = etf_event_balnat.2
+	title = etf_event_balnat.2.t
+	desc = etf_event_balnat.2.d
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		owner = {
+			has_disaster = balkan_nationalism
+			OR = {
+				has_country_flag = balnat_fight_path
+				has_country_flag = balnat_appease_path
+			}
+		}
+		region = balkan_region
+		any_core_country = {
+			exists = no
+		}
+		NOT = { has_province_flag = had_balnat_province_event }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				save_event_target_as = balnat_owner
+			}
+			random_core_country = {
+				limit = {
+					exists = no
+				}
+				save_event_target_as = balnat_situation_target
+			}
+			every_province = {
+				limit = { is_core = event_target:balnat_situation_target }
+				set_province_flag = had_balnat_province_event
+			}
+		}
+	}
+
+	option = { # They're rising up!
+		name = etf_event_balnat.2.ra
+		trigger = {
+			owner = {
+				NOT = { has_country_flag = balnat_appease_path }
+			}
+		}
+		nationalist_rebels = 3
+	}
+
+	# Demands for further Autonomy
+	option = {
+		name = etf_event_balnat.2.rb # Of course
+		trigger = {
+			owner = { has_country_flag = balnat_appease_path }
+		}
+		owner = {
+			hidden_effect = {
+				release = event_target:balnat_situation_target
+				event_target:balnat_situation_target = {
+					every_owned_province = {
+						remove_core = event_target:balnat_owner
+					}
+					change_government = PREV
+					change_religion = CAPITAL
+					add_treasury = 100
+					add_manpower = 10
+				}
+			}
+			vassalize = event_target:balnat_situation_target
+			event_target:balnat_situation_target = {
+				add_liberty_desire = -25
+			}
+		}
+	}
+	option = {
+		name = etf_event_balnat.2.rc # No way!
+		trigger = {
+			owner = { has_country_flag = balnat_appease_path }
+		}
+		nationalist_rebels = 1
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Area wishes to join their country-men
+province_event = {
+	id = etf_event_balnat.3
+	title = etf_event_balnat.3.t
+	desc = etf_event_balnat.3.d
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		owner = {
+			has_disaster = balkan_nationalism
+			OR = {
+				has_country_flag = balnat_fight_path
+				has_country_flag = balnat_appease_path
+			}
+		}
+		region = balkan_region
+		any_core_country = {
+			exists = yes
+			NOT = {
+				has_disaster = balkan_nationalism
+			}
+		}
+		any_neighbor_province = {
+			owner = {
+				ROOT = { is_core = PREV }
+			}
+		}
+		NOT = { has_province_flag = had_balnat_province_event }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				save_event_target_as = balnat_owner
+			}
+			random_core_country = {
+				limit = {
+					exists = yes
+					NOT = {
+						has_disaster = balkan_nationalism
+					}
+				}
+				save_event_target_as = balnat_situation_target
+			}
+			area = {
+				limit = { is_core = event_target:balnat_situation_target }
+				set_province_flag = had_balnat_province_event
+			}
+		}
+	}
+
+	option = { # Of course
+		name = etf_event_balnat.3.ra
+		area = {
+			limit = {
+				owned_by = event_target:balnat_owner
+				is_core = event_target:balnat_situation_target
+			}
+			hidden_effect = {
+				remove_core = event_target:balnat_owner
+			}
+			cede_province = event_target:balnat_situation_target
+			hidden_effect = {
+				event_target:balnat_situation_target = {
+					country_event = { id = etf_event_balnat.4 } # Alert nation getting land
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				owner = { has_country_flag = balnat_fight_path }
+			}
+		}
+	}
+
+	option = { # No way!
+		name = etf_event_balnat.3.rb
+		nationalist_rebels = 2
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				owner = { has_country_flag = balnat_appease_path }
+			}
+		}
+	}
+}
+
+# Area ceded to us!
+country_event = {
+	id = etf_event_balnat.4
+	title = etf_event_balnat.4.t
+	desc = etf_event_balnat.4.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_balnat.4.r
+	}
+}
+
+## Foreign Responses
+
+# Congress for Balkan Stability
+country_event = {
+	id = etf_event_balnat.10
+	title = etf_event_balnat.10.t
+	desc = etf_event_balnat.10.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			has_disaster = balkan_nationalism
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		any_country = {
+			has_disaster = balkan_nationalism
+			num_of_owned_provinces_with = {
+				region = balkan_region
+				controlled_by = REB
+				value = 10
+			}
+			had_country_flag = {
+				flag = balkan_nationalism_flag
+				days = 250
+			}
+		}
+		is_great_power = yes
+		capital_scope = { continent = europe }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_disaster = balkan_nationalism
+				}
+				save_event_target_as = balnat_target
+			}
+		}
+	}
+
+	option = { # Support stability in the Balkans
+		name = etf_event_balnat.10.ra
+		event_target:balnat_target = {
+			country_event = { id = etf_event_balnat.11 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				alliance_with = event_target:balnat_target
+			}
+		}
+	}
+
+	option = { # Support a stable Ottoman Empire
+		name = etf_event_balnat.10.rb
+		add_treasury = -1000
+		event_target:balnat_target = {
+			country_event = { id = etf_event_balnat.12 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_rival = event_target:balnat_target
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					culture_group = west_slavic
+					culture_group = east_slavic
+					culture_group = south_slavic
+				}
+			}
+		}
+	}
+}
+
+# Ultimatum for the Balkan Future
+country_event = {
+	id = etf_event_balnat.11
+	title = etf_event_balnat.11.t
+	desc = etf_event_balnat.11.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	major_trigger = {
+		is_great_power = yes
+		capital_scope = { continent = europe }
+	}
+
+	is_triggered_only = yes
+
+	option = { # Accept the demands
+		name = etf_event_balnat.11.ra
+		custom_tooltip = etf_event_balnat_11_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = balkan_region
+				}
+				### COPIED FROM NATION DISMANTLE EVENTS
+				if = {
+					# Prioritize 'Return Cores' to existing nations...
+					limit = {
+						any_core_country = {
+							exists = yes
+							NOT = { war_with = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					random_core_country = {
+						limit = {
+							exists = yes
+							NOT = { war_with = ROOT }
+							NOT = { tag = ROOT }
+						}
+						country_event = { id = etf_dismantle.101 }
+						every_province = {
+							limit = {
+								owned_by = ROOT
+								is_core = PREV
+							}
+							if = {
+								limit = {
+									NOT = { culture_group = ROOT }
+								}
+								remove_core = ROOT
+							}
+							cede_province = PREV
+						}
+					}
+				}
+				else_if = {
+					# Then release remainder with province events.
+					limit = {
+						any_core_country = {
+							exists = no
+							NOT = { tag = ROOT }
+						}
+					}
+					province_event = { id = etf_dismantle.102 }
+				}
+			}
+			every_subject_country = {
+				limit = {
+					OR = {
+						capital_scope = { region = balkan_region }
+						primary_culture = romanian
+					}
+				}
+				grant_independence = yes
+			}
+		}
+	}
+
+	option = { # Deny them
+		name = etf_event_balnat.11.rb
+		every_country = {
+			limit = {
+				is_great_power = yes
+				capital_scope = { continent = europe }
+				NOT = { tag = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = tyrannical_balkan_overlord
+			}
+			add_casus_belli = {
+				target = ROOT
+				type = cb_liberation
+				months = 12
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Europe supports the Empire
+country_event = {
+	id = etf_event_balnat.12
+	title = etf_event_balnat.12.t
+	desc = etf_event_balnat.12.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_balnat.12.r
+		add_treasury = 1000
+	}
+}
+
+## Endings
+
+# Stability returns to the Balkans
+country_event = {
+	id = etf_event_balnat.20
+	title = etf_event_balnat.20.t
+	desc = {
+		trigger = { # Ottomans lose Balkans entirely
+			NOT = {
+				any_owned_province = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+			NOT = {
+				any_subject_country = {
+					capital_scope = {
+						region = balkan_region
+						NOT = { area = thrace_area }
+					}
+				}
+			}
+		}
+		desc = etf_event_balnat.20.da
+	}
+	desc = {
+		trigger = { # Balkans granted Autonomy
+			NOT = {
+				any_owned_province = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+			any_subject_country = {
+				capital_scope = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+		}
+		desc = etf_event_balnat.20.db
+	}
+	desc = {
+		trigger = { # Balkan rebels brutally crushed
+			has_country_flag = balnat_fight_path
+		}
+		desc = etf_event_balnat.20.dc
+	}
+	desc = {
+		trigger = { always = yes } # Neutral fallback
+		desc = etf_event_balnat.20.d
+	}
+	picture = {
+		trigger = {
+			NOT = {
+				any_owned_province = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+			NOT = {
+				any_subject_country = {
+					capital_scope = {
+						region = balkan_region
+						NOT = { area = thrace_area }
+					}
+				}
+			}
+		}
+		picture = EUROPEAN_REFUGEES_eventPicture
+	}
+	picture = {
+		trigger = {
+			NOT = {
+				any_owned_province = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+			any_subject_country = {
+				capital_scope = {
+					region = balkan_region
+					NOT = { area = thrace_area }
+				}
+			}
+		}
+		picture = LAND_MILITARY_eventPicture
+	}
+	picture = {
+		trigger = {
+			has_country_flag = balnat_fight_path
+		}
+		picture = LAND_MILITARY_eventPicture
+	}
+	picture = {
+		trigger = { always = yes }
+		picture = GOOD_WITH_MONARCH_eventPicture
+	}
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_neighbor_of = FROM
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_balnat.20.r
+		add_stability = 1
+	}
+
+	after = {
+		clr_country_flag = balnat_fight_path
+		clr_country_flag = balnat_appease_path
+		every_province = {
+			clr_province_flag = had_balnat_province_event
+		}
+	}
+}

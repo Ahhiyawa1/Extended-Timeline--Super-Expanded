@@ -1,0 +1,260 @@
+can_claim_defender_of_faith = {
+	condition = {
+		tooltip = "NO_LARPING"
+		potential = {
+			has_country_modifier = religious_freedom_modifier
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_make_state = {
+	condition = {
+		tooltip = "AI_STATE_LIMITS"
+		potential = {
+			FROM = {
+				ai = yes
+			}
+			is_overseas = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_colonize_province = {
+	condition = {
+		tooltip = "NEED_TECH_TO_COLONIZE"
+		potential = {
+			has_province_modifier = hard_to_colonize
+		}
+		allow = {
+			FROM = { dip_tech = 81 }
+		}
+	}
+	condition = {
+		tooltip = "NEED_CLAIM_TO_COLONIZE"
+		potential = {
+			started_in = 3934.1.1
+			any_country = {
+				ROOT = {
+					is_permanent_claim = PREV
+				}
+			}
+		}
+		allow = {
+			OR = {
+				is_permanent_claim = FROM
+				FROM = {
+					ai = no
+					any_subject_country = {
+						is_subject_other_than_tributary_trigger = yes
+						ROOT = {
+							is_permanent_claim = PREV
+						}
+					}
+				}
+				FROM = {
+					is_colonial_subject_type = yes
+					overlord = {
+						ROOT = {
+							is_permanent_claim = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = "AI_COLONIAL_LIMITS"
+		potential = {
+			FROM = {
+				ai = yes
+			}
+			OR = {
+				AND = {
+					FROM = {
+						NOT = {
+							OR = {
+								dip_tech = 73
+								capital_scope = {
+									OR = {
+										region = australia_region
+										area = te_ika_a_maui_hauauru_area
+										area = te_ika_a_maui_waho_area
+										area = te_waipounamu_area
+									}
+								}
+							}
+						}
+					}
+					OR = {
+						region = australia_region
+						area = te_ika_a_maui_hauauru_area
+						area = te_ika_a_maui_waho_area
+						area = te_waipounamu_area
+					}
+				}
+				AND = {
+					FROM = {
+						NOT = {
+							OR = {
+								dip_tech = 79
+								capital_scope = {
+									continent = africa
+								}
+							}
+						}
+					}
+					continent = africa
+				}
+				AND = {
+					FROM = {
+						NOT = {
+							OR = {
+								dip_tech = 81
+								capital_scope = {
+									region = oceanea_region
+								}
+							}
+						}
+					}
+					region = oceanea_region
+					NOT = { area = te_ika_a_maui_hauauru_area }
+					NOT = { area = te_ika_a_maui_waho_area }
+					NOT = { area = te_waipounamu_area }
+				}
+				AND = {
+					FROM = {
+						capital_scope = {
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+						}
+					}
+					NOT = { continent = north_america }
+					NOT = { continent = south_america }
+					NOT = { region = oceanea_region }
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_colonize_province_siberian_frontier = {
+	condition = {
+		tooltip = "NEED_TECH_TO_COLONIZE"
+		potential = {
+			has_province_modifier = hard_to_colonize
+		}
+		allow = {
+			FROM = { dip_tech = 81 }
+		}
+	}
+	condition = {
+		tooltip = "NEED_CLAIM_TO_COLONIZE"
+		potential = {
+			started_in = 3928.1.1
+			any_country = {
+				PREV = {
+					is_permanent_claim = PREV
+				}
+			}
+		}
+		allow = {
+			is_permanent_claim = FROM
+		}
+	}
+}
+
+can_have_colonial_nations = {
+	condition = {
+		potential = {
+			FROM = {
+				has_country_flag = no_colonial_nations
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		potential = {
+			ROOT = {
+				has_province_modifier = directly_ruled_colony_modifier
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = { # Disable Colonial Nations if sub-colonies are used instead:
+		potential = {
+			OR = {
+				AND = {
+					colonial_region = colonial_australia
+					FROM = {
+						any_subject_country = {
+							is_subject_other_than_tributary_trigger = yes
+							OR = {
+								tag = QLD
+								tag = NSW
+								tag = VIC
+								tag = TAS
+								tag = SSA
+								tag = WAU
+								tag = NTE
+								country_is = { tag = AUS }
+							}
+						}
+						NOT = {
+							any_subject_country = {
+								is_colonial_nation = yes
+								capital_scope = {
+									colonial_region = colonial_australia
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_canada
+					FROM = {
+						any_subject_country = {
+							is_subject_other_than_tributary_trigger = yes
+							OR = {
+								tag = NFL
+								tag = PEI
+								tag = NSC
+								tag = NBR
+								tag = LCA
+								tag = UCA
+								tag = HBC
+								tag = CUL
+								country_is = { tag = CAN }
+							}
+						}
+						NOT = {
+							any_subject_country = {
+								is_colonial_nation = yes
+								capital_scope = {
+									colonial_region = colonial_canada
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}

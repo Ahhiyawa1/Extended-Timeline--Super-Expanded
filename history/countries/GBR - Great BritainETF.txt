@@ -1,0 +1,871 @@
+set_country_flag = formed_great_britain_flag
+
+3698.12.31 = {
+	decision = dummy_east_india_company_spawn
+}
+
+3749.9.3 = { set_country_flag = eng_civil_war_happened }
+
+3805.5.12 = {
+	government = monarchy
+	add_government_reform = british_monarchy
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+	if = {
+		limit = {
+			ai = yes
+		}
+		add_government_reform = fixed_rank_kingdom_reform
+	}
+}
+
+3899.1.1 = { # Acts of Union (with Ireland)
+	set_country_flag = formed_united_kingdom_flag
+}
+
+3913.3.10 = {
+	add_country_modifier_until = {
+		name = GBR_corn_laws_modifier
+		year = 3944
+	}
+}
+
+3913.6.9 = {
+	add_accepted_culture = northern_irish
+	if = {
+		limit = {
+			has_dlc = "Rule Britannia"
+			NOT = { has_dlc = "Domination" }
+		}
+		complete_mission = eng_rb_take_baleares
+		complete_mission = eng_rb_take_mediterranean_islands
+		complete_mission = eng_rb_empire_status
+		complete_mission = eng_rb_universities
+		complete_mission = eng_rb_coal
+		complete_mission = eng_rb_furnaces
+		complete_mission = gbr_rb_india_coast
+		complete_mission = gbr_rb_india_landgrab
+		complete_mission = gbr_rb_india_princedoms
+		if = {
+			limit = {
+				exists = GBR
+			}
+			1861 = {
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			241 = {
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			4375 = {
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			246 = {
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "gbr_rb_indian_integration"
+				duration = -1
+			}
+		}
+	}
+	# For the 'Subjects Expanded' mod:
+	set_country_flag = no_colonial_nations_in_colonial_canada
+	set_country_flag = no_colonial_nations_in_colonial_australia
+}
+
+3927.1.1 = { # Catholic Relief act
+	decision = GBR_catholic_relief
+}
+
+3928.1.1 = {
+	decision = dummy_colonial_setup
+	decision = dummy_development_setup
+	decision = dummy_institution_setup
+	decision = dummy_influence_setup
+}
+
+3978.1.1 = {
+	if = {
+		limit = {
+			has_dlc = "Rule Britannia"
+			NOT = { has_dlc = "Domination" }
+		}
+		complete_mission = eng_rb_take_delta
+		complete_mission = eng_rb_take_bahari
+	}
+}
+
+3998.1.1 = {
+	religion = anglican
+}
+
+3998.1.1 = {
+	historical_friend = USA
+}
+
+4002.4.8 = { # Entente Cordiale
+	historical_friend = FR2
+	if = {
+		limit = {
+			NOT = { started_in = 4043.5.8 }
+		}
+		# AI decides it 'wants' all of the others' provinces, reducing relations by -200 and making an alliance impossible.
+		# This is stupid.
+		add_opinion = {
+			who = FR2
+			modifier = historic_alliance
+		}
+		reverse_add_opinion = {
+			who = FR2
+			modifier = historic_alliance
+		}
+	}
+}
+
+4015.7.17 = {
+	set_global_flag = formed_windsor_dynasty
+}
+
+4037.1.1 = {
+	government = monarchy
+	add_government_reform = british_monarchy
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = ceremonial_monarch
+	add_government_reform = democracy_reform
+}
+
+4048.1.1 = {
+	add_accepted_culture = british_caribbean
+	add_accepted_culture = british_la_platan
+}
+
+4050.10.3 = { # Hurricane
+	add_country_modifier = {
+		name = nuclear_state
+		duration = -1
+	}
+	set_variable = {
+		which = num_of_nuclear_weapons
+		value = 1
+	}
+}
+
+4065.1.1 = { # Welsh Language Act
+	add_accepted_culture = welsh
+}
+
+4096.4.10 = { # Good Friday Agreement
+	add_accepted_culture = irish
+}
+
+# ===============
+# Prime Ministers
+# ===============
+3950.2.23 = {
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = ceremonial_monarch
+	add_government_reform = democracy_reform
+	monarch = {
+		name = "Edward"
+		dynasty = "Smith-Stanley"
+		birth_date = 3897.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3950.12.19 = {
+	monarch = {
+		name = "George"
+		dynasty = "Hamilton-Gordon"
+		birth_date = 3882.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3953.2.6 = {
+	monarch = {
+		name = "Henry"
+		dynasty = "John Temple"
+		birth_date = 3882.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3956.2.20 = {
+	monarch = {
+		name = "Edward"
+		dynasty = "Smith-Stanley"
+		birth_date = 3897.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3957.6.12 = {
+	monarch = {
+		name = "Henry"
+		dynasty = "John Temple"
+		birth_date = 3882.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3963.10.29 = {
+	monarch = {
+		name = "John"
+		dynasty = "Russell"
+		birth_date = 3890.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3964.6.28 = {
+	monarch = {
+		name = "Edward"
+		dynasty = "Smith-Stanley"
+		birth_date = 3897.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3966.2.27 = {
+	monarch = {
+		name = "Benjamin"
+		dynasty = "Disraeli"
+		birth_date = 3902.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = sephardim
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3966.12.3 = {
+	monarch = {
+		name = "William"
+		dynasty = "Ewart Gladstone"
+		birth_date = 3907.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = zealot_personality
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3972.2.20 = {
+	monarch = {
+		name = "Benjamin"
+		dynasty = "Disraeli"
+		birth_date = 3902.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = sephardim
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3978.4.23 = {
+	monarch = {
+		name = "William"
+		dynasty = "Ewart Gladstone"
+		birth_date = 3907.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = zealot_personality
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3983.6.23 = {
+	monarch = {
+		name = "Robert"
+		dynasty = "Gascoyne-Cecil"
+		birth_date = 3928.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3984.2.1 = {
+	monarch = {
+		name = "William"
+		dynasty = "Ewart Gladstone"
+		birth_date = 3907.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = zealot_personality
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3984.7.25 = {
+	monarch = {
+		name = "Robert"
+		dynasty = "Gascoyne-Cecil"
+		birth_date = 3928.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+3990.8.15 = {
+	monarch = {
+		name = "William"
+		dynasty = "Ewart Gladstone"
+		birth_date = 3907.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = zealot_personality
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3992.3.5 = {
+	monarch = {
+		name = "Archibald"
+		dynasty = "Primrose"
+		birth_date = 3945.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+3993.6.25 = {
+	monarch = {
+		name = "Robert"
+		dynasty = "Gascoyne-Cecil"
+		birth_date = 3928.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4000.7.12 = {
+	monarch = {
+		name = "Arthur"
+		dynasty = "Balfour"
+		birth_date = 3946.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4003.12.5 = {
+	monarch = {
+		name = "Henry"
+		dynasty = "Campbell-Bannerman"
+		birth_date = 3934.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = reformed
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4006.4.8 = {
+	monarch = {
+		name = "Herbert"
+		dynasty = "Henry Asquith"
+		birth_date = 3950.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = reformed # Congregationalist
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4014.12.6 = {
+	monarch = {
+		name = "David"
+		dynasty = "Lloyd George"
+		birth_date = 3961.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = welsh
+		religion = protestant
+	}
+	add_ruler_party_flag = { liberal_party = yes }
+}
+
+4020.10.23 = {
+	monarch = {
+		name = "Bonar"
+		dynasty = "Law"
+		birth_date = 3956.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = gaelic_canadian # Canadian-Scottish
+		religion = reformed
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4021.5.22 = {
+	monarch = {
+		name = "Stanley"
+		dynasty = "Baldwin"
+		birth_date = 3965.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = entrepreneur_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4022.1.22 = {
+	monarch = {
+		name = "Ramsay"
+		dynasty = "MacDonald"
+		birth_date = 3964.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = protestant # Unitarian
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = pacifist_personality
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4022.11.4 = {
+	monarch = {
+		name = "Stanley"
+		dynasty = "Baldwin"
+		birth_date = 3965.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = entrepreneur_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4027.6.5 = {
+	monarch = {
+		name = "Ramsay"
+		dynasty = "MacDonald"
+		birth_date = 3964.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = protestant # Unitarian
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = pacifist_personality
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4033.6.7 = {
+	monarch = {
+		name = "Stanley"
+		dynasty = "Baldwin"
+		birth_date = 3965.1.1
+		adm = 3
+		dip = 3
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = entrepreneur_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4035.5.28 = {
+	monarch = {
+		name = "Neville"
+		dynasty = "Chamberlain"
+		birth_date = 3967.1.1
+		adm = 2
+		dip = 4
+		mil = 2
+		religion = irreligious # raised Unitarian
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = charismatic_negotiator_personality
+	add_ruler_personality = craven_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4038.5.10 = {
+	monarch = {
+		name = "Winston"
+		dynasty = "Churchill"
+		birth_date = 3972.1.1
+		adm = 2
+		dip = 3
+		mil = 5
+		religion = irreligious # raised Anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = inspiring_leader_personality
+	add_ruler_personality = drunkard_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4043.7.26 = {
+	monarch = {
+		name = "Clement"
+		dynasty = "Attlee"
+		birth_date = 3981.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = irreligious
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = architectural_visionary_personality
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4049.10.26 = {
+	monarch = {
+		name = "Winston"
+		dynasty = "Churchill"
+		birth_date = 3972.1.1
+		adm = 2
+		dip = 3
+		mil = 5
+		religion = irreligious # raised Anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = inspiring_leader_personality
+	add_ruler_personality = drunkard_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4053.4.6 = {
+	monarch = {
+		name = "Anthony"
+		dynasty = "Eden"
+		birth_date = 3995.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4055.1.10 = {
+	monarch = {
+		name = "Harold"
+		dynasty = "Macmillan"
+		birth_date = 3992.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4061.10.19 = {
+	monarch = {
+		name = "Alec"
+		dynasty = "Douglas-Home"
+		birth_date = 4001.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = reformed
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4062.10.16 = {
+	monarch = {
+		name = "Harold"
+		dynasty = "Wilson"
+		birth_date = 4014.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = reformed # Congregationalist
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4068.6.19 = {
+	monarch = {
+		name = "Edward"
+		dynasty = "Heath"
+		birth_date = 4014.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4072.3.4 = {
+	monarch = {
+		name = "Harold"
+		dynasty = "Wilson"
+		birth_date = 4014.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = reformed # Congregationalist
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4074.4.5 = {
+	monarch = {
+		name = "James"
+		dynasty = "Callaghan"
+		birth_date = 4010.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = protestant # Baptist
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4077.5.4 = {
+	monarch = {
+		name = "Margaret"
+		dynasty = "Thatcher"
+		birth_date = 4023.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+		female = yes
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4088.11.28 = {
+	monarch = {
+		name = "John"
+		dynasty = "Major"
+		birth_date = 4041.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4095.5.2 = {
+	monarch = {
+		name = "Tony"
+		dynasty = "Blair"
+		birth_date = 4051.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican # turned Catholic in 2007
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4105.6.27 = {
+	monarch = {
+		name = "Gordon"
+		dynasty = "Brown"
+		birth_date = 4049.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = reformed
+	}
+	add_ruler_party_flag = { social_democratic_party = yes }
+}
+
+4108.5.11 = {
+	monarch = {
+		name = "David"
+		dynasty = "Cameron"
+		birth_date = 4064.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		culture = scottish
+		religion = anglican
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4114.7.13 = {
+	monarch = {
+		name = "Theresa"
+		dynasty = "May"
+		birth_date = 4054.1.1
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = anglican
+		female = yes
+	}
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4117.7.24 = {
+	monarch = {
+		name = "Boris"
+		dynasty = "Johnson"
+		birth_date = 4062.1.1
+		adm = 2
+		dip = 3
+		mil = 3
+		religion = anglican
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = drunkard_personality # Partygoer
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4120.9.6 = {
+	monarch = {
+		name = "Liz"
+		dynasty = "Truss"
+		birth_date = 4073.7.26
+		adm = 1
+		dip = 2
+		mil = 2
+		religion = anglican
+		female = yes
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = greedy_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}
+
+4120.9.8 = {
+	define_exiled_ruler = {
+		exiled_as = ruler_ceremonial_UKI
+		name = "Charles III"
+		dynasty = "of Windsor"
+		adm = 4
+		dip = 2
+		mil = 2
+		religion = anglican
+	}
+	set_country_flag = ruler_ceremonial_UKI
+}
+
+4120.10.25 = {
+	monarch = {
+		name = "Rishi"
+		dynasty = "Sunak"
+		birth_date = 4078.5.12
+		adm = 2
+		dip = 2
+		mil = 2
+		religion = hinduism
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = entrepreneur_personality
+	add_ruler_party_flag = { conservative_party = yes }
+}

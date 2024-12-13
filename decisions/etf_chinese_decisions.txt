@@ -1,0 +1,522 @@
+country_decisions = {
+
+	####################
+	### Treaty Ports ###
+	####################
+	#chn_demand_macau = {
+	#	potential = {
+	#		country_is = { tag = CHN }
+	#		is_free_or_tributary_trigger = yes
+	#		668 = {
+	#			owner = {
+	#				NOT = {
+	#					capital_scope = { superregion = china_superregion }
+	#				}
+	#			}
+	#			any_neighbor_province = { owned_by = ROOT }
+	#			NOT = { owned_by = ROOT }
+	#		}
+	#		NOT = { has_country_flag = demanded_treaty_port }
+	#	}
+	#	provinces_to_highlight = { province_id = 668 }
+	#	allow = {
+	#		is_at_war = no
+	#		is_great_power = yes
+	#	}
+	#	effect = {
+	#		random_country = {
+	#			limit = { owns = 668 }
+	#			country_event = { id = "" }
+	#		}
+	#		set_country_flag = demanded_treaty_port
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+
+	###################
+	### Warlord Era ###
+	###################
+	chn_warlord_form_kuomintang = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_kuomintang_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			has_global_flag = the_warlords_era
+			has_country_flag = ccw_participant_flag
+			NOT = {
+				country_is = { tag = CHN }
+			}
+			NOT = { tag = CCP }
+			NOT = { exists = KUO }
+			NOT = { exists = ROC }
+		}
+		provinces_to_highlight = {
+			province_id = 667 # Guangzhou
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_core_province = 667 # Guangzhou
+		}
+		effect = {
+			change_tag = KUO
+			on_change_tag_effect = yes
+			hidden_effect = {
+				override_country_name_add_flag = { name = KUOMINTANG definite = yes }
+			}
+			add_prestige = 10
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = KUO_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_kuomintang_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					had_global_flag = {
+						flag = the_warlords_era # AI Guangdong shouldn't immediately press this, lil' delay added.
+						days = 100
+					}
+				}
+			}
+		}
+		ai_importance = 400
+	}
+	chn_warlord_form_ccp = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_ccp_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			has_global_flag = the_warlords_era
+			has_country_flag = ccw_participant_flag
+			NOT = {
+				country_is = { tag = CHN }
+			}
+			NOT = { tag = KUO }
+			NOT = { exists = CCP }
+			NOT = { exists = PRC }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_communist = yes
+		}
+		effect = {
+			change_tag = CCP
+			on_change_tag_effect = yes
+			if = {
+				limit = {
+					NOT = { is_communist = yes }
+				}
+				add_government_reform = communist_government
+			}
+			add_prestige = 10
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = chinese_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_ccp_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	chn_warlord_form_china = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_china_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			has_global_flag = the_warlords_era
+			has_country_flag = ccw_participant_flag
+			NOT = {
+				country_is = { tag = CHN }
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 1816 # Beijing
+		}
+		allow = {
+			#is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_core_province = 1816 # Beijing
+			if = {
+				limit = {
+					is_communist = yes
+				}
+				NOT = { exists = PRC }
+			}
+			else_if = {
+				limit = {
+					tag = KUO
+				}
+				NOT = { exists = ROC }
+			}
+			else_if = {
+				limit = {
+					government = monarchy
+				}
+				NOT = { exists = EOC }
+			}
+			else = {
+				NOT = { exists = CHN }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				clear_country_name_with_flag = { name = TONGMENGHUI }
+				clear_country_name_with_flag = { name = KUOMINTANG }
+			}
+			if = {
+				limit = {
+					is_communist = yes
+				}
+				change_tag = PRC
+			}
+			else_if = {
+				limit = {
+					tag = KUO
+				}
+				change_tag = ROC
+			}
+			else_if = {
+				limit = {
+					government = monarchy
+				}
+				change_tag = EOC
+			}
+			else = {
+				change_tag = CHN
+			}
+			on_change_tag_effect = yes
+			if = {
+				limit = {
+					has_reform = chinese_warlord_clique
+				}
+				remove_government_reform = chinese_warlord_clique
+				hidden_effect = {
+					add_government_reform = oligarchy_reform
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					NOT = {
+						capital = 1816
+						AND = {
+							tag = ROC
+							capital = 1821
+						}
+					}
+				}
+				set_capital = 1816 # Beijing
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						any_core_country = {
+							country_is = { tag = CHN }
+						}
+						NOT = { is_core = ROOT }
+					}
+					remove_claim = ROOT
+					add_core = ROOT
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = {
+						OR = {
+							tag = KUO
+							tag = ROC
+						}
+					}
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_china_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	chn_warlord_move_capital_nanjing = {
+		potential = {
+			has_country_flag = ccw_participant_flag
+			has_global_flag = the_warlords_era
+			OR = {
+				tag = KUO
+				tag = ROC
+			}
+			owns_core_province = 1821 # Nanjing
+			NOT = { capital = 1821 }
+		}
+		provinces_to_highlight = {
+			province_id = 1821
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		effect = {
+			set_capital = 1821
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#chn_warlord_claim_tibet = {
+	#	potential = {
+	#		has_global_flag = the_warlords_era
+	#		has_country_flag = ccw_participant_flag
+	#		country_is = {
+	#			tag = CHN
+	#		}
+	#		any_neighbor_country = {
+	#			country_is = { tag = TIB }
+	#			any_owned_province = {
+	#				NOT = { is_core = ROOT }
+	#			}
+	#		}
+	#	}
+	#	allow = {
+	#		is_at_war = no
+	#		is_free_or_tributary_trigger = yes
+	#	}
+	#	effect = {
+	#		random_neighbor_country = {
+	#			limit = {
+	#				country_is = { tag = TIB }
+	#				any_owned_province = {
+	#					NOT = { is_core = ROOT }
+	#				}
+	#			}
+	#			every_core_province = { add_core = ROOT }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+
+	######################
+	### Taiwan Related ###
+	######################
+	chn_escape_to_taiwan = {
+		major = yes
+		potential = {
+			country_is = { tag = CHN }
+			OR = {
+				war_with = PRC
+				AND = {
+					has_spawned_rebels = communist_rebels
+					NOT = { exists = PRC }
+				}
+			}
+			taiwan_area = {
+				type = all
+				is_core 	  = ROOT
+				owned_by 	  = ROOT
+				controlled_by = ROOT
+			}
+			any_owned_province = {
+				NOT = { area = taiwan_area }
+			}
+			NOT = { is_communist = yes }
+			NOT = { has_country_flag = flight_to_taiwan_flag }
+		}
+		allow = {
+			OR = {
+				if = {
+					limit = { war_with = PRC }
+					war_score_against = {
+						who = PRC
+						value = -50
+					}
+				}
+				num_of_owned_provinces_with = {
+					value = 30
+					has_rebel_faction = communist_rebels
+				}
+			}
+		}
+		effect = {
+			set_capital = 2154
+			every_subject_country = {
+				grant_independence = yes
+			}
+			custom_tooltip = chn_escape_to_taiwan_tt
+			hidden_effect = {
+				disband_rebels = communist_rebels
+				every_core_province = {
+					if = {
+						limit = { area = taiwan_area }
+						remove_core = PRC
+					}
+					else = {
+						remove_core = ROOT
+						add_core = PRC
+					}
+				}
+				# Release the PRC
+				if = {
+					limit = {
+						exists = PRC
+					}
+					white_peace = PRC
+					every_owned_province = {
+						limit = {
+							NOT = { area = taiwan_area }
+						}
+						cede_province = PRC
+					}
+				}
+				else = {
+					release = PRC
+					PRC = {
+						change_government_to_dictatorial_republic = yes
+						add_government_reform = communist_government
+						add_treasury = 250
+						add_manpower = 50
+						capital_scope = {
+							build_to_forcelimit = {
+								infantry = 0.7
+								cavalry = 0.1
+								artillery = 0.2
+							}
+						}
+					}
+				}
+				# Add post-setup claims/cores
+				every_province = {
+					limit = {
+						is_core = PRC
+					}
+					add_permanent_claim = ROOT
+				}
+				taiwan_area = {
+					add_core = PRC
+				}
+			}
+			change_tag = TWA
+			on_change_tag_effect = yes
+			set_country_flag = flight_to_taiwan_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						capital_scope = {
+							controlled_by = REB
+						}
+						num_of_owned_provinces_with = {
+							value = 80
+							has_rebel_faction = communist_rebels
+						}
+					}
+				}
+			}
+		}
+	}
+
+	chn_reintegrate_taiwan = {
+		potential = {
+			country_is = { tag = CHN }
+			TWA = {
+				exists = yes
+				is_free_or_tributary_trigger = yes
+				all_owned_province = { area = taiwan_area }
+			}
+		}
+		provinces_to_highlight = {
+			owned_by = TWA
+		}
+		allow = {
+			TWA = {
+				is_subject_of = ROOT
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+		effect = {
+			create_subject = {
+				subject_type = associated_state
+				subject = TWA
+			}
+			hidden_effect = {
+				TWA = { set_government_rank = 1 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	chn_fate_of_taiwan = {
+		major = yes
+		potential = {
+			tag = TWA
+			is_free_or_tributary_trigger = yes
+			all_owned_province = {
+				area = taiwan_area
+			}
+			NOT = { exists = FRM }
+			NOT = { exists = ROC }
+			NOT = { has_country_flag = the_fate_of_taiwan }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			prestige = 10
+		}
+		effect = {
+			country_event = { id = etf_event_chn.600 }
+			set_country_flag = the_fate_of_taiwan
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

@@ -1,0 +1,1021 @@
+add_to_sphere = {
+	if = {
+		limit = {
+			is_great_power_trigger = yes
+			$tag$ = {
+				is_great_power_trigger = no
+				NOT = { is_subject_of = PREV }
+			}
+		}
+		hidden_effect = {
+			add_diplomatic_influence = {
+				who = $tag$
+				value = -100
+			}
+			$tag$ = {
+				remove_from_sphere = yes
+			}
+		}
+		create_subject = {
+			subject_type = sphere_member
+			subject = $tag$
+		}
+	}
+	[[else]
+		else = {
+			$else$
+		}
+	]
+}
+
+remove_from_sphere = {
+	if = {
+		limit = {
+			is_subject_of_type = sphere_member
+		}
+		custom_tooltip = remove_from_sphere_tt
+		hidden_effect = {
+			overlord = {
+				add_diplomatic_influence = {
+					who = PREV
+					value = -100
+				}
+				#add_opinion = {
+				#	who = PREV
+				#	modifier = generic_terrible_opinion
+				#}
+				#reverse_add_opinion = {
+				#	who = PREV
+				#	modifier = generic_terrible_opinion
+				#}
+			}
+			grant_independence = yes
+		}
+	}
+}
+
+clamp_variable = {
+	[[min]
+		set_variable = {
+			which = $which$_min
+			value = $min$
+		}
+	]
+	[[max]
+		set_variable = {
+			which = $which$_max
+			value = $max$
+		}
+	]
+	hidden_effect = {
+		[[min]
+			if = {
+				limit = {
+					#check_variable = {
+					#	which = $which$_min
+					#	value = -2000000 # Exists
+					#}
+					NOT = {
+						check_variable = { # $which$ < $which$_min
+							which = $which$
+							which = $which$_min
+						}
+					}
+				}
+				set_variable = {
+					which = $which$
+					which = $which$_min
+				}
+			}
+		]
+		[[max]
+			if = {
+				limit = {
+					#check_variable = {
+					#	which = $which$_max
+					#	value = -2000000 # Exists
+					#}
+					check_variable = { # $which$ >= $which$_max
+						which = $which$
+						which = $which$_max
+					}
+				}
+				set_variable = {
+					which = $which$
+					which = $which$_max
+				}
+			}
+		]
+	}
+}
+
+change_influence_variable_effect = {
+	tooltip = {
+		change_variable = {
+			which = influence_$GP$
+			value = $value$
+		}
+	}
+	hidden_effect = {
+		set_variable = {
+			which = base_influence
+			value = $value$
+		}
+		[[scaled] # Scale "base_influence" with various factors
+			if = {
+				limit = {
+					always = $scaled$ # scaled = yes
+				}
+				if = {
+					limit = {
+						event_target:$GP$ = {
+							has_diplomatic_modifier = {
+								name = discredit_modifier
+								with = PREV
+							}
+						}
+					}
+					multiply_variable = {
+						which = base_influence
+						value = 0.5 # Base value halved
+					}
+				}
+				# Flat modifiers:
+				set_variable = {
+					which = base_multiplier
+					value = 1.0
+				}
+				if = {
+					limit = {
+						is_neighbor_of = event_target:$GP$
+					}
+					change_variable = { which = base_multiplier value = 0.10 } # +10%
+				}
+				if = {
+					limit = {
+						is_subject_of = event_target:$GP$
+					}
+					change_variable = { which = base_multiplier value = 0.20 } # +20%
+				}
+				if = {
+					limit = {
+						tag = PAP
+						event_target:$GP$ = {
+							religion_group = christian
+						}
+					}
+					change_variable = { which = base_multiplier value = -0.50 } # -50%
+				}
+				# Diplomatic Reputation:
+				if		= { limit = { event_target:$GP$ = { diplomatic_reputation =    20 } } change_variable = { which = base_multiplier value =  1.00 } } # +100%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    19 } } change_variable = { which = base_multiplier value =  0.95 } } # +95%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    18 } } change_variable = { which = base_multiplier value =  0.90 } } # +90%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    17 } } change_variable = { which = base_multiplier value =  0.85 } } # +85%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    16 } } change_variable = { which = base_multiplier value =  0.80 } } # +80%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    15 } } change_variable = { which = base_multiplier value =  0.75 } } # +75%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    14 } } change_variable = { which = base_multiplier value =  0.70 } } # +70%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    13 } } change_variable = { which = base_multiplier value =  0.65 } } # +65%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    12 } } change_variable = { which = base_multiplier value =  0.60 } } # +60%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    11 } } change_variable = { which = base_multiplier value =  0.55 } } # +55%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =    10 } } change_variable = { which = base_multiplier value =  0.50 } } # +50%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     9 } } change_variable = { which = base_multiplier value =  0.45 } } # +45%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     8 } } change_variable = { which = base_multiplier value =  0.40 } } # +40%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     7 } } change_variable = { which = base_multiplier value =  0.35 } } # +35%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     6 } } change_variable = { which = base_multiplier value =  0.30 } } # +30%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     5 } } change_variable = { which = base_multiplier value =  0.25 } } # +25%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     4 } } change_variable = { which = base_multiplier value =  0.20 } } # +20%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     3 } } change_variable = { which = base_multiplier value =  0.15 } } # +15%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     2 } } change_variable = { which = base_multiplier value =  0.10 } } # +10%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation =     1 } } change_variable = { which = base_multiplier value =  0.05 } } # +5%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -0.99 } } change_variable = { which = base_multiplier value =  0.00 } } # 0%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -1.99 } } change_variable = { which = base_multiplier value = -0.10 } } # -10%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -2.99 } } change_variable = { which = base_multiplier value = -0.20 } } # -20%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -3.99 } } change_variable = { which = base_multiplier value = -0.30 } } # -30%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -4.99 } } change_variable = { which = base_multiplier value = -0.40 } } # -40%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -5.99 } } change_variable = { which = base_multiplier value = -0.50 } } # -50%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -6.99 } } change_variable = { which = base_multiplier value = -0.60 } } # -60%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -7.99 } } change_variable = { which = base_multiplier value = -0.70 } } # -70%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -8.99 } } change_variable = { which = base_multiplier value = -0.80 } } # -80%
+				else_if = { limit = { event_target:$GP$ = { diplomatic_reputation = -9.99 } } change_variable = { which = base_multiplier value = -0.90 } } # -90%
+				else	= { 																  change_variable = { which = base_multiplier value = -1.00 } } # -100%
+				# Development:
+				if		= { limit = { total_development = 1000 } change_variable = { which = base_multiplier value = -1.00 } } # -100%
+				else_if = { limit = { total_development =  900 } change_variable = { which = base_multiplier value = -0.90 } } # -90%
+				else_if = { limit = { total_development =  800 } change_variable = { which = base_multiplier value = -0.80 } } # -80%
+				else_if = { limit = { total_development =  700 } change_variable = { which = base_multiplier value = -0.70 } } # -70%
+				else_if = { limit = { total_development =  600 } change_variable = { which = base_multiplier value = -0.60 } } # -60%
+				else_if = { limit = { total_development =  500 } change_variable = { which = base_multiplier value = -0.50 } } # -50%
+				else_if = { limit = { total_development =  400 } change_variable = { which = base_multiplier value = -0.40 } } # -40%
+				else_if = { limit = { total_development =  300 } change_variable = { which = base_multiplier value = -0.30 } } # -30%
+				else_if = { limit = { total_development =  200 } change_variable = { which = base_multiplier value = -0.20 } } # -20%
+				else_if = { limit = { total_development =  100 } change_variable = { which = base_multiplier value = -0.10 } } # -10%
+				# Opinion:
+				if		= { limit = { has_opinion = { who = event_target:$GP$ value =  200 } } change_variable = { which = base_multiplier value = 0.5000 } } # +50.00%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  175 } } change_variable = { which = base_multiplier value = 0.4375 } } # +43.75%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  150 } } change_variable = { which = base_multiplier value = 0.3750 } } # +37.50%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  125 } } change_variable = { which = base_multiplier value = 0.3125 } } # +31.25%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  100 } } change_variable = { which = base_multiplier value = 0.2500 } } # +25.00%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =   75 } } change_variable = { which = base_multiplier value = 0.1875 } } # +18.75%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =   50 } } change_variable = { which = base_multiplier value = 0.1250 } } # +12.50%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =   25 } } change_variable = { which = base_multiplier value = 0.0625 } } # +6.25%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =    0 } } change_variable = { which = base_multiplier value = 0.0000 } } # 0.0%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  -25 } } change_variable = { which = base_multiplier value = -0.125 } } # -12.5%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  -50 } } change_variable = { which = base_multiplier value = -0.250 } } # -25.0%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value =  -75 } } change_variable = { which = base_multiplier value = -0.375 } } # -37.5%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value = -100 } } change_variable = { which = base_multiplier value = -0.500 } } # -50.0%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value = -125 } } change_variable = { which = base_multiplier value = -0.625 } } # -62.5%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value = -150 } } change_variable = { which = base_multiplier value = -0.750 } } # -75.0%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value = -175 } } change_variable = { which = base_multiplier value = -0.875 } } # -87.5%
+				else_if = { limit = { has_opinion = { who = event_target:$GP$ value = -200 } } change_variable = { which = base_multiplier value = -1.000 } } # -100.0%
+				# Apply custom influence modifiers:
+				export_to_variable = {
+					which = influence_offence_variable
+					value = modifier:influence_offence_modifier
+					who = event_target:$GP$
+				}
+				change_variable = {
+					which = base_multiplier # +
+					which = influence_offence_variable
+				}
+				
+				export_to_variable = {
+					which = influence_defence_variable
+					value = modifier:influence_defence_modifier
+				}
+				subtract_variable = {
+					which = base_multiplier # -
+					which = influence_defence_variable
+				}
+				
+				# Apply multiplier (rounded up, if negative):
+				if = {
+					limit = {
+						has_global_flag = SoI_debug_flag
+					}
+					event_target:$GP$ = {
+						log = change_influence_variable_effect_tt
+					}
+				}
+				clamp_variable = {
+					which = base_multiplier
+					min = 0.0
+				}
+				multiply_variable = {
+					which = base_influence
+					which = base_multiplier
+				}
+			}
+		]
+		change_variable = {
+			which = influence_$GP$
+			which = base_influence
+		}
+		# Keep variable within 0-100 range:
+		clamp_variable = {
+			which = influence_$GP$
+			min = 0.0
+			max = 100.0
+		}
+	}
+}
+
+add_diplomatic_influence = { # parameters: scope 'who', float 'value', bool 'scaled'
+	trigger_switch = {
+		on_trigger = tag
+		
+		event_target:GP_1 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_1
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_2 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_2
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_3 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_3
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_4 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_4
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_5 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_5
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_6 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_6
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_7 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_7
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_8 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_8
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_9 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_9
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_10 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_10
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_11 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_11
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_12 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_12
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_13 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_13
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_14 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_14
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_15 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_15
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+		event_target:GP_16 = {
+			$who$ = {
+				change_influence_variable_effect = {
+					GP = GP_16
+					value = $value$
+					[[scaled] scaled = $scaled$]
+				}
+			}
+		}
+	}
+}
+
+add_diplomatic_modifier = { # parameters: modifier 'name', int 'duration', scope 'with'
+	trigger_switch = {
+		on_trigger = tag
+		
+		event_target:GP_1 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_1
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_2 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_2
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_3 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_3
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_4 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_4
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_5 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_5
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_6 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_6
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_7 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_7
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_8 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_8
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_9 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_9
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_10 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_10
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_11 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_11
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_12 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_12
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_13 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_13
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_14 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_14
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_15 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_15
+					duration = $duration$
+				}
+			}
+		}
+		event_target:GP_16 = {
+			$with$ = {
+				add_country_modifier = {
+					name = $name$_GP_16
+					duration = $duration$
+				}
+			}
+		}
+	}
+}
+
+remove_diplomatic_modifier = { # parameters: modifier 'name', scope 'with'
+	trigger_switch = {
+		on_trigger = tag
+		
+		event_target:GP_1 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_1
+			}
+		}
+		event_target:GP_2 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_2
+			}
+		}
+		event_target:GP_3 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_3
+			}
+		}
+		event_target:GP_4 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_4
+			}
+		}
+		event_target:GP_5 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_5
+			}
+		}
+		event_target:GP_6 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_6
+			}
+		}
+		event_target:GP_7 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_7
+			}
+		}
+		event_target:GP_8 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_8
+			}
+		}
+		event_target:GP_9 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_9
+			}
+		}
+		event_target:GP_10 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_10
+			}
+		}
+		event_target:GP_11 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_11
+			}
+		}
+		event_target:GP_12 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_12
+			}
+		}
+		event_target:GP_13 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_13
+			}
+		}
+		event_target:GP_14 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_14
+			}
+		}
+		event_target:GP_15 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_15
+			}
+		}
+		event_target:GP_16 = {
+			$with$ = {
+				remove_country_modifier = $name$_GP_16
+			}
+		}
+	}
+}
+
+# Update GP Influence system
+update_diplomatic_influence_system = {
+	# Add variables for nations lacking the variables:
+	every_country_including_inactive = {
+		limit = {
+			capital_scope = {}
+		}
+		change_variable = { which = influence_GP_1  value = 0.0 }
+		change_variable = { which = influence_GP_2  value = 0.0 }
+		change_variable = { which = influence_GP_3  value = 0.0 }
+		change_variable = { which = influence_GP_4  value = 0.0 }
+		change_variable = { which = influence_GP_5  value = 0.0 }
+		change_variable = { which = influence_GP_6  value = 0.0 }
+		change_variable = { which = influence_GP_7  value = 0.0 }
+		change_variable = { which = influence_GP_8  value = 0.0 }
+		change_variable = { which = influence_GP_9  value = 0.0 }
+		change_variable = { which = influence_GP_10 value = 0.0 }
+		change_variable = { which = influence_GP_11 value = 0.0 }
+		change_variable = { which = influence_GP_12 value = 0.0 }
+		change_variable = { which = influence_GP_13 value = 0.0 }
+		change_variable = { which = influence_GP_14 value = 0.0 }
+		change_variable = { which = influence_GP_15 value = 0.0 }
+		change_variable = { which = influence_GP_16 value = 0.0 }
+	}
+	# Great Powers are assigned the first open GP event target, doesn't matter which one:
+	every_country = {
+		limit = {
+			is_great_power_trigger = yes
+			NOT = {
+				OR = {
+					tag = event_target:GP_1
+					tag = event_target:GP_2
+					tag = event_target:GP_3
+					tag = event_target:GP_4
+					tag = event_target:GP_5
+					tag = event_target:GP_6
+					tag = event_target:GP_7
+					tag = event_target:GP_8
+					tag = event_target:GP_9
+					tag = event_target:GP_10
+					tag = event_target:GP_11
+					tag = event_target:GP_12
+					tag = event_target:GP_13
+					tag = event_target:GP_14
+					tag = event_target:GP_15
+					tag = event_target:GP_16
+				}
+			}
+		}
+		if = {
+			limit = {
+				event_target:GP_1 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_1
+		}
+		else_if = {
+			limit = {
+				event_target:GP_2 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_2
+		}
+		else_if = {
+			limit = {
+				event_target:GP_3 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_3
+		}
+		else_if = {
+			limit = {
+				event_target:GP_4 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_4
+		}
+		else_if = {
+			limit = {
+				event_target:GP_5 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_5
+		}
+		else_if = {
+			limit = {
+				event_target:GP_6 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_6
+		}
+		else_if = {
+			limit = {
+				event_target:GP_7 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_7
+		}
+		else_if = {
+			limit = {
+				event_target:GP_8 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_8
+		}
+		else_if = {
+			limit = {
+				event_target:GP_9 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_9
+		}
+		else_if = {
+			limit = {
+				event_target:GP_10 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_10
+		}
+		else_if = {
+			limit = {
+				event_target:GP_11 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_11
+		}
+		else_if = {
+			limit = {
+				event_target:GP_12 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_12
+		}
+		else_if = {
+			limit = {
+				event_target:GP_13 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_13
+		}
+		else_if = {
+			limit = {
+				event_target:GP_14 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_14
+		}
+		else_if = {
+			limit = {
+				event_target:GP_15 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_15
+		}
+		else_if = {
+			limit = {
+				event_target:GP_16 = {
+					OR = {
+						exists = no
+						is_great_power_trigger = no
+					}
+				}
+			}
+			save_global_event_target_as = GP_16
+		}
+		# Reset variables/modifiers:
+		if = {
+			limit = {
+				OR = {
+					tag = event_target:GP_1
+					tag = event_target:GP_2
+					tag = event_target:GP_3
+					tag = event_target:GP_4
+					tag = event_target:GP_5
+					tag = event_target:GP_6
+					tag = event_target:GP_7
+					tag = event_target:GP_8
+					tag = event_target:GP_9
+					tag = event_target:GP_10
+					tag = event_target:GP_11
+					tag = event_target:GP_12
+					tag = event_target:GP_13
+					tag = event_target:GP_14
+					tag = event_target:GP_15
+					tag = event_target:GP_16
+				}
+			}
+			every_country_including_inactive = {
+				limit = {
+					capital_scope = {}
+				}
+				PREV = {
+					add_diplomatic_influence = {
+						value = -100.0 # Return to 0
+						who = PREV
+					}
+					remove_diplomatic_modifier = {
+						name = influence_modifier
+						with = PREV
+					}
+					remove_diplomatic_modifier = {
+						name = discredit_modifier
+						with = PREV
+					}
+					remove_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = PREV
+					}
+				}
+				# Add starting Influence in history via flags:
+				if = {
+					limit = {
+						has_country_flag = add_25_influence_@PREV
+					}
+					PREV = {
+						add_diplomatic_influence = {
+							value = 25.0
+							who = PREV
+						}
+					}
+					clr_country_flag = add_25_influence_@PREV
+				}
+				if = {
+					limit = {
+						has_country_flag = add_50_influence_@PREV
+					}
+					PREV = {
+						add_diplomatic_influence = {
+							value = 50.0
+							who = PREV
+						}
+					}
+					clr_country_flag = add_50_influence_@PREV
+				}
+				if = {
+					limit = {
+						has_country_flag = add_75_influence_@PREV
+					}
+					PREV = {
+						add_diplomatic_influence = {
+							value = 75.0
+							who = PREV
+						}
+					}
+					clr_country_flag = add_75_influence_@PREV
+				}
+				if = {
+					limit = {
+						has_country_flag = add_100_influence_@PREV
+					}
+					PREV = {
+						add_diplomatic_influence = {
+							value = 100.0
+							who = PREV
+						}
+					}
+					clr_country_flag = add_100_influence_@PREV
+				}
+			}
+		}
+	}
+}
+
+add_monthly_influence_effect = {
+	if = {
+		limit = {
+			can_influence_trigger = yes
+		}
+		every_country = {
+			limit = {
+				PREV = {
+					has_diplomatic_modifier = {
+						name = influence_modifier
+						with = PREV
+					}
+					NOT = {
+						has_diplomatic_modifier = {
+							name = ban_embassy_modifier
+							with = PREV
+						}
+					}
+				}
+				NOT = { war_with = PREV }
+				NOT = { is_part_of_hre = yes }
+			}
+			PREV = {
+				add_diplomatic_influence = {
+					who = PREV
+					value = 1
+					scaled = yes
+				}
+			}
+		}
+		every_subject_country = {
+			limit = {
+				NOT = { is_part_of_hre = yes }
+			}
+			PREV = {
+				add_diplomatic_influence = {
+					who = PREV
+					value = 1
+					scaled = yes
+				}
+			}
+		}
+	}
+}

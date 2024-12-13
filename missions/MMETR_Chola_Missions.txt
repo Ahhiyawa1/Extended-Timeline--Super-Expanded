@@ -5,6 +5,10 @@ chola_mmetr_missions_1 = {
 	potential = {
 		OR = {
 			tag = CLS
+			AND = {
+				tag = TML		#Tamilakam, MMETR Formable
+				was_tag = CLS
+			}
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -315,6 +319,7 @@ chola_mmetr_missions_1 = {
 				}
 			}
 			622 = {
+				type = all
 				OR = {
 					country_or_non_sovereign_subject_holds = ROOT
 					is_empty = yes
@@ -376,6 +381,10 @@ chola_mmetr_missions_2 = {
 	potential = {
 		OR = {
 			tag = CLS
+			AND = {
+				tag = TML		#Tamilakam, MMETR Formable
+				was_tag = CLS
+			}
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -634,6 +643,10 @@ chola_mmetr_missions_3 = {
 	potential = {
 		OR = {
 			tag = CLS
+			AND = {
+				tag = TML		#Tamilakam, MMETR Formable
+				was_tag = CLS
+			}
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -969,9 +982,9 @@ chola_mmetr_missions_3 = {
 				name = "me_cls_raja_of_dravida"
 				duration = 10950
 			}
-			#country_event = {
-			#	id = mmetr_CLS_mission_events.12
-			#}
+			country_event = {
+				id = mmetr_CLS_mission_events.12
+			}
 		}
 	}
 	cls_reign_over_dakshinapatha_mission = {
@@ -1023,10 +1036,10 @@ chola_mmetr_missions_3 = {
 			if = {
 				limit = {
 					NOT = {
-						government_rank = 10
+						government_rank = 3
 					}
 				}
-				set_government_rank = 4
+				set_government_rank = 3
 			}
 		}
 	}
@@ -1039,6 +1052,10 @@ chola_mmetr_missions_4 = {
 	potential = {
 		OR = {
 			tag = CLS
+			AND = {
+				tag = TML		#Tamilakam, MMETR Formable
+				was_tag = CLS
+			}
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1382,6 +1399,10 @@ chola_mmetr_missions_5 = {
 	potential = {
 		OR = {
 			tag = CLS
+			AND = {
+				tag = TML		#Tamilakam, MMETR Formable
+				was_tag = CLS
+			}
 		}
 		NOT = { map_setup = map_setup_random }
 	}

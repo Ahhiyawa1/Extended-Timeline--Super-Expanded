@@ -142,6 +142,25 @@ kushan_missions_1 = {
 			}
 		}
 	}
+	kus_yuezhi_heritage_mission = {
+		icon = mission_sassanid_golden_cataphract
+		required_missions = { kus_decimate_the_wusun_mission }
+		position = 6
+		trigger = {
+			army_tradition = 50
+			cavalry_fraction = 0.4
+		}
+		effect = {
+			custom_tooltip = kus_yuezhi_heritage_mission.tt
+			country_event = {
+				id = mmetr_KUS_mission_events.3
+			}
+			tooltip = {
+				add_government_reform = yuezhi_confederation_reform
+			}
+			set_country_flag = yuezhi_confederation_restored
+		}
+	}
 	kus_iranian_ambitions_mission = {
 		icon = mission_persian_heavy_cataphract_cavalry
 		required_missions = {  }
@@ -245,15 +264,7 @@ kushan_missions_2 = {
 					type = artist
 					skill = 3
 					culture = bactrian
-					culture = greco_indian
-					culture = greco_bactrian
-					culture = bactrian01
-					culture = ionic
-					culture = tocharian
 					religion = hellenism
-					religion = neoplatonism
-					religion = mahayana
-					religion = manichaeism
 					discount = yes
 				}
 				add_country_modifier = {
@@ -377,10 +388,7 @@ kushan_missions_2 = {
 				id = mmetr_KUS_mission_events.4
 			}
 			tooltip = {
-				add_legitimacy_equivalent = {
-					amount = 20
-					republican_tradition = 10
-				}
+				add_legitimacy_equivalent = 20
 				zungaria_area = {	#South Dzungaria
 					limit = {
 						NOT = {
@@ -472,10 +480,7 @@ kushan_missions_2 = {
 					name = "me_kus_ancestors_avenged"
 					duration = -1
 				}
-				add_legitimacy_equivalent = {
-					amount = 40
-					republican_tradition = 20
-				}
+				add_legitimacy_equivalent = 50
 				turpan_kumul_area = {
 					limit = {
 						NOT = {
@@ -485,14 +490,12 @@ kushan_missions_2 = {
 					discover_country = ROOT
 				}
 				707 = {		#Yumen
-					if = {
-						limit = {
-							NOT = {
-								has_discovered = ROOT
-							}
+					limit = {
+						NOT = {
+							has_discovered = ROOT
 						}
-						discover_country = ROOT
 					}
+					discover_country = ROOT
 				}
 			}
 		}
@@ -806,9 +809,9 @@ kushan_missions_3 = {
 				}
 				if = {
 					limit = {
-						government_rank = 10
+						government_rank = 3
 					}
-					set_government_rank = 4
+					set_government_rank = 3
 				}
 				if = {
 					limit = {
@@ -1017,6 +1020,7 @@ kushan_missions_4 = {
 		icon = mission_indo_scythians
 		required_missions = { kus_into_gandhara_mission }
 		position = 6
+		completed_by = 2328.1.1		#when Kushano-Sassanids break away, allows Little Kushan to expand into India without retaking Afghanistan
 		provinces_to_highlight = {
 			OR = {
 				province_id = 524	#Mathura
@@ -1312,6 +1316,10 @@ kushan_missions_4 = {
 				name = "me_kus_tamil_spice_trade"
 				duration = -1
 			}
+			country_event = {
+				id = mmetr_KUS_mission_events.16
+			}
+			custom_tooltip = kus_subjugate_tamilakam_mission.tt
 		}
 	}
 }

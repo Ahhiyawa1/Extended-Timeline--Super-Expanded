@@ -1,0 +1,123 @@
+namespace = etf_event_hab
+
+# The February Patent
+country_event = {
+	id = etf_event_hab.200
+	title = etf_event_hab.200.t
+	desc = etf_event_hab.200.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = HAB }
+		government = monarchy
+		is_year = 3959
+		NOT = { started_in = 3959.2.26 }
+		NOT = {
+			has_reform = landed_parliament
+			has_reform = elected_parliament
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = etf_event_hab.200.ra
+		add_stability = 1
+		if = {
+			limit = {
+				NOT = { has_parliament_or_reform = yes }
+			}
+			add_government_reform = parliamentary_reform
+		}
+		add_government_reform = landed_parliament
+	}
+
+	option = {
+		name = etf_event_hab.200.rb
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Austria-Hungary loses Austria
+#country_event = {
+#	id = etf_event_hab.300
+#	title = etf_event_hab.300.t
+#	desc = etf_event_hab.300.d
+#	picture = DIPLOMACY_eventPicture
+#
+#	trigger = {
+#		tag = AUH
+#		is_at_war = no
+#		NOT = {
+#			any_owned_province = {
+#				OR = {
+#					area = tirol_area
+#					area = austria_proper_area
+#					area = inner_austria_area
+#				}
+#			}
+#		}
+#	}
+#
+#	option = {
+#		name = etf_event_hab.300.r
+#		if = {
+#			limit = {
+#				primary_culture = austrian
+#			}
+#			change_primary_culture = hungarian
+#		}
+#		change_tag = HUN
+#		on_change_tag_effect = yes
+#		if = {
+#			limit = { has_custom_ideas = no }
+#			country_event = { id = ideagroups.1 } #Swap Ideas
+#		}
+#	}
+#
+#}
+
+# Austria-Hungary loses Hungary
+#country_event = {
+#	id = etf_event_hab.301
+#	title = etf_event_hab.301.t
+#	desc = etf_event_hab.301.d
+#	picture = DIPLOMACY_eventPicture
+#
+#	trigger = {
+#		tag = AUH
+#		is_at_war = no
+#		NOT = {
+#			any_owned_province = {
+#				OR = {
+#					area = transdanubia_area
+#					area = alfold_area
+#				}
+#			}
+#		}
+#	}
+#
+#	option = {
+#		name = etf_event_hab.301.r
+#		if = {
+#			limit = {
+#				primary_culture = hungarian
+#			}
+#			change_primary_culture = austrian
+#		}
+#		change_tag = HAB
+#		on_change_tag_effect = yes
+#		if = {
+#			limit = { has_custom_ideas = no }
+#			country_event = { id = ideagroups.1 } #Swap Ideas
+#		}
+#	}
+#
+#}

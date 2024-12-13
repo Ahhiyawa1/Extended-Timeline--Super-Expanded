@@ -439,6 +439,107 @@ country_event = {
 	}
 }
 
+#Rise of the Shia
+country_event = {
+	id = et.43
+	title = "et.EVTNAME43"
+	desc = "et.EVTDESC43"
+	picture = RELIGION_eventPicture
+	
+	trigger = {
+		religion = sunni
+		num_of_cities = 15
+		NOT = { has_country_modifier = rise_of_islam }
+		NOT = { any_country = { religion = shiite } }
+		NOT = { has_disaster = first_fitna }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+
+		modifier = {
+			factor = 4
+			stability = 1
+		}
+		modifier = {
+			factor = 4
+			stability = 2
+		}
+	}
+
+	option = {
+		name = "et.EVTOPTA43"
+		if = {
+			limit = { NOT = { is_religion_enabled = shiite } }
+			enable_religion = shiite
+		}
+		random_owned_province = {
+			change_religion = shiite
+			spawn_rebels = {
+				type = religious_rebels
+				size = 3
+			}
+			change_siege = 20
+			every_neighbor_province = {
+				limit = { 
+					owned_by = ROOT
+				}
+				change_religion = shiite
+				spawn_rebels = {
+					type = religious_rebels
+					size = 1
+				}
+				change_siege = 20
+			}
+		}
+	}
+}
+
+#Birth of Ibadi
+province_event = {
+	id = et.64
+	title = et.EVTNAME64
+	desc = et.EVTDESC64
+	picture = PRAYING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		province_id = 408
+		religion_group = muslim
+		NOT = { is_religion_enabled = ibadi }
+		owner = {
+			religion_group = muslim
+			NOT = { has_country_flag = early_caliphate }
+			NOT = { has_disaster = first_fitna }
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = {
+		name = et.EVTOPTA64
+		ai_chance = { factor = 95 }
+		enable_religion = ibadi
+		change_religion = ibadi
+		add_province_modifier = {
+			name = ibadi_center
+			duration = 7300
+		}
+	}
+
+	option = {
+		name = et.EVTOPTB64
+		enable_religion = ibadi
+		ai_chance = { factor = 5 }
+		owner = {
+			add_stability = -2
+		}
+	}
+}
+
 #Ibadi Revolt
 province_event = {
 	id = et.65
@@ -479,6 +580,61 @@ province_event = {
 				name = ibadi_center
 				duration = 146000
 			}
+		}
+	}
+}
+
+#Ibadi Spreads
+province_event = {
+	id = et.66
+	title = et.EVTNAME66
+	desc = et.EVTDESC66
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		any_neighbor_province = {
+			religion = ibadi
+		}
+		NOT = { religion = ibadi }
+		NOT = { is_year = 3498 }
+	}
+
+	mean_time_to_happen = {
+		years = 500
+
+		modifier = {
+			factor = 0.1
+			OR = {
+				province_id = 397
+				province_id = 398
+				province_id = 399
+				province_id = 400
+				province_id = 401
+				province_id = 403
+				province_id = 2342
+				province_id = 2341
+			}
+		}
+
+		modifier = {
+			factor = 2
+			religion_group = christian
+		}
+
+		modifier = {
+			factor = 0.2
+			owner = {
+				religion = ibadi
+			}
+		}
+	}
+
+	option = {
+		name = et.EVTOPTA66
+		change_religion = ibadi
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
 		}
 	}
 }

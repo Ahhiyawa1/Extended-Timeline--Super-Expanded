@@ -3,28 +3,38 @@ estate_military = {
 
 	# If true, country will get estate
 	trigger = {
-		NOT = { has_government_attribute = is_merchant_republic }
-		NOT = { has_reform = pirate_republic_reform }
-		NOT = { has_reform = veche_republic }
-		NOT = { has_reform = cossacks_reform }
-		NOT = { government = native }
-		NOT = { has_reform = trading_city }
-		NOT = { has_reform = siberian_tribe }
-		NOT = { is_revolutionary_republic_trigger = yes }
-		NOT = { has_reform = revolutionary_empire_reform }
-		NOT = { has_reform = roman_empire_reform }
+		NOT = { has_government_attribute = disables_estate_military }
+		NOT = { has_country_flag = disables_estate_military_flag }
 		OR = {
-			NOT = { has_reform = celestial_empire }
-			has_dlc = "Mandate of Heaven"
-		}
-		is_nomad = no
-		is_colonial_nation = no
-		OR = {
-			has_reform = multi_party_system
-			has_reform = single_party_system
-			has_reform = military_government
-			has_reform = fascist_government
-			has_reform = communist_government
+			has_government_attribute = enables_estate_military
+			has_country_flag = enables_estate_military_flag
+			AND = {
+				NOT = { has_government_attribute = is_merchant_republic }
+				NOT = { has_reform = pirate_republic_reform }
+				NOT = { has_reform = veche_republic }
+				NOT = { has_reform = cossacks_reform }
+				NOT = { government = native }
+				NOT = { has_reform = trading_city }
+				NOT = { has_reform = siberian_tribe }
+				NOT = { is_revolutionary_republic_trigger = yes }
+				NOT = { has_reform = revolutionary_empire_reform }
+				NOT = { has_reform = roman_empire_reform }
+				OR = {
+					NOT = { has_reform = celestial_empire }
+					has_dlc = "Mandate of Heaven"
+				}
+				is_nomad = no
+				is_colonial_nation = no
+				#OR = {
+				#	has_reform = multi_party_system
+				#	has_reform = single_party_system
+				#	has_reform = military_government
+				#	has_reform = fascist_government
+				#	has_reform = communist_government
+				#}
+				has_institution = industrialization
+				NOT = { has_country_modifier = no_army }
+			}
 		}
 	}
 	
@@ -44,7 +54,7 @@ estate_military = {
 		army_tradition = -1
 	}
 	land_ownership_modifier = {
-		generals_loyalty_modifier = 0.2
+		military_loyalty_modifier = 0.2
 	}
 	
 	# Influence modifiers
@@ -72,6 +82,87 @@ estate_military = {
 		loyalty = 10
 	}
 	
+	custom_name = {
+		desc = estate_military_DEU
+		trigger = {
+			OR = {
+				country_is = { tag = GER }
+				tag = WGE
+			}
+			government = republic
+			is_democracy = yes
+		}
+	}
+	custom_name = {
+		desc = estate_military_NZG
+		trigger = {
+			OR = {
+				country_is = { tag = GER }
+				tag = WGE
+			}
+			is_fascist = yes
+		}
+	}
+	custom_name = {
+		desc = estate_military_SOV
+		trigger = {
+			country_is = { tag = RUS }
+			is_communist = yes
+		}
+	}
+	custom_name = {
+		desc = estate_military_KRR
+		trigger = {
+			country_is = { tag = KRR }
+		}
+	}
+	custom_name = {
+		desc = estate_military_UAE
+		trigger = {
+			country_is = { tag = UAE }
+		}
+	}
+	custom_name = {
+		desc = estate_military_BRM
+		trigger = {
+			country_is = { tag = BRM }
+			government = republic
+		}
+	}
+	custom_name = {
+		desc = estate_military_PRC
+		trigger = {
+			country_is = { tag = CHN }
+			is_communist = yes
+		}
+	}
+	custom_name = {
+		desc = estate_military_JAP
+		trigger = {
+			country_is = { tag = JAP }
+			is_democracy = yes
+		}
+	}
+	
+	#custom_name = {
+	#	desc = estate_military_monarchy
+	#	trigger = {
+	#		government = monarchy
+	#	}
+	#}
+	#custom_name = {
+	#	desc = estate_military_communist
+	#	trigger = {
+	#		is_communist = yes
+	#	}
+	#}
+	#custom_name = {
+	#	desc = estate_military_generic
+	#	trigger = {
+	#		always = yes
+	#	}
+	#}
+	
 	color = { 0 49 83 }
 	
 	privileges = {
@@ -79,6 +170,9 @@ estate_military = {
 		estate_military_budget_increase
 		estate_military_budget_decrease
 		estate_military_advisors
+		#ETF
+		estate_military_introduce_conscription
+		estate_military_produce_war_propaganda
 	}
 	
 	agendas = {

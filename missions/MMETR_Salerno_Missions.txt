@@ -464,13 +464,9 @@ salerno_missions_3 = {
 		required_missions = { }
 		position = 4
 		trigger = {
-			151 = {
-				owner = {
-					has_opinion = {
-						who = ROOT
-						value = 100
-					}
-				}
+			reverse_has_opinion = {
+				who = BYZ
+				value = 100
 			}
 		}
 		effect = {
@@ -607,7 +603,6 @@ salerno_missions_4 = {
 		trigger = {
 			dip_power = 200
 			is_subject = no
-			hre_size = 2
 			OR = {
 				emperor = {
 					has_opinion = {

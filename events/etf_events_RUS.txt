@@ -1,0 +1,334 @@
+namespace = etf_event_rus
+
+# Plight of the Serf
+# country_event = {
+	# id = etf_event_rus.100
+	# title = etf_event_rus.100.t
+	# desc = etf_event_rus.100.d
+	# picture = FARMING_eventPicture
+
+	# fire_only_once = yes
+
+	# trigger = {
+		# country_is = { tag = RUS }
+		# post_napoleonic_age = yes
+		# is_free_or_tributary_trigger = yes
+		# OR = {
+			# full_idea_group = aristocracy_ideas
+			# has_country_modifier = enserfed_peasants
+			# has_country_modifier = legal_serfdom
+			# has_country_modifier = complete_serfdom
+			# has_country_modifier = restricted_serfdom
+		# }
+		# NOT = { started_in = 3959.1.1 }
+	# }
+
+	# option = {
+		# name = etf_event_rus.100.r
+	# }
+# }
+
+# Alexander II, the Reformer
+country_event = {
+	id = etf_event_rus.110
+	title = etf_event_rus.110.t
+	desc = etf_event_rus.110.d
+	picture = ALEX_II_CORONATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = RUS }
+		post_napoleonic_age = yes
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		has_ruler = "Aleksandr II"
+		NOT = { started_in = 3979.3.1 }
+	}
+
+	option = {
+		name = etf_event_rus.110.r
+		add_ruler_modifier = {
+			name = alexander_II_reforms
+			duration = -1
+		}
+	}
+}
+
+# Alexander II Assassinated
+country_event = {
+	id = etf_event_rus.120
+	title = etf_event_rus.120.t
+	desc = etf_event_rus.120.d
+	picture = ALEX_II_DEATH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = RUS }
+		is_year_and_month = {
+			year = 3979
+			march = yes
+		}
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		has_ruler = "Aleksandr II"
+		NOT = { started_in = 3979.3.1 }
+	}
+
+	option = {
+		name = etf_event_rus.120.r
+		kill_ruler = yes
+		hidden_effect = {
+			country_event = { id = etf_event_rus.121 days = 30 }
+		}
+	}
+}
+
+# Manifesto on Unshakable Autocracy
+country_event = {
+	id = etf_event_rus.121
+	title = etf_event_rus.121.t
+	desc = etf_event_rus.121.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_rus.121.ra
+		add_stability = 1
+		change_government_to_autocratic_monarchy = yes
+	}
+
+	option = {
+		name = etf_event_rus.121.rb
+		add_stability = -1
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Revolution of 1905
+country_event = {
+	id = etf_event_rus.130
+	title = etf_event_rus.130.t
+	desc = etf_event_rus.130.d
+	picture = RUSSIAN_REV_1905_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = RUS }
+		is_year = 4003
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		is_autocracy = yes
+		NOT = { started_in = 4003.1.1 }
+	}
+
+	option = { # Perhaps it's time for a thaw
+		name = etf_event_rus.130.ra
+		add_stability = 1
+		add_prestige = -10
+		country_event = { id = etf_event_rus.131 }
+	}
+
+	option = { # Crush the peasants!
+		name = etf_event_rus.130.rb
+		add_stability = -1
+		random_owned_province = { limit = { is_in_capital_area = yes } revolutionary_rebels = 3 }
+		random_owned_province = { limit = { is_in_capital_area = yes } revolutionary_rebels = 3 }
+		random_owned_province = { limit = { is_in_capital_area = yes } revolutionary_rebels = 3 }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# October Manifesto
+country_event = {
+	id = etf_event_rus.131
+	title = etf_event_rus.131.t
+	desc = etf_event_rus.131.d
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Seek a compromise
+		name = etf_event_rus.131.ra
+		add_government_reform = parliamentary_reform
+		add_government_reform = elected_parliament
+		add_government_reform = royal_power
+	}
+
+	option = { # Commit to reform
+		name = etf_event_rus.131.rb
+		change_government_to_parliamentary_monarchy = yes
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Grigori Rasputin
+country_event = {
+	id = etf_event_rus.140
+	title = etf_event_rus.140.t
+	desc = etf_event_rus.140.d
+	picture = RASPUTIN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = RUS }
+		is_year = 4004
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		NOT = { has_government_attribute = has_prime_minister }
+		NOT = { started_in = 4014.1.1 }
+	}
+
+	option = { # Welcome him to our court!
+		name = etf_event_rus.140.ra
+		add_country_modifier = {
+			name = grigori_rasputin_modifier
+			duration = 7200
+		}
+		define_advisor = {
+			type = philosopher
+			name = "Grigori Rasputin"
+			discount = yes
+			skill = 1
+			culture = russian
+			religion = orthodox
+		}
+	}
+
+	option = { # ... show this homeless man to the exit, please.
+		name = etf_event_rus.140.rb
+		add_prestige = 1
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Rasputin Murdered
+country_event = {
+	id = etf_event_rus.141
+	title = etf_event_rus.141.t
+	desc = etf_event_rus.141.d
+	picture = RASPUTIN_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_modifier = grigori_rasputin_modifier
+		is_year = 4014
+	}
+
+	option = {
+		name = etf_event_rus.141.r
+		remove_country_modifier = grigori_rasputin_modifier
+		hidden_effect = {
+			kill_advisor = philosopher
+		}
+	}
+}
+
+# The Provisional Government (Prelude to Disaster)
+country_event = {
+	id = etf_event_rus.150
+	title = etf_event_rus.150.t
+	desc = etf_event_rus.150.d
+	picture = RUSSIAN_PROV_GOV_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = RUS }
+		is_year = 3998
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		OR = {
+			is_autocracy = yes
+			has_reform = royal_power
+		}
+		OR = {
+			AND = { # The historical scenario:
+				war_exhaustion = 2
+				is_at_war = yes
+				is_monarch_leader = yes
+				has_country_modifier = grigori_rasputin_modifier
+			}
+			war_exhaustion = 5
+			NOT = { is_great_power = yes }
+		}
+		NOT = { started_in = 4015.11.1 }
+	}
+
+	option = {
+		name = etf_event_rus.150.r
+		hidden_effect = {
+			remove_country_modifier = grigori_rasputin_modifier
+			if = {
+				limit = { has_heir = yes }
+				exile_heir_as = former_russian_heir
+				set_country_flag = former_russian_heir_in_exile
+			}
+			exile_ruler_as = { name = former_russian_ruler }
+		}
+		change_government_to_oligarchic_republic = yes
+		define_ruler = {
+			name = "Provisional Government"
+			regency = yes
+		}
+		set_country_flag = russian_provisional_government_flag
+	}
+}
+
+# Russification of the Baltic Governorates
+country_event = {
+	id = etf_event_rus.200
+	title = etf_event_rus.200.t
+	desc = etf_event_rus.200.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # We accept our fate
+		name = etf_event_rus.200.ra
+		change_primary_culture = russian
+	}
+
+	option = { # Never! We must resist this
+		name = etf_event_rus.200.rb
+		add_liberty_desire = 50
+		FROM = {
+			country_event = { id = etf_event_rus.201 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# FROM resists Russification
+country_event = {
+	id = etf_event_rus.201
+	title = etf_event_rus.201.t
+	desc = etf_event_rus.201.d
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_rus.201.r
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_civil_war_attacker
+		}
+	}
+}

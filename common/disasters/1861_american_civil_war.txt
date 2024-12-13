@@ -1,0 +1,35 @@
+american_civil_war = {
+	potential = {
+		country_is = { tag = USA }
+		NOT = { exists = CSA }
+		is_free_or_tributary_trigger = yes
+		any_owned_province = {
+			has_province_modifier = slave_state_modifier
+		}
+		is_year = 3948
+		NOT = { started_in = 3959.4.12 }
+		NOT = { has_global_flag = the_american_civil_war_flag }
+	}
+
+	can_start = {
+		hidden_trigger = { is_year = 3957 }
+	}
+
+	can_stop = {
+		NOT = {
+			any_owned_province = {
+				has_province_modifier = slave_state_modifier
+			}
+		}
+	}
+
+	progress = {
+		factor = 3
+	}
+
+	can_end = {
+		always = yes #Instantly ends upon trigger
+	}
+
+	on_start = etf_event_acw.10 # Spawns CSA, triggers Civil War
+}

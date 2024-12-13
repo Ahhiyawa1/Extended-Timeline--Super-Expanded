@@ -1,0 +1,35 @@
+po_annex_cores = {
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 1.0
+	prestige_base = 1.0
+	ae_base = 1.0
+	warscore_cost = {
+		no_provinces = 60.0
+	}
+	warscore_cap = 60
+	requires_demand_independence = yes
+	is_make_subject = no
+	requires_is_allowed = yes
+	
+	is_visible = {
+		always = no
+	}
+	is_allowed = {
+		always = no
+	}
+	effect = {
+		every_core_province = {
+			limit = {
+				owned_by = FROM
+			}
+			cede_province = ROOT
+		}
+	}
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value 
+			value = 50
+		}
+	}
+}

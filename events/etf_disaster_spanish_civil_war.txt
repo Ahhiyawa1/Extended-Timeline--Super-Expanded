@@ -1,0 +1,422 @@
+namespace = etf_event_scw
+
+# The Spanish Civil War
+country_event = {
+	id = etf_event_scw.001
+	title = etf_event_scw.001.t
+	desc = etf_event_scw.001.d
+	picture = SCW_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_neighbor_of = FROM
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = spanish_civil_war_flag
+	}
+
+	option = { # Resist the Coup!
+		name = etf_event_scw.001.ra
+		custom_tooltip = etf_event_scw_001_ra_tooltip
+		hidden_effect = {
+			if = {
+				limit = { owns = 217 }
+				set_capital = 217 # Madrid
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = galicia_area
+						area = leon_area
+						area = asturias_area
+						area = basque_country
+						area = aragon_area
+						area = extremadura_area
+						area = lower_andalucia_area
+						area = macaronesia_area
+					}
+				}
+				add_core = SPF
+			}
+			start_civil_war = {
+				tag = SPF
+				treasury = 300
+				manpower = 30
+				religion = catholic
+				government = republic
+				fascist = yes
+				capital = 206
+				delete_cores_after = yes
+				type = mutual
+			}
+			if = {
+				limit = {
+					has_leader = "Francisco Franco"
+				}
+				kill_leader = {
+					type = "Francisco Franco"
+				}
+				SPF = {
+					define_ruler = {
+						name = "Francisco Franco"
+						adm = 0
+						dip = 1
+						mil = 5
+						religion = catholic
+						attach_leader = "Francisco Franco"
+					}
+					set_ruler_flag = ruler_from_national_socialist_party
+				}
+			}
+			else = {
+				SPF = {
+					define_ruler = {
+					}
+				}
+			}
+		}
+	}
+
+	option = { # The Military must lead!
+		name = etf_event_scw.001.rb
+		custom_tooltip = etf_event_scw_001_rb_tooltip
+		hidden_effect = {
+			if = {
+				limit = { owns = 206 }
+				set_capital = 206 # La Coruña
+			}
+			change_tag = SPF
+			on_change_tag_effect = yes
+			change_religion = catholic
+			add_government_reform = single_party_system
+			add_government_reform = fascist_government
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = castille_area
+						area = toledo_area
+						area = upper_andalucia_area
+						area = valencia_area
+						area = catalonia_area
+					}
+				}
+				add_core = SPR
+			}
+			start_civil_war = {
+				tag = SPR
+				treasury = 300
+				manpower = 30
+				religion = secularism
+				government = republic
+				capital = 217
+				delete_cores_after = yes
+				type = mutual
+			}
+			SPR = {
+				add_government_reform = multi_party_system
+				add_government_reform = democracy_reform
+				add_faction_influence = {
+					influence = 40
+					faction = social_democratic_party
+				}
+				add_faction_influence = {
+					influence = 40
+					faction = communist_party
+				}
+				define_ruler = {
+				}
+			}
+			if = {
+				limit = {
+					has_leader = "Francisco Franco"
+				}
+				define_ruler = {
+					name = "Francisco Franco"
+					adm = 0
+					dip = 1
+					mil = 5
+					religion = catholic
+				}
+				set_ruler_flag = ruler_from_national_socialist_party
+			}
+			else = {
+				# Random General becomes ruler
+				define_leader_to_ruler = {
+					type = general
+					mil = 3
+				}
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		# Easier to tell the two apart
+		SPR = {
+			override_country_name_add_flag = { name = REPUBLICAN_SPAIN special = yes }
+		}
+		SPF = {
+			override_country_name_add_flag = { name = NATIONALIST_SPAIN special = yes }
+		}
+	}
+}
+
+# Foreign support
+country_event = {
+	id = etf_event_scw.010
+	title = etf_event_scw.010.t
+	desc = etf_event_scw.010.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_opinion = {
+				who = FROM
+				modifier = generic_good_opinion
+			}
+			reverse_add_opinion = {
+				who = FROM
+				modifier = generic_good_opinion
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_scw.010.r
+		add_treasury = 150
+		add_manpower = 10
+	}
+}
+
+## Revolt events meant to break potential stalemates
+# Catalans Revolt
+country_event = {
+	id = etf_event_scw.020
+	title = etf_event_scw.020.t
+	desc = etf_event_scw.020.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			# People with a stake in the war
+			war_with = FROM
+			has_country_flag = scw_supports_spr
+			has_country_flag = scw_supports_spf
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPR
+		war_with = SPF
+		any_owned_province = {
+			is_core = CAT
+		}
+		NOT = { exists = CAT }
+		had_global_flag = {
+			flag = spanish_civil_war_flag
+			days = 450
+		}
+	}
+
+	option = { # Damned Anarchists!
+		name = etf_event_scw.020.ra
+		start_civil_war = {
+			tag = CAT
+			treasury = 100
+			manpower = 15
+			religion = secularism
+			government = republic
+			capital = 213
+			type = attacker
+		}
+	}
+
+	option = { # Based Anarchists!
+		name = etf_event_scw.020.rb
+		trigger = {
+			ai = no
+		}
+		start_civil_war = {
+			tag = CAT
+			treasury = 100
+			manpower = 15
+			religion = secularism
+			government = republic
+			capital = 213
+			type = attacker
+			play_as = yes # Switch to CAT
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		CAT = {
+			add_government_reform = anarchist_society
+			define_ruler = {
+				name = "CNT-FAI"
+			}
+		}
+		SPF = {
+			declare_war_with_cb = {
+				who = CAT
+				casus_belli = cb_civil_war_attacker
+			}
+		}
+	}
+}
+
+# Basque Revolt
+country_event = {
+	id = etf_event_scw.021
+	title = etf_event_scw.021.t
+	desc = etf_event_scw.021.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			war_with = FROM
+			has_country_flag = scw_supports_spr
+			has_country_flag = scw_supports_spf
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPF
+		war_with = SPR
+		any_owned_province = {
+			is_core = VAS
+		}
+		NOT = { exists = VAS }
+		had_global_flag = {
+			flag = spanish_civil_war_flag
+			days = 550
+		}
+	}
+
+	option = { # Damned monarchists!
+		name = etf_event_scw.021.ra
+		start_civil_war = {
+			tag = VAS
+			treasury = 100
+			manpower = 15
+			religion = catholic
+			government = monarchy
+			capital = 209
+			type = attacker
+		}
+	}
+
+	option = { # Based monarchists!
+		name = etf_event_scw.021.rb
+		trigger = {
+			ai = no
+		}
+		start_civil_war = {
+			tag = VAS
+			treasury = 100
+			manpower = 15
+			religion = catholic
+			government = monarchy
+			capital = 209
+			type = attacker
+			play_as = yes # Switch to VAS
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		VAS = {
+			add_government_reform = royal_decree_reform
+			add_government_reform = authoritarian_rule
+			define_ruler = {
+			}
+		}
+		SPR = {
+			declare_war_with_cb = {
+				who = VAS
+				casus_belli = cb_civil_war_attacker
+			}
+		}
+	}
+}
+
+# Conclusion
+country_event = {
+	id = etf_event_scw.100
+	title = etf_event_scw.100.t
+	desc = etf_event_scw.100.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_neighbor_of = FROM
+		}
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = spanish_civil_war_flag
+	}
+
+	option = {
+		name = etf_event_scw.100.r
+		add_stability = 1
+	}
+
+	after = {
+		clear_country_name_with_flag = { name = REPUBLICAN_SPAIN }
+		clear_country_name_with_flag = { name = NATIONALIST_SPAIN }
+		# Volunteers return home
+		every_country = {
+			limit = {
+				OR = {
+					has_country_flag = scw_supports_spr
+					has_country_flag = scw_supports_spf
+				}
+			}
+			country_event = { id = etf_event_scw.101 days = 15 }
+		}
+		# Clear flags
+		every_country = {
+			clr_country_flag = scw_supports_spr
+			clr_country_flag = scw_supports_spf
+		}
+	}
+}
+
+# Volunteers return
+country_event = {
+	id = etf_event_scw.101
+	title = etf_event_scw.101.t
+	desc = etf_event_scw.101.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_scw.101.r
+		add_manpower = 5
+		add_army_tradition = 15
+		add_army_professionalism = 0.02
+	}
+}

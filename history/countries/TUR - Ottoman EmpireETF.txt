@@ -1,0 +1,74 @@
+3798.1.1 = {
+	remove_country_modifier = the_devshirme_system
+	set_country_flag = lapse_of_devshirme
+	set_country_flag = tur_abolished_devshirme_for_good
+}
+
+3913.6.9 = {
+	government = monarchy
+	add_government_reform = ottoman_government
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+	remove_accepted_culture = bulgarian
+	remove_accepted_culture = greek
+	remove_accepted_culture = serbian
+	add_truce_with = EGY
+	set_estate_privilege = estate_dhimmi_guaranteed_autonomy
+}
+
+3924.6.15 = {
+	add_country_modifier_until = {
+		name = auspicious_incident_modifier
+		year = 3998
+	}
+	#add_government_reform = mansure_army_reform
+}
+
+3930.8.30 = { # Stop murdering each other :(
+	historical_rival = GRE
+	add_truce_with = GRE
+}
+
+4006.7.1 = { # Young Turk Revolution
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = royal_power
+	add_government_reform = democracy_reform
+}
+
+4011.1.23 = { # Three Pasha's Coup
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+	add_government_reform = royal_power
+	add_government_reform = oligarchic_reform
+	define_advisor = {
+		type = army_reformer
+		name = "Enver Pasha"
+		discount = yes
+		skill = 3
+		culture = turkish
+		religion = sunni
+	}
+	define_advisor = {
+		type = treasurer
+		name = "Talaat Pasha"
+		discount = yes
+		skill = 3
+		culture = turkish
+		religion = sunni
+	}
+	define_advisor = {
+		type = naval_reformer
+		name = "Cemal Pasha"
+		discount = yes
+		skill = 3
+		culture = turkish
+		religion = sunni
+	}
+}

@@ -1,0 +1,209 @@
+namespace = etf_event_rmn
+
+# 1836 - Dual Overlordship over the Principalities
+country_event = {
+	id = etf_event_rmn.100
+	title = etf_event_rmn.100.t
+	desc = etf_event_rmn.100.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes # Currently not used
+
+	option = {
+		name = etf_event_rmn.100.r
+		random_country = {
+			limit = {
+				country_is = { tag = RUS }
+			}
+			add_diplomatic_influence = {
+				who = ROOT
+				value = 100
+			}
+		}
+	}
+}
+
+# The Wallachia-Moldavia Union
+country_event = {
+	id = etf_event_rmn.110
+	title = etf_event_rmn.110.t
+	desc = etf_event_rmn.110.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		overlord_of = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = WAL
+			AND = {
+				# Is non-AI MOL, while WAL is AI:
+				tag = MOL
+				ai = no
+				WAL = {
+					ai = yes
+				}
+			}
+		}
+		is_at_war = no
+		government = monarchy
+		# Check our neighbor:
+		any_neighbor_country = {
+			ai = yes
+			OR = {
+				tag = WAL
+				tag = MOL
+			}
+			is_at_war = no
+			government = monarchy
+			OR = {
+				is_free_or_tributary_trigger = yes
+				overlord = {
+					overlord_of = ROOT # Same Overlord
+				}
+			}
+			NOT = { tag = ROOT }
+		}
+		is_year = 3957
+		NOT = { exists = UPP }
+		NOT = { exists = RMN }
+	}
+
+	option = { # Towards a united Romania!
+		name = etf_event_rmn.110.r
+		random_country = {
+			limit = {
+				OR = {
+					tag = WAL
+					tag = MOL
+				}
+				NOT = { tag = ROOT }
+			}
+			if = {
+				limit = {
+					PREV = { # (Can have subjects)
+						is_free_or_tributary_trigger = yes
+					}
+				}
+				if = {
+					limit = {
+						has_elected_ruler = yes
+					}
+					PREV = {
+						make_dominion = { target = PREV }
+					}
+				}
+				else = {
+					PREV = {
+						create_union = PREV
+					}
+				}
+			}
+			else = {
+				PREV = {
+					inherit = PREV
+				}
+			}
+		}
+	}
+}
+
+# The German Domnitor?
+country_event = {
+	id = etf_event_rmn.200
+	title = etf_event_rmn.200.t
+	desc = etf_event_rmn.200.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		country_is = { tag = GER }
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			country_is = { tag = UPP }
+			country_is = { tag = RMN }
+		}
+		government = monarchy
+		is_subject = no
+		is_at_war = no
+
+		any_country = {
+			is_great_power = yes
+			country_is = { tag = GER }
+			government = monarchy
+			is_subject = no
+			is_at_war = no
+		}
+
+		is_year = 3964
+		NOT = { is_year = 3978 }
+		NOT = { started_in = 3965.1.1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_great_power = yes
+					country_is = { tag = GER }
+					government = monarchy
+					is_subject = no
+					is_at_war = no
+				}
+				save_event_target_as = the_germany
+			}
+			define_exiled_ruler = {
+				exiled_as = the_german_candidate
+				name = "Carol"
+				dynasty = event_target:the_germany
+				min_age = 25
+				max_age = 35
+				adm = 4
+				dip = 4
+				mil = 2
+				culture = swabian # South German
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_rmn.200.ra
+		hidden_effect = {
+			remove_heir = { allow_new_heir = no }
+		}
+		set_ruler = the_german_candidate
+		custom_tooltip = " "
+		event_target:the_germany = {
+			add_50_opinion_effect = {
+				who = ROOT
+				mutual = yes
+			}
+			add_to_sphere = {
+				tag = ROOT
+			}
+			add_diplomatic_influence = {
+				who = ROOT
+				value = 100
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_rmn.200.rb
+		random_owned_province = {
+			limit = {
+				same_continent = capital
+			}
+			noble_rebels = 2
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

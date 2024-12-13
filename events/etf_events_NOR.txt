@@ -1,0 +1,172 @@
+namespace = etf_event_nor
+
+# Norwegian Storting Votes for Independence
+country_event = {
+	id = etf_event_nor.200
+	title = etf_event_nor.200.t
+	desc = etf_event_nor.200.d
+	picture = STORTING_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	option = { # Accept a peaceful dissolution.
+		name = etf_event_nor.200.ra
+		add_prestige = 10
+		add_historical_friend = FROM
+		hidden_effect = {
+			FROM = {
+				add_historical_friend = ROOT
+			}
+		}
+	}
+
+	option = { # Conquer them!
+		name = etf_event_nor.200.rb
+		add_stability = -1
+		hidden_effect = {
+			remove_historical_friend = FROM
+			FROM = {
+				remove_historical_friend = ROOT
+			}
+		}
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_restore_personal_union
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Monarchy Question
+country_event = {
+	id = etf_event_nor.210
+	title = etf_event_nor.210.t
+	desc = etf_event_nor.210.d
+	picture = STORTING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_NOR
+		government = monarchy
+		has_ruler = "Regency (Storting)"
+		had_country_flag = {
+			flag = storting_votes_independence
+			days = 50
+		}
+		NOT = { has_government_attribute = has_prime_minister }
+	}
+
+	immediate = {
+		hidden_effect = {
+			define_exiled_ruler = {
+				exiled_as = NOR_norwegian_candidate
+				dynasty = THIS
+				min_age = 30
+				max_age = 65
+				option = 0
+			}
+			if = {
+				limit = {
+					exists = event_target:_SWE
+					event_target:_SWE = {
+						government = monarchy
+						NOT = { war_with = ROOT }
+					}
+				}
+				event_target:_SWE = {
+					define_exiled_ruler = {
+						exiled_as = NOR_swedish_candidate
+						dynasty = THIS
+						min_age = 30
+						max_age = 65
+						option = 1
+					}
+				}
+				set_country_flag = has_NOR_swedish_candidate
+			}
+			if = {
+				limit = {
+					exists = event_target:_DAN
+					event_target:_DAN = {
+						government = monarchy
+						NOT = { war_with = ROOT }
+					}
+				}
+				event_target:_DAN = {
+					define_exiled_ruler = {
+						exiled_as = NOR_danish_candidate
+						dynasty = THIS
+						min_age = 30
+						max_age = 65
+						option = 2
+					}
+				}
+				set_country_flag = has_NOR_danish_candidate
+			}
+		}
+	}
+	after = {
+		clr_country_flag = has_NOR_swedish_candidate
+		clr_country_flag = has_NOR_danish_candidate
+	}
+
+	option = { # The Norwegian candidate
+		name = etf_event_nor.210.ra
+		set_ruler = NOR_norwegian_candidate
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # The Swedish candidate
+		name = etf_event_nor.210.rb
+		trigger = {
+			has_country_flag = has_NOR_swedish_candidate
+		}
+		set_ruler = NOR_swedish_candidate
+		event_target:_SWE = {
+			add_50_opinion_effect = {
+				who = ROOT
+				mutual = yes
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { # The Danish candidate
+		name = etf_event_nor.210.rc
+		trigger = {
+			has_country_flag = has_NOR_danish_candidate
+		}
+		set_ruler = NOR_danish_candidate
+		event_target:_DAN = {
+			add_50_opinion_effect = {
+				who = ROOT
+				mutual = yes
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+
+	option = { # No more monarchy, the people must rule themselves!
+		name = etf_event_nor.210.rd
+		change_government_to_democratic_republic = yes
+		hidden_effect = {
+			kill_ruler = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

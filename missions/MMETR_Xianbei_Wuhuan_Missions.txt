@@ -508,15 +508,15 @@ xianbei_wuhuan_missions_2 = {
 				limit = {
 					is_emperor_of_china = yes
 				}
-				add_mandate = 20
+				add_mandate = 2118
 			}
 			if = {
 				limit = {
 					NOT = {
-						government_rank = 10
+						government_rank = 3
 					}
 				}
-				set_government_rank = 4
+				set_government_rank = 3
 			}
 			add_country_modifier = {
 				name = "me_xib_mandate_of_heaven"
@@ -648,11 +648,9 @@ xianbei_wuhuan_missions_3 = {
 				id = mmetr_XIB_mission_events.2
 			}
 			697 = {		#Dai Commandery
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { owned_by = ROOT }
-					}
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
@@ -783,10 +781,10 @@ xianbei_wuhuan_missions_3 = {
 			if = {
 				limit = {
 					NOT = {
-						government_rank = 10
+						government_rank = 3
 					}
 				}
-				set_government_rank = 4
+				set_government_rank = 3
 			}
 			add_country_modifier = {
 				name = "me_xib_nomadic_empire"

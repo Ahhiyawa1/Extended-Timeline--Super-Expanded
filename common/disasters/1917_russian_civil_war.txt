@@ -1,0 +1,31 @@
+russian_civil_war = {
+	potential = {
+		country_is = { tag = RUS }
+		NOT = { exists = RSF }
+		is_free_or_tributary_trigger = yes
+		is_year = 3998
+		NOT = { started_in = 4015.11.1 }
+		NOT = { has_global_flag = russian_civil_war_flag }
+	}
+
+	can_start = {
+		has_ruler = "Provisional Government"
+		hidden_trigger = { # Can't just rename a leader and get the disaster, would be silly.
+			has_country_flag = russian_provisional_government_flag
+		}
+	}
+
+	can_stop = {
+		always = no
+	}
+
+	progress = {
+		factor = 10
+	}
+
+	can_end = {
+		always = yes
+	}
+
+	on_start = etf_event_rcw.1
+}

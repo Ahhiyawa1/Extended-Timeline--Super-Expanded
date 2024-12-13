@@ -1,0 +1,281 @@
+namespace = etf_event_ser
+
+# Constitution of 1835 or 1838?
+country_event = {
+	id = etf_event_ser.100
+	title = etf_event_ser.100.t
+	desc = etf_event_ser.100.d
+	picture = LIBERUM_VETO_eventPicture
+	major = yes
+	major_trigger = {
+		overlord_of = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = SER }
+		government = monarchy
+		
+		is_subject = yes
+		overlord = {
+			country_is = { tag = TUR }
+		}
+		
+		is_year = 3936
+		started_in = 3933.1.1
+		NOT = { started_in = 3938.1.1 }
+	}
+
+	option = { # The "Turkish" Constitution.
+		name = etf_event_ser.100.ra
+		add_liberty_desire = -10
+		change_government_to_autocratic_monarchy = yes
+	}
+
+	option = { # The Sretenje Constitution!
+		name = etf_event_ser.100.rb
+		add_liberty_desire = 30
+		add_innovativeness_small_effect = yes
+		change_government_to_parliamentary_monarchy = yes
+		
+		every_known_country = {
+			limit = {
+				is_autocracy = yes
+				OR = {
+					country_is = { tag = TUR }
+					country_is = { tag = HAB }
+					country_is = { tag = RUS }
+				}
+			}
+			sub_100_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Constitution of 1869 (Towards full Independence)
+country_event = {
+	id = etf_event_ser.110
+	title = etf_event_ser.110.t
+	desc = etf_event_ser.110.d
+	picture = LIBERUM_VETO_eventPicture
+	major = yes
+	major_trigger = {
+		overlord_of = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = SER }
+		government = monarchy
+		
+		is_subject = yes
+		overlord = {
+			country_is = { tag = TUR }
+			great_power_rank = 5 # Less than rank 4
+		}
+		
+		is_year = 3967
+		started_in = 3933.1.1
+		NOT = { started_in = 3967.1.1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			overlord = {
+				save_event_target_as = overlord_target
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ser.110.r
+		add_prestige = 10
+		hidden_effect = {
+			grant_independence = yes
+		}
+		event_target:overlord_target = {
+			add_to_sphere = { tag = ROOT }
+		}
+	}
+}
+
+# Union with Montenegro?
+country_event = {
+	id = etf_event_ser.200
+	title = etf_event_ser.200.t
+	desc = etf_event_ser.200.d
+	picture = CONQUEST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = SER }
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		
+		any_neighbor_country = {
+			tag = MON
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			government = monarchy
+			NOT = {
+				total_development = ROOT
+			}
+		}
+		
+		NOT = {
+			any_country = {
+				exists = yes
+				country_is = { tag = YUG }
+			}
+		}
+		
+		is_year = 4016
+		NOT = { started_in = 4018.1.1 }
+	}
+
+	option = {
+		name = etf_event_ser.200.ra
+		random_neighbor_country = {
+			limit = {
+				tag = MON
+			}
+			country_event = { id = etf_event_ser.201 }
+		}
+	}
+
+	option = {
+		name = etf_event_ser.200.rb
+		random_neighbor_country = {
+			limit = {
+				tag = MON
+			}
+			add_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Podgorica Assembly
+country_event = {
+	id = etf_event_ser.201
+	title = etf_event_ser.201.t
+	desc = etf_event_ser.201.d
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ser.201.ra
+		FROM = {
+			sub_100_opinion_effect = { who = ROOT }
+			add_casus_belli = {
+				target = ROOT
+				type = cb_restore_personal_union
+				months = 12
+			}
+			country_event = { id = etf_event_ser.202 } # "They refused"
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = etf_event_ser.201.rb
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		FROM = {
+			inherit = ROOT
+			country_event = { id = etf_event_ser.203 } # "They accepted!"
+		}
+	}
+}
+
+# They Refused
+country_event = {
+	id = etf_event_ser.202
+	title = etf_event_ser.202.t
+	desc = etf_event_ser.202.d
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ser.202.r
+		add_casus_belli = {
+			target = FROM
+			type = cb_restore_personal_union
+			months = 12
+		}
+	}
+}
+
+# They Accepted! (Early Form Yugoslavia)
+country_event = {
+	id = etf_event_ser.203
+	title = etf_event_ser.203.t
+	desc = etf_event_ser.203.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ser.203.r
+		if = { limit = { europe = { is_core = SVN } NOT = { tag = SVN } } custom_tooltip = svn_cores }
+		if = { limit = { europe = { is_core = CRO } NOT = { tag = CRO } } custom_tooltip = cro_cores }
+		if = { limit = { europe = { is_core = BOS } NOT = { tag = BOS } } custom_tooltip = bos_cores }
+		if = { limit = { europe = { is_core = SER } NOT = { tag = SER } } custom_tooltip = ser_cores }
+		if = { limit = { europe = { is_core = MON } NOT = { tag = MON } } custom_tooltip = mon_cores }
+		if = { limit = { europe = { is_core = MAC } NOT = { tag = MAC } } custom_tooltip = mac_cores }
+		hidden_effect = {
+			europe = {
+				limit = {
+					OR = {
+						is_core = SVN
+						is_core = CRO
+						is_core = BOS
+						is_core = SER
+						is_core = MON
+						is_core = MAC
+					}
+				}
+				remove_claim = ROOT
+				add_core = YUG
+			}
+		}
+		if = {
+			limit = {
+				NOT = { government_rank = 2 }
+			}
+			set_government_rank = 2
+		}
+		add_prestige = 25
+		change_tag = YUG
+		on_change_tag_effect = yes
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		if = {
+			limit = {
+				has_custom_ideas = no
+			}
+			country_event = { id = ideagroups.1 }
+		}
+	}
+}

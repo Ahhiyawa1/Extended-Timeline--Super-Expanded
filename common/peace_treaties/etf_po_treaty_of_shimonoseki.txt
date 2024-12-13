@@ -1,0 +1,57 @@
+# First Sino-Japanese War
+po_treaty_of_shimonoseki = {
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 0.0
+	prestige_base = 0.5
+	ae_base = 0.5
+	warscore_cost = {
+		no_provinces = 50.0
+	}
+	warscore_cap = 50
+	requires_demand_independence = yes
+	is_make_subject = yes
+	requires_is_allowed = yes
+
+	is_visible = {
+		NOT = { started_in = 3993.4.17 }
+		NOT = { has_global_flag = treaty_of_shimonoseki_flag }
+		tag = event_target:japan_target
+		FROM = {
+			tag = event_target:china_target
+		}
+	}
+	effect = {
+		every_province = {
+			limit = {
+				country_or_non_sovereign_subject_holds = FROM
+				OR = {
+					area = taiwan_area
+					province_id = 3010 # Dalian
+				}
+			}
+			cede_province = ROOT
+			if = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				add_territorial_core = ROOT
+			}
+		}
+		if = {
+			limit = {
+				KOR = { is_subject_of = FROM }
+			}
+			add_to_sphere = { tag = KOR }
+		}
+		clear_global_event_target = japan_target
+		clear_global_event_target = china_target
+		set_global_flag = treaty_of_shimonoseki_flag
+	}
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value 
+			value = 750
+		}
+	}
+}

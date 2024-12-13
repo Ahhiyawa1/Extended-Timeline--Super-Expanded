@@ -1,0 +1,316 @@
+namespace = etf_event_uhw
+
+# The Paulet Affair
+country_event = {
+	id = etf_event_uhw.1
+	title = etf_event_uhw.1.t
+	desc = etf_event_uhw.1.d
+	picture = BARBARY_PIRATES_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_GBR
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = UHW
+		is_at_war = no
+		is_great_power = no
+		is_subject = no
+		
+		has_saved_global_event_target = _GBR
+		event_target:_GBR = {
+			is_great_power = yes
+			navy_size = 50
+		}
+		capital_scope = {
+			has_discovered = event_target:_GBR
+		}
+		
+		is_year = 3941
+		NOT = { started_in = 3941.1.1 }
+	}
+
+	immediate = {
+		set_global_flag = crisis_in_hawaii
+	}
+
+	option = { # We'll wait and see what comes of this.
+		name = etf_event_uhw.1.ra
+		custom_tooltip = etf_event_uhw.1.tt
+		hidden_effect = {
+			random = {
+				chance = 50
+				set_global_flag = haw_britain_go_nuts
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:_USA = {
+					is_great_power = yes
+					NOT = { war_with = ROOT }
+				}
+			}
+		}
+	}
+
+	option = { # Appeal for assistance from [USA.GetNameShort]!
+		name = etf_event_uhw.1.rb
+		trigger = {
+			event_target:_USA = {
+				is_great_power = yes
+				NOT = { war_with = ROOT }
+			}
+		}
+		event_target:_USA = {
+			country_event = { id = etf_event_uhw.3 days = 30 }
+		}
+	}
+}
+
+# Left Behind
+country_event = {
+	id = etf_event_uhw.2
+	title = etf_event_uhw.2.t
+	desc = etf_event_uhw.2.d
+	picture = BARBARY_PIRATES_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_GBR
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = UHW
+		is_at_war = no
+		is_subject = no
+		had_global_flag = {
+			flag = crisis_in_hawaii
+			days = 365
+		}
+	}
+
+	option = { # Go home, Brit.
+		name = etf_event_uhw.2.r
+		add_prestige = 10
+		clr_global_flag = crisis_in_hawaii
+		clr_global_flag = haw_britain_go_nuts
+	}
+}
+
+# Paulet Occupies Hawai'i
+country_event = {
+	id = etf_event_uhw.3
+	title = etf_event_uhw.3.t
+	desc = etf_event_uhw.3.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		tag = UHW
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = crisis_in_hawaii
+	}
+
+	option = { # Hawai'i will be safe under [Root.GetAdjective] protection.
+		name = etf_event_uhw.3.ra
+		add_to_sphere = { tag = FROM }
+		clr_global_flag = crisis_in_hawaii
+		clr_global_flag = haw_britain_go_nuts
+	}
+
+	option = { # This is none of our business.
+		name = etf_event_uhw.3.rb
+		add_prestige = -10
+		set_global_flag = haw_britain_go_nuts
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Hawaiian Constitution
+country_event = {
+	id = etf_event_uhw.11
+	title = etf_event_uhw.11.t
+	desc = etf_event_uhw.11.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = UHW
+		government = monarchy
+		OR = {
+			NOT = { has_reform = parliamentary_reform }
+			NOT = { has_reform = elected_parliament }
+		}
+		is_year = 3938
+		NOT = { started_in = 3938.1.1 }
+	}
+
+	option = { # Adopt a Western Constitution.
+		name = etf_event_uhw.11.ra
+		if = {
+			limit = {
+				NOT = { has_reform = parliamentary_reform }
+			}
+			add_government_reform = parliamentary_reform
+		}
+		if = {
+			limit = {
+				NOT = { has_reform = elected_parliament }
+			}
+			add_government_reform = elected_parliament
+		}
+	}
+
+	option = { # Discard it.
+		name = etf_event_uhw.11.rb
+		add_stability_or_adm_power = yes
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Hawaiian Revolution
+country_event = {
+	id = etf_event_uhw.12
+	title = etf_event_uhw.12.t
+	desc = etf_event_uhw.12.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_USA
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = UHW
+		government = monarchy
+		has_saved_global_event_target = _USA
+		overlord = {
+			tag = event_target:_USA
+		}
+		is_year = 3991
+		NOT = { started_in = 3991.1.1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			export_to_variable = {
+				which = overlord_religion
+				value = religion
+				who = overlord
+			}
+			export_to_variable = {
+				which = overlord_culture
+				value = primary_culture
+				who = overlord
+			}
+		}
+		set_country_flag = hawaii_revolution_flag
+	}
+
+	option = { # Surrender to the rebels.
+		name = etf_event_uhw.12.ra
+		change_government = republic
+		if = {
+			limit = {
+				NOT = { religion = variable:overlord_religion }
+			}
+			change_religion = variable:overlord_religion
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = variable:overlord_culture }
+			}
+			change_primary_culture = variable:overlord_culture
+		}
+		kill_ruler = yes
+	}
+
+	option = { # We must resist their coup!
+		name = etf_event_uhw.12.rb
+		capital_scope = {
+			revolutionary_rebels = 1
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Hawai'i Seeks Annexation (UHW)
+#country_event = {
+#	id = etf_event_uhw.13
+#	title = etf_event_uhw.13.t
+#	desc = etf_event_uhw.13.d
+#	picture = CONQUEST_eventPicture
+#
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = UHW
+#		government = republic
+#		overlord = {
+#			country_is = { tag = USA }
+#		}
+#		had_country_flag = {
+#			flag = hawaii_revolution_flag
+#			days = 30
+#		}
+#	}
+#
+#	option = { # Seek membership to the union
+#		name = etf_event_uhw.13.ra
+#		overlord = {
+#			country_event = { id = etf_event_uhw.14 days = 5 }
+#		}
+#	}
+#
+#	option = {
+#		name = etf_event_uhw.13.rb
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#}
+
+# Hawai'i Seeks Annexation (USA)
+#country_event = {
+#	id = etf_event_uhw.14
+#	title = etf_event_uhw.14.t
+#	desc = etf_event_uhw.14.d
+#	picture = CONQUEST_eventPicture
+#	major = yes
+#	major_trigger = {
+#		tag = UHW
+#	}
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = etf_event_uhw.14.ra
+#		add_prestige = -10
+#		annex_tag = {
+#			target = FROM
+#			transfer_troops = no
+#		}
+#	}
+#
+#	option = {
+#		name = etf_event_uhw.14.rb
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#}

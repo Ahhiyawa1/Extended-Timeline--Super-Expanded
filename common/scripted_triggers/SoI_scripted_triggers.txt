@@ -1,0 +1,888 @@
+has_great_power_DLC_trigger = {
+	OR = {
+		has_dlc = "Rights of Man"
+		has_dlc = "Emperor"
+	}
+}
+
+is_great_power_trigger = {
+	if = {
+		limit = {
+			has_great_power_DLC_trigger = yes
+		}
+		is_great_power = yes
+	}
+	else = {
+		is_subject = no
+		NOT = {
+			calc_true_if = {
+				all_country = {
+					is_subject = no
+					total_development = PREV
+				}
+				amount = 8
+			}
+		}
+	}
+}
+
+is_great_power_rank = { # parameters: int 'value', bool 'exact'
+	if = {
+		limit = {
+			has_great_power_DLC_trigger = yes
+		}
+		if = {
+			limit = {
+				is_great_power = yes
+			}
+			variable_arithmetic_trigger = {
+				custom_tooltip = is_[[exact]exact_]great_power_rank_tt
+				
+				export_to_variable = {
+					which = desired_great_power_rank
+					value = $value$
+				}
+				export_to_variable = {
+					which = our_great_power_rank
+					value = trigger_value:great_power_rank # <-- Requires DLC to work.
+				}
+				
+				check_variable = {
+					which = desired_great_power_rank
+					which = our_great_power_rank
+				}
+				[[exact]
+					is_variable_equal = {
+						which = desired_great_power_rank
+						which = our_great_power_rank
+					}
+				]
+			}
+		}
+		else = {
+			is_great_power = yes
+		}
+	}
+	else = {
+		is_great_power_trigger = yes
+		NOT = {
+			calc_true_if = {
+				all_country = {
+					is_subject = no
+					total_development = PREV
+				}
+				amount = $value$
+			}
+		}
+		[[exact]
+			calc_true_if = {
+				all_countries_including_self = {
+					is_subject = no
+					total_development = PREV
+				}
+				amount = $value$
+			}
+		]
+	}
+}
+
+can_influence_trigger = {
+	is_great_power_trigger = yes
+	OR = {
+		tag = event_target:GP_1
+		tag = event_target:GP_2
+		tag = event_target:GP_3
+		tag = event_target:GP_4
+		tag = event_target:GP_5
+		tag = event_target:GP_6
+		tag = event_target:GP_7
+		tag = event_target:GP_8
+		tag = event_target:GP_9
+		tag = event_target:GP_10
+		tag = event_target:GP_11
+		tag = event_target:GP_12
+		tag = event_target:GP_13
+		tag = event_target:GP_14
+		tag = event_target:GP_15
+		tag = event_target:GP_16
+	}
+}
+
+AI_wants_to_be_influenced_by_trigger = { # THIS == Target, $who$ == Great Power
+	OR = {
+		AND = {
+			is_subject_of = $who$
+			NOT = { liberty_desire = 50 }
+		}
+		AND = {
+			OR = {
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_neutral
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_defensive
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_allied
+				}
+			}
+			NOT = {
+				OR = {
+					government = tribal
+					government = native
+					is_primitive = yes
+				}
+			}
+			NOT = { isolationism = 3 }
+			
+			any_neighbor_country = { # Feeling threatened by any neighbor
+				PREV = {
+					ai_attitude = {
+						who = PREV
+						attitude = attitude_threatened
+					}
+				}
+				NOT = { tag = $who$ }
+			}
+			
+			if = { # Any province in home region is owned by '$who$'
+				limit = {
+					NOT = { is_year = 3798 }
+					NOT = { has_global_flag = age_of_influence } # Set flag to enable early
+				}
+				capital_scope = {
+					region_for_scope_province = {
+						owned_by = $who$
+					}
+				}
+			}
+		}
+	}
+	NOT = { # Target does not have too high Influence-resistance
+		variable_arithmetic_trigger = {
+			export_to_variable = {
+				which = influence_offence_variable
+				value = modifier:influence_offence_modifier
+				who = $who$
+			}
+			export_to_variable = {
+				which = influence_defence_variable
+				value = modifier:influence_defence_modifier
+			}
+			
+			export_to_variable = {
+				which = influence_summary_variable
+				value = 1.00 # 100%
+			}
+			change_variable = {
+				which = influence_summary_variable # +
+				which = influence_offence_variable
+			}
+			subtract_variable = {
+				which = influence_summary_variable # -
+				which = influence_defence_variable
+			}
+			
+			NOT = {
+				check_variable = { # influence_summary_variable < 0.001
+					which = influence_summary_variable
+					value = 0.001
+				}
+			}
+		}
+	}
+}
+
+AI_wants_to_influence_trigger = { # THIS == Great Power, $who$ == Target
+	OR = {
+		overlord_of = $who$
+		AND = {
+			OR = {
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_defensive
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_protective
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_domineering
+				}
+				ai_attitude = {
+					who = $who$
+					attitude = attitude_allied
+				}
+				AND = {
+					has_diplomatic_influence = {
+						who = $who$
+						value = 20
+					}
+					NOT = {
+						OR = {
+							ai_attitude = {
+								who = $who$
+								attitude = attitude_rivalry
+							}
+							ai_attitude = {
+								who = $who$
+								attitude = attitude_hostile
+							}
+							ai_attitude = {
+								who = $who$
+								attitude = attitude_outraged
+							}
+						}
+					}
+				}
+			}
+			$who$ = {
+				NOT = {
+					OR = {
+						government = tribal
+						government = native
+						is_primitive = yes
+					}
+				}
+			}
+			
+			if = { # Any owned province is in home region of '$who$'
+				limit = {
+					NOT = { is_year = 3798 }
+					NOT = { has_global_flag = age_of_influence } # Set flag to enable early
+				}
+				any_owned_province = {
+					region_for_scope_province = {
+						is_capital_of = $who$
+					}
+				}
+			}
+		}
+	}
+	NOT = { # Target does not have too high Influence-resistance
+		variable_arithmetic_trigger = {
+			export_to_variable = {
+				which = influence_offence_variable
+				value = modifier:influence_offence_modifier
+			}
+			export_to_variable = {
+				which = influence_defence_variable
+				value = modifier:influence_defence_modifier
+				who = $who$
+			}
+			
+			export_to_variable = {
+				which = influence_summary_variable
+				value = 1.00 # 100%
+			}
+			change_variable = {
+				which = influence_summary_variable # +
+				which = influence_offence_variable
+			}
+			subtract_variable = {
+				which = influence_summary_variable # -
+				which = influence_defence_variable
+			}
+			
+			NOT = {
+				check_variable = { # influence_summary_variable < 0.001
+					which = influence_summary_variable
+					value = 0.001
+				}
+			}
+		}
+	}
+}
+
+has_diplomatic_influence = {
+	if = {
+		limit = { tag = event_target:GP_1 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_1
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_2 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_2
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_3 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_3
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_4 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_4
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_5 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_5
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_6 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_6
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_7 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_7
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_8 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_8
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_9 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_9
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_10 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_10
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_11 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_11
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_12 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_12
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_13 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_13
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_14 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_14
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_15 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_15
+				value = $value$
+			}
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_16 }
+		$who$ = {
+			check_variable = {
+				which = influence_GP_16
+				value = $value$
+			}
+		}
+	}
+	else = {
+		hidden_trigger = {
+			always = no
+		}
+	}
+}
+
+has_most_diplomatic_influence_trigger = {
+	if = {
+		limit = { tag = event_target:GP_1 }
+		$who$ = {
+			check_variable = { which = influence_GP_1 which = influence_GP_2 }
+			check_variable = { which = influence_GP_1 which = influence_GP_3 }
+			check_variable = { which = influence_GP_1 which = influence_GP_4 }
+			check_variable = { which = influence_GP_1 which = influence_GP_5 }
+			check_variable = { which = influence_GP_1 which = influence_GP_6 }
+			check_variable = { which = influence_GP_1 which = influence_GP_7 }
+			check_variable = { which = influence_GP_1 which = influence_GP_8 }
+			check_variable = { which = influence_GP_1 which = influence_GP_9 }
+			check_variable = { which = influence_GP_1 which = influence_GP_10 }
+			check_variable = { which = influence_GP_1 which = influence_GP_11 }
+			check_variable = { which = influence_GP_1 which = influence_GP_12 }
+			check_variable = { which = influence_GP_1 which = influence_GP_13 }
+			check_variable = { which = influence_GP_1 which = influence_GP_14 }
+			check_variable = { which = influence_GP_1 which = influence_GP_15 }
+			check_variable = { which = influence_GP_1 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_2 }
+		$who$ = {
+			check_variable = { which = influence_GP_2 which = influence_GP_1 }
+			check_variable = { which = influence_GP_2 which = influence_GP_3 }
+			check_variable = { which = influence_GP_2 which = influence_GP_4 }
+			check_variable = { which = influence_GP_2 which = influence_GP_5 }
+			check_variable = { which = influence_GP_2 which = influence_GP_6 }
+			check_variable = { which = influence_GP_2 which = influence_GP_7 }
+			check_variable = { which = influence_GP_2 which = influence_GP_8 }
+			check_variable = { which = influence_GP_2 which = influence_GP_9 }
+			check_variable = { which = influence_GP_2 which = influence_GP_10 }
+			check_variable = { which = influence_GP_2 which = influence_GP_11 }
+			check_variable = { which = influence_GP_2 which = influence_GP_12 }
+			check_variable = { which = influence_GP_2 which = influence_GP_13 }
+			check_variable = { which = influence_GP_2 which = influence_GP_14 }
+			check_variable = { which = influence_GP_2 which = influence_GP_15 }
+			check_variable = { which = influence_GP_2 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_3 }
+		$who$ = {
+			check_variable = { which = influence_GP_3 which = influence_GP_1 }
+			check_variable = { which = influence_GP_3 which = influence_GP_2 }
+			check_variable = { which = influence_GP_3 which = influence_GP_4 }
+			check_variable = { which = influence_GP_3 which = influence_GP_5 }
+			check_variable = { which = influence_GP_3 which = influence_GP_6 }
+			check_variable = { which = influence_GP_3 which = influence_GP_7 }
+			check_variable = { which = influence_GP_3 which = influence_GP_8 }
+			check_variable = { which = influence_GP_3 which = influence_GP_9 }
+			check_variable = { which = influence_GP_3 which = influence_GP_10 }
+			check_variable = { which = influence_GP_3 which = influence_GP_11 }
+			check_variable = { which = influence_GP_3 which = influence_GP_12 }
+			check_variable = { which = influence_GP_3 which = influence_GP_13 }
+			check_variable = { which = influence_GP_3 which = influence_GP_14 }
+			check_variable = { which = influence_GP_3 which = influence_GP_15 }
+			check_variable = { which = influence_GP_3 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_4 }
+		$who$ = {
+			check_variable = { which = influence_GP_4 which = influence_GP_1 }
+			check_variable = { which = influence_GP_4 which = influence_GP_2 }
+			check_variable = { which = influence_GP_4 which = influence_GP_3 }
+			check_variable = { which = influence_GP_4 which = influence_GP_5 }
+			check_variable = { which = influence_GP_4 which = influence_GP_6 }
+			check_variable = { which = influence_GP_4 which = influence_GP_7 }
+			check_variable = { which = influence_GP_4 which = influence_GP_8 }
+			check_variable = { which = influence_GP_4 which = influence_GP_9 }
+			check_variable = { which = influence_GP_4 which = influence_GP_10 }
+			check_variable = { which = influence_GP_4 which = influence_GP_11 }
+			check_variable = { which = influence_GP_4 which = influence_GP_12 }
+			check_variable = { which = influence_GP_4 which = influence_GP_13 }
+			check_variable = { which = influence_GP_4 which = influence_GP_14 }
+			check_variable = { which = influence_GP_4 which = influence_GP_15 }
+			check_variable = { which = influence_GP_4 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_5 }
+		$who$ = {
+			check_variable = { which = influence_GP_5 which = influence_GP_1 }
+			check_variable = { which = influence_GP_5 which = influence_GP_2 }
+			check_variable = { which = influence_GP_5 which = influence_GP_3 }
+			check_variable = { which = influence_GP_5 which = influence_GP_4 }
+			check_variable = { which = influence_GP_5 which = influence_GP_6 }
+			check_variable = { which = influence_GP_5 which = influence_GP_7 }
+			check_variable = { which = influence_GP_5 which = influence_GP_8 }
+			check_variable = { which = influence_GP_5 which = influence_GP_9 }
+			check_variable = { which = influence_GP_5 which = influence_GP_10 }
+			check_variable = { which = influence_GP_5 which = influence_GP_11 }
+			check_variable = { which = influence_GP_5 which = influence_GP_12 }
+			check_variable = { which = influence_GP_5 which = influence_GP_13 }
+			check_variable = { which = influence_GP_5 which = influence_GP_14 }
+			check_variable = { which = influence_GP_5 which = influence_GP_15 }
+			check_variable = { which = influence_GP_5 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_6 }
+		$who$ = {
+			check_variable = { which = influence_GP_6 which = influence_GP_1 }
+			check_variable = { which = influence_GP_6 which = influence_GP_2 }
+			check_variable = { which = influence_GP_6 which = influence_GP_3 }
+			check_variable = { which = influence_GP_6 which = influence_GP_4 }
+			check_variable = { which = influence_GP_6 which = influence_GP_5 }
+			check_variable = { which = influence_GP_6 which = influence_GP_7 }
+			check_variable = { which = influence_GP_6 which = influence_GP_8 }
+			check_variable = { which = influence_GP_6 which = influence_GP_9 }
+			check_variable = { which = influence_GP_6 which = influence_GP_10 }
+			check_variable = { which = influence_GP_6 which = influence_GP_11 }
+			check_variable = { which = influence_GP_6 which = influence_GP_12 }
+			check_variable = { which = influence_GP_6 which = influence_GP_13 }
+			check_variable = { which = influence_GP_6 which = influence_GP_14 }
+			check_variable = { which = influence_GP_6 which = influence_GP_15 }
+			check_variable = { which = influence_GP_6 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_7 }
+		$who$ = {
+			check_variable = { which = influence_GP_7 which = influence_GP_1 }
+			check_variable = { which = influence_GP_7 which = influence_GP_2 }
+			check_variable = { which = influence_GP_7 which = influence_GP_3 }
+			check_variable = { which = influence_GP_7 which = influence_GP_4 }
+			check_variable = { which = influence_GP_7 which = influence_GP_5 }
+			check_variable = { which = influence_GP_7 which = influence_GP_6 }
+			check_variable = { which = influence_GP_7 which = influence_GP_8 }
+			check_variable = { which = influence_GP_7 which = influence_GP_9 }
+			check_variable = { which = influence_GP_7 which = influence_GP_10 }
+			check_variable = { which = influence_GP_7 which = influence_GP_11 }
+			check_variable = { which = influence_GP_7 which = influence_GP_12 }
+			check_variable = { which = influence_GP_7 which = influence_GP_13 }
+			check_variable = { which = influence_GP_7 which = influence_GP_14 }
+			check_variable = { which = influence_GP_7 which = influence_GP_15 }
+			check_variable = { which = influence_GP_7 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_8 }
+		$who$ = {
+			check_variable = { which = influence_GP_8 which = influence_GP_1 }
+			check_variable = { which = influence_GP_8 which = influence_GP_2 }
+			check_variable = { which = influence_GP_8 which = influence_GP_3 }
+			check_variable = { which = influence_GP_8 which = influence_GP_4 }
+			check_variable = { which = influence_GP_8 which = influence_GP_5 }
+			check_variable = { which = influence_GP_8 which = influence_GP_6 }
+			check_variable = { which = influence_GP_8 which = influence_GP_7 }
+			check_variable = { which = influence_GP_8 which = influence_GP_9 }
+			check_variable = { which = influence_GP_8 which = influence_GP_10 }
+			check_variable = { which = influence_GP_8 which = influence_GP_11 }
+			check_variable = { which = influence_GP_8 which = influence_GP_12 }
+			check_variable = { which = influence_GP_8 which = influence_GP_13 }
+			check_variable = { which = influence_GP_8 which = influence_GP_14 }
+			check_variable = { which = influence_GP_8 which = influence_GP_15 }
+			check_variable = { which = influence_GP_8 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_9 }
+		$who$ = {
+			check_variable = { which = influence_GP_9 which = influence_GP_1 }
+			check_variable = { which = influence_GP_9 which = influence_GP_2 }
+			check_variable = { which = influence_GP_9 which = influence_GP_3 }
+			check_variable = { which = influence_GP_9 which = influence_GP_4 }
+			check_variable = { which = influence_GP_9 which = influence_GP_5 }
+			check_variable = { which = influence_GP_9 which = influence_GP_6 }
+			check_variable = { which = influence_GP_9 which = influence_GP_7 }
+			check_variable = { which = influence_GP_9 which = influence_GP_8 }
+			check_variable = { which = influence_GP_9 which = influence_GP_10 }
+			check_variable = { which = influence_GP_9 which = influence_GP_11 }
+			check_variable = { which = influence_GP_9 which = influence_GP_12 }
+			check_variable = { which = influence_GP_9 which = influence_GP_13 }
+			check_variable = { which = influence_GP_9 which = influence_GP_14 }
+			check_variable = { which = influence_GP_9 which = influence_GP_15 }
+			check_variable = { which = influence_GP_9 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_10 }
+		$who$ = {
+			check_variable = { which = influence_GP_10 which = influence_GP_1 }
+			check_variable = { which = influence_GP_10 which = influence_GP_2 }
+			check_variable = { which = influence_GP_10 which = influence_GP_3 }
+			check_variable = { which = influence_GP_10 which = influence_GP_4 }
+			check_variable = { which = influence_GP_10 which = influence_GP_5 }
+			check_variable = { which = influence_GP_10 which = influence_GP_6 }
+			check_variable = { which = influence_GP_10 which = influence_GP_7 }
+			check_variable = { which = influence_GP_10 which = influence_GP_8 }
+			check_variable = { which = influence_GP_10 which = influence_GP_9 }
+			check_variable = { which = influence_GP_10 which = influence_GP_11 }
+			check_variable = { which = influence_GP_10 which = influence_GP_12 }
+			check_variable = { which = influence_GP_10 which = influence_GP_13 }
+			check_variable = { which = influence_GP_10 which = influence_GP_14 }
+			check_variable = { which = influence_GP_10 which = influence_GP_15 }
+			check_variable = { which = influence_GP_10 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_11 }
+		$who$ = {
+			check_variable = { which = influence_GP_11 which = influence_GP_1 }
+			check_variable = { which = influence_GP_11 which = influence_GP_2 }
+			check_variable = { which = influence_GP_11 which = influence_GP_3 }
+			check_variable = { which = influence_GP_11 which = influence_GP_4 }
+			check_variable = { which = influence_GP_11 which = influence_GP_5 }
+			check_variable = { which = influence_GP_11 which = influence_GP_6 }
+			check_variable = { which = influence_GP_11 which = influence_GP_7 }
+			check_variable = { which = influence_GP_11 which = influence_GP_8 }
+			check_variable = { which = influence_GP_11 which = influence_GP_9 }
+			check_variable = { which = influence_GP_11 which = influence_GP_10 }
+			check_variable = { which = influence_GP_11 which = influence_GP_12 }
+			check_variable = { which = influence_GP_11 which = influence_GP_13 }
+			check_variable = { which = influence_GP_11 which = influence_GP_14 }
+			check_variable = { which = influence_GP_11 which = influence_GP_15 }
+			check_variable = { which = influence_GP_11 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_12 }
+		$who$ = {
+			check_variable = { which = influence_GP_12 which = influence_GP_1 }
+			check_variable = { which = influence_GP_12 which = influence_GP_2 }
+			check_variable = { which = influence_GP_12 which = influence_GP_3 }
+			check_variable = { which = influence_GP_12 which = influence_GP_4 }
+			check_variable = { which = influence_GP_12 which = influence_GP_5 }
+			check_variable = { which = influence_GP_12 which = influence_GP_6 }
+			check_variable = { which = influence_GP_12 which = influence_GP_7 }
+			check_variable = { which = influence_GP_12 which = influence_GP_8 }
+			check_variable = { which = influence_GP_12 which = influence_GP_9 }
+			check_variable = { which = influence_GP_12 which = influence_GP_10 }
+			check_variable = { which = influence_GP_12 which = influence_GP_11 }
+			check_variable = { which = influence_GP_12 which = influence_GP_13 }
+			check_variable = { which = influence_GP_12 which = influence_GP_14 }
+			check_variable = { which = influence_GP_12 which = influence_GP_15 }
+			check_variable = { which = influence_GP_12 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_13 }
+		$who$ = {
+			check_variable = { which = influence_GP_13 which = influence_GP_1 }
+			check_variable = { which = influence_GP_13 which = influence_GP_2 }
+			check_variable = { which = influence_GP_13 which = influence_GP_3 }
+			check_variable = { which = influence_GP_13 which = influence_GP_4 }
+			check_variable = { which = influence_GP_13 which = influence_GP_5 }
+			check_variable = { which = influence_GP_13 which = influence_GP_6 }
+			check_variable = { which = influence_GP_13 which = influence_GP_7 }
+			check_variable = { which = influence_GP_13 which = influence_GP_8 }
+			check_variable = { which = influence_GP_13 which = influence_GP_9 }
+			check_variable = { which = influence_GP_13 which = influence_GP_10 }
+			check_variable = { which = influence_GP_13 which = influence_GP_11 }
+			check_variable = { which = influence_GP_13 which = influence_GP_12 }
+			check_variable = { which = influence_GP_13 which = influence_GP_14 }
+			check_variable = { which = influence_GP_13 which = influence_GP_15 }
+			check_variable = { which = influence_GP_13 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_14 }
+		$who$ = {
+			check_variable = { which = influence_GP_14 which = influence_GP_1 }
+			check_variable = { which = influence_GP_14 which = influence_GP_2 }
+			check_variable = { which = influence_GP_14 which = influence_GP_3 }
+			check_variable = { which = influence_GP_14 which = influence_GP_4 }
+			check_variable = { which = influence_GP_14 which = influence_GP_5 }
+			check_variable = { which = influence_GP_14 which = influence_GP_6 }
+			check_variable = { which = influence_GP_14 which = influence_GP_7 }
+			check_variable = { which = influence_GP_14 which = influence_GP_8 }
+			check_variable = { which = influence_GP_14 which = influence_GP_9 }
+			check_variable = { which = influence_GP_14 which = influence_GP_10 }
+			check_variable = { which = influence_GP_14 which = influence_GP_11 }
+			check_variable = { which = influence_GP_14 which = influence_GP_12 }
+			check_variable = { which = influence_GP_14 which = influence_GP_13 }
+			check_variable = { which = influence_GP_14 which = influence_GP_15 }
+			check_variable = { which = influence_GP_14 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_15 }
+		$who$ = {
+			check_variable = { which = influence_GP_15 which = influence_GP_1 }
+			check_variable = { which = influence_GP_15 which = influence_GP_2 }
+			check_variable = { which = influence_GP_15 which = influence_GP_3 }
+			check_variable = { which = influence_GP_15 which = influence_GP_4 }
+			check_variable = { which = influence_GP_15 which = influence_GP_5 }
+			check_variable = { which = influence_GP_15 which = influence_GP_6 }
+			check_variable = { which = influence_GP_15 which = influence_GP_7 }
+			check_variable = { which = influence_GP_15 which = influence_GP_8 }
+			check_variable = { which = influence_GP_15 which = influence_GP_9 }
+			check_variable = { which = influence_GP_15 which = influence_GP_10 }
+			check_variable = { which = influence_GP_15 which = influence_GP_11 }
+			check_variable = { which = influence_GP_15 which = influence_GP_12 }
+			check_variable = { which = influence_GP_15 which = influence_GP_13 }
+			check_variable = { which = influence_GP_15 which = influence_GP_14 }
+			check_variable = { which = influence_GP_15 which = influence_GP_16 }
+		}
+	}
+	else_if = {
+		limit = { tag = event_target:GP_16 }
+		$who$ = {
+			check_variable = { which = influence_GP_16 which = influence_GP_1 }
+			check_variable = { which = influence_GP_16 which = influence_GP_2 }
+			check_variable = { which = influence_GP_16 which = influence_GP_3 }
+			check_variable = { which = influence_GP_16 which = influence_GP_4 }
+			check_variable = { which = influence_GP_16 which = influence_GP_5 }
+			check_variable = { which = influence_GP_16 which = influence_GP_6 }
+			check_variable = { which = influence_GP_16 which = influence_GP_7 }
+			check_variable = { which = influence_GP_16 which = influence_GP_8 }
+			check_variable = { which = influence_GP_16 which = influence_GP_9 }
+			check_variable = { which = influence_GP_16 which = influence_GP_10 }
+			check_variable = { which = influence_GP_16 which = influence_GP_11 }
+			check_variable = { which = influence_GP_16 which = influence_GP_12 }
+			check_variable = { which = influence_GP_16 which = influence_GP_13 }
+			check_variable = { which = influence_GP_16 which = influence_GP_14 }
+			check_variable = { which = influence_GP_16 which = influence_GP_15 }
+		}
+	}
+	else = {
+		hidden_trigger = {
+			always = no
+		}
+	}
+}
+
+has_diplomatic_modifier = {
+	OR = {
+		AND = {
+			tag = event_target:GP_1
+			$with$ = {
+				has_country_modifier = $name$_GP_1
+			}
+		}
+		AND = {
+			tag = event_target:GP_2
+			$with$ = {
+				has_country_modifier = $name$_GP_2
+			}
+		}
+		AND = {
+			tag = event_target:GP_3
+			$with$ = {
+				has_country_modifier = $name$_GP_3
+			}
+		}
+		AND = {
+			tag = event_target:GP_4
+			$with$ = {
+				has_country_modifier = $name$_GP_4
+			}
+		}
+		AND = {
+			tag = event_target:GP_5
+			$with$ = {
+				has_country_modifier = $name$_GP_5
+			}
+		}
+		AND = {
+			tag = event_target:GP_6
+			$with$ = {
+				has_country_modifier = $name$_GP_6
+			}
+		}
+		AND = {
+			tag = event_target:GP_7
+			$with$ = {
+				has_country_modifier = $name$_GP_7
+			}
+		}
+		AND = {
+			tag = event_target:GP_8
+			$with$ = {
+				has_country_modifier = $name$_GP_8
+			}
+		}
+		AND = {
+			tag = event_target:GP_9
+			$with$ = {
+				has_country_modifier = $name$_GP_9
+			}
+		}
+		AND = {
+			tag = event_target:GP_10
+			$with$ = {
+				has_country_modifier = $name$_GP_10
+			}
+		}
+		AND = {
+			tag = event_target:GP_11
+			$with$ = {
+				has_country_modifier = $name$_GP_11
+			}
+		}
+		AND = {
+			tag = event_target:GP_12
+			$with$ = {
+				has_country_modifier = $name$_GP_12
+			}
+		}
+		AND = {
+			tag = event_target:GP_13
+			$with$ = {
+				has_country_modifier = $name$_GP_13
+			}
+		}
+		AND = {
+			tag = event_target:GP_14
+			$with$ = {
+				has_country_modifier = $name$_GP_14
+			}
+		}
+		AND = {
+			tag = event_target:GP_15
+			$with$ = {
+				has_country_modifier = $name$_GP_15
+			}
+		}
+		AND = {
+			tag = event_target:GP_16
+			$with$ = {
+				has_country_modifier = $name$_GP_16
+			}
+		}
+	}
+}

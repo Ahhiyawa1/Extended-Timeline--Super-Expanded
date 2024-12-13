@@ -1,0 +1,68 @@
+po_install_democratic_government = {
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 0.0
+	prestige_base = 0.2
+	ae_base = 0.0
+	warscore_cost = {
+		all_provinces = 1.0
+		no_provinces = 20.0
+		owner_keeps = 0.0
+		conquered = 0.0
+		returned_core = 0.0
+		released_nation = 0.0
+		cancelled_subject = 0.0
+		concede_colonial_region = 0.0
+	}
+	warscore_cap = 50
+	requires_demand_independence = yes
+	is_make_subject = yes
+	requires_is_allowed = yes
+
+	is_visible = {
+		OR = {
+			has_government_attribute = has_direct_democracy_election
+			has_government_attribute = has_multi_party_election
+		}
+		FROM = {
+			NOT = {
+				OR = {
+					has_government_attribute = has_direct_democracy_election
+					has_government_attribute = has_multi_party_election
+				}
+			}
+		}
+	}
+
+	effect = {
+		FROM = {
+			if = {
+				limit = {
+					government = monarchy
+					PREV = {
+						government = monarchy
+					}
+				}
+				change_government_to_parliamentary_monarchy = yes
+			}
+			else = {
+				change_government_to_democratic_republic = yes
+			}
+		}
+		if = {
+			limit = {
+				is_great_power = yes
+				FROM = {
+					is_great_power = no
+				}
+			}
+			add_to_sphere = { tag = FROM }
+		}
+	}
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 50
+		}
+	}
+}

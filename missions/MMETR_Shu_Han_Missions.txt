@@ -423,22 +423,18 @@ shu_han_missions_2 = {
 					duration = 10950
 				}
 				700 = {		#Chang'an
-					if = {
-						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_core = ROOT }
-						}
-						add_permanent_claim = ROOT
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
 					}
+					add_permanent_claim = ROOT
 				}
 				1836 = {	#Luoyang
-					if = {
-						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_core = ROOT }
-						}
-						add_permanent_claim = ROOT
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
 					}
+					add_permanent_claim = ROOT
 				}
 				gansu_area = {
 					limit = {
@@ -499,7 +495,7 @@ shu_han_missions_2 = {
 			}
 			NOT = {
 				country_or_subject_holds = ROOT
-				NOT = { unrest = 2 }
+				NOT = { local_unrest = 2 }
 			}
 			has_discovered = ROOT
 		}
@@ -507,12 +503,12 @@ shu_han_missions_2 = {
 			amdo_area = {
 				type = all
 				country_or_subject_holds = ROOT
-				NOT = { unrest = 2 }
+				NOT = { local_unrest = 2 }
 			}
 			kham_area = {
 				type = all
 				country_or_subject_holds = ROOT
-				NOT = { unrest = 2 }
+				NOT = { local_unrest = 2 }
 			}
 		}
 		effect = {
@@ -744,12 +740,12 @@ shu_han_missions_3 = {
 			custom_tooltip = shu_capital_in_luoyang_mission.tt
 			if = {
 				limit = {
-					NOT = { government_rank = 10 }
+					NOT = { government_rank = 3 }
 				}
-				set_government_rank = 4
+				set_government_rank = 3
 			}
 			add_legitimacy = 100
-			add_mandate = 10
+			add_mandate = 2108
 		}
 	}
 	shu_wansui_wanwansui_mission = {
@@ -769,7 +765,7 @@ shu_han_missions_3 = {
 				limit = {
 					is_emperor_of_china = ROOT
 				}
-				imperial_mandate = 75
+				imperial_mandate = 2173
 			}
 			if = {
 				limit = {
@@ -883,7 +879,7 @@ shu_han_missions_4 = {
 				alliance_with = WUU
 				overlord_of = WUU
 				WUU = {
-					is_rival = ROOT
+					is_rival = WUU
 					custom_trigger_tooltip = {
 						tooltip = shu_wu_diplomacy_mission.tt
 						OR = {
@@ -898,7 +894,6 @@ shu_han_missions_4 = {
 						}
 					}
 				}
-				NOT = { exists = WUU }
 			}
 		}
 		effect = {

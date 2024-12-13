@@ -13,7 +13,7 @@ province_event = {
 		NOT = { religion = reformed_chalcedonism }
 		owner = { religion = hellenism }
 		religion = hellenism
-		is_year = 2232
+		is_year = 2138
 		NOT = { is_year = 2898 }
 	}
 	mean_time_to_happen = {
@@ -40,7 +40,7 @@ province_event = {
 			is_year = 2698
 		}
 		modifier = {
-			factor = 0.09
+			factor = 0.5
 			owner = {
 				OR = {
 					tag = ROM
@@ -590,7 +590,7 @@ country_event = {
 	}
 }
 
-# Arianism Spreads
+#Arianism Spreads
 province_event = {
 
 	id = et.11
@@ -601,11 +601,10 @@ province_event = {
 	trigger = {
 		is_religion_enabled = arianism
 		NOT = { religion = arianism }
-		is_year = 2498  # Ensure the event only happens after this year
-		NOT = { is_year = 2698 }  # Ensure the event does not happen after this year
+		NOT = { is_year = 2648 }
 		OR = {
 			any_neighbor_province = { religion = arianism }
-			owner = { any_owned_province = { religion = arianism } }
+			owner = { any_owned_province = { religion = arianism }}
 			owner = { religion = hellenism }
 		}
 		NOT = { province_id = 118 }
@@ -620,7 +619,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 0.8
-			year = 2498
+			is_year = 2498
 		}
 		modifier = {
 			factor = 0.5
@@ -674,9 +673,6 @@ province_event = {
 		}
 	}
 }
-
-
-
 
 #First Council of Nicaea
 province_event = {
@@ -835,7 +831,7 @@ province_event = {
 		continent = asia
 		is_religion_enabled = nestorian
 		NOT = { religion = nestorian }
-		NOT = { is_year = 3200 }
+		NOT = { is_year = 3198 }
 		OR = {
 			religion = tengri_pagan_reformed
 			religion = zoroastrian
@@ -883,7 +879,9 @@ province_event = {
 	}
 }
 
+#Catholic to Chalcedonian provinces
 province_event = {
+
 	id = et.51
 	title = "et.EVTNAME51"
 	desc = "et.EVTDESC51"
@@ -892,8 +890,6 @@ province_event = {
 	trigger = {
 		religion = chalcedonism
 		is_religion_enabled = orthodox
-		is_year = 3010
-		NOT = { is_year = 3200 }
 	}
 	mean_time_to_happen = {
 		months = 100
@@ -902,6 +898,7 @@ province_event = {
 			factor = 0.1
 			any_neighbor_province = { religion = catholic }
 		}
+
 	}
 	
 	option = {
@@ -909,8 +906,6 @@ province_event = {
 		change_religion = catholic
 	}
 }
-
-
 
 #Orthodox to Chalcedonian provinces
 province_event = {
@@ -923,8 +918,6 @@ province_event = {
 	trigger = {
 		religion = chalcedonism
 		is_religion_enabled = orthodox
-		is_year = 3010
-		NOT = { is_year = 3200 }
 	}
 	mean_time_to_happen = {
 		months = 100
@@ -959,7 +952,7 @@ province_event = {
 			area = armenia_area
 		}
 		is_religion_enabled = coptic
-		NOT = { started_in = 2605.1.1 }
+		NOT = { started_in = 2604.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -1005,7 +998,7 @@ country_event = {
 		religion = chalcedonism
 		owns = 2313
 		is_religion_enabled = coptic
-		NOT = { started_in = 2605.11.16 }
+		NOT = { started_in = 2610.11.16 }
 		any_owned_province = {
 			religion = chalcedonism
 			OR = {
@@ -1052,8 +1045,8 @@ country_event = {
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	
 	trigger = {
-		is_year = 2497
-		NOT = { is_year = 2997 }
+		is_year = 2398
+		NOT = { is_year = 2898 }
 		capital_scope = { region = british_isles_region }
 		NOT = { religion_group = christian }
 		any_owned_province = {

@@ -1,0 +1,599 @@
+monarchist_personality = {
+	nation_designer_cost = 2
+
+	ruler_allow = {
+		allow = {
+			NOT = {
+				OR = {
+					ruler_has_personality = republican_personality
+					ruler_has_personality = despotic_personality
+				}
+			}
+		}
+		chance = {
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_ruler_flag = ruler_from_conservative_party
+					has_ruler_flag = ruler_from_nationalist_party
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_ruler_flag = ruler_from_social_democratic_party
+					has_ruler_flag = ruler_from_communist_party
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes # Presidents, Prime Ministers, but not Monarchs.
+		OR = {
+			government = monarchy
+			have_had_reform = monarchy_mechanic
+		}
+	}
+
+	legitimacy = 1
+	republican_tradition = -0.5
+
+	custom_ai_explanation = monarchist_personality_tt
+}
+
+republican_personality = {
+	nation_designer_cost = 2
+
+	ruler_allow = {
+		allow = {
+			NOT = {
+				OR = {
+					ruler_has_personality = monarchist_personality
+					ruler_has_personality = despotic_personality
+				}
+			}
+		}
+		chance = {
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_ruler_flag = ruler_from_liberal_party
+					has_ruler_flag = ruler_from_social_democratic_party
+					has_ruler_flag = ruler_from_communist_party
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes
+	}
+
+	republican_tradition = 0.5
+	legitimacy = -1
+
+	custom_ai_explanation = republican_personality_tt
+}
+
+despotic_personality = {
+	nation_designer_cost = 2
+
+	ruler_allow = {
+		allow = {
+			NOT = {
+				OR = {
+					ruler_has_personality = monarchist_personality
+					ruler_has_personality = republican_personality
+				}
+			}
+		}
+		chance = {
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_ruler_flag = ruler_from_communist_party
+					has_ruler_flag = ruler_from_national_socialist_party
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_ruler_flag = ruler_from_liberal_party
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes
+	}
+	chance = {
+		modifier = {
+			factor = 0.25 # Healthy Democracy
+			is_democracy = yes
+		}
+	}
+
+	legitimacy = -1
+	republican_tradition = -0.5
+	yearly_absolutism = 0.5
+
+	custom_ai_explanation = despotic_personality_tt
+}
+
+benevolent_dictator_personality = {
+	nation_designer_cost = 5
+
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_personality = malevolent_personality }
+			NOT = { ruler_has_personality = cruel_personality }
+		}
+		chance = {
+			modifier = {
+				factor = 1.5
+				OR = {
+					ruler_has_personality = just_personality
+					ruler_has_personality = benevolent_personality
+					ruler_has_personality = incorruptible_personality
+				}
+			}
+			modifier = {
+				factor = 0 # Nope. Objectively evil.
+				OR = {
+					has_ruler = "Adolf Hitler"
+					has_ruler = "Augusto Pinochet Ugarte"
+					has_ruler = "Joseph Stalin"
+					has_ruler = "Mao Zedong"
+					has_ruler = "Pol Pot"
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes # """elected"""
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+	chance = {
+		modifier = {
+			factor = 0.01 # Inherently rare
+			always = yes
+		}
+	}
+
+	global_unrest = -2
+	diplomatic_reputation = 1
+}
+
+pacifist_personality = {
+	nation_designer_cost = -2
+
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_personality = jingoist_personality }
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes
+		has_government_mechanic = public_support_mechanic
+	}
+
+	monthly_jingoism = -0.5
+	land_morale = -0.05
+
+	custom_ai_explanation = pacifist_personality_tt
+	war_chance_multiplier = 0.2
+}
+
+jingoist_personality = {
+	nation_designer_cost = 2
+
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_personality = pacifist_personality }
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes
+		has_government_mechanic = public_support_mechanic
+	}
+
+	monthly_jingoism = 0.5
+	land_morale = 0.05
+
+	custom_ai_explanation = jingoist_personality_tt
+	war_chance_multiplier = 2.0
+}
+
+communist_sympathizer_personality = {
+	nation_designer_cost = 0
+
+	ruler_allow = {
+		allow = {
+			NOT = { has_ruler_flag = ruler_from_communist_party }
+			NOT = { ruler_has_personality = fascist_sympathizer_personality }
+			NOT = { ruler_has_personality = anti_communist_personality }
+		}
+		chance = {
+			modifier = {
+				factor = 0.1
+				OR = {
+					has_ruler_flag = ruler_from_conservative_party
+					has_ruler_flag = ruler_from_liberal_party
+				}
+			}
+			modifier = {
+				factor = 0.05
+				OR = {
+					has_ruler_flag = ruler_from_nationalist_party
+					has_ruler_flag = ruler_from_national_socialist_party
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		OR = {
+			started_in = 3973.1.1
+			has_global_flag = etf_communism_enabled
+		}
+		has_elected_ruler = yes
+		is_not_communist = yes
+	}
+	chance = {
+		modifier = {
+			factor = 1.5
+			any_neighbor_country = {
+				is_communist = yes
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+				any_known_country = {
+					is_communist = yes
+				}
+			}
+		}
+	}
+
+	communist_party_influence = 0.01
+	relation_with_communists = 15
+}
+
+fascist_sympathizer_personality = {
+	nation_designer_cost = 0
+
+	ruler_allow = {
+		allow = {
+			NOT = { has_ruler_flag = ruler_from_national_socialist_party }
+			NOT = { ruler_has_personality = communist_sympathizer_personality }
+			NOT = { ruler_has_personality = anti_fascist_personality }
+		}
+		chance = {
+			modifier = {
+				factor = 0.1
+				OR = {
+					has_ruler_flag = ruler_from_liberal_party
+					has_ruler_flag = ruler_from_social_democratic_party
+				}
+			}
+			modifier = {
+				factor = 0.05
+				OR = {
+					has_ruler_flag = ruler_from_communist_party
+				}
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		OR = {
+			started_in = 4018.1.1
+			has_global_flag = etf_fascism_enabled
+		}
+		has_elected_ruler = yes
+		is_not_fascist = yes
+	}
+	chance = {
+		modifier = {
+			factor = 1.5
+			any_neighbor_country = {
+				is_fascist = yes
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+				any_known_country = {
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	national_socialist_party_influence = 0.01
+	relation_with_fascists = 15
+}
+
+anti_communist_personality = {
+	nation_designer_cost = 0
+
+	ruler_allow = {
+		allow = {
+			NOT = { has_ruler_flag = ruler_from_communist_party }
+			NOT = { ruler_has_personality = communist_sympathizer_personality }
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		OR = {
+			started_in = 3973.1.1
+			has_global_flag = etf_communism_enabled
+		}
+		has_elected_ruler = yes
+		is_not_communist = yes
+	}
+	chance = {
+		modifier = {
+			factor = 1.5
+			any_neighbor_country = {
+				is_communist = yes
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+				any_known_country = {
+					is_communist = yes
+				}
+			}
+		}
+	}
+
+	communist_party_influence = -0.01
+	relation_with_communists = -15
+
+	custom_ai_explanation = anti_communist_personality_tt
+	war_priority = {
+		modifier = {
+			factor = 2
+			is_communist = yes
+		}
+	}
+}
+
+anti_fascist_personality = {
+	nation_designer_cost = 0
+
+	ruler_allow = {
+		allow = {
+			NOT = { has_ruler_flag = ruler_from_national_socialist_party }
+			NOT = { ruler_has_personality = fascist_sympathizer_personality }
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		OR = {
+			started_in = 4018.1.1
+			has_global_flag = etf_fascism_enabled
+		}
+		has_elected_ruler = yes
+		is_not_fascist = yes
+	}
+	chance = {
+		modifier = {
+			factor = 1.5
+			any_neighbor_country = {
+				is_fascist = yes
+			}
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+				any_known_country = {
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	national_socialist_party_influence = -0.01
+	relation_with_fascists = -15
+
+	custom_ai_explanation = anti_fascist_personality_tt
+	war_priority = {
+		modifier = {
+			factor = 2
+			is_fascist = yes
+		}
+	}
+}
+
+militant_atheist_personality = {
+	nation_designer_cost = -2
+
+	ruler_allow = {
+		allow = {
+			ruler_religion = irreligious
+		}
+		chance = {
+			modifier = {
+				factor = 1.5
+				has_ruler_flag = ruler_from_communist_party
+			}
+		}
+	}
+	heir_allow = {
+		allow = { always = no }
+	}
+	consort_allow = {
+		allow = { always = no }
+	}
+
+	allow = {
+		has_elected_ruler = yes
+		religion = secularism
+	}
+
+	tolerance_heathen = -3 #(every other religion)
+	tolerance_heretic = 1  #(irreligious)
+}
+
+# patriot_personality = {
+	# nation_designer_cost = 2
+	
+	# ruler_allow = {
+		# allow = {
+			
+		# }
+	# }
+	# heir_allow = {
+		# allow = { always = no }
+	# }
+	# consort_allow = {
+		# allow = { always = no }
+	# }
+	
+	# allow = {
+		# has_elected_ruler = yes
+	# }
+	
+	# core_decay_on_your_own = -0.1
+# }
+
+# puppet_personality = {
+	# nation_designer_cost = 2
+	
+	# ruler_allow = {
+		# allow = {
+			
+		# }
+	# }
+	# heir_allow = {
+		# allow = { always = no }
+	# }
+	# consort_allow = {
+		# allow = { always = no }
+	# }
+	
+	# allow = {
+		# has_elected_ruler = yes
+		# is_subject_other_than_tributary_trigger = yes
+	# }
+	
+	# liberty_desire = -5
+# }
+
+# veteran_personality = {
+	# nation_designer_cost = 2
+	
+	# ruler_allow = {
+		# allow = {
+			
+		# }
+	# }
+	# heir_allow = {
+		# allow = { always = no }
+	# }
+	# consort_allow = {
+		# allow = { always = no }
+	# }
+	
+	# allow = {
+		# has_elected_ruler = yes
+	# }
+	
+	# land_forcelimit_modifier = 0.05
+# }
+
+# welfare_proponent_personality = {
+	# nation_designer_cost = 2
+	
+	# ruler_allow = {
+		# allow = {
+			
+		# }
+	# }
+	# heir_allow = {
+		# allow = { always = no }
+	# }
+	# consort_allow = {
+		# allow = { always = no }
+	# }
+	
+	# allow = {
+		# has_elected_ruler = yes
+	# }
+	
+	# build_cost = -0.05
+	# development_cost = -0.05
+	# global_prosperity_growth = 0.05
+# }

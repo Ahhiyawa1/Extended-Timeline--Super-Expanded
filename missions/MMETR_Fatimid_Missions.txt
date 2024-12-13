@@ -292,8 +292,15 @@ fatimid_mmetr_missions_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			OR = {
+				NOT = { exists = IT0 }
+				overlord_of = IT0	#Sultanate of Italiya formable
+			}
 		}
 		effect = {
+			country_event = {
+				id = mmetr_FAT_mission_events.24	#Ability to release 
+			}
 			add_army_tradition = 20
 			add_navy_tradition = 20
 			add_country_modifier = {
@@ -310,7 +317,7 @@ fatimid_mmetr_missions_1 = {
 			development = 1000
 		}
 		effect = {
-			add_prestige = 30
+			prestige = 30
 			add_country_modifier = {
 				name = "me_fat_the_rightly_guided_one"
 				duration = 10950

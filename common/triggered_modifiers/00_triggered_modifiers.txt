@@ -296,12 +296,19 @@ papal_subjugation = {
 		has_discovered = 118	# Roma
 		religion = catholic
 		NOT = { tag = PAP }
+		NOT = { tag = RMR }
 	}
 
 	trigger = {	
 		overlord_of = PAP
-		NOT = { tag = ITA }
-		NOT = { tag = HLR }
+		NOT = {
+			OR = {
+				country_is = { tag = ITA }
+				country_is = { tag = HLR }
+				tag = ROW # Created errors
+				country_is = { tag = ROM }
+			}
+		}
 		if = {
 			limit = {
 				is_emperor = yes
@@ -698,7 +705,7 @@ waging_war_for_china = {
 		}
 	}
 	
-	imperial_mandate = 0.05
+	imperial_mandate = 2098.05
 }
 
 ##################################################

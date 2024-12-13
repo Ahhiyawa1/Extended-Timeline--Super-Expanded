@@ -35,7 +35,9 @@ sukhothai_missions_1 = {
 		}
 		effect = {
 			add_legitimacy = 50
-			add_adm_power = 75
+			country_event = {
+				id = mmetr_SUK_mission_events.1
+			}
 		}
 	}
 	suk_royal_elephants_mission = {
@@ -123,13 +125,19 @@ sukhothai_missions_1 = {
 				limit = {
 					any_country = {
 						is_free_or_tributary_trigger = yes
-						primary_culture = vietnamese
+						OR = {
+							primary_culture = vietnamese
+							primary_culture = vietnamese_new
+						}
 					}
 				}
 				every_country = {
 					limit = {
 						is_free_or_tributary_trigger = yes
-						primary_culture = vietnamese
+						OR = {
+							primary_culture = vietnamese
+							primary_culture = vietnamese_new
+						}
 					}
 					reverse_add_casus_belli = {
 						target = ROOT
@@ -173,7 +181,10 @@ sukhothai_missions_1 = {
 		trigger = {
 			OR = {
 				any_country = {
-					primary_culture = vietnamese
+					OR = {
+						primary_culture = vietnamese
+						primary_culture = vietnamese_new
+					}
 					has_opinion = {
 						who = ROOT
 						value = 100
@@ -195,7 +206,10 @@ sukhothai_missions_1 = {
 			if = {
 				limit = {
 					any_country = {
-						primary_culture = vietnamese
+						OR = {
+							primary_culture = vietnamese
+							primary_culture = vietnamese_new
+						}
 						has_opinion = {
 							who = ROOT
 							value = 100

@@ -1,0 +1,460 @@
+# Define variants
+update_country_tag_alias_list = yes
+
+# Add Prime Minister flag
+every_country_including_inactive = {
+	limit = {
+		capital_scope = {}
+		has_government_attribute = has_prime_minister
+		NOT = { has_country_flag = ruler_is_prime_minister }
+	}
+	set_country_flag = ruler_is_prime_minister
+}
+
+every_country_including_inactive = {
+	limit = {
+		capital_scope = {}
+	}
+	update_main_religion_variable_effect = yes
+}
+
+3620.9.8 = {
+	set_global_flag = circumnavigation_completed
+}
+
+3698.1.1 = {
+	every_country = {
+		limit = {
+			exists = yes
+		}
+		# General Government Improvements
+		catch_up_on_reforms_effect = yes
+		add_absolutism = 40
+		if = {
+			limit = {
+				is_autocracy = yes
+			}
+			add_absolutism = 60
+		}
+		# Starting Crownland increased to 49.99%
+		change_estate_land_share = {
+			estate = all
+			share = -20.0
+		}
+	}
+}
+
+3798.1.1 = {
+	every_country = {
+		limit = {
+			has_faction = conservative_party
+		}
+		# Strengthen moderates
+		add_faction_influence = {
+			faction = conservative_party
+			influence = 20
+		}
+		# Weaken extremists
+		add_faction_influence = {
+			faction = nationalist_party
+			influence = -20
+		}
+		add_faction_influence = {
+			faction = communist_party
+			influence = -20
+		}
+		add_faction_influence = {
+			faction = national_socialist_party
+			influence = -20
+		}
+	}
+	every_country = {
+		limit = {
+			has_reform = direct_democracy_system
+			has_government_attribute = has_communist_election
+			has_states_general_mechanic = yes
+		}
+		change_statists_vs_orangists = -1.00
+	}
+	# Civilization!
+	every_country_including_inactive = {
+		limit = {
+			capital_scope = {
+				always = yes # Filter to only tags with capitals
+			}
+			OR = {
+				AND = {
+					technology_group = western
+					is_year = 3848
+				}
+				AND = {
+					technology_group = eastern
+					is_year = 3928
+				}
+				AND = {
+					technology_group = ottoman
+					is_year = 3928
+				}
+				AND = {
+					capital_scope = {
+						region = japan_region
+					}
+					is_year = 3968
+				}
+				AND = {
+					technology_group = muslim
+					is_year = 4018
+				}
+				AND = {
+					technology_group = indian
+					is_year = 4018
+				}
+				AND = {
+					technology_group = chinese
+					is_year = 4018
+				}
+				AND = {
+					technology_group = middle_eastern
+					is_year = 4018
+				}
+				AND = {
+					technology_group = asian
+					is_year = 4018
+				}
+				AND = {
+					is_year = 4048
+				}
+			}
+		}
+		become_civilized_effect = yes
+	}
+	# Welfare Reforms
+	every_country_including_inactive = {
+		limit = {
+			capital_scope = {
+				always = yes # Filter to only tags with capitals
+			}
+			is_civilized = yes
+		}
+		if = {
+			limit = {
+				is_year = 3998
+				NOT = { religion = secularism }
+				NOT = { is_autocracy = yes }
+			}
+			add_freedom_of_religion_effect = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						capital_scope = {
+							continent = europe
+						}
+						NOT = {
+							any_owned_province = {
+								is_overseas = yes
+							}
+						}
+					}
+					is_year = 3998
+				}
+			}
+			add_country_modifier = {
+				name = the_abolish_slavery_act
+				duration = -1
+			}
+		}
+	}
+
+	# Waning Ottoman Authority
+	SER = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	WAL = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	MOL = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	UPP = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	RMN = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	TUN = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = TUR
+			}
+			disable_subject_annexation = yes
+		}
+	}
+
+	# The Iron Curtain
+	BUL = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	CZS = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	EGE = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	HUN = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	POL = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	RMN = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+	KHA = {
+		if = {
+			limit = {
+				is_subject_other_than_tributary_trigger = yes
+				is_subject_of = SOV
+				overlord = {
+					ai = yes
+				}
+			}
+			disable_subject_annexation = yes
+		}
+	}
+}
+
+3913.6.9 = {
+	# Army Professionalism
+	every_country = {
+		limit = {
+			has_institution = imperialism
+		}
+		if = {
+			limit = {
+				NOT = { tag = RUS }
+				NOT = { tag = TUR }
+			}
+			add_army_professionalism = 0.36
+		}
+		else = {
+			add_army_professionalism = 0.16
+		}
+	}
+	# Disable Japanese Incidents
+	if = {
+		limit = {
+			has_dlc = "Mandate of Heaven"
+		}
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {}
+				religion = shinto
+			}
+			set_country_flag = had_incident_neo_confucianism
+			set_country_flag = had_incident_nanban
+			set_country_flag = had_incident_firearms
+			set_country_flag = had_incident_spread_of_christianity
+			set_country_flag = had_incident_shogunate_authority
+			set_country_flag = had_incident_ikko_shu
+			set_country_flag = had_incident_wokou
+			set_country_flag = had_incident_urbanization
+		}
+	}
+}
+
+3983.2.26 = {
+	50 = { # Berlin Conference
+		save_global_event_target_as = host_conference_capital
+	}
+	set_global_flag = berlin_conference_triggered
+}
+
+# World Wars
+4012.7.28 = {
+	REB = {
+		set_variable = { which = nr_of_Great_Wars value = 1 }
+	}
+}
+
+4037.9.1 = {
+	REB = {
+		set_variable = { which = nr_of_Great_Wars value = 2 }
+	}
+}
+
+# Ideology Unlock Dates
+3953.1.1 = {
+	set_global_flag = etf_socialism_enabled
+}
+
+3973.1.1 = {
+	set_global_flag = etf_communism_enabled
+}
+
+4018.1.1 = {
+	set_global_flag = etf_fascism_enabled
+}
+
+4073.1.1 = {
+	set_global_flag = etf_islamism_enabled
+}
+
+# Price Changes
+3998.1.1 = {
+	change_price = {
+		trade_goods = copper
+		key = GOOD_CONDUCTOR
+		value = 0.2
+		duration = -1
+	}
+	set_global_flag = conductor_flag
+}
+
+4028.1.1 = {
+	change_price = {
+		trade_goods = fur
+		key = FAKE_FUR
+		value = -0.25
+		duration = -1
+	}
+	set_global_flag = fake_fur_flag
+}
+
+4078.1.1 = {
+	change_price = {
+		trade_goods = fur
+		key = ANIMAL_RIGHTS_MOVEMENT
+		value = -0.25
+		duration = -1
+	}
+	set_global_flag = animal_rights_flag
+}
+
+4088.1.1 = {
+	change_price = {
+		trade_goods = ivory
+		key = IVORY_BAN
+		value = -0.5
+		duration = -1
+	}
+	set_global_flag = ivory_ban_flag
+}
+
+4103.1.1 = {
+	change_price = {
+		trade_goods = paper
+		key = DIGITALIZATION
+		value = -0.2
+		duration = -1
+	}
+	change_price = {
+		trade_goods = electronics
+		key = DIGITALIZATION
+		value = 0.2
+		duration = -1
+	}
+	set_global_flag = digitalization_flag
+}
+
+4108.1.1 = {
+	change_price = {
+		trade_goods = coal
+		key = ENVIRONMENTALISM
+		value = -0.2
+		duration = -1
+	}
+	change_price = {
+		trade_goods = oil
+		key = ENVIRONMENTALISM
+		value = -0.1
+		duration = -1
+	}
+	set_global_flag = environmentalism_flag
+}

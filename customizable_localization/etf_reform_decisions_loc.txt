@@ -1,0 +1,446 @@
+# Prints a summary of the current scope's welfare reforms:
+defined_text = {
+	name = GetWelfareReformDesc
+	random = no
+
+	text = {
+		localisation_key = string_welfare_reforms
+	}
+}
+
+defined_text = {
+	name = GetEducationReform
+	random = no
+
+	text = {
+		localisation_key = string_education_good
+		trigger = {
+			has_country_modifier = education_great_modifier
+		}
+	}
+	text = {
+		localisation_key = string_education_fine
+		trigger = {
+			has_country_modifier = education_mediocre_modifier
+		}
+	}
+	text = {
+		localisation_key = string_education_bare
+		trigger = {
+			has_country_modifier = education_simple_modifier
+		}
+	}
+	text = {
+		localisation_key = string_education_none
+	}
+}
+
+defined_text = {
+	name = GetHealthcareReform
+	random = no
+
+	text = {
+		localisation_key = string_healthcare_good
+		trigger = {
+			has_country_modifier = healthcare_great_modifier
+		}
+	}
+	text = {
+		localisation_key = string_healthcare_fine
+		trigger = {
+			has_country_modifier = healthcare_mediocre_modifier
+		}
+	}
+	text = {
+		localisation_key = string_healthcare_bare
+		trigger = {
+			has_country_modifier = healthcare_simple_modifier
+		}
+	}
+	text = {
+		localisation_key = string_healthcare_none
+	}
+}
+
+defined_text = {
+	name = GetMinimumWageReform
+	random = no
+
+	text = {
+		localisation_key = string_minimum_wage_good
+		trigger = {
+			has_country_modifier = min_wage_great_modifier
+		}
+	}
+	text = {
+		localisation_key = string_minimum_wage_fine
+		trigger = {
+			has_country_modifier = min_wage_mediocre_modifier
+		}
+	}
+	text = {
+		localisation_key = string_minimum_wage_bare
+		trigger = {
+			has_country_modifier = min_wage_simple_modifier
+		}
+	}
+	text = {
+		localisation_key = string_minimum_wage_none
+	}
+}
+
+defined_text = {
+	name = GetTradeUnionsReform
+	random = no
+
+	text = {
+		localisation_key = string_trade_unions_open
+		trigger = {
+			has_country_modifier = unions_great_modifier
+		}
+	}
+	text = {
+		localisation_key = string_trade_unions_regulated
+		trigger = {
+			has_country_modifier = unions_mediocre_modifier
+		}
+	}
+	text = {
+		localisation_key = string_trade_unions_state_run
+		trigger = {
+			has_country_modifier = unions_simple_modifier
+		}
+	}
+	text = {
+		localisation_key = string_trade_unions_none
+	}
+}
+
+defined_text = {
+	name = GetWorkingConditionsReform
+	random = no
+
+	text = {
+		localisation_key = string_working_conditions_good
+		trigger = {
+			has_country_modifier = work_c_great_modifier
+		}
+	}
+	text = {
+		localisation_key = string_working_conditions_fine
+		trigger = {
+			has_country_modifier = work_c_mediocre_modifier
+		}
+	}
+	text = {
+		localisation_key = string_working_conditions_bare
+		trigger = {
+			has_country_modifier = work_c_simple_modifier
+		}
+	}
+	text = {
+		localisation_key = string_working_conditions_none
+	}
+}
+
+defined_text = {
+	name = GetReligiousReform
+	random = no
+
+	text = {
+		localisation_key = string_religion_state_atheism
+		trigger = {
+			OR = {
+				religion = irreligious
+				has_country_modifier = state_atheism
+			}
+		}
+	}
+	text = {
+		localisation_key = string_religion_secularism
+		trigger = {
+			religion = secularism
+		}
+	}
+	text = {
+		localisation_key = string_religion_freedom_of_religion
+		trigger = {
+			has_country_modifier = religious_freedom_modifier
+		}
+	}
+	text = {
+		localisation_key = string_religion_state_religion
+	}
+}
+
+defined_text = {
+	name = GetSlaveryReform
+	random = no
+
+	text = {
+		localisation_key = string_slavery_abolished
+		trigger = {
+			has_country_modifier = the_abolish_slavery_act
+		}
+	}
+	text = {
+		localisation_key = string_slavery_legal
+	}
+}
+
+# Print different titles and descriptions for Reform Decisions, based on
+# which tier the country currently has:
+# defined_text = {
+	# name = GetHealthcareReformTitle
+	# random = no
+	# text = {
+		# localisation_key = healthcare_simple_title
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_simple_modifier }
+			# NOT = { has_country_modifier = healthcare_mediocre_modifier }
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = healthcare_mediocre_title
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_mediocre_modifier }
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = healthcare_great_title
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+# }
+# defined_text = {
+	# name = GetHealthcareReformDesc
+	# random = no
+	# text = {
+		# localisation_key = healthcare_simple_desc
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_simple_modifier }
+			# NOT = { has_country_modifier = healthcare_mediocre_modifier }
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = healthcare_mediocre_desc
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_mediocre_modifier }
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = healthcare_great_desc
+		# trigger = {
+			# NOT = { has_country_modifier = healthcare_great_modifier }
+		# }
+	# }
+# }
+
+# defined_text = {
+	# name = GetEducationReformTitle
+	# random = no
+	# text = {
+		# localisation_key = education_simple_title
+		# trigger = {
+			# NOT = { has_country_modifier = education_simple_modifier }
+			# NOT = { has_country_modifier = education_mediocre_modifier }
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = education_mediocre_title
+		# trigger = {
+			# NOT = { has_country_modifier = education_mediocre_modifier }
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = education_great_title
+		# trigger = {
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+# }
+# defined_text = {
+	# name = GetEducationReformDesc
+	# random = no
+	# text = {
+		# localisation_key = education_simple_desc
+		# trigger = {
+			# NOT = { has_country_modifier = education_simple_modifier }
+			# NOT = { has_country_modifier = education_mediocre_modifier }
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = education_mediocre_desc
+		# trigger = {
+			# NOT = { has_country_modifier = education_mediocre_modifier }
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = education_great_desc
+		# trigger = {
+			# NOT = { has_country_modifier = education_great_modifier }
+		# }
+	# }
+# }
+
+# defined_text = {
+	# name = GetMinWageReformTitle
+	# random = no
+	# text = {
+		# localisation_key = min_wage_simple_title
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_simple_modifier }
+			# NOT = { has_country_modifier = min_wage_mediocre_modifier }
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = min_wage_mediocre_title
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_mediocre_modifier }
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = min_wage_great_title
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+# }
+# defined_text = {
+	# name = GetMinWageReformDesc
+	# random = no
+	# text = {
+		# localisation_key = min_wage_simple_desc
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_simple_modifier }
+			# NOT = { has_country_modifier = min_wage_mediocre_modifier }
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = min_wage_mediocre_desc
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_mediocre_modifier }
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = min_wage_great_desc
+		# trigger = {
+			# NOT = { has_country_modifier = min_wage_great_modifier }
+		# }
+	# }
+# }
+
+# defined_text = {
+	# name = GetUnionsReformTitle
+	# random = no
+	# text = {
+		# localisation_key = unions_simple_title
+		# trigger = {
+			# NOT = { has_country_modifier = unions_simple_modifier }
+			# NOT = { has_country_modifier = unions_mediocre_modifier }
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = unions_mediocre_title
+		# trigger = {
+			# NOT = { has_country_modifier = unions_mediocre_modifier }
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = unions_great_title
+		# trigger = {
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+# }
+# defined_text = {
+	# name = GetUnionsReformDesc
+	# random = no
+	# text = {
+		# localisation_key = unions_simple_desc
+		# trigger = {
+			# NOT = { has_country_modifier = unions_simple_modifier }
+			# NOT = { has_country_modifier = unions_mediocre_modifier }
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = unions_mediocre_desc
+		# trigger = {
+			# NOT = { has_country_modifier = unions_mediocre_modifier }
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = unions_great_desc
+		# trigger = {
+			# NOT = { has_country_modifier = unions_great_modifier }
+		# }
+	# }
+# }
+
+# defined_text = {
+	# name = GetWorkCReformTitle
+	# random = no
+	# text = {
+		# localisation_key = work_c_simple_title
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_simple_modifier }
+			# NOT = { has_country_modifier = work_c_mediocre_modifier }
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = work_c_mediocre_title
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_mediocre_modifier }
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = work_c_great_title
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+# }
+# defined_text = {
+	# name = GetWorkCReformDesc
+	# random = no
+	# text = {
+		# localisation_key = work_c_simple_desc
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_simple_modifier }
+			# NOT = { has_country_modifier = work_c_mediocre_modifier }
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = work_c_mediocre_desc
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_mediocre_modifier }
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+	# text = {
+		# localisation_key = work_c_great_desc
+		# trigger = {
+			# NOT = { has_country_modifier = work_c_great_modifier }
+		# }
+	# }
+# }

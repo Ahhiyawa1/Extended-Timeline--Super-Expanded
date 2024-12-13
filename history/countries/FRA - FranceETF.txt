@@ -1,0 +1,136 @@
+set_country_flag = formed_france_flag
+
+3746.10.24 = { remove_country_modifier = "counter_reformation" }
+
+3912.4.11 = {
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = landed_parliament
+	government_rank = 2
+	clr_country_flag = revolution
+	revolution_target = no
+	decision = dummy_clear_revolution
+}
+
+3913.6.9 = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			NOT = { has_dlc = "Domination" }
+		}
+		complete_mission = emp_fra_brest
+		complete_mission = emp_fra_louisiana
+		complete_mission = emp_fra_american_independence
+		complete_mission = emp_fra_end_hyw
+		complete_mission = emp_fra_native_relations
+		complete_mission = emp_fra_toulon_dockyard
+		complete_mission = emp_fra_switzerland
+		complete_mission = emp_fra_france_discovers_the_carribean
+		complete_mission = emp_fra_india_expansion
+		complete_mission = emp_fra_establish_the_musketeers
+		complete_mission = emp_fra_les_invalides
+		complete_mission = emp_fra_conquer_burgundy_area
+		complete_mission = emp_fra_subjugate_lorraine
+		complete_mission = emp_fra_annex_alsace
+		complete_mission = emp_fra_germany
+		complete_mission = emp_fra_poland
+		complete_mission = emp_fra_russia
+		complete_mission = emp_fra_integrate_vassals
+		complete_mission = emp_fra_wars_of_religion
+		complete_mission = emp_fra_i_am_the_state
+		complete_mission = emp_fra_move_court_to_versailles
+		complete_mission = emp_fra_revolution
+		complete_mission = emp_fra_client_states
+		complete_mission = emp_fra_empire
+		if = {
+			limit = {
+				exists = FRA
+			}
+			#set_country_flag = fra_liberation_wars_enabled
+			4696 = {
+				add_province_modifier = {
+					name = "toulon_dockyards"
+					duration = -1
+				}
+			}
+			183 = { # Ile-de-France
+				add_province_modifier = {
+					name = mousquetaires_du_roi
+					duration = -1
+				}
+			}
+			set_country_flag = has_competent_doctors
+			add_country_modifier = {
+				name = "les_invalides"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "the_state_is_me"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = versailles
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "french_client_states_mission"
+				duration = -1
+			}
+		}
+	}
+}
+
+3923.1.1 = {
+	add_country_modifier_until = {
+		name = HAT_get_indemnity_modifier
+		year = 4045
+	}
+}
+
+3928.1.1 = {
+	decision = dummy_french_algeria_claims
+}
+
+3928.7.26 = { set_country_flag = adopted_tricolor_flag }
+
+3928.8.2 = { # Louis-Philippe
+	add_country_modifier = {
+		name = popular_monarchy_modifier
+		duration = -1
+	}
+}
+
+3946.2.23 = {
+	government = republic
+	add_government_reform = oligarchy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = universal_suffrage_reform
+	add_government_reform = reinforce_republican_values_reform
+	add_government_reform = multi_party_system
+	government_rank = 3
+	remove_country_modifier = popular_monarchy_modifier
+}
+
+3949.12.2 = {
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+	add_government_reform = royal_power
+	add_government_reform = oligarchic_reform
+}
+
+3978.1.1 = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			NOT = { has_dlc = "Domination" }
+		}
+		complete_mission = emp_fra_indochina
+	}
+}

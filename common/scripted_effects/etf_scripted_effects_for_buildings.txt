@@ -1,0 +1,383 @@
+##################################################
+# Factories: Building with options to change level
+##################################################
+add_building_factory = {
+	if = {
+		limit = {
+			NOT = { has_building = factory }
+		}
+		add_building = factory
+	}
+	[[level]
+		# Adds factory of the given level
+		set_factory_level = { level = $level$ }
+	]
+	[[development]
+		# Adds factory with level relative to local development
+		assign_development_based_factory_level = yes
+	]
+}
+
+assign_development_based_factory_level = {
+	trigger_switch = {
+		on_trigger = development
+		100 = {
+			set_factory_level = { level = 21 }
+		}
+		95 = {
+			set_factory_level = { level = 20 }
+		}
+		90 = {
+			set_factory_level = { level = 19 }
+		}
+		85 = {
+			set_factory_level = { level = 18 }
+		}
+		80 = {
+			set_factory_level = { level = 17 }
+		}
+		75 = {
+			set_factory_level = { level = 16 }
+		}
+		70 = {
+			set_factory_level = { level = 15 }
+		}
+		65 = {
+			set_factory_level = { level = 14 }
+		}
+		60 = {
+			set_factory_level = { level = 13 }
+		}
+		55 = {
+			set_factory_level = { level = 12 }
+		}
+		50 = {
+			set_factory_level = { level = 11 }
+		}
+		45 = {
+			set_factory_level = { level = 10 }
+		}
+		40 = {
+			set_factory_level = { level = 9 }
+		}
+		35 = {
+			set_factory_level = { level = 8 }
+		}
+		30 = {
+			set_factory_level = { level = 7 }
+		}
+		25 = {
+			set_factory_level = { level = 6 }
+		}
+		20 = {
+			set_factory_level = { level = 5 }
+		}
+		15 = {
+			set_factory_level = { level = 4 }
+		}
+		10 = {
+			set_factory_level = { level = 3 }
+		}
+		5 = {
+			set_factory_level = { level = 2 }
+		}
+		1 = {
+			set_factory_level = { level = 1 }
+		}
+	}
+}
+
+set_factory_level = {
+	if = {
+		limit = {
+			has_building = factory
+		}
+		set_variable = {
+			which = factory_level
+			value = $level$
+		}
+		if = {
+			limit = {
+				# factory_level >= 1
+				check_variable = {
+					which = factory_level
+					value = 1
+				}
+				# factory_level < 100
+				NOT = {
+					check_variable = {
+						which = factory_level
+						value = 100
+					}
+				}
+			}
+			# Factory of given input value is created
+			clr_factory_modifiers_effect = yes
+			add_permanent_province_modifier = {
+				name = mod_factory_$level$
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				# factory_level >= 100
+				check_variable = {
+					which = factory_level
+					value = 100
+				}
+			}
+			# If given value is beyond 99, default to level 99
+			set_variable = {
+				which = factory_level
+				value = 99
+			}
+			clr_factory_modifiers_effect = yes
+			add_permanent_province_modifier = {
+				name = mod_factory_99
+				duration = -1
+			}
+		}
+		else = {
+			set_variable = {
+				which = factory_level
+				value = 0
+			}
+			clr_factory_modifiers_effect = yes
+			remove_building = factory
+		}
+		owner = {
+			calculate_total_industry_score = yes
+		}
+	}
+}
+
+upgrade_factory_modifiers_effect = {
+	trigger_switch = {
+		on_trigger = has_province_modifier
+		mod_factory_1 = { set_factory_level = { level = 2 } }
+		mod_factory_2 = { set_factory_level = { level = 3 } }
+		mod_factory_3 = { set_factory_level = { level = 4 } }
+		mod_factory_4 = { set_factory_level = { level = 5 } }
+		mod_factory_5 = { set_factory_level = { level = 6 } }
+		mod_factory_6 = { set_factory_level = { level = 7 } }
+		mod_factory_7 = { set_factory_level = { level = 8 } }
+		mod_factory_8 = { set_factory_level = { level = 9 } }
+		mod_factory_9 = { set_factory_level = { level = 10 } }
+		mod_factory_10 = { set_factory_level = { level = 11 } }
+		mod_factory_11 = { set_factory_level = { level = 12 } }
+		mod_factory_12 = { set_factory_level = { level = 13 } }
+		mod_factory_13 = { set_factory_level = { level = 14 } }
+		mod_factory_14 = { set_factory_level = { level = 15 } }
+		mod_factory_15 = { set_factory_level = { level = 16 } }
+		mod_factory_16 = { set_factory_level = { level = 17 } }
+		mod_factory_17 = { set_factory_level = { level = 18 } }
+		mod_factory_18 = { set_factory_level = { level = 19 } }
+		mod_factory_19 = { set_factory_level = { level = 20 } }
+		mod_factory_20 = { set_factory_level = { level = 21 } }
+		mod_factory_21 = { set_factory_level = { level = 22 } }
+		mod_factory_22 = { set_factory_level = { level = 23 } }
+		mod_factory_23 = { set_factory_level = { level = 24 } }
+		mod_factory_24 = { set_factory_level = { level = 25 } }
+		mod_factory_25 = { set_factory_level = { level = 26 } }
+		mod_factory_26 = { set_factory_level = { level = 27 } }
+		mod_factory_27 = { set_factory_level = { level = 28 } }
+		mod_factory_28 = { set_factory_level = { level = 29 } }
+		mod_factory_29 = { set_factory_level = { level = 30 } }
+		mod_factory_30 = { set_factory_level = { level = 31 } }
+		mod_factory_31 = { set_factory_level = { level = 32 } }
+		mod_factory_32 = { set_factory_level = { level = 33 } }
+		mod_factory_33 = { set_factory_level = { level = 34 } }
+		mod_factory_34 = { set_factory_level = { level = 35 } }
+		mod_factory_35 = { set_factory_level = { level = 36 } }
+		mod_factory_36 = { set_factory_level = { level = 37 } }
+		mod_factory_37 = { set_factory_level = { level = 38 } }
+		mod_factory_38 = { set_factory_level = { level = 39 } }
+		mod_factory_39 = { set_factory_level = { level = 40 } }
+		mod_factory_40 = { set_factory_level = { level = 41 } }
+		mod_factory_41 = { set_factory_level = { level = 42 } }
+		mod_factory_42 = { set_factory_level = { level = 43 } }
+		mod_factory_43 = { set_factory_level = { level = 44 } }
+		mod_factory_44 = { set_factory_level = { level = 45 } }
+		mod_factory_45 = { set_factory_level = { level = 46 } }
+		mod_factory_46 = { set_factory_level = { level = 47 } }
+		mod_factory_47 = { set_factory_level = { level = 48 } }
+		mod_factory_48 = { set_factory_level = { level = 49 } }
+		mod_factory_49 = { set_factory_level = { level = 50 } }
+		mod_factory_50 = { set_factory_level = { level = 51 } }
+		mod_factory_51 = { set_factory_level = { level = 52 } }
+		mod_factory_52 = { set_factory_level = { level = 53 } }
+		mod_factory_53 = { set_factory_level = { level = 54 } }
+		mod_factory_54 = { set_factory_level = { level = 55 } }
+		mod_factory_55 = { set_factory_level = { level = 56 } }
+		mod_factory_56 = { set_factory_level = { level = 57 } }
+		mod_factory_57 = { set_factory_level = { level = 58 } }
+		mod_factory_58 = { set_factory_level = { level = 59 } }
+		mod_factory_59 = { set_factory_level = { level = 60 } }
+		mod_factory_60 = { set_factory_level = { level = 61 } }
+		mod_factory_61 = { set_factory_level = { level = 62 } }
+		mod_factory_62 = { set_factory_level = { level = 63 } }
+		mod_factory_63 = { set_factory_level = { level = 64 } }
+		mod_factory_64 = { set_factory_level = { level = 65 } }
+		mod_factory_65 = { set_factory_level = { level = 66 } }
+		mod_factory_66 = { set_factory_level = { level = 67 } }
+		mod_factory_67 = { set_factory_level = { level = 68 } }
+		mod_factory_68 = { set_factory_level = { level = 69 } }
+		mod_factory_69 = { set_factory_level = { level = 70 } }
+		mod_factory_70 = { set_factory_level = { level = 71 } }
+		mod_factory_71 = { set_factory_level = { level = 72 } }
+		mod_factory_72 = { set_factory_level = { level = 73 } }
+		mod_factory_73 = { set_factory_level = { level = 74 } }
+		mod_factory_74 = { set_factory_level = { level = 75 } }
+		mod_factory_75 = { set_factory_level = { level = 76 } }
+		mod_factory_76 = { set_factory_level = { level = 77 } }
+		mod_factory_77 = { set_factory_level = { level = 78 } }
+		mod_factory_78 = { set_factory_level = { level = 79 } }
+		mod_factory_79 = { set_factory_level = { level = 80 } }
+		mod_factory_80 = { set_factory_level = { level = 81 } }
+		mod_factory_81 = { set_factory_level = { level = 82 } }
+		mod_factory_82 = { set_factory_level = { level = 83 } }
+		mod_factory_83 = { set_factory_level = { level = 84 } }
+		mod_factory_84 = { set_factory_level = { level = 85 } }
+		mod_factory_85 = { set_factory_level = { level = 86 } }
+		mod_factory_86 = { set_factory_level = { level = 87 } }
+		mod_factory_87 = { set_factory_level = { level = 88 } }
+		mod_factory_88 = { set_factory_level = { level = 89 } }
+		mod_factory_89 = { set_factory_level = { level = 90 } }
+		mod_factory_90 = { set_factory_level = { level = 91 } }
+		mod_factory_91 = { set_factory_level = { level = 92 } }
+		mod_factory_92 = { set_factory_level = { level = 93 } }
+		mod_factory_93 = { set_factory_level = { level = 94 } }
+		mod_factory_94 = { set_factory_level = { level = 95 } }
+		mod_factory_95 = { set_factory_level = { level = 96 } }
+		mod_factory_96 = { set_factory_level = { level = 97 } }
+		mod_factory_97 = { set_factory_level = { level = 98 } }
+		mod_factory_98 = { set_factory_level = { level = 99 } }
+	}
+}
+
+clr_factory_modifiers_effect = {
+	remove_province_modifier = mod_factory_1
+	remove_province_modifier = mod_factory_2
+	remove_province_modifier = mod_factory_3
+	remove_province_modifier = mod_factory_4
+	remove_province_modifier = mod_factory_5
+	remove_province_modifier = mod_factory_6
+	remove_province_modifier = mod_factory_7
+	remove_province_modifier = mod_factory_8
+	remove_province_modifier = mod_factory_9
+	remove_province_modifier = mod_factory_10
+	remove_province_modifier = mod_factory_11
+	remove_province_modifier = mod_factory_12
+	remove_province_modifier = mod_factory_13
+	remove_province_modifier = mod_factory_14
+	remove_province_modifier = mod_factory_15
+	remove_province_modifier = mod_factory_16
+	remove_province_modifier = mod_factory_17
+	remove_province_modifier = mod_factory_18
+	remove_province_modifier = mod_factory_19
+	remove_province_modifier = mod_factory_20
+	remove_province_modifier = mod_factory_21
+	remove_province_modifier = mod_factory_22
+	remove_province_modifier = mod_factory_23
+	remove_province_modifier = mod_factory_24
+	remove_province_modifier = mod_factory_25
+	remove_province_modifier = mod_factory_26
+	remove_province_modifier = mod_factory_27
+	remove_province_modifier = mod_factory_28
+	remove_province_modifier = mod_factory_29
+	remove_province_modifier = mod_factory_30
+	remove_province_modifier = mod_factory_31
+	remove_province_modifier = mod_factory_32
+	remove_province_modifier = mod_factory_33
+	remove_province_modifier = mod_factory_34
+	remove_province_modifier = mod_factory_35
+	remove_province_modifier = mod_factory_36
+	remove_province_modifier = mod_factory_37
+	remove_province_modifier = mod_factory_38
+	remove_province_modifier = mod_factory_39
+	remove_province_modifier = mod_factory_40
+	remove_province_modifier = mod_factory_41
+	remove_province_modifier = mod_factory_42
+	remove_province_modifier = mod_factory_43
+	remove_province_modifier = mod_factory_44
+	remove_province_modifier = mod_factory_45
+	remove_province_modifier = mod_factory_46
+	remove_province_modifier = mod_factory_47
+	remove_province_modifier = mod_factory_48
+	remove_province_modifier = mod_factory_49
+	remove_province_modifier = mod_factory_50
+	remove_province_modifier = mod_factory_51
+	remove_province_modifier = mod_factory_52
+	remove_province_modifier = mod_factory_53
+	remove_province_modifier = mod_factory_54
+	remove_province_modifier = mod_factory_55
+	remove_province_modifier = mod_factory_56
+	remove_province_modifier = mod_factory_57
+	remove_province_modifier = mod_factory_58
+	remove_province_modifier = mod_factory_59
+	remove_province_modifier = mod_factory_60
+	remove_province_modifier = mod_factory_61
+	remove_province_modifier = mod_factory_62
+	remove_province_modifier = mod_factory_63
+	remove_province_modifier = mod_factory_64
+	remove_province_modifier = mod_factory_65
+	remove_province_modifier = mod_factory_66
+	remove_province_modifier = mod_factory_67
+	remove_province_modifier = mod_factory_68
+	remove_province_modifier = mod_factory_69
+	remove_province_modifier = mod_factory_70
+	remove_province_modifier = mod_factory_71
+	remove_province_modifier = mod_factory_72
+	remove_province_modifier = mod_factory_73
+	remove_province_modifier = mod_factory_74
+	remove_province_modifier = mod_factory_75
+	remove_province_modifier = mod_factory_76
+	remove_province_modifier = mod_factory_77
+	remove_province_modifier = mod_factory_78
+	remove_province_modifier = mod_factory_79
+	remove_province_modifier = mod_factory_80
+	remove_province_modifier = mod_factory_81
+	remove_province_modifier = mod_factory_82
+	remove_province_modifier = mod_factory_83
+	remove_province_modifier = mod_factory_84
+	remove_province_modifier = mod_factory_85
+	remove_province_modifier = mod_factory_86
+	remove_province_modifier = mod_factory_87
+	remove_province_modifier = mod_factory_88
+	remove_province_modifier = mod_factory_89
+	remove_province_modifier = mod_factory_90
+	remove_province_modifier = mod_factory_91
+	remove_province_modifier = mod_factory_92
+	remove_province_modifier = mod_factory_93
+	remove_province_modifier = mod_factory_94
+	remove_province_modifier = mod_factory_95
+	remove_province_modifier = mod_factory_96
+	remove_province_modifier = mod_factory_97
+	remove_province_modifier = mod_factory_98
+	remove_province_modifier = mod_factory_99
+}
+
+# country scope
+calculate_total_industry_score = {
+	set_variable = {
+		which = industry_score
+		value = 0
+	}
+	every_owned_province = {
+		limit = {
+			has_building = factory
+		}
+		# Local industry_score = factory_level
+		set_variable = {
+			which = industry_score
+			which = factory_level
+		}
+		# PREV industry_score += local industry_score
+		PREV = {
+			change_variable = {
+				which = industry_score
+				which = PREV
+			}
+		}
+	}
+}

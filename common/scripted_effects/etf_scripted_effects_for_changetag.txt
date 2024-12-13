@@ -1,0 +1,2690 @@
+subject_has_overlord_color_effect = {
+	if = {
+		limit = {
+			is_subject_other_than_tributary_trigger = yes
+			OR = {
+				is_subject_of_type = swiss_canton_subject
+				is_subject_of_type = substate_subject
+				is_subject_of_type = crown_dependency_subject
+				#is_subject_of_type = governorate_subject
+				AND = {
+					always = no # More triggers here
+				}
+				AND = {
+					has_global_flag = CONFIG_subject_has_overlord_color_global_flag
+					NOT = { is_colonial_nation = yes }
+				}
+			}
+		}
+		change_country_color = { country = overlord }
+		set_country_flag = has_overlord_color
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_overlord_color
+		}
+		restore_country_color = yes
+		clr_country_flag = has_overlord_color
+	}
+}
+
+# =================================
+# New and Improved Tag Alias System
+# =================================
+
+save_as_underscore_global_event_target_effect = {
+	$tag$ = {
+		save_global_event_target_as = _$tag$ # Ex. "'GBR' saved as 'event_target:_GBR'"
+		#log = "'$tag$' saved as 'event_target:_$tag$'"
+	}
+}
+
+update_country_tag_alias_list = {
+	effect_with_tag_parameter = {
+		scripted_effect = save_as_underscore_global_event_target_effect
+	}
+	update_country_tag_alias = {
+		define_mode = yes # Saves alias-tags as Global Flags/Event targets
+	}
+}
+
+define_country_tag_alias = {
+	if = {
+		limit = {
+			has_global_flag = update_country_tag_alias_define_mode
+		}
+		[[variant]
+			set_global_flag = $default$_alias:$variant$ # Define '$variant$' as an alias for '$default$' tag
+		]
+	}
+	else_if = {
+		limit = {
+			country_is = { tag = $default$ }
+		}
+		if = {
+			limit = {
+				[[trigger]
+					$trigger$ # Thanks to the 'Ante Bellum' mod for teaching me about this neat trick.
+				]
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = tag_has_changed_flag }
+				}
+				[[variant]
+					if = {
+						limit = {
+							exists = yes
+							NOT = { tag = $variant$ }
+							NOT = { exists = $variant$ }
+						}
+						trigger_switch = {
+							on_trigger = tag
+							event_target:GP_1  = { $variant$ = { save_global_event_target_as = GP_1  } }
+							event_target:GP_2  = { $variant$ = { save_global_event_target_as = GP_2  } }
+							event_target:GP_3  = { $variant$ = { save_global_event_target_as = GP_3  } }
+							event_target:GP_4  = { $variant$ = { save_global_event_target_as = GP_4  } }
+							event_target:GP_5  = { $variant$ = { save_global_event_target_as = GP_5  } }
+							event_target:GP_6  = { $variant$ = { save_global_event_target_as = GP_6  } }
+							event_target:GP_7  = { $variant$ = { save_global_event_target_as = GP_7  } }
+							event_target:GP_8  = { $variant$ = { save_global_event_target_as = GP_8  } }
+							event_target:GP_9  = { $variant$ = { save_global_event_target_as = GP_9  } }
+							event_target:GP_10 = { $variant$ = { save_global_event_target_as = GP_10 } }
+							event_target:GP_11 = { $variant$ = { save_global_event_target_as = GP_11 } }
+							event_target:GP_12 = { $variant$ = { save_global_event_target_as = GP_12 } }
+							event_target:GP_13 = { $variant$ = { save_global_event_target_as = GP_13 } }
+							event_target:GP_14 = { $variant$ = { save_global_event_target_as = GP_14 } }
+							event_target:GP_15 = { $variant$ = { save_global_event_target_as = GP_15 } }
+							event_target:GP_16 = { $variant$ = { save_global_event_target_as = GP_16 } }
+						}
+						save_event_target_as = prev_tag
+						
+						change_tag = $variant$
+						every_core_province = {
+							limit = {
+								NOT = { owned_by = $variant$ }
+							}
+							add_core = $variant$ # Refresh foreign cores, they expire too quickly sometimes.
+						}
+						if = {
+							limit = {
+								has_saved_event_target = prev_tag
+							}
+							every_country = {
+								limit = {
+									historical_friend_with = event_target:prev_tag
+								}
+								mutual_add_historical_friend = { who = $variant$ }
+							}
+							every_country = {
+								limit = {
+									historical_rival_with = event_target:prev_tag
+								}
+								mutual_add_historical_rival = { who = $variant$ }
+							}
+						}
+					}
+				]
+				set_country_flag = tag_has_changed_flag # This indicates that we've found a variant that fulfils the triggers.
+				
+				# Optional effect if true:
+				[[effect]
+					$effect$
+				]
+				# Optional color change:
+				[[country_color]
+					if = {
+						limit = {
+							NOT = { has_country_flag = color_has_changed_flag }
+						}
+						change_country_color = { $country_color$ } # country_color = "country = <country scope>" | "color = { r g b }"
+						clr_country_flag = has_overlord_color
+						set_country_flag = color_has_changed_flag
+						
+						# every_subject_country = {
+							# limit = {
+								# is_colonial_nation = yes
+							# }
+							# change_country_color = { country = overlord }
+						# }
+					}
+				]
+			}
+		}
+		else = {
+			# Optional effect if untrue:
+			[[removed_effect]
+				$removed_effect$
+			]
+			# Restore color change:
+			[[country_color]
+				if = {
+					limit = {
+						NOT = { has_country_flag = color_has_changed_flag }
+					}
+					restore_country_color = yes
+					
+					# every_subject_country = {
+						# limit = {
+							# is_colonial_nation = yes
+						# }
+						# change_country_color = { country = overlord }
+					# }
+				}
+			]
+		}
+	}
+	[[variant]
+		$variant$ = { # Event targets:
+			if = {
+				limit = {
+					exists = yes
+					OR = {
+						NOT = { has_saved_global_event_target = _$default$ }
+						AND = {
+							NOT = { tag = event_target:_$default$ }
+							
+							event_target:_$default$ = {
+								OR = {
+									exists = no
+									NOT = { total_development = $variant$ }
+								}
+							}
+						}
+					}
+				}
+				save_global_event_target_as = _$default$ # Ex. "'UKI' saved as 'event_target:_GBR'"
+				log = "'$variant$' saved as 'event_target:_$default$'"
+			}
+		}
+	]
+}
+
+#define_country_map_color = {
+#	define_country_tag_alias = {
+#		default = $country$
+#		country_color = "$country_color$"
+#		trigger = "
+#			$trigger$
+#		"
+#	}
+#}
+
+update_country_tag_alias = {
+	# We definin'
+	[[define_mode]
+		set_global_flag = update_country_tag_alias_define_mode
+	]
+
+	# Aden
+	define_country_tag_alias = {
+		default = ADE
+		variant = ADP
+		trigger = "
+			is_subject_of_type = colonial_dependency
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = ADE
+		variant = ADE
+		trigger = "
+		"
+	}
+
+	# Afar
+	define_country_tag_alias = {
+		default = AFA
+		variant = AFR # Afar Region
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = AFA
+		variant = AFA # Sultanate of Aussa
+		trigger = "
+		"
+	}
+
+	# Afghanistan
+	define_country_tag_alias = {
+		default = AFG
+		variant = TLI
+		country_color = "color = { 238  238  238 }"
+		trigger = "
+			religion_group = muslim
+			OR = {
+				government = theocracy
+				has_reform = islamist_government
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = AFG
+		variant = AFG
+		trigger = "
+		"
+	}
+
+	# Albania
+	define_country_tag_alias = {
+		default = ALB
+		variant = SHQ
+		trigger = "
+			OR = {
+				is_fascist = yes
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_ITA
+						is_fascist = yes
+					}
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = ALB
+		variant = ALB
+		trigger = "
+		"
+	}
+
+	# Armenia
+	define_country_tag_alias = {
+		default = ARM
+		variant = ARE
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = ARM
+		variant = ARM
+		trigger = "
+		"
+	}
+
+	# Australia
+	define_country_tag_alias = {
+		default = AUS
+		variant = AU1
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						NOT = { has_country_flag = formed_united_kingdom_flag }
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_GBR
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = AUS
+		variant = AU2
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						has_country_flag = formed_united_kingdom_flag
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_UKI
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = AUS
+		variant = AUS
+		trigger = "
+		"
+	}
+
+	# Belgium
+	define_country_tag_alias = {
+		default = BEL
+		variant = ABL
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_HAB
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = BEL
+		variant = BEF
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = BEL
+		variant = BEC
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = BEL
+		variant = BRP
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = BEL
+		variant = BEL
+		trigger = "
+		"
+	}
+
+	# Biafra
+	define_country_tag_alias = {
+		default = BIA
+		variant = NR1
+		trigger = "
+			NOT = { government = republic }
+		"
+	}
+	define_country_tag_alias = {
+		default = BIA
+		variant = BIA
+		trigger = "
+		"
+	}
+
+	# Belarus
+	define_country_tag_alias = {
+		default = BLR
+		variant = MSK
+		trigger = "
+			government = monarchy
+		"
+		effect = "
+			if = {
+				limit = {
+					OR = {
+						was_tag = BDR
+						was_tag = BLR
+					}
+				}
+				override_country_name_add_flag = {
+					name = BLR
+					definite = no
+					special = yes
+				}
+			}
+		"
+		removed_effect = "
+			clear_country_name_with_flag = { name = BLR }
+		"
+	}
+	define_country_tag_alias = {
+		default = BLR
+		variant = BDR
+		trigger = "
+			OR = {
+				is_democracy = yes
+				is_fascist = yes
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = BLR
+		variant = BLR
+		trigger = "
+		"
+	}
+
+	# Czechia
+	define_country_tag_alias = {
+		default = CZE
+		variant = BOH
+		trigger = "
+			NOT = { government = republic }
+		"
+	}
+	define_country_tag_alias = {
+		default = CZE
+		variant = CZE
+		trigger = "
+		"
+	}
+
+	# Burma
+	define_country_tag_alias = {
+		default = BRM
+		variant = BBU
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = BRM
+		variant = MNM
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = BRM
+		variant = BRM
+		trigger = "
+		"
+	}
+
+	# Brazil
+	define_country_tag_alias = {
+		default = BRZ
+		variant = BR2
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = BRZ
+		variant = BRZ
+		trigger = "
+		"
+	}
+
+	# Canada
+	define_country_tag_alias = {
+		default = CAN
+		variant = CA1
+		country_color = "color = { 119  48  39 }"
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						NOT = { has_country_flag = formed_united_kingdom_flag }
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_GBR
+					NOT = { is_year = 4063 }
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CAN
+		variant = CA2
+		country_color = "color = { 119  48  39 }"
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						has_country_flag = formed_united_kingdom_flag
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_UKI
+					NOT = { is_year = 4063 }
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CAN
+		variant = CAN
+		trigger = "
+		"
+	}
+
+	# Sri Lanka
+	define_country_tag_alias = {
+		default = CEY
+		variant = SRL
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = CEY
+		variant = CEY
+		trigger = "
+		"
+	}
+
+	# China
+	define_country_tag_alias = {
+		default = CHN
+		variant = PRC
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = CHN
+		variant = EOC
+		trigger = "
+			government = monarchy
+		"
+	}
+
+	define_country_tag_alias = {
+		default = CHN
+		variant = REC
+		trigger = "
+			is_or_was_tag = { tag = ROC }
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_JAP
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CHN
+		variant = ROC
+		trigger = "
+			is_or_was_tag = { tag = ROC }
+		"
+	}
+
+	define_country_tag_alias = {
+		default = CHN
+		variant = CHN
+		trigger = "
+		"
+	}
+
+	# Cyprus
+	define_country_tag_alias = {
+		default = CYP
+		variant = BCY
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CYP
+		variant = GCY
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GRE
+					}
+				}
+				primary_culture = greek
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CYP
+		variant = TCY
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_TUR
+					}
+				}
+				primary_culture = turkish
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CYP
+		variant = CYP
+		trigger = "
+		"
+	}
+
+	# DRC
+	define_country_tag_alias = {
+		default = DRC
+		variant = CFS
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = DRC
+		variant = DRC
+		trigger = "
+		"
+	}
+
+	# Egypt
+	define_country_tag_alias = {
+		default = EGY
+		variant = KHE
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_TUR
+					}
+				}
+				has_country_flag = vassal_in_name_of_TUR
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = EGY
+		variant = EGY
+		trigger = "
+		"
+	}
+
+	# European Union
+	define_country_tag_alias = {
+		default = EUR
+		variant = EUF
+		country_color = "color = { 0  0  0 }"
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = EUR
+		variant = EUC
+		country_color = "color = { 208  0  0 }"
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = EUR
+		variant = EUR
+		trigger = "
+		"
+	}
+
+	# Finland
+	# define_country_tag_alias = {
+		# default = FIN
+		# variant = FIL
+		# country_color = "color = { 254  26  63 }"
+		# trigger = "
+			# is_communist = yes
+		# "
+	# }
+	define_country_tag_alias = {
+		default = FIN
+		variant = FIL
+		country_color = "color = { 205  212  228 }"
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = FIN
+		variant = FIN
+		trigger = "
+		"
+	}
+
+	# France
+	define_country_tag_alias = {
+		default = FRA
+		variant = FRF
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+			exists = FRV
+			NOT = { tag = FRV }
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = FRV
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+			OR = {
+				is_fascist = yes
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_NZG
+					}
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = FRC
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = NPF
+		country_color = "color = { 0  40  150 }"
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+			government = monarchy
+			dynasty = Bonaparte
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = KOF
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+			government = monarchy
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = FR2
+		trigger = "
+			has_country_flag = adopted_tricolor_flag
+		"
+	}
+
+	define_country_tag_alias = {
+		default = FRA
+		variant = FR2
+		trigger = "
+			government = republic
+			is_revolutionary = no
+		"
+	}
+	define_country_tag_alias = {
+		default = FRA
+		variant = FRA
+		trigger = "
+		"
+	}
+
+	# Great Britain
+	define_country_tag_alias = {
+		default = GBR
+		variant = UKF
+		trigger = "
+			has_country_flag = formed_united_kingdom_flag
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = GBR
+		variant = UKU
+		country_color = "color = { 199  15  46 }"
+		trigger = "
+			has_country_flag = formed_united_kingdom_flag
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = GBR
+		variant = UKC
+		trigger = "
+			has_country_flag = formed_united_kingdom_flag
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = GBR
+		variant = UKI
+		trigger = "
+			has_country_flag = formed_united_kingdom_flag
+		"
+	}
+
+	define_country_tag_alias = {
+		default = GBR
+		variant = GBC
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = GBR
+		variant = GBR
+		trigger = "
+		"
+	}
+
+	# Georgia
+	define_country_tag_alias = {
+		default = GEO
+		variant = GE1
+		trigger = "
+			government = republic
+			has_country_flag = GEO_updated_flag
+		"
+	}
+	define_country_tag_alias = {
+		default = GEO
+		variant = GE0
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = GEO
+		variant = GEO
+		trigger = "
+		"
+	}
+
+	# Germany
+	define_country_tag_alias = {
+		default = GER
+		variant = NZG
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = GER
+		variant = DDR
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = GER
+		variant = GCF
+		trigger = "
+			is_or_was_tag = { tag = GCF }
+		"
+	}
+	define_country_tag_alias = {
+		default = GER
+		variant = DEU
+		trigger = "
+			OR = {
+				government = republic
+				has_country_flag = accepted_the_gutter_crown
+				AND = {
+					NOT = { is_or_was_tag = { tag = PRU } }
+					NOT = { is_or_was_tag = { tag = NGC } }
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = GER
+		variant = GER
+		country_color = "color = { 128  128  128 }"
+		trigger = "
+			government = monarchy
+		"
+	}
+	define_country_tag_alias = {
+		default = GER
+		variant = GER
+		trigger = "
+		"
+	}
+
+	# Ghana
+	define_country_tag_alias = {
+		default = GHA
+		variant = ASH
+		trigger = "
+			is_type_of_monarchy_except_dominion_trigger = yes
+			primary_culture = aka
+		"
+	}
+	define_country_tag_alias = {
+		default = GHA
+		variant = GHA
+		trigger = "
+		"
+	}
+
+	# Greece
+	define_country_tag_alias = {
+		default = GRE
+		variant = HEF
+		trigger = "
+			OR = {
+				has_reform = military_government
+				is_fascist = yes
+			}
+		"
+	}
+	# define_country_tag_alias = {
+		# default = GRE
+		# variant = HEL
+		# country_color = "color = { 195  8  8 }" # Too red
+		# trigger = "
+			# is_communist = yes
+		# "
+	# }
+	define_country_tag_alias = {
+		default = GRE
+		variant = HEL
+		country_color = "color = { 93  181  227 }"
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = GRE
+		variant = GRE
+		trigger = "
+		"
+	}
+
+	# Zimbabwe
+	define_country_tag_alias = {
+		default = GZI
+		variant = RHO
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_of_type = dominion
+					overlord = {
+						tag = event_target:_GBR
+					}
+				}
+				culture_group = british
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = GZI
+		variant = GZI
+		trigger = "
+		"
+	}
+
+	# Austria
+	define_country_tag_alias = {
+		default = HAB
+		variant = AUH
+		trigger =  "
+			tag = AUH
+		"
+	}
+	define_country_tag_alias = {
+		default = HAB
+		variant = HA3
+		trigger =  "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = HAB
+		variant = HA2
+		trigger =  "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = HAB
+		variant = AUE
+		trigger =  "
+			government = monarchy
+			government_rank = 3
+			is_emperor = no
+		"
+	}
+	define_country_tag_alias = {
+		default = HAB
+		variant = HAB
+		trigger = "
+		"
+	}
+
+	# Hong Kong
+	define_country_tag_alias = {
+		default = HGK
+		variant = BHK
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = HGK
+		variant = HGK
+		trigger = "
+		"
+	}
+
+	# Indonesia
+	define_country_tag_alias = {
+		default = IDN
+		variant = EIN
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_NED
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = IDN
+		variant = IDN
+		trigger = "
+		"
+	}
+
+	# India
+	define_country_tag_alias = {
+		default = INI
+		variant = IN1
+		trigger = "
+			is_subject_of_type = dominion
+			overlord = {
+				tag = event_target:_GBR
+				NOT = { has_country_flag = formed_united_kingdom_flag }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = INI
+		variant = IN2
+		trigger = "
+			is_subject_of_type = dominion
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = INI
+		variant = BHA
+		trigger =  "
+			OR = {
+				is_type_of_monarchy_except_dominion_trigger = yes
+				is_fascist = yes
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = INI
+		variant = INI
+		trigger = "
+		"
+	}
+
+	# Iran
+	define_country_tag_alias = {
+		default = IRA
+		variant = IR2
+		trigger = "
+			religion_group = muslim
+			OR = {
+				government = theocracy
+				has_reform = islamic_republic_reform
+				has_reform = islamist_government
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = IRA
+		variant = IRA
+		trigger = "
+		"
+	}
+
+	# Ireland
+	define_country_tag_alias = {
+		default = IRE
+		variant = EIR
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = IRE
+		variant = IRE
+		trigger = "
+		"
+	}
+
+	# Iraq
+	define_country_tag_alias = {
+		default = IRQ
+		variant = BSR # Baghdad/Basra vilayet
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_TUR
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = IRQ
+		variant = IRB # Ba'athist Iraq
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = IRQ
+		variant = IRP # Modern Iraq
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = IRQ
+		variant = IRQ
+		country_color = "color = { 153  30  30 }"
+		trigger = "
+			is_subject_of_type = colonial_mandate
+			overlord = {
+				tag = event_target:_GBR
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = IRQ
+		variant = IRQ
+		trigger = "
+		"
+	}
+
+	# Italy
+	define_country_tag_alias = {
+		default = ITA
+		variant = RSI
+		country_color = "color = { 10  80  20 }"
+		trigger = "
+			is_fascist = yes
+			NOT = { government = monarchy }
+		"
+	}
+	define_country_tag_alias = {
+		default = ITA
+		variant = ITU
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = ITA
+		variant = ITP # Papal Italy
+		trigger = "
+			government = theocracy
+			NOT = { exists = PAP }
+		"
+	}
+	define_country_tag_alias = {
+		default = ITA
+		variant = ITS # Savoyard Italy
+		trigger = "
+			government = monarchy
+			OR = {
+				was_tag = SAV
+				was_tag = SPI
+				started_in = 3959.3.17
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = ITA
+		variant = ITA
+		trigger = "
+		"
+	}
+
+	# Karabakh
+	define_country_tag_alias = {
+		default = MLK
+		variant = AKH # Republic of Artsakh
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = MLK
+		variant = MLK
+		trigger = "
+		"
+	}
+
+	# Kazakhstan
+	define_country_tag_alias = {
+		default = KZH
+		variant = KZK
+		trigger = "
+			has_reform = republic_mechanic
+		"
+	}
+	define_country_tag_alias = {
+		default = KZH
+		variant = KZH
+		trigger = "
+		"
+	}
+
+	# Malta
+	define_country_tag_alias = {
+		default = JAI
+		variant = BMT
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = JAI
+		variant = JAI
+		trigger = "
+		"
+	}
+
+	# Japan
+	define_country_tag_alias = {
+		default = JAP
+		variant = SJP
+		country_color = "color = { 174  143  27 }"
+		trigger = "
+			has_reform = shogunate
+		"
+	}
+	define_country_tag_alias = {
+		default = JAP
+		variant = EJP
+		country_color = "color = { 255  191  191 }"
+		trigger = "
+			OR = {
+				has_reform = military_government
+				is_fascist = yes
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = JAP
+		variant = JAP
+		trigger = "
+		"
+	}
+
+	# Manchuria
+	define_country_tag_alias = {
+		default = MCH
+		variant = MCK
+		trigger = "
+			OR = {
+				is_autocracy = yes
+				is_fascist = yes
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = MCH
+		variant = FEN
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = MCH
+		variant = MCH
+		trigger = "
+		"
+	}
+
+	# Macau
+	define_country_tag_alias = {
+		default = MCU
+		variant = PMC
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_POR
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = MCU
+		variant = MCU
+		trigger = "
+		"
+	}
+
+	# Mexico
+	define_country_tag_alias = {
+		default = MEX
+		variant = MXE
+		country_color = "color = { 173  242  175 }"
+		trigger = "
+			government = monarchy
+			has_country_flag = formed_mexican_empire_flag
+		"
+	}
+	define_country_tag_alias = {
+		default = MEX
+		variant = MEX
+		trigger = "
+		"
+	}
+
+	# Miskito
+	define_country_tag_alias = {
+		default = MIS
+		variant = MKI
+		country_color = "color = { 0  36  125 }"
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = MIS
+		variant = MIS
+		trigger = "
+		"
+	}
+
+	# Malaysia
+	define_country_tag_alias = {
+		default = MLA
+		variant = BML
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = MLA
+		variant = MLA
+		trigger = "
+		"
+	}
+
+	# Morocco
+	define_country_tag_alias = {
+		default = MOR
+		variant = FPM
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_FRA
+				has_country_flag = adopted_tricolor_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = MOR
+		variant = MOR
+		trigger = "
+		"
+	}
+
+	# Malawi
+	define_country_tag_alias = {
+		default = MWI
+		variant = MRA # Maravi
+		trigger = "
+			is_type_of_monarchy_except_dominion_trigger = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = MWI
+		variant = MWI # Malawi
+		trigger = "
+		"
+	}
+
+	# Netherlands
+	define_country_tag_alias = {
+		default = NED
+		variant = DRP
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = NED
+		variant = NED
+		trigger = "
+		"
+	}
+
+	# Norway
+	define_country_tag_alias = {
+		default = NOR
+		variant = SNO
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_SWE
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = NOR
+		variant = NOR
+		country_color = "color = { 180  40  40 }"
+		trigger = "
+			is_communist = yes
+		"
+	}
+	# define_country_tag_alias = {
+		# default = NOR
+		# variant = NOR
+		# country_color = "color = { 132  0  0 }"
+		# trigger = "
+			# is_fascist = yes
+		# "
+	# }
+	define_country_tag_alias = {
+		default = NOR
+		variant = NOR
+		trigger = "
+		"
+	}
+
+	# New Zealand
+	define_country_tag_alias = {
+		default = NZL
+		variant = NZ1
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						NOT = { has_country_flag = formed_united_kingdom_flag }
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_GBR
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = NZL
+		variant = NZ2
+		trigger = "
+			OR = {
+				AND = {
+					is_subject_other_than_tributary_trigger = yes
+					overlord = {
+						tag = event_target:_GBR
+						has_country_flag = formed_united_kingdom_flag
+					}
+				}
+				AND = {
+					has_reform = dominion_reform
+					has_country_flag = dominion_of_UKI
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = NZL
+		variant = NZL
+		trigger = "
+		"
+	}
+
+	# Pakistan
+	define_country_tag_alias = {
+		default = PAK
+		variant = PA1
+		trigger = "
+			is_subject_of_type = dominion
+			overlord = {
+				tag = event_target:_GBR
+				NOT = { has_country_flag = formed_united_kingdom_flag }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = PAK
+		variant = PA2
+		trigger = "
+			is_subject_of_type = dominion
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = PAK
+		variant = PAK
+		trigger = "
+		"
+	}
+
+	# Palestine
+	# define_country_tag_alias = {
+		# default = PLS
+		# variant = MPL
+		# trigger = "
+			# is_subject_other_than_tributary_trigger = yes
+			# overlord = {
+				# tag = event_target:_GBR
+				# has_country_flag = formed_united_kingdom_flag
+			# }
+		# "
+	# }
+	define_country_tag_alias = {
+		default = PLS
+		variant = PLS
+		trigger = "
+		"
+	}
+
+	# Poland
+	define_country_tag_alias = {
+		default = POL
+		variant = CPO
+		trigger = "
+			government = monarchy
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_RUS
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = POL
+		variant = POL
+		trigger = "
+		"
+	}
+
+	# Prussia
+	define_country_tag_alias = {
+		default = PRU
+		variant = PRE
+		country_color = "color = { 143  141  128 }"
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = PRU
+		variant = PRU
+		trigger = "
+		"
+	}
+
+	# Colonial India
+	define_country_tag_alias = {
+		default = RHJ
+		variant = BRJ
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = RHJ
+		variant = RHJ
+		trigger = "
+		"
+	}
+
+	# South Africa
+	define_country_tag_alias = {
+		default = RSA
+		variant = SAF
+		trigger = "
+			culture_group = germanic
+		"
+	}
+	define_country_tag_alias = {
+		default = RSA
+		variant = RSA
+		trigger = "
+		"
+	}
+
+	# Russia
+	define_country_tag_alias = {
+		default = RUS
+		variant = SOV
+		trigger = "
+			is_communist = yes
+			owns_core_province = 276 # Minsk
+			owns_core_province = 280 # Kyiv
+			owns_core_province = 295 # Moscow
+		"
+	}
+	define_country_tag_alias = {
+		default = RUS
+		variant = RSF
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = RUS
+		variant = RUE
+		trigger = "
+			is_autocracy = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = RUS
+		variant = ROS
+		country_color = "color = { 0  131  214 }"
+		trigger = "
+			is_or_was_tag = { tag = ROS }
+		"
+	}
+	define_country_tag_alias = {
+		default = RUS
+		variant = RUS
+		trigger = "
+		"
+	}
+
+	# Slovakia
+	define_country_tag_alias = {
+		default = SVK
+		variant = SLO
+		trigger = "
+			NOT = { government = republic }
+		"
+	}
+	define_country_tag_alias = {
+		default = SVK
+		variant = SVK
+		trigger = "
+		"
+	}
+
+	# Spain
+	define_country_tag_alias = {
+		default = SPA
+		variant = SPF
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = SPA
+		variant = SPC
+		country_color = "color = { 200  150  0 }"
+		trigger = "
+			is_autocracy = yes
+		"
+	}
+	# define_country_tag_alias = {
+		# default = SPA
+		# variant = SPR
+		# country_color = "color = { 204  0  0 }"
+		# trigger = "
+			# OR = {
+				# is_communist = yes
+				# has_reform = anarchist_society
+			# }
+		# "
+	# }
+	define_country_tag_alias = {
+		default = SPA
+		variant = SPR
+		country_color = "color = { 242  205  70 }"
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = SPA
+		variant = SPA
+		trigger = "
+		"
+	}
+
+	# Sweden
+	define_country_tag_alias = {
+		default = SWE
+		variant = SWN
+		trigger = "
+			is_or_was_tag = { tag = SWN }
+		"
+	}
+	define_country_tag_alias = {
+		default = SWE
+		variant = SWD
+		country_color = "color = { 0  40  104 }"
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = SWE
+		variant = SWL
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = SWE
+		variant = SWE
+		trigger = "
+		"
+	}
+
+	# Tunisia
+	define_country_tag_alias = {
+		default = TUN
+		variant = FPT
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_FRA
+				has_country_flag = adopted_tricolor_flag
+			}
+		"
+	}
+	# define_country_tag_alias = {
+		# default = TUN
+		# variant = TU2 # Modern Flag
+		# trigger = "
+			# OR = {
+				# government = republic
+				# is_or_was_tag = { tag = FPT }
+				# is_or_was_tag = { tag = TU2 }
+			# }
+		# "
+	# }
+	define_country_tag_alias = {
+		default = TUN
+		variant = TUN
+		trigger = "
+		"
+	}
+
+	# Turkey
+	define_country_tag_alias = {
+		default = TUR
+		variant = TKY
+		country_color = "color = { 235  64  43 }"
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = TUR
+		variant = TKY
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = TUR
+		variant = TUR
+		trigger = "
+		"
+	}
+
+	# Tuscany
+	define_country_tag_alias = {
+		default = TUS
+		variant = ETR # Kingdom of Etruria
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_FRA
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = TUS
+		variant = TUS
+		trigger = "
+		"
+	}
+
+	# UAE
+	define_country_tag_alias = {
+		default = UAE
+		variant = TRU
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = UAE
+		variant = UAE
+		trigger = "
+		"
+	}
+
+	# United States
+	define_country_tag_alias = {
+		default = USA
+		variant = US2
+		trigger = "
+			has_reform = monarchy_mechanic
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U51
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 51 }
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U50
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 50 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 51 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U49
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 49 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 50 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U48
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 48 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 49 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U47
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 47 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 48 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U46
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 46 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 47 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U45
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 45 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 46 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U44
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 44 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 45 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U43
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 43 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 44 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U42
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 42 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 43 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U41
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 41 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 42 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U40
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 40 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 41 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U39
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 39 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 40 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U38
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 38 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 39 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U37
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 37 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 38 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U36
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 36 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 37 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U35
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 35 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 36 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U34
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 34 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 35 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U33
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 33 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 34 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U32
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 32 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 33 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U31
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 31 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 32 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U30
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 30 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 31 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U29
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 29 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 30 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U28
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 28 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 29 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U27
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 27 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 28 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U26
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 26 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 27 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U25
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 25 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 26 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U24
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 24 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 25 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U23
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 23 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 24 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U22
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 22 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 23 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U21
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 21 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 22 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U20
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 20 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 21 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U19
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 19 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 20 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U18
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 18 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 19 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U17
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 17 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 18 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U16
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 16 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 17 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U15
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 15 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 16 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = U14
+		trigger = "
+			number_of_american_states_owned_trigger = { amount = 14 }
+			NOT = {
+				number_of_american_states_owned_trigger = { amount = 15 }
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = USA
+		variant = USA
+		trigger = "
+		"
+	}
+
+	# Vietnam
+	define_country_tag_alias = {
+		default = VTN
+		variant = NVI
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = VTN
+		variant = SVI
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = VTN
+		variant = VTN
+		trigger = "
+		"
+	}
+
+	# Yemen
+	define_country_tag_alias = {
+		default = YEM
+		variant = SYE
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = YEM
+		variant = YER
+		trigger = "
+			government = republic
+		"
+	}
+	define_country_tag_alias = {
+		default = YEM
+		variant = YEM
+		trigger = "
+		"
+	}
+
+	# Yugoslavia
+	define_country_tag_alias = {
+		default = YUG
+		variant = SRY
+		country_color = "color = { 162  52  199 }" # Vanilla ET color
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = YUG
+		variant = YUG
+		trigger = "
+		"
+	}
+
+	# Cape
+	define_country_tag_alias = {
+		default = CPE
+		variant = CEC # Cape Colony
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CPE
+		variant = CPE
+		trigger = "
+		"
+	}
+
+	# Natalia
+	define_country_tag_alias = {
+		default = NTL
+		variant = NAC # Natal Colony
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = NTL
+		variant = NTL
+		trigger = "
+		"
+	}
+
+	# Orange
+	define_country_tag_alias = {
+		default = OFS
+		variant = ORC # Orange River Colony
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = OFS
+		variant = OFS
+		trigger = "
+		"
+	}
+
+	# Transvaal
+	define_country_tag_alias = {
+		default = TVA
+		variant = TVC # Transvaal Colony
+		trigger = "
+			is_subject_other_than_tributary_trigger = yes
+			overlord = {
+				tag = event_target:_GBR
+				has_country_flag = formed_united_kingdom_flag
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = TVA
+		variant = TVA
+		trigger = "
+		"
+	}
+
+	# Tuvans
+	define_country_tag_alias = {
+		default = TUV
+		variant = TTU # Tannu who?
+		trigger = "
+			is_communist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = TUV
+		variant = TUV
+		trigger = "
+		"
+	}
+
+	# Portugal
+	define_country_tag_alias = {
+		default = POR
+		country_color = "color = { 57  160  101 }" # Classic green Portugal
+		trigger = "
+			has_reform = republic_mechanic
+		"
+	}
+
+	# Iberia(n Union)
+	define_country_tag_alias = {
+		default = IBU
+		country_color = "color = { 6  64  39 }" # Republican Portugal color from Vic3
+		trigger = "
+			was_tag = POR
+			has_reform = republic_mechanic
+		"
+	}
+	define_country_tag_alias = {
+		default = IBU
+		country_color = "color = { 28  82  148 }" # Portugal color from Vic3
+		trigger = "
+			was_tag = POR
+		"
+	}
+
+	# Persia
+	define_country_tag_alias = {
+		default = PER
+		country_color = "color = { 229  170  87 }"
+		trigger = "
+			has_reform = monarchy_mechanic
+			NOT = { has_government_attribute = has_prime_minister }
+			dynasty = Pahlavi
+		"
+	}
+	define_country_tag_alias = {
+		default = PER
+		country_color = "color = { 10  95  220 }"
+		trigger = "
+			has_reform = monarchy_mechanic
+			NOT = { has_government_attribute = has_prime_minister }
+			dynasty = Qajar
+		"
+	}
+
+	# Scotland
+	define_country_tag_alias = {
+		default = SCO
+		variant = HSC # St Andrew's Cross flag
+		trigger = "
+			has_reform = republic_mechanic
+			OR = {
+				tag = SCO
+				NOT = { exists = SCO }
+			}
+			OR = {
+				tag = HSC
+				NOT = { exists = HSC }
+			}
+		"
+		effect = "
+			override_country_name_add_flag = {
+				name = SCO
+				definite = no
+				special = yes
+			}
+		"
+		removed_effect = "
+			clear_country_name_with_flag = { name = SCO }
+		"
+	}
+	define_country_tag_alias = {
+		default = SCO
+		variant = SCO
+		trigger = "
+		"
+	}
+
+	# Hungary
+	define_country_tag_alias = {
+		default = HUN
+		country_color = "color = { 138  163  117 }"
+		trigger = "
+			is_fascist = yes
+		"
+	}
+	define_country_tag_alias = {
+		default = HUN
+		country_color = "color = { 249  126  98 }"
+		trigger = "
+			has_reform = republic_mechanic
+		"
+	}
+
+	# Scandinavia
+	define_country_tag_alias = {
+		default = SCA
+		country_color = "color = { 202  245  251 }" # From vanilla
+		trigger = "
+			religion = norse_pagan_reformed
+		"
+	}
+	define_country_tag_alias = {
+		default = SCA
+		country_color = "color = { 255  212  42 }" # From vanilla
+		trigger = "
+			has_reform = danish_archkingdom
+		"
+	}
+
+	# Thailand
+	define_country_tag_alias = {
+		default = SIA
+		variant = THL
+		trigger = "
+			tag = THL
+		"
+	}
+	define_country_tag_alias = {
+		default = SIA
+		variant = SIA
+		trigger = "
+		"
+	}
+
+	# Sicily
+	define_country_tag_alias = {
+		default = SIC
+		variant = SCL # Emirate of Sicily
+		trigger = "
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion = secularism
+					tag = SCL
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = SIC
+		variant = SIC
+		trigger = "
+		"
+	}
+
+	# Crete
+	define_country_tag_alias = {
+		default = CRT
+		variant = CRR # Emirate of Crete
+		trigger = "
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion = secularism
+					tag = CRR
+				}
+			}
+		"
+	}
+	define_country_tag_alias = {
+		default = CRT
+		variant = CRT
+		trigger = "
+		"
+	}
+
+	# Uzbekistan
+	define_country_tag_alias = {
+		default = UZB
+		variant = SHY # Uzbek
+		trigger = "
+			NOT = { has_reform = republic_mechanic }
+		"
+	}
+	define_country_tag_alias = {
+		default = UZB
+		variant = UZB
+		trigger = "
+		"
+	}
+
+	# Bulgaria
+	# define_country_tag_alias = {
+		# default = BUL
+		# country_color = "color = { 158  36  30 }"
+		# trigger = "
+			# is_communist = yes
+		# "
+	# }
+	define_country_tag_alias = {
+		default = BUL
+		country_color = "color = { 66  113  69 }"
+		trigger = "
+			has_reform = republic_mechanic
+		"
+	}
+
+	# Cambodia
+	define_country_tag_alias = {
+		default = CMB
+		variant = KHM
+		trigger = "
+			tag = KHM
+		"
+	}
+	define_country_tag_alias = {
+		default = CMB
+		variant = CMB
+		trigger = "
+		"
+	}
+
+	# Syria
+	define_country_tag_alias = {
+		default = SYR
+		country_color = "color = { 20  60  210 }"
+		trigger = "
+			is_subject_of_type = colonial_mandate
+			overlord = {
+				tag = event_target:_FRA
+			}
+		"
+	}
+
+	# Lebanon
+	define_country_tag_alias = {
+		default = LEB
+		country_color = "color = { 20  50  210 }"
+		trigger = "
+			is_subject_of_type = colonial_mandate
+			overlord = {
+				tag = event_target:_FRA
+			}
+		"
+	}
+
+	# Jordan
+	define_country_tag_alias = {
+		default = JOR
+		country_color = "color = { 153  25  25 }"
+		trigger = "
+			is_subject_of_type = colonial_mandate
+			overlord = {
+				tag = event_target:_GBR
+			}
+		"
+	}
+
+	clr_global_flag = update_country_tag_alias_define_mode
+	clr_country_flag = tag_has_changed_flag
+	clr_country_flag = color_has_changed_flag
+}

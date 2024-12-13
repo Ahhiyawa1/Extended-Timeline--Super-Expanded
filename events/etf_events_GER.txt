@@ -1,0 +1,1991 @@
+namespace = etf_event_ger
+
+#########################################
+##       The German Confederation      ##
+## Its creation, runnings and downfall ##
+#########################################
+
+# Creating the German Confederation
+country_event = {
+	id = etf_event_ger.100
+	title = etf_event_ger.100.t
+	desc = etf_event_ger.100.d
+	picture = GER_CONFED_eventPicture
+
+	is_triggered_only = yes
+
+	# Minor change in response from members vs. non-members:
+	option = {
+		name = etf_event_ger.100.ra
+		trigger = { is_GCF_member = yes }
+	}
+	option = {
+		name = etf_event_ger.100.rb
+		trigger = { is_GCF_member = no }
+	}
+}
+
+# Joining the German Confederation
+country_event = {
+	id = etf_event_ger.101
+	title = etf_event_ger.101.t
+	desc = etf_event_ger.101.d
+	picture = GER_CONFED_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			is_GCF_member = yes # Only alert other members if minor
+			has_country_flag = former_GCF_member_state
+			AND = {
+				# Alert everybody if Great Power joins:
+				same_continent = FROM
+				FROM = {
+					is_great_power = yes
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.101.r
+	}
+}
+
+# Leaving the German Confederation
+country_event = {
+	id = etf_event_ger.102
+	title = etf_event_ger.102.t
+	desc = etf_event_ger.102.d
+	picture = GER_CONFED_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			is_GCF_member = yes # Only alert other members if minor
+			has_country_flag = former_GCF_member_state
+			AND = {
+				# Alert everybody if Great Power joins:
+				same_continent = FROM
+				FROM = {
+					is_great_power = yes
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.102.r
+		add_prestige = 10
+		if = {
+			limit = {
+				is_great_power = yes
+			}
+			change_GCF_variable = {
+				which = stability_GCF_var
+				value = -10
+			}
+		}
+		else = {
+			change_GCF_variable = {
+				which = stability_GCF_var
+				value = -6
+			}
+		}
+	}
+}
+
+# German Confederation Collapses (0% Stability)
+country_event = {
+	id = etf_event_ger.103
+	title = etf_event_ger.103.t
+	desc = etf_event_ger.103.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = german_confederation_established
+		is_GCF_leader = yes
+		GCF = {
+			is_variable_equal = {
+				which = stability_GCF_var
+				value = 0
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.103.r
+		dismantle_GCF_effect = yes
+	}
+}
+
+# Defend the German Confederation!
+country_event = {
+	id = etf_event_ger.104
+	title = etf_event_ger.104.t
+	desc = etf_event_ger.104.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	trigger = {
+		is_GCF_leader = yes
+		# Any GCF member...
+		any_country = {
+			is_GCF_member = yes
+			# ... is being attacked by any non-GCF member.
+			any_country = {
+				is_GCF_member = no
+				is_in_war = {
+					attacker_leader = THIS
+					defender_leader = PREV
+				}
+				NOT = { war_with = ROOT } # Not already at war with Attacker
+			}
+			NOT = { war_with = ROOT } # Not at war with Defender
+			NOT = { tag = ROOT }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_GCF_member = yes
+					any_country = {
+						is_GCF_member = no
+						is_in_war = {
+							attacker_leader = THIS
+							defender_leader = PREV
+						}
+						NOT = { war_with = ROOT }
+					}
+					NOT = { war_with = ROOT }
+					NOT = { tag = ROOT }
+				}
+				save_event_target_as = confederation_defender
+			}
+			random_country = {
+				limit = {
+					is_GCF_member = no
+					is_in_war = {
+						attacker_leader = THIS
+						defender_leader = event_target:confederation_defender
+					}
+					NOT = { war_with = ROOT }
+				}
+				save_event_target_as = confederation_attacker
+			}
+		}
+	}
+
+	option = { # We must rally by their side!
+		name = etf_event_ger.104.ra
+		join_all_defensive_wars_of = event_target:confederation_defender
+	}
+
+	option = { # We're busy, with other stuff.
+		name = etf_event_ger.104.rb
+		event_target:confederation_defender = {
+			sub_100_opinion_effect = {
+				who = ROOT
+			}
+		}
+		change_GCF_variable = {
+			which = unity_GCF_var
+			value = -10
+		}
+		change_GCF_variable = {
+			which = stability_GCF_var
+			value = -10
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Unifying the German Confederation!
+country_event = {
+	id = etf_event_ger.110
+	title = etf_event_ger.110.t
+	desc = etf_event_ger.110.d
+	picture = GER_CONFED_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	option = { # Complete Unification!
+		name = etf_event_ger.110.ra
+		every_country = {
+			limit = {
+				is_GCF_member = yes
+				NOT = { tag = ROOT }
+			}
+			annex_tag_into = {
+				target = ROOT
+				transfer_troops = no
+			}
+		}
+		change_tag = GCF
+		on_change_tag_effect = yes
+		swap_non_generic_missions = yes
+		if = {
+			limit = {
+				NOT = { government_rank = 3 }
+			}
+			set_government_rank = 3
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		add_prestige = 25
+		if = {
+			limit = {
+				has_custom_ideas = no
+			}
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		set_country_flag = formed_germany_flag
+		hidden_effect = {
+			dismantle_GCF_effect = yes
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				country_is = { tag = HAB }
+			}
+		}
+	}
+
+	option = { # Unify!... and subjugate them.
+		name = etf_event_ger.110.rb
+		random_country = {
+			limit = {
+				is_GCF_member = yes
+				NOT = { tag = ROOT }
+				if = {
+					limit = {
+						any_country = {
+							ai = no
+							is_GCF_member = yes
+							NOT = { tag = ROOT }
+						}
+					}
+					ai = no
+				}
+			}
+			change_tag = GCF
+			on_change_tag_effect = yes
+		}
+		every_country = {
+			limit = {
+				is_GCF_member = yes
+				NOT = { tag = ROOT }
+			}
+			annex_tag_into = {
+				target = GCF
+				transfer_troops = no
+			}
+		}
+		GCF = {
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_germany_flag
+		}
+		# Make GCF into our subject:
+		if = {
+			limit = {
+				government = monarchy
+				religion_group = christian
+			}
+			GCF = {
+				change_government = ROOT
+				change_religion = ROOT
+				add_50_opinion_effect = {
+					who = ROOT
+					mutual = yes
+				}
+			}
+			create_union = GCF
+			GCF = {
+				disable_subject_annexation = yes
+			}
+		}
+		else = {
+			GCF = {
+				change_government = republic
+				add_50_opinion_effect = {
+					who = ROOT
+					mutual = yes
+				}
+			}
+			create_subject = {
+				subject_type = puppet_state
+				subject = GCF
+			}
+			GCF = {
+				disable_subject_annexation = yes
+			}
+		}
+		hidden_effect = {
+			dismantle_GCF_effect = yes
+		}
+	}
+
+	option = { # Unify!... but keep us out of it.
+		name = etf_event_ger.110.rc
+		random_country = {
+			limit = {
+				is_GCF_member = yes
+				NOT = { tag = ROOT }
+				if = {
+					limit = {
+						any_country = {
+							ai = no
+							is_GCF_member = yes
+							NOT = { tag = ROOT }
+						}
+					}
+					ai = no
+				}
+			}
+			change_tag = GCF
+			on_change_tag_effect = yes
+		}
+		every_country = {
+			limit = {
+				is_GCF_member = yes
+				NOT = { tag = ROOT }
+			}
+			annex_tag_into = {
+				target = GCF
+				transfer_troops = no
+			}
+		}
+		GCF = {
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_germany_flag
+		}
+		# Make GCF into a friendly ally:
+		GCF = {
+			change_government = ROOT
+			add_100_opinion_effect = {
+				who = ROOT
+				mutual = yes
+			}
+			add_historical_friend = ROOT
+			ROOT = {
+				add_historical_friend = GCF
+			}
+		}
+		create_alliance = GCF
+		hidden_effect = {
+			dismantle_GCF_effect = yes
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				country_is = { tag = HAB }
+			}
+		}
+	}
+}
+
+#############################################
+# Meetings of the Federal Convention (W.I.P):
+#############################################
+
+# The voting system is finished, but I've got no idea what members should vote on...
+# Might finish this properly in the future.
+
+# Begin Convention Meeting
+country_event = {
+	id = etf_event_ger.120
+	title = etf_event_ger.120.t
+	desc = {
+		desc = etf_event_ger.120.d
+		trigger = {
+			is_GCF_leader = yes
+		}
+	}
+	desc = {
+		desc = etf_event_ger.120.d.centralization
+		trigger = {
+			FROM = { has_country_flag = ongoing_GCF_debate_agenda_centralization }
+		}
+	}
+	desc = {
+		desc = etf_event_ger.120.d.stability
+		trigger = {
+			FROM = { has_country_flag = ongoing_GCF_debate_agenda_stability }
+		}
+	}
+	picture = GER_CONFED_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_GCF_leader = yes
+			# A debate is ongoing:
+			FROM = {
+				OR = {
+					has_country_flag = ongoing_GCF_debate_agenda_centralization
+					has_country_flag = ongoing_GCF_debate_agenda_stability
+				}
+			}
+		}
+	}
+
+	after = {
+		if = {
+			limit = { is_GCF_leader = yes }
+			GCF = {
+				set_variable = {
+					which = yay_votes_GCF
+					value = 1 # Leader vote counted here
+				}
+				set_variable = {
+					which = nay_votes_GCF
+					value = 0
+				}
+			}
+			# Trigger event for all other members, let the voting begin!
+			every_country = {
+				limit = {
+					is_GCF_member = yes
+					NOT = { tag = ROOT }
+				}
+				set_country_flag = ongoing_GCF_debate_is_voter
+				country_event = { id = etf_event_ger.120 days = 10 random = 20 }
+			}
+		}
+		if = {
+			limit = {
+				all_country = {
+					if = {
+						limit = {
+							has_country_flag = ongoing_GCF_debate_is_voter
+						}
+						has_country_flag = ongoing_GCF_debate_has_voted
+					}
+				}
+			}
+			# Once all expected votes are in, give leader the result event.
+			FROM = {
+				country_event = { id = etf_event_ger.121 }
+			}
+		}
+	}
+
+	# Encourage Centralizing reforms:
+	option = {
+		name = etf_event_ger.120.r.centralization
+		trigger = {
+			is_GCF_leader = yes
+		}
+		custom_tooltip = etf_event_ger.120.t.centralization
+		set_country_flag = ongoing_GCF_debate_agenda_centralization
+	}
+	# Encourage confederal cohesion:
+	option = {
+		name = etf_event_ger.120.r.stability
+		trigger = {
+			is_GCF_leader = yes
+		}
+		custom_tooltip = etf_event_ger.120.t.stability
+		set_country_flag = ongoing_GCF_debate_agenda_stability
+	}
+
+	# Support the leader:
+	option = {
+		name = etf_event_ger.120.ra
+		trigger = {
+			is_GCF_leader = no
+		}
+		GCF = {
+			change_variable = {
+				which = yay_votes_GCF
+				value = 1
+			}
+		}
+		set_country_flag = ongoing_GCF_debate_has_voted
+		ai_chance = {
+			modifier = {
+				factor = 100
+				any_country = {
+					is_GCF_leader = yes
+					OR = {
+						alliance_with = ROOT
+						overlord_of   = ROOT
+						reverse_has_opinion = { who = ROOT value = 80 }
+					}
+				}
+			}
+		}
+	}
+	# Go against the leader:
+	option = {
+		name = etf_event_ger.120.rb
+		trigger = {
+			is_GCF_leader = no
+		}
+		GCF = {
+			change_variable = {
+				which = nay_votes_GCF
+				value = 1
+			}
+		}
+		set_country_flag = ongoing_GCF_debate_has_voted
+		ai_chance = {
+			modifier = {
+				factor = 100
+				any_country = {
+					is_GCF_leader = yes
+					NOT = {
+						alliance_with = ROOT
+						overlord_of   = ROOT
+						reverse_has_opinion = { who = ROOT value = 80 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Voting Results
+country_event = {
+	id = etf_event_ger.121
+	title = etf_event_ger.121.t
+	desc = {
+		desc = etf_event_ger.121.da.centralization
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_agenda_centralization
+			has_country_flag = ongoing_GCF_debate_success
+		}
+	}
+	desc = {
+		desc = etf_event_ger.121.db.centralization
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_agenda_centralization
+			has_country_flag = ongoing_GCF_debate_failure
+		}
+	}
+	desc = {
+		desc = etf_event_ger.121.da.stability
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_agenda_stability
+			has_country_flag = ongoing_GCF_debate_success
+		}
+	}
+	desc = {
+		desc = etf_event_ger.121.db.stability
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_agenda_stability
+			has_country_flag = ongoing_GCF_debate_failure
+		}
+	}
+	picture = GER_CONFED_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					GCF = {
+						# yay_votes_GCF >= nay_votes_GCF
+						check_variable = {
+							which = yay_votes_GCF
+							which = nay_votes_GCF
+						}
+					}
+				}
+				set_country_flag = ongoing_GCF_debate_success
+			}
+			else = {
+				set_country_flag = ongoing_GCF_debate_failure
+			}
+		}
+	}
+
+	# Vote ended successfully:
+	option = {
+		name = etf_event_ger.121.ra
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_success
+		}
+		if = {
+			limit = {
+				has_country_flag = ongoing_GCF_debate_agenda_centralization
+			}
+			change_GCF_variable = {
+				which = unity_GCF_var
+				value = 10
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = ongoing_GCF_debate_agenda_stability
+			}
+			change_GCF_variable = {
+				which = stability_GCF_var
+				value = 10
+			}
+		}
+	}
+
+	# Vote ended in failure:
+	option = {
+		name = etf_event_ger.121.rb
+		trigger = {
+			has_country_flag = ongoing_GCF_debate_failure
+		}
+		change_GCF_variable = {
+			which = stability_GCF_var
+			value = -10
+		}
+	}
+
+	after = {
+		GCF = {
+			set_variable = {
+				which = yay_votes_GCF
+				value = -1
+			}
+			set_variable = {
+				which = nay_votes_GCF
+				value = -1
+			}
+		}
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {
+					always = yes
+				}
+			}
+			clr_country_flag = ongoing_GCF_debate_is_voter
+			clr_country_flag = ongoing_GCF_debate_has_voted
+		}
+		clr_country_flag = ongoing_GCF_debate_success
+		clr_country_flag = ongoing_GCF_debate_failure
+		clr_country_flag = ongoing_GCF_debate_agenda_centralization
+		clr_country_flag = ongoing_GCF_debate_agenda_stability
+	}
+}
+
+#######################################
+# The Frankfurt Parliament Event Chain:
+#######################################
+
+# Revolution shakes the Confederation
+country_event = {
+	id = etf_event_ger.130
+	title = etf_event_ger.130.t
+	desc = etf_event_ger.130.d
+	picture = 1848_AUSTRIA_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = german_confederation_established
+		is_GCF_leader = yes
+		any_country = {
+			is_GCF_member = yes
+			has_disaster = 1848_revolution
+		}
+	}
+
+	option = {
+		name = etf_event_ger.130.r
+		change_GCF_variable = {
+			which = unity_GCF_var
+			value = 50
+		}
+		change_GCF_variable = {
+			which = stability_GCF_var
+			value = -30
+		}
+	}
+}
+
+# The Frankfurt Parliament
+country_event = {
+	id = etf_event_ger.131
+	title = etf_event_ger.131.t
+	desc = etf_event_ger.131.d
+	picture = PARLIAMENT_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = german_confederation_established
+		is_GCF_member = yes
+		owns = 1876 # Frankfurt
+		GCF = {
+			check_variable = {
+				which = unity_GCF_var
+				value = 65
+			}
+		}
+		# Candidate for unification exists:
+		any_country = {
+			is_GCF_member = yes
+			government = monarchy
+			is_great_power = yes
+		}
+	}
+
+	option = {
+		name = etf_event_ger.131.ra
+		custom_tooltip = etf_event_ger.131.tt
+		hidden_effect = {
+			random_country = {
+				limit = {
+					# Usually Prussia:
+					is_GCF_member = yes
+					government = monarchy
+					is_great_power = yes
+					if = {
+						limit = {
+							any_country = {
+								is_GCF_member = yes
+								government = monarchy
+								is_great_power = yes
+								NOT = {
+									country_is = { tag = HAB }
+								}
+							}
+						}
+						# Target country is not Austria,
+						# unless no other alternative exists.
+						NOT = {
+							country_is = { tag = HAB }
+						}
+					}
+				}
+				country_event = { id = etf_event_ger.132 days = 10 random = 10 } # "The Crown from the Gutter"
+			}
+		}
+	}
+}
+
+# The Crown from the Gutter
+country_event = {
+	id = etf_event_ger.132
+	title = etf_event_ger.132.t
+	desc = etf_event_ger.132.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Accept the Crown from the Gutter
+		name = etf_event_ger.132.ra
+		add_prestige = -200
+		change_government_to_parliamentary_monarchy = yes
+		change_tag = DEU
+		on_change_tag_effect = yes
+		swap_non_generic_missions = yes
+		if = {
+			limit = {
+				NOT = { government_rank = 3 }
+			}
+			set_government_rank = 3
+		}
+		north_german_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = DEU
+		}
+		south_german_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = DEU
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		add_prestige = 25
+		if = {
+			limit = {
+				has_custom_ideas = no
+				NOT = { has_idea_group = GER_ideas }
+			}
+			country_event = { id = ideagroups.1 }
+		}
+		set_country_flag = formed_germany_flag
+		set_country_flag = accepted_the_gutter_crown
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_german_culture_trigger = yes
+					capital_scope = {
+						greater_german_region_trigger = yes
+					}
+					OR = {
+						is_subject_of = ROOT
+						is_free_or_tributary_trigger = yes
+					}
+					NOT = { country_is = { tag = GER } }
+				}
+				country_event = { id = etf_event_ger.133 days = 3 } # "FROM takes the German Crown"
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					tag = PRU
+					tag = NGC
+					is_autocracy = yes
+				}
+			}
+		}
+	}
+
+	option = { # Refuse it.
+		name = etf_event_ger.132.rb
+		add_prestige = 10
+		FROM = {
+			country_event = { id = etf_event_ger.134 } # "FROM refuses the German Crown"
+		}
+	}
+}
+
+# FROM takes the German Crown
+country_event = {
+	id = etf_event_ger.133
+	title = etf_event_ger.133.t
+	desc = etf_event_ger.133.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Onwards to a Greater Destiny!
+		name = etf_event_ger.133.ra
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		FROM = {
+			annex_tag = {
+				target = ROOT
+				transfer_troops = no
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				OR = {
+					ai = no
+					is_great_power = yes
+					is_GCF_leader = yes
+				}
+			}
+		}
+	}
+
+	option = { # We won't accept their hegemony!
+		name = etf_event_ger.133.rb
+		FROM = {
+			sub_100_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = {
+					ai = no
+					is_great_power = yes
+					is_GCF_leader = yes
+				}
+			}
+		}
+	}
+}
+
+# FROM refuses the German Crown
+country_event = {
+	id = etf_event_ger.134
+	title = etf_event_ger.134.t
+	desc = etf_event_ger.134.d
+	picture = PARLIAMENT_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	is_triggered_only = yes
+
+	option = { # Well, this is awkward
+		name = etf_event_ger.134.r
+		change_GCF_variable = {
+			which = unity_GCF_var
+			value = -30
+		}
+		change_GCF_variable = {
+			which = stability_GCF_var
+			value = -30
+		}
+	}
+}
+
+#############################
+# Schleswig Wars Event Chain:
+#############################
+
+# The Germans of Holstein Awaken with Fury
+country_event = {
+	id = etf_event_ger.140
+	title = etf_event_ger.140.t
+	desc = etf_event_ger.140.d # "We demand our own constitution, and union with Schleswig!"
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	trigger = {
+		tag = SHL
+		is_german_culture_trigger = yes
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			primary_culture = danish
+			OR = {
+				AND = {
+					overlord_of = SCH
+					SCH = { ai = yes }
+				}
+				AND = {
+					any_owned_province = {
+						is_core = SCH
+					}
+					NOT = { exists = SCH }
+				}
+			}
+		}
+		is_year = 3946
+		NOT = { started_in = 3950.5.8 } # London Protocol
+	}
+
+	option = { # Send some demands to Copenhagen!
+		name = etf_event_ger.140.ra
+		overlord = {
+			country_event = { id = etf_event_ger.141 }
+		}
+	}
+
+	option = { # We're fine with our current situation.
+		name = etf_event_ger.140.rb
+		add_stability = -1
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Holstein demands union with Schleswig
+country_event = {
+	id = etf_event_ger.141
+	title = etf_event_ger.141.t
+	desc = etf_event_ger.141.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			is_GCF_member = yes
+			tag = SHL
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # Relent to their demands.
+		name = etf_event_ger.141.ra
+		FROM = {
+			disable_subject_annexation = yes
+			override_country_name_add_flag = {
+				name = SCHLESWIG_HOLSTEIN
+				special = yes
+			}
+			if = {
+				limit = {
+					ROOT = { overlord_of = SCH }
+				}
+				annex_tag = {
+					target = SCH
+					transfer_troops = no
+				}
+			}
+			else = {
+				holstein_area = {
+					limit = {
+						owned_by = ROOT
+						is_core = SCH
+					}
+					cede_province = FROM
+					hidden_effect = {
+						add_core = FROM
+					}
+				}
+			}
+			hidden_effect = {
+				add_liberty_desire = -25
+			}
+		}
+		custom_tooltip = etf_event_ger.141.tt # "We recognize Schleswig's perpetual autonomy"
+		set_country_flag = promises_to_schleswig
+	}
+
+	option = { # Seek a compromise.
+		name = etf_event_ger.141.rb
+		if = {
+			limit = {
+				NOT = { exists = SCH }
+			}
+			release = SCH
+			if = {
+				limit = { government = monarchy }
+				create_union = SCH
+			}
+			else = {
+				vassalize = SCH
+			}
+		}
+		every_core_province = {
+			limit = { owned_by = SCH }
+			remove_core = ROOT
+		}
+		SCH = {
+			disable_subject_annexation = yes
+		}
+		custom_tooltip = etf_event_ger.141.tt # "We recognize Schleswig's perpetual autonomy"
+		set_country_flag = promises_to_schleswig
+		ai_chance = {
+			factor = 5 # Historical
+		}
+	}
+
+	option = { # The nerve! Refuse every demand!
+		name = etf_event_ger.141.rc
+		FROM = {
+			country_event = { id = etf_event_ger.142 }
+		}
+	}
+}
+
+# Denmark Refuses our Demands
+country_event = {
+	id = etf_event_ger.142
+	title = etf_event_ger.142.t
+	desc = etf_event_ger.142.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # War it is!
+		name = etf_event_ger.142.ra
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_independence_war
+		}
+		set_country_flag = holstein_war_of_independence
+		FROM = {
+			set_country_flag = holstein_war_of_independence_overlord
+		}
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_great_power = yes
+					is_german_culture_trigger = yes
+					capital_scope = {
+						region = north_german_region
+					}
+				}
+				country_event = { id = etf_event_ger.150 days = 10 random = 5 }
+			}
+		}
+	}
+
+	option = { # Well, we gave it a good try.
+		name = etf_event_ger.142.rb
+		add_stability = -1
+		capital_scope = {
+			revolutionary_rebels = 2
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+## Schleswig War can trigger in one of two ways;
+## either Denmark refuses Holstein's original demands,
+## or they annex Schleswig later on after previously
+## promising the region autonomy.
+## Either way, a North German GP is called in to help.
+
+# Holstein calls for Aid
+country_event = {
+	id = etf_event_ger.150
+	title = etf_event_ger.150.t
+	desc = etf_event_ger.150.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			is_GCF_member = yes
+			tag = SHL
+			war_with = SHL
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # Absolutely!
+		name = etf_event_ger.150.ra
+		join_all_offensive_wars_of = FROM
+		create_alliance = FROM
+	}
+
+	option = { # We're busy.
+		name = etf_event_ger.150.rb
+		add_prestige = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Avenge Schleswig!
+country_event = {
+	id = etf_event_ger.151
+	title = etf_event_ger.151.t
+	desc = etf_event_ger.151.d
+	picture = LAND_MILITARY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_great_power = yes
+		is_german_culture_trigger = yes
+		capital_scope = {
+			region = north_german_region
+		}
+		# Denmark owns all SCH core provinces:
+		any_country = {
+			has_country_flag = promises_to_schleswig
+			all_province = {
+				if = {
+					limit = { is_core = SCH }
+					owned_by = PREV
+				}
+			}
+		}
+		NOT = { exists = SCH }
+		NOT = { started_in = 3963.1.1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = promises_to_schleswig
+					all_province = {
+						if = {
+							limit = { is_core = SCH }
+							owned_by = PREV
+						}
+					}
+				}
+				save_event_target_as = annexer_of_schleswig
+			}
+		}
+	}
+
+	option = { # Let's liberate Holstein!
+		name = etf_event_ger.151.ra
+		declare_war_with_cb = {
+			who = event_target:annexer_of_schleswig
+			casus_belli = cb_humiliate_rotw
+		}
+		set_country_flag = started_schleswig_war_flag
+	}
+
+	option = { # We're busy.
+		name = etf_event_ger.151.rb
+		add_prestige = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Victory over Denmark (Treaty of Vienna)
+country_event = {
+	id = etf_event_ger.152
+	title = etf_event_ger.152.t
+	desc = etf_event_ger.152.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+	major_trigger = {
+		has_country_flag = treaty_of_vienna_flag
+	}
+
+	is_triggered_only = yes # on_war_won
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				# Holstein vs. Denmark
+				has_country_flag = holstein_war_of_independence
+				FROM = {
+					has_country_flag = holstein_war_of_independence_overlord
+				}
+			}
+			AND = {
+				# Prussia vs. Denmark
+				has_country_flag = started_schleswig_war_flag
+				FROM = {
+					has_country_flag = promises_to_schleswig
+				}
+			}
+		}
+		FROM = {
+			NOT = { has_country_flag = treaty_of_vienna_flag }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			holstein_area = {
+				limit = { country_or_non_sovereign_subject_holds = FROM }
+				cede_province = ROOT
+			}
+			FROM = {
+				every_subject_country = {
+					limit = {
+						capital_scope = { region = north_german_region }
+					}
+					grant_independence = yes
+				}
+				set_country_flag = treaty_of_vienna_flag
+			}
+		}
+	}
+
+	option = { # Partition Schleswig-Holstein
+		name = etf_event_ger.152.ra
+		if = {
+			limit = {
+				OR = {
+					owns = 3008
+					owns = 13
+				}
+				NOT = { exists = SCH }
+			}
+			hidden_effect = {
+				SCH = {
+					every_core_province = { remove_core = SCH }
+				}
+				3008 = {
+					if = {
+						limit = { owned_by = ROOT }
+						add_core = SCH
+						remove_core = ROOT
+					}
+				}
+				13 = {
+					if = {
+						limit = { owned_by = ROOT }
+						add_core = SCH
+						remove_core = ROOT
+					}
+				}
+				SCH = {
+					change_government = ROOT
+					change_primary_culture = lower_saxon
+					add_accepted_culture = danish
+					change_religion = capital
+					define_ruler = {}
+				}
+			}
+			release = SCH
+			add_to_sphere = { tag = SCH }
+			SCH = {
+				add_100_opinion_effect = { who = ROOT }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					owns = 4141
+					owns = 1775
+				}
+				NOT = { exists = SHL }
+			}
+			hidden_effect = {
+				SHL = {
+					every_core_province = { remove_core = SHL }
+				}
+				4141 = {
+					if = {
+						limit = { owned_by = ROOT }
+						add_core = SHL
+						remove_claim = ROOT
+						remove_core = ROOT
+					}
+				}
+				1775 = {
+					if = {
+						limit = { owned_by = ROOT }
+						add_core = SHL
+						remove_claim = ROOT
+						remove_core = ROOT
+					}
+				}
+				SHL = {
+					change_government = ROOT
+					change_primary_culture = lower_saxon
+					change_religion = capital
+					define_ruler = {}
+					clear_country_name_with_flag = { name = SCHLESWIG_HOLSTEIN }
+				}
+			}
+			release = SHL
+			add_to_sphere = { tag = SHL }
+			SHL = {
+				add_100_opinion_effect = { who = ROOT }
+			}
+		}
+	}
+
+	option = { # Annex Schleswig-Holstein!
+		name = etf_event_ger.152.rb
+		add_prestige = -10
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_GCF_member = yes
+			}
+		}
+	}
+}
+
+###############################
+# The Brothers War Event Chain:
+###############################
+
+# The Brothers War
+country_event = {
+	id = etf_event_ger.160
+	title = etf_event_ger.160.t
+	desc = etf_event_ger.160.d
+	picture = ACCUSATION_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.160.r
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_humiliate_rotw
+		}
+		set_country_flag = brothers_war_attacker
+		FROM = {
+			set_country_flag = brothers_war_defender
+		}
+		hidden_effect = {
+			# Invite everybody to the war
+			every_country = {
+				limit = {
+					is_GCF_member = yes
+					is_subject_of_type = sphere_member
+				}
+				if = {
+					limit = { is_subject_of = ROOT }
+					join_all_offensive_wars_of = ROOT
+				}
+				if = {
+					limit = { is_subject_of = FROM }
+					join_all_defensive_wars_of = FROM
+				}
+			}
+			FROM = { # ...even the Italians
+				country_event = { id = etf_event_ger.161 days = 15 random = 5 }
+			}
+		}
+	}
+}
+
+# Invite Italy to the war?
+country_event = {
+	id = etf_event_ger.161
+	title = etf_event_ger.161.t
+	desc = etf_event_ger.161.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			country_is = { tag = ITA }
+			is_at_war = no
+			is_neighbor_of = FROM
+		}
+		italy_region = {
+			country_or_non_sovereign_subject_holds = FROM
+			any_core_country = {
+				country_is = { tag = ITA }
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.161.ra
+		random_country = {
+			limit = {
+				country_is = { tag = ITA }
+			}
+			country_event = { id = etf_event_ger.162 }
+		}
+	}
+
+	option = {
+		name = etf_event_ger.161.rb
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Italy is invited
+country_event = {
+	id = etf_event_ger.162
+	title = etf_event_ger.162.t
+	desc = etf_event_ger.162.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+	major_trigger = {
+		is_GCF_member = yes
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.162.ra
+		add_50_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+		create_alliance = FROM
+		join_all_defensive_wars_of = FROM
+		hidden_effect = {
+			set_country_flag = recieved_promises_to_italy
+			FROM = { set_country_flag = promises_to_italy }
+		}
+	}
+
+	option = {
+		name = etf_event_ger.162.rb
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Victory in the Brothers War
+country_event = {
+	id = etf_event_ger.163
+	title = etf_event_ger.163.t
+	desc = etf_event_ger.163.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_scope = {
+				greater_german_region_trigger = yes
+			}
+			has_country_flag = recieved_promises_to_italy
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				ROOT = { has_country_flag = brothers_war_attacker }
+				FROM = { has_country_flag = brothers_war_defender }
+			}
+			AND = {
+				ROOT = { has_country_flag = brothers_war_defender }
+				FROM = { has_country_flag = brothers_war_attacker }
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { has_country_flag = recieved_promises_to_italy }
+				save_event_target_as = italy_target
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.163.r
+		every_country = {
+			limit = {
+				OR = {
+					is_subject = no
+					is_subject_of = FROM
+				}
+				is_german_culture_trigger = yes
+				capital_scope = {
+					greater_german_region_trigger = yes
+				}
+				NOT = { tag = FROM }
+			}
+			hidden_effect = {
+				add_100_opinion_effect = {
+					who = ROOT
+					mutual = yes
+				}
+				sub_100_opinion_effect = {
+					who = FROM
+					mutual = yes
+				}
+				grant_independence = yes
+			}
+			ROOT = {
+				add_to_sphere = { tag = PREV }
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = promises_to_italy
+			}
+			custom_tooltip = etf_event_ger.163.tt
+			hidden_effect = {
+				italy_region = {
+					limit = {
+						country_or_non_sovereign_subject_holds = FROM
+						is_core = event_target:italy_target
+					}
+					cede_province = event_target:italy_target
+				}
+			}
+			every_country = {
+				limit = {
+					is_subject_of = FROM
+					culture_group = latin
+					capital_scope = {
+						region = italy_region
+					}
+					NOT = { tag = FROM }
+				}
+				hidden_effect = {
+					add_100_opinion_effect = {
+						who = event_target:italy_target
+						mutual = yes
+					}
+					sub_100_opinion_effect = {
+						who = FROM
+						mutual = yes
+					}
+					grant_independence = yes
+				}
+				event_target:italy_target = {
+					add_to_sphere = { tag = PREV }
+				}
+			}
+			clr_country_flag = promises_to_italy
+		}
+	}
+
+	after = {
+		every_country = {
+			clr_country_flag = brothers_war_attacker
+			clr_country_flag = brothers_war_defender
+		}
+	}
+}
+
+############################
+##   German Unification   ##
+############################
+
+# German minor nation picks a Sphere
+country_event = {
+	id = etf_event_ger.170
+	title = etf_event_ger.170.t
+	desc = etf_event_ger.170.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		is_german_culture_trigger = yes
+		capital_scope = {
+			continent = europe
+		}
+		is_subject = no
+		NOT = { is_great_power = yes }
+
+		any_country = {
+			is_german_culture_trigger = yes
+			capital_scope = {
+				continent = europe
+			}
+			is_great_power = yes
+			NOT = { tag = ROOT }
+			NOT = { has_country_flag = brothers_war_loser_flag }
+		}
+
+		is_institution_enabled = nationalism_institution
+		NOT = { hre_size = 1 }
+		NOT = { started_in = 3969.1.1 }
+		NOT = {
+			alias_exists = { tag = GER }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_german_culture_trigger = yes
+					capital_scope = {
+						continent = europe
+					}
+					is_great_power = yes
+					NOT = { tag = ROOT }
+					NOT = { has_country_flag = brothers_war_loser_flag }
+				}
+				save_event_target_as = first_german_GP
+			}
+			if = {
+				limit = {
+					any_country = {
+						NOT = { tag = event_target:first_german_GP }
+						is_german_culture_trigger = yes
+						capital_scope = {
+							continent = europe
+						}
+						is_great_power = yes
+						NOT = { tag = ROOT }
+						NOT = { has_country_flag = brothers_war_loser_flag }
+					}
+				}
+				random_country = {
+					limit = {
+						NOT = { tag = event_target:first_german_GP }
+						is_german_culture_trigger = yes
+						capital_scope = {
+							continent = europe
+						}
+						is_great_power = yes
+						NOT = { tag = ROOT }
+						NOT = { has_country_flag = brothers_war_loser_flag }
+					}
+					save_event_target_as = secon_german_GP
+				}
+				set_country_flag = there_is_another
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.170.ra
+		event_target:first_german_GP = {
+			add_to_sphere = {
+				tag = ROOT
+			}
+			hidden_effect = {
+				country_event = { id = etf_event_ger.171 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				alliance_with = event_target:first_german_GP
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.170.rb
+		trigger = {
+			has_country_flag = there_is_another
+		}
+		event_target:secon_german_GP = {
+			add_to_sphere = {
+				tag = ROOT
+			}
+			hidden_effect = {
+				country_event = { id = etf_event_ger.171 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				alliance_with = event_target:secon_german_GP
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.170.rc
+		event_target:first_german_GP = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		if = {
+			limit = {
+				has_country_flag = there_is_another
+			}
+			event_target:secon_german_GP = {
+				sub_50_opinion_effect = { who = ROOT }
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		clr_country_flag = there_is_another
+	}
+}
+
+# [FROM] Joins our Sphere
+country_event = {
+	id = etf_event_ger.171
+	title = etf_event_ger.171.t
+	desc = etf_event_ger.171.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.171.r
+	}
+}
+
+# Unification of Germany (Unification Decision)
+country_event = {
+	id = etf_event_ger.172
+	title = etf_event_ger.172.t
+	desc = etf_event_ger.172.d
+	picture = GER_UNIFICATION_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ger.172.r
+	}
+}
+
+# The French Threat against Germany (Alternate GCF Unification)
+country_event = {
+	id = etf_event_ger.173
+	title = etf_event_ger.173.t
+	desc = etf_event_ger.173.d
+	picture = GER_UNIFICATION_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		is_GCF_leader = yes
+		any_country = {
+			country_is = { tag = FRA }
+			# France has won a war against Prussia, and taken German land:
+			has_won_war_against = {
+				who = PRU
+				max_years_since = 1
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 3
+				is_core = PRU
+				OR = {
+					area = lower_rhineland_area
+					area = north_rhine_area
+					area = palatinate_area
+				}
+			}
+		}
+		started_in = 3934.1.1
+		NOT = { exists = GCF }
+	}
+
+	option = {
+		name = etf_event_ger.173.r
+		change_GCF_variable = {
+			which = unity_GCF_var
+			value = 100
+		}
+	}
+}
+
+###################
+# Post-Unification:
+###################
+
+# The Bismarck Constitution
+country_event = {
+	id = etf_event_ger.200
+	title = etf_event_ger.200.t
+	desc = etf_event_ger.200.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = GER }
+		was_tag = PRU
+		is_year = 3948
+		NOT = { started_in = 3969.1.18 }
+		NOT = { is_year = 3996 } # Bismarck's dead
+		government = monarchy
+		NOT = { has_reform = elected_parliament }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = etf_event_ger.200.ra
+		add_stability = 1
+		if = {
+			limit = {
+				NOT = { has_parliament_or_reform = yes }
+			}
+			add_government_reform = parliamentary_reform
+		}
+		add_government_reform = elected_parliament
+	}
+
+	option = {
+		name = etf_event_ger.200.rb
+		custom_tooltip = etf_event_ger.200.tt
+		if = {
+			limit = {
+				NOT = { has_parliament_or_reform = yes }
+			}
+			add_government_reform = parliamentary_reform
+		}
+		add_government_reform = elected_parliament
+		hidden_effect = {
+			add_government_reform = ceremonial_monarch
+			define_ruler = {
+				name = "Otto"
+				dynasty = "von Bismarck"
+				adm = 5
+				dip = 6
+				mil = 4
+				age = 60
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ger.200.rc
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

@@ -94,14 +94,10 @@ ming_missions_1 = {
 						who = ROOT 
 						value = 150 
 					}
-					if = {
-						limit = { has_dlc = "Leviathan" }
-						trust = {
-							who = ROOT 
-							value = 70 
-						}
+					trust = {
+						who = ROOT 
+						value = 70 
 					}
-					
 				}
 				any_subject_country = {
 					total_development = 200 
@@ -115,12 +111,9 @@ ming_missions_1 = {
 						who = ROOT 
 						value = 150 
 					}
-					if = {
-						limit = { has_dlc = "Leviathan" }
-						trust = {
-							who = ROOT 
-							value = 70 
-						}
+					trust = {
+						who = ROOT 
+						value = 70 
 					}
 				}
 			}
@@ -155,12 +148,9 @@ ming_missions_1 = {
 								who = ROOT 
 								value = 150 
 							}
-							if = {
-								limit = { has_dlc = "Leviathan" }
-								trust = {
-									who = ROOT 
-									value = 70 
-								}
+							trust = {
+								who = ROOT 
+								value = 70 
 							}
 						}
 					}
@@ -183,12 +173,9 @@ ming_missions_1 = {
 								who = ROOT 
 								value = 150 
 							}
-							if = {
-								limit = { has_dlc = "Leviathan" }
-								trust = {
-									who = ROOT 
-									value = 70 
-								}
+							trust = {
+								who = ROOT 
+								value = 70 
 							}
 						}
 						capital_scope = { 
@@ -218,12 +205,9 @@ ming_missions_1 = {
 							who = ROOT 
 							value = 150 
 						}
-						if = {
-							limit = { has_dlc = "Leviathan" }
-							trust = {
-								who = ROOT 
-								value = 70 
-							}
+						trust = {
+							who = ROOT 
+							value = 70 
 						}
 					}
 					add_country_modifier = {
@@ -250,12 +234,9 @@ ming_missions_1 = {
 							who = ROOT 
 							value = 150 
 						}
-						if = {
-							limit = { has_dlc = "Leviathan" }
-							trust = {
-								who = ROOT 
-								value = 70 
-							}
+						trust = {
+							who = ROOT 
+							value = 70 
 						}
 					}
 					capital_scope = { 
@@ -403,7 +384,7 @@ DOM_Qing_Related_Missions_1 = {
 			add_prestige_or_monarch_power = { amount = 20 } 
 			if = { 
 				limit = { is_emperor_of_china = yes } 
-				add_mandate = 10 
+				add_mandate = 2108 
 			}
 			if = { 
 				limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier } 
@@ -445,13 +426,15 @@ chinese_kingdoms_1 = {
 			tag = CYI
 			tag = CDL
 			tag = CGS
-			tag = SHU 
 			tag = FRM
+			
+			#New changed in MMETR
 			AND = {
 				tag = SHU
 				started_in = 2378.1.1
 			}
 		}
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -600,15 +583,15 @@ chinese_kingdoms_1 = {
 				add_ruler_personality = conqueror_personality
 			}
 			change_ruler_stat = {
-				type = adm
+				stat = adm
 				amount = 3
 			}
 			change_ruler_stat = {
-				type = dip
+				stat = dip
 				amount = 3
 			}
 			change_ruler_stat = {
-				type = mil
+				stat = mil
 				amount = 3
 			}
 			custom_tooltip = chi_warscore_reward_tt
@@ -616,7 +599,7 @@ chinese_kingdoms_1 = {
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" } 
 					set_emperor_of_china = ROOT 
-					add_mandate = 50 
+					add_mandate = 2148 
 				}
 				else = {
 					add_prestige_or_monarch_power = { amount = 100 }
@@ -626,7 +609,7 @@ chinese_kingdoms_1 = {
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" } 
 					set_emperor_of_china = ROOT 
-					add_mandate = 50 
+					add_mandate = 2148 
 				}
 				else = {
 					add_prestige_or_monarch_power = { amount = 100 }
@@ -650,7 +633,21 @@ ming_missions_1_b = {
 		}
 		capital_scope = { continent = asia }
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 
 
@@ -803,19 +800,8 @@ ming_missions_1_b = {
 		}
 		
 		effect = {
-			if = {
-				limit = { has_dlc = "Golden Century" }
-				custom_tooltip = mng_enable_3_grand_coordinators_offices_tt
-				set_country_flag = mng_enable_3_grand_coordinators_offices_flag 
-			}
-			else = {
-				add_corruption = -2
-				change_government_reform_progress = 100
-				change_ruler_stat = {
-					type = adm
-					amount = 1
-				}
-			}
+			custom_tooltip = mng_enable_3_grand_coordinators_offices_tt
+			set_country_flag = mng_enable_3_grand_coordinators_offices_flag 
 		}
 	}
 }
@@ -845,7 +831,7 @@ ming_missions_1_c = {
 				AND = {
 					NOT = { current_age = age_of_discovery }
 					NOT = { current_age = age_of_reformation }
-					imperial_mandate = 95 
+					imperial_mandate = 2193 
 				}
 			}
 			OR = {
@@ -857,7 +843,7 @@ ming_missions_1_c = {
 					limit = { has_dlc = "Mandate of Heaven" }
 					AND = {
 						crown_land_share = 95
-						imperial_mandate = 90  
+						imperial_mandate = 2188  
 						meritocracy = 90 
 						stability = 3 
 					}
@@ -913,7 +899,7 @@ DOM_Qing_Missions_1_b_formable = {
 			}
 			if = { 
 				limit = { is_emperor_of_china = yes } 
-				add_mandate = 20 
+				add_mandate = 2118 
 			}
 			else = { add_legitimacy = 25 }
 			hidden_effect = {
@@ -966,11 +952,7 @@ DOM_Qing_Missions_1_b_formable = {
 				num_of_banners = 32 
 			}
 			else = { num_of_cavalry = 50 } 
-			if = {
-				limit = { is_emperor_of_china = yes }
-				empire_of_china_reform_passed = modernize_the_banners_decision
-			}
-			else = { full_idea_group = aristocracy_ideas }
+			empire_of_china_reform_passed = modernize_the_banners_decision
 			OR = {
 				national_focus = MIL 
 				army_reformer = 3 
@@ -1022,7 +1004,7 @@ DOM_Qing_Missions_1_b_formable = {
 			}
 			if = { 
 				limit = { is_emperor_of_china = yes } 
-				add_mandate = 20
+				add_mandate = 2118
 			}
 			else = { add_stability_or_adm_power = yes }
 		}
@@ -1468,7 +1450,7 @@ DOM_Qing_Missions_2 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
 		}
 		trigger = { 
-			is_or_was_tag = { tag = MCH }
+			tag = MCH 
 			army_size = 25 
 			OR = { 
 				power_projection = 50 
@@ -1527,7 +1509,7 @@ DOM_Qing_Missions_2 = {
 						NOT = { army_size = ROOT } 
 						NOT = { prestige = ROOT } 
 						has_any_disaster = yes 
-						NOT = { imperial_mandate = 50 }
+						NOT = { imperial_mandate = 2148 }
 					}
 				}
 			}
@@ -1588,7 +1570,7 @@ DOM_Qing_Missions_2 = {
 					has_dlc = "Mandate of Heaven" 
 					is_emperor_of_china = yes 
 				}
-				add_mandate = 20
+				add_mandate = 2118
 				add_country_modifier = { 
 					name = qng_new_heavenly_era_modifier
 					duration = 7300 
@@ -1652,13 +1634,15 @@ chinese_kingdoms_2 = {
 			tag = CYI
 			tag = CDL
 			tag = CGS
-			tag = SHU 
 			tag = FRM
+			
+			#New changed in MMETR
 			AND = {
 				tag = SHU
 				started_in = 2378.1.1
 			}
 		}
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1770,7 +1754,7 @@ chinese_kingdoms_2 = {
 					if = {
 						limit = { is_emperor_of_china = yes }
 						every_subject_country = { 
-							overlord = { add_mandate = 10 } 
+							overlord = { add_mandate = 2108 } 
 						}
 					}
 					else = {
@@ -1792,7 +1776,7 @@ chinese_kingdoms_2 = {
 					if = {
 						limit = { is_emperor_of_china = yes }
 						every_subject_country = { 
-							overlord = { add_mandate = 10 } 
+							overlord = { add_mandate = 2108 } 
 						}
 					}
 					else = {
@@ -1831,7 +1815,21 @@ ming_missions_2_b = {
 		}
 		capital_scope = { continent = asia }
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 
 	
@@ -1848,7 +1846,7 @@ ming_missions_2_b = {
 				}
 				OR = { 
 					empire_of_china_reform_passed = reform_civil_registration_decision
-					imperial_mandate = 85 
+					imperial_mandate = 2183 
 				}
 			}
 			OR = {
@@ -2140,7 +2138,7 @@ ming_missions_2_b = {
 							has_reform = centralize_reform 
 						}
 					} 
-					add_mandate = 5
+					add_mandate = 2103
 				}
 				else_if = {
 					limit = { 
@@ -2433,7 +2431,7 @@ ming_missions_2_b = {
 									value = 70
 								}
 							}
-							ROOT = { add_mandate = 5 } 
+							ROOT = { add_mandate = 2103 } 
 						}
 					}
 					else = { 
@@ -2524,7 +2522,7 @@ DOM_Qing_Missions_2_b = {
 					has_dlc = "Mandate of Heaven"
 					is_emperor_of_china = yes
 				}
-				add_mandate = 20
+				add_mandate = 2118
 			}
 			else = {
 				add_legitimacy = 25
@@ -2702,13 +2700,15 @@ chinese_kingdoms_3 = {
 			tag = CYI
 			tag = CDL
 			tag = CGS
-			tag = SHU 
 			tag = FRM
+			
+			#New changed in MMETR
 			AND = {
 				tag = SHU
 				started_in = 2378.1.1
 			}
 		}
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -2799,7 +2799,7 @@ chinese_kingdoms_3 = {
 			}
 			if = {
 				limit = { is_emperor_of_china = ROOT } 
-				add_mandate = 25 
+				add_mandate = 2123 
 			}
 			else = {
 				add_stability_or_adm_power = yes 
@@ -3298,7 +3298,7 @@ ming_missions_3 = {
 			tooltip = {
 				if = { 
 					limit = { has_dlc = "Mandate of Heaven" } 
-					add_mandate = 5 
+					add_mandate = 2103 
 				}
 				else = { add_prestige_or_monarch_power = { amount = 35 } } 
 				add_country_modifier = {
@@ -3339,7 +3339,7 @@ ming_missions_3 = {
 				}
 				if = { 
 					limit = { has_dlc = "Mandate of Heaven" } 
-					add_mandate = 5 
+					add_mandate = 2103 
 				}
 				else = { add_prestige_or_monarch_power = { amount = 35 } } 
 			}
@@ -3394,7 +3394,7 @@ ming_missions_3 = {
 					NOT = { num_of_rebel_controlled_provinces = 1 } 
 					if = { 
 						limit = { is_emperor_of_china = yes } 
-						imperial_mandate = 80 
+						imperial_mandate = 2178 
 					}
 				}
 				AND = {
@@ -4019,7 +4019,21 @@ ming_missions_3_b = {
 		}
 		capital_scope = { continent = asia }
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 
 	
@@ -4215,7 +4229,7 @@ ming_missions_3_b = {
 					is_emperor_of_china = yes 
 				}
 				empire_of_china_num_reforms_passed = 10
-				imperial_mandate = 95 
+				imperial_mandate = 2193 
 			}
 			else = { prestige = 90 } 
 			NOT = { 
@@ -4479,7 +4493,7 @@ DOM_Qing_Missions_3_b = {
 		effect = {
 			if = { 
 				limit = { is_emperor_of_china = yes } 
-				add_mandate = 20 
+				add_mandate = 2118 
 			}
 			if = {
 				limit = {
@@ -4627,7 +4641,7 @@ DOM_Qing_Missions_3_b = {
 			has_final_tier_reforms_trigger = yes
 			if = { 
 				limit = { is_emperor_of_china = yes }
-				imperial_mandate = 90 
+				imperial_mandate = 2188 
 			}
 			else = { legitimacy = 90 }
 			crown_land_share = 90 
@@ -4713,13 +4727,15 @@ chinese_kingdoms_4 = {
 			tag = CYI
 			tag = CDL
 			tag = CGS
-			tag = SHU 
 			tag = FRM
+			
+			#New changed in MMETR
 			AND = {
 				tag = SHU
 				started_in = 2378.1.1
 			}
 		}
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -4749,7 +4765,7 @@ chinese_kingdoms_4 = {
 			}
 			if = {
 				limit = { is_emperor_of_china = ROOT } 
-				add_mandate = 25 
+				add_mandate = 2123 
 			}
 			else = {
 				add_stability_or_adm_power = yes 
@@ -4781,7 +4797,7 @@ chinese_kingdoms_4 = {
 			home_trade_node = { is_strongest_trade_power = ROOT }
 			trader = 3
 			num_of_owned_provinces_with = {
-				has_trade_building_trigger = yes 
+				has_trade_building_trigger = yes
 				value = 5
 			}
 			if = {
@@ -5022,7 +5038,7 @@ ming_missions_4_generic = {
 								loyalty = 60 
 							}
 						}
-						imperial_mandate = 90 
+						imperial_mandate = 2188 
 					}
 				}
 			}
@@ -5124,7 +5140,7 @@ ming_missions_4_dynamic_1 = {
 								loyalty = 60 
 							}
 						}
-						imperial_mandate = 90 
+						imperial_mandate = 2188 
 					}
 				}
 			}
@@ -5349,7 +5365,7 @@ ming_missions_4_b = {
 	ai = yes
 	potential = {
 		has_dlc = "Domination"
-		is_emperor_of_china = yes 
+		is_emperor_of_china = yes
 		OR = { 
 			tag = QNG 
 			culture_group = east_asian
@@ -5357,7 +5373,21 @@ ming_missions_4_b = {
 		}
 		capital_scope = { continent = asia }
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 	
 	
@@ -5577,7 +5607,7 @@ ming_missions_4_b = {
 					has_dlc = "Mandate of Heaven" 
 					is_emperor_of_china = yes 
 				}
-				imperial_mandate = 80 
+				imperial_mandate = 2178 
 			}
 			else = { prestige = 40 }
 			num_of_owned_provinces_with = { 
@@ -5654,7 +5684,21 @@ ming_missions_4_moh = {
 		has_dlc = "Mandate of Heaven" 
 		has_dlc = "Domination"
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 
 
@@ -5702,7 +5746,7 @@ DOM_Qing_Missions_4_b = {
 		trigger = {
 			if = {
 				limit = { is_emperor_of_china = yes } 
-				imperial_mandate = 75 
+				imperial_mandate = 2173 
 				empire_of_china_num_reforms_passed = 1
 				meritocracy = 80 
 			}
@@ -5763,7 +5807,7 @@ DOM_Qing_Missions_4_b = {
 				AND = { 
 					is_emperor_of_china = yes 
 					stability = 3 
-					imperial_mandate = 85
+					imperial_mandate = 2183
 					empire_of_china_num_reforms_passed = 8
 				}
 			}
@@ -5826,13 +5870,15 @@ chinese_kingdoms_5 = {
 			tag = CYI
 			tag = CDL
 			tag = CGS
-			tag = SHU 
 			tag = FRM
+			
+			#New changed in MMETR
 			AND = {
 				tag = SHU
 				started_in = 2378.1.1
 			}
 		}
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -5899,7 +5945,7 @@ chinese_kingdoms_5 = {
 			if = {
 				limit = { is_emperor_of_china = yes }
 				add_meritocracy = 10 
-				add_mandate = 15
+				add_mandate = 2113
 			}
 			else = { 
 				add_legitimacy = 25 
@@ -6083,7 +6129,7 @@ ming_missions_5 = {
 			custom_tooltip = mng_diplomatic_reward_dai_viet_tt
 			tooltip = { 
 				MNG = {
-					add_mandate = 10
+					add_mandate = 2108
 					add_historical_friend = DAI 
 					add_dip_power = 100 
 				}
@@ -6143,7 +6189,7 @@ ming_missions_5 = {
 						}
 						add_historical_friend = ROOT 
 					}
-					add_mandate = 10
+					add_mandate = 2108
 					add_historical_friend = DAI 
 					add_dip_power = 100 
 				}
@@ -6557,7 +6603,21 @@ ming_missions_5_b = {
 		}
 		capital_scope = { continent = asia }
 		
+		started_in = 3466.1.1		#New added in MMETR mod, to exclude new Ancient/Medieval Chinese Warlord missions
 		NOT = { tag = HND }		#New added in MMETR mod
+		NOT = { tag = SNG }		#New added in MMETR mod
+		if = {
+			limit = {	
+				tag = SHU
+			}
+			started_in = 2378.1.1
+		}
+		if = {
+			limit = {	
+				tag = WEI
+			}
+			started_in = 2378.1.1
+		}
 	}
 	has_country_shield = yes 
 	
@@ -6741,7 +6801,7 @@ ming_missions_5_b = {
 						is_emperor_of_china = yes
 						has_dlc = "Mandate of Heaven" 
 					}
-					add_mandate = 10 
+					add_mandate = 2108 
 				}
 				else = { add_prestige_or_monarch_power = { amount = 25 } }
 				change_government_reform_progress = 100 
@@ -6759,7 +6819,7 @@ ming_missions_5_b = {
 							is_emperor_of_china = yes
 							has_dlc = "Mandate of Heaven" 
 						}
-						add_mandate = 10 
+						add_mandate = 2108 
 					}
 					else = { 
 						add_prestige_or_monarch_power = { amount = 25 }
@@ -6798,7 +6858,7 @@ ming_missions_5_b = {
 					set_country_flag = mng_dev_per_adm_advisor_level_flag
 					if = {
 						limit = { has_dlc = "Mandate of Heaven" }
-						add_mandate = 10
+						add_mandate = 2108
 					}
 					else = {
 						owner = {

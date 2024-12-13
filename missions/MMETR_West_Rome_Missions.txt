@@ -111,6 +111,50 @@ west_rome_missions_1 = {
 			custom_tooltip = row_bishops_of_the_empire_mission.tt
 		}
 	}
+	row_here_to_stay_mission = {
+		icon = mission_rb_conquer_the_highlands
+		required_missions = { row_frontiers_of_britannia_mission }
+		position = 8
+		provinces_to_highlight = {
+			region = british_isles_region
+			NOT = {
+				has_owner_religion = yes
+			}
+			owned_by = ROOT
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				region = british_isles_region
+				has_owner_religion = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = british_isles_region
+				development = 8
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = british_isles_region
+				has_building = road
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region = british_isles_region
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_ROW_mission_events.8
+			}
+			custom_tooltip = row_here_to_stay_mission.tt
+		}
+	}
 }
 
 west_rome_missions_2 = {
@@ -314,6 +358,7 @@ west_rome_missions_2 = {
 				france_region = {
 					limit = {
 						has_terrain = farmlands
+						num_of_times_improved_by_owner = 1
 					}
 					add_province_modifier = {
 						name = "me_row_gallic_villa"
@@ -594,6 +639,9 @@ west_rome_missions_3 = {
 					add_permanent_claim = ROOT
 				}
 			}
+			country_event = {
+				id = mmetr_ROW_mission_events.9
+			}
 		}
 	}
 	row_alea_iacta_est_mission = {
@@ -736,6 +784,7 @@ west_rome_missions_4 = {
 			if = {				#If clause can be used in triggers, see DH Taungu missions
 				limit = {
 					has_dlc = "Leviathan"
+					religion = hellenism
 				}
 				owns_core_province = 118
 				118 = {
@@ -1007,21 +1056,22 @@ west_rome_missions_5 = {
 				region = italy_region
 				region = iberia_region
 			}
-			NOT = { has_matching_religion = ROOT }
+			NOT = { religion_group = christian }
+			has_discovered = ROOT
 		}
 		trigger = {
 			religion_group = christian
 			france_region = {
 				type = all
-				has_matching_religion = ROOT
+				religion_group = christian
 			}
 			italy_region = {
 				type = all
-				has_matching_religion = ROOT
+				religion_group = christian
 			}
 			iberia_region = {
 				type = all
-				has_matching_religion = ROOT
+				religion_group = christian
 			}
 		}
 		effect = {

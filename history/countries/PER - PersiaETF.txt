@@ -1,0 +1,38 @@
+set_country_flag = formed_persia_flag
+
+3892.1.1 = { # Qajar dynasty
+	government = monarchy
+	add_government_reform = persian_government_reform
+	government_rank = 3
+	add_accepted_culture = azerbaijani
+	if = {
+		limit = {
+			dynasty = "Qajar"
+		}
+		set_ruler_culture = azerbaijani # Turkic
+		set_heir_culture = azerbaijani
+		set_consort_culture = azerbaijani
+	}
+}
+
+4004.8.5 = { # Persian Constitution of 1906
+	government = monarchy
+	add_government_reform = autocracy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = regional_representation_reform
+	add_government_reform = legislative_houses_reform
+	add_government_reform = elected_parliament
+	add_government_reform = royal_power
+	add_government_reform = oligarchic_reform
+}
+
+4023.12.15 = { # Pahlavi dynasty
+	if = {
+		limit = {
+			dynasty = "Pahlavi"
+		}
+		set_ruler_culture = mazandarani
+		set_heir_culture = mazandarani
+		set_consort_culture = mazandarani
+	}
+}

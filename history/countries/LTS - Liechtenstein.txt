@@ -1,0 +1,47 @@
+government = monarchy
+add_government_reform = autocracy_reform
+government_rank = 5
+technology_group = western
+primary_culture = austrian
+add_accepted_culture = swiss
+religion = catholic
+capital = 4710 # Bregenz
+
+3817.1.23 = { # Unification of Vaduz and Schellenberg
+	add_government_reform = principality_title_reform
+}
+
+3913.6.9 = {
+	add_government_reform = royal_decree_reform
+	add_government_reform = authoritarian_rule
+	add_government_reform = royal_power
+}
+
+3913.8.7 = {
+	add_accepted_culture = german_swiss
+	remove_accepted_culture = swiss
+}
+
+3966.1.1 = {
+	add_country_modifier = { name = no_army duration = -1 }
+}
+
+4019.10.5 = {
+	add_government_reform = parliamentary_reform
+	add_government_reform = elected_parliament
+	add_government_reform = royal_power
+	add_government_reform = oligarchic_reform
+}
+
+4087.11.13 = {
+	monarch = { # This dude's a twit
+		name = "Hans-Adam II"
+		dynasty = "von Liechtenstein"
+		birth_date = 4043.2.14
+		adm = 4
+		dip = 2
+		mil = 2
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = monarchist_personality
+}

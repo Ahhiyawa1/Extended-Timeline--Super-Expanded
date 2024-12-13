@@ -10,10 +10,13 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { exists = MSA }
-			NOT = { exists = MS8 }
-			NOT = { exists = MS7 }
-			NOT = { exists = MS6 }
+			NOT = { tag = MLA }
+			NOT = { tag = IDN }
 			culture_group = malay
 			NOT = { has_reform = steppe_horde }
 			is_colonial_nation = no
@@ -70,9 +73,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			malaya_region = {
 				limit = {
@@ -96,6 +99,10 @@ country_decisions = {
 				duration = 3650
 			}
 			set_country_flag = formed_malaya_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			add_prestige = 25
 		}
 		ai_will_do = {

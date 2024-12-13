@@ -1,0 +1,1476 @@
+# Decisions that are localized in the "events" localization file, for conveniance.
+
+# etf_africa_events
+country_decisions = {
+
+	# Annex the Congo Free State
+	etf_event_africa_annex_congo = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = BEL }
+			has_saved_global_event_target = _DRC
+			event_target:_DRC = {
+				ai = yes
+				is_subject_of = ROOT
+				is_subject_other_than_tributary_trigger = yes
+				NOT = { is_subject_of_type = dominion }
+			}
+			is_year = 3998
+			has_global_flag = the_belgian_congo
+			NOT = { has_global_flag = annexed_belgian_congo }
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			annex_tag = {
+				target = event_target:_DRC
+				transfer_troops = no
+			}
+			set_global_flag = annexed_belgian_congo
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_china_events
+country_decisions = {
+
+	# Remove Opium debuff
+	etf_event_chn_purge_opium = {
+		major = yes
+		potential = {
+			has_country_modifier = opium_in_china
+		}
+		provinces_to_highlight = {
+			has_active_triggered_province_modifier = treaty_port_asia
+		}
+		allow = {
+			adm_power = 100
+			OR = {
+				has_institution = nationalism_institution
+				custom_trigger_tooltip = {
+					tooltip = etf_event_chn_purge_opium_tooltip
+					NOT = {
+						china_superregion = {
+							has_province_modifier = treaty_port_asia
+							NOT = { owned_by = ROOT }
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			add_stability = -1
+			remove_country_modifier = opium_in_china
+			country_event = { id = etf_event_chn.101 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Demand Outer Manchuria (RUS)
+	etf_event_chn_rus_settle_manchuria = {
+		major = yes
+		potential = {
+			country_is = { tag = RUS }
+			any_owned_province = {
+				OR = {
+					outer_manchuria_trigger = yes
+					any_neighbor_province = {
+						outer_manchuria_trigger = yes
+					}
+				}
+			}
+			any_country = {
+				has_country_modifier = opium_in_china
+				any_owned_province = {
+					outer_manchuria_trigger = yes
+				}
+				NOT = { war_with   = ROOT }
+				NOT = { truce_with = ROOT }
+			}
+			is_year = 3953
+			NOT = { started_in = 3956.5.28 }
+		}
+		provinces_to_highlight = {
+			outer_manchuria_trigger = yes
+			owner = {
+				has_country_modifier = opium_in_china
+			}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			random_country = {
+				limit = {
+					has_country_modifier = opium_in_china
+					any_owned_province = {
+						outer_manchuria_trigger = yes
+					}
+					NOT = { war_with = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+				country_event = { id = etf_event_chn.210 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Demand Dalian Port (RUS)
+	etf_event_chn_rus_demand_dalian = {
+		major = yes
+		potential = {
+			country_is = { tag = RUS }
+			3010 = {
+				range = ROOT
+			}
+			any_country = {
+				has_country_modifier = opium_in_china
+				owns = 3010 # Dalian
+				NOT = { war_with   = ROOT }
+				NOT = { truce_with = ROOT }
+			}
+			is_year = 3996
+			NOT = { started_in = 3996.3.6 }
+		}
+		provinces_to_highlight = {
+			province_id = 3010
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			random_country = {
+				limit = {
+					has_country_modifier = opium_in_china
+					owns = 3010
+					NOT = { war_with = ROOT }
+					NOT = { truce_with = ROOT }
+				}
+				country_event = { id = etf_event_chn.250 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_disaster_spanish_civil_war
+country_decisions = {
+
+	# Spanish Civil War - Support the Republicans
+	etf_event_scw_support_spr = {
+		potential = {
+			has_global_flag = spanish_civil_war_flag
+			SPR = {
+				same_continent = ROOT
+				war_with = SPF
+				NOT = {
+					war_with = ROOT
+				}
+			}
+			NOT = {
+				OR = {
+					tag = SPR
+					tag = SPF
+				}
+			}
+			OR = {
+				is_great_power = yes
+				is_neighbor_of = SPR
+				is_neighbor_of = SPF
+			}
+			NOT = { has_country_flag = scw_supports_spr }
+			NOT = { has_country_flag = scw_supports_spf }
+		}
+		allow = {
+			is_at_war = no
+			treasury = 150
+			manpower = 10
+		}
+		effect = {
+			SPR = {
+				country_event = { id = etf_event_scw.010 }
+			}
+			add_treasury = -150
+			add_manpower = -10
+			set_country_flag = scw_supports_spr
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					faction_in_power = conservative_party
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+					is_autocracy = yes
+					AND = {
+						is_dictatorship = yes
+						is_communist = no
+					}
+				}
+			}
+		}
+	}
+
+	# Spanish Civil War - Support the Nationalists
+	etf_event_scw_support_spf = {
+		potential = {
+			has_global_flag = spanish_civil_war_flag
+			SPF = {
+				same_continent = ROOT
+				war_with = SPR
+				NOT = {
+					war_with = ROOT
+				}
+			}
+			NOT = {
+				OR = {
+					tag = SPR
+					tag = SPF
+				}
+			}
+			OR = {
+				is_great_power = yes
+				is_neighbor_of = SPR
+				is_neighbor_of = SPF
+			}
+			NOT = { has_country_flag = scw_supports_spr }
+			NOT = { has_country_flag = scw_supports_spf }
+		}
+		allow = {
+			is_at_war = no
+			treasury = 150
+			manpower = 10
+		}
+		effect = {
+			SPF = {
+				country_event = { id = etf_event_scw.010 }
+			}
+			add_treasury = -150
+			add_manpower = -10
+			set_country_flag = scw_supports_spf
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					faction_in_power = liberal_party
+					faction_in_power = social_democratic_party
+					faction_in_power = communist_party
+					AND = {
+						faction_in_power = conservative_party
+						is_democracy = yes
+					}
+				}
+			}
+		}
+	}
+
+}
+
+# etf_events_CAM
+country_decisions = {
+
+	# Surrender during CAM breakup war
+	etf_event_cam_end_the_federation = {
+		major = yes
+		potential = {
+			has_country_flag = central_american_civil_war
+		}
+		allow = {
+			is_at_war = yes
+		}
+		effect = {
+			every_war_enemy_country = {
+				limit = {
+					has_country_flag = central_american_breakaway
+				}
+				white_peace = ROOT
+			}
+			country_event = { id = etf_event_cam.130 }
+		}
+		ai_will_do = {
+			factor = 1
+			# AI will surrender if 180 days has passed
+			# while being at war with all three secessionists.
+			modifier = {
+				factor = 0
+				NOT = {
+					AND = {
+						war_with = HON
+						war_with = NCR
+						war_with = COS
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					had_country_flag = {
+						flag = central_american_civil_war
+						days = 180
+					}
+				}
+			}
+		}
+		ai_importance = 200
+	}
+
+	# Cedes overlordship of Miskito to CAM/NCR
+	etf_event_cam_treaty_of_managua = {
+		major = yes
+		potential = {
+			any_subject_country = {
+				country_is = { tag = MIS }
+				is_subject_other_than_tributary_trigger = yes
+				any_neighbor_country = {
+					core_claim = PREV
+					is_at_war = no
+				}
+				NOT = { num_of_cities = 3 }
+			}
+			is_year = 3958
+			NOT = { started_in = 3958.1.1 }
+			NOT = { has_global_flag = treaty_of_managua_flag }
+		}
+		provinces_to_highlight = {
+			owner = {
+				country_is = { tag = MIS }
+			}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			add_prestige = 10
+			random_country = {
+				limit = {
+					any_neighbor_country = {
+						country_is = { tag = MIS }
+					}
+					OR = {
+						core_claim = MIS
+						core_claim = MKI
+					}
+				}
+				country_event = { id = etf_event_cam.210 }
+			}
+			set_global_flag = treaty_of_managua_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Ahistorical Belize Purchase by Central America
+	etf_event_cam_belize_purchase = {
+		major = yes
+		potential = {
+			OR = {
+				country_is = { tag = CAM }
+				country_is = { tag = GTM }
+			}
+			any_neighbor_country = {
+				is_free_or_tributary_trigger = yes
+				owns = 843
+				owns = 4589
+				capital_scope = {
+					NOT = { province_id = 843 }
+					NOT = { province_id = 4589 }
+				}
+			}
+			NOT = { has_global_flag = belize_purchase_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 843
+				province_id = 4589
+			}
+		}
+		allow = {
+			is_at_war = no
+			treasury = 1000
+		}
+		effect = {
+			843  = { add_core = ROOT }
+			4589 = { add_core = ROOT }
+			random_country = {
+				limit = {
+					owns = 843
+					owns = 4589
+				}
+				country_event = { id = etf_event_cam.220 }
+			}
+			custom_tooltip = IF_ACCEPTED
+			tooltip = {
+				add_treasury = -1000
+				843  = { cede_province = ROOT }
+				4589 = { cede_province = ROOT }
+			}
+			set_global_flag = belize_purchase_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}
+
+# etf_events_FRA
+country_decisions = {
+
+	# (PRU) Demand peace with France during Franco-Prussian War 
+	etf_event_fra_treaty_of_frankfurt = {
+		major = yes
+		potential = {
+			is_german_culture_trigger = yes
+			capital_scope = {
+				continent = europe
+			}
+			alsace_area = {
+				any_neighbor_province = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			any_war_enemy_country = {
+				country_is = { tag = FRA }
+				# ROOT is warleader vs. opposing French warleader
+				OR = {
+					is_in_war = {
+						attacker_leader = ROOT
+						defender_leader = THIS
+					}
+					is_in_war = {
+						attacker_leader = THIS
+						defender_leader = ROOT
+					}
+				}
+				alsace_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = PREV
+				}
+			}
+			post_napoleonic_age = yes
+			NOT = { started_in = 3969.5.10 }
+			NOT = { has_country_flag = tof_decision_flag }
+			NOT = { has_global_flag = treaty_of_frankfurt_flag }
+		}
+		allow = {
+			any_war_enemy_country = {
+				country_is = { tag = FRA }
+				OR = {
+					NOT = {
+						war_score_against = {
+							who = ROOT
+							value = -50
+						}
+					}
+					capital_scope = {
+						controlled_by = ROOT
+					}
+				}
+				hidden_trigger = {
+					alsace_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = PREV
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = { id = etf_event_fra.220 }
+			set_country_flag = tof_decision_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_events_GBR
+country_decisions = {
+
+	# Mediate Belgian Independence
+	etf_event_gbr_treaty_of_london = {
+		major = yes
+		potential = {
+			NOT = { # GP #1
+				great_power_rank = 2
+			}
+			has_saved_global_event_target = _NED
+			has_saved_global_event_target = _BEL
+			event_target:_NED = {
+				is_free_or_tributary_trigger = yes
+				capital_scope = {
+					range = ROOT
+				}
+			}
+			event_target:_BEL = {
+				is_free_or_tributary_trigger = yes
+				capital_scope = {
+					is_core = event_target:_NED
+				}
+			}
+			started_in = 3934.1.1
+			NOT = { is_year = 3939 }
+			NOT = { has_global_flag = mediated_belgian_independence }
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			hidden_effect = {
+				set_variable = {
+					which = treaty_of_london_signatures
+					value = 0
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = event_target:_NED
+						tag = event_target:_BEL
+					}
+				}
+				country_event = { id = etf_event_gbr.110 }
+			}
+			set_global_flag = mediated_belgian_independence
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# (GRE) Demand the Ionian Islands
+	etf_event_gbr_ionian_isles = {
+		major = yes
+		potential = {
+			country_is = { tag = GRE }
+			is_free_or_tributary_trigger = yes
+			ION = {
+				is_subject = yes
+				any_owned_province = {
+					range = ROOT
+				}
+			}
+			is_year = 3962
+			NOT = { started_in = 3963.1.1 }
+			NOT = { has_global_flag = greece_demands_the_isles }
+		}
+		provinces_to_highlight = {
+			owned_by = ION
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			random_country = {
+				limit = { overlord_of = ION }
+				country_event = { id = etf_event_gbr.120 }
+			}
+			set_global_flag = greece_demands_the_isles
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_events_GER
+country_decisions = {
+
+	# Creates the German Confederation
+	etf_event_ger_create_german_confederation = {
+		major = yes
+		potential = {
+			OR = {
+				is_german_culture_trigger = yes
+				primary_culture = luxembourgish
+			}
+			capital_scope = {
+				continent = europe
+			}
+			post_napoleonic_age = yes
+			NOT = { is_neutral = yes }
+			NOT = { started_in = 3964.7.22 }
+			NOT = { exists = NGC }
+			NOT = { exists = SGC }
+			NOT = {
+				OR = {
+					hre_size = 1
+					any_country = {
+						exists = yes
+						OR = {
+							country_is = { tag = GER }
+							country_is = { tag = EUR }
+							has_country_modifier = european_union
+						}
+					}
+				}
+			}
+			NOT = { has_global_flag = german_confederation_established }
+			NOT = { has_global_flag = german_confederation_destroyed }
+		}
+		allow = {
+			is_at_war = no
+			is_great_power = yes
+		}
+		effect = {
+			establish_GCF_effect = yes
+			hidden_effect = {
+				every_country = {
+					limit = {
+						same_continent = ROOT
+					}
+					country_event = { id = etf_event_ger.100 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				country_is = { tag = PRU }
+			}
+		}
+	}
+
+	# Join the Confederation
+	etf_event_ger_join_german_confederation = {
+		major = yes
+		potential = {
+			has_global_flag = german_confederation_established
+			OR = {
+				is_german_culture_trigger = yes
+				primary_culture = luxembourgish
+			}
+			capital_scope = {
+				OR = {
+					region = north_german_region
+					region = south_german_region
+					region = upper_german_region
+					province_id = 1742	# Limburg
+					province_id = 94	# Luxembourg
+				}
+			}
+			NOT = { is_neutral = yes }
+			NOT = { is_GCF_member = yes }
+			NOT = { has_country_flag = former_GCF_member_state }
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				is_free_or_tributary_trigger = yes
+				overlord = {
+					is_GCF_member = yes
+				}
+			}
+		}
+		effect = {
+			join_GCF_effect = yes
+			hidden_effect = {
+				country_event = { id = etf_event_ger.101 } # ROOT joins the GCF
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		ai_importance = 200
+	}
+
+	# Leave the Confederation
+	etf_event_ger_leave_german_confederation = {
+		major = yes
+		potential = {
+			has_global_flag = german_confederation_established
+			# (leader cannot leave via this decision)
+			is_GCF_member = yes
+			NOT = { is_GCF_leader = yes }
+		}
+		allow = {
+			if = {
+				limit = { # If at peace with GCF leader:
+					NOT = {
+						any_war_enemy_country = {
+							is_GCF_leader = yes
+						}
+					}
+				}
+				stability = 1
+			}
+			GCF = {
+				OR = {
+					NOT = {
+						check_variable = {
+							which = stability_GCF_var
+							value = 25
+						}
+					}
+					NOT = {
+						check_variable = {
+							which = unity_GCF_var
+							value = 10
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_war_enemy_country = {
+							is_GCF_leader = yes
+						}
+					}
+				}
+				add_stability = -1
+			}
+			exit_GCF_effect = yes
+			hidden_effect = {
+				country_event = { id = etf_event_ger.102 }
+			}
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0 # Leave if free, and at war with the leader
+				is_subject = no
+				NOT = {
+					any_war_enemy_country = {
+						is_GCF_leader = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0 # Leave if subject, and overlord has already left
+				is_subject = yes
+				overlord = {
+					NOT = { has_country_flag = former_GCF_member_state }
+				}
+			}
+		}
+		ai_importance = 200
+	}
+
+	# (DAN) Annex Schleswig-Holstein
+	etf_event_ger_annex_holstein = {
+		major = yes
+		potential = {
+			primary_culture = danish
+			is_year = 3962
+			any_subject_country = {
+				OR = {
+					country_is = { tag = SCH }
+					country_is = { tag = SHL }
+				}
+				NOT = { total_development = 250 }
+			}
+			NOT = { has_global_flag = annexed_holstein }
+		}
+		allow = {
+			is_at_war = no
+			dip_power = 50
+		}
+		effect = {
+			add_dip_power = -50
+			every_subject_country = {
+				limit = {
+					OR = {
+						country_is = { tag = SCH }
+						country_is = { tag = SHL }
+					}
+					NOT = { total_development = 250 }
+				}
+				annex_tag_into = {
+					target = ROOT
+					transfer_troops = no
+				}
+			}
+			set_global_flag = annexed_holstein
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# (PRU) Declare the Brothers War
+	etf_event_ger_trigger_brothers_war = {
+		major = yes
+		potential = {
+			OR = {
+				is_german_culture_trigger = yes
+				primary_culture = luxembourgish
+			}
+			capital_scope = {
+				continent = europe
+			}
+			is_great_power = yes
+			OR = {
+				is_year = 3964
+				AND = {
+					has_country_flag = started_schleswig_war_flag
+					holstein_area = {
+						country_or_subject_holds = ROOT
+					}
+				}
+			}
+			# Is not GCF leader:
+			any_neighbor_country = {
+				is_GCF_leader = yes
+				NOT = { tag = ROOT }
+			}
+			NOT = { is_GCF_leader = yes }
+			NOT = { has_global_flag = brothers_war_flag }
+		}
+		allow = {
+			is_at_war = no
+			if = {
+				limit = {
+					ai = yes
+				}
+				# Ready for war:
+				manpower_percentage = 0.5
+				NOT = { war_exhaustion = 2 }
+			}
+		}
+		effect = {
+			random_country = {
+				limit = {
+					is_GCF_leader = yes
+				}
+				country_event = { id = etf_event_ger.160 }
+			}
+			set_global_flag = brothers_war_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				# Avoid war if Austria is considerably stronger
+				any_country = {
+					is_GCF_leader = yes
+					army_strength = {
+						who = ROOT
+						value = 1.5
+					}
+				}
+			}
+		}
+		ai_importance = 200
+	}
+
+}
+
+# etf_events_ISR
+country_decisions = {
+
+	# Normalize relations with [_ISR.GetNameShort]
+	etf_event_isr_normalize_relations = {
+		potential = {
+			has_saved_global_event_target = _ISR
+			event_target:_ISR = {
+				exists = yes
+			}
+			has_opinion_modifier = {
+				who = event_target:_ISR
+				modifier = isr_hostile_opinion
+			}
+		}
+		provinces_to_highlight = {
+			is_capital = yes
+			owned_by = event_target:_ISR
+		}
+		allow = {
+			dip_power = 20
+			NOT = { war_with = event_target:_ISR }
+		}
+		effect = {
+			add_dip_power = -20
+			add_prestige = 10
+			remove_opinion = {
+				who = event_target:_ISR
+				modifier = isr_hostile_opinion
+			}
+			event_target:_ISR = {
+				country_event = { id = etf_event_isr.200 } # "[From.GetNameShortCap] wishes to normalize relations"
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						alliance_with = event_target:_ISR
+						is_subject_of = event_target:_ISR
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				religion_group = muslim
+				OR = {
+					government = theocracy
+					has_reform = islamist_government
+				}
+			}
+		}
+	}
+
+}
+
+# etf_events_JAP
+country_decisions = {
+
+	# Send Commodore Perry to Japan
+	etf_event_jap_send_commodore_perry = {
+		major = yes
+		potential = {
+			country_is = { tag = USA }
+			is_great_power = yes
+			is_year = 3952
+			any_owned_province = {
+				OR = {
+					region = cascadia_region
+					region = california_region
+				}
+				has_port = yes
+			}
+			any_known_country = {
+				has_reform = shogunate
+				has_country_modifier = edo_period_sakoku
+			}
+			NOT = { has_global_flag = sent_commodore_perry_flag }
+		}
+		provinces_to_highlight = {
+			is_capital = yes
+			owner = {
+				has_reform = shogunate
+				has_country_modifier = edo_period_sakoku
+			}
+		}
+		allow = {
+			is_at_war = no
+			navy_size = 50
+		}
+		effect = {
+			random_country = {
+				limit = {
+					has_reform = shogunate
+					has_country_modifier = edo_period_sakoku
+				}
+				country_event = { id = etf_event_jap.110 days = 30 }
+			}
+			set_global_flag = sent_commodore_perry_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Abolish the Han system, annex Daimyo's
+	etf_event_jap_end_han_system = {
+		major = yes
+		potential = {
+			OR = {
+				country_is = { tag = JAP }
+				has_reform = shogunate
+			}
+			has_global_flag = boshin_war_flag
+			any_country = {
+				is_subject_of = ROOT
+				capital_scope = {
+					region = japan_region
+				}
+			}
+			NOT = { has_global_flag = end_han_flag }
+		}
+		provinces_to_highlight = {
+			region = japan_region
+			owner = {
+				is_subject_of = ROOT
+				capital_scope = {
+					region = japan_region
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+			adm_power = 100
+			custom_trigger_tooltip = {
+				tooltip = etf_event_jap_end_han_system_tt
+				has_global_flag = boshin_war_flag
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			country_event = { id = etf_event_jap.200 }
+			set_global_flag = end_han_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_events_NOR
+country_decisions = {
+
+	# Norway Declares Independence from Sweden
+	etf_event_nor_storting_independence = {
+		major = yes
+		potential = {
+			country_is = { tag = NOR }
+			overlord = {
+				country_is = { tag = SWE }
+			}
+			OR = {
+				is_subject_of_type = personal_union
+				is_subject_of_type = dominion
+			}
+			has_parliament_or_reform = yes # Stortinget
+			is_year = 3998
+			NOT = { started_in = 4004.1.1 }
+			NOT = { has_country_flag = storting_votes_independence }
+		}
+		allow = {
+			is_at_war = no
+			has_institution = nationalism_institution
+		}
+		effect = {
+			tooltip = {
+				grant_independence = yes
+			}
+			overlord = {
+				country_event = { id = etf_event_nor.200 }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						is_subject_of_type = personal_union
+					}
+					define_ruler = { # Independent via change in ruler
+						name = "Regency (Storting)"
+						dip = 2
+						adm = 2
+						mil = 2
+						regency = yes
+					}
+				}
+				else_if = {
+					limit = {
+						has_reform = dominion_reform
+					}
+					grant_independence = yes
+					add_government_reform = autocracy_reform
+				}
+			}
+			set_country_flag = storting_votes_independence
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_events_RUS
+country_decisions = {
+
+	# Demand Russification of the Baltic Governorates
+	etf_event_rus_integrate_baltic_governorates = {
+		major = yes
+		potential = {
+			country_is = { tag = RUS }
+			primary_culture = russian
+			any_subject_country = {
+				is_subject_of_type = governorate_subject
+				capital_scope = {
+					region = baltic_region
+				}
+			}
+			is_year = 3968
+			NOT = { has_global_flag = baltic_russification_flag }
+		}
+		provinces_to_highlight = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = governorate_subject
+				capital_scope = {
+					region = baltic_region
+				}
+			}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			baltic_region = {
+				limit = {
+					owner = {
+						is_subject_of = ROOT
+						is_subject_of_type = governorate_subject
+						capital_scope = {
+							region = baltic_region
+						}
+					}
+				}
+				add_core = ROOT
+			}
+			every_country = {
+				limit = {
+					is_subject_of = ROOT
+					is_subject_of_type = governorate_subject
+					capital_scope = {
+						region = baltic_region
+					}
+				}
+				country_event = { id = etf_event_rus.200 }
+				custom_tooltip = IF_ACCEPTED
+				tooltip = {
+					change_primary_culture = russian
+				}
+			}
+			set_global_flag = baltic_russification_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_events_UHW
+country_decisions = {
+
+	# Britain subjugates Hawai'i
+	etf_event_uhw_occupy_hawaii = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = GBR }
+			UHW = {
+				exists = yes
+				is_subject = no
+				NOT = { war_with = ROOT }
+			}
+			has_global_flag = crisis_in_hawaii
+		}
+		provinces_to_highlight = {
+			is_capital_of = UHW
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			add_prestige = -30
+			create_subject = {
+				subject_type = protectorate
+				subject = UHW
+			}
+			clr_global_flag = crisis_in_hawaii
+			clr_global_flag = haw_britain_go_nuts
+		}
+		ai_will_do = {
+			modifier = {
+				factor = 0
+				NOT = { has_global_flag = haw_britain_go_nuts }
+			}
+		}
+	}
+
+}
+
+# etf_events_USA
+country_decisions = {
+
+	# Proclaim the Monroe Doctrine
+	etf_USA_events_monroe_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = USA }
+			is_year = 3921
+			NOT = { has_country_flag = monroe_doctrine_proclaimed }
+		}
+		allow = {
+			is_at_war = no
+			is_great_power = yes
+		}
+		effect = {
+			custom_tooltip = etf_USA_events_monroe_decision_tt
+			hidden_effect = {
+				country_event = { id = etf_event_usa.100 }
+				every_country = {
+					limit = {
+						capital_scope = {
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+						}
+						NOT = {
+							OR = {
+								government = tribal
+								government = native
+							}
+						}
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = monroe_opinion
+					}
+					reverse_add_opinion = {
+						who = ROOT
+						modifier = monroe_opinion
+					}
+				}
+			}
+			set_country_flag = monroe_doctrine_proclaimed
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Manifest Destiny
+	etf_event_usa_mf_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = USA }
+			# Westwards expansion has begun:
+			mississippi_region = {
+				type = all
+				owned_by = ROOT
+			}
+			has_saved_global_event_target = _MEX
+			event_target:_MEX = {
+				any_owned_province = {
+					mexican_cession_trigger = yes
+				}
+			}
+			dip_tech = 78
+			NOT = { started_in = 3946.2.2 }
+			NOT = { has_global_flag = manifest_destiny_flag }
+		}
+		provinces_to_highlight = {
+			mexican_cession_trigger = yes
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		effect = {
+			country_event = { id = etf_event_usa.200 } # Let's Manifest our Destiny!
+			set_global_flag = manifest_destiny_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					is_year = 3943
+				}
+			}
+		}
+	}
+
+	# Gadsden Purchase, finalize Mexico-US border
+	etf_event_usa_gadsden_purchase = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = USA }
+			has_saved_global_event_target = _MEX
+			event_target:_MEX = {
+				owns = 4633 # Sobaipuri
+				owns = 877  # Pima
+			}
+			is_year = 3952
+			NOT = { started_in = 3958.1.1 }
+			has_global_flag = guadalupe_hidalgo_flag
+			NOT = { has_country_flag = gadsden_purchase_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4633
+				province_id = 877
+			}
+		}
+		allow = {
+			is_at_war = no
+			event_target:_MEX = {
+				is_at_war = no
+				owns = 4633 # Sobaipuri
+				owns = 877  # Pima
+			}
+		}
+		effect = {
+			event_target:_MEX = {
+				country_event = { id = etf_event_usa.211 }
+			}
+			set_country_flag = gadsden_purchase_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+# etf_hoi4_events
+country_decisions = {
+
+	# Marco Polo Bridge Attack
+	#etf_event_hoi_marco_polo = {
+	#	major = yes
+	#	potential = {
+	#		country_is = { tag = JAP }
+	#		any_country = {
+	#			country_is = { tag = CHN }
+	#			is_free_or_tributary_trigger = yes
+	#			NOT = { war_with = ROOT }
+	#		}
+	#		started_in = 4034.1.1
+	#		NOT = { started_in = 4035.7.9 }
+	#		NOT = { is_democracy = yes }
+	#		NOT = { has_global_flag = bridge_exploded }
+	#	}
+	#	allow = {
+	#		is_year_and_month = {
+	#			year = 4035
+	#			july = yes
+	#		}
+	#	}
+	#	effect = {
+	#		country_event = { id = etf_event_hoi.100 } #War with China
+	#		set_global_flag = bridge_exploded
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+
+	# (JAP) Declare on America
+	etf_event_hoi_strike_phi = {
+		major = yes
+		potential = {
+			country_is = { tag = JAP }
+			any_country = {
+				tag = PHI
+				exists = yes
+				NOT = { war_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+			started_in = 4034.1.1
+			NOT = { started_in = 4039.12.7 }
+			NOT = { is_democracy = yes }
+			NOT = { has_global_flag = strike_south_phi_flag }
+		}
+		allow = {
+			is_year_and_month = {
+				year = 4039
+				december = yes
+			}
+		}
+		effect = {
+			declare_war_with_cb = {
+				who = PHI
+				casus_belli = cb_imperial
+			}
+			set_global_flag = strike_south_phi_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# End Horthy's Regency
+	etf_event_hoi_end_horthy_regency = {
+		major = yes
+		potential = {
+			has_ruler_flag = is_miklos_horthy
+			NOT = { has_country_flag = end_horthy_regency_flag }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+		}
+		effect = {
+			country_event = { id = etf_event_hoi.300 }
+			set_country_flag = end_horthy_regency_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { is_year = 4042 }
+					NOT = { is_subject_of = event_target:_GER }
+				}
+			}
+		}
+	}
+
+}
+
+# etf_modern_events
+country_decisions = {
+
+	# Settle the Macedonia Naming Dispute
+	etf_event_modern_north_macedonia = {
+		major = yes
+		potential = {
+			country_is = { tag = MAC }
+			any_country = {
+				has_country_flag = greece_macedonia_complaint_flag
+			}
+			NOT = {
+				country_name_is = { name = NORTH_MACEDONIA }
+			}
+		}
+		allow = {
+			is_at_war = no
+			adm_power = 5
+		}
+		effect = {
+			add_adm_power = -5
+			override_country_name_add_flag = {
+				name = NORTH_MACEDONIA
+				special = yes
+			}
+			random_country = {
+				limit = {
+					has_country_flag = greece_macedonia_complaint_flag
+				}
+				country_event = { id = etf_event_modern.102 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 4117 }
+			}
+		}
+	}
+
+}

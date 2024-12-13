@@ -1,0 +1,722 @@
+namespace = etf_event_mla
+
+# ======
+# Borneo
+# ======
+
+# Revolt in Kuching
+country_event = {
+	id = etf_event_mla.100
+	title = etf_event_mla.100.t
+	desc = etf_event_mla.100.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BEI
+		is_at_war = no
+		owns_core_province = 4804 # Kuching
+		NOT = { capital = 4804 }
+		is_year = 3938
+		NOT = { started_in = 3939.8.18 }
+		NOT = { exists = SRW }
+	}
+
+	option = {
+		name = etf_event_mla.100.r
+		4804 = {
+			anti_tax_rebels = 1
+		}
+		hidden_effect = {
+			country_event = { id = etf_event_mla.101 days = 60 } # If the rebellion isn't suppressed in time...
+		}
+	}
+}
+
+# The State of Sarawak
+country_event = {
+	id = etf_event_mla.101
+	title = etf_event_mla.101.t
+	desc = etf_event_mla.101.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:british_country
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		owns_core_province = 4804
+		4804 = {
+			has_rebel_faction = anti_tax_rebels
+		}
+		any_country = {
+			is_great_power = yes
+			primary_culture = english
+			has_discovered = 4804
+		}
+		NOT = { exists = SRW }
+	}
+
+	immediate = {
+		hidden_effect = {
+			4804 = {
+				clear_rebels = yes
+				change_controller = owner
+			}
+			SRW = { # Remove any existing cores
+				every_core_province = {
+					remove_core = PREV
+				}
+			}
+			random_country = { # Find James's potential home country
+				limit = {
+					is_great_power = yes
+					primary_culture = english
+					has_discovered = 4804
+				}
+				save_event_target_as = british_country
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_mla.101.ra
+		4804 = {
+			if = {
+				limit = {
+					NOT = { is_core = SRW }
+				}
+				add_core = SRW
+			}
+		}
+		release = SRW
+		SRW = {
+			hidden_effect = {
+				# Government
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				add_government_reform = parliamentary_reform
+				set_capital = 4804
+				add_country_modifier = {
+					name = the_abolish_slavery_act
+					duration = -1
+				}
+				# Culture
+				change_primary_culture = english
+				add_accepted_culture = malayan
+				add_accepted_culture = dayak
+				# Religion
+				change_religion = event_target:british_country
+				capital_scope = {
+					change_religion = event_target:british_country
+				}
+				# Army
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.6
+						artillery = 0.2
+					}
+					build_to_forcelimit = {
+						light_ship = 0.6
+						transport = 0.2
+					}
+				}
+				add_truce_with = ROOT
+			}
+			define_ruler = {
+				name = "James"
+				dynasty = "Brooke"
+				adm = 2 # Brought economic troubles
+				dip = 3 # Swayed the natives
+				mil = 3 # Successful campaigns against Brunei
+				age = 44
+			}
+			set_country_flag = raj_of_sarawak
+		}
+		event_target:british_country = {
+			add_to_sphere = { tag = SRW }
+		}
+	}
+
+	option = {
+		name = etf_event_mla.101.rb
+		trigger = {
+			ai = no
+		}
+		4804 = {
+			if = {
+				limit = {
+					NOT = { is_core = SRW }
+				}
+				add_core = SRW
+			}
+		}
+		release = SRW
+		SRW = {
+			hidden_effect = {
+				# Government
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				add_government_reform = parliamentary_reform
+				set_capital = 4804
+				add_country_modifier = {
+					name = the_abolish_slavery_act
+					duration = -1
+				}
+				# Culture
+				change_primary_culture = english
+				add_accepted_culture = malayan
+				add_accepted_culture = dayak
+				# Religion
+				change_religion = event_target:british_country
+				capital_scope = {
+					change_religion = event_target:british_country
+				}
+				# Army
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.6
+						artillery = 0.2
+					}
+					build_to_forcelimit = {
+						light_ship = 0.6
+						transport = 0.2
+					}
+				}
+				add_truce_with = ROOT
+			}
+			define_ruler = {
+				name = "James"
+				dynasty = "Brooke"
+				adm = 2 # Brought economic troubles
+				dip = 3 # Swayed the natives
+				mil = 3 # Successful campaigns against Brunei
+				age = 44
+			}
+			set_country_flag = raj_of_sarawak
+		}
+		event_target:british_country = {
+			add_to_sphere = { tag = SRW }
+		}
+		
+		custom_tooltip = " "
+		switch_tag = SRW # Onwards to Sarawak!
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Expedition to Brunei
+country_event = {
+	id = etf_event_mla.102
+	title = etf_event_mla.102.t
+	desc = etf_event_mla.102.d
+	picture = BORDER_TENSION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SRW
+		is_free_or_tributary_trigger = yes
+		BEI = {
+			is_free_or_tributary_trigger = yes
+			is_neighbor_of = ROOT
+			NOT = { war_with = ROOT }
+		}
+		OR = {
+			is_subject = yes
+			total_development = BEI # Bigger than Brunei
+		}
+		is_year = 3958
+		NOT = { started_in = 3959.1.1 }
+	}
+
+	option = { # Send an expedition.
+		name = etf_event_mla.102.ra
+		BEI = {
+			country_event = { id = etf_event_mla.103 }
+		}
+		tooltip = {
+			custom_tooltip = IF_REFUSED
+			declare_war_with_cb = {
+				who = BEI
+				casus_belli = cb_conquest
+			}
+		}
+		set_country_flag = SRW_brunei_expedition
+	}
+
+	option = { # We respect [BEI.GetNameShort]'s sovereignty.
+		name = etf_event_mla.102.rb
+		BEI = {
+			add_50_opinion_effect = { who = PREV }
+		}
+	}
+}
+
+# Sarawak Encroaches
+country_event = {
+	id = etf_event_mla.103
+	title = etf_event_mla.103.t
+	desc = etf_event_mla.103.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # I'm sure diplomacy can save us yet.
+		name = etf_event_mla.103.ra
+		set_country_flag = accepted_SRW_demands
+		FROM = {
+			country_event = { id = etf_event_mla.104 }
+		}
+		#custom_tooltip = etf_event_mla.103.tt
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_great_power = yes
+				FROM = {
+					is_great_power = no
+				}
+			}
+		}
+	}
+
+	option = { # This means war!
+		name = etf_event_mla.103.rb
+		tooltip = {
+			FROM = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_conquest
+				}
+			}
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = FROM
+					}
+				}
+				add_claim = FROM
+				FROM = {
+					declare_war_with_cb = {
+						who = ROOT
+						casus_belli = cb_conquest
+						# war_goal_province = PREV
+					}
+				}
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				# Unlikely to want all-out war with someone like Britain:
+				is_great_power = no
+				FROM = {
+					OR = {
+						is_great_power = yes
+						AND = {
+							is_subject = yes
+							overlord = {
+								is_great_power = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Treaty of Labuan
+country_event = {
+	id = etf_event_mla.104
+	title = etf_event_mla.104.t
+	desc = etf_event_mla.104.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			overlord_of = FROM
+			tag = BEI
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SRW
+		has_country_flag = SRW_brunei_expedition
+		OR = {
+			has_won_war_against = {
+				who = BEI
+				max_years_since = 1
+			}
+			BEI = {
+				has_country_flag = accepted_SRW_demands
+			}
+		}
+		NOT = { war_with = BEI }
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_truce_with = FROM
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				overlord = {
+					save_event_target_as = winning_country
+				}
+			}
+			else = {
+				save_event_target_as = winning_country
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_mla.104.r
+		# If Labuan was a province, it would've been ceded here.
+		# Instead, here's some influence in Borneo:
+		if = {
+			limit = {
+				BEI = {
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				event_target:winning_country = {
+					add_to_sphere = { tag = BEI }
+				}
+			}
+			else = {
+				vassalize = BEI
+			}
+		}
+		2704 = { # Sibu
+			if = {
+				limit = {
+					owned_by = BEI
+					range = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		2705 = { # Sarawak
+			if = {
+				limit = {
+					owned_by = BEI
+					range = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		BEI = {
+			every_core_province = {
+				limit = {
+					owned_by = ROOT
+				}
+				remove_core = PREV
+			}
+		}
+		hidden_effect = {
+			clr_country_flag = SRW_brunei_expedition
+			BEI = {
+				clr_country_flag = accepted_SRW_demands
+			}
+			set_global_flag = treaty_of_labuan
+		}
+	}
+}
+
+# Protectorate over Sarawak?
+country_event = {
+	id = etf_event_mla.105
+	title = etf_event_mla.105.t
+	desc = etf_event_mla.105.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SRW
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		is_subject = yes # Sphere, or otherwise
+		overlord = {
+			is_great_power = yes
+		}
+		is_year = 3986
+		NOT = { started_in = 3986.6.14 }
+	}
+
+	option = { # We better err on the side of caution, send a formal request for protection.
+		name = etf_event_mla.105.ra
+		overlord = {
+			country_event = { id = etf_event_mla.106 }
+		}
+		tooltip = {
+			custom_tooltip = IF_ACCEPTED
+			overlord = {
+				create_subject = {
+					subject_type = protectorate
+					subject = ROOT
+				}
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = no
+			}
+		}
+	}
+
+	option = { # Accept subjugation to protect our independence? Sounds absurd!
+		name = etf_event_mla.105.rb
+		add_prestige = 10
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = yes
+			}
+		}
+	}
+}
+
+# Sarawak seeks Protection
+country_event = {
+	id = etf_event_mla.106
+	title = etf_event_mla.106.t
+	desc = etf_event_mla.106.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:requesting_country
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				save_event_target_as = requesting_country
+			}
+		}
+	}
+
+	option = { # We welcome them into our Empire.
+		name = etf_event_mla.106.ra
+		create_subject = {
+			subject_type = protectorate
+			subject = FROM
+		}
+	}
+
+	option = { # They'd bring more trouble than they're worth.
+		name = etf_event_mla.106.rb
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# North Borneo Chartered Company
+country_event = {
+	id = etf_event_mla.110
+	title = etf_event_mla.110.t
+	desc = etf_event_mla.110.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_main_tag_of = { tag = GBR }
+		is_great_power = yes
+		any_known_country = {
+			owns = 637	# Sabah
+			owns = 2703	# Sandakan
+			637 = {
+				range = ROOT
+				is_in_capital_area = yes
+				NOT = { is_capital_of = PREV }
+			}
+			2703 = {
+				range = ROOT
+				is_in_capital_area = yes
+				NOT = { is_capital_of = PREV }
+			}
+			OR = {
+				is_subject_of = ROOT
+				has_opinion = {
+					who = ROOT
+					value = 50
+				}
+			}
+			NOT = { is_great_power = yes }
+			NOT = { war_with = ROOT }
+		}
+		is_year = 3976
+		NOT = { started_in = 3976.1.22 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = {
+					owns = 637	# Sabah
+					owns = 2703	# Sandakan
+				}
+				save_event_target_as = sabah_country
+			}
+		}
+	}
+
+	option = { # Offer to purchase the territory.
+		name = etf_event_mla.110.ra
+		event_target:sabah_country = {
+			country_event = { id = etf_event_mla.111 }
+		}
+		tooltip = {
+			custom_tooltip = IF_ACCEPTED
+			add_treasury = -200
+			event_target:sabah_country = {
+				add_treasury = 200
+			}
+			637 = {
+				remove_core = event_target:sabah_country
+				cede_province = ROOT
+				add_territorial_core = ROOT
+			}
+			2703 = {
+				remove_core = event_target:sabah_country
+				cede_province = ROOT
+				add_territorial_core = ROOT
+			}
+		}
+	}
+
+	option = { # We have little interest in Borneo.
+		name = etf_event_mla.110.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Sale of North Borneo
+country_event = {
+	id = etf_event_mla.111
+	title = etf_event_mla.111.t
+	desc = etf_event_mla.111.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_GBR
+	}
+
+	is_triggered_only = yes
+
+	option = { # They would bring great trade opportunities to the region.
+		name = etf_event_mla.111.ra
+		add_treasury = 200
+		FROM = {
+			add_treasury = -200
+		}
+		637 = {
+			remove_core = ROOT
+			cede_province = FROM
+			add_territorial_core = FROM
+		}
+		2703 = {
+			remove_core = ROOT
+			cede_province = FROM
+			add_territorial_core = FROM
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_great_power = yes
+			}
+		}
+	}
+
+	option = { # The land is of great value to us, refuse their offer.
+		name = etf_event_mla.111.rb
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		637 = {
+			add_claim = FROM
+		}
+		2703 = {
+			add_claim = FROM
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_subject_of = FROM
+			}
+			modifier = {
+				factor = 0
+				is_great_power = no
+				FROM = {
+					is_great_power = yes
+				}
+			}
+		}
+	}
+}
+
+# End of Brunei's Independence
+country_event = {
+	id = etf_event_mla.120
+	title = etf_event_mla.120.t
+	desc = etf_event_mla.120.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BEI
+		NOT = { num_of_cities = 2 } # OPM
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		is_subject = yes # Sphere, or otherwise
+		overlord = {
+			is_great_power = yes
+		}
+		is_year = 3978
+		NOT = { started_in = 3986.9.17 }
+	}
+
+	option = { # All we have left is the ability to negotiate.
+		name = etf_event_mla.120.r
+		overlord = {
+			country_event = { id = etf_event_mla.106 }
+		}
+		tooltip = {
+			custom_tooltip = IF_ACCEPTED
+			overlord = {
+				create_subject = {
+					subject_type = protectorate
+					subject = ROOT
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,187 @@
+country_decisions = {
+
+	befriend_great_power = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				is_subject = no
+			}
+			is_free_or_tributary_trigger = yes
+			is_great_power_trigger = no
+			any_known_country = {
+				can_influence_trigger = yes
+				NOT = { overlord_of = ROOT }
+			}
+		}
+		allow = {
+			dip_power = 50
+			is_at_war = no
+			NOT = { is_part_of_hre = yes }
+			custom_trigger_tooltip = {
+				tooltip = befriend_great_power_tt_1
+				capital_scope = {
+					OR = {
+						trade_range = event_target:GP_1
+						trade_range = event_target:GP_2
+						trade_range = event_target:GP_3
+						trade_range = event_target:GP_4
+						trade_range = event_target:GP_5
+						trade_range = event_target:GP_6
+						trade_range = event_target:GP_7
+						trade_range = event_target:GP_8
+						trade_range = event_target:GP_9
+						trade_range = event_target:GP_10
+						trade_range = event_target:GP_11
+						trade_range = event_target:GP_12
+						trade_range = event_target:GP_13
+						trade_range = event_target:GP_14
+						trade_range = event_target:GP_15
+						trade_range = event_target:GP_16
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = befriend_great_power_tt_2
+				NOT = { has_country_modifier = befriend_great_power_timer }
+			}
+		}
+		effect = {
+			add_dip_power = -50
+			country_event = { id = SoI.20 }
+			hidden_effect = {
+				add_country_modifier = {
+					name = befriend_great_power_timer
+					duration = 1825 # 5 Years
+					hidden = yes
+				}
+			}
+		}
+		ai_will_do = {
+			modifier = {
+				factor = 0
+				OR = {
+					any_known_country = {
+						tech_difference = 2
+					}
+					NOT = { dip_power = 300 }
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					OR = {
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_1
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_1 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_2
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_2 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_3
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_3 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_4
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_4 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_5
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_5 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_6
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_6 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_7
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_7 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_8
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_8 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_9
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_9 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_10
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_10 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_11
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_11 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_12
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_12 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_13
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_13 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_14
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_14 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_15
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_15 }
+						}
+						AND = {
+							capital_scope = {
+								trade_range = event_target:GP_16
+							}
+							AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_16 }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#debug_open_soi_settings = {
+	#	color = { 120 120 120 }
+	#	potential = {
+	#		ai = no
+	#		has_global_flag = SoI_debug_flag
+	#	}
+	#	effect = {
+	#		#country_event = { id = SoI.200 }
+	#	}
+	#}
+
+}
