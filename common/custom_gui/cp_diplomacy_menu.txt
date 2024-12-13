@@ -1,0 +1,149 @@
+custom_button = {
+	name = cp_steal_color
+	tooltip = cp_steal_color_tt
+
+	potential = {
+		NOT = {
+			FROM = { tag = ROOT }
+		}
+	}
+	trigger = {
+	}
+
+	effect = {
+		FROM = {
+			change_country_color = { country = ROOT }
+		}
+	}
+}
+
+custom_button = {
+	name = cp_enforce_color
+	tooltip = cp_enforce_color_tt
+
+	potential = {
+		NOT = {
+			FROM = { tag = ROOT }
+		}
+	}
+	trigger = {
+	}
+
+	effect = {
+		change_country_color = { country = FROM }
+	}
+}
+
+custom_button = {
+	name = cp_reset_color
+	tooltip = cp_reset_color_tt
+
+	potential = {
+	}
+	trigger = {
+	}
+
+	effect = {
+		restore_country_color = yes
+	}
+}
+
+
+custom_button = {
+	name = cp_custom_color
+	tooltip = cp_custom_color_tt
+
+	potential = {
+	}
+	trigger = {
+	}
+
+	effect = {
+		FROM = {
+			set_country_flag = showing_custom_colors
+		}
+	}
+}
+
+custom_button = {
+	name = cp_custom_color_close
+	tooltip = cp_custom_color_close_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+	}
+
+	effect = {
+		FROM = {
+			clr_country_flag = showing_custom_colors
+		}
+	}
+}
+custom_button = {
+	name = cp_custom_color_set
+	tooltip = cp_custom_color_set_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+	}
+
+	effect = {
+		cp_set_color_red = yes
+	}
+}
+
+custom_icon = {
+	name = cp_custom_color_bg
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+}
+
+custom_text_box = {
+	name = cp_red_value
+	tooltip = cp_red_value_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+}
+
+custom_text_box = {
+	name = cp_green_value
+	tooltip = cp_green_value_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+}
+
+custom_text_box = {
+	name = cp_blue_value
+	tooltip = cp_blue_value_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+}
