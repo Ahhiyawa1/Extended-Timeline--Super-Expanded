@@ -1044,7 +1044,99 @@ guiTypes = {
 			borderSize = {x = 0 y = 0}
 		}
 
-
+		guiButtonType = {
+			name ="cp_reset_color"
+			quadTextureSprite= "GFX_reset_color"
+			scripted = yes
+			if_resolution = {
+				max_height = 867
+				position = { x=64 y =532 }
+			}
+			if_resolution = {
+				min_height = 868
+				max_height = 1047
+				position = { x=325 y =680 }
+			}
+			if_resolution = {
+				min_height = 1048
+				position = { x=54 y =842 }
+			}
+			scale = 1.5
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_custom_color"
+			quadTextureSprite= "GFX_custom_color"
+			scripted = yes
+			if_resolution = {
+				max_height = 867
+				position = { x=114 y =532 }
+			}
+			if_resolution = {
+				min_height = 868
+				max_height = 1047
+				position = { x=375 y =680 }
+			}
+			if_resolution = {
+				min_height = 1048
+				position = { x=104 y =842 }
+			}
+			scale = 1.5
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_steal_color"
+			quadTextureSprite= "GFX_steal_color"
+			scripted = yes
+			if_resolution = {
+				max_height = 867
+				position = { x=164 y =532 }
+			}
+			if_resolution = {
+				min_height = 868
+				max_height = 1047
+				position = { x=425 y =680 }
+			}
+			if_resolution = {
+				min_height = 1048
+				position = { x=154 y =842 }
+			}
+			scale = 1.5
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_enforce_color"
+			quadTextureSprite= "GFX_enforce_color"
+			scripted = yes
+			if_resolution = {
+				max_height = 867
+				position = { x=214 y =532 }
+			}
+			if_resolution = {
+				min_height = 868
+				max_height = 1047
+				position = { x=475 y =680 }
+			}
+			if_resolution = {
+				min_height = 1048
+				position = { x=204 y =842 }
+			}
+			scale = 1.5
+			tooltipText =""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		
 		guiButtonType = {
 			name = "button_createvassals"
 			position = { x=394 y =521 }
@@ -1388,6 +1480,280 @@ guiTypes = {
 			delayedTooltipText = ""
 			buttonFont = "vic_18"
 		}
+
+		iconType = {
+			name ="cp_custom_color_bg"
+			scripted = yes
+			if_resolution = {
+				max_height = 867
+				spriteType = "GFX_court_view_select_advisor_bg"#"GFX_court_view_bg"
+			}
+			if_resolution = {
+				min_height = 868
+				max_height = 1047
+				spriteType = "GFX_court_view_select_advisor_large_bg"#"GFX_court_view_bg"
+			}
+			if_resolution = {
+				min_height = 1048
+				spriteType = "GFX_court_view_select_advisor_huge_bg"#"GFX_court_view_bg"
+			}
+			
+			position = { x= -7 y = -10 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		guiButtonType = {
+			name ="cp_custom_color_close"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_224"
+			position = { x= 169 y = 133 }
+			buttonText = "cp_custom_color_close"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+			shortcut = "ESCAPE"
+		}
+		guiButtonType = {
+			name ="cp_red_plus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 200 }
+			buttonText = "cp_red_plus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_red_plus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 200 }
+			buttonText = "cp_red_plus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_red_plus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 200 }
+			buttonText = "cp_red_plus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_red_minus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 232 }
+			buttonText = "cp_red_minus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_red_minus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 232 }
+			buttonText = "cp_red_minus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_red_minus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 232 }
+			buttonText = "cp_red_minus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_plus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 300 }
+			buttonText = "cp_green_plus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_plus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 300 }
+			buttonText = "cp_green_plus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_plus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 300 }
+			buttonText = "cp_green_plus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_minus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 332 }
+			buttonText = "cp_green_minus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_minus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 332 }
+			buttonText = "cp_green_minus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_green_minus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 332 }
+			buttonText = "cp_green_minus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_plus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 400 }
+			buttonText = "cp_blue_plus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_plus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 400 }
+			buttonText = "cp_blue_plus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_plus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 400 }
+			buttonText = "cp_blue_plus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_minus_one"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 164 y = 432 }
+			buttonText = "cp_blue_minus_one"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_minus_ten"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 243 y = 432 }
+			buttonText = "cp_blue_minus_ten"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_blue_minus_hundred"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_71"
+			position = { x= 322 y = 432 }
+			buttonText = "cp_blue_minus_hundred"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+		}
+		guiButtonType = {
+			name ="cp_custom_color_set"
+			scripted = yes
+			quadTextureSprite= "GFX_standard_button_224"
+			position = { x= 169 y = 500 }
+			buttonText = "cp_custom_color_set"
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+			shortcut = "c"
+		}
+
+		instantTextBoxType= {
+			scripted = yes
+			position = { x= 416 y = 222 }
+			name = "cp_red_value"
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 20
+			text = "cp_red_value"
+			orientation = "UPPER_LEFT"
+			format = left
+		}
+		instantTextBoxType= {
+			scripted = yes
+			position = { x= 416 y = 322 }
+			name = "cp_green_value"
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 20
+			text = "cp_green_value"
+			orientation = "UPPER_LEFT"
+			format = left
+		}
+		instantTextBoxType= {
+			scripted = yes
+			position = { x= 416 y = 422 }
+			name = "cp_blue_value"
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 20
+			text = "cp_blue_value"
+			orientation = "UPPER_LEFT"
+			format = left
+		}
+		# instantTextBoxType= {
+		# 	position = { x= 64 y = 222 }
+		# 	name = "cp_red_word"
+		# 	font = "vic_18"
+		# 	borderSize = {x = 0 y = 0}
+		# 	maxWidth = 100
+		# 	maxHeight = 20
+		# 	text = "cp_red_word"
+		# 	orientation = "UPPER_LEFT"
+		# 	format = right
+		# }
+		# instantTextBoxType= {
+		# 	position = { x= 64 y = 322 }
+		# 	name = "cp_green_word"
+		# 	font = "vic_18"
+		# 	borderSize = {x = 0 y = 0}
+		# 	maxWidth = 100
+		# 	maxHeight = 20
+		# 	text = "cp_green_word"
+		# 	orientation = "UPPER_LEFT"
+		# 	format = right
+		# }
+		# instantTextBoxType= {
+		# 	position = { x= 64 y = 422 }
+		# 	name = "cp_blue_word"
+		# 	font = "vic_18"
+		# 	borderSize = {x = 0 y = 0}
+		# 	maxWidth = 100
+		# 	maxHeight = 20
+		# 	text = "cp_blue_word"
+		# 	orientation = "UPPER_LEFT"
+		# 	format = right
+		# }
 
 		windowType = {
 			name = "vassal_select_window"

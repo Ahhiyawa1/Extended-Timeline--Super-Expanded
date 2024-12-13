@@ -1,0 +1,313 @@
+custom_button = {
+	name = cp_red_minus_one
+	tooltip = cp_red_minus_one_tt
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_red
+			value = 1
+		}
+	}
+
+	effect = {
+		subtract_variable = {
+			which = cp_red
+			value = 1
+		}
+	}
+}
+custom_button = {
+	name = cp_red_minus_ten
+	tooltip = cp_red_minus_ten_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_red
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_red
+						value = 11
+					}
+				}
+			}
+			set_variable = {
+				which = cp_red
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_red
+				value = 10
+			}
+		}
+	}
+}
+custom_button = {
+	name = cp_red_minus_hundred
+	tooltip = cp_red_minus_hundred_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_red
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_red
+						value = 101
+					}
+				}
+			}
+			set_variable = {
+				which = cp_red
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_red
+				value = 100
+			}
+		}
+	}
+}
+
+custom_button = {
+	name = cp_green_minus_one
+	tooltip = cp_green_minus_one_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_green
+			value = 1
+		}
+	}
+
+	effect = {
+		subtract_variable = {
+			which = cp_green
+			value = 1
+		}
+	}
+}
+custom_button = {
+	name = cp_green_minus_ten
+	tooltip = cp_green_minus_ten_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_green
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_green
+						value = 11
+					}
+				}
+			}
+			set_variable = {
+				which = cp_green
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_green
+				value = 10
+			}
+		}
+	}
+}
+custom_button = {
+	name = cp_green_minus_hundred
+	tooltip = cp_green_minus_hundred_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_green
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_green
+						value = 101
+					}
+				}
+			}
+			set_variable = {
+				which = cp_green
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_green
+				value = 100
+			}
+		}
+	}
+}
+
+custom_button = {
+	name = cp_blue_minus_one
+	tooltip = cp_blue_minus_one_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_blue
+			value = 1
+		}
+	}
+
+	effect = {
+		subtract_variable = {
+			which = cp_blue
+			value = 1
+		}
+	}
+}
+custom_button = {
+	name = cp_blue_minus_ten
+	tooltip = cp_blue_minus_ten_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_blue
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_blue
+						value = 11
+					}
+				}
+			}
+			set_variable = {
+				which = cp_blue
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_blue
+				value = 10
+			}
+		}
+	}
+}
+custom_button = {
+	name = cp_blue_minus_hundred
+	tooltip = cp_blue_minus_hundred_tt
+
+	potential = {
+		FROM = {
+			ai = no
+			has_country_flag = showing_custom_colors
+		}
+	}
+	trigger = {
+		check_variable = {
+			which = cp_blue
+			value = 1
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = cp_blue
+						value = 101
+					}
+				}
+			}
+			set_variable = {
+				which = cp_blue
+				value = 0
+			}
+		}
+		else = {
+			subtract_variable = {
+				which = cp_blue
+				value = 100
+			}
+		}
+	}
+}
