@@ -1,0 +1,298 @@
+namespace = modreligiousschoolprotestant_events
+
+country_event = { #Protestant schools
+	id = modreligiousschoolprotestant_events.2
+	title = modreligiousschoolprotestant_events.2.t
+	desc = modreligiousschoolprotestant_events.2.desc
+	picture = {
+		#trigger = { has_dlc = "Emperor" }
+		picture = MODPROTESTANTSCHOOL_eventPicture #LUTHER_eventPicture
+	}
+	#picture = {
+	#	trigger = { NOT = { has_dlc = "Emperor" } }
+	#	picture = PRAYING_eventPicture
+	#}
+
+	trigger = {
+		religion = protestant
+		NOT = {
+		OR = {
+religious_school = {
+	group = christian
+	school = molinist_school #V
+}
+religious_school = {
+	group = christian
+	school = bironic_school #ok
+}
+religious_school = {
+	group = christian
+	school = tausenite_school #ok
+}
+religious_school = {
+	group = christian
+	school = lutheran_school #ok
+}
+religious_school = {
+	group = christian
+	school = vasantine_school #V
+}
+religious_school = {
+	group = christian
+	school = bugenhagen_school #V
+}
+religious_school = {
+	group = christian
+	school = wied_school #V
+}
+religious_school = {
+	group = christian
+	school = bucer_school #V
+}
+religious_school = {
+	group = christian
+	school = osiander_school #V
+}
+religious_school = {
+	group = christian
+	school = didymus_school #V
+}
+religious_school = {
+	group = christian
+	school = melanchton_school #V
+}
+}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+				OR = {
+				primary_culture = galician
+				primary_culture = leonese
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = basque
+				primary_culture = catalan
+				primary_culture = valencian
+				primary_culture = balearic
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = molinist_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				primary_culture = hungarian
+				primary_culture = croatian
+				primary_culture = transylvanian
+				primary_culture = romanian
+				primary_culture = slovene
+				primary_culture = bosnian
+				primary_culture = serbian
+				primary_culture = bulgarian
+				primary_culture = slovak
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = bironic_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				primary_culture = danish
+				primary_culture = norwegian
+				#primary_culture = swedish
+				primary_culture = icelandic
+				primary_culture = scanian
+				primary_culture = norse
+				primary_culture = gutnish
+				primary_culture = latvian
+				primary_culture = lithuanian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = tausenite_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = franconian #swabian
+				}
+				set_religious_school = {
+					group = christian
+					school = melanchton_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = swabian
+				}
+				set_religious_school = {
+					group = christian
+					school = didymus_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = bavarian
+				}
+				set_religious_school = {
+					group = christian
+					school = osiander_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = hessian
+				}
+				set_religious_school = {
+					group = christian
+					school = bucer_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = hannoverian
+				}
+				set_religious_school = {
+					group = christian
+					school = wied_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = lower_saxon
+				}
+				set_religious_school = {
+					group = christian
+					school = bugenhagen_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				culture = swedish
+				culture = finnish
+				culture = sapmi
+				culture = karelian
+				culture = estonian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = vasantine_school
+				}
+			}
+			else = {
+				set_religious_school = {
+					group = christian
+					school = lutheran_school
+				}
+			}
+		}
+	}
+}
+
+country_event = { #RemoveProtestant schools
+	id = modreligiousschoolprotestant_events.1
+	title = modreligiousschoolprotestant_events.1.t
+	desc = modreligiousschoolprotestant_events.1.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			religious_school = {
+				group = christian
+				school = molinist_school
+			}
+			religious_school = {
+				group = christian
+				school = bironic_school
+			}
+			religious_school = {
+				group = christian
+				school = tausenite_school
+			}
+			religious_school = {
+				group = christian
+				school = lutheran_school
+			}
+			religious_school = {
+				group = christian
+				school = vasantine_school
+			}
+			religious_school = {
+				group = christian
+				school = melanchton_school
+			}
+			religious_school = {
+				group = christian
+				school = didymus_school
+			}
+			religious_school = {
+				group = christian
+				school = osiander_school
+			}
+			religious_school = {
+				group = christian
+				school = bucer_school
+			}
+			religious_school = {
+				group = christian
+				school = wied_school
+			}
+			religious_school = {
+				group = christian
+				school = bugenhagen_school
+			}
+		}
+		NOT = {
+			religion = protestant
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		tooltip = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+}

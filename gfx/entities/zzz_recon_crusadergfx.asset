@@ -1,0 +1,1316 @@
+##############################################################################################
+##LON Leon
+##############################################################################################
+
+entity = {				
+	name = "LON_INFANTRY_1"	
+	pdxmesh = "LON_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"	
+		Left_hand_node = "LON_shield_01"
+	}
+}
+
+
+entity = {
+	name = "LON_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "LON_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "LON_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "LON_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "LON_CAVALRY_1_rider"
+	pdxmesh = "LON_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear" 
+	}
+}
+
+
+#Africa/Asia
+entity = {		
+	name = "africa_LON_INFANTRY_1"
+	version = 11
+	pdxmesh = "LON_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_LON_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_LON_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_LON_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_LON_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_LON_CAVALRY_1_rider"
+	pdxmesh = "LON_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_LON_INFANTRY_1" name = "asia_LON_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_LON_ARTILLERY_1" name = "asia_LON_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_LON_CAVALRY_1" name = "asia_LON_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_LON_CAVALRY_1_rider" name = "asia_LON_CAVALRY_1_rider"	version = 11 }
+
+
+
+
+##############################################################################################
+##ARA Aragon
+##############################################################################################
+
+entity = {				
+	name = "ARA_INFANTRY_1"	
+	pdxmesh = "ARA_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"	
+	}
+}
+
+
+entity = {
+	name = "ARA_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ARA_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "ARA_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "ARA_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "ARA_CAVALRY_1_rider"
+	pdxmesh = "ARA_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+
+#Africa/Asia
+entity = {		
+	name = "africa_ARA_INFANTRY_1"
+	version = 11
+	pdxmesh = "ARA_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_ARA_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_ARA_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_ARA_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_ARA_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_ARA_CAVALRY_1_rider"
+	pdxmesh = "ARA_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_ARA_INFANTRY_1" name = "asia_ARA_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_ARA_ARTILLERY_1" name = "asia_ARA_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_ARA_CAVALRY_1" name = "asia_ARA_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_ARA_CAVALRY_1_rider" name = "asia_ARA_CAVALRY_1_rider"	version = 11 }
+
+
+
+
+##############################################################################################
+##POR Portugal
+##############################################################################################
+
+entity = {				
+	name = "POR_INFANTRY_1"
+	pdxmesh = "POR_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"	
+		Left_hand_node = "POR_shield_01"
+	}
+}
+
+
+entity = {
+	name = "POR_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "POR_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "POR_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "POR_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "POR_CAVALRY_1_rider"
+	pdxmesh = "POR_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+
+#Africa/Asia
+entity = {		
+	name = "africa_POR_INFANTRY_1"
+	version = 11
+	pdxmesh = "POR_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_POR_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_POR_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_POR_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_POR_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_POR_CAVALRY_1_rider"
+	pdxmesh = "POR_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_POR_INFANTRY_1" name = "asia_POR_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_POR_ARTILLERY_1" name = "asia_POR_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_POR_CAVALRY_1" name = "asia_POR_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_POR_CAVALRY_1_rider" name = "asia_POR_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##CAS Castile
+##############################################################################################
+
+entity = {				
+	name = "CAS_INFANTRY_1"
+	pdxmesh = "CAS_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "CAS_shield_01"
+	}
+}
+
+
+entity = {
+	name = "CAS_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "CAS_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "CAS_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "CAS_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "CAS_CAVALRY_1_rider"
+	pdxmesh = "CAS_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_CAS_INFANTRY_1"
+	version = 11
+	pdxmesh = "CAS_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_CAS_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_CAS_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_CAS_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_CAS_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_CAS_CAVALRY_1_rider"
+	pdxmesh = "CAS_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_CAS_INFANTRY_1" name = "asia_CAS_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_CAS_ARTILLERY_1" name = "asia_CAS_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_CAS_CAVALRY_1" name = "asia_CAS_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_CAS_CAVALRY_1_rider" name = "asia_CAS_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##NAV Navarre/Navarra
+##############################################################################################
+
+entity = {				
+	name = "NAV_INFANTRY_1"
+	pdxmesh = "NAV_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "NAV_shield_01"
+	}
+}
+
+
+entity = {
+	name = "NAV_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "NAV_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "NAV_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "NAV_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "NAV_CAVALRY_1_rider"
+	pdxmesh = "NAV_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_NAV_INFANTRY_1"
+	version = 11
+	pdxmesh = "NAV_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_NAV_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_NAV_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_NAV_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_NAV_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_NAV_CAVALRY_1_rider"
+	pdxmesh = "NAV_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_NAV_INFANTRY_1" name = "asia_NAV_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_NAV_ARTILLERY_1" name = "asia_NAV_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_NAV_CAVALRY_1" name = "asia_NAV_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_NAV_CAVALRY_1_rider" name = "asia_NAV_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##CAT Catalonia
+##############################################################################################
+
+entity = {				
+	name = "CAT_INFANTRY_1"
+	pdxmesh = "CAT_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "CAT_shield_01"
+	}
+}
+
+
+entity = {
+	name = "CAT_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "CAT_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "CAT_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "CAT_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "CAT_CAVALRY_1_rider"
+	pdxmesh = "CAT_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_CAT_INFANTRY_1"
+	version = 11
+	pdxmesh = "CAT_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_CAT_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_CAT_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_CAT_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_CAT_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_CAT_CAVALRY_1_rider"
+	pdxmesh = "CAT_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_CAT_INFANTRY_1" name = "asia_CAT_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_CAT_ARTILLERY_1" name = "asia_CAT_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_CAT_CAVALRY_1" name = "asia_CAT_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_CAT_CAVALRY_1_rider" name = "asia_CAT_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##MJO Majorca/Mallorca
+##############################################################################################
+
+entity = {				
+	name = "MJO_INFANTRY_1"
+	pdxmesh = "MJO_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "MJO_shield_01"
+	}
+}
+
+
+entity = {
+	name = "MJO_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "MJO_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "MJO_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "MJO_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "MJO_CAVALRY_1_rider"
+	pdxmesh = "MJO_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_MJO_INFANTRY_1"
+	version = 11
+	pdxmesh = "MJO_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_MJO_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_MJO_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_MJO_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_MJO_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_MJO_CAVALRY_1_rider"
+	pdxmesh = "MJO_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_MJO_INFANTRY_1" name = "asia_MJO_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_MJO_ARTILLERY_1" name = "asia_MJO_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_MJO_CAVALRY_1" name = "asia_MJO_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_MJO_CAVALRY_1_rider" name = "asia_MJO_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##GAL Galicia
+##############################################################################################
+
+entity = {				
+	name = "GAL_INFANTRY_1"
+	pdxmesh = "GAL_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "GAL_shield_01"
+	}
+}
+
+
+entity = {
+	name = "GAL_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GAL_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "GAL_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GAL_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "GAL_CAVALRY_1_rider"
+	pdxmesh = "GAL_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_GAL_INFANTRY_1"
+	version = 11
+	pdxmesh = "GAL_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_GAL_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_GAL_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_GAL_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_GAL_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_GAL_CAVALRY_1_rider"
+	pdxmesh = "GAL_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_GAL_INFANTRY_1" name = "asia_GAL_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_GAL_ARTILLERY_1" name = "asia_GAL_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_GAL_CAVALRY_1" name = "asia_GAL_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_GAL_CAVALRY_1_rider" name = "asia_GAL_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##ASU Asturias
+##############################################################################################
+
+entity = {				
+	name = "ASU_INFANTRY_1"
+	pdxmesh = "ASU_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "ASU_shield_01"
+	}
+}
+
+
+entity = {
+	name = "ASU_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ASU_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "ASU_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "ASU_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "ASU_CAVALRY_1_rider"
+	pdxmesh = "ASU_INFANTRY_1"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_ASU_INFANTRY_1"
+	version = 11
+	pdxmesh = "africa_ASU_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_ASU_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_ASU_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_ASU_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_ASU_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_ASU_CAVALRY_1_rider"
+	pdxmesh = "africa_ASU_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_ASU_INFANTRY_1" name = "asia_ASU_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_ASU_ARTILLERY_1" name = "asia_ASU_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_ASU_CAVALRY_1" name = "asia_ASU_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_ASU_CAVALRY_1_rider" name = "asia_ASU_CAVALRY_1_rider"	version = 11 }
+
+
+##############################################################################################
+##SPA Spain
+##############################################################################################
+
+entity = {				
+	name = "SPA_INFANTRY_1"
+	pdxmesh = "SPA_INFANTRY_1"
+	version = 12
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+		Left_hand_node = "SPA_shield_01"
+	}
+}
+
+
+entity = {
+	name = "SPA_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 12
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "SPA_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "SPA_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "SPA_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "SPA_CAVALRY_1_rider"
+	pdxmesh = "SPA_CAVALRY_1_rider"
+	version = 12
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+#Africa/Asia
+entity = {		
+	name = "africa_SPA_INFANTRY_1"
+	version = 11
+	pdxmesh = "SPA_CAVALRY_1_rider"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "gnup_halberd_entity"
+	}
+}
+
+
+entity = {
+	name = "africa_SPA_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "africa_SPA_CAVALRY_1_rider"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "africa_SPA_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "africa_SPA_CAVALRY_1_rider"
+	}
+}
+
+entity = {
+	name = "africa_SPA_CAVALRY_1_rider"
+	pdxmesh = "SPA_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "recon_cavalry_01_spear"
+	}
+}
+
+entity = {	clone = "africa_SPA_INFANTRY_1" name = "asia_SPA_INFANTRY_1"	version = 11 }
+entity = {	clone = "africa_SPA_ARTILLERY_1" name = "asia_SPA_ARTILLERY_1"	version = 11}
+entity = {	clone = "africa_SPA_CAVALRY_1" name = "asia_SPA_CAVALRY_1"	version = 11 }
+entity = {	clone = "africa_SPA_CAVALRY_1_rider" name = "asia_SPA_CAVALRY_1_rider"	version = 11 }
+
+

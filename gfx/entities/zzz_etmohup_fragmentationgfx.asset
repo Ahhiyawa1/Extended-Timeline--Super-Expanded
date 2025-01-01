@@ -1,0 +1,688 @@
+#######################################################################################
+## New Generic Chinese Armor - Domination DLC Wu base
+#######################################################################################
+
+entity = {				
+	name = "etup_chinese_generic_INFANTRY_1"
+	version = 11
+	pdxmesh = "etup_china_gen_infantry_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "etup_chinese_generic_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "etup_chinese_generic_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "etup_chinese_generic_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "etup_chinese_generic_CAVALRY_1_rider"
+	}
+}
+entity = {
+	name = "etup_chinese_generic_CAVALRY_1_rider"
+	pdxmesh = "etup_china_gen_infantry_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##WUU Wu
+#######################################################################################
+
+#removed due to new Domination DLC unit sprite!
+
+#######################################################################################
+##WEI Wei
+#######################################################################################
+
+entity = {				
+	name = "WEI_INFANTRY_1"
+	version = 11
+	pdxmesh = "WEI_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "WEI_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "WEI_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "WEI_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "WEI_CAVALRY_1_rider"
+	}
+}
+entity = {
+	name = "WEI_CAVALRY_1_rider"
+	pdxmesh = "WEI_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##SHU Shu
+#######################################################################################
+
+entity = {				
+	name = "SHU_INFANTRY_1"
+	version = 11
+	pdxmesh = "SHU_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "SHU_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "SHU_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "SHU_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "SHU_CAVALRY_1_rider"
+	}
+}
+entity = {
+	name = "SHU_CAVALRY_1_rider"
+	pdxmesh = "SHU_CAVALRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##LNG Liang
+#######################################################################################
+
+entity = {				
+	name = "LNG_INFANTRY_1"
+	version = 11
+	pdxmesh = "LNG_CAVALRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "LNG_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "LNG_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "LNG_CAVALRY_1"
+	pdxmesh = "etupLNG_cavalry_horse_01"		#MMETR custom horse model
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "LNG_CAVALRY_1_rider"
+	}
+}
+entity = {
+	name = "LNG_CAVALRY_1_rider"
+	pdxmesh = "LNG_CAVALRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##LSO Liu Song
+#######################################################################################
+
+entity = {				
+	name = "LSO_INFANTRY_1"
+	version = 11
+	pdxmesh = "LSO_INFANTRY_01"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "LSO_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "LSO_INFANTRY_1"
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "LSO_CAVALRY_1"
+	pdxmesh = "cavalry_horse_3_mesh"		#Walnut horse in vanilla
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "LSO_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "LSO_CAVALRY_1_rider"
+	pdxmesh = "LSO_INFANTRY_01"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##HNX Southern Han
+#######################################################################################
+
+entity = {				
+	name = "HNX_INFANTRY_1"
+	version = 11
+	pdxmesh = "HNX_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "domup_CDL_weapon"
+	}
+}
+entity = {
+	name = "HNX_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "HNX_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "HNX_CAVALRY_1"
+	pdxmesh = "et_HNX_cavalry_elephant"		#New War Elephant in mod
+	version = 11
+
+	state = { name = "idle" 		animation = "elephant_idle_1" chance = 5 looping = no next_state = "idle" }		#Elephant Cavalry Animations
+	state = { name = "idle" 		animation = "elephant_idle_2" chance = 1 looping = no next_state = "idle" }
+	state = { name = "idle" 		animation = "elephant_special_1" chance = 0.5 looping = no next_state = "idle" propagate_state = { rider = "idle_special" } }
+	state = { name = "walk" 		animation = "elephant_walk_1" chance = 4 looping = no next_state = "walk" }
+	state = { name = "walk" 		animation = "elephant_walk_2" chance = 1 looping = no next_state = "walk" }
+	state = { name = "retreat" 		animation = "elephant_walk_1" chance = 4 looping = no next_state = "retreat" }
+	state = { name = "retreat" 		animation = "elephant_walk_2" chance = 1 looping = no next_state = "retreat" }
+	state = { name = "attack"		animation = "elephant_charge_1" chance = 4 looping = no next_state = "attack" }
+	state = { name = "attack"		animation = "elephant_charge_2" chance = 1 looping = no next_state = "attack" }
+
+	attach = {
+		name = "rider"
+		saddle_node = "HNX_CAVALRY_1_rider"
+	}
+}
+entity = {
+	name = "HNX_CAVALRY_1_rider"
+	pdxmesh = "HNX_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "elephant_idle" }		#Elephant Rider Animations
+	state = { name = "idle_special" animation = "elephant_idle_special" }
+	state = { name = "walk" 		animation = "elephant_walk" }
+	state = { name = "attack"		animation = "elephant_attack" chance = 1 looping = no next_state = attack }
+	state = { name = "attack"		animation = "elephant_combat_idle" chance = 4 looping = no next_state = attack }
+	state = { name = "retreat"		animation = "elephant_retreat" }
+
+	attach = { 
+		Right_hand_node = "domup_CDL_weapon"		#elephant rider animations use regular spear direction
+	}
+}
+
+#######################################################################################
+##CJN Jurchen Jin
+#######################################################################################
+
+entity = {				
+	name = "CJN_INFANTRY_1"
+	version = 11
+	pdxmesh = "CJN_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+		Left_hand_node = "CJN_shield_01"
+	}
+}
+entity = {
+	name = "CJN_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "CJN_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "CJN_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "CJN_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "CJN_CAVALRY_1_rider"
+	pdxmesh = "CJN_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##LIO Liao
+#######################################################################################
+
+entity = {				
+	name = "LIO_INFANTRY_1"
+	version = 11
+	pdxmesh = "LIO_CAVALRY_01"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+		Left_hand_node = "CJN_shield_01"
+	}
+}
+entity = {
+	name = "LIO_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "LIO_INFANTRY_1"
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "LIO_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "LIO_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "LIO_CAVALRY_1_rider"
+	pdxmesh = "LIO_CAVALRY_01"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#######################################################################################
+##XIA Xi Xia / Western Xia
+#######################################################################################
+
+entity = {				
+	name = "XIA_INFANTRY_1"
+	version = 11
+	pdxmesh = "XIA_CAVALRY_01"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+		Left_hand_node = "CJN_shield_01"
+	}
+}
+entity = {
+	name = "XIA_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "XIA_INFANTRY_1"
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "XIA_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "XIA_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "XIA_CAVALRY_1_rider"
+	pdxmesh = "XIA_CAVALRY_01"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+
+#######################################################################################
+##CSH Shun
+#######################################################################################
+
+entity = {				
+	name = "CSH_INFANTRY_1"
+	version = 11
+	pdxmesh = "CSH_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = {
+		Right_hand_node = "mandate_MNG_spear_entity"
+	}
+}
+entity = {
+	name = "CSH_ARTILLERY_1"
+	version = 11
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "CSH_INFANTRY_1"
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+entity = {
+	name = "CSH_CAVALRY_1"
+	pdxmesh = "mandate_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "CSH_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "CSH_CAVALRY_1_rider"
+	pdxmesh = "CSH_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+}
+
+#Tier 2 Shun cloned from T1
+entity = {
+	clone = "CSH_INFANTRY_1"
+	name = "CSH_INFANTRY_2"
+}
+entity = {
+	clone = "CSH_ARTILLERY_1"
+	name = "CSH_ARTILLERY_2"
+}
+entity = {
+	clone = "CSH_CAVALRY_1"
+	name = "CSH_CAVALRY_2"
+}
+

@@ -1,0 +1,318 @@
+namespace = modreligiousschools_events
+
+
+
+country_event = { #Reformed schools
+	id = modreligiousschools_events.1
+	title = modreligiousschools_events.1.t
+	desc = modreligiousschoolprotestant_events.2.desc
+	picture = {
+		#trigger = { has_dlc = "Common Sense" }
+		picture = MODREFORMEDSCHOOL_eventPicture #PROTESTANT_GREAT_REFORMER_eventPicture
+	}
+	#picture = {
+	#	trigger = { NOT = { has_dlc = "Common Sense" } }
+	#	picture = PRAYING_eventPicture
+	#}
+
+	trigger = {
+		religion = reformed
+		NOT = {
+		OR = {
+religious_school = {
+	group = christian
+	school = calvinist_school #V
+}
+religious_school = {
+	group = christian
+	school = zwinglian_school #V
+}
+religious_school = {
+	group = christian
+	school = huguenots_school #V
+}
+religious_school = {
+	group = christian
+	school = baptists_school #V
+}
+religious_school = {
+	group = christian
+	school = knoxite_school #V
+}
+religious_school = {
+	group = christian
+	school = julianic_school #V
+}
+religious_school = {
+	group = christian
+	school = socinian_school #V
+}
+religious_school = {
+	group = christian
+	school = presbytarian_school #V
+	}
+religious_school = {
+	group = christian
+	school = radzian_school #V
+}
+religious_school = {
+	group = christian
+	school = zwinglian_school #V
+}
+religious_school = {
+	group = christian
+	school = arminian_school #V
+}
+}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+				OR = {
+				#culture_group = west_slavic
+				#culture_group = baltic
+				culture_group = east_slavic
+				primary_culture = transylvanian
+				primary_culture = romanian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = socinian_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				culture_group = iberian
+				culture_group = latin
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = julianic_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				culture_group = gaelic
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = knoxite_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				primary_culture = american
+				primary_culture = quebecois
+				primary_culture = louisianans
+				}
+				}
+				set_religious_school = {
+					group = christian
+					school = baptists_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				tag = SCO
+				primary_culture = scottish
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = presbytarian_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				culture_group = baltic
+				primary_culture = polish
+				primary_culture = kashubian
+				primary_culture = kuyavian
+				primary_culture = mazovian
+				primary_culture = cracovian
+				primary_culture = goral
+				primary_culture = masurian
+				primary_culture = slovak
+				primary_culture = lithuanian
+				primary_culture = samogitian
+				primary_culture = pruthenian
+				primary_culture = podlachian
+				primary_culture = poleshuk
+				primary_culture = boyko
+				primary_culture = hutsul
+				primary_culture = lemko
+				primary_culture = ruthenian
+				primary_culture = zaporizhian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = radzian_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				primary_culture = gascon
+				primary_culture = occitain
+				primary_culture = cosmopolitan_french
+				primary_culture = burgundian
+				primary_culture = normand
+				primary_culture = wallonian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = huguenots_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = { #south german
+				TAG = TTL
+				TAG = GNV
+				TAG = SAV
+				TAG = SPI
+				#accepted_culture = swiss
+				#primary_culture = swabian
+				#accepted_culture = swabian
+				#primary_culture = bavarian
+				#accepted_culture = bavarian
+				#primary_culture = austrian
+				#accepted_culture = austrian
+				#primary_culture = franconian
+				#accepted_culture = franconian
+				#primary_culture = hessian
+				#accepted_culture = hessian
+						}
+					}
+				set_religious_school = {
+					group = christian
+					school = zwinglian_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				primary_culture = frisian
+				primary_culture = dutch
+				primary_culture = flemish
+				primary_culture = wallonian
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = arminian_school
+				}
+			}
+			else = {
+				set_religious_school = {
+					group = christian
+					school = calvinist_school
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Remove  schools
+	id = modreligiousschools_events.2
+	title = modreligiousschoolprotestant_events.1.t
+	desc = modreligiousschoolprotestant_events.1.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			religious_school = {
+				group = christian
+				school = baptists_school
+			}
+			religious_school = {
+				group = christian
+				school = knoxite_school
+			}
+			religious_school = {
+				group = christian
+				school = julianic_school
+			}
+			religious_school = {
+				group = christian
+				school = socinian_school
+			}
+			religious_school = {
+				group = christian
+				school = calvinist_school
+			}
+			religious_school = {
+				group = christian
+				school = huguenots_school
+			}
+			religious_school = {
+				group = christian
+				school = radzian_school
+			}
+			religious_school = {
+				group = christian
+				school = presbytarian_school
+			}
+			religious_school = {
+				group = christian
+				school = zwinglian_school
+			}
+			religious_school = {
+				group = christian
+				school = arminian_school
+			}
+		}
+		NOT = {
+			religion = reformed
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		tooltip = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+}
