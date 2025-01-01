@@ -1,0 +1,201 @@
+namespace = modreligiousschoolanglican_events
+
+country_event = { #anglican schools
+	id = modreligiousschoolanglican_events.1
+	title = modreligiousschoolanglican_events.1.t
+	desc = modreligiousschoolprotestant_events.2.desc
+	picture = MODANGLICANSCHOOL_eventPicture
+
+	trigger = {
+		religion = anglican
+		NOT = {
+		OR = {
+religious_school = {
+	group = christian
+	school = hooper_school
+}
+religious_school = {
+	group = christian
+	school = tyndale_school
+}
+religious_school = {
+	group = christian
+	school = wycliffe_school
+}
+religious_school = {
+	group = christian
+	school = cranmer_school
+}
+religious_school = {
+	group = christian
+	school = puritan_school
+}
+}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = {
+			factor = 1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					AND = {
+				culture_group = british
+				NOT = {
+				primary_culture = american
+				}
+				}
+				}
+				set_religious_school = {
+					group = christian
+					school = puritan_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = american
+				}
+				set_religious_school = {
+					group = christian
+					school = cranmer_school
+				}
+			}
+			else = {
+				set_religious_school = {
+					group = christian
+					school = hooper_school
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Remove schools
+	id = modreligiousschoolanglican_events.2
+	title = modreligiousschoolprotestant_events.1.t
+	desc = modreligiousschoolprotestant_events.1.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			religious_school = {
+				group = christian
+				school = hooper_school
+			}
+			religious_school = {
+				group = christian
+				school = tyndale_school
+			}
+			religious_school = {
+				group = christian
+				school = wycliffe_school
+			}
+			religious_school = {
+				group = christian
+				school = puritan_school
+			}
+			religious_school = {
+				group = christian
+				school = cranmer_school
+			}
+		}
+		NOT = {
+			religion = anglican
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		tooltip = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+}
+
+country_event = {
+	id = modreligiousschoolanglican_events.3
+	title = modreligiousschoolanglican_events.3.t
+	desc = modreligiousschoolanglican_events.3.d
+	picture = MODANGLICANSCHOOL_eventPicture
+
+	mean_time_to_happen = {
+		months = 240 #20 yrs
+	}
+	
+	trigger = {
+		religion = anglican
+	}
+
+	option = {
+		name = "modreligiousschoolanglican_events.3.e"
+		add_adm_power = -50
+set_religious_school = {
+    group = christian
+    school = cranmer_school
+}
+	}
+	option = {
+	add_adm_power = -50
+		name = "modreligiousschoolanglican_events.3.a"
+set_religious_school = {
+    group = christian
+    school = hooper_school
+}
+	}
+	option = {
+	add_adm_power = -50
+		name = "modreligiousschoolanglican_events.3.f"
+		#trigger = {
+		#	primary_culture = american
+		#}
+set_religious_school = {
+    group = christian
+    school = puritan_school
+}
+	}
+	option = {
+	add_adm_power = -50
+		name = "modreligiousschoolanglican_events.3.b"
+		
+set_religious_school = {
+    group = christian
+    school = tyndale_school
+}
+	}
+	option = {
+	add_adm_power = -50
+		name = "modreligiousschoolanglican_events.3.c"
+set_religious_school = {
+    group = christian
+    school = wycliffe_school
+}
+	}
+}

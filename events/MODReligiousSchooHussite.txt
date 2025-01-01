@@ -1,0 +1,166 @@
+namespace = modreligiousschoolhussite_events
+
+country_event = { #hussite schools
+	id = modreligiousschoolhussite_events.1
+	title = modreligiousschoolhussite_events.1.t
+	desc = modreligiousschoolprotestant_events.2.desc
+	picture = MODHUSSITE_eventPicture #HUSSITE_eventPicture
+
+	trigger = {
+		religion = hussite
+		NOT = {
+		OR = {
+religious_school = {
+	group = christian
+	school = neoadamites_school
+}
+religious_school = {
+	group = christian
+	school = taborites_school
+}
+religious_school = {
+	group = christian
+	school = orebites_school
+}
+religious_school = {
+	group = christian
+	school = utraquism_school
+}
+religious_school = {
+	group = christian
+	school = moravian_school
+}
+}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+				primary_culture = czech
+				NOT = { TAG = MVA }
+				}
+				set_religious_school = {
+					group = christian
+					school = orebites_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = slovak
+				}
+				set_religious_school = {
+					group = christian
+					school = taborites_school
+				}
+			}
+			else_if = {
+				limit = {
+				OR = {
+				#primary_culture = moravian
+				tag = MVA
+				265 = {
+				owned_by = ROOT
+				is_core = ROOT
+				}
+				4237 = {
+				owned_by = ROOT
+				is_core = ROOT
+				}
+				4726 = {
+				owned_by = ROOT
+				is_core = ROOT
+				}
+					}
+				}
+				set_religious_school = {
+					group = christian
+					school = moravian_school
+				}
+			}
+			else_if = {
+				limit = {
+				primary_culture = schlesian
+				}
+				set_religious_school = {
+					group = christian
+					school = neoadamites_school
+				}
+			}
+			else = {
+				set_religious_school = {
+					group = christian
+					school = utraquism_school
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Remove schools
+	id = modreligiousschoolhussite_events.2
+	title = modreligiousschoolprotestant_events.1.t
+	desc = modreligiousschoolprotestant_events.1.desc
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			religious_school = {
+				group = christian
+				school = utraquism_school
+			}
+			religious_school = {
+				group = christian
+				school = neoadamites_school
+			}
+			religious_school = {
+				group = christian
+				school = taborites_school
+			}
+			religious_school = {
+				group = christian
+				school = orebites_school
+			}
+		}
+		NOT = {
+			religion = hussite
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+	
+	option = {
+		name = modreligiousschoolprotestant_events.1.a
+		ai_chance = { 
+			factor = 1
+		}
+		tooltip = {
+			set_religious_school = {
+				group = christian
+				school = null_christian_school
+			}
+		}
+	}
+}
