@@ -1,0 +1,713 @@
+##############################################################
+# Unified Empires - China
+##############################################################
+
+# Han
+etup_mandate_HND_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = HND
+			tag = XIN	#Xin as clone of Han
+		}
+	}
+
+	sprite_infantry = {
+		0 = HND_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = HND_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = HND_ARTILLERY_1
+	}
+}
+
+# Jin
+etup_mandate_JIN_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = JIN
+			was_tag = JIN
+		}
+	}
+
+	sprite_infantry = {
+		0 = JIN_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = JIN_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = JIN_ARTILLERY_1
+	}
+}
+
+# Sui
+etup_mandate_SUI_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = SUI
+			was_tag = SUI
+		}
+	}
+
+	sprite_infantry = {
+		0 = SUI_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = SUI_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = SUI_ARTILLERY_1
+	}
+}
+
+# Tang
+etup_mandate_TNG_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = TNG
+	}
+
+	sprite_infantry = {
+		0 = TNG_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = TNG_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = TNG_ARTILLERY_1
+	}
+}
+
+# Song
+etup_mandate_SNG_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = SNG
+	}
+
+	sprite_infantry = {
+		0 = SNG_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = SNG_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = SNG_ARTILLERY_1
+	}
+}
+
+# Yuan
+etup_mandate_YUA_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = YUA
+	}
+
+	sprite_infantry = {
+		0 = YUA_INFANTRY_1
+		1 = YUA_INFANTRY_2		#same model as T1 but with firearm
+	}
+
+	sprite_cavalry = {
+		0 = YUA_CAVALRY_1
+		1 = YUA_CAVALRY_2
+	}
+	
+	sprite_artillery = {
+		0 = YUA_ARTILLERY_1
+		1 = YUA_ARTILLERY_2
+	}
+}
+
+# Ming
+etup_mandate_MNG_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = MNG
+	}
+
+	sprite_infantry = {
+		0 = MNG_etup_INFANTRY_1
+		1 = MNG_etup_INFANTRY_2
+		2 = MNG_etup_INFANTRY_3
+	}
+
+	sprite_cavalry = {
+		0 = MNG_etup_CAVALRY_1
+		1 = MNG_etup_CAVALRY_2
+		2 = MNG_etup_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = MNG_etup_ARTILLERY_1
+		1 = MNG_etup_ARTILLERY_2
+		2 = MNG_etup_ARTILLERY_3
+	}
+}
+
+
+
+##############################################################
+# Fragmentation - China
+##############################################################
+
+# Wu - removed to avoid conflict with new sprites from Domination!
+#etup_mandate_WUU_sprite_pack = {
+#	# Tests against every tag in game
+#	country_trigger = {
+#		#tag = WUU		#removed to avoid conflict with new sprites from Domination!
+#	}
+#
+#	sprite_infantry = {
+#		0 = WUU_INFANTRY_1
+#	}
+#
+#	sprite_cavalry = {
+#		0 = WUU_CAVALRY_1
+#	}
+#	
+#	sprite_artillery = {
+#		0 = WUU_ARTILLERY_1
+#	}
+#}
+
+
+# Generic Chinese based on Wu Domination DLC with black armor
+etup_mandate_chinese_generic_sprite_pack = {
+	available_for_custom_nation = no
+	# Tests against every tag in game
+	country_trigger = {
+		culture_group = east_asian
+		NOT = {		#exclusion for MNG and WUU Domination for gold armor
+			OR = {
+				tag = MNG
+				primary_culture = wu
+				primary_culture = chimin
+				primary_culture = hakka
+				primary_culture = cantonese
+				primary_culture = gan
+				primary_culture = xiang
+			}
+		}
+	}
+
+	sprite_infantry = {
+		0 = etup_chinese_generic_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = etup_chinese_generic_CAVALRY_1
+	}
+
+	sprite_artillery = {
+		0 = etup_chinese_generic_ARTILLERY_1
+	}
+}
+
+# Wei
+etup_mandate_WEI_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = WEI
+	}
+
+	sprite_infantry = {
+		0 = WEI_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = WEI_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = WEI_ARTILLERY_1
+	}
+}
+
+# Shu
+etup_mandate_SHU_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = SHU
+	}
+
+	sprite_infantry = {
+		0 = SHU_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = SHU_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = SHU_ARTILLERY_1
+	}
+}
+
+# Liang
+etup_mandate_LNG_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = LNG
+			tag = NLI
+			tag = WLI
+		}
+	}
+
+	sprite_infantry = {
+		0 = LNG_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = LNG_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = LNG_ARTILLERY_1
+	}
+}
+
+# Liu Song
+etup_mandate_LSO_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = LSO
+	}
+
+	sprite_infantry = {
+		0 = LSO_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = LSO_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = LSO_ARTILLERY_1
+	}
+}
+
+# Southern Han
+etup_mandate_HNX_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = HNX
+	}
+
+	sprite_infantry = {
+		0 = HNX_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = HNX_CAVALRY_1	#War Elephants
+	}
+	
+	sprite_artillery = {
+		0 = HNX_ARTILLERY_1
+	}
+}
+
+# Jurchen Jin
+etup_mandate_CJN_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = CJN
+	}
+
+	sprite_infantry = {
+		0 = CJN_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = CJN_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = CJN_ARTILLERY_1
+	}
+}
+
+# Khitan Liao
+etup_mandate_LIO_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = LIO
+			primary_culture = khitan
+		}
+	}
+
+	sprite_infantry = {
+		0 = LIO_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = LIO_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = LIO_ARTILLERY_1
+	}
+}
+
+# Xi Xia / Western Xia / Tanguts
+etup_mandate_XIA_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = XIA
+			tag = TAG	#Tanguts
+			primary_culture = tangut	#Qiang culture
+		}
+	}
+
+	sprite_infantry = {
+		0 = XIA_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = XIA_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = XIA_ARTILLERY_1
+	}
+}
+
+# Shun
+etup_mandate_CSH_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = CSH
+			was_tag = CSH	#to account for tag changes after Ming Crisis event spawns Shun
+		}
+	}
+
+	sprite_infantry = {
+		0 = CSH_INFANTRY_1
+		1 = CSH_INFANTRY_2
+	}
+
+	sprite_cavalry = {
+		0 = CSH_CAVALRY_1
+		1 = CSH_CAVALRY_2
+	}
+	
+	sprite_artillery = {
+		0 = CSH_ARTILLERY_1
+		1 = CSH_ARTILLERY_2
+	}
+}
+
+
+
+##############################################################
+# Korea
+##############################################################
+
+# Baekje
+etup_mandate_BKJ_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = BKJ
+	}
+
+	sprite_infantry = {
+		0 = BKJ_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = BKJ_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = BKJ_ARTILLERY_1
+	}
+}
+
+# Silla
+etup_mandate_SLL_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = SLL
+	}
+
+	sprite_infantry = {
+		0 = SLL_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = SLL_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = SLL_ARTILLERY_1
+	}
+}
+
+# Goguryeo
+etup_mandate_GOG_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = GOG
+	}
+
+	sprite_infantry = {
+		0 = GOG_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = GOG_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = GOG_ARTILLERY_1
+	}
+}
+
+# Goryeo
+etup_mandate_GOR_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = GOR
+	}
+
+	sprite_infantry = {
+		0 = GOR_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = GOR_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = GOR_ARTILLERY_1
+	}
+}
+
+
+
+##############################################################
+# Japan
+##############################################################
+
+# Yamato / Early Japan
+etup_mandate_YAM_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = YAM
+			tag = HAY	#Kumaso / Hayato
+			tag = KYU	#Nakoku / Kyushu
+			tag = OWA	#Owari
+			tag = OWA	#Keno
+			tag = SHK	#Shikoku
+			tag = IZU	#Izumo
+			tag = KIB	#Kibi
+			tag = KEO	#Keno
+			tag = KO0	#Koshi
+		}
+	}
+
+	sprite_infantry = {
+		0 = YAM_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = YAM_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = YAM_ARTILLERY_1
+	}
+}
+
+# Emishi
+etup_mandate_EMI_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = EMI
+			culture = emishi
+		}
+	}
+
+	sprite_infantry = {
+		0 = EMI_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = EMI_CAVALRY_1
+	}
+	
+	sprite_artillery = {
+		0 = EMI_ARTILLERY_1
+	}
+}
+
+
+# Japan - Heian imperial cavalry
+etup_mandate_JAPheian_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = JAP
+	}
+
+	sprite_cavalry = {
+		0 = JAP_heian_CAVALRY_1
+	}
+}
+
+# Minamoto clan / Kamakura Shogunate
+etup_mandate_KMK_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = KMK
+	}
+
+	sprite_infantry = {
+		0 = KMK_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = KMK_CAVALRY_1
+		1 = KMK_CAVALRY_2	#clones of Tier 1 cavalry for T2-3, samurai armor still used until 1800s
+		2 = KMK_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = KMK_ARTILLERY_1
+	}
+}
+
+# Taira clan
+etup_mandate_TIA_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = TIA
+	}
+
+	sprite_infantry = {
+		0 = TIA_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = TIA_CAVALRY_1
+		1 = TIA_CAVALRY_2
+		2 = TIA_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = TIA_ARTILLERY_1
+	}
+}
+
+# Fujiwara clan
+etup_mandate_FUJ_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = FUJ
+	}
+
+	sprite_infantry = {
+		0 = FUJ_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = FUJ_CAVALRY_1
+		1 = FUJ_CAVALRY_2
+		2 = FUJ_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = FUJ_ARTILLERY_1
+	}
+}
+
+# Ashikaga clan
+etup_mandate_ASK_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = ASK
+	}
+
+	sprite_infantry = {
+		0 = ASK_INFANTRY_1
+	}
+
+	sprite_cavalry = {
+		0 = ASK_CAVALRY_1
+		1 = ASK_CAVALRY_2
+		2 = ASK_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = ASK_ARTILLERY_1
+	}
+}
+
+
+#Sengoku Jidai
+
+# Oda
+etup_mandate_ODA_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = ODA
+	}
+
+	sprite_infantry = {
+		0 = ODA_INFANTRY_1
+		1 = ODA_INFANTRY_2
+	}
+
+	sprite_cavalry = {
+		0 = ODA_CAVALRY_1
+		1 = ODA_CAVALRY_2
+		2 = ODA_CAVALRY_3
+	}
+	
+	sprite_artillery = {
+		0 = ODA_ARTILLERY_1
+		1 = ODA_ARTILLERY_2
+	}
+}
+
+# Sanada
+etup_mandate_SNX_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = SNX
+	}
+
+	sprite_infantry = {
+		1 = SNX_INFANTRY_2
+	}
+
+	sprite_cavalry = {
+		
+	}
+	
+	sprite_artillery = {
+		1 = SNX_ARTILLERY_2
+	}
+}
+
+

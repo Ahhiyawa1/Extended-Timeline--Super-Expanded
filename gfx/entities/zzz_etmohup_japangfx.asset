@@ -1,0 +1,610 @@
+
+# Early Japan
+
+#######################################################################################
+##YAM Yamato
+#######################################################################################
+
+entity = {				
+	name = "YAM_INFANTRY_1"
+	pdxmesh = "YAM_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = { 
+		Right_hand_node = "mandate_JAP_spear_entity"
+	}
+}
+entity = {
+	name = "YAM_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "YAM_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "YAM_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "YAM_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "YAM_CAVALRY_1_rider"
+	pdxmesh = "YAM_CAVALRY_1_rider"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+
+#######################################################################################
+##EMI Emishi
+#######################################################################################
+
+entity = {				
+	name = "EMI_INFANTRY_1"
+	pdxmesh = "EMI_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "death"		animation = "death" }
+	state = { name = "retreat"		animation = "retreat" }
+	
+	attach = { 
+		Right_hand_node = "mandate_JAP_spear_entity"
+	}
+}
+entity = {
+	name = "EMI_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "EMI_INFANTRY_1"
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "EMI_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "EMI_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "EMI_CAVALRY_1_rider"
+	pdxmesh = "EMI_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "mandate_cavalry_spear_01"
+	}
+	scale = 0.85
+}
+
+
+
+# Early Samurai - Heian and Kamakura Periods
+
+#######################################################################################
+##JAP Japan - under Emperor in the Heian period
+#######################################################################################
+entity = {
+	name = "JAP_heian_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "JAP_heian_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "JAP_heian_CAVALRY_1_rider"
+	pdxmesh = "JAP_heian_CAVALRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+
+
+#######################################################################################
+##KMK Kamakura
+#######################################################################################
+
+entity = {				
+	name = "KMK_INFANTRY_1"
+	pdxmesh = "KMK_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" looping = no chance = 1 next_state = "attack" }
+	state = { name = "attack"		animation = "attack_2" looping = no chance = 1 next_state = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+}
+entity = {
+	name = "KMK_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "KMK_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "KMK_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "KMK_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "KMK_CAVALRY_1_rider"
+	pdxmesh = "KMK_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+#Clones for Tier 2-3 cavalry
+entity = { clone = "KMK_CAVALRY_1"        name = "KMK_CAVALRY_2"	version="1"  }
+entity = { clone = "KMK_CAVALRY_1"        name = "KMK_CAVALRY_3"	version="1"  }
+
+#######################################################################################
+##Taira clan
+#######################################################################################
+
+entity = {				
+	name = "TIA_INFANTRY_1"
+	pdxmesh = "TIA_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" looping = no chance = 1 next_state = "attack" }
+	state = { name = "attack"		animation = "attack_2" looping = no chance = 1 next_state = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+}
+entity = {
+	name = "TIA_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "TIA_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "TIA_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "TIA_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "TIA_CAVALRY_1_rider"
+	pdxmesh = "TIA_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+#Clones for Tier 2-3 cavalry
+entity = { clone = "TIA_CAVALRY_1"        name = "TIA_CAVALRY_2"	version="1"  }
+entity = { clone = "TIA_CAVALRY_1"        name = "TIA_CAVALRY_3"	version="1"  }
+
+#######################################################################################
+##Fujiwara clan
+#######################################################################################
+
+entity = {				
+	name = "FUJ_INFANTRY_1"
+	pdxmesh = "FUJ_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" looping = no chance = 1 next_state = "attack" }
+	state = { name = "attack"		animation = "attack_2" looping = no chance = 1 next_state = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+}
+entity = {
+	name = "FUJ_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "FUJ_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "FUJ_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "FUJ_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "FUJ_CAVALRY_1_rider"
+	pdxmesh = "FUJ_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+#Clones for Tier 2-3 cavalry
+entity = { clone = "FUJ_CAVALRY_1"        name = "FUJ_CAVALRY_2"	version="1"  }
+entity = { clone = "FUJ_CAVALRY_1"        name = "FUJ_CAVALRY_3"	version="1"  }
+
+#######################################################################################
+##Ashikaga clan
+#######################################################################################
+
+entity = {				
+	name = "ASK_INFANTRY_1"
+	pdxmesh = "ASK_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" looping = no chance = 1 next_state = "attack" }
+	state = { name = "attack"		animation = "attack_2" looping = no chance = 1 next_state = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+}
+entity = {
+	name = "ASK_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ASK_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "ASK_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "ASK_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "ASK_CAVALRY_1_rider"
+	pdxmesh = "ASK_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+#Clones for Tier 2-3 cavalry
+entity = { clone = "ASK_CAVALRY_1"        name = "ASK_CAVALRY_2"	version="1"  }
+entity = { clone = "ASK_CAVALRY_1"        name = "ASK_CAVALRY_3"	version="1"  }
+
+
+
+
+
+#######################################################################################
+# Sengoku Jidai periods and later - modern Japan
+
+#######################################################################################
+##ODA Oda
+#######################################################################################
+
+entity = {				
+	name = "ODA_INFANTRY_1"
+	pdxmesh = "ODA_INFANTRY_1"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" looping = no chance = 1 next_state = "attack" }
+	state = { name = "attack"		animation = "attack_2" looping = no chance = 1 next_state = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+}
+entity = {
+	name = "ODA_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ODA_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon"
+	}
+}
+entity = {
+	name = "ODA_CAVALRY_1"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "ODA_CAVALRY_1_rider" 
+	}
+}
+entity = {
+	name = "ODA_CAVALRY_1_rider"
+	pdxmesh = "ODA_INFANTRY_1"
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity" 
+	}
+	scale = 0.85
+}
+
+
+entity = {				
+	name = "ODA_INFANTRY_2"
+	pdxmesh = "ODA_INFANTRY_2"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "mandate_rifle_02_entity" 
+	}
+}
+entity = {
+	name = "ODA_ARTILLERY_2"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ODA_INFANTRY_2" 
+		cannon_node = "asiangfx_ARTILLERY_2_cannon"
+	}
+}
+entity = {
+	name = "ODA_CAVALRY_2"
+	pdxmesh = "daimyo_cavalry_horse_01_mesh"
+	version = 11
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "ODA_CAVALRY_2_rider" 
+	}
+}
+entity = {
+	name = "ODA_CAVALRY_2_rider"
+	pdxmesh = "ODA_INFANTRY_1"		#still same Samurai armor for cavalry
+	version = 11
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+
+	attach = { 
+		right_hand_accessory_3 = "daimyo_katana_01_entity"
+	}
+	scale = 0.85
+}
+#Clones for Tier 3 cavalry
+entity = { clone = "ODA_CAVALRY_2"        name = "ODA_CAVALRY_3"	version="1"  }
+
+#######################################################################################
+##ODA Oda
+#######################################################################################
+
+entity = {				
+	name = "SNX_INFANTRY_2"
+	pdxmesh = "SNX_INFANTRY_2"
+	version = 11
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "mandate_rifle_02_entity" 
+	}
+}
+entity = {
+	name = "SNX_ARTILLERY_2"
+	pdxmesh = "artillery_base_mesh"
+	version = 11
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "SNX_INFANTRY_2"
+		cannon_node = "asiangfx_ARTILLERY_2_cannon"
+	}
+}

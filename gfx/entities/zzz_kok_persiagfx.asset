@@ -1,0 +1,335 @@
+#######################################################################################
+##SAS Sassanids
+#######################################################################################
+
+entity = {				
+	name = "SAS_INFANTRY_1"
+	version = 10
+	pdxmesh = "SAS_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "persia_spear"
+		Left_hand_node = "SAS_shield_01"
+	}
+}
+
+
+entity = {
+	name = "SAS_ARTILLERY_1"
+	version = 10
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "SAS_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "SAS_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "SAS_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "SAS_CAVALRY_1_rider"
+	pdxmesh = "SAS_CAVALRY_1_rider"
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "persiacav_et_cavalry_01_spear"
+	}
+}
+
+#######################################################################################
+##PRT Parthia
+#######################################################################################
+
+entity = {				
+	name = "PRT_INFANTRY_1"
+	version = 10
+	pdxmesh = "PRT_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "persia_spear"	
+		Left_hand_node = "PRT_shield_01"
+	}
+}
+
+
+entity = {
+	name = "PRT_ARTILLERY_1"
+	version = 10
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "PRT_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "PRT_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "PRT_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "PRT_CAVALRY_1_rider"
+	pdxmesh = "PRT_CAVALRY_1_rider"
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "persiacav_et_cavalry_01_spear"
+	}
+}
+
+#######################################################################################
+##GHU Ghurids/Ghor
+#######################################################################################
+
+entity = {				
+	name = "GHU_INFANTRY_1"
+	version = 10
+	pdxmesh = "GHU_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "persia_spear"	
+		Left_hand_node = "GHU_shield_01"
+	}
+}
+
+
+entity = {
+	name = "GHU_ARTILLERY_1"
+	version = 10
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GHU_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "GHU_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GHU_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "GHU_CAVALRY_1_rider"
+	pdxmesh = "GHU_CAVALRY_1_rider"
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "persiacav_et_cavalry_01_spear"
+	}
+}
+
+#######################################################################################
+##SAF Saffarids
+#######################################################################################
+
+entity = {				
+	name = "SAF_INFANTRY_1"
+	version = 10
+	pdxmesh = "SAF_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "persia_spear"	
+		Left_hand_node = "SAF_shield_01"
+	}
+}
+
+
+entity = {
+	name = "SAF_ARTILLERY_1"
+	version = 10
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "SAF_INFANTRY_1" 
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "SAF_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "SAF_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "SAF_CAVALRY_1_rider"
+	pdxmesh = "SAF_CAVALRY_1_rider"
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "persiacav_et_cavalry_01_spear"
+	}
+}
+
+#######################################################################################
+##BUK Samanids / Bukhara
+#######################################################################################
+
+entity = {				
+	name = "BUK_ET_INFANTRY_1"
+	version = 10
+	pdxmesh = "BUK_ET_INFANTRY_1"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	
+	attach = {
+		Right_hand_node = "persia_spear"	
+		Left_hand_node = "BUK_shield_01"
+	}
+}
+
+
+entity = {
+	name = "BUK_ET_ARTILLERY_1"
+	version = 10
+	pdxmesh = "artillery_base_mesh"
+
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "BUK_INFANTRY_1"
+		cannon_node = "westerngfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "BUK_ET_CAVALRY_1"
+	pdxmesh = "cavalry_horse"
+
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "BUK_ET_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "BUK_ET_CAVALRY_1_rider"
+	pdxmesh = "BUK_ET_INFANTRY_1"
+
+	state = { name = "idle" 		animation = "horse_rider_idle" }		#changed to hotcup equivalents
+	state = { name = "walk" 		animation = "horse_rider_walk" }
+	state = { name = "attack"		animation = "horse_rider_attack" }
+	state = { name = "retreat"		animation = "horse_rider_retreat" }
+	#state = { name = "death"		animation = "horse_rider_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "persiacav_et_cavalry_01_spear"
+	}
+}
+

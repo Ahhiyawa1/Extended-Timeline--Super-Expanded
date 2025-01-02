@@ -271,403 +271,6 @@ guiTypes = {
 
 			}
 
-			### MAIN MENU PANEL (upperright)
-			windowType = {
-				name ="mainmenu_panel_upperright"
-				backGround=""
-				position = { x=0 y =-1 }
-				show_position = { x=0 y =-1 }
-				hide_position = { x=200 y =-1 }
-				animation_type = "decelerated"
-				animation_time = 300
-				size = { x=1024 y =768}
-				moveable = 0
-				dontRender = ""
-				horizontalBorder= ""
-				verticalBorder= ""
-				upsound = ""
-				downsound = ""
-				fullscreen=yes
-				Orientation = "UPPER_LEFT"
-
-				iconType =
-				{
-					name ="frontend_dev_logo"
-					spriteType = "GFX_frontend_tinto_logo"
-					position = { x= -210 y = 15 }
-					Orientation = "UPPER_RIGHT"
-				}
-
-				# EXPANDED MOD FAMILY GUI START
-				## Window with Mod Icons
-				windowType = {
-					name = "expanded_mod_family_window"
-					if_resolution = {
-						min_height = 1050
-						position = { x = 100 y = 180 }
-					}
-					if_resolution = {
-						max_height = 1049
-						position = { x = -475 y = 20 }
-						orientation = upper_right
-					}
-					backGround = "expanded_mod_family_window_bg"
-					moveable = 1
-
-					guiButtonType = {
-						name = "expanded_mod_family_window_bg"
-						#position = { x = -5 y = -10 }
-						position = { x = 0 y = 0 }
-						spriteType = "GFX_expanded_mod_family_background"
-					}
-
-					### First Column of Mods
-					windowType = {
-						name = "advisor_types_expanded"
-						position = { x = 34 y = 240 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_advisor_types_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_ADVISOR_TYPES_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "flavour_and_events_expanded"
-						position = { x = 34 y = 287 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_flavour_and_events_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_FLAVOUR_AND_EVENTS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "great_monuments_expanded"
-						position = { x = 34 y = 334 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_great_monuments_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_GREAT_MONUMENTS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "holy_roman_empire_expanded"
-						position = { x = 34 y = 381 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_holy_roman_empire_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_HOLY_ROMAN_EMPIRE_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "religions_and_cultures_expanded"
-						position = { x = 34 y = 428 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_religions_and_cultures_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_RELIGIONS_AND_CULTURES_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					### Second Column of Mods
-					windowType = {
-						name = "ages_and_splendor_expanded"
-						position = { x = 193 y = 240 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_ages_and_splendor_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_AGES_AND_SPLENDOR_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "governments_expanded"
-						position = { x = 193 y = 287 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_governments_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_GOVERNMENTS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "historical_ideas_expanded"
-						position = { x = 193 y = 334 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_historical_ideas_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_HISTORICAL_IDEAS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "peace_treaties_expanded"
-						position = { x = 193 y = 381 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_peace_treaties_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_PEACE_TREATIES_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					windowType = {
-						name = "subjects_expanded"
-						position = { x = 193 y = 428 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_subjects_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_SUBJECTS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-
-					### Center Column of Mods
-					windowType = {
-						name = "trade_goods_expanded"
-						position = { x = 113 y = 475 }
-						size = { x = 158 y = 45 }
-
-						iconType = {
-							name = "mod_text_bg"
-							position = { x = 0 y = 0 }
-							spriteType = "GFX_expanded_mod_family_entry_background"
-						}
-
-						iconType = {
-							name = "mod_icon"
-							position = { x = 114 y = 2 }
-							spriteType = "GFX_mod_icon_trade_goods_expanded"
-							scale = 0.84
-						}
-
-						instantTextBoxType = {
-							name = "mod_text"
-							position = { x = 18 y = 7 }
-							format = center
-							font = "Main_16"
-							text = "MOD_TEXT_TRADE_GOODS_EXPANDED"
-							maxWidth = 96
-							maxHeight = 33
-							vertical_alignment = center
-							alwaystransparent = yes
-						}
-					}
-				}
-				# EXPANDED MOD FAMILY GUI END
-			}
-
 			### NEW CONTENT AVAILABLE.
 			windowType = {
 				name ="new_content"
@@ -707,7 +310,7 @@ guiTypes = {
 					position = { x = 110 y = -570 }
 					quadTextureSprite ="GFX_buy_dlc_button"
 					clicksound = click
-					buttonFont = "vic_22"
+					buttonFont = "cg_14b"
 					buttonText = "OPEN_STORE"
 				}
 
@@ -729,7 +332,7 @@ guiTypes = {
 				{
 					name = "content_name"
 					position = { x = 90 y = -597 }
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 0 y = 0}
 					text = ""
 					maxWidth = 216
@@ -779,7 +382,7 @@ guiTypes = {
 					name ="single_player_button_text"
 					position = { x = 380 y = -16 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 0 y = 0}
 					text = "FE_SINGLE_PLAYER"
 					format = centre
@@ -816,7 +419,7 @@ guiTypes = {
 					instantTextBoxType = {
 						name ="text"
 						position = { x = 50 y = 7 }
-						font = "vic_22"
+						font = "cg_14b"
 						format = left
 						maxWidth = 260
 						maxHeight = 45
@@ -842,7 +445,7 @@ guiTypes = {
 					name ="multi_player_button_text"
 					position = { x = 563 y = -16 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 0 y = 0}
 					text = "FE_MULTI_PLAYER"
 					format = centre
@@ -897,7 +500,7 @@ guiTypes = {
 					name ="tutorial_button_text"
 					position = { x = 290 y = 42 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 0 y = 0}
 					text = "FE_TUTORIAL"
 					format = centre
@@ -912,7 +515,7 @@ guiTypes = {
 					position = { x = 413 y = 27	 }
 					quadTextureSprite ="GFX_frontend_panel_button_center"
 					buttonText = "FE_CREDITS"
-					buttonFont = "vic_22"
+					buttonFont = "cg_14b"
 				}
 
 				guiButtonType = {
@@ -920,7 +523,7 @@ guiTypes = {
 					position = { x = 553 y = 27 }
 					quadTextureSprite ="GFX_frontend_panel_button_center"
 					buttonText = "FE_OPTIONS"
-					buttonFont = "vic_22"
+					buttonFont = "cg_14b"
 				}
 
 				guiButtonType = {
@@ -933,7 +536,7 @@ guiTypes = {
 					name ="exit_button_text"
 					position = { x = 692 y = 42 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 0 y = 0}
 					text = "FE_EXIT"
 					format = centre
@@ -1050,7 +653,7 @@ guiTypes = {
 				name ="single_player_button_text"
 				position = { x = 81 y = 24 }
 
-				font = "vic_22"
+				font = "cg_14b"
 				borderSize = {x = 0 y = 0}
 				text = "FE_SINGLE_PLAYER"
 				format = centre
@@ -1070,7 +673,7 @@ guiTypes = {
 				name ="multi_player_button_text"
 				position = { x = 316 y = 24 }
 
-				font = "vic_22"
+				font = "cg_14b"
 				borderSize = {x = 0 y = 0}
 				text = "FE_MULTI_PLAYER"
 				format = centre
@@ -1203,7 +806,7 @@ guiTypes = {
 				name ="tutorial_title"
 				position = { x = 230 y = 330}
 
-				font = "vic_22"
+				font = "cg_14b"
 				borderSize = {x = 10 y = 6}
 				text = ""
 				format = centre
@@ -1502,7 +1105,7 @@ guiTypes = {
 					name ="nation_designer_close_button_text"
 					position = { x = 295 y = 128 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					text = "DELETE"
 					maxWidth = 100
 					maxHeight = 30
@@ -1511,7 +1114,7 @@ guiTypes = {
 					name ="nation_designer_accept_button_text"
 					position = { x = 438 y = 128 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					text = "DONE"
 					maxWidth = 100
 					maxHeight = 30
@@ -1736,7 +1339,7 @@ guiTypes = {
 					editBoxType = {
 						name = "year"
 						position = { x = 120 y = 57 }
-						font = "vic_22s"
+						font = "cg_14b"
 						size = { x=80 y=30 }
 						text = ""
 						orientation = "UPPER_LEFT"
@@ -1835,7 +1438,7 @@ guiTypes = {
 						position = { x=18 y=-24 }
 						quadTextureSprite = "button_type_4"
 						buttonText = "GAMESETUP_OPEN_MUSIC_PLAYER"
-						buttonFont = "vic_22"
+						buttonFont = "cg_14b"
 						orientation = "LOWER_LEFT"
 						clicksound = click
 					}
@@ -1845,7 +1448,7 @@ guiTypes = {
 						name = "observe_mode_title"
 						position = { x = 55 y = -145 }
 
-						font = "vic_22"
+						font = "cg_14b"
 						borderSize = {x = 0 y = 0}
 						text = "OBSERVE_MODE"
 						maxWidth = 200
@@ -2031,7 +1634,7 @@ guiTypes = {
 					position = { x = -150 y = 18 }
 					maxWidth = 300
 					maxHeight = 30
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 4 y = 4}
 					text = "FE_THE_WORLD_1453"
 					maxWidth = 300
@@ -2110,7 +1713,7 @@ guiTypes = {
 				instantTextBoxType = {
 					name = "ironman_label"
 					position = { x= -170 y = 42 }
-					font = "vic_22"
+					font = "cg_14b"
 					text = "FE_IRONMAN"
 					maxWidth = 160
 					format = left
@@ -2226,7 +1829,7 @@ guiTypes = {
 					name = "country_tab_title"
 					position = { x= -250 y = 38 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 4 y = 4}
 					text = "LEDGER_COUNTRY"
 					maxWidth = 112
@@ -2239,7 +1842,7 @@ guiTypes = {
 					name = "players_tab_title"
 					position = { x = -132 y = 38 }
 
-					font = "vic_22"
+					font = "cg_14b"
 					borderSize = {x = 4 y = 4}
 					text = "FE_PLAYERS"
 					maxWidth = 112
@@ -2268,7 +1871,7 @@ guiTypes = {
 						name = "selected_nation_label"
 						position = { x = 24 y = 130 }
 
-						font = "vic_22"
+						font = "cg_14b"
 						borderSize = {x = 0 y = 0}
 						text = "FE_NO_COUNTRY_SELECTED"
 						maxWidth = 160
@@ -2346,7 +1949,7 @@ guiTypes = {
 						name = "selected_nation_label"
 						position = { x = 24 y = 130 }
 
-						font = "vic_22"
+						font = "cg_14b"
 						borderSize = {x = 0 y = 0}
 						text = ""
 						maxWidth = 160
@@ -2700,7 +2303,7 @@ guiTypes = {
 						name = "observe_mode_title"
 						position = { x = 99955 y = -153 }
 
-						font = "vic_22"
+						font = "cg_14b"
 						borderSize = {x = 0 y = 0}
 						text = "OBSERVE_MODE"
 						maxWidth = 200
@@ -2758,7 +2361,7 @@ guiTypes = {
 					position = { x = -246 y = -40 }
 					quadTextureSprite ="GFX_big_button_232"
 					buttonText = "PLAY"
-					buttonFont = "vic_22"
+					buttonFont = "cg_14b"
 					Orientation = "LOWER_RIGHT"
 					clicksound = start_game
 				}
@@ -3113,7 +2716,7 @@ guiTypes = {
 			name = "name"
 			position = { x = 20 y =-5 }
 			format = left
-			font = "vic_22"
+			font = "cg_14b"
 			maxWidth = 196
 			maxHeight = 26
 			Orientation = "UPPER_LEFT"
@@ -3567,7 +3170,7 @@ guiTypes = {
 			name = "title"
 			position = { x = 48 y = 10 }
 
-			font = "vic_22"
+			font = "cg_14b"
 			borderSize = {x = 1 y = 1}
 			text = ""
 			maxWidth = 180
@@ -3606,7 +3209,7 @@ guiTypes = {
 			name = "title"
 			position = { x = 48 y = 10 }
 
-			font = "vic_22"
+			font = "cg_14b"
 			borderSize = {x = 1 y = 1}
 			text = ""
 			maxWidth = 180
@@ -4138,7 +3741,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "label"
 			position = { x = 0 y = 11 }
-			font = "vic_22"
+			font = "cg_14b"
 			maxWidth = 256
 			maxHeight = 20
 			format = center
@@ -4159,7 +3762,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "label"
 			position = { x = 0 y = 11 }
-			font = "vic_22"
+			font = "cg_14b"
 			maxWidth = 256
 			maxHeight = 20
 			format = center
