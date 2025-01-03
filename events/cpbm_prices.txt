@@ -402,45 +402,6 @@ country_event = {
 	}
 }
 
-# Corn Discovered
-
-country_event = {
-	id = cpbm_prices.13
-	title = cpbm_prices.EVTNAME13
-	desc = cpbm_prices.EVTDESC13
-	picture = EXPLORERS_eventPicture
-
-	fire_only_once = yes
-	
-	major = yes
-
-	trigger = {
-		technology_group = western
-		NOT = { capital_scope = { continent = north_america } }
-		NOT = { capital_scope = { continent = south_america }
-		is_institution_enabled = new_world_i
-		OR = {
-			north_america = { has_discovered = ROOT }
-			south_america = { has_discovered = ROOT }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 16
-	}
-
-	option = {
-		name = cpbm_prices.EVTOPT13
-		change_price = {
-			trade_goods = corn
-			key = CORN_DISCOVERED
-			value = 0.20
-			duration = -1
-		}
-		add_prestige = 5
-		set_global_flag = corn_discovered
-	}
-}
 
 # Genetically Modified Organisms, a.k.a. GMO
 

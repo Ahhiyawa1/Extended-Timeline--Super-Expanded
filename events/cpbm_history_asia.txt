@@ -326,63 +326,6 @@ country_event = {
 	}
 }
 
-#Rassids
-country_event = {
-	id = cpbm_history_asia.6
-	title = cpbm_history_asia.6.t
-	desc = cpbm_history_asia.6.d
-	picture = BORDER_TENSION_eventPicture
-
-	trigger = {
-		OR = { owns = 386 owns = 391 owns = 4282 }
-		is_year = 2948
-		NOT = { is_year = 3448 }
-		any_owned_province = {
-			AND = {
-				area = asir_area }
-				religion = shiite
-			}
-		}
-		NOT = { religion = shiite }
-		capital_scope = { NOT = { area = asir_area } }
-		NOT = { tag = RAS }
-		NOT = { has_country_flag = rassids_rebelled }
-	}
-	
-	mean_time_to_happen = {
-		years = 50	
-	}
-	
-	option = {
-		name = cpbm_history_asia.6.a
-		add_legitimacy = -20
-		every_owned_province = { 
-			limit = { area = asir_area }
-			cede_province = RAS
-			add_core = RAS
-		}
-		RAS = {
-			define_ruler = { dynasty = "Rassid" }
-			change_religion = shiite
-			every_neighbor_country = { add_truce_with = RAS }
-		}
-		arabia_region = { discover_country = RAS }
-		set_country_flag = rassids_rebelled
-	}
-	
-	option = {
-		name = cpbm_history_asia.6.b
-		every_owned_province = { 
-			limit = { area = asir_area }
-			spawn_rebels = {
-    				type = religious_rebels
-    				size = 3
-			}
-		}
-		set_country_flag = rassids_rebelled
-	}
-}
-
 #Aden
 country_event = {
 	id = cpbm_history_asia.7
@@ -885,7 +828,6 @@ country_event = {
 		}
 		ADE = { 
 			set_capital = 388
-			set_dynasty = "Abdali"
 		}
 		vassalize = ADE
 		ai_chance = { factor = 1 }
@@ -906,7 +848,6 @@ country_event = {
 		}
 		ADE = { 
 			set_capital = 388
-			set_dynasty = "Abdali"
 			every_neighbor_country = { add_truce_with = ADE } 
 		}
 		ai_chance = { factor = 3 }
@@ -941,7 +882,6 @@ country_event = {
 		}
 		ADE = { 
 			set_capital = 388
-			set_dynasty = "Abdali"
 			declare_war_with_cb = {
 				who = ROOT
 				casus_belli = cb_independence_war
