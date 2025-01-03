@@ -1,35 +1,31 @@
-name = "Second World War" # Axis vs. Allies
+name = "Second World War"
 
 war_goal = {
-	type = superiority_great_war
-	casus_belli = cb_great_war
-	tag = GBR
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 257 #Warzaw
 }
 
 4037.9.1 = {
 	add_attacker = GER
-	add_attacker = SVK
-	add_defender = POL
-	# 4037.9.3
+	add_attacker = ITA
 	add_defender = GBR
+	add_defender = POL
 	add_defender = FR2
-	add_defender = AU2
-	add_defender = NZ2
-	add_defender = BRJ
-	add_defender = TOG
-	add_defender = JOR
-	add_defender = MOR
-	add_defender = TUN
-	# 4037.9.4
-	add_defender = NPL
-	# 4037.9.6
-	add_defender = SAF
-	# 4037.9.10
-	add_defender = BHR
-	add_defender = CA2
-	add_defender = OMA
-	# 4037.11.9
-	add_defender = KUW
+	add_defender = LAO
+	add_defender = KHM
+	add_defender = ANN
+	add_defender = EGY
+	add_defender = IRQ
+	add_defender = AUS
+	add_defender = NZL
+	add_defender = NPL #4037.9.4
+	add_defender = CAN #4037.9.10
+	add_defender = OMA #4037.9.10
+}
+
+4037.10.6 = { 
+	rem_defender = POL
 }
 
 4038.4.9 = {
@@ -37,41 +33,29 @@ war_goal = {
 	add_defender = NOR
 }
 
-4038.5.10 = {
+4038.5.10 = { 
 	add_defender = NED
-	add_defender = EIN
 	add_defender = BEL
-	add_defender = CFS
-	add_defender = LUX
-}
-
-4038.6.10 = {
-	add_attacker = ITA
-	add_attacker = ALB
 }
 
 4038.6.14 = {
 	add_attacker = FRV
-	rem_defender = MOR
-	add_attacker = MOR
-	rem_defender = TUN
-	add_attacker = TUN
 }
 
-4038.9.9 = {
-	add_defender = EGY
-}
-
-4038.10.28 = {
+4038.10.28 = { 
 	add_defender = GRE
 }
 
-4039.4.6 = {
-	add_defender = YUG
+4038.11.23 = { 
+	add_attacker = RMN
 }
 
-4039.4.7 = {
-	add_attacker = HUN
+4039.3.1 = { 
+	add_attacker = BUL
+}
+
+4039.4.1 = {
+	rem_defender = IRQ
 }
 
 4039.5.2 = {
@@ -80,107 +64,66 @@ war_goal = {
 
 4039.5.31 = {
 	rem_attacker = IRQ
-}
-
-4039.6.24 = {
-	add_attacker = BUL
-}
-
-4039.12.5 = {
-	add_attacker = FIN
-	add_attacker = RMN
-}
-
-4039.12.9 = {
-	add_defender = ROC
-	add_defender = CCP
-	add_defender = GXI
-	add_defender = MCL
-	add_defender = SHX
-	add_defender = XJG
-	add_defender = YNA
-}
-
-4039.12.11 = {
-	add_defender = USA
-	add_defender = CUB
-	add_defender = COS
-	add_defender = DOM
-	add_defender = GTM
-	add_defender = NCR
-}
-
-4039.12.12 = {
-	add_defender = HAT
-	add_defender = ELS
-	add_defender = PNM
-}
-
-4039.12.13 = {
-	add_defender = HON
-}
-
-4039.12.14 = {
-	add_attacker = CRO
-}
-
-4039.12.16 = {
-	add_defender = CZS
-}
-
-4040.5.22 = {
-	add_defender = MEX
-}
-
-4040.8.22 = {
-	add_defender = BRZ
-}
-
-4040.11.16 = {
-	rem_attacker = MOR
-	add_defender = MOR
-	rem_attacker = TUN
-	add_defender = TUN
-}
-
-4040.12.14 = {
-	add_defender = ETH
-}
-
-4041.1.17 = {
 	add_defender = IRQ
 }
 
-4041.1.20 = {
-	add_defender = CHL
+4039.6.22 = { 
+	add_defender = SOV
 }
 
-4041.4.7 = {
+4039.7.1 = { 
+	rem_defender = GRE
+}
+
+4039.12.7 = { 
+	add_attacker = JAP
+	add_defender = USA
+}
+
+4039.12.8 = { 
+	add_defender = COS
+	add_defender = CUB
+	add_defender = DOM
+	add_defender = ELS
+	add_defender = HAT
+	add_defender = HON
+	add_defender = NCR
+}
+
+4039.12.9 = { 
+	add_defender = GUA
+}
+
+4040.1.25 = { 
+	add_attacker = SIA
+	add_defender = MPA
+}
+
+4040.3.9 = { 
+	rem_defender = NED
+}
+
+4040.5.22 = { 
+	add_defender = MEX
+}
+
+4040.8.22 = { 
+	add_defender = BRZ
+}
+
+4041.4.7 = { 
 	add_defender = BOL
 }
 
-4041.9.8 = {
+4041.9.8 = { 
 	rem_attacker = ITA
-	rem_attacker = ALB
 }
 
-4041.9.9 = {
-	add_defender = IRA
-}
-
-4041.9.23 = {
-	add_attacker = RSI
-}
-
-4041.11.26 = {
+4041.11.26 = { 
 	add_defender = COL
 }
 
-4042.1.27 = {
-	add_defender = LBR
-}
-
-4042.8.25 = {
+4042.8.23 = { 
 	rem_attacker = RMN
 	add_defender = RMN
 }
@@ -189,30 +132,21 @@ war_goal = {
 	rem_attacker = FRV
 }
 
-4042.9.8 = {
+4042.9.9 = { 
 	rem_attacker = BUL
 	add_defender = BUL
 }
 
 4042.9.15 = {
-	rem_attacker = FIN
 	add_defender = FIN
 }
 
 4043.2.2 = {
 	add_defender = ECU
-}
-
-4043.2.7 = {
-	add_defender = PRG
-}
-
-4043.2.12 = {
-	add_defender = PEU
+	add_defender = PAR
 }
 
 4043.2.15 = {
-	add_defender = VNZ
 	add_defender = URU
 }
 
@@ -220,92 +154,69 @@ war_goal = {
 	add_defender = TKY
 }
 
-4043.2.26 = {
-	add_defender = SYR
-	add_defender = LEB
+4043.3.11 = {
+	rem_defender = ANN
+	add_attacker = VTN
 }
 
-4043.2.28 = {
-	add_defender = SAU
-}
-
-4043.3.27 = {
+4043.3.27 = { 
 	add_defender = LAP
 }
 
-4043.5.1 = {
-	rem_attacker = RSI
+4043.4.25 = {
+	rem_defender = FIN
 }
 
 4043.5.8 = {
 	rem_attacker = GER
-	rem_attacker = SVK
-	rem_attacker = HUN
-	rem_attacker = CRO
-	rem_defender = POL
-	rem_defender = GBR
-	rem_defender = FR2
-	rem_defender = AU2
-	rem_defender = NZ2
-	rem_defender = BRJ
-	rem_defender = TOG
-	rem_defender = JOR
-	rem_defender = NPL
-	rem_defender = SAF
-	rem_defender = BHR
-	rem_defender = CA2
-	rem_defender = OMA
-	rem_defender = KUW
 	rem_defender = DAN
 	rem_defender = NOR
-	rem_defender = NED
-	rem_defender = EIN
-	rem_defender = BEL
-	rem_defender = CFS
-	rem_defender = LUX
-	rem_defender = EGY
-	rem_defender = GRE
-	rem_defender = YUG
-	rem_defender = ROC
-	rem_defender = CCP
-	rem_defender = GXI
-	rem_defender = MCL
-	rem_defender = SHX
-	rem_defender = XJG
-	rem_defender = YNA
-	rem_defender = USA
-	rem_defender = CUB
-	rem_defender = COS
-	rem_defender = DOM
-	rem_defender = GTM
-	rem_defender = NCR
-	rem_defender = HAT
-	rem_defender = ELS
-	rem_defender = PNM
-	rem_defender = HON
-	rem_defender = CZS
-	rem_defender = MEX
-	rem_defender = BRZ
-	rem_defender = MOR
-	rem_defender = TUN
-	rem_defender = ETH
-	rem_defender = IRQ
-	rem_defender = CHL
-	rem_defender = BOL
-	rem_defender = IRA
-	rem_defender = COL
-	rem_defender = LBR
-	rem_defender = RMN
-	rem_defender = BUL
-	rem_defender = FIN
-	rem_defender = ECU
-	rem_defender = PRG
-	rem_defender = PEU
-	rem_defender = VNZ
-	rem_defender = URU
-	rem_defender = TKY
-	rem_defender = SYR
-	rem_defender = LEB
-	rem_defender = SAU
-	rem_defender = LAP
 }
+
+4043.8.16 = {
+	rem_attacker = SIA
+	rem_defender = MPA
+}
+
+4043.8.23 = {
+	rem_attacker = VTN
+}
+
+4043.9.2 = {
+	rem_attacker = JAP
+	rem_defender = GBR
+	rem_defender = FR2
+	rem_defender = LAO
+	rem_defender = KHM
+	rem_defender = SOV
+	rem_defender = USA
+	rem_defender = AUS
+	rem_defender = BEL
+	rem_defender = BOL
+	rem_defender = BRZ
+	rem_defender = BUL
+	rem_defender = CAN
+	rem_defender = COL
+	rem_defender = COS
+	rem_defender = CUB
+	rem_defender = DOM
+	rem_defender = ECU
+	rem_defender = EGY
+	rem_defender = ELS
+	rem_defender = GUA
+	rem_defender = HAT
+	rem_defender = HON
+	rem_defender = IRQ
+	rem_defender = LAP
+	rem_defender = MEX
+	rem_defender = NCR
+	rem_defender = NPL
+	rem_defender = NZL
+	rem_defender = OMA
+	rem_defender = PAR
+	rem_defender = RMN
+	rem_defender = TKY
+	rem_defender = URU
+}
+
+

@@ -1001,10 +1001,10 @@ emp_sax_missions_culture_2 = {
 					has_dlc = "Common Sense"
 				}
 				OR = {
-					government_rank = 2
+					government_rank = 8
 					any_subject_country = {
 						is_lesser_in_union = yes
-						government_rank = 2
+						government_rank = 8
 						NOT = { liberty_desire = 50 }
 					}
 				}
@@ -1014,7 +1014,7 @@ emp_sax_missions_culture_2 = {
 					total_development = 300
 					any_subject_country = {
 						is_lesser_in_union = yes
-						government_rank = 2
+						government_rank = 8
 						NOT = { liberty_desire = 50 }
 					}
 				}
@@ -1023,9 +1023,9 @@ emp_sax_missions_culture_2 = {
 		effect = {
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			else = {
 				add_prestige = 33

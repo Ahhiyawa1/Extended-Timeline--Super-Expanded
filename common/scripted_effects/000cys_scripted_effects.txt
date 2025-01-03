@@ -1,0 +1,479 @@
+create_subject_color_effect = {
+	if = {
+		limit = {
+			has_global_flag = include_every_subject
+			ROOT = {
+				NOT = {
+					is_colonial_nation = yes
+				}
+			}
+		}
+		ROOT = {
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_vassal
+			ROOT = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = daimyo_vassal
+					}
+				}
+			}
+		}
+		ROOT = {
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = daimyo_vassal
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_tributary_subject
+			ROOT = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+		}
+		ROOT = {
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = tributary_state
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_tributary_subjects
+			ROOT = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = daimyo_vassal
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+		}
+		ROOT = {
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							OR = {
+								is_subject_of_type = daimyo_vassal
+								is_subject_of_type = tributary_state
+							}
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else = {
+		random_country = {
+			limit = {
+				is_ai = no
+			}
+			country_event = {
+				id = cys.1
+			}
+		}
+	}
+}
+
+subject_color_effect = {
+	if = {
+		limit = {
+			has_global_flag = include_every_subject
+			FROM = {
+				NOT = {
+					is_colonial_nation = yes
+				}
+			}
+		}
+		FROM = {
+			change_country_color = {
+				country = ROOT
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						is_colonial_nation = no
+					}
+					change_country_color = {
+						country = ROOT
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_vassal
+			FROM = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = daimyo_vassal
+					}
+				}
+			}
+		}
+		FROM = {
+			change_country_color = {
+				country = ROOT
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = daimyo_vassal
+						}
+					}
+					change_country_color = {
+						country = ROOT
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_tributary_subject
+			FROM = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+		}
+		FROM = {
+			change_country_color = {
+				country = ROOT
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = tributary_state
+						}
+					}
+					change_country_color = {
+						country = ROOT
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_tributary_subjects
+			FROM = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = daimyo_vassal
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+		}
+		FROM = {
+			change_country_color = {
+				country = ROOT
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							OR = {
+								is_subject_of_type = daimyo_vassal
+								is_subject_of_type = tributary_state
+							}
+						}
+					}
+					change_country_color = {
+						country = ROOT
+					}
+				}
+			}
+		}
+	}
+	else = {
+		random_country = {
+			limit = {
+				is_ai = no
+			}
+			country_event = {
+				id = cys.1
+			}
+		}
+	}
+}
+
+on_change_tag_effect = {
+	hidden_effect = {
+		restore_country_name = yes
+		restore_country_color = yes
+		#England specific
+		if = {
+			limit = {
+				has_country_modifier = royal_impressment_act_modifier
+			}
+			remove_country_modifier = royal_impressment_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = isolationism_act_modifier
+			}
+			remove_country_modifier = isolationism_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = colonial_act_modifier
+			}
+			remove_country_modifier = colonial_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = military_reassignment_act_modifier
+			}
+			remove_country_modifier = military_reassignment_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = acts_of_development_modifier
+			}
+			remove_country_modifier = acts_of_development_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = global_empire_act_modifier
+			}
+			remove_country_modifier = global_empire_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = naval_reassignment_act_modifier
+			}
+			remove_country_modifier = naval_reassignment_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = diplomatic_act_modifier
+			}
+			remove_country_modifier = diplomatic_act_modifier
+		}
+		if = {
+			limit = {
+				has_country_modifier = internal_focus_act_modifier
+			}
+			remove_country_modifier = internal_focus_act_modifier
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = include_every_subject
+		}
+		every_subject_country = {
+			limit = {
+				is_colonial_nation = no
+			}
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_vassal
+		}
+		every_subject_country = {
+			limit = {
+				NOT = {
+					is_subject_of_type = daimyo_vassal
+				}
+			}
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = daimyo_vassal
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_tributary_subject
+		}
+		every_subject_country = {
+			limit = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							is_subject_of_type = tributary_state
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = exclude_shogunate_tributary_subjects
+		}
+		every_subject_country = {
+			limit = {
+				NOT = {
+					OR = {
+						is_colonial_nation = yes
+						is_subject_of_type = daimyo_vassal
+						is_subject_of_type = tributary_state
+					}
+				}
+			}
+			change_country_color = {
+				country = FROM
+			}
+			if = {
+				limit = {
+					num_of_subjects = 1
+				}
+				every_subject_country = {
+					limit = {
+						NOT = {
+							OR = {
+								is_subject_of_type = daimyo_vassal
+								is_subject_of_type = tributary_state
+							}
+						}
+					}
+					change_country_color = {
+						country = FROM
+					}
+				}
+			}
+		}
+	}
+	else = {
+		random_country = {
+			limit = {
+				is_ai = no
+			}
+			country_event = {
+				id = cys.1
+			}
+		}
+	}
+}

@@ -489,55 +489,30 @@ cb_nationalist = {
 	prerequisites_self = {
 		dip_tech = 68
 		is_free_or_tributary_trigger = yes
-		OR = {
-			is_revolutionary = no
-			post_napoleonic_age = yes
-		}
+		is_revolutionary = no
 	}
 
 	prerequisites = {
-		FROM = {
-			any_owned_province = {
-				culture_group = ROOT
-				region_for_scope_province = {
-					# Any province:
-					is_capital_of = ROOT
-				}
-			}
-		}
+		culture_group_claim = FROM
 	}
 
 	war_goal = take_province_nationalist
 }
 
-# Imperialism
+# Napoleonic era imperialism
 cb_imperial = {
 	valid_for_subject = no
 
 	prerequisites_self = {
 		OR = {
-			AND = {
-				dip_tech = 68
-				is_civilized = yes
-			}
+			dip_tech = 68
 			invasion_nation = yes
 		}
+		NOT = { has_reform = multi_party_system }
+		NOT = { has_country_modifier = european_union }
 		is_free_or_tributary_trigger = yes
-		OR = {
-			is_revolutionary = no
-			post_napoleonic_age = yes
-		}
+		is_revolutionary = no
 		NOT = { has_reform = war_against_the_world_doctrine_reform }
-	}
-
-	prerequisites = {
-		OR = {
-			FROM = {
-				NOT = { is_civilized = yes }
-				NOT = { is_emperor_of_china = yes }
-			}
-			invasion_nation = yes
-		}
 	}
 
 	war_goal = take_capital_imperial
@@ -1951,7 +1926,7 @@ cb_enforce_electorate_right = {
 #	war_goal = superiority_grand_crusade
 #}
 #cb_grand_crusade: "Grand Crusade"
-#cb_grand_crusade_desc: "They are accursed yet powerful infidels, and a threat to the Christian world!\n§YCatholic and the enemy's brethren of faith can join their respected side mid this war.§!\n§RCannot declare other wars while using this casus belli.§!"
+#cb_grand_crusade_desc: "They are accursed yet powerful infidels, and a threat to the Christian world!\nÂ§YCatholic and the enemy's brethren of faith can join their respected side mid this war.Â§!\nÂ§RCannot declare other wars while using this casus belli.Â§!"
 
 # Unite the Balkans cb - dangerously close to fantasy here
 cb_unite_balkans = {
@@ -2177,7 +2152,6 @@ cb_roman_imperial = {
 					region = maghreb_region
 					region = north_german_region
 					region = south_german_region
-					region = upper_german_region
 				}
 			}
 		}

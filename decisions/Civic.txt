@@ -56,23 +56,12 @@ country_decisions = {
 	abolish_slavery_act = {
 		potential = {
 			NOT = { has_country_modifier = the_abolish_slavery_act }
-			NOT = {
-				any_owned_province = {
-					has_province_modifier = slave_state_modifier
-				}
-			}
+			slaves = 1
 			OR = {
-				slaves = 1
-				any_subject_country = {
-					is_colonial_nation = yes
-					slaves = 1
-				}
+				current_age = age_of_revolutions
+				has_country_flag = ned_abolish_slavery_flag
 			}
-			# OR = {
-				# current_age = age_of_revolutions
-				# has_country_flag = ned_abolish_slavery_flag
-			# }
-			adm_tech = 70
+			adm_tech = 15
 		}
 		allow = {
 			dip = 3
@@ -90,25 +79,9 @@ country_decisions = {
 			}
 			custom_tooltip = abolished_slavery_act_tooltip
 			hidden_effect = {
-				every_subject_country = {
-					limit = {
-						is_colonial_nation = yes
-					}
-					add_country_modifier = {
-						name = "the_abolish_slavery_act"
-						duration = -1
-					}
-				}
-				every_province = {
+				every_owned_province = {
 					limit = {
 						trade_goods = slaves
-						OR = {
-							owned_by = ROOT
-							owner = {
-								is_subject_of = ROOT
-								is_colonial_nation = yes
-							}
-						}
 					}
 					change_trade_goods = unknown
 					remove_building = tradecompany
@@ -123,23 +96,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				if = {
-					limit = {
-						capital_scope = {
-							continent = europe
-						}
-					}
-					NOT = { is_year = 3918 }
-				}
-				else = {
-					NOT = { is_year = 3998 }
-				}
 				NOT = { full_idea_group = innovativeness_ideas }
-			}
-			modifier = {
-				factor = 0
-				tag = CSA
-				NOT = { faction_in_power = communist_party }
 			}
 		}
 	}

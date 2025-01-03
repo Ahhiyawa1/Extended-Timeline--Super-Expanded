@@ -254,7 +254,7 @@ country_event = {
 				NOT = { hre_size = 3 }
 				NOT = { exists = HLR }
 				NOT = { has_global_flag = hre_formed }
-				NOT = { started_in = 3060.2.2 }
+				NOT = { started_in = 3061.2.2 }
 			}
 			if = {
 				limit = { is_female = yes }
@@ -299,7 +299,7 @@ country_event = {
 				}
 				3104 = { 
 					set_in_empire = no 
-					cede_province = XXX
+					cede_province = REB
 					remove_core = JMN
 				}
 			}
@@ -722,9 +722,9 @@ country_event = {
 		
 		if = {
 			limit = {
-				NOT = { government_rank = 3 }
+				NOT = { government_rank = 10 }
 			}
-			set_government_rank = 3
+			set_government_rank = 4
 		}
 		add_country_modifier = {
 			name = "me_frk_emperor_of_constantinople"

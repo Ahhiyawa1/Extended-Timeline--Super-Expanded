@@ -16,10 +16,20 @@ country_decisions = {
 			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
+			NOT = { tag = HL8 }
+			NOT = { tag = HL7 }
+			NOT = { tag = HL6 }
 			NOT = { tag = ROM }
 			NOT = { tag = EUR }
 			NOT = { tag = SPA }
+			NOT = { tag = SP8 }
+			NOT = { tag = SP7 }
+			NOT = { tag = SP6 }
 			NOT = { tag = ADU }
+			NOT = { tag = AD8 }
+			NOT = { tag = AD7 }
+			NOT = { tag = AD6 }
+			NOT = { tag = HC0 }
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -28,15 +38,15 @@ country_decisions = {
 					ai = no
 				}
 			}
-			OR = {
-				primary_culture = andalucian
-				culture_group = maghrebi
-			}
+			culture_group = maghrebi
 			religion_group = muslim
 			OR = {
 				ai = no
 				AND = {
 					NOT = { exists = ADU }
+					NOT = { exists = AD8 }
+					NOT = { exists = AD7 }
+					NOT = { exists = AD6 }
 					num_of_cities = 6
 					any_owned_province = {
 						OR = {
@@ -46,6 +56,7 @@ country_decisions = {
 					}
 				}
 			}
+			capital_scope = { region = iberia_region }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -84,6 +95,9 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = ADU }
+			NOT = { exists = AD8 }
+			NOT = { exists = AD7 }
+			NOT = { exists = AD6 }
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
@@ -119,7 +133,12 @@ country_decisions = {
 			hidden_effect = {
 				if = {
 					limit = { 
-						tag = MOR 
+						OR = {
+							tag = MOR
+							tag = MR8
+							tag = MR7
+							tag = MR6
+						} 
 						has_dlc = "Golden Century"
 					}
 					complete_mission = gra_overcome_internal_strife
@@ -128,7 +147,12 @@ country_decisions = {
 			hidden_effect = {
 				if = {
 					limit = { 
-						tag = MOR 
+						OR = {
+							tag = MOR
+							tag = MR8
+							tag = MR7
+							tag = MR6
+						} 
 						has_dlc = "Golden Century"
 					}
 					complete_mission = gra_friends_in_high_places
@@ -139,9 +163,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {

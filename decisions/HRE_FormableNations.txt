@@ -10,10 +10,6 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { exists = BAV }
 			primary_culture = bavarian
 		}
@@ -180,13 +176,7 @@ country_decisions = {
 			set_capital = 65
 			65 = { add_base_tax = 2 }
 			set_country_flag = formed_bavaria_flag
-			if = {
-				limit = { 
-					has_custom_ideas = no
-					NOT = { has_idea_group = BAV_ideas }
-				}
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
+
 			if = {
 				limit = {
 					NOT = { tag = UBV }
@@ -202,7 +192,7 @@ country_decisions = {
 			}
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 1
 		}
 		ai_importance = 400
 	}
@@ -217,10 +207,6 @@ country_decisions = {
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
 			}
 			NOT = { exists = POM }
 			primary_culture = pommeranian
@@ -350,7 +336,7 @@ country_decisions = {
 				limit = {
 					RUG = {
 						is_subject_of = ROOT
-						NOT = { has_government_attribute = is_pirate_republic_reform }
+						NOT = { has_reform = pirate_republic_reform }
 					}
 				}
 				inherit = RUG
@@ -392,7 +378,12 @@ country_decisions = {
 			if = {
 				limit = {
 					has_custom_ideas = no
-					NOT = { has_idea_group = POM_ideas }
+					NOT = { tag = WOL }
+					NOT = { tag = STE }
+					NOT = { tag = RUG }
+					NOT = { was_tag = WOL }
+					NOT = { was_tag = STE }
+					NOT = { was_tag = RUG }
 				}
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
@@ -413,10 +404,6 @@ country_decisions = {
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
 			}
 			NOT = { exists = FKN }
 			is_colonial_nation = no
@@ -532,7 +519,7 @@ country_decisions = {
 						is_part_of_hre = no
 					}
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 
 			swap_non_generic_missions = yes
@@ -560,10 +547,6 @@ country_decisions = {
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
 			}
 			NOT = { exists = SWA }
 			is_colonial_nation = no
@@ -677,7 +660,7 @@ country_decisions = {
 						is_part_of_hre = no
 					}
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 
 			swap_non_generic_missions = yes
@@ -707,10 +690,6 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			OR = {
 				ai = no
 				NOT = { exists = SAX }
 			}
@@ -727,7 +706,12 @@ country_decisions = {
 				tag = LAU
 			}
 			NOT = { tag = BRA }
+			NOT = { tag = BA8 }
+			NOT = { tag = EGE }
+			NOT = { tag = BA6 }
+			NOT = { tag = KOP }
 			NOT = { tag = SAX }
+			NOT = { tag = SRB }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -853,13 +837,17 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { tag = HLR }
+			NOT = { tag = HR6 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR8 }
 			NOT = { tag = PAP }
 			NOT = { tag = GER }
+			NOT = { tag = GE6 }
+			NOT = { tag = GE7 }
+			NOT = { tag = GE8 }
+			NOT = { tag = WE1 }
+			NOT = { tag = GE1 }
 			NOT = { tag = PRU }
 			NOT = { tag = HSA }
 			NOT = { tag = SAX } #Saxe-Lauenburg should form either Saxony or Hannover, not both
@@ -914,9 +902,6 @@ country_decisions = {
 			is_at_war = no
 			owns_core_province = 53	# Luneburg
 			owns_core_province = 1758	# Hannover
-			1758 = {					# Hannover
-				is_state = yes
-			}
 			num_of_owned_provinces_with = {
 				value = 8 #out of 13 i.e. you can leave out Holstein and stuff
 				culture = lower_saxon
@@ -960,13 +945,13 @@ country_decisions = {
 			add_prestige = 25
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 					OR = {
 						is_elector = yes
 						is_part_of_hre = no
 					}
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			swap_non_generic_missions = yes
 			if = {
@@ -992,17 +977,25 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { tag = HLR }
+			NOT = { tag = HR6 }
+			NOT = { tag = HR7 }
+			NOT = { tag = HR8 }
 			NOT = { tag = HAN }
 			NOT = { tag = PAP }
 			NOT = { tag = GER }
+			NOT = { tag = GE6 }
+			NOT = { tag = GE7 }
+			NOT = { tag = GE8 }
+			NOT = { tag = WE1 }
+			NOT = { tag = GE1 }
 			NOT = { tag = PRU }
 			NOT = { tag = SWI }
+			NOT = { tag = HE2 }
 			NOT = { exists = WES }
+			NOT = { exists = WE8 }
+			NOT = { exists = WE7 }
+			NOT = { exists = WE6 }
 			NOT = { has_reform = celestial_empire }
 			OR = {
 				primary_culture = hannoverian #Westphalian
@@ -1113,13 +1106,13 @@ country_decisions = {
 			set_country_flag = formed_westphalia_flag
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 					OR = {
 						is_elector = yes
 						is_part_of_hre = no
 					}
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			if = {
 				limit = {

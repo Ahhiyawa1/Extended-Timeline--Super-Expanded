@@ -1,218 +1,216 @@
 country_decisions = {
 
-	east_europe_delete ={
+east_europe_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = MOS
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = MOS
+		# exists = MOS
+	}
+ 	allow={
+ 		ai = no
+		# exists = MOS
+	}
+	
+	effect={
+		poland_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		ruthenia_region = {
+			cede_province = ---
+			change_religion = animism
 		}
 		
-		effect={
-			poland_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			ruthenia_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			
-			baltic_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			russia_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			ural_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			scandinavia_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			
+		baltic_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		russia_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		ural_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		scandinavia_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		
+	}
+}
+
+germany_delete ={
+
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
+		}
+		# exists = THU
+	}
+ 	allow={
+ 		ai = no
+		# exists = THU
+	}
+	
+	effect={
+		south_german_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		north_german_region = {
+			cede_province = ---
+			change_religion = animism
+		}	
+		carpathia_region = {
+			cede_province = ---
+			change_religion = animism
+		}		
+	}
+}
+
+france_delete ={
+
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
+		}
+		# exists = FRA
+	}
+ 	allow={
+ 		ai = no
+		# exists = FRA
+	}
+	
+	effect={
+		france_region = {
+			cede_province = ---
+			change_religion = animism
+		}
+		low_countries_region = {
+			cede_province = ---
+			change_religion = animism
 		}
 	}
+}
 
-	germany_delete ={
+iberia_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = THU
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = THU
-		}
+		# exists = CAS
+	}
+ 	allow={
+ 		ai = no
+		# exists = CAS
+	}
+	
+	effect={
+		iberia_region = {
+			cede_province = ---
+			change_religion = animism
 		
-		effect={
-			south_german_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			north_german_region = {
-				cede_province = ---
-				change_religion = animism
-			}	
-			carpathia_region = {
-				cede_province = ---
-				change_religion = animism
-			}		
+		
 		}
 	}
+}
 
-	france_delete ={
+britain_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = FRA
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = FRA
-		}
-		
-		effect={
-			france_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			low_countries_region = {
-				cede_province = ---
-				change_religion = animism
-			}
+		# exists = ENG
+	}
+ 	allow={
+ 		ai = no
+		# exists = ENG
+	}
+	
+	effect={
+		british_isles_region = {
+			cede_province = ---
+			change_religion = animism
 		}
 	}
+}
 
-	iberia_delete ={
+italy_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = CAS
+	potential = { 
+		ai = no
+		NOT = {	
+			# is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = CAS
-		}
+		# exists = LAN
+	}
+ 	allow={
+ 		ai = no
+		# exists = LAN
+	}
+	
+	effect={
+		italy_region = {
+			cede_province = ---
+			change_religion = animism
 		
-		effect={
-			iberia_region = {
-				cede_province = ---
-				change_religion = animism
-			
-			
-			}
+		
 		}
 	}
+}
 
-	britain_delete ={
+balkans_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = ENG
+	potential = { 
+		ai = no
+		NOT = {	
+			# is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = ENG
-		}
-		
-		effect={
-			british_isles_region = {
-				cede_province = ---
-				change_religion = animism
-			}
+		# exists = BYZ
+	}
+ 	allow={
+ 		ai = no
+		# exists = BYZ
+	}
+	
+	effect={
+		balkan_region = {
+			cede_province = ---
+			change_religion = animism
 		}
 	}
+}
 
-	italy_delete ={
+pontic_stepe_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-				# is_year = 1450
-			}
-			# exists = LAN
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = LAN
-		}
-		
-		effect={
-			italy_region = {
-				cede_province = ---
-				change_religion = animism
-			
-			
-			}
-		}
+		# exists = CRI
 	}
-
-	balkans_delete ={
-
-		potential = { 
-			ai = no
-			NOT = {	
-				# is_year = 1450
-			}
-			# exists = BYZ
-		}
-		allow={
-			ai = no
-			# exists = BYZ
-		}
-		
-		effect={
-			balkan_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-		}
+ 	allow={
+ 		ai = no
+		# exists = CRI
 	}
-
-	pontic_stepe_delete ={
-
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = CRI
-		}
-		allow={
-			ai = no
-			# exists = CRI
+	
+	effect={
+		crimea_region = {
+			cede_province = ---
+			change_religion = animism
 		}
 		
-		effect={
-			crimea_region = {
-				cede_province = ---
-				change_religion = animism
-			}
-			
-		}
-
 	}
 }

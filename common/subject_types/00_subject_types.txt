@@ -112,6 +112,7 @@ default = {
 	does_overlord_size_count_for_warscore_cost = yes
 	is_colony_subtype = no
 	is_march = no
+	base_liberty_desire = -70.0
 	forms_trade_companies = yes
 	can_concentrate_development = yes
 	can_have_great_projects_moved_by_overlord = yes
@@ -126,7 +127,7 @@ default = {
 	liberty_desire_negative_prestige = 0.0
 	liberty_desire_development_ratio = 0.0
 	liberty_desire_same_dynasty = 0.0
-	liberty_desire_revolution = 30.0					# Liberty desire at 100% revolution spread in country
+	liberty_desire_revolution = 0.0					# Liberty desire at 100% revolution spread in country
 	pays_overlord = 0.0									# 1.0 represents the amount payed by vassals
 	forcelimit_to_overlord = 0.0						# Percent of subject FL to use as base for modifiers
 	naval_forcelimit_to_overlord = 0.0					# Percent of subject FL to use as base for modifiers
@@ -220,14 +221,15 @@ vassal = {
 	# Properties:
 	transfer_trade_if_merchant_republic = yes
 	can_be_annexed = yes
+	base_liberty_desire = -20.0
 	has_power_projection = no
 	gets_help_with_rebels = yes
 	forms_trade_companies = no
 
 	max_government_rank = 10 #MOD
 
-	liberty_desire_development_ratio = 0.25
-	liberty_desire_same_dynasty = -5.0
+	liberty_desire_development_ratio = 0.0
+	liberty_desire_same_dynasty = -15.0
 	pays_overlord = 1.0
 	forcelimit_to_overlord = 0.1
 
@@ -301,7 +303,7 @@ march = {
 	# Properties:
 	pays_overlord = 0.0
 	military_focus = 1.5
-	base_liberty_desire = -15.0
+	base_liberty_desire = -20.0
 	can_be_annexed = no
 	forcelimit_to_overlord = 0.2
 	is_march = yes
@@ -437,7 +439,7 @@ appanage = {
 	can_concentrate_development = no
 	liberty_desire_development_ratio = 0.25
 	trust_on_start = 0
-	base_liberty_desire = 35.0
+	base_liberty_desire = -20.0
 	military_focus = 1.2
 
 	relative_power_class = 1

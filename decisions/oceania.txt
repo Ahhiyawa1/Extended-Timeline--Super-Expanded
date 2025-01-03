@@ -1,26 +1,25 @@
 country_decisions = {
 
-	oceania_delete ={
+oceania_delete ={
 
-		potential = { 
-			ai = no
-			NOT = {	
-			#	is_year = 1450
-			}
-			# exists = GMI
+	potential = { 
+		ai = no
+		NOT = {	
+		#	is_year = 1450
 		}
-		allow={
-			ai = no
-			# exists = GMI
-		}
+		# exists = GMI
+	}
+ 	allow={
+ 		ai = no
+		# exists = GMI
+	}
+	
+	effect={
+		oceania_superregion = {
+			cede_province = ---
+			change_religion = animism
 		
-		effect={
-			oceania_superregion = {
-				cede_province = ---
-				change_religion = animism
-			
-			
-			}
+		
 		}
 	}
 }

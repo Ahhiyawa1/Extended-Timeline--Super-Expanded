@@ -1,39 +1,30 @@
 estate_workers = {
-	icon = 16
+	icon = 14
 
 	# If true, country will get estate
-	trigger = {
-		NOT = { has_government_attribute = disables_estate_workers }
-		NOT = { has_country_flag = disables_estate_workers_flag }
+	trigger = {	
+		NOT = { has_government_attribute = is_merchant_republic }
+		NOT = { has_reform = pirate_republic_reform }
+		NOT = { has_reform = veche_republic }
+		NOT = { has_reform = cossacks_reform }
+		NOT = { government = native }
+		NOT = { has_reform = trading_city }
+		NOT = { has_reform = siberian_tribe }
+		NOT = { is_revolutionary_republic_trigger = yes }
+		NOT = { has_reform = revolutionary_empire_reform }
+		NOT = { has_reform = roman_empire_reform }
 		OR = {
-			has_government_attribute = enables_estate_workers
-			has_country_flag = enables_estate_workers_flag
-			AND = {
-				NOT = { has_government_attribute = is_merchant_republic }
-				NOT = { has_reform = pirate_republic_reform }
-				NOT = { has_reform = veche_republic }
-				NOT = { has_reform = cossacks_reform }
-				NOT = { government = native }
-				NOT = { has_reform = trading_city }
-				NOT = { has_reform = siberian_tribe }
-				NOT = { is_revolutionary_republic_trigger = yes }
-				NOT = { has_reform = revolutionary_empire_reform }
-				NOT = { has_reform = roman_empire_reform }
-				OR = {
-					NOT = { has_reform = celestial_empire }
-					has_dlc = "Mandate of Heaven"
-				}
-				is_nomad = no
-				is_colonial_nation = no
-				#OR = {
-				#	has_reform = multi_party_system
-				#	has_reform = single_party_system
-				#	has_reform = military_government
-				#	has_reform = fascist_government
-				#	has_reform = communist_government
-				#}
-				has_institution = industrialization
-			}
+			NOT = { has_reform = celestial_empire }
+			has_dlc = "Mandate of Heaven"
+		}
+		is_nomad = no
+		is_colonial_nation = no
+		OR = {
+			has_reform = multi_party_system
+			has_reform = single_party_system
+			has_reform = military_government
+			has_reform = fascist_government
+			has_reform = communist_government
 		}
 	}
 	
@@ -72,28 +63,12 @@ estate_workers = {
 		loyalty = 10
 	}
 	
-	custom_name = {
-		desc = estate_workers_unions
-		trigger = {
-			OR = {
-				has_global_flag = etf_socialism_enabled
-				#has_country_modifier = unions_simple_modifier
-				#has_country_modifier = unions_mediocre_modifier
-				#has_country_modifier = unions_great_modifier
-			}
-		}
-	}
-	
 	color = { 194 85 27 }
 	
 	privileges = {
 		estate_workers_rights
 		estate_workers_raise_taxes
 		estate_workers_lower_taxes
-		#ETF
-		estate_workers_education
-		estate_workers_trade_unions
-		estate_workers_cooperatives
 	}
 	
 	agendas = {
