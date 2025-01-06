@@ -1,4 +1,3 @@
-
 owner = XIO
 controller = XIO
 culture = chahar
@@ -16,50 +15,129 @@ base_production = 1
 base_manpower = 1
 is_city = yes
 add_core = XIO
+2146.1.1 = { 
+    owner = SXI
+    controller = SXI
+    add_core = SXI
+    remove_core = XIO
+}
 
-2146.1.1 = { owner = SXI controller = SXI add_core = SXI remove_core = XIO }
-2402.1.1 = { owner = ZAO controller = ZAO add_core = ZAO remove_core = SXI }
-2408.1.1 = { owner = DAX controller = DAX add_core = DAX remove_core = ZAO }
-2474.1.1 = { owner = QIN controller = QIN add_core = QIN remove_core = DAX }
-2484.1.1 = { owner = WEI controller = WEI add_core = WEI remove_core = QIN }
-2658.1.1 = { owner = GOK controller = GOK add_core = GOK remove_core = WEI }
-2842.1.1 = { owner = UIG controller = UIG add_core = UIG remove_core = GOK }
-2946.1.1 = { owner = KHT controller = KHT add_core = KHT remove_core = UIG }
-3005.1.1 = { owner = LIO controller = LIO add_core = LIO remove_core = KHT }
-3048.1.1 = { religion = mahayana }
-3178.1.1 = { religion = vajrayana }
-3223.1.1 = { owner = XIA controller = XIA add_core = XIA remove_core = LIO }
-3325.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = XIA }
-3369.1.1 = { owner = YUA controller = YUA add_core = YUA remove_core = KHA }
-3466.1.23 = { owner = KHA controller = KHA add_core = KHA remove_core = YUA }
+2402.1.1 = { 
+    owner = ZAO
+    controller = ZAO
+    add_core = ZAO
+    remove_core = SXI
+}
+
+2408.1.1 = { 
+    owner = DAX
+    controller = DAX
+    add_core = DAX
+    remove_core = ZAO
+}
+
+2474.1.1 = { 
+    owner = QIN
+    controller = QIN
+    add_core = QIN
+    remove_core = DAX
+}
+
+2484.1.1 = { 
+    owner = WEI
+    controller = WEI
+    add_core = WEI
+    remove_core = QIN
+}
+
+2631.1.1 = { religion = manichaeism }
+2658.1.1 = { 
+    owner = GOK
+    controller = GOK
+    add_core = GOK
+    remove_core = WEI
+}
+
+2842.1.1 = { 
+    owner = UIG
+    controller = UIG
+    add_core = UIG
+    remove_core = GOK
+}
+
+2946.1.1 = { 
+    owner = KHT
+    controller = KHT
+    add_core = KHT
+    remove_core = UIG
+}
+
+3005.1.1 = { 
+    owner = LIO
+    controller = LIO
+    add_core = LIO
+    remove_core = KHT
+}
+
+3048.1.1 = { religion = mahayana } 
+3178.1.1 = { religion = vajrayana } 
+3223.1.1 = { 
+    owner = XIA
+    controller = XIA
+    add_core = XIA
+    remove_core = LIO
+}
+
+3325.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    remove_core = XIA
+}
+
+3369.1.1 = { 
+    owner = YUA
+    controller = YUA
+    add_core = YUA
+    remove_core = KHA
+}
+
+3466.1.23 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    remove_core = YUA
+}
 
 3641.1.1 = { revolt_risk = 8 } # Fighting broke out between the Mongols
 3650.1.1 = { revolt_risk = 0 } # The Oirads are defeated & Mongolia is reunited under Altan Khan
-3730.5.1 = {
-	owner = MCH
-	controller = MCH
-	add_core = MCH
-} # The Later Jin Khanate
-3734.5.15 = {
-	owner = QNG
-	controller = QNG
-	add_core = QNG
-	remove_core = MCH
-	capital = "Bayannur"
+3730.5.1 = { owner = MCH controller = MCH add_core = MCH } # The Later Jin Khanate
+3734.5.15 = { 
+    owner = QNG
+    controller = QNG
+    add_core = QNG
+    remove_core = MCH
+    capital = "Bayannur"
 } # The Qing Dynasty
-3780.1.1 = { discovered_by = SPA }
 
-3988.1.1 = { base_production = 2 }
-4008.1.1 = { discovered_by = western discovered_by = muslim discovered_by = ottoman }
-4008.1.1 = { base_tax = 2 }
-4010.2.12  = { owner = CHN controller = CHN add_core = CHN remove_core = QNG }
-4018.1.1 = { culture = jin }
-4028.1.1 = { base_production = 3 base_manpower = 2 }
-4034.5.12  = { owner = MGJ controller = MGJ add_core = MGJ }
-4043.8.19  = { owner = CHN controller = CHN remove_core = MGJ }
-4048.1.1 = { base_tax = 3 base_manpower = 3 }
-4058.1.1 = { base_production = 4 base_manpower = 4 }
-4068.1.1 = { base_tax = 4 }
-4078.1.1 = { base_manpower = 5 }
-4088.1.1 = { base_manpower = 6 }
-4108.1.1 = { base_tax = 5 base_production = 5 }
+3780.1.1 = { discovered_by = SPA } 
+3988.1.1 = { base_production = 2 } 
+4008.1.1 = { discovered_by = western discovered_by = muslim discovered_by = ottoman } 
+4008.1.1 = { base_tax = 2 } 
+4010.2.12 = { 
+    owner = CHN
+    controller = CHN
+    add_core = CHN
+    remove_core = QNG
+}
+
+4018.1.1 = { culture = jin } 
+4028.1.1 = { base_production = 3 base_manpower = 2 } 
+4034.5.12 = { owner = MGJ controller = MGJ add_core = MGJ } 
+4043.8.19 = { owner = CHN controller = CHN remove_core = MGJ } 
+4048.1.1 = { base_tax = 3 base_manpower = 3 } 
+4058.1.1 = { base_production = 4 base_manpower = 4 } 
+4068.1.1 = { base_tax = 4 } 
+4078.1.1 = { base_manpower = 5 } 
+4088.1.1 = { base_manpower = 6 } 
+4108.1.1 = { base_tax = 5 base_production = 5 } 

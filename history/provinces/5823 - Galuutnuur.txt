@@ -1,5 +1,4 @@
-#5823 - Galuutnuur
-
+# 5823 - Galuutnuur
 culture = buryat
 religion = tengri_pagan_reformed
 capital = "Galuutnuur"
@@ -13,30 +12,88 @@ base_manpower = 4
 native_size = 10
 native_ferocity = 1
 native_hostileness = 3
+2678.1.1 = { 
+    owner = GOK
+    controller = GOK
+    add_core = GOK
+    is_city = yes
+    trade_goods = fish
+}
 
-2678.1.1 = { owner = GOK controller = GOK add_core = GOK is_city = yes trade_goods = fish }
-2725.1.1 = { owner = XUE controller = XUE add_core = XUE }
-2744.10.1 = { owner = UIG controller = UIG add_core = UIG remove_core = XUE }
-2779.1.1 = { owner = GOK controller = GOK add_core = GOK }
-2842.1.1 = { owner = UIG controller = UIG add_core = UIG remove_core = GOK }
-2946.1.1 = { owner = KMO controller = KMO add_core = KMO remove_core = UIG }
-3218.1.1 = { base_tax = 3 base_manpower = 2 }
-3304.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KMO }
-3369.1.1 = { owner = YUA controller = YUA add_core = YUA remove_core = KHA }
-3466.1.1 = { owner = BRT controller = BRT add_core = BRT remove_core = YUA }
+2725.1.1 = { owner = XUE controller = XUE add_core = XUE } 
+2744.10.1 = { 
+    owner = UIG
+    controller = UIG
+    add_core = UIG
+    remove_core = XUE
+}
+
+2761.1.1 = { religion = manichaeism }
+2779.1.1 = { owner = GOK controller = GOK add_core = GOK } 
+2842.1.1 = { 
+    owner = UIG
+    controller = UIG
+    add_core = UIG
+    remove_core = GOK
+}
+
+2946.1.1 = { 
+    owner = KMO
+    controller = KMO
+    add_core = KMO
+    remove_core = UIG
+}
+
+3218.1.1 = { base_tax = 3 base_manpower = 2 } 
+3304.1.1 = { 
+    owner = KHA
+    controller = KHA
+    add_core = KHA
+    remove_core = KMO
+}
+
+3369.1.1 = { 
+    owner = YUA
+    controller = YUA
+    add_core = YUA
+    remove_core = KHA
+}
+
+3466.1.1 = { 
+    owner = BRT
+    controller = BRT
+    add_core = BRT
+    remove_core = YUA
+}
 
 3751.1.1 = { discovered_by = RUS } # Pyotr Beketov
-3754.1.1 = {	owner = RUS
-		controller = RUS
-	   	religion = orthodox
-	   	culture = russian
-	   }
-3789.1.1 = { add_core = RUS }
-3898.1.1   = { discovered_by = western }
+3754.1.1 = { 
+    owner = RUS
+    controller = RUS
+    religion = orthodox
+    culture = russian
+}
 
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4037.1.1   = { capital = "Gusinoozyorsk" }
-4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
+3789.1.1 = { add_core = RUS } 
+3898.1.1 = { discovered_by = western } 
+4018.1.1 = { 
+    discovered_by = eastern
+    discovered_by = muslim
+    discovered_by = ottoman
+    discovered_by = asian
+}
 
+4020.12.30 = { 
+    owner = SOV
+    controller = SOV
+    add_core = SOV
+    remove_core = RUS
+}
 
+4037.1.1 = { capital = "Gusinoozyorsk" } 
+4089.12.25 = { 
+    owner = RUS
+    controller = RUS
+    add_core = RUS
+    remove_core = SOV
+}
