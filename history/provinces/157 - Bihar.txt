@@ -1,14 +1,21 @@
-#157 - Bihar
-  
+# Bihar
+# 157 Bihar - 1/26/2025 8:38:55 AM 
+ 
+add_core = DAC
 owner = DAC
 controller = DAC
-add_core = DAC
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = naval_supplies
+
 culture = dacian
 religion = zamolxism
 capital = "Dacidava"
-trade_goods = naval_supplies
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,58 +23,205 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
 
-2204.1.1 = { owner = IAZ controller = IAZ add_core = IAZ remove_core = DAC }
-2348.1.1 = { owner = GEP controller = GEP add_core = GEP remove_core = IAZ culture = gepid religion = germanic }
-2369.1.1 = { owner = GVI controller = GVI add_core = GVI culture = gothic }
-2474.1.1 = { owner = HNS controller = HNS add_core = HNS remove_core = GVI }
-2567.1.1 = { owner = GEP controller = GEP remove_core = HNS culture = gepid capital = "Oradea" }
-2665.1.1 = { owner = AVR controller = AVR add_core = AVR remove_core = GEP culture = avar religion = tengri_pagan_reformed }
-2798.1.1 = { base_tax = 2 base_production = 2 }
-2848.1.1 = { culture = romanian }
-2902.1.1 = { owner = BUL controller = BUL add_core = BUL remove_core = AVR }
-2938.1.1 = { owner = TRA controller = TRA add_core = TRA remove_core = BUL }
-2995.1.1 = { owner = HUN controller = HUN add_core = HUN }
-3078.1.1 = { culture = hungarian }
-3148.1.1 = { religion = orthodox }
 
-3604.1.1 = { revolt = { type = anti_tax_rebels size = 0.5 } controller = REB } # Szekely rebellion
-3605.1.1 = { revolt = {} controller = HUN } # Estimated
-3612.4.1 = { revolt = { type = anti_tax_rebels size = 0.5 } controller = REB } # Peasant rebellion against Hungary's magnates
-3613.1.1 = { revolt = {} controller = HUN } # Estimated, put down by the Voyevode of Transylvania, Szapolyiai
-3615.1.1 = { revolt = { type = anti_tax_rebels size = 1 } controller = REB } # Szekely rebellion
-3616.1.1 = { revolt = {} controller = HUN } # Estimated
+
+
+2204.1.1 = {
+	owner = IAZ
+	controller = IAZ
+	add_core = IAZ
+	remove_core = DAC
+}
+2348.1.1 = {
+	owner = GEP
+	controller = GEP
+	add_core = GEP
+	remove_core = IAZ
+	culture = gepid
+	religion = germanic
+}
+2369.1.1 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	culture = gothic
+}
+2474.1.1 = {
+	owner = HNS
+	controller = HNS
+	add_core = HNS
+	remove_core = GVI
+}
+2567.1.1 = {
+	owner = GEP
+	controller = GEP
+	remove_core = HNS
+	culture = gepid
+	capital = "Oradea"
+}
+2665.1.1 = {
+	owner = AVR
+	controller = AVR
+	add_core = AVR
+	remove_core = GEP
+	culture = avar
+	religion = tengri_pagan_reformed
+}
+2798.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2848.1.1 = {
+	culture = romanian
+}
+2902.1.1 = {
+	owner = BUL
+	controller = BUL
+	add_core = BUL
+	remove_core = AVR
+}
+2938.1.1 = {
+	owner = TRA
+	controller = TRA
+	add_core = TRA
+	remove_core = BUL
+}
+2995.1.1 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+}
+3078.1.1 = {
+	culture = hungarian
+}
+3148.1.1 = {
+	religion = orthodox
+}
+3604.1.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 0.5
+	}
+
+	controller = REB
+}
+3605.1.1 = {
+	revolt = {
+	}
+
+	controller = HUN
+}
+3612.4.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 0.5
+	}
+
+	controller = REB
+}
+3613.1.1 = {
+	revolt = {
+	}
+
+	controller = HUN
+}
+3615.1.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3616.1.1 = {
+	revolt = {
+	}
+
+	controller = HUN
+}
 3624.8.30 = {
 	owner = TRA
 	controller = TRA
 	add_core = HAB
 	add_core = TRA
-} # Battle of Mohács, the end of the independent Kingdom of Hungary
-3638.1.1 = { religion = reformed }
+}
+3638.1.1 = {
+	religion = reformed
+}
 3649.7.19 = {
 	owner = HAB
 	controller = HAB
-} # Ferdinand gains Transylvania from Treaty of Weissenburg
-3654.10.1 = { owner = TRA controller = TRA } # Isabella Jagiello is restored as queen of Transylvania
-3665.1.1 = { religion = reformed } # Synod of Debrecen
-3668.1.1 = { remove_core = HAB } # Treaty of Speyer, Habsburgs drop claims
-3660.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Szekely rebellion
-3661.1.1 = { revolt = {} controller = TRA } # Estimated
-3702.1.1 = { owner = HAB controller = HAB }
-3702.10.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Estimated, rebellion (Stephen Bocskai) against Austrian rule
-3704.6.23 = { revolt = {} owner = TRA controller = TRA } # Stephen becomes prince of Transylvania
+}
+3654.10.1 = {
+	owner = TRA
+	controller = TRA
+}
+3665.1.1 = {
+	religion = reformed
+}
+3668.1.1 = {
+	remove_core = HAB
+}
+3660.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3661.1.1 = {
+	revolt = {
+	}
+
+	controller = TRA
+}
+3702.1.1 = {
+	owner = HAB
+	controller = HAB
+}
+3702.10.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3704.6.23 = {
+	revolt = {
+	}
+
+	owner = TRA
+	controller = TRA
+}
 3758.1.1 = {
 	owner = TUR
 	controller = TUR
 	add_core = TUR
-} # Overrun by Ottoman troops
-3776.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # Kuruc rebellion
-3782.1.1 = { revolt = {} controller = TUR }
-3788.1.1 = { owner = TRA controller = TRA } # Estimated
-3801.1.1 = { unrest = 6 } # Kuruc rebellion, lead by Francisc Rakoczy
+}
+3776.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3782.1.1 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3788.1.1 = {
+	owner = TRA
+	controller = TRA
+}
+3801.1.1 = {
+	unrest = 6
+}
 3809.1.1 = {
 	unrest = 0
 	owner = HAB
@@ -75,20 +229,55 @@ base_manpower = 1
 	add_core = HAB
 	remove_core = TUR
 	remove_core = TRA
-} # The treaty of Szatmar
-3853.1.1 = { base_production = 3 }
-3883.1.1 = { base_tax = 4 }
+}
+3853.1.1 = {
+	base_production = 3
+}
+3883.1.1 = {
+	base_tax = 4
+}
+3913.1.1 = {
+	base_production = 4
+}
+3943.1.1 = {
+	base_tax = 5
+}
+3973.1.1 = {
+	base_manpower = 3
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4016.10.31 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+	remove_core = HAB
+}
+4018.6.4 = {
+	owner = RMN
+	controller = RMN
+	add_core = RMN
+	remove_core = HUN
+}
+4033.1.1 = {
+	base_manpower = 4
+}
+4038.9.1 = {
+	owner = HUN
+	controller = HUN
+}
+4042.3.1 = {
+	owner = RMN
+	controller = RMN
+}
+4048.1.1 = {
+	culture = romanian
+	religion = orthodox
+}
+4063.1.1 = {
+	base_production = 5
+}
 
-3913.1.1 = { base_production = 4 }
-3943.1.1 = { base_tax = 5 }
-3973.1.1 = { base_manpower = 3 }
-4008.1.1 = { discovered_by = asian }
-4016.10.31 = { owner = HUN controller = HUN add_core = HUN remove_core = HAB }
-4018.6.4   = { owner = RMN controller = RMN add_core = RMN remove_core = HUN } #Treaty of Trianon
-4033.1.1 = { base_manpower = 4 }
-4038.9.1   = { owner = HUN controller = HUN } # Second Vienna Award
-4042.3.1   = { owner = RMN controller = RMN }
-4048.1.1   = { culture = romanian religion = orthodox }
-4063.1.1 = { base_production = 5 }
 
-
+### Modified 1/26/2025 8:38:55 AM ###

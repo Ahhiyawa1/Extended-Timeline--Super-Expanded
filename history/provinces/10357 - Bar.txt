@@ -1,11 +1,22 @@
-# 10357 - Bar
+# Bar
+# 10357 Bar - 1/26/2025 8:38:57 AM 
+ 
+add_core = ROM
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = naval_supplies
+
 culture = illyrian
 religion = hellenism
 capital = "Antibarium"
-trade_goods = naval_supplies
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -13,106 +24,149 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = ROM
-2086.11.1 = { owner = ROM controller = ROM add_core = ROM remove_core = M10 }
-2448.1.1 = { culture = dalmatian } 
-2493.1.17 = { 
-    controller = BYZ
-    owner = BYZ
-    add_core = BYZ
-    remove_core = ROM
-} # Final division of the empire
 
-2498.1.1 = { religion = chalcedonism } 
-2708.1.1 = { add_core = DOC culture = serbian religion = slavic } 
-2748.1.1 = { 
-    owner = DOC
-    controller = DOC
-    remove_core = BYZ
-    capital = "Bar"
+
+
+
+2086.11.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+	remove_core = M10
+}
+2448.1.1 = {
+	culture = dalmatian
+}
+2493.1.17 = {
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+	remove_core = ROM
+}
+2498.1.1 = {
+	religion = chalcedonism
+}
+2708.1.1 = {
+	add_core = DOC
+	culture = serbian
+	religion = slavic
+}
+2748.1.1 = {
+	owner = DOC
+	controller = DOC
+	remove_core = BYZ
+	capital = "Bar"
+}
+2958.1.1 = {
+	religion = chalcedonism
+}
+2965.1.1 = {
+	religion = orthodox
+}
+3028.1.1 = {
+	owner = SER
+	controller = SER
+	add_core = SER
+}
+3067.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = SER
+}
+3098.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+3144.1.1 = {
+	owner = DOC
+	controller = DOC
+	add_core = DOC
+	remove_core = BYZ
+}
+3264.1.1 = {
+	controller = SER
+	add_core = SER
+}
+3284.1.1 = {
+	owner = SER
+	add_core = MON
+	remove_core = DOC
+}
+3298.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3469.1.1 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+}
+3482.1.1 = {
+	owner = BOS
+	controller = BOS
+	add_core = BOS
+	remove_core = HUN
+}
+3489.3.10 = {
+	owner = VEN
+	controller = VEN
+	add_core = VEN
+	remove_core = BOS
+}
+3895.10.18 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = VEN
+}
+3903.12.27 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	remove_core = HAB
+}
+3908.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = ITA
+}
+3912.1.5 = {
+	controller = GBR
+}
+3912.4.6 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = FRA
+}
+4016.12.1 = {
+	owner = YUG
+	controller = YUG
+	add_core = YUG
+	remove_core = HAB
+}
+4039.4.6 = {
+	owner = ITA
+	controller = ITA
+}
+4041.9.8 = {
+	owner = GER
+	controller = GER
+}
+4042.12.19 = {
+	controller = SOV
+}
+4043.5.8 = {
+	owner = YUG
+	controller = YUG
+}
+4104.6.3 = {
+	owner = MON
+	controller = MON
+	remove_core = YUG
 }
 
-2958.1.1 = { religion = chalcedonism } 
-2965.1.1 = { religion = orthodox } 
-3028.1.1 = { owner = SER controller = SER add_core = SER } 
-3067.1.1 = { 
-    owner = BYZ
-    controller = BYZ
-    add_core = BYZ
-    remove_core = SER
-}
 
-3098.1.1 = { base_tax = 2 base_production = 2 } 
-3144.1.1 = { 
-    owner = DOC
-    controller = DOC
-    add_core = DOC
-    remove_core = BYZ
-}
-
-3264.1.1 = { controller = SER add_core = SER } 
-3284.1.1 = { owner = SER add_core = MON remove_core = DOC } 
-3298.1.1 = { base_tax = 3 base_production = 3 } 
-3469.1.1 = { owner = HUN controller = HUN add_core = HUN } 
-3482.1.1 = { 
-    owner = BOS
-    controller = BOS
-    add_core = BOS
-    remove_core = HUN
-}
-
-3489.3.10 = { 
-    owner = VEN
-    controller = VEN
-    add_core = VEN
-    remove_core = BOS
-}
-
-################################################################################
-# 1391 - 1420 independent
-################################################################################
-3895.10.18 = { 
-    owner = HAB
-    controller = HAB
-    add_core = HAB
-    remove_core = VEN
-}
-
-3903.12.27 = { 
-    owner = ITA
-    controller = ITA
-    add_core = ITA
-    remove_core = HAB
-}
-
-3908.1.1 = { 
-    owner = FRA
-    controller = FRA
-    add_core = FRA
-    remove_core = ITA
-}
-
-3912.1.5 = { controller = GBR } 
-3912.4.6 = { 
-    owner = HAB
-    controller = HAB
-    add_core = HAB
-    remove_core = FRA
-}
-
-4016.12.1 = { 
-    owner = YUG
-    controller = YUG
-    add_core = YUG
-    remove_core = HAB
-}
-
-4039.4.6 = { owner = ITA controller = ITA } 
-4041.9.8 = { owner = GER controller = GER } 
-4042.12.19 = { controller = SOV } 
-4043.5.8 = { owner = YUG controller = YUG } 
-4104.6.3 = { owner = MON controller = MON remove_core = YUG } 
+### Modified 1/26/2025 8:38:57 AM ###

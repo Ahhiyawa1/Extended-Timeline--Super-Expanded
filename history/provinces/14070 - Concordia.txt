@@ -1,19 +1,28 @@
-# - Concordia
+# Concordia
+# 14070 Concordia - 1/26/2025 8:38:57 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = charruan
 religion = south_american
 capital = "Concordia"
-trade_goods = unknown
-hre = no
-discovered_by = south_american
-base_tax = 1
-base_production = 1
-base_manpower = 1
+
 native_size = 5
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 1
 
-3614.1.23 = { discovered_by = SPA } # Juan Díaz de Solís
+discovered_by = south_american
+
+
+
+
+3614.1.23 = {
+	discovered_by = SPA
+}
 3718.1.1 = {
 	owner = SPA
 	controller = SPA
@@ -23,25 +32,77 @@ native_hostileness = 1
 	citysize = 375
 	trade_goods = grain
 }
-3798.1.1  = { is_city = yes }
-3848.1.1  = { base_production = 4 base_manpower = 2 }
-3868.1.1  = { culture = iberian_la_platan }
-3873.1.1  = { base_tax = 5 base_manpower = 3 }
-3878.1.1  = { unrest = 4 } # The desire for independence grew
-3888.1.1  = { unrest = 6 }
-3899.1.1 = { base_production = 6 base_manpower = 5 }
-3908.5.25 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # The May Revolution
-3914.7.9  = {	revolt = {}
-		owner = LAP
-		controller = LAP
-		add_core = LAP
-		remove_core = SPA
-		unrest = 0
-	    } # Argentina is declared independent
+3798.1.1 = {
+	is_city = yes
+}
+3848.1.1 = {
+	base_production = 4
+	base_manpower = 2
+}
+3868.1.1 = {
+	culture = iberian_la_platan
+}
+3873.1.1 = {
+	base_tax = 5
+	base_manpower = 3
+}
+3878.1.1 = {
+	unrest = 4
+}
+3888.1.1 = {
+	unrest = 6
+}
+3899.1.1 = {
+	base_production = 6
+	base_manpower = 5
+}
+3908.5.25 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
 
-3923.1.1 = { base_tax = 8 base_production = 7 base_manpower = 6 }
-3949.1.1 = { base_tax = 9 base_production = 9 base_manpower = 7 }
-3973.1.1 = { base_tax = 11 base_production = 11 base_manpower = 8 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3999.1.1 = { base_tax = 13 base_production = 13 base_manpower = 9 }
-4008.1.1 = { discovered_by = western }
+	controller = REB
+}
+3914.7.9 = {
+	revolt = {
+	}
+
+	owner = LAP
+	controller = LAP
+	add_core = LAP
+	remove_core = SPA
+	unrest = 0
+}
+3923.1.1 = {
+	base_tax = 8
+	base_production = 7
+	base_manpower = 6
+}
+3949.1.1 = {
+	base_tax = 9
+	base_production = 9
+	base_manpower = 7
+}
+3973.1.1 = {
+	base_tax = 11
+	base_production = 11
+	base_manpower = 8
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3999.1.1 = {
+	base_tax = 13
+	base_production = 13
+	base_manpower = 9
+}
+4008.1.1 = {
+	discovered_by = western
+}
+
+
+### Modified 1/26/2025 8:38:57 AM ###

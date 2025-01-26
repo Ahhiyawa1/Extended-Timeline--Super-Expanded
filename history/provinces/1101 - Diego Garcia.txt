@@ -1,39 +1,59 @@
-#1101 - Diego Garcia
+# Hollhavai
+# 1101 Hollhavai - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = uninhabited
 religion = animism
 capital = "Diego Garcia"
-trade_goods = unknown
-hre = no
-base_tax = 1
-base_production = 1
-base_manpower = 1
-native_size = 0
-native_ferocity = 0
-native_hostileness = 0
-
-3608.1.1  = { discovered_by = POR } # Diego Gracia
-3878.1.1  = {	owner = FRA
-		controller = FRA
-		citysize = 250
-		culture = cosmopolitan_french
-		religion = catholic
-	    }
-3898.1.1  = { citysize = 425 trade_goods = slaves }
-3903.1.1  = { add_core = FRA }
-3912.4.11 = {	owner = GBR
-		controller = GBR
-		add_core = GBR
-#		culture = english
-#		religion = protestant
-		remove_core = FRA
-	    } # Actually confirmed in the Treaty of Paris
-
-4008.1.1 = { discovered_by = western }
-4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3998.1.1  = { citysize = 700 }
-4098.1.1  = { is_city = yes }
 
 
 
 
+
+
+3608.1.1 = {
+	discovered_by = POR
+}
+3878.1.1 = {
+	owner = FRA
+	controller = FRA
+	citysize = 250
+	culture = cosmopolitan_french
+	religion = catholic
+}
+3898.1.1 = {
+	citysize = 425
+	trade_goods = slaves
+}
+3903.1.1 = {
+	add_core = FRA
+}
+3912.4.11 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4018.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3998.1.1 = {
+	citysize = 700
+}
+4098.1.1 = {
+	is_city = yes
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

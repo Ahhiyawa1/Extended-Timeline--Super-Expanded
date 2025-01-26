@@ -1,11 +1,22 @@
-#3138 - Tarragona
-
+# Tarragona
+# 2988 Tarragona - 1/26/2025 8:38:55 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-add_core = ROM
+base_tax = 3
+base_production = 2
+base_manpower = 2
+
+trade_goods = wine
+
 culture = iberi
 religion = hellenism
-hre = no
+capital = "Tarraco"
+
+is_city = yes
+fort_15th = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -13,78 +24,258 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 3
-base_production = 2
-trade_goods = wine 
-base_manpower = 2
-fort_15th = yes
-capital = "Tarraco" 
-is_city = yes
- 
+
+
+
 add_permanent_province_modifier = {
 	name = ebro_estuary_modifier
 	duration = -1
 }
 
-2458.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2554.1.1 = { owner = GVI controller = GVI add_core = GVI }
-2556.10.1 = { owner = ROW controller = ROW } #Battle of Arelate
-2574.9.4 = { owner = GVI controller = GVI add_core = GVI remove_core = ROW religion = arianism }
-2598.1.1 = { fort_15th = no }
-2668.1.1 = { religion = chalcedonism }
-2809.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = GVI culture = catalan }
-2848.8.6 = { owner = CRD controller = CRD add_core = CRD remove_core = UMA }
-2965.1.1 = { religion = catholic }
-3108.1.1 = { owner = TTA controller = TTA add_core = TTA remove_core = CRD capital = "Tortosa" }
-3158.1.1 = { owner = ZAR controller = ZAR add_core = ZAR }
-3179.1.1 = { owner = TTA controller = TTA remove_core = ZAR }
-3213.1.1 = { owner = MOR controller = MOR add_core = MOR }
-3215.1.1 = { owner = CAT controller = CAT add_core = CAT remove_core = MOR remove_core = TTA capital = "Tarragona" }
-3235.8.11 = { owner = ARA controller = ARA add_core = ARA }
+2458.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2554.1.1 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+}
+2556.10.1 = {
+	owner = ROW
+	controller = ROW
+}
+2574.9.4 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	remove_core = ROW
+	religion = arianism
+}
+2598.1.1 = {
+	fort_15th = no
+}
+2668.1.1 = {
+	religion = chalcedonism
+}
+2809.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = GVI
+	culture = catalan
+}
+2848.8.6 = {
+	owner = CRD
+	controller = CRD
+	add_core = CRD
+	remove_core = UMA
+}
+2965.1.1 = {
+	religion = catholic
+}
+3108.1.1 = {
+	owner = TTA
+	controller = TTA
+	add_core = TTA
+	remove_core = CRD
+	capital = "Tortosa"
+}
+3158.1.1 = {
+	owner = ZAR
+	controller = ZAR
+	add_core = ZAR
+}
+3179.1.1 = {
+	owner = TTA
+	controller = TTA
+	remove_core = ZAR
+}
+3213.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+}
+3215.1.1 = {
+	owner = CAT
+	controller = CAT
+	add_core = CAT
+	remove_core = MOR
+	remove_core = TTA
+	capital = "Tarragona"
+}
+3235.8.11 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+}
+3510.6.29 = {
+	revolt = {
+		type = pretender_rebels
+		size = 0
+	}
 
-3510.6.29 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Jaime d'Urgell Uprising
-3511.1.1 = { revolt = {} controller = ARA }
-3559.9.23 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Catalan nobility revolts against King Joan, later the "Remensa" peasant revolt erupts, which is used by the King to erode the Catalan nobility. 
-3560.4.11 = { revolt = {} controller = CAS } # The Generalitat capitulates to King Joan, the civil war ends. Succession war
-3561.1.1 = { revolt = { type = pretender_rebels size = 1 } controller = REB } # Uprising
-3564.6.30 = { revolt = {} controller = PRO } # Succession war against Provence
-3570.10.16 = { controller = ARA }
+	controller = REB
+}
+3511.1.1 = {
+	revolt = {
+	}
+
+	controller = ARA
+}
+3559.9.23 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3560.4.11 = {
+	revolt = {
+	}
+
+	controller = CAS
+}
+3561.1.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3564.6.30 = {
+	revolt = {
+	}
+
+	controller = PRO
+}
+3570.10.16 = {
+	controller = ARA
+}
 3614.1.23 = {
 	controller = SPA
 	owner = SPA
 	add_core = SPA
-} # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
-3738.6.7 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # "Corpus of blood". The Viceroy is killed and the Catalan sublevation begins, fastly spreading to other cities. 
+}
+3738.6.7 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
 3739.1.1 = {
-	revolt = {}
+	revolt = {
+	}
+
 	owner = FRA
 	controller = FRA
 	add_core = FRA
-} # Louis XIII of France, Count of Barcelona.
-3750.10.11 = { owner = SPA controller = SPA remove_core = FRA } # Barcelona surrenders
-3766.4.4 = { unrest = 5 } # Peasant revolt of the "barretines"
-3767.12.2 = { unrest = 0 } # End of the revolt
-3787.1.1 = { revolt = { type = anti_tax_rebels size = 2 } controller = REB } # Peasant revolt against new taxes to fund the war against France
-3787.11.30 = { revolt = {} controller = SPA } # The peasants retreat from Barcelona
-3795.8.10 = { controller = FRA	} # Barcelona falls to the French
-3795.9.20 = { controller = SPA } # Peace of Ryswick
-3803.10.9 = { controller = HAB } # Catalonia recognises Archduke Carlos as their sovereign, joining the Anglo-Austrian cause in the War of Spanish Succession. The loyalist troops in Barcelona are defeated.
-3811.4.11 = { revolt = { type = nationalist_rebels size = 2 leader = "Rafel Casanova" } controller = REB } # Catalan authorities don't recognise the Peace of Utrecht, and face war alone against the Franco-Spanish army.
-3811.7.13 = { remove_core = ARA }
-3812.9.11 = { revolt = {} controller = SPA } # Barcelona surrenders
-3850.1.1 = { base_manpower = 3 }
-3877.1.1 = { base_tax = 6 }
-3904.1.1 = { base_manpower = 4 }
-3911.8.31 = { revolt = { type = pretender_rebels size = 1 } controller = REB }
-3911.12.11 = { revolt = {} controller = SPA }
+}
+3750.10.11 = {
+	owner = SPA
+	controller = SPA
+	remove_core = FRA
+}
+3766.4.4 = {
+	unrest = 5
+}
+3767.12.2 = {
+	unrest = 0
+}
+3787.1.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+	}
 
-3932.1.1 = { base_tax = 7 }
-3959.1.1 = { base_tax = 8 }
-3986.1.1 = { base_production = 6 }
-4008.1.1 = { discovered_by = asian }
-4013.1.1 = { base_production = 7 }
-4098.1.1 = { base_manpower = 5 }
-4110.1.1   = { add_core = CAT }
+	controller = REB
+}
+3787.11.30 = {
+	revolt = {
+	}
+
+	controller = SPA
+}
+3795.8.10 = {
+	controller = FRA
+}
+3795.9.20 = {
+	controller = SPA
+}
+3803.10.9 = {
+	controller = HAB
+}
+3811.4.11 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+		leader = "Rafel Casanova"
+	}
+
+	controller = REB
+}
+3811.7.13 = {
+	remove_core = ARA
+}
+3812.9.11 = {
+	revolt = {
+	}
+
+	controller = SPA
+}
+3850.1.1 = {
+	base_manpower = 3
+}
+3877.1.1 = {
+	base_tax = 6
+}
+3904.1.1 = {
+	base_manpower = 4
+}
+3911.8.31 = {
+	revolt = {
+		type = pretender_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3911.12.11 = {
+	revolt = {
+	}
+
+	controller = SPA
+}
+3932.1.1 = {
+	base_tax = 7
+}
+3959.1.1 = {
+	base_tax = 8
+}
+3986.1.1 = {
+	base_production = 6
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4013.1.1 = {
+	base_production = 7
+}
+4098.1.1 = {
+	base_manpower = 5
+}
+4110.1.1 = {
+	add_core = CAT
+}
 
 
+### Modified 1/26/2025 8:38:55 AM ###

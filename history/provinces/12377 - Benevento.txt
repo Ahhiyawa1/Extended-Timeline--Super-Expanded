@@ -1,10 +1,21 @@
-# 12377 - Benevento
-
+# Benevento
+# 12377 Benevento - 1/26/2025 8:38:57 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = grain
+
 culture = umbrian
 religion = hellenism
-hre = no 
+capital = "Beneventum"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,61 +23,173 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = grain
-base_manpower = 1
-capital = "Beneventum"
-is_city = yes # Estimated 
-add_core = ROM
 
-2418.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2642.1.1 = { controller = BYZ }
-2652.1.1 = { owner = BYZ add_core = BYZ remove_core = OST }
-2667.6.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST capital = "Benevento" }
-2669.1.1 = { owner = BNV controller = BNV add_core = BNV }
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2872.1.1 = { remove_core = LOM }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2965.1.1 = { religion = catholic }
-2989.1.1 = { owner = BYZ controller = BYZ }
-2993.1.1 = { owner = BNV controller = BNV remove_core = BYZ }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3151.1.1 = { owner = SIC controller = SIC add_core = SIC remove_core = BYZ culture = neapolitan capital = "Avellino" }
-3298.1.1 = { base_manpower = 2 }
-3380.1.1 = { owner = NAP controller = NAP add_core = NAP remove_core = SIC }
-3398.1.1 = { base_manpower = 3 }
 
-3592.1.1 = { add_core = FRA } # Angevine claims
-3593.2.22 = { controller = FRA } # Charles VIII takes Napoli
-3593.7.7 = { controller = NAP } # Charles VIII leaves Italy
-3600.1.1 = { owner = ARA controller = ARA add_core = ARA } # France and Aragon partitions Naples
-3602.1.31 = { remove_core = FRA } # The Treaty of Lyon in 1504
+
+
+2418.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2574.9.4 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2578.1.1 = {
+	remove_core = ROW
+}
+2587.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ITA
+}
+2642.1.1 = {
+	controller = BYZ
+}
+2652.1.1 = {
+	owner = BYZ
+	add_core = BYZ
+	remove_core = OST
+}
+2667.6.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = OST
+	capital = "Benevento"
+}
+2669.1.1 = {
+	owner = BNV
+	controller = BNV
+	add_core = BNV
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2872.1.1 = {
+	remove_core = LOM
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2965.1.1 = {
+	religion = catholic
+}
+2989.1.1 = {
+	owner = BYZ
+	controller = BYZ
+}
+2993.1.1 = {
+	owner = BNV
+	controller = BNV
+	remove_core = BYZ
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3151.1.1 = {
+	owner = SIC
+	controller = SIC
+	add_core = SIC
+	remove_core = BYZ
+	culture = neapolitan
+	capital = "Avellino"
+}
+3298.1.1 = {
+	base_manpower = 2
+}
+3380.1.1 = {
+	owner = NAP
+	controller = NAP
+	add_core = NAP
+	remove_core = SIC
+}
+3398.1.1 = {
+	base_manpower = 3
+}
+3592.1.1 = {
+	add_core = FRA
+}
+3593.2.22 = {
+	controller = FRA
+}
+3593.7.7 = {
+	controller = NAP
+}
+3600.1.1 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+}
+3602.1.31 = {
+	remove_core = FRA
+}
 3614.1.23 = {
 	owner = SPA
 	controller = SPA
 	add_core = SPA
 	remove_core = ARA
-} # Unification of Spain
-3681.1.1 = { fort_15th = no fort_16th = yes }
-3746.1.1 = { fort_16th = no fort_17th = yes }
+}
+3681.1.1 = {
+	fort_15th = no
+	fort_16th = yes
+}
+3746.1.1 = {
+	fort_16th = no
+	fort_17th = yes
+}
 3812.3.7 = {
 	owner = HAB
 	controller = HAB
 	add_core = HAB
 	remove_core = SPA
 }
-3813.1.1 = { fort_17th = no fort_18th = yes } 
-3832.6.2 = { owner = NAP controller = NAP remove_core = HAB }
-3904.2.9 = { controller = FRA } # French troops invade
-3904.3.11 = { controller = NAP } # Joseph Bonaparte becomes king of the new Kingdom of Naples
+3813.1.1 = {
+	fort_17th = no
+	fort_18th = yes
+}
+3832.6.2 = {
+	owner = NAP
+	controller = NAP
+	remove_core = HAB
+}
+3904.2.9 = {
+	controller = FRA
+}
+3904.3.11 = {
+	controller = NAP
+}
+3898.1.1 = {
+	base_tax = 5
+}
+3959.2.12 = {
+	owner = SPI
+	controller = SPI
+	add_core = SPI
+}
+3959.3.17 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	remove_core = SPI
+	remove_core = NAP
+}
+3998.1.1 = {
+	base_manpower = 4
+}
+4048.1.1 = {
+	base_production = 5
+}
 
-3898.1.1 = { base_tax = 5 }
-3959.2.12 = { owner = SPI controller = SPI add_core = SPI }
-3959.3.17 = { owner = ITA controller = ITA add_core = ITA remove_core = SPI remove_core = NAP }
-3998.1.1 = { base_manpower = 4 }
-4048.1.1 = { base_production = 5 }
+
+### Modified 1/26/2025 8:38:57 AM ###

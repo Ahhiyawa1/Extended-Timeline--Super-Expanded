@@ -1,12 +1,21 @@
-#11590 - Miramshah
-
+# Miramshah
+# 11590 Miramshah - 1/26/2025 8:38:57 AM 
+ 
+add_core = IPA
 owner = IPA
 controller = IPA
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = livestock
+
 culture = panjabi
 religion = hinduism
 capital = "Miramshah"
-trade_goods = livestock
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,27 +27,90 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = IPA
 
-2174.1.1 = { owner = KUS controller = KUS add_core = KUS remove_core = IPA }
-2368.1.1 = { owner = ABH controller = ABH add_core = ABH remove_core = KUS }
-2448.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = ABH }
-2528.1.1 = { owner = KAP controller = KAP add_core = KAP remove_core = KDT }
-2628.1.1 = { owner = GND controller = GND add_core = GND remove_core = KAP }
-2688.1.1 = { owner = SHH controller = SHH add_core = SHH remove_core = KAP }
-2968.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = SHH }
-2998.1.1 = { owner = SHH controller = SHH add_core = SHH remove_core = SIS }
-3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ }
-3248.1.1 = { religion = sunni }
-3273.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
-3308.1.1 = { owner = MUL controller = MUL add_core = MUL remove_core = GHU }
-3326.1.1 = { owner = DLH controller = DLH add_core = DLH add_core = PUN }
-3496.1.1 = { owner = MUL controller = MUL add_core = MUL remove_core = DLH }
 
+
+
+2174.1.1 = {
+	owner = KUS
+	controller = KUS
+	add_core = KUS
+	remove_core = IPA
+}
+2368.1.1 = {
+	owner = ABH
+	controller = ABH
+	add_core = ABH
+	remove_core = KUS
+}
+2448.1.1 = {
+	owner = KDT
+	controller = KDT
+	add_core = KDT
+	remove_core = ABH
+}
+2528.1.1 = {
+	owner = KAP
+	controller = KAP
+	add_core = KAP
+	remove_core = KDT
+}
+2628.1.1 = {
+	owner = GND
+	controller = GND
+	add_core = GND
+	remove_core = KAP
+}
+2688.1.1 = {
+	owner = SHH
+	controller = SHH
+	add_core = SHH
+	remove_core = KAP
+}
+2968.1.1 = {
+	owner = SIS
+	controller = SIS
+	add_core = SIS
+	remove_core = SHH
+}
+2998.1.1 = {
+	owner = SHH
+	controller = SHH
+	add_core = SHH
+	remove_core = SIS
+}
+3100.1.1 = {
+	owner = GHZ
+	controller = GHZ
+	add_core = GHZ
+}
+3248.1.1 = {
+	religion = sunni
+}
+3273.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = GHZ
+}
+3308.1.1 = {
+	owner = MUL
+	controller = MUL
+	add_core = MUL
+	remove_core = GHU
+}
+3326.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	add_core = PUN
+}
+3496.1.1 = {
+	owner = MUL
+	controller = MUL
+	add_core = MUL
+	remove_core = DLH
+}
 3512.1.1 = {
 	owner = DLH
 	controller = DLH
@@ -46,51 +118,86 @@ add_core = IPA
 3535.1.1 = {
 	owner = MUL
 	controller = MUL
-} # Captured by Langas and separated from Sultanate
+}
 3624.1.1 = {
 	owner = SND
 	controller = SND
-} # Conquered by Arguns
+}
 3625.1.1 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Turned over to Babur
+}
 3642.1.1 = {
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} # Sur expansion
+}
 3651.1.1 = {
 	owner = MUL
 	controller = MUL
 	capital = "Dera Ismail Khan"
 	remove_core = BNG
-} # Independent
+}
 3655.7.1 = {
 	controller = MUG
 	owner = MUG
 	add_core = MUG
-} #Bairam Khan occupies Multan
-3698.1.1 = { discovered_by = TUR }
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3836.1.1 = { controller = PER } # Captured by Persia, Nadir Shah
+}
+3698.1.1 = {
+	discovered_by = TUR
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
+3836.1.1 = {
+	controller = PER
+}
 3837.5.1 = {
 	owner = PER
 	add_core = PER
-} # Captured by Persia, Nadir Shah
+}
 3845.10.1 = {
 	owner = AFG
 	controller = AFG
 	add_core = AFG
 	remove_core = MUG
-} # Ahmad Shah established the Durrani empire
+}
+3932.1.1 = {
+	owner = PUN
+	controller = PUN
+	add_core = PUN
+	remove_core = AFG
+}
+3947.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+4028.12.29 = {
+	add_core = PAK
+	remove_core = PUN
+}
+4045.8.14 = {
+	owner = PAK
+	controller = PAK
+	remove_core = GBR
+}
+4048.1.1 = {
+	base_manpower = 2
+}
+4073.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+4098.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
+}
 
-3932.1.1   = { owner = PUN controller = PUN add_core = PUN remove_core = AFG }
-3947.1.1   = { owner = GBR controller = GBR add_core = GBR }
-4028.12.29 = { add_core = PAK remove_core = PUN }
-4045.8.14  = { owner = PAK controller = PAK remove_core = GBR }
-4048.1.1 = { base_manpower = 2 }
-4073.1.1 = { base_tax = 3 base_production = 3 }
-4098.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 }
+
+### Modified 1/26/2025 8:38:57 AM ###

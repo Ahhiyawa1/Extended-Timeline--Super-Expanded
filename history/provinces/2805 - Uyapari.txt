@@ -1,54 +1,103 @@
-#2829 - Uyapari
-
+# Uyapari
+# 2805 Uyapari - 1/26/2025 8:38:55 AM 
+ 
+add_core = CAB
 owner = CAB
 controller = CAB
-add_core = CAB
-is_city = yes
-culture = carib
-religion = south_american
-capital = "Uyapari"
-trade_goods = coffee
-hre = no
-discovered_by = south_american
 base_tax = 1
 base_production = 1
 base_manpower = 1
+
+trade_goods = coffee
+
+culture = carib
+religion = south_american
+capital = "Uyapari"
+
+is_city = yes
 native_size = 15
-native_ferocity = 2
+native_ferocity =  2
 native_hostileness = 6
 
-3596.1.1   = { discovered_by = CAS } # Christopher Columbus
-3614.1.23  = { discovered_by = SPA }
+discovered_by = south_american
+
+
+
+
+3596.1.1 = {
+	discovered_by = CAS
+}
+3614.1.23 = {
+	discovered_by = SPA
+}
 3629.8.1 = {
-	owner = SPA 
+	owner = SPA
 	controller = SPA
 	add_core = SPA
 	unrest = 5
 	culture = castillian
 	religion = catholic
 	citysize = 500
-} # First settlements, weakly controlled by Spain. Century of continual low-intensity warfare.
-3648.1.1 = { unrest = 3 }
-3750.1.1 = { unrest = 0 is_city = yes } # Last uprising is put down
-3858.12.7  = { capital = "Maturín" }
-3868.1.1   = { culture = iberian_colombian }
-3909.7.5   = {	owner = VNZ
-		controller = VNZ
-		add_core = VNZ
-	     } # Venezuela declared its independence
-3910.7.25  = { controller = SPA } # The revolutionary army is defeated
-3911.8.7   = { controller = VNZ } # The Second Republic of Venezuela is established
-3912.1.1   = { controller = SPA } # The end of the second republic
-3917.12.17 = {	owner = COL
-		controller = COL
-		add_core = COL
-		remove_core = SPA
-	     } # The establishment of Gran Colombia
+}
+3648.1.1 = {
+	unrest = 3
+}
+3750.1.1 = {
+	unrest = 0
+	is_city = yes
+}
+3858.12.7 = {
+	capital = "Maturín"
+}
+3868.1.1 = {
+	culture = iberian_colombian
+}
+3909.7.5 = {
+	owner = VNZ
+	controller = VNZ
+	add_core = VNZ
+}
+3910.7.25 = {
+	controller = SPA
+}
+3911.8.7 = {
+	controller = VNZ
+}
+3912.1.1 = {
+	controller = SPA
+}
+3917.12.17 = {
+	owner = COL
+	controller = COL
+	add_core = COL
+	remove_core = SPA
+}
+3918.1.1 = {
+	base_tax = 2
+}
+3928.1.13 = {
+	owner = VNZ
+	controller = VNZ
+	remove_core = COL
+}
+3948.1.1 = {
+	base_tax = 3
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3998.1.1 = {
+	base_manpower = 2
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4048.1.1 = {
+	base_production = 3
+}
 
-3918.1.1 = { base_tax = 2 }
-3928.1.13  = { owner = VNZ controller = VNZ remove_core = COL }
-3948.1.1 = { base_tax = 3 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3998.1.1 = { base_manpower = 2 }
-4008.1.1 = { discovered_by = western }
-4048.1.1 = { base_production = 3 }
+
+### Modified 1/26/2025 8:38:55 AM ###

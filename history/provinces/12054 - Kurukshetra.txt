@@ -1,12 +1,21 @@
-#12054 - Kurukshetra
-
+# Kurukshetra
+# 12054 Kurukshetra - 1/26/2025 8:38:57 AM 
+ 
+add_core = ARJ
 owner = ARJ
 controller = ARJ
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = cotton
+
 culture = kanauji
 religion = mahayana
 capital = "Kurukshetra"
-trade_goods = cotton
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,69 +27,153 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = ARJ
 
-2218.1.1 = { owner = KUS controller = KUS add_core = KUS }
-2368.1.1 = { owner = ARJ controller = ARJ add_core = ARJ remove_core = KUS }
-2458.1.1 = { religion = hinduism }
-2473.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = ARJ }
-2596.1.1 = { owner = KAP controller = KAP add_core = HRS remove_core = GUP }
-2626.1.1 = { owner = MLW controller = MLW }
-2638.1.1 = { owner = HRS controller = HRS }
-2745.1.1 = { owner = TOM controller = TOM add_core = TOM remove_core = HRS }
-2838.1.1 = { owner = KSH controller = KSH add_core = KSH }
-2858.1.1 = { owner = TOM controller = TOM remove_core = KSH }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2998.1.1 = { base_tax = 4 base_production = 4 }
-3098.1.1 = { base_manpower = 3 }
-3198.1.1 = { base_tax = 5 base_production = 5 }
-3268.1.1 = { owner = CCH controller = CCH add_core = CCH remove_core = TOM }
-3290.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = CCH }
-3304.1.1 = { owner = DLH controller = DLH add_core = DLH remove_core = GHU }
 
-3624.4.1 = { controller = TIM } #Conquered by Babur
+
+
+2218.1.1 = {
+	owner = KUS
+	controller = KUS
+	add_core = KUS
+}
+2368.1.1 = {
+	owner = ARJ
+	controller = ARJ
+	add_core = ARJ
+	remove_core = KUS
+}
+2458.1.1 = {
+	religion = hinduism
+}
+2473.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = ARJ
+}
+2596.1.1 = {
+	owner = KAP
+	controller = KAP
+	add_core = HRS
+	remove_core = GUP
+}
+2626.1.1 = {
+	owner = MLW
+	controller = MLW
+}
+2638.1.1 = {
+	owner = HRS
+	controller = HRS
+}
+2745.1.1 = {
+	owner = TOM
+	controller = TOM
+	add_core = TOM
+	remove_core = HRS
+}
+2838.1.1 = {
+	owner = KSH
+	controller = KSH
+	add_core = KSH
+}
+2858.1.1 = {
+	owner = TOM
+	controller = TOM
+	remove_core = KSH
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2998.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3098.1.1 = {
+	base_manpower = 3
+}
+3198.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3268.1.1 = {
+	owner = CCH
+	controller = CCH
+	add_core = CCH
+	remove_core = TOM
+}
+3290.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = CCH
+}
+3304.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	remove_core = GHU
+}
+3624.4.1 = {
+	controller = TIM
+}
 3624.4.21 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Battle of Panipat
+}
 3638.1.1 = {
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} # Sher Shah Conquers Delhi
+}
 3651.1.1 = {
 	owner = DLH
 	controller = DLH
 	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
+}
 3653.7.23 = {
 	owner = MUG
 	controller = MUG
-} # Humayun Returns
-3654.10.7 = { controller = DLH } # Hemu
-3654.11.5 = { controller = MUG } #Second battle of Panipat
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
+}
+3654.10.7 = {
+	controller = DLH
+}
+3654.11.5 = {
+	controller = MUG
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
 3860.1.1 = {
 	owner = PUN
 	controller = PUN
 	add_core = PUN
-} # Sikhs
+}
 3882.1.1 = {
 	owner = GWA
 	controller = GWA
-} # The Marathas
+}
 3901.1.1 = {
 	owner = GBR
 	controller = GBR
 	add_core = GBR
 }
+4023.1.1 = {
+	base_manpower = 4
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = MUG
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-4023.1.1 = { base_manpower = 4 }
-4028.1.1  = { add_core = INI remove_core = MUG }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:38:57 AM ###

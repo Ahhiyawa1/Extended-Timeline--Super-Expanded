@@ -1,50 +1,122 @@
-#9257 - Blangkejeren
+# Blangkejeren
+# 9257 Blangkejeren - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = acehnese
 religion = animism
 capital = "Blangkejeren"
-trade_goods = unknown
-hre = no
+
+native_size = 40
+native_ferocity =  2
+native_hostileness = 7
+
 discovered_by = indian
 discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 3
-base_production = 3
-base_manpower = 1
-native_size = 40
-native_ferocity = 2
-native_hostileness = 7
 
-2298.1.1 = { owner = BRS controller = BRS add_core = BRS is_city = yes trade_goods = tropical_wood }
-2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
-2898.1.1 = { religion = hinduism }
-3378.1.1 = { owner = LAM controller = LAM add_core = LAM remove_core = BRS }
-3398.1.1 = { religion = sunni }
-3518.1.1 = { owner = ATJ controller = ATJ add_core = ATJ remove_core = LAM }
 
-3503.1.1 = { discovered_by = MNG }
-3569.1.1 = { add_core = ATJ }
-3607.1.1 = { discovered_by = POR }
+
+
+2298.1.1 = {
+	owner = BRS
+	controller = BRS
+	add_core = BRS
+	is_city = yes
+	trade_goods = tropical_wood
+}
+2798.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+2898.1.1 = {
+	religion = hinduism
+}
+3378.1.1 = {
+	owner = LAM
+	controller = LAM
+	add_core = LAM
+	remove_core = BRS
+}
+3398.1.1 = {
+	religion = sunni
+}
+3518.1.1 = {
+	owner = ATJ
+	controller = ATJ
+	add_core = ATJ
+	remove_core = LAM
+}
+3503.1.1 = {
+	discovered_by = MNG
+}
+3569.1.1 = {
+	add_core = ATJ
+}
+3607.1.1 = {
+	discovered_by = POR
+}
 3619.1.1 = {
 	owner = ATJ
 	controller = ATJ
 	remove_core = PSA
 }
-3756.1.1 = { owner = NED controller = NED } # The Dutch gradually gained control
-3781.1.1 = { add_core = NED }
+3756.1.1 = {
+	owner = NED
+	controller = NED
+}
+3781.1.1 = {
+	add_core = NED
+}
+3943.1.1 = {
+	base_tax = 4
+}
+4003.1.1 = {
+	base_manpower = 2
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4010.9.10 = {
+	add_core = IDN
+	remove_core = ATJ
+}
+4040.2.1 = {
+	controller = JAP
+}
+4040.3.9 = {
+	owner = JAP
+	controller = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-3943.1.1 = { base_tax = 4 }
-4003.1.1 = { base_manpower = 2 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4010.9.10  = { add_core = IDN remove_core = ATJ }
-4040.2.1   = { controller = JAP }
-4040.3.9   = { owner = JAP controller = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
-4098.1.1 = { base_production = 4 }
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+4098.1.1 = {
+	base_production = 4
+}
 
 
-
+### Modified 1/26/2025 8:38:56 AM ###

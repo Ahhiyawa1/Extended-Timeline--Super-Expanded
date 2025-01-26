@@ -1,10 +1,20 @@
-#9407 - Dompu
+# Dompu
+# 9407 Dompu - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 2
+
+trade_goods = unknown
 
 culture = papuan
 religion = animism
 capital = "Dompu"
-trade_goods = unknown
-hre = no
+
+native_size = 5
+native_ferocity =  1
+native_hostileness = 5
+
 discovered_by = TID
 discovered_by = TER
 discovered_by = MGD
@@ -28,28 +38,60 @@ discovered_by = BLI
 discovered_by = MKS
 discovered_by = MAJ
 discovered_by = ATJ
-base_tax = 3
-base_production = 3
-base_manpower = 2
-native_size = 5
-native_ferocity = 1
-native_hostileness = 5
 
-3610.1.1 = { discovered_by = POR }
 
-3898.1.1   = { discovered_by = chinese discovered_by = asian }
-3948.1.1 = { religion = sunni }
-4008.1.1 = { discovered_by = western }
-4018.1.1 = {	owner = NED
-		controller = NED
-		add_core = NED
-		add_core = IDN
-		is_city = yes
-		trade_goods = gold #Newmont mine
-		capital = "Sumbawa Besar"
-	   }
-4038.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4040.3.9   = { controller = JAP owner = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
+
+
+3610.1.1 = {
+	discovered_by = POR
+}
+3898.1.1 = {
+	discovered_by = chinese
+	discovered_by = asian
+}
+3948.1.1 = {
+	religion = sunni
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4018.1.1 = {
+	owner = NED
+	controller = NED
+	add_core = NED
+	add_core = IDN
+	is_city = yes
+	trade_goods = gold
+	capital = "Sumbawa Besar"
+}
+4038.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4040.3.9 = {
+	controller = JAP
+	owner = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+
+
+### Modified 1/26/2025 8:38:56 AM ###

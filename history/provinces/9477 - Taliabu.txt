@@ -1,10 +1,20 @@
-#9477 - Taliabu
+# Taliabu
+# 9477 Taliabu - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = moluccan
 religion = animism
 capital = "Taliabu"
-trade_goods = unknown
-hre = no
+
+native_size = 5
+native_ferocity =  2
+native_hostileness = 2
+
 discovered_by = TID
 discovered_by = TER
 discovered_by = MGD
@@ -24,30 +34,79 @@ discovered_by = BAN
 discovered_by = BLI
 discovered_by = MKS
 discovered_by = MAJ
-base_tax = 2
-base_production = 2
-base_manpower = 1
-native_size = 5
-native_ferocity = 2
-native_hostileness = 2
 
-3609.1.1 = { discovered_by = POR }
-3738.1.1 = { religion = sunni }
-3756.1.1 = {	discovered_by = NED
-		owner = NED
-		controller = NED
-	   	citysize = 600
-		trade_goods = coffee
-	   } # Dutch control
-3781.1.1 = { add_core = NED }
-3828.1.1 = { is_city = yes }
 
-3898.1.1   = { discovered_by = chinese discovered_by = asian }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4010.9.10  = { add_core = IDN }
-4040.3.9   = { owner = JAP controller = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
-4048.4.25  = { revolt = { type = nationalist_rebels size = 1 } controller = REB } #Republic of South Maluku
-4048.11.1  = { revolt = {} controller = IDN }
+
+
+3609.1.1 = {
+	discovered_by = POR
+}
+3738.1.1 = {
+	religion = sunni
+}
+3756.1.1 = {
+	discovered_by = NED
+	owner = NED
+	controller = NED
+	citysize = 600
+	trade_goods = coffee
+}
+3781.1.1 = {
+	add_core = NED
+}
+3828.1.1 = {
+	is_city = yes
+}
+3898.1.1 = {
+	discovered_by = chinese
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4010.9.10 = {
+	add_core = IDN
+}
+4040.3.9 = {
+	owner = JAP
+	controller = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+4048.4.25 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4048.11.1 = {
+	revolt = {
+		controller = IDN
+	}
+
+}
+
+
+### Modified 1/26/2025 8:38:56 AM ###

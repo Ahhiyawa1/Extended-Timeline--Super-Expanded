@@ -1,16 +1,21 @@
-#412 - Khuzestan
-
-latent_trade_goods = {
-	oil
-}
-
+# Ahvaz
+# 412 Ahvaz - 1/26/2025 8:38:55 AM 
+ 
+add_core = ELY
 owner = ELY
 controller = ELY
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+trade_goods = sugar
+
 culture = khuzi
 religion = zoroastrian
 capital = "Taryana"
-trade_goods = sugar
-hre = no
+
+is_city = yes
+
 discovered_by = indian
 discovered_by = asian
 discovered_by = early_indian
@@ -20,51 +25,174 @@ discovered_by = western_nomad_group
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 3
-base_production = 3
-base_manpower = 1
-is_city = yes
-add_core = ELY
-
-2320.1.1 = { owner = ERS controller = ERS add_core = ERS capital = "Hormizdardashir" }
-2736.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS capital = "Ahvaz" }
-2738.1.1 = { religion = islam }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = shiite }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2898.1.1 = { culture = al_iraqiya_arabic }
-3038.1.1 = { owner = IRQ controller = IRQ add_core = IRQ remove_core = ABA }
-3076.3.1 = { owner = PER controller = PER add_core = PER }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3153.1.1 = { owner = SEL controller = SEL add_core = SEL remove_core = PER }
-3251.1.1 = { owner = ABA controller = ABA add_core = ABA remove_core = SEL }
-3348.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = PER remove_core = ABA }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3372.1.1 = { owner = IDA controller = IDA add_core = IDA remove_core = ILK }
-3522.1.1 = { owner = TIM controller = TIM add_core = TIM remove_core = IDA }
-
-3539.1.1 = { owner = MSY controller = MSY add_core = MSY remove_core = TIM }
-3596.1.1 = { discovered_by = POR }
-3606.1.1  = { owner = PER controller = PER add_core = PER remove_core = MSY } # The Safavids took over
-3817.1.1  = { revolt_risk = 5 } # Rebellion
-3818.1.1  = { revolt_risk = 0 }
-3845.1.1  = { revolt_risk = 3 } # Shah Nadir is killed, local khanates emerged
-3846.1.1  = { revolt_risk = 4 } # The empire began to decline
-3849.1.1 = { base_tax = 5 }
-3873.1.1 = { base_manpower = 2 }
-3877.1.1  = { revolt_risk = 0 } # With the Qajar dynasty the situation stabilized
-
-3899.1.1 = { base_manpower = 3 }
-3923.1.1 = { base_production = 7 }
-3949.1.1 = { base_manpower = 4 }
-3973.1.1 = { base_production = 8 }
-3999.1.1 = { base_tax = 6 }
-4023.1.1 = { base_tax = 7 }
-4033.1.1   = { owner = IRA controller = IRA add_core = IRA remove_core = PER }
-4049.1.1 = { base_production = 9 base_manpower = 5 }
-4063.1.1   = { trade_goods = oil } #Ahwaz field
-4073.1.1 = { base_production = 10 }
-4078.1.1   = { culture = luri }
-4098.1.1 = { base_production = 11 base_manpower = 6 }
 
 
 
+latent_trade_goods = {
+   oil
+}
+
+2320.1.1 = {
+	owner = ERS
+	controller = ERS
+	add_core = ERS
+	capital = "Hormizdardashir"
+}
+2736.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = ERS
+	capital = "Ahvaz"
+}
+2738.1.1 = {
+	religion = islam
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+	religion = shiite
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2898.1.1 = {
+	culture = al_iraqiya_arabic
+}
+3038.1.1 = {
+	owner = IRQ
+	controller = IRQ
+	add_core = IRQ
+	remove_core = ABA
+}
+3076.3.1 = {
+	owner = PER
+	controller = PER
+	add_core = PER
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3153.1.1 = {
+	owner = SEL
+	controller = SEL
+	add_core = SEL
+	remove_core = PER
+}
+3251.1.1 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = SEL
+}
+3348.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	add_core = PER
+	remove_core = ABA
+}
+3358.1.1 = {
+	owner = ILK
+	controller = ILK
+	add_core = ILK
+	remove_core = KHA
+}
+3372.1.1 = {
+	owner = IDA
+	controller = IDA
+	add_core = IDA
+	remove_core = ILK
+}
+3522.1.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+	remove_core = IDA
+}
+3539.1.1 = {
+	owner = MSY
+	controller = MSY
+	add_core = MSY
+	remove_core = TIM
+}
+3596.1.1 = {
+	discovered_by = POR
+}
+3606.1.1 = {
+	owner = PER
+	controller = PER
+	add_core = PER
+	remove_core = MSY
+}
+3817.1.1 = {
+	revolt_risk = 5
+}
+3818.1.1 = {
+	revolt_risk = 0
+}
+3845.1.1 = {
+	revolt_risk = 3
+}
+3846.1.1 = {
+	revolt_risk = 4
+}
+3849.1.1 = {
+	base_tax = 5
+}
+3873.1.1 = {
+	base_manpower = 2
+}
+3877.1.1 = {
+	revolt_risk = 0
+}
+3899.1.1 = {
+	base_manpower = 3
+}
+3923.1.1 = {
+	base_production = 7
+}
+3949.1.1 = {
+	base_manpower = 4
+}
+3973.1.1 = {
+	base_production = 8
+}
+3999.1.1 = {
+	base_tax = 6
+}
+4023.1.1 = {
+	base_tax = 7
+}
+4033.1.1 = {
+	owner = IRA
+	controller = IRA
+	add_core = IRA
+	remove_core = PER
+}
+4049.1.1 = {
+	base_production = 9
+	base_manpower = 5
+}
+4063.1.1 = {
+	trade_goods = oil
+}
+4073.1.1 = {
+	base_production = 10
+}
+4078.1.1 = {
+	culture = luri
+}
+4098.1.1 = {
+	base_production = 11
+	base_manpower = 6
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

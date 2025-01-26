@@ -1,10 +1,21 @@
-#9457 - Tolitoli
+# Tolitoli
+# 9457 Tolitoli - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 2
+
+center_of_trade = 1
+trade_goods = unknown
 
 culture = sulawesi
 religion = animism
 capital = "Tolitoli"
-trade_goods = unknown
-hre = no
+
+native_size = 60
+native_ferocity =  2
+native_hostileness = 9
+
 discovered_by = TID
 discovered_by = TER
 discovered_by = MGD
@@ -28,35 +39,62 @@ discovered_by = BLI
 discovered_by = MKS
 discovered_by = MAJ
 discovered_by = ATJ
-base_tax = 3
-base_production = 3
-base_manpower = 2
-native_size = 60
-native_ferocity = 2
-native_hostileness = 9
-center_of_trade = 1
+
+
+
 
 3418.1.1 = {
 	discovered_by = ottoman
 	discovered_by = indian
-	discovered_by = asian 
+	discovered_by = asian
 	discovered_by = muslim
 }
-
-3609.1.1 = { discovered_by = POR }
-3706.1.1 = { religion = sunni }
-
+3609.1.1 = {
+	discovered_by = POR
+}
+3706.1.1 = {
+	religion = sunni
+}
 3986.5.1 = {
 	owner = NED
 	controller = NED
 	add_core = NED
 	is_city = yes
 	trade_goods = spices
-} # Dutch control
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4010.9.10  = { add_core = IDN }
-4022.1.1 = { base_manpower = 3 }
-4040.3.9   = { owner = JAP controller = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4010.9.10 = {
+	add_core = IDN
+}
+4022.1.1 = {
+	base_manpower = 3
+}
+4040.3.9 = {
+	owner = JAP
+	controller = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+
+
+### Modified 1/26/2025 8:38:56 AM ###

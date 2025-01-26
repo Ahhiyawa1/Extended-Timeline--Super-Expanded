@@ -1,39 +1,81 @@
-#2207 - Mahadeo
-
-latent_trade_goods = {
-	aluminum
-}
-
+# Mahadeo
+# 2092 Mahadeo - 1/26/2025 8:38:55 AM 
+ 
+add_core = STV
 owner = STV
 controller = STV
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = tropical_wood
+
 culture = marathi
 religion = hinduism
 capital = "Kherla"
-trade_goods = tropical_wood
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
 discovered_by = ottoman
-discovered_by = middle_eastern 
+discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = STV
 
-2318.1.1 = { owner = GDW controller = GDW add_core = GDW remove_core = STV }
-2358.1.1 = { owner = VAK controller = VAK add_core = VAK remove_core = GDW }
-2598.1.1 = { owner = YOR controller = YOR add_core = YOR remove_core = VAK }
-2714.1.1 = { owner = CLY controller = CLY add_core = CLY remove_core = YOR }
-2851.1.1 = { owner = RSH controller = RSH add_core = RSH remove_core = CLY }
-2898.1.1 = { discovered_by = nomad_group }
-3071.1.1 = { owner = KLC controller = KLC add_core = KLC remove_core = RSH }
-3310.1.1 = { owner = GDW controller = GDW add_core = GDW remove_core = KLC }
 
+
+latent_trade_goods = {
+   aluminum
+}
+
+2318.1.1 = {
+	owner = GDW
+	controller = GDW
+	add_core = GDW
+	remove_core = STV
+}
+2358.1.1 = {
+	owner = VAK
+	controller = VAK
+	add_core = VAK
+	remove_core = GDW
+}
+2598.1.1 = {
+	owner = YOR
+	controller = YOR
+	add_core = YOR
+	remove_core = VAK
+}
+2714.1.1 = {
+	owner = CLY
+	controller = CLY
+	add_core = CLY
+	remove_core = YOR
+}
+2851.1.1 = {
+	owner = RSH
+	controller = RSH
+	add_core = RSH
+	remove_core = CLY
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+3071.1.1 = {
+	owner = KLC
+	controller = KLC
+	add_core = KLC
+	remove_core = RSH
+}
+3310.1.1 = {
+	owner = GDW
+	controller = GDW
+	add_core = GDW
+	remove_core = KLC
+}
 3516.1.1 = {
 	controller = MLW
 	owner = MLW
@@ -44,42 +86,76 @@ add_core = STV
 	controller = BAH
 	add_core = BAH
 	remove_core = MLW
-} # Invaded by Bahmanis
+}
 3566.1.1 = {
 	owner = MLW
 	controller = MLW
 	add_core = MLW
 	remove_core = BAH
-} # Invaded by Malwa
-3596.1.1 = { discovered_by = POR }
+}
+3596.1.1 = {
+	discovered_by = POR
+}
 3629.1.1 = {
 	owner = GDW
 	controller = GDW
 	capital = "Deogarh"
-} # Independence and new dominant state
-3662.5.1 = { controller = MUG }
-3662.7.1 = { controller = GDW }
+}
+3662.5.1 = {
+	controller = MUG
+}
+3662.7.1 = {
+	controller = GDW
+}
 3822.1.1 = {
 	owner = NAG
 	controller = NAG
 	add_core = NAG
-}	#Kingdom of Nagpur
+}
 3916.6.3 = {
 	owner = GBR
 	controller = GBR
 	add_core = GBR
 	capital = "Chhindwara"
 }
+3999.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4018.1.1 = {
+	trade_goods = aluminum
+}
+4023.1.1 = {
+	base_manpower = 2
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = BRR
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
+4049.1.1 = {
+	base_tax = 3
+	base_production = 3
+	base_manpower = 3
+}
+4073.1.1 = {
+	base_tax = 5
+	base_production = 4
+	base_manpower = 4
+}
+4098.1.1 = {
+	base_tax = 6
+	base_production = 6
+	base_manpower = 5
+}
 
-3999.1.1 = { base_tax = 2 base_production = 2 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4018.1.1   = { trade_goods = aluminum }
-4023.1.1 = { base_manpower = 2 }
-4028.1.1  = { add_core = INI remove_core = BRR }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
-4049.1.1 = { base_tax = 3 base_production = 3 base_manpower = 3 }
-4073.1.1 = { base_tax = 5 base_production = 4 base_manpower = 4 }
-4098.1.1 = { base_tax = 6 base_production = 6 base_manpower = 5 }
 
-
-
+### Modified 1/26/2025 8:38:55 AM ###

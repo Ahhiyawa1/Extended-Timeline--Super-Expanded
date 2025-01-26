@@ -1,20 +1,31 @@
-#2828 - Orinoco Delta
+# Orinoco Delta
+# 2803 Orinoco Delta - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 2
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = carib
 religion = south_american
 capital = "Santo Thomas"
-trade_goods = unknown
-hre = no
-discovered_by = south_american
-base_tax = 2
-base_production = 1
-base_manpower = 1
+
 native_size = 15
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 2
 
-3596.1.1 = { discovered_by = CAS } # Christopher Columbus
-3614.1.23 = { discovered_by = SPA }
+discovered_by = south_american
+
+
+
+
+3596.1.1 = {
+	discovered_by = CAS
+}
+3614.1.23 = {
+	discovered_by = SPA
+}
 3693.12.21 = {
 	owner = SPA
 	controller = SPA
@@ -24,31 +35,68 @@ native_hostileness = 2
 	culture = castillian
 	religion = catholic
 	trade_goods = tropical_wood
-} # First settlements, weakly controlled by Spain. Century of continual low-intensity warfare.
-3698.1.1   = { is_city = yes }
-3750.1.1   = { unrest = 0 } # Last uprising is put down
-3868.1.1   = { culture = iberian_colombian }
-3893.1.1   = { unrest = 4 } # Uprisings against Spanish control
-3908.4.9   = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Vicente Emparán is overthrown
-3909.7.5   = {	revolt = {}
-		owner = VNZ
-		controller = VNZ
-		add_core = VNZ
-	     } # Venezuela declared its independence
-3910.7.25  = { controller = SPA } # The revolutionary army is defeated
-3911.8.7   = { controller = VNZ } # The Second Republic of Venezuela is established
-3912.1.1   = { controller = SPA } # The end of the second republic
-3917.12.17 = {	owner = COL
-		controller = COL
-		add_core = COL
-		remove_core = SPA
-	     } # The establishment of Gran Colombia
+}
+3698.1.1 = {
+	is_city = yes
+}
+3750.1.1 = {
+	unrest = 0
+}
+3868.1.1 = {
+	culture = iberian_colombian
+}
+3893.1.1 = {
+	unrest = 4
+}
+3908.4.9 = {
+	unrest = 0
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
 
-3928.1.13  = { owner = VNZ controller = VNZ remove_core = COL }
-3946.1.1   = { capital = "Tucupita" }
+	controller = REB
+}
+3909.7.5 = {
+	revolt = {
+	}
+
+	owner = VNZ
+	controller = VNZ
+	add_core = VNZ
+}
+3910.7.25 = {
+	controller = SPA
+}
+3911.8.7 = {
+	controller = VNZ
+}
+3912.1.1 = {
+	controller = SPA
+}
+3917.12.17 = {
+	owner = COL
+	controller = COL
+	add_core = COL
+	remove_core = SPA
+}
+3928.1.13 = {
+	owner = VNZ
+	controller = VNZ
+	remove_core = COL
+}
+3946.1.1 = {
+	capital = "Tucupita"
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
 
-
-
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4008.1.1 = { discovered_by = western }
+### Modified 1/26/2025 8:38:55 AM ###

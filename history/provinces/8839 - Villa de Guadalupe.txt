@@ -1,38 +1,83 @@
-#8839 - Villa de Guadalupe
-
+# Villa de Guadalupe
+# 8839 Villa de Guadalupe - 1/26/2025 8:38:56 AM 
+ 
+add_core = CCM
 owner = CCM
 controller = CCM
-add_core = CCM
-is_city = yes
-culture = chichimecan 
-religion = nahuatl
-capital = "Villa de Guadalupe" 
-trade_goods = gold
-hre = no 
-discovered_by = mesoamerican
 base_tax = 1
 base_production = 1
 base_manpower = 1
 
-2665.1.1 = { owner = TLT controller = TLT add_core = TLT } # Treaty between Toltecs and Chichimeca
-3220.1.1 = { owner = CCM controller = CCM add_core = CCM remove_core = TLT }
+trade_goods = gold
 
-3628.1.1  = { discovered_by = SPA } # Pedro Alm’ndez Chirinos 
+culture = chichimecan
+religion = nahuatl
+capital = "Villa de Guadalupe"
+
+is_city = yes
+
+discovered_by = mesoamerican
+
+
+
+
+2665.1.1 = {
+	owner = TLT
+	controller = TLT
+	add_core = TLT
+}
+3220.1.1 = {
+	owner = CCM
+	controller = CCM
+	add_core = CCM
+	remove_core = TLT
+}
+3628.1.1 = {
+	discovered_by = SPA
+}
 3681.1.1 = {
 	owner = SPA
 	controller = SPA
 	add_core = SPA
 	culture = castillian
-	religion = catholic		
-} # First mining settlements
-3856.1.1  = { base_tax = 2 }
-3868.1.1  = { culture = mexican }
-3889.1.1  = { base_manpower = 2 }
-3908.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence
+	religion = catholic
+}
+3856.1.1 = {
+	base_tax = 2
+}
+3868.1.1 = {
+	culture = mexican
+}
+3889.1.1 = {
+	base_manpower = 2
+}
+3908.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = MEX
+}
+3919.9.27 = {
+	controller = MEX
+	remove_core = SPA
+}
+3922.1.1 = {
+	base_production = 2
+}
+3956.1.1 = {
+	base_tax = 3
+}
+3989.1.1 = {
+	base_tax = 4
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
-3919.9.27  = { controller = MEX remove_core = SPA }
-3922.1.1 = { base_production = 2 }
-3956.1.1 = { base_tax = 3 }
-3989.1.1 = { base_tax = 4 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4008.1.1 = { discovered_by = western }
+
+### Modified 1/26/2025 8:38:56 AM ###

@@ -1,24 +1,32 @@
-#4798 - Nerichat
+# Wajo
+# 4798 Wajo - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
 
-latent_trade_goods = {
-	coal
-}
+trade_goods = unknown
 
 culture = mikmaq
 religion = totemism
 capital = "Nerichat"
-trade_goods = unknown
-hre = no
-base_tax = 1
-base_production = 1
-base_manpower = 1
+
 native_size = 5
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 1
-discovered_by = north_american
 tribal_owner = MIK
 
-3595.6.24 = { discovered_by = ENG } # John Cabot
+discovered_by = north_american
+
+
+
+latent_trade_goods = {
+   coal
+}
+
+3595.6.24 = {
+	discovered_by = ENG
+}
 3727.1.1 = {
 	owner = FRA
 	controller = FRA
@@ -27,12 +35,22 @@ tribal_owner = MIK
 	culture = cosmopolitan_french
 	religion = catholic
 	trade_goods = naval_supplies
-} # Founding of Fort Ste-Anne
-3805.5.12 = { discovered_by = GBR } 
-3818.1.1 = { fort_18th = yes }
-3843.6.16 = { controller = GBR } # The French forces capitulated
-3846.10.18 = { controller = FRA } # Treaty of Aix-la-Chapelle
-3856.7.26 = { controller = GBR } # The French surrender
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
+3818.1.1 = {
+	fort_18th = yes
+}
+3843.6.16 = {
+	controller = GBR
+}
+3846.10.18 = {
+	controller = FRA
+}
+3856.7.26 = {
+	controller = GBR
+}
 3861.2.10 = {
 	owner = GBR
 	controller = GBR
@@ -40,10 +58,28 @@ tribal_owner = MIK
 	remove_core = FRA
 	culture = highland_scottish
 	religion = protestant
-} # Treaty of Paris, ceded to Britain
-3888.1.1  = { culture = gaelic_canadian }
+}
+3888.1.1 = {
+	culture = gaelic_canadian
+}
+3965.7.1 = {
+	owner = CAN
+	add_core = CAN
+	controller = CAN
+	remove_core = GBR
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3998.1.1 = {
+	capital = "St. Peter's"
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
-3965.7.1   = { owner = CAN add_core = CAN controller = CAN remove_core = GBR }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3998.1.1   = { capital = "St. Peter's" }
-4008.1.1 = { discovered_by = western }
+
+### Modified 1/26/2025 8:38:55 AM ###

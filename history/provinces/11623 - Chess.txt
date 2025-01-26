@@ -1,52 +1,145 @@
-#11623 - Chess
-
-culture = senegambian
-base_manpower = 2
-religion = shamanism
-capital = "Chess"
-trade_goods = unknown
-hre = no
-discovered_by = sub_saharan
+# Chess
+# 11623 Chess - 1/26/2025 8:38:57 AM 
+ 
 base_tax = 3
 base_production = 3
+base_manpower = 2
+
+trade_goods = unknown
+
+culture = senegambian
+religion = shamanism
+capital = "Chess"
+
 native_size = 50
 native_ferocity = 4.5
 native_hostileness = 9
+
+discovered_by = sub_saharan
+
+
+
+add_permanent_province_modifier = {
+	name = senegal_estuary_modifier
+	duration = -1
+}
 
 2100.1.1 = {
 	add_permanent_province_modifier = {
 		name = senegal_estuary_modifier
 		duration = -1
 	}
+
+}
+3383.1.1 = {
+	owner = MAL
+	controller = MAL
+	add_core = MAL
+	is_city = yes
+	trade_goods = slaves
+}
+3448.1.1 = {
+	owner = JOL
+	controller = JOL
+	add_core = JOL
+	remove_core = MAL
+}
+3543.1.1 = {
+	discovered_by = POR
+}
+3580.1.1 = {
+	unrest = 4
+}
+3596.1.1 = {
+	unrest = 4
+}
+3610.1.1 = {
+	unrest = 0
+}
+3647.1.1 = {
+	unrest = 6
+}
+3650.1.1 = {
+	unrest = 4
+}
+3691.1.1 = {
+	unrest = 5
+}
+3749.1.1 = {
+	fort_15th = yes
+}
+3771.1.1 = {
+	unrest = 10
+}
+3772.1.1 = {
+	unrest = 4
+}
+3776.1.1 = {
+	unrest = 8
+}
+3822.1.1 = {
+	unrest = 4
+}
+3831.1.1 = {
+	unrest = 4
+}
+3863.1.1 = {
+	unrest = 6
+}
+3872.1.1 = {
+	unrest = 4
+}
+3873.1.1 = {
+	fort_15th = no
+	fort_16th = yes
+}
+3883.1.1 = {
+	unrest = 7
+}
+3888.1.1 = {
+	unrest = 9
+}
+3889.1.1 = {
+	unrest = 1
+}
+3898.1.1 = {
+	religion = sunni
+}
+3973.1.1 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4040.11.16 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+4058.6.20 = {
+	owner = MAL
+	controller = MAL
+	add_core = MAL
+	add_core = SGL
+	remove_core = FR2
+	culture = senegambian
+}
+4058.8.20 = {
+	owner = SGL
+	controller = SGL
+	remove_core = MAL
 }
 
-3383.1.1 = { owner = MAL controller = MAL add_core = MAL is_city = yes trade_goods = slaves }
-3448.1.1 = { owner = JOL controller = JOL add_core = JOL remove_core = MAL }
 
-3543.1.1 = { discovered_by = POR }
-3580.1.1 = { unrest = 4 } #Bemoy revolt against Jolof governors, aided by Portuguese
-3596.1.1 = { unrest = 4 } #Fulani incursions begin 
-3610.1.1 = { unrest = 0 } #leader of Fulani killed in battle, stability returns under Jolof dominance
-3647.1.1 = { unrest = 6 } #Kayor breaks free from Jolof control
-3650.1.1 = { unrest = 4 } #Waalo breaks free from Jolof control
-3691.1.1 = { unrest = 5 } #Fulani expansionism under Samba Lemu destablilizes Waalo and much of Kayor
-3749.1.1 = { fort_15th = yes } # Representing Fort Jakob
-3771.1.1 = { unrest = 10 } #Marabouts under Nasir al-Din launch invasion of Waalo and Kayor
-3772.1.1 = { unrest = 4 } #Nasir al-Din seize Waalo and Kayor
-3776.1.1 = { unrest = 8 } #Rebellion against Marabout control with French support restores old dynasties of Waalo and Kayor
-3822.1.1 = { unrest = 4 } #Civil war in Waalo
-3831.1.1 = { unrest = 4 } #Accession of Njaag Aram Bakar marks era of Waalo expansion into Kayor
-3863.1.1 = { unrest = 6 } #British subsidize successful Kayor war to liberate lands lost to Waalo
-3872.1.1 = { unrest = 4 } #Trzaza Moors invade Lower Senegal Valley, become kingmakers in Waalo
-3873.1.1 = { fort_15th = no fort_16th = yes } # Representing Fort James
-3883.1.1 = { unrest = 7 } #Agitation among marabouts inspired by Torodo success creates unrest in Kayor and Waalo
-3888.1.1 = { unrest = 9 } #Amari Ngoone Ndela launches major persecution of Torodo sympathizers
-3889.1.1 = { unrest = 1 } #Amari defeats the Torodo at Bungoy, ends Torodo threat and secures Kayor control
-3898.1.1 = { religion = sunni }
-
-3973.1.1   = { owner = FR2 controller = FR2 add_core = FR2 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.6.20  = { owner = MAL controller = MAL add_core = MAL add_core = SGL remove_core = FR2 culture = senegambian }
-4058.8.20  = { owner = SGL controller = SGL remove_core = MAL }
+### Modified 1/26/2025 8:38:57 AM ###

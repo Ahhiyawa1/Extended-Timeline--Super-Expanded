@@ -1,12 +1,21 @@
-#10285 - Dong Ha
-
+# Dong Ha
+# 10285 Dong Ha - 1/26/2025 8:38:57 AM 
+ 
+add_core = HUY
 owner = HUY
 controller = HUY
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = incense
+
 culture = vietnamese
 religion = hinduism
 capital = "Dong Ha"
-trade_goods = incense
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -15,62 +24,122 @@ discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = HUY
 
-2290.1.1 = { owner = CHA controller = CHA add_core = CHA remove_core = HUY }
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2798.1.1 = { base_manpower = 2 }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2998.1.1 = { base_manpower = 3 }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3198.1.1 = { base_tax = 5 base_production = 5 }
-3404.1.1 = { owner = DAI controller = DAI add_core = DAI remove_core = CHA }
-3418.1.1 = { religion = mahayana }
 
-3511.1.1 = {	owner = MNG
-		revolt = { type = nationalist_rebels size = 0 }
-		controller = REB
-		add_core = MNG
-	   } # Vietnam is invaded by Chinese troops after the Tran dynasty is overthrowned
-3525.1.1 = {	revolt = {}
-		owner = DAI
-		controller = DAI
-		remove_core = MNG
-	   }
-3612.1.1 = { discovered_by = POR }
+
+
+2290.1.1 = {
+	owner = CHA
+	controller = CHA
+	add_core = CHA
+	remove_core = HUY
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2798.1.1 = {
+	base_manpower = 2
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2998.1.1 = {
+	base_manpower = 3
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3198.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3404.1.1 = {
+	owner = DAI
+	controller = DAI
+	add_core = DAI
+	remove_core = CHA
+}
+3418.1.1 = {
+	religion = mahayana
+}
+3511.1.1 = {
+	owner = MNG
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+
+	controller = REB
+	add_core = MNG
+}
+3525.1.1 = {
+	revolt = {
+	}
+
+	owner = DAI
+	controller = DAI
+	remove_core = MNG
+}
+3612.1.1 = {
+	discovered_by = POR
+}
 3625.1.1 = {
-		owner = TOK
-		controller = TOK
-		add_core = TOK
-	   }
+	owner = TOK
+	controller = TOK
+	add_core = TOK
+}
 3656.1.1 = {
-		owner = ANN
-		controller = ANN
-		add_core = ANN
-	   } # The Nguyen Lords became independent from the Trinh Lords
-3867.1.1 = { unrest = 6 } # Tay Son Rebellion
+	owner = ANN
+	controller = ANN
+	add_core = ANN
+}
+3867.1.1 = {
+	unrest = 6
+}
 3873.1.1 = {
-		unrest = 0
-		owner = TOK
-		controller = TOK
-	   } # Trinh Lords occpied Hue
-3884.6.1 = {	owner = DAI
-		controller = DAI
-		remove_core = TOK
-	   } # Tai Son and Le dynasty annexed the Trinh Lords 
-3900.7.22 = {	
-		owner = ANN
-		controller = ANN
-		remove_core = DAI
-	   } # Nguyen Phuc Anh annexed the Tay Son Dynasty
+	unrest = 0
+	owner = TOK
+	controller = TOK
+}
+3884.6.1 = {
+	owner = DAI
+	controller = DAI
+	remove_core = TOK
+}
+3900.7.22 = {
+	owner = ANN
+	controller = ANN
+	remove_core = DAI
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4039.1.1 = {
+	controller = JAP
+}
+4043.3.11 = {
+	owner = VTN
+	controller = VTN
+	add_core = VTN
+}
+4043.8.23 = {
+	owner = FR2
+	controller = FR2
+	add_core = SVI
+}
+4046.5.27 = {
+	owner = SVI
+	controller = SVI
+}
+4074.7.2 = {
+	owner = VTN
+	controller = VTN
+	remove_core = NVI
+}
 
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4039.1.1   = { controller = JAP }
-4043.3.11  = { owner = VTN controller = VTN add_core = VTN } # Empire of Vietnam, Japanese puppet
-4043.8.23  = { owner = FR2 controller = FR2 add_core = SVI }
-4046.5.27  = { owner = SVI controller = SVI }
-4074.7.2   = { owner = VTN controller = VTN remove_core = NVI }
+
+### Modified 1/26/2025 8:38:57 AM ###

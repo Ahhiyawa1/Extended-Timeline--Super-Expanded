@@ -1,11 +1,22 @@
-# 9541 - Jafara
+# Jafara
+# 9541 Jafara - 1/26/2025 8:38:56 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+center_of_trade = 2
+trade_goods = cloth
+
 culture = eastern_berber
 religion = amanaiism
 capital = "Azizia"
-trade_goods = cloth
-hre = no
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -13,130 +24,213 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = ROM
-center_of_trade = 2
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2518.1.1 = { religion = chalcedonism } 
-2537.1.1 = { 
-    owner = VAN
-    controller = VAN
-    add_core = VAN
-    remove_core = ROW
+
+
+
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2518.1.1 = {
+	religion = chalcedonism
+}
+2537.1.1 = {
+	owner = VAN
+	controller = VAN
+	add_core = VAN
+	remove_core = ROW
+}
+2621.1.1 = {
+	owner = LAG
+	controller = LAG
+	add_core = LAG
+	remove_core = VAN
+}
+2631.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+}
+2672.3.1 = {
+	religion = carthaginian_rite
+}
+2743.1.1 = {
+	capital = "Jafara"
+}
+2764.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = BYZ
+}
+2798.1.1 = {
+	religion = sunni
+	culture = tunisian
+}
+2843.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+	remove_core = UMA
+}
+2855.6.1 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+}
+2898.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+	remove_core = ABA
+}
+3007.1.1 = {
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+}
+3071.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+	remove_core = FAT
+}
+3125.1.1 = {
+	owner = TRP
+	controller = TRP
+	add_core = TRP
+}
+3244.1.1 = {
+	owner = SIC
+	controller = SIC
+	add_core = SIC
+}
+3256.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = SIC
+}
+3272.1.1 = {
+	owner = MAM
+	controller = MAM
+	add_core = MAM
+}
+3289.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+}
+3310.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = MAM
+}
+3327.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+	remove_core = MOR
+}
+3419.1.1 = {
+	owner = TRP
+	controller = TRP
+	add_core = TRP
+}
+3499.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+}
+3608.1.1 = {
+	owner = CAS
+	controller = CAS
+	add_core = CAS
+}
+3614.1.23 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = CAS
+}
+3626.1.1 = {
+	owner = KNI
+	controller = KNI
+	add_core = KNI
+	remove_core = SPA
+}
+3649.8.1 = {
+	owner = TRP
+	controller = TRP
+	add_core = TRP
+	remove_core = KNI
+	remove_core = TUN
+}
+3707.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3708.1.1 = {
+	revolt = {
+	}
+
+	controller = TRP
+}
+3809.1.1 = {
+	unrest = 6
+}
+3810.1.1 = {
+	unrest = 0
+}
+3933.5.26 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4010.10.18 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	add_core = LBY
+	remove_core = TUR
+}
+4041.1.15 = {
+	controller = GBR
+}
+4041.9.8 = {
+	owner = GBR
+	remove_core = ITA
+}
+4049.12.24 = {
+	owner = LBY
+	controller = LBY
+}
+4058.1.1 = {
+	base_manpower = 2
+}
+4078.1.1 = {
+	base_tax = 3
+}
+4098.1.1 = {
+	base_production = 3
+}
+4112.8.8 = {
+	revolt = {
+		type = pretender_rebels
+		size = 1
+	}
+
 }
 
-2621.1.1 = { 
-    owner = LAG
-    controller = LAG
-    add_core = LAG
-    remove_core = VAN
-}
 
-2631.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
-2672.3.1 = { religion = carthaginian_rite }
-2743.1.1 = { capital = "Jafara" } 
-2764.1.1 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = BYZ
-}
-
-2798.1.1 = { religion = sunni culture = tunisian } 
-2843.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = UMA
-}
-
-2855.6.1 = { owner = ABA controller = ABA add_core = ABA } 
-2898.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = ABA
-}
-
-3007.1.1 = { owner = FAT controller = FAT add_core = FAT } 
-3071.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = FAT
-}
-
-3125.1.1 = { owner = TRP controller = TRP add_core = TRP } 
-3244.1.1 = { owner = SIC controller = SIC add_core = SIC } 
-3256.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SIC
-}
-
-3272.1.1 = { owner = MAM controller = MAM add_core = MAM } 
-3289.1.1 = { owner = TUN controller = TUN add_core = TUN } 
-3310.1.1 = { owner = MOR controller = MOR remove_core = MAM } 
-3327.1.1 = { 
-    owner = TUN
-    controller = TUN
-    add_core = TUN
-    remove_core = MOR
-}
-
-3419.1.1 = { owner = TRP controller = TRP add_core = TRP } 
-3499.1.1 = { owner = TUN controller = TUN add_core = TUN } 
-3608.1.1 = { owner = CAS controller = CAS add_core = CAS } 
-3614.1.23 = { 
-    owner = SPA
-    controller = SPA
-    add_core = SPA
-    remove_core = CAS
-}
-
-3626.1.1 = { 
-    owner = KNI
-    controller = KNI
-    add_core = KNI
-    remove_core = SPA
-} # Ferdinand gave Tripoli to the Knights of St John
-
-3649.8.1 = { 
-    owner = TRP
-    controller = TRP
-    add_core = TRP
-    remove_core = KNI
-    remove_core = TUN
-} # Turgut Reis takes Tripoli
-
-3707.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Janissary revolt
-3708.1.1 = { revolt = { } controller = TRP } 
-3809.1.1 = { unrest = 6 } # The Ottoman governor is killed by Ahmad Karmanli
-3810.1.1 = { unrest = 0 } # Fortifications are restored
-3933.5.26 = { owner = TUR controller = TUR add_core = TUR } 
-4008.1.1 = { discovered_by = asian } 
-4010.10.18 = { 
-    owner = ITA
-    controller = ITA
-    add_core = ITA
-    add_core = LBY
-    remove_core = TUR
-}
-
-4041.1.15 = { controller = GBR } 
-4041.9.8 = { owner = GBR remove_core = ITA } 
-4049.12.24 = { owner = LBY controller = LBY } 
-4058.1.1 = { base_manpower = 2 } 
-4078.1.1 = { base_tax = 3 } 
-4098.1.1 = { base_production = 3 } 
-4112.8.8 = { revolt = { type = pretender_rebels size = 1 } controller = REB } # New General National Congress
+### Modified 1/26/2025 8:38:56 AM ###

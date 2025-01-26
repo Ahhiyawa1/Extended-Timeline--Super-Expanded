@@ -1,46 +1,155 @@
-#10708 - Kangaba
-
-culture = mali
-base_manpower = 4
-religion = shamanism
-capital = "Kangaba"
-trade_goods = unknown
-hre = no
-discovered_by = sub_saharan
+# Kangaba
+# 10708 Kangaba - 1/26/2025 8:38:57 AM 
+ 
 base_tax = 2
 base_production = 2
+base_manpower = 4
+
+center_of_trade = 1
+trade_goods = unknown
+
+culture = mali
+religion = shamanism
+capital = "Kangaba"
+
 native_size = 50
 native_ferocity = 4.5
 native_hostileness = 9
-center_of_trade = 1
 
-2898.1.1 = { owner = KAG controller = KAG add_core = KAG is_city = yes trade_goods = grain }
-2998.1.1 = { base_manpower = 5 }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3198.1.1 = { base_manpower = 6 }
-3298.1.1 = { base_tax = 4 base_production = 4 }
-3328.1.1 = { owner = MAL controller = MAL add_core = MAL remove_core = KAG }
-3398.1.1 = { base_manpower = 7 }
-3498.1.1 = { base_manpower = 8 }
-3518.1.1 = { religion = sunni } #Representing the Malian Aristocracy, rural population likely still adhering to traditional beliefs.
+discovered_by = sub_saharan
 
-3567.1.1 = { unrest = 6 } # Sunni Ali of Songhai launches Massive raids
-3579.1.1 = { discovered_by = POR } # Portuguese Mission arrives at the court of the Mali Mansa
-3698.1.1 = { base_tax = 2 base_production = 2 base_manpower = 1 } #Collapse of mali into minor states after Jenne
-3748.1.1 = { trade_goods = ivory } # shift in center of gravity of region from Niger River to the Forest Region
-3756.1.1 = { owner = SOF controller = SOF add_core = SOF manpower = 2 } # under control of Bambara kingdom of Kaladian Kulibali
-3783.1.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Bambara control lost in wake of death of death of Kaladian Kulibali 
-3798.1.1 = { culture = bambara }
-3823.1.1 = { revolt = {} controller = SOF } # under control of Bambara kingdom of Mamari Kulibali
-3835.1.1 = { unrest = 3 } # Raids by kingdom of Kong destabilize area
-3837.1.1 = { unrest = 0 } # Mamari Kulibali ejects invaders from Kong
-3854.1.1 = { unrest = 9 } # Denkoro seizes power in wake of father Mamali's death, civil war
-3858.1.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Bambara control lost in wake of death of Mamari Kulibali
-3867.1.1 = { revolt = {} controller = SOF } # Ngolo Diarra restores authortiy of Segu state in region
 
-3978.1.1   = { discovered_by = western }
-3988.1.1   = { owner = FR2 controller = FR2 add_core = FR2 capital = "Bamako" }
-4008.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4058.6.20  = { owner = MAL controller = MAL add_core = MAL remove_core = FR2 remove_core = SOF }
+
+
+2898.1.1 = {
+	owner = KAG
+	controller = KAG
+	add_core = KAG
+	is_city = yes
+	trade_goods = grain
+}
+2998.1.1 = {
+	base_manpower = 5
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3198.1.1 = {
+	base_manpower = 6
+}
+3298.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3328.1.1 = {
+	owner = MAL
+	controller = MAL
+	add_core = MAL
+	remove_core = KAG
+}
+3398.1.1 = {
+	base_manpower = 7
+}
+3498.1.1 = {
+	base_manpower = 8
+}
+3518.1.1 = {
+	religion = sunni
+}
+3567.1.1 = {
+	unrest = 6
+}
+3579.1.1 = {
+	discovered_by = POR
+}
+3698.1.1 = {
+	base_tax = 2
+	base_production = 2
+	base_manpower = 1
+}
+3748.1.1 = {
+	trade_goods = ivory
+}
+3756.1.1 = {
+	owner = SOF
+	controller = SOF
+	add_core = SOF
+	manpower = 2
+}
+3783.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3798.1.1 = {
+	culture = bambara
+}
+3823.1.1 = {
+	revolt = {
+	}
+
+	controller = SOF
+}
+3835.1.1 = {
+	unrest = 3
+}
+3837.1.1 = {
+	unrest = 0
+}
+3854.1.1 = {
+	unrest = 9
+}
+3858.1.1 = {
+	unrest = 0
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3867.1.1 = {
+	revolt = {
+	}
+
+	controller = SOF
+}
+3978.1.1 = {
+	discovered_by = western
+}
+3988.1.1 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	capital = "Bamako"
+}
+4008.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4040.11.16 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+4058.6.20 = {
+	owner = MAL
+	controller = MAL
+	add_core = MAL
+	remove_core = FR2
+	remove_core = SOF
+}
+
+
+### Modified 1/26/2025 8:38:57 AM ###

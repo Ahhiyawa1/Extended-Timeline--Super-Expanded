@@ -1,43 +1,77 @@
-#1121 - Bure
+# Bure
+# 1121 Bure - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
 
-latent_trade_goods = {
-	aluminum
-}
+trade_goods = unknown
 
 culture = mali
 religion = shamanism
 capital = "Beyla"
-trade_goods = unknown
-hre = no
-base_tax = 1
-base_production = 1
-base_manpower = 1
-native_size = 30
-native_ferocity = 4
-native_hostileness = 6 
 
+native_size = 30
+native_ferocity =  4
+native_hostileness = 6
+
+
+
+
+latent_trade_goods = {
+   aluminum
+}
 add_permanent_province_modifier = {
 	name = hard_to_colonize
 	duration = -1
 }
 
-3703.1.1 = { culture = mali } #Collapse of Mali sparks major migrations of Mande into region
+3703.1.1 = {
+	culture = mali
+}
+3948.1.1 = {
+	religion = sunni
+}
+3958.1.1 = {
+	discovered_by = FRA
+	discovered_by = FR2
+}
+3988.1.1 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	is_city = yes
+	capital = "Nzérékoré"
+	trade_goods = grain
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4018.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4028.1.1 = {
+	trade_goods = aluminum
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4040.11.16 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+4056.10.2 = {
+	owner = GUI
+	controller = GUI
+	add_core = GUI
+	remove_core = FR2
+}
 
-3948.1.1   = { religion = sunni }
-3958.1.1 = { discovered_by = FRA discovered_by = FR2 }
-3988.1.1 = { 	owner = FR2
-		controller = FR2
-		add_core = FR2
-		is_city = yes
-		capital = "Nzérékoré"
-		trade_goods = grain
-	   }
-4008.1.1 = { discovered_by = western }
-4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4028.1.1   = { trade_goods = aluminum }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4040.11.16 = { owner = FR2 controller = FR2 remove_core = FRV } # Under Free French control after Operation Torch
-4056.10.2  = { owner = GUI controller = GUI add_core = GUI remove_core = FR2 }
 
-
-
+### Modified 1/26/2025 8:38:55 AM ###

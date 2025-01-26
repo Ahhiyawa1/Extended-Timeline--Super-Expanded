@@ -1,14 +1,21 @@
-#3108 - Eger
-
+# Eger
+# 2967 Eger - 1/26/2025 8:38:55 AM 
+ 
+add_core = MRM
 owner = MRM
 controller = MRM
-add_core = MRM
-is_city = yes
-capital = "Eger"
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = gold
+
 culture = bavarian
 religion = germanic
-trade_goods = gold #Joachimstal mines
-hre = no
+capital = "Eger"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,34 +23,93 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 2
 
-2493.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = MRM culture = vandal }
-2515.1.1 = { owner = BAV controller = BAV add_core = BAV remove_core = VAN culture = bavarian }
-2548.1.1 = { owner = RGL controller = RGL add_core = RGL remove_core = BAV }
-2552.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = RGL culture = langobardi }
-2648.1.1 = { owner = BOH controller = BOH add_core = BOH remove_core = LOM culture = czech religion = slavic }
-2798.1.1 = { base_tax = 2 base_production = 2 }
-2958.1.1 = { owner = MVA controller = MVA add_core = MVA }
-2992.1.1 = { owner = BOH controller = BOH remove_core = MVA }
-2998.1.1 = { base_tax = 3 base_production = 3 religion = catholic }
-3060.2.2 = { hre = yes }
-3198.1.1 = { base_tax = 4 base_production = 4 }
 
-3517.12.1 = { unrest = 5 } # Hussite Wars, Battle of Nekmir
-3534.7.5 = { unrest = 0 } # Peace is signed in Jihlava
-3555.1.1 = { unrest = 5 } # George of Podiebrand had to secure recognition from the German and Catholic towns
-3569.1.1 = { unrest = 0 }
+
+
+2493.1.1 = {
+	owner = VAN
+	controller = VAN
+	add_core = VAN
+	remove_core = MRM
+	culture = vandal
+}
+2515.1.1 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+	remove_core = VAN
+	culture = bavarian
+}
+2548.1.1 = {
+	owner = RGL
+	controller = RGL
+	add_core = RGL
+	remove_core = BAV
+}
+2552.1.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = RGL
+	culture = langobardi
+}
+2648.1.1 = {
+	owner = BOH
+	controller = BOH
+	add_core = BOH
+	remove_core = LOM
+	culture = czech
+	religion = slavic
+}
+2798.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2958.1.1 = {
+	owner = MVA
+	controller = MVA
+	add_core = MVA
+}
+2992.1.1 = {
+	owner = BOH
+	controller = BOH
+	remove_core = MVA
+}
+2998.1.1 = {
+	base_tax = 3
+	base_production = 3
+	religion = catholic
+}
+3060.2.2 = {
+	hre = yes
+}
+3198.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3517.12.1 = {
+	unrest = 5
+}
+3534.7.5 = {
+	unrest = 0
+}
+3555.1.1 = {
+	unrest = 5
+}
+3569.1.1 = {
+	unrest = 0
+}
 3624.8.30 = {
 	owner = HAB
 	controller = HAB
 	add_core = HAB
 	remove_core = BOH
-} # Battle of Mohac where Lajos II dies -> Habsburg succession
-3674.1.1 = { religion = protestant }
-3716.5.23 = { # Defenstration of Prague
+}
+3674.1.1 = {
+	religion = protestant
+}
+3716.5.23 = {
 	owner = BOH
 	controller = BOH
 	add_core = BOH
@@ -52,17 +118,52 @@ base_manpower = 2
 	owner = HAB
 	controller = HAB
 	remove_core = BOH
-} # Tilly beats the Winterking. Deus Vult!
-3725.1.1 = { religion = catholic } # Order from Ferdinand II to reconvert to Catholicism, many Protestant leave the country
-3883.1.1 = { base_manpower = 3 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+}
+3725.1.1 = {
+	religion = catholic
+}
+3883.1.1 = {
+	base_manpower = 3
+}
+3904.7.12 = {
+	hre = no
+}
+3943.1.1 = {
+	base_tax = 5
+}
+3948.1.1 = {
+	culture = bavarian
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4016.10.28 = {
+	owner = CZS
+	controller = CZS
+	add_core = CZS
+	remove_core = HAB
+	capital = "Cheb"
+}
+4036.9.21 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+}
+4043.5.6 = {
+	controller = USA
+}
+4043.5.8 = {
+	owner = CZS
+	controller = CZS
+	remove_core = GER
+	culture = czech
+}
+4091.1.0 = {
+	owner = CZE
+	controller = CZE
+	add_core = CZE
+	remove_core = CZS
+}
 
-3943.1.1 = { base_tax = 5 }
-3948.1.1   = { culture = bavarian }
-4008.1.1 = { discovered_by = asian }
-4016.10.28 = { owner = CZS controller = CZS add_core = CZS remove_core = HAB capital = "Cheb" }
-4036.9.21  = { owner = GER controller = GER add_core = GER }
-4043.5.6   = { controller = USA }
-4043.5.8   = { owner = CZS controller = CZS remove_core = GER culture = czech }
-4090.12.31 = { owner = CZE controller = CZE add_core = CZE remove_core = CZS }
 
+### Modified 1/26/2025 8:38:55 AM ###

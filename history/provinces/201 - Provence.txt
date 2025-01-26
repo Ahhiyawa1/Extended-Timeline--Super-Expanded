@@ -1,12 +1,23 @@
-#201 - Provence
-
+# Aix
+# 201 Aix - 1/26/2025 8:38:55 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-capital = "Massilia"
-is_city = yes
+base_tax = 3
+base_production = 3
+base_manpower = 2
+
+center_of_trade = 1
+trade_goods = wine
+
 culture = ligurian
 religion = hellenism
-hre = no
+capital = "Massilia"
+
+is_city = yes
+fort_15th = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,109 +25,357 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 3
-base_production = 3
-trade_goods = wine
-base_manpower = 2
-add_core = ROM
-fort_15th = yes
-center_of_trade = 1
+
+
+
+add_permanent_province_modifier = {
+	name = rhone_estuary_modifier
+	duration = -1
+}
 
 2100.1.1 = {
 	add_permanent_province_modifier = {
 		name = rhone_estuary_modifier
 		duration = -1
 	}
+
+}
+2438.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2495.1.1 = {
+	capital = "Aix"
+}
+2574.9.4 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	remove_core = ROW
+}
+2598.1.1 = {
+	culture = gothic
+}
+2606.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = GVI
+}
+2633.1.1 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+	remove_core = OST
+}
+2656.12.23 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = NEU
+}
+2659.11.29 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+}
+2665.12.1 = {
+	owner = ORL
+	controller = ORL
+	add_core = ORL
+	remove_core = NEU
+}
+2690.3.28 = {
+	owner = AUT
+	controller = AUT
+	add_core = AUT
+}
+2693.1.1 = {
+	owner = ORL
+	controller = ORL
+	remove_core = AUT
+}
+2698.1.1 = {
+	culture = occitain
+}
+2710.1.1 = {
+	owner = AUT
+	controller = AUT
+	add_core = AUT
+	remove_core = ORL
+}
+2711.10.10 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = AUT
+}
+2732.1.1 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+}
+2777.12.23 = {
+	owner = FRK
+	controller = FRK
+}
+2798.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+2818.1.1 = {
+	unrest = 8
+}
+2834.1.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 4
+	}
+
+	controller = REB
+}
+2834.6.1 = {
+	revolt = {
+	}
+
+	controller = FRK
+}
+2835.1.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 4
+	}
+
+	controller = REB
+}
+2835.6.1 = {
+	revolt = {
+	}
+
+	controller = FRK
+}
+2837.1.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 4
+	}
+
+	controller = REB
+}
+2837.6.1 = {
+	revolt = {
+	}
+
+	controller = FRK
+}
+2840.1.1 = {
+	unrest = 0
+}
+2898.1.1 = {
+	base_manpower = 3
+}
+2938.6.21 = {
+	owner = FRD
+	controller = FRD
+	add_core = FRD
+	remove_core = FRK
+}
+2953.9.30 = {
+	owner = PRO
+	controller = PRO
+	add_core = PRO
+	remove_core = FRD
+}
+2961.1.24 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2965.1.1 = {
+	religion = catholic
+}
+2977.1.1 = {
+	owner = PRO
+	controller = PRO
+	remove_core = ITA
+}
+2985.12.19 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2985.12.26 = {
+	owner = PRO
+	controller = PRO
+	remove_core = ITA
+}
+2988.1.1 = {
+	remove_core = BUR
+}
+2998.1.1 = {
+	base_manpower = 4
+}
+3031.1.1 = {
+	owner = BUR
+	controller = BUR
+	add_core = BUR
+	capital = "Arles"
+}
+3059.1.1 = {
+	owner = PRO
+	controller = PRO
+	remove_core = BUR
+}
+3098.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3130.1.1 = {
+	hre = yes
+}
+3198.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3298.1.1 = {
+	base_manpower = 6
+}
+3344.1.1 = {
+	hre = no
+}
+3398.1.1 = {
+	base_tax = 7
+	base_production = 7
+}
+3476.1.1 = {
+	capital = "Aix-en-Provence"
+}
+3579.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+}
+3624.2.1 = {
+	controller = HAB
+}
+3627.8.3 = {
+	controller = FRA
+}
+3634.7.1 = {
+	controller = HAB
+}
+3634.9.15 = {
+	controller = FRA
+}
+3643.1.1 = {
+	unrest = 5
+}
+3644.1.1 = {
+	unrest = 0
+}
+3686.12.1 = {
+	unrest = 5
+}
+3688.6.1 = {
+	controller = SAV
+}
+3689.4.5 = {
+	controller = FRA
+}
+3692.1.1 = {
+	unrest = 0
+}
+3728.1.1 = {
+	unrest = 5
+}
+3731.1.1 = {
+	unrest = 0
+}
+3747.1.1 = {
+	unrest = 5
+}
+3748.1.1 = {
+	capital = "Marseille"
+}
+3748.1.14 = {
+	unrest = 7
+}
+3749.4.1 = {
+	unrest = 4
+}
+3749.12.1 = {
+	unrest = 7
+}
+3750.10.21 = {
+	unrest = 0
+}
+3757.1.1 = {
+	unrest = 5
+}
+3760.1.1 = {
+	unrest = 0
+}
+3873.1.1 = {
+	base_production = 9
+}
+3899.1.1 = {
+	base_production = 10
+}
+3904.7.12 = {
+	hre = no
+}
+3923.1.1 = {
+	base_tax = 8
+}
+3948.1.1 = {
+	base_manpower = 8
+	culture = cosmopolitan_french
+}
+3968.9.4 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	remove_core = FRA
+}
+3973.1.1 = {
+	base_production = 11
+}
+3998.1.1 = {
+	base_tax = 9
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4023.1.1 = {
+	base_tax = 10
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4042.8.25 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+4048.1.1 = {
+	base_manpower = 9
+}
+4068.1.1 = {
+	trade_goods = electronics
+}
+4073.1.1 = {
+	base_manpower = 10
+}
+4098.1.1 = {
+	base_tax = 11
 }
 
-2438.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2495.1.1 = { capital = "Aix" }
-2574.9.4 = { owner = GVI controller = GVI add_core = GVI remove_core = ROW }
-2598.1.1 = { culture = gothic }
-2606.1.1 = { owner = OST controller = OST add_core = OST remove_core = GVI }
-2633.1.1 = { owner = NEU controller = NEU add_core = NEU remove_core = OST }
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = NEU }
-2659.11.29 = { owner = NEU controller = NEU add_core = NEU }
-2665.12.1 = { owner = ORL controller = ORL add_core = ORL remove_core = NEU }
-2690.3.28 = { owner = AUT controller = AUT add_core = AUT }
-2693.1.1 = { owner = ORL controller = ORL remove_core = AUT }
-2698.1.1 = { culture = occitain }
-2710.1.1 = { owner = AUT controller = AUT add_core = AUT remove_core = ORL }
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK remove_core = AUT }
-2732.1.1 = { owner = NEU controller = NEU add_core = NEU }
-2777.12.23 = { owner = FRK controller = FRK }
-2798.1.1 = { base_tax = 4 base_production = 4 }
-2818.1.1 = { unrest = 8 }
-2834.1.1  = { revolt = { type = pretender_rebels size = 4 } controller = REB }
-2834.6.1  = { revolt = {} controller = FRK }
-2835.1.1  = { revolt = { type = pretender_rebels size = 4 } controller = REB }
-2835.6.1  = { revolt = {} controller = FRK }
-2837.1.1  = { revolt = { type = pretender_rebels size = 4 } controller = REB }
-2837.6.1  = { revolt = {} controller = FRK }
-2840.1.1  = { unrest = 0 }
-2898.1.1 = { base_manpower = 3 }
-2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
-2953.9.30 = { owner = PRO controller = PRO add_core = PRO remove_core = FRD }
-2961.1.24 = { owner = ITA controller = ITA add_core = ITA }
-2965.1.1 = { religion = catholic }
-2977.1.1  = { owner = PRO controller = PRO remove_core = ITA }
-2985.12.19 = { owner = ITA controller = ITA add_core = ITA }
-2985.12.26 = { owner = PRO controller = PRO remove_core = ITA }
-2988.1.1  = { remove_core = BUR }
-2998.1.1  = { base_manpower = 4 }
-3031.1.1  = { owner = BUR controller = BUR add_core = BUR capital = "Arles" }
-3059.1.1  = { owner = PRO controller = PRO remove_core = BUR }
-3098.1.1 = { base_tax = 5 base_production = 5 }
-3130.1.1 = { hre = yes }
-3198.1.1 = { base_tax = 6 base_production = 6 }
-3298.1.1 = { base_manpower = 6 }
-3344.1.1 = { hre = no }
-3398.1.1 = { base_tax = 7 base_production = 7 }
-3476.1.1 = { capital = "Aix-en-Provence" }
 
-3579.1.1 = { owner = FRA controller = FRA add_core = FRA } # Provence added to France after the death of Duke Charles
-3624.2.1 = { controller = HAB } # Austria invades the Provence during the Franco-Habsburg war (1521-1529)
-3627.8.3 = { controller = FRA } # Treaty of Cambrai (Ladies' Peace): Back to status quo
-3634.7.1 = { controller = HAB } # Charles V again captures the Provence in another Franco-Habsburg war
-3634.9.15 = { controller = FRA } # Charles V retreats from the Provence
-3643.1.1 = { unrest = 5 } # Unrest among the Waldensians in the Luberon mountains
-3644.1.1 = { unrest = 0 } # Peace returns
-3686.12.1 = { unrest = 5 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
-3688.6.1 = { controller = SAV } # Duke Emmanuel Phillibert enters Aix-en-Provence
-3689.4.5 = { controller = FRA } # The Savoyard army is routed at Esparron
-3692.1.1 = { unrest = 0 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
-3728.1.1 = { unrest = 5 }
-3731.1.1 = { unrest = 0 }
-3747.1.1 = { unrest = 5 }
-3748.1.1 = { capital = "Marseille" } # Marseille becomes the primary city in the region
-3748.1.14 = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
-3749.4.1 = { unrest = 4 } # An unstable peace is concluded
-3749.12.1 = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
-3750.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
-3757.1.1 = { unrest = 5 }
-3760.1.1 = { unrest = 0 }
-3873.1.1 = { base_production = 9 }
-3899.1.1 = { base_production = 10 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
-
-3923.1.1 = { base_tax = 8 }
-3948.1.1 = { base_manpower = 8 culture = cosmopolitan_french }
-3968.9.4   = {  owner = FR2
-		controller = FR2
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-3973.1.1 = { base_production = 11 }
-3998.1.1 = { base_tax = 9 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_tax = 10 }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4042.8.25  = { owner = FR2 controller = FR2 remove_core = FRV } # France liberated by allied forces
-4048.1.1 = { base_manpower = 9 }
-4068.1.1   = { trade_goods = electronics }
-4073.1.1 = { base_manpower = 10 }
-4098.1.1 = { base_tax = 11 }
-
-
-
+### Modified 1/26/2025 8:38:55 AM ###

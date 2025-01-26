@@ -1,19 +1,26 @@
-#9746 - Cavite
+# Cavite
+# 9746 Cavite - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = filipino
 religion = animism
 capital = "Cavite"
-trade_goods = unknown
-hre = no
+
+native_size = 70
+native_ferocity =  2
+native_hostileness = 9
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 3
-base_production = 3
-base_manpower = 1
-native_size = 70
-native_ferocity = 2
-native_hostileness = 9
+
+
+
 
 2998.1.1 = {
 	add_core = TDO
@@ -22,14 +29,15 @@ native_hostileness = 9
 	is_city = yes
 	trade_goods = grain
 }
-
-3619.1.1 = { discovered_by = SPA } # Ferdinand Magellan 
+3619.1.1 = {
+	discovered_by = SPA
+}
 3668.5.1 = {
 	owner = SPA
 	controller = SPA
 	religion = catholic
-	add_core = SPA 
-	is_city = yes 
+	add_core = SPA
+	is_city = yes
 }
 3685.1.1 = {
 	revolt = {
@@ -37,25 +45,62 @@ native_hostileness = 9
 		size = 0
 		leader = "Agustín de Legazpi"
 	}
+
 	controller = REB
 }
 3686.1.1 = {
-	revolt = { }
+	revolt = {
+	}
+
 	controller = SPA
 }
 3860.10.6 = {
 	controller = GBR
 	unrest = 6
-} # Captured by the British East India Company. Diego Silang rebellion
-3861.2.10 = { controller = SPA } # Spain regained control
-3861.9.10 = { unrest = 0 } # The revolts are defeated
+}
+3861.2.10 = {
+	controller = SPA
+}
+3861.9.10 = {
+	unrest = 0
+}
+3898.1.1 = {
+	base_manpower = 3
+}
+3948.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3970.1.1 = {
+	add_core = PHI
+}
+3996.8.12 = {
+	owner = USA
+	controller = USA
+	add_core = USA
+	remove_core = SPA
+}
+3998.1.1 = {
+	base_tax = 5
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4040.1.2 = {
+	controller = JAP
+}
+4043.3.1 = {
+	controller = USA
+}
+4044.7.4 = {
+	owner = PHI
+	controller = PHI
+	remove_core = USA
+}
 
-3898.1.1 = { base_manpower = 3 }
-3948.1.1 = { base_tax = 4 base_production = 4 }
-3970.1.1   = { add_core = PHI }
-3996.8.12  = { owner = USA controller = USA add_core = USA remove_core = SPA }
-3998.1.1 = { base_tax = 5 base_manpower = 4 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4040.1.2   = { controller = JAP }
-4043.3.1   = { controller = USA }
-4044.7.4   = { owner = PHI controller = PHI remove_core = USA }
+
+### Modified 1/26/2025 8:38:56 AM ###

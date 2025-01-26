@@ -1,26 +1,34 @@
-#6632 - Kingstree
+# Kingstree
+# 6632 Kingstree - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = unknown
+extra_cost = 10
 
 culture = catawba
 religion = totemism
 capital = "Kingstree"
-trade_goods = unknown
-hre = no
-base_tax = 2 
-base_production = 2
-base_manpower = 2
+
 native_size = 10
-native_ferocity = 2
+native_ferocity =  2
 native_hostileness = 8
-discovered_by = north_american
 tribal_owner = COF
-extra_cost = 10
+
+discovered_by = north_american
+
+
 
 add_permanent_province_modifier = {
 	name = santee_estuary_modifier
 	duration = -1
 }
 
-3624.1.1 = { discovered_by = SPA } # Lucas Vásquez de Ayllón
+3624.1.1 = {
+	discovered_by = SPA
+}
 3768.1.1 = {
 	owner = ENG
 	controller = ENG
@@ -28,44 +36,90 @@ add_permanent_province_modifier = {
 	is_city = yes
 	religion = protestant
 	culture = english
-} # Founding of Charlestown
-3778.1.1 = { unrest = 5 } # Conflicts with French and Spanish settlers
-3798.1.1 = { trade_goods = cotton }
-3800.1.1 = { unrest = 4 } # Queen Anne's war. Several Spanish settlements are attacked
-3801.1.1 = { unrest = 0 }
+}
+3778.1.1 = {
+	unrest = 5
+}
+3798.1.1 = {
+	trade_goods = cotton
+}
+3800.1.1 = {
+	unrest = 4
+}
+3801.1.1 = {
+	unrest = 0
+}
 3805.5.12 = {
 	owner = GBR
 	controller = GBR
 	add_core = GBR
 	remove_core = ENG
-} 
-3817.1.1 = { unrest = 4 } # The Carolina revolution
-3817.11.1 = { unrest = 0 } # A new governor is elected & Carolina becomes a royal province shortly after
-3858.1.19 = { unrest = 5 } # Cherokee war
-3859.1.1 = { unrest = 0 } # Peace attempt
+}
+3817.1.1 = {
+	unrest = 4
+}
+3817.11.1 = {
+	unrest = 0
+}
+3858.1.19 = {
+	unrest = 5
+}
+3859.1.1 = {
+	unrest = 0
+}
 3862.7.1 = {
 	culture = british_louisianan
 	unrest = 6
-} # Growing unrest
-3874.1.1 = { fort_18th = yes }
+}
+3874.1.1 = {
+	fort_18th = yes
+}
 3874.7.4 = {
 	owner = USA
 	controller = USA
 	add_core = USA
 }
-3878.1.1 = { controller = GBR } # Charlestown under British control
+3878.1.1 = {
+	controller = GBR
+}
 3880.11.1 = {
 	controller = USA
-	remove_core = GBR 
+	remove_core = GBR
 	unrest = 0
-} # Preliminary articles of peace, the British recognized Amercian independence
+}
+3923.1.1 = {
+	base_manpower = 3
+}
+3949.1.1 = {
+	base_tax = 4
+}
+3958.12.20 = {
+	owner = CSA
+	controller = CSA
+	add_core = CSA
+}
+3963.5.5 = {
+	owner = USA
+	controller = USA
+	remove_core = CSA
+}
+3973.1.1 = {
+	base_tax = 5
+	base_production = 4
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3999.1.1 = {
+	base_tax = 6
+	base_production = 5
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
-3923.1.1 = { base_manpower = 3 }
-3949.1.1 = { base_tax = 4 }
-3958.12.20 = { owner = CSA controller = CSA add_core = CSA }
-3963.5.5   = { owner = USA controller = USA remove_core = CSA }
-3973.1.1 = { base_tax = 5 base_production = 4 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3999.1.1 = { base_tax = 6 base_production = 5 }
-4008.1.1 = { discovered_by = western }
 
+### Modified 1/26/2025 8:38:56 AM ###

@@ -1,109 +1,173 @@
-# 5414 - Tipag
+# Tipag
+# 5414 Tipag - 1/26/2025 8:38:55 AM 
+ 
+add_core = ALN
 owner = ALN
 controller = ALN
-add_core = ALN
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = fish
+
 culture = alan
 religion = heptadic
 capital = "Tipag"
-trade_goods = fish
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 1
-base_production = 1
-base_manpower = 1
-2351.1.1 = { owner = ERS controller = ERS add_core = ERS } 
-2548.1.1 = { culture = khazar remove_core = ALN } 
-2718.1.1 = { 
-    owner = KHZ
-    controller = KHZ
-    add_core = KHZ
-    remove_core = ERS
+
+
+
+
+2351.1.1 = {
+	owner = ERS
+	controller = ERS
+	add_core = ERS
+}
+2548.1.1 = {
+	culture = khazar
+	remove_core = ALN
+}
+2718.1.1 = {
+	owner = KHZ
+	controller = KHZ
+	add_core = KHZ
+	remove_core = ERS
+}
+2752.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = KHZ
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+}
+2798.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2818.1.1 = {
+	culture = dagestani
+	religion = shiite
+}
+2832.1.1 = {
+	owner = GAZ
+	controller = GAZ
+	add_core = GAZ
+	remove_core = UMA
+	remove_core = KHZ
+}
+2898.1.1 = {
+	discovered_by = eastern
+}
+2998.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3334.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+}
+3358.1.1 = {
+	owner = GAZ
+	controller = GAZ
+	add_core = GAZ
+	remove_core = KHA
+}
+3535.1.1 = {
+	owner = SRV
+	controller = SRV
+	add_core = SRV
+	remove_core = GAZ
+}
+3599.7.1 = {
+	owner = PER
+	controller = PER
+	add_core = PER
+	remove_core = SRV
+}
+3676.9.9 = {
+	controller = TUR
+}
+3688.3.21 = {
+	owner = TUR
+	add_core = TUR
+}
+3705.1.1 = {
+	controller = PER
+}
+3710.11.20 = {
+	owner = PER
+	remove_core = TUR
+}
+3820.1.1 = {
+	controller = RUS
+}
+3821.9.12 = {
+	owner = RUS
+	add_core = RUS
+}
+3833.3.10 = {
+	owner = PER
+	controller = PER
+	remove_core = RUS
+}
+3845.1.1 = {
+	owner = SRV
+	controller = SRV
+}
+3846.1.1 = {
+	revolt_risk = 4
+}
+3877.1.1 = {
+	revolt_risk = 0
+}
+3888.1.1 = {
+	capital = "Tpig"
+}
+3904.1.1 = {
+	controller = RUS
+}
+3911.10.12 = {
+	owner = RUS
+	add_core = RUS
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4015.3.6 = {
+	owner = CCS
+	controller = CCS
+	add_core = CCS
+}
+4019.1.1 = {
+	owner = RUS
+	controller = RUS
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
 }
 
-2752.1.1 = { 
-    owner = RSD
-    controller = RSD
-    add_core = RSD
-    remove_core = KHZ
-}
 
-2759.7.28 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = RSD
-}
-
-2798.1.1 = { base_tax = 2 base_production = 2 } 
-2818.1.1 = { culture = dagestani religion = shiite } 
-2832.1.1 = { 
-    owner = GAZ
-    controller = GAZ
-    add_core = GAZ
-    remove_core = UMA
-    remove_core = KHZ
-}
-
-2898.1.1 = { discovered_by = eastern } 
-2998.1.1 = { base_tax = 3 base_production = 3 } 
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA } 
-3358.1.1 = { 
-    owner = GAZ
-    controller = GAZ
-    add_core = GAZ
-    remove_core = KHA
-}
-
-3535.1.1 = { 
-    owner = SRV
-    controller = SRV
-    add_core = SRV
-    remove_core = GAZ
-}
-
-3599.7.1 = { 
-    owner = PER
-    controller = PER
-    add_core = PER
-    remove_core = SRV # was AKK
-} # Ismail conquers Tabriz and defeats Alwand
-
-3676.9.9 = { controller = TUR } # Ottoman conquest
-3688.3.21 = { owner = TUR add_core = TUR } # Peace of Istanbul
-3705.1.1 = { controller = PER } # Persian reconquest
-3710.11.20 = { owner = PER remove_core = TUR } # Part of Persia
-3820.1.1 = { controller = RUS } # Occupied by Peter the Great
-3821.9.12 = { owner = RUS add_core = RUS } # Treaty of Saint Petersburg
-3833.3.10 = { owner = PER controller = PER remove_core = RUS } # Treaty of Ganja
-3845.1.1 = { 
-    owner = SRV # Actually Derbent Khanate, no tag for it
-    controller = SRV
-} # Khanates break free after death of Nadir Shah
-
-3846.1.1 = { revolt_risk = 4 } # The empire began to decline
-3877.1.1 = { revolt_risk = 0 } # With the Qajar dynasty the situation stabilized
-3888.1.1 = { capital = "Tpig" } 
-3904.1.1 = { controller = RUS } # Incorporated into Russia
-3911.10.12 = { owner = RUS add_core = RUS } # Treaty of Gulistan
-4008.1.1 = { discovered_by = asian } 
-4015.3.6 = { owner = CCS controller = CCS add_core = CCS } 
-4019.1.1 = { owner = RUS controller = RUS } 
-4020.12.30 = { 
-    owner = SOV
-    controller = SOV
-    add_core = SOV
-    remove_core = RUS
-}
-
-4089.12.25 = { 
-    owner = RUS
-    controller = RUS
-    add_core = RUS
-    remove_core = SOV
-}
+### Modified 1/26/2025 8:38:55 AM ###

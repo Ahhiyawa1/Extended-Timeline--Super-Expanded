@@ -1,101 +1,242 @@
-#12067 - Raebareli
-
+# Raebareli
+# 12067 Raebareli - 1/26/2025 8:38:57 AM 
+ 
+add_core = PNC
 owner = PNC
 controller = PNC
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = grain
+
 culture = avadhi
 religion = jainism
 capital = "Raebareli"
-trade_goods = grain
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
 discovered_by = ottoman
-discovered_by = middle_eastern 
+discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = PNC
 
-2218.1.1 = { owner = KUS controller = KUS add_core = KUS remove_core = PNC }
-2368.1.1 = { owner = PNC controller = PNC add_core = PNC remove_core = KUS }
-2473.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = PNC }
-2538.1.1 = { religion = hinduism }
-2638.1.1 = { owner = KNN controller = KNN add_core = KNN remove_core = GUP }
-2718.1.1 = { owner = HRS controller = HRS add_core = HRS }
-2745.1.1 = { owner = KNN controller = KNN remove_core = HRS }
-2898.1.1 = { religion = mahayana discovered_by = nomad_group }
-2918.1.1 = { owner = GRP controller = GRP add_core = GRP remove_core = KNN }
-2948.1.1 = { trade_goods = glass }
-2988.1.1 = { religion = hinduism }
-2998.1.1 = { base_tax = 3 base_production = 3 }
-3134.1.1 = { owner = KLC controller = KLC add_core = KLC remove_core = GRP }
-3166.1.1 = { owner = GAH controller = GAH add_core = GAH remove_core = KLC }
-3198.1.1 = { base_tax = 4 base_production = 4 }
-3290.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GAH }
-3304.1.1 = { owner = DLH controller = DLH add_core = DLH remove_core = GHU }
-3492.1.1 = { owner = JNP controller = JNP add_core = JNP remove_core = DLH }
 
+
+
+2218.1.1 = {
+	owner = KUS
+	controller = KUS
+	add_core = KUS
+	remove_core = PNC
+}
+2368.1.1 = {
+	owner = PNC
+	controller = PNC
+	add_core = PNC
+	remove_core = KUS
+}
+2473.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = PNC
+}
+2538.1.1 = {
+	religion = hinduism
+}
+2638.1.1 = {
+	owner = KNN
+	controller = KNN
+	add_core = KNN
+	remove_core = GUP
+}
+2718.1.1 = {
+	owner = HRS
+	controller = HRS
+	add_core = HRS
+}
+2745.1.1 = {
+	owner = KNN
+	controller = KNN
+	remove_core = HRS
+}
+2898.1.1 = {
+	religion = mahayana
+	discovered_by = nomad_group
+}
+2918.1.1 = {
+	owner = GRP
+	controller = GRP
+	add_core = GRP
+	remove_core = KNN
+}
+2948.1.1 = {
+	trade_goods = glass
+}
+2988.1.1 = {
+	religion = hinduism
+}
+2998.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3134.1.1 = {
+	owner = KLC
+	controller = KLC
+	add_core = KLC
+	remove_core = GRP
+}
+3166.1.1 = {
+	owner = GAH
+	controller = GAH
+	add_core = GAH
+	remove_core = KLC
+}
+3198.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3290.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = GAH
+}
+3304.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	remove_core = GHU
+}
+3492.1.1 = {
+	owner = JNP
+	controller = JNP
+	add_core = JNP
+	remove_core = DLH
+}
 3584.1.1 = {
 	owner = DLH
 	controller = DLH
-} # Bahlul Lodi places his eldest surviving son Barbak Shah Lodi on the throne of Jaunpur, slowly integrated into Delhi's domains after this
-3615.11.21 = { controller = REB revolt = { type = nationalist_rebels } } #Revolt of Afghan Nobles
-3616.5.1 = { controller = DLH revolt = { } unrest = 5 }
+}
+3615.11.21 = {
+	controller = REB
+	revolt = {
+		type = nationalist_rebels
+	}
+
+}
+3616.5.1 = {
+	controller = DLH
+	revolt = {
+	}
+
+	unrest = 5
+}
 3624.4.1 = {
 	controller = TIM
 	unrest = 0
-} #Conquered by Babur
+}
 3624.4.21 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
 	remove_core = DLH
-} # Battle of Panipat
+}
 3628.1.1 = {
 	controller = REB
-	revolt = { type = nationalist_rebels size = 3 leader = "Mahmud Lodi" }
-} #Lodi Pretender
+	revolt = {
+		type = nationalist_rebels
+		size = 3
+		leader = "Mahmud Lodi"
+	}
+
+}
 3629.1.1 = {
 	controller = MUG
-	revolt = { }
-} #Lodi Pretender beaten
+	revolt = {
+	}
+
+}
 3638.1.1 = {
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} # Sher Shah Conquers Delhi
+}
 3651.1.1 = {
 	owner = JNP
 	controller = JNP
 	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
-3656.11.1 = { controller = MUG }	#Ibrahim defeated
-3656.12.1 = { owner = MUG }	#Jaunpur annexed
+}
+3656.11.1 = {
+	controller = MUG
+}
+3656.12.1 = {
+	owner = MUG
+}
 3663.1.1 = {
 	controller = REB
 	revolt = {
 		type = noble_rebels
 		name = "Uzbek Grandees"
 	}
-}	#Revolt of Uzbek commanders
-3664.6.1 = { controller = MUG revolt = { } }
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
+
+}
+3664.6.1 = {
+	controller = MUG
+	revolt = {
+	}
+
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
 3822.1.1 = {
 	owner = ODH
 	controller = ODH
 	remove_core = MUG
-} # Foundation of the Oudh dynasty
+}
+3954.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+3973.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 3
+}
+3999.1.1 = {
+	base_tax = 6
+	base_production = 6
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 7
+	base_production = 7
+	base_manpower = 6
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = ODH
+	remove_core = JNP
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3954.1.1  = { owner = GBR controller = GBR add_core = GBR }
-3973.1.1 = { base_tax = 5 base_production = 5 base_manpower = 3 }
-3999.1.1 = { base_tax = 6 base_production = 6 base_manpower = 4 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 7 base_production = 7 base_manpower = 6 }
-4028.1.1  = { add_core = INI remove_core = ODH remove_core = JNP }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:38:57 AM ###

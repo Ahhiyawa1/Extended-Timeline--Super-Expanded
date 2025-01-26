@@ -1,12 +1,22 @@
-#447 - Kandahar
-
+# Kandahar
+# 447 Kandahar - 1/26/2025 8:38:55 AM 
+ 
+add_core = IPA
+add_core = SUR
 owner = IPA
 controller = IPA
+base_tax = 2
+base_production = 2
+base_manpower = 3
+
+trade_goods = cotton
+
 culture = afghani
 religion = zunism
 capital = "Kandahar"
-trade_goods = cotton
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -16,72 +26,198 @@ discovered_by = early_indian
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 3
-is_city = yes
-add_core = IPA
-add_core = SUR
 
-2118.1.1 = { owner = SUR controller = SUR remove_core = IPA }
-2338.1.1 = { owner = ERS controller = ERS add_core = ERS remove_core = SUR }
-2745.1.1 = { owner = ZAB controller = ZAB add_core = ZAB remove_core = ERS fort_15th = yes }
-2968.1.1 = { owner = SIS controller = SIS add_core = SIS }
-2973.1.1 = { religion = sunni remove_core = ZAB }
-3011.5.24 = { owner = BUK controller = BUK }
-3020.5.1 = { owner = SIS controller = SIS }
-3100.12.1 = { owner = GHZ controller = GHZ add_core = GHZ }
-3273.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
-3313.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = GHU }
-3329.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = AFG }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3433.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = ILK }
-3478.1.1 = { owner = TIM controller = TIM add_core = TIM remove_core = SIS }
-3541.1.1 = { owner = AFG controller = AFG add_core = AFG }
 
-3547.2.1 = { #Conquered by Babur bin Baysunkur
+
+
+2118.1.1 = {
+	owner = SUR
+	controller = SUR
+	remove_core = IPA
+}
+2338.1.1 = {
+	owner = ERS
+	controller = ERS
+	add_core = ERS
+	remove_core = SUR
+}
+2745.1.1 = {
+	owner = ZAB
+	controller = ZAB
+	add_core = ZAB
+	remove_core = ERS
+	fort_15th = yes
+}
+2968.1.1 = {
+	owner = SIS
+	controller = SIS
+	add_core = SIS
+}
+2973.1.1 = {
+	religion = sunni
+	remove_core = ZAB
+}
+3011.5.24 = {
+	owner = BUK
+	controller = BUK
+}
+3020.5.1 = {
+	owner = SIS
+	controller = SIS
+}
+3100.12.1 = {
+	owner = GHZ
+	controller = GHZ
+	add_core = GHZ
+}
+3273.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = GHZ
+}
+3313.1.1 = {
+	owner = SIS
+	controller = SIS
+	add_core = SIS
+	remove_core = GHU
+}
+3329.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	add_core = AFG
+}
+3358.1.1 = {
+	owner = ILK
+	controller = ILK
+	add_core = ILK
+	remove_core = KHA
+}
+3433.1.1 = {
+	owner = SIS
+	controller = SIS
+	add_core = SIS
+	remove_core = ILK
+}
+3478.1.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+	remove_core = SIS
+}
+3541.1.1 = {
+	owner = AFG
+	controller = AFG
+	add_core = AFG
+}
+3547.2.1 = {
 	owner = KHO
 	controller = KHO
 	remove_core = TIM
 }
-3605.1.1 = { controller = BUK }
-3605.7.1 = { owner = BUK } # Shaybanids
+3605.1.1 = {
+	controller = BUK
+}
+3605.7.1 = {
+	owner = BUK
+}
 3608.1.1 = {
 	owner = PER
 	controller = PER
 	add_core = PER
-} # Part of the Persian empire
+}
 3643.1.1 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Conquered by Mughals
-3656.1.1 = { controller = PER owner = PER } #Seized by Safavids
-3693.1.1 = { owner = MUG controller = MUG } #Persian governor coerced into giving the province to the Mughals
-3698.1.1 = { discovered_by = TUR }
-3715.1.1 = { controller = PER }
-3716.1.1 = { owner = PER } #Conquered by Persia
-3735.1.1 = { controller = MUG }
-3736.1.1 = { owner = MUG } #Restored to Mughal Empire
-3747.1.1 = { controller = PER } #Recaptured by Safavids
-3751.1.1 = { owner = PER remove_core = MUG }
-3771.1.1 = { discovered_by = ENG }
-3775.1.1 = { discovered_by = FRA }
-3802.1.1 = { revolt_risk = 5 } # Afghanian revolts
-3805.5.12 = { discovered_by = GBR }
-3806.1.1 = { revolt_risk = 8 } # Mir Wais rebelled against Persian rule
-3834.1.1 = { revolt_risk = 0 } # Persia reasserts control over Qandahar
+}
+3656.1.1 = {
+	controller = PER
+	owner = PER
+}
+3693.1.1 = {
+	owner = MUG
+	controller = MUG
+}
+3698.1.1 = {
+	discovered_by = TUR
+}
+3715.1.1 = {
+	controller = PER
+}
+3716.1.1 = {
+	owner = PER
+}
+3735.1.1 = {
+	controller = MUG
+}
+3736.1.1 = {
+	owner = MUG
+}
+3747.1.1 = {
+	controller = PER
+}
+3751.1.1 = {
+	owner = PER
+	remove_core = MUG
+}
+3771.1.1 = {
+	discovered_by = ENG
+}
+3775.1.1 = {
+	discovered_by = FRA
+}
+3802.1.1 = {
+	revolt_risk = 5
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
+3806.1.1 = {
+	revolt_risk = 8
+}
+3834.1.1 = {
+	revolt_risk = 0
+}
 3845.6.1 = {
 	owner = AFG
 	controller = AFG
 	add_core = AFG
 	remove_core = PER
-} # Ahmad Shah established the Durrani empire
+}
+3921.1.1 = {
+	remove_core = BAL
+}
+4094.9.27 = {
+	revolt = {
+		type = fanatic_rebels
+		size = 3
+		leader = "Mohammed Omar"
+	}
 
-3921.1.1   = { remove_core = BAL }
-4094.9.27  = { revolt = { type = fanatic_rebels size = 3 leader = "Mohammed Omar" } controller = REB }
-4099.11.23 = { revolt = {} controller = AFG }
-4119.8.12  = { revolt = { type = fanatic_rebels size = 2 } controller = REB }
-4119.8.19  = { revolt = {} controller = AFG }
+	controller = REB
+}
+4099.11.23 = {
+	revolt = {
+	}
+
+	controller = AFG
+}
+4119.8.12 = {
+	revolt = {
+		type = fanatic_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+4119.8.19 = {
+	revolt = {
+		controller = AFG
+	}
+
+}
 
 
+### Modified 1/26/2025 8:38:55 AM ###

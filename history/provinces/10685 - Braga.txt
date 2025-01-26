@@ -1,12 +1,22 @@
-#10685 - Braga
-
+# Braga
+# 10685 Braga - 1/26/2025 8:38:57 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+center_of_trade = 1
+trade_goods = wine
+
 culture = galician
 religion = druidism
 capital = "Bracara Augusta"
-trade_goods = wine
-hre = no
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -14,52 +24,158 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = ROM
-center_of_trade = 1
+
+
 
 add_permanent_province_modifier = {
 	name = douro_estuary_modifier
 	duration = -1
 }
 
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2498.1.1 = { religion = arianism }
-2507.6.1 = { owner = EAL controller = EAL add_core = EAL }
-2508.1.1 = { culture = swabian }
-2548.1.1 = { remove_core = ROW }
-2555.6.1 = { owner = GAL controller = GAL add_core = GAL }
-2562.1.1 = { owner = EAL controller = EAL }
-2598.1.1 = { base_tax = 2 base_production = 2 }
-2658.1.1 = { religion = chalcedonism }
-2682.1.1 = { owner = GVI controller = GVI add_core = GVI remove_core = EAL }
-2688.1.1 = { culture = galician }
-2698.1.1 = { base_tax = 3 base_production = 3 }
-2798.1.1 = { base_manpower = 2 }
-2809.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = GVI }
-2848.8.6 = { owner = CRD controller = CRD add_core = CRD remove_core = UMA }
-2898.1.1 = { base_tax = 4 base_production = 4 }
-2965.1.1 = { religion = catholic }
-2966.1.1 = { owner = ASU controller = ASU add_core = ASU remove_core = CRD capital = "Braga" culture = portugese }
-2998.1.1 = { base_manpower = 3 }
-3008.12.10 = { owner = GAL controller = GAL remove_core = ASU }
-3012.1.1 = { owner = LON controller = LON add_core = LON }
-3098.1.1 = { base_tax = 5 base_production = 5 }
-3163.6.1 = { owner = GAL controller = GAL }
-3170.1.1 = { owner = LON controller = LON }
-3198.1.1 = { base_manpower = 4 }
-3237.6.23 = { owner = POR controller = POR add_core = POR }
-3241.10.5 = { remove_core = LON }
-3298.1.1 = { base_tax = 6 base_production = 6 }
-3398.1.1 = { base_manpower = 5 }
-3478.1.1 = { base_tax = 7 base_production = 7 }
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2498.1.1 = {
+	religion = arianism
+}
+2507.6.1 = {
+	owner = EAL
+	controller = EAL
+	add_core = EAL
+}
+2508.1.1 = {
+	culture = swabian
+}
+2548.1.1 = {
+	remove_core = ROW
+}
+2555.6.1 = {
+	owner = GAL
+	controller = GAL
+	add_core = GAL
+}
+2562.1.1 = {
+	owner = EAL
+	controller = EAL
+}
+2598.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2658.1.1 = {
+	religion = chalcedonism
+}
+2682.1.1 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	remove_core = EAL
+}
+2688.1.1 = {
+	culture = galician
+}
+2698.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2798.1.1 = {
+	base_manpower = 2
+}
+2809.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = GVI
+}
+2848.8.6 = {
+	owner = CRD
+	controller = CRD
+	add_core = CRD
+	remove_core = UMA
+}
+2898.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+2965.1.1 = {
+	religion = catholic
+}
+2966.1.1 = {
+	owner = ASU
+	controller = ASU
+	add_core = ASU
+	remove_core = CRD
+	capital = "Braga"
+	culture = portugese
+}
+2998.1.1 = {
+	base_manpower = 3
+}
+3008.12.10 = {
+	owner = GAL
+	controller = GAL
+	remove_core = ASU
+}
+3012.1.1 = {
+	owner = LON
+	controller = LON
+	add_core = LON
+}
+3098.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3163.6.1 = {
+	owner = GAL
+	controller = GAL
+}
+3170.1.1 = {
+	owner = LON
+	controller = LON
+}
+3198.1.1 = {
+	base_manpower = 4
+}
+3237.6.23 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+}
+3241.10.5 = {
+	remove_core = LON
+}
+3298.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3398.1.1 = {
+	base_manpower = 5
+}
+3478.1.1 = {
+	base_tax = 7
+	base_production = 7
+}
+3678.8.25 = {
+	controller = SPA
+}
+3678.8.26 = {
+	controller = POR
+}
+3738.1.1 = {
+	unrest = 8
+}
+3738.12.1 = {
+	unrest = 0
+}
+3907.3.29 = {
+	controller = FRA
+}
+3907.5.12 = {
+	controller = POR
+}
 
-3678.8.25 = { controller = SPA }
-3678.8.26 = { controller = POR }
-3738.1.1  = { unrest = 8 } # Revolt headed by John of Bragança
-3738.12.1 = { unrest = 0 } # Portugal regained it's independence & colonial possessions
-3907.3.29 = { controller = FRA } # Occupied by France
-3907.5.12 = { controller = POR }
+
+### Modified 1/26/2025 8:38:57 AM ###

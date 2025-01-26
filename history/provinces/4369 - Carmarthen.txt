@@ -1,55 +1,161 @@
-#242 - Gwynedd
-
+# Carmarthen
+# 4369 Carmarthen - 1/26/2025 8:38:55 AM 
+ 
+add_core = SLR
 owner = SLR
 controller = SLR
-add_core = SLR
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = livestock
+
 culture = briton
 religion = druidism
-hre = no
+capital = "Maridunum"
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = livestock
-base_manpower = 1
-capital = "Maridunum"
 
-2176.1.1 = { owner = ROM controller = ROM add_core = ROM }
-2298.1.1 = { culture = welsh }
-2481.1.1 = { owner = DYF controller = DYF add_core = DYF remove_core = SLR remove_core = ROM capital = "Carmarthen" }
-2758.1.1 = { religion = chalcedonism }
-2965.1.1 = { religion = catholic }
-3018.1.1 = { owner = DEH controller = DEH add_core = DEH remove_core = DYF }
-3048.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3191.1.1 = { owner = ENG controller = ENG add_core = ENG }
-3233.1.1 = { owner = DEH controller = DEH }
-3295.1.1 = { owner = ENG controller = ENG add_core = ENG add_core = WLS remove_core = DEH }
 
-3498.9.16 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # The Welsh Revolt
-3513.1.1 = { revolt = {} controller = ENG } # English rule is restored
-3551.1.1 = { unrest = 5 } # Start of the War of the Roses
-3559.6.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 2 leader = "Henry of Lancaster" } controller = REB } # Lancastrian Holdouts after Coronation of Edward IV
-3565.1.1 = { revolt = {} unrest = 5 } # Rivalry between Edward IV & Warwick
-3566.6.1 = { controller = ENG }
-3569.1.1 = { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
-3569.3.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-3569.5.4 = { revolt = {} unrest = 2 controller = ENG } # Murder of Henry VI & Restoration of Edward IV
-3581.6.26 = { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
-3583.8.23 = { unrest = 0 } # Battle of Bosworth Field & the End of the War of the Roses
-3805.5.12 = {	owner = GBR
+
+
+2176.1.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+}
+2298.1.1 = {
+	culture = welsh
+}
+2481.1.1 = {
+	owner = DYF
+	controller = DYF
+	add_core = DYF
+	remove_core = SLR
+	remove_core = ROM
+	capital = "Carmarthen"
+}
+2758.1.1 = {
+	religion = chalcedonism
+}
+2965.1.1 = {
+	religion = catholic
+}
+3018.1.1 = {
+	owner = DEH
+	controller = DEH
+	add_core = DEH
+	remove_core = DYF
+}
+3048.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3191.1.1 = {
+	owner = ENG
+	controller = ENG
+	add_core = ENG
+}
+3233.1.1 = {
+	owner = DEH
+	controller = DEH
+}
+3295.1.1 = {
+	owner = ENG
+	controller = ENG
+	add_core = ENG
+	add_core = WLS
+	remove_core = DEH
+}
+3498.9.16 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3513.1.1 = {
+	revolt = {
+	}
+
+	controller = ENG
+}
+3551.1.1 = {
+	unrest = 5
+}
+3559.6.1 = {
+	unrest = 0
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+		leader = "Henry of Lancaster"
+	}
+
+	controller = REB
+}
+3565.1.1 = {
+	revolt = {
+	}
+
+	unrest = 5
+}
+3566.6.1 = {
+	controller = ENG
+}
+3569.1.1 = {
+	unrest = 8
+}
+3569.3.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3569.5.4 = {
+	revolt = {
+	}
+
+	unrest = 2
+	controller = ENG
+}
+3581.6.26 = {
+	unrest = 8
+}
+3583.8.23 = {
+	unrest = 0
+}
+3805.5.12 = {
+	owner = GBR
 	controller = GBR
 	add_core = GBR
 	remove_core = ENG
 }
-3848.1.1 = { religion = anglican }
-3850.1.1 = { base_tax = 2 }
-3877.1.1 = { base_tax = 3 }
+3848.1.1 = {
+	religion = anglican
+}
+3850.1.1 = {
+	base_tax = 2
+}
+3877.1.1 = {
+	base_tax = 3
+}
+3904.1.1 = {
+	base_manpower = 2
+}
+3932.1.1 = {
+	base_production = 3
+}
+4008.1.1 = {
+	discovered_by = asian
+}
 
-3904.1.1 = { base_manpower = 2 }
-3932.1.1 = { base_production = 3 }
 
-
-4008.1.1 = { discovered_by = asian }
+### Modified 1/26/2025 8:38:55 AM ###

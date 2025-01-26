@@ -1,12 +1,21 @@
-#1751 - Ceuta
-
+# Ceuta
+# 1751 Ceuta - 1/26/2025 8:38:55 AM 
+ 
+add_core = ROM
 owner = ROM
-controller = ROM  
+controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = fish
+
 culture = berber
 religion = canaanite_religion
 capital = "Septa"
-trade_goods = fish
-hre = no
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = ottoman
@@ -14,43 +23,148 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = ROM
 
-2418.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2527.1.1 = { owner = VAN controller = VAN add_core = VAN remove_core = ROW }
-2632.3.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = VAN }
-2808.1.1 = { owner = UMA controller = UMA add_core = UMA remove_core = BYZ capital = "Cebta" }
-2813.1.1 = { religion = sunni }
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } #Great Berber revolt
-2841.1.1 = { owner = NEK controller = NEK add_core = NEK remove_core = UMA revolt = {} } #Caliphate loses control of the region
-2887.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = NEK }
-2888.1.1 = { culture = moroccan }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-3020.1.1 = { owner = FAT controller = FAT }
-3023.1.1 = { owner = MOR controller = MOR }
-3025.1.1 = { owner = FAT controller = FAT }
-3035.1.1 = { owner = MOR controller = MOR }
-3072.1.1 = { owner = CRD controller = CRD add_core = CRD remove_core = MOR }
-3124.1.1 = { owner = MGA controller = MGA add_core = MGA remove_core = CRD }
-3159.1.1 = { owner = BGW controller = BGW add_core = BGW remove_core = MGA }
-3176.1.1 = { owner = MOR controller = MOR add_core = MOR remove_core = BGW }
-3398.1.1 = { fort_15th = yes }
 
-3513.8.21   = { controller = POR add_core = POR }
-3513.9.1 = { owner = POR capital = "Ceuta" }
-3598.1.1   = { religion = catholic }
-3738.1.1   = {	
+
+
+2418.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2527.1.1 = {
+	owner = VAN
+	controller = VAN
+	add_core = VAN
+	remove_core = ROW
+}
+2632.3.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = VAN
+}
+2808.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = BYZ
+	capital = "Cebta"
+}
+2813.1.1 = {
+	religion = sunni
+}
+2838.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+2841.1.1 = {
+	owner = NEK
+	controller = NEK
+	add_core = NEK
+	remove_core = UMA
+	revolt = {
+	}
+
+}
+2887.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = NEK
+}
+2888.1.1 = {
+	culture = moroccan
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3020.1.1 = {
+	owner = FAT
+	controller = FAT
+}
+3023.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3025.1.1 = {
+	owner = FAT
+	controller = FAT
+}
+3035.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3072.1.1 = {
+	owner = CRD
+	controller = CRD
+	add_core = CRD
+	remove_core = MOR
+}
+3124.1.1 = {
+	owner = MGA
+	controller = MGA
+	add_core = MGA
+	remove_core = CRD
+}
+3159.1.1 = {
+	owner = BGW
+	controller = BGW
+	add_core = BGW
+	remove_core = MGA
+}
+3176.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = BGW
+}
+3398.1.1 = {
+	fort_15th = yes
+}
+3513.8.21 = {
+	controller = POR
+	add_core = POR
+}
+3513.9.1 = {
+	owner = POR
+	capital = "Ceuta"
+}
+3598.1.1 = {
+	religion = catholic
+}
+3738.1.1 = {
 	owner = SPA
 	controller = SPA
 	add_core = SPA
 	remove_core = POR
-} # Ceuta decides to become Spanish and not Portuguese
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4019.9.18 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-4008.1.1 = { discovered_by = asian }
-4019.9.18  = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4024.5.27  = { revolt = {} controller = SPA }
+	controller = REB
+}
+4024.5.27 = {
+	revolt = {
+		controller = SPA
+	}
+
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

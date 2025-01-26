@@ -1,10 +1,20 @@
-#5548 - Yermekeyevo
+# Yermekeyevo
+# 5548 Yermekeyevo - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 3
+
+trade_goods = unknown
 
 culture = bashkir
 religion = tengri_pagan_reformed
 capital = "Yermekey"
-trade_goods = unknown
-hre = no
+
+native_size = 5
+native_ferocity =  2
+native_hostileness = 3
+
 discovered_by = SIB
 discovered_by = NOG
 discovered_by = KAZ
@@ -12,43 +22,144 @@ discovered_by = GLH
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
-base_tax = 3
-base_production = 3
-base_manpower = 3
-native_size = 5
-native_ferocity = 2
-native_hostileness = 3
 
-2758.1.1 = { owner = BSH controller = BSH add_core = BSH is_city = yes trade_goods = wool }
-3058.1.1 = { religion = sunni }
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA }
-3358.1.1 = { owner = BHO controller = BHO add_core = BHO remove_core = KHA }
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH }
 
-3536.1.1  = { owner = KAZ controller = KAZ add_core = KAZ remove_core = GLH } # Khanate of Kazan
-3551.1.1  = { discovered_by = western discovered_by = eastern }
-3650.10.2  = { owner = RUS controller = RUS add_core = RUS remove_core = KAZ } # Russian conquest of Kazan
-3672.1.1  = { capital = "Yermekeyevo" culture = russian religion = orthodox remove_core = BSH }
-3774.1.1  = { unrest = 4 } # Bashkirs rebels
-3775.1.1  = { unrest = 0 }
-3805.1.1  = { unrest = 4 } # Bashkirs rebels
-3806.1.1  = { unrest = 0 }
-3833.1.1  = { unrest = 6 } # Bashkirs rebels
-3839.1.1  = { unrest = 0 }
-3849.1.1 = { base_manpower = 4 }
-3871.9.13  = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
-3873.2.1 = { revolt = {} controller = RUS unrest = 0 } # Pugachev is captured
-3874.1.1 = { base_tax = 4 base_manpower = 5 }
 
-3899.1.1 = { base_manpower = 6 }
-3923.1.1 = { base_production = 4 }
-3949.1.1 = { base_manpower = 7 }
-3973.1.1 = { base_manpower = 8 }
-3999.1.1 = { base_tax = 6 }
-4008.1.1 = { discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4023.1.1 = { base_production = 5 }
-4049.1.1 = { base_production = 6 }
-4073.1.1 = { base_production = 7 }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
-4098.1.1 = { base_tax = 7 }
+
+2758.1.1 = {
+	owner = BSH
+	controller = BSH
+	add_core = BSH
+	is_city = yes
+	trade_goods = wool
+}
+3058.1.1 = {
+	religion = sunni
+}
+3334.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+}
+3358.1.1 = {
+	owner = BHO
+	controller = BHO
+	add_core = BHO
+	remove_core = KHA
+}
+3476.1.1 = {
+	owner = GLH
+	controller = GLH
+	add_core = GLH
+}
+3536.1.1 = {
+	owner = KAZ
+	controller = KAZ
+	add_core = KAZ
+	remove_core = GLH
+}
+3551.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+3650.10.2 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = KAZ
+}
+3672.1.1 = {
+	capital = "Yermekeyevo"
+	culture = russian
+	religion = orthodox
+	remove_core = BSH
+}
+3774.1.1 = {
+	unrest = 4
+}
+3775.1.1 = {
+	unrest = 0
+}
+3805.1.1 = {
+	unrest = 4
+}
+3806.1.1 = {
+	unrest = 0
+}
+3833.1.1 = {
+	unrest = 6
+}
+3839.1.1 = {
+	unrest = 0
+}
+3849.1.1 = {
+	base_manpower = 4
+}
+3871.9.13 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Yemelyan Pugachev"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3873.2.1 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3874.1.1 = {
+	base_tax = 4
+	base_manpower = 5
+}
+3899.1.1 = {
+	base_manpower = 6
+}
+3923.1.1 = {
+	base_production = 4
+}
+3949.1.1 = {
+	base_manpower = 7
+}
+3973.1.1 = {
+	base_manpower = 8
+}
+3999.1.1 = {
+	base_tax = 6
+}
+4008.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4023.1.1 = {
+	base_production = 5
+}
+4049.1.1 = {
+	base_production = 6
+}
+4073.1.1 = {
+	base_production = 7
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
+}
+4098.1.1 = {
+	base_tax = 7
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

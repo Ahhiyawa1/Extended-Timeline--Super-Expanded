@@ -1,14 +1,21 @@
-#12422 - Celle
-
+# Celle
+# 12422 Celle - 1/26/2025 8:38:57 AM 
+ 
+add_core = AGR
 owner = AGR
 controller = AGR
-add_core = AGR
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = livestock
+
 culture = hannoverian
 religion = germanic
 capital = "Celle"
-trade_goods = livestock
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,44 +23,115 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 1
-base_production = 1
-base_manpower = 1
 
-2196.1.1 = { owner = CAU controller = CAU add_core = CAU remove_core = AGR }
-2398.1.1 = { owner = SAX controller = SAX add_core = SAX }
-2598.1.1 = { culture = lower_saxon }
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2898.1.1 = { base_manpower = 2 }
-2902.1.1 = { owner = FRK controller = FRK add_core = FRK }
-2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
-2998.1.1 = { religion = catholic }
-3009.11.10 = { owner = SAX controller = SAX remove_core = FRE }
-3060.2.2 = { hre = yes }
-3278.1.1 = { owner = BRU controller = BRU add_core = BRU remove_core = SAX }
-3366.1.1 = { owner = LUN controller = LUN add_core = LUN remove_core = BRU }
 
-3627.1.1 = { religion = protestant }
-3648.1.1 = { base_tax = 4 base_production = 4 }
-3803.8.28 = {	
+
+
+2196.1.1 = {
+	owner = CAU
+	controller = CAU
+	add_core = CAU
+	remove_core = AGR
+}
+2398.1.1 = {
+	owner = SAX
+	controller = SAX
+	add_core = SAX
+}
+2598.1.1 = {
+	culture = lower_saxon
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2898.1.1 = {
+	base_manpower = 2
+}
+2902.1.1 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2938.6.21 = {
+	owner = FRE
+	controller = FRE
+	add_core = FRE
+	remove_core = FRK
+}
+2998.1.1 = {
+	religion = catholic
+}
+3009.11.10 = {
+	owner = SAX
+	controller = SAX
+	remove_core = FRE
+}
+3060.2.2 = {
+	hre = yes
+}
+3278.1.1 = {
+	owner = BRU
+	controller = BRU
+	add_core = BRU
+	remove_core = SAX
+}
+3366.1.1 = {
+	owner = LUN
+	controller = LUN
+	add_core = LUN
+	remove_core = BRU
+}
+3627.1.1 = {
+	religion = protestant
+}
+3648.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3803.8.28 = {
 	owner = HAN
 	controller = HAN
 	add_core = HAN
 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3904.7.12 = {
+	hre = no
+}
 3905.7.9 = {
 	owner = WES
 	controller = WES
 	add_core = WES
-} # The Second Treaty of Tilsit, the kingdom of Westfalia
+}
 3911.10.13 = {
 	owner = HAN
 	controller = HAN
 	remove_core = WES
-} # Westfalia is dissolved after the Battle of Leipsig
+}
+3964.8.23 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+	remove_core = HAN
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+	remove_core = PRU
+}
+3998.1.1 = {
+	remove_core = LUN
+}
+4043.5.8 = {
+	owner = WGE
+	controller = WGE
+	add_core = WGE
+}
+4088.10.3 = {
+	owner = GER
+	controller = GER
+	remove_core = WGE
+}
 
-3964.8.23  = { owner = PRU controller = PRU add_core = PRU remove_core = HAN } # Peace of Prague
-3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
-3998.1.1   = { remove_core = LUN }
-4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
-4088.10.3  = { owner = GER controller = GER remove_core = WGE }
+
+### Modified 1/26/2025 8:38:57 AM ###

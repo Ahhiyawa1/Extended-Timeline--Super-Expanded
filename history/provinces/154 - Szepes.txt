@@ -1,14 +1,21 @@
-#154 - Ersekujvar
-
+# …rsek˙jv·r
+# 154 …rsek˙jv·r - 1/26/2025 8:38:55 AM 
+ 
+add_core = GTN
 owner = GTN
 controller = GTN
-add_core = GTN
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = gold
+
 culture = pannonian
 religion = druidism
 capital = "Nitra"
-trade_goods = gold #Schemnitz / Bansk√° ≈†tiavnica
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,68 +23,215 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 2
 
-2493.1.1 = { owner = QUA controller = QUA add_core = QUA remove_core = GTN culture = quadian religion = germanic }
-2552.1.1 = { owner = MRM controller = MRM add_core = MRM remove_core = QUA culture = bavarian }
-2598.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = MRM culture = langobardi }
-2666.1.1 = { owner = AVR controller = AVR add_core = AVR remove_core = HER religion = tengri_pagan_reformed }
-2678.1.1 = { culture = slovak }
-2721.1.1 = { owner = SAZ controller = SAZ add_core = SAZ remove_core = HER }
-2757.1.1 = { owner = SLO controller = SLO add_core = SLO remove_core = SAZ }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-2931.1.1 = { owner = MVA controller = MVA add_core = MVA remove_core = SLO }
-3000.1.1 = { owner = SLO controller = SLO add_core = SLO remove_core = MVA }
-3023.1.1 = { owner = HUN controller = HUN add_core = HUN capital = "Hont" }
-3048.1.1 = { religion = catholic }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3099.1.1 = { owner = POL controller = POL add_core = POL }
-3116.1.1 = { owner = HUN controller = HUN remove_core = POL }
 
-3530.1.1 = { unrest = 10 } # The city is attacked by Hussites
-3532.1.1 = { unrest = 0 }
-3538.1.1 = { unrest = 10 } # Struggles between the supporters of Ladislaus and Elisabeth of Hungary
-3541.1.1 = { unrest = 0 }
-3588.1.1 = { controller = HAB } # Occupied
-3589.11.7 = { controller = HUN }
+
+
+2493.1.1 = {
+	owner = QUA
+	controller = QUA
+	add_core = QUA
+	remove_core = GTN
+	culture = quadian
+	religion = germanic
+}
+2552.1.1 = {
+	owner = MRM
+	controller = MRM
+	add_core = MRM
+	remove_core = QUA
+	culture = bavarian
+}
+2598.1.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = MRM
+	culture = langobardi
+}
+2666.1.1 = {
+	owner = AVR
+	controller = AVR
+	add_core = AVR
+	remove_core = HER
+	religion = tengri_pagan_reformed
+}
+2678.1.1 = {
+	culture = slovak
+}
+2721.1.1 = {
+	owner = SAZ
+	controller = SAZ
+	add_core = SAZ
+	remove_core = HER
+}
+2757.1.1 = {
+	owner = SLO
+	controller = SLO
+	add_core = SLO
+	remove_core = SAZ
+}
+2898.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2931.1.1 = {
+	owner = MVA
+	controller = MVA
+	add_core = MVA
+	remove_core = SLO
+}
+3000.1.1 = {
+	owner = SLO
+	controller = SLO
+	add_core = SLO
+	remove_core = MVA
+}
+3023.1.1 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+	capital = "Hont"
+}
+3048.1.1 = {
+	religion = catholic
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3099.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+}
+3116.1.1 = {
+	owner = HUN
+	controller = HUN
+	remove_core = POL
+}
+3530.1.1 = {
+	unrest = 10
+}
+3532.1.1 = {
+	unrest = 0
+}
+3538.1.1 = {
+	unrest = 10
+}
+3541.1.1 = {
+	unrest = 0
+}
+3588.1.1 = {
+	controller = HAB
+}
+3589.11.7 = {
+	controller = HUN
+}
 3624.8.30 = {
 	owner = HAB
 	controller = HAB
 	add_core = HAB
-} #Hungary fractured after Battle of Mohacs
+}
 3679.1.1 = {
 	capital = "√ârsek√∫jv√°r"
 	fort_15th = no
 	fort_16th = yes
-} # New Start Fort of √ârsek√∫jv√°r
-3702.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # The nobility in Royal Hungary rebelled against Habsburg & Jesuit repression
-3704.1.1 = { revolt = {} controller = HAB religion = reformed } # Peace treaty, guaranteed religious toleration
-3717.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Bethlen uprisings
-3724.1.1 = { revolt = {} controller = HAB  } # The 3rd Peace of Pressburg, puts an end to the Bethlen uprisings
-3762.8.1 = { #Peace of Vasv√°r
+}
+3702.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3704.1.1 = {
+	revolt = {
+	}
+
+	controller = HAB
+	religion = reformed
+}
+3717.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3724.1.1 = {
+	revolt = {
+	}
+
+	controller = HAB
+}
+3762.8.1 = {
 	owner = TUR
 	controller = TUR
 	add_core = TUR
 }
 3783.1.1 = {
 	controller = HAB
-} # Conquered/liberated by Charles of Lorraine, the Ottoman Turks are driven out of Hungary
+}
 3797.1.26 = {
 	owner = HAB
 	remove_core = TUR
-} # Treaty of Karlowitz
-3801.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Kuruc rebellion, lead by Francisc Rakoczy
-3808.1.1 = { revolt = {} } # Plague
-3809.1.1 = { controller = HAB } # The House of Habsburg recognized as the new ruler
-3856.1.1 = { base_manpower = 3 }
-3889.1.1 = { base_tax = 5 }
+}
+3801.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
 
-3922.1.1 = { base_production = 5 }
-3956.1.1 = { base_manpower = 4 }
-4008.1.1 = { discovered_by = asian }
-4016.10.28 = { owner = CZS controller = CZS add_core = CZS remove_core = HAB remove_core = HUN capital = "Nitra" }
-4037.3.14  = { owner = SVK controller = SVK add_core = SVK }
-4043.5.8   = { owner = CZS controller = CZS }
-4090.12.31 = { owner = SVK controller = SVK remove_core = CZS }
+	controller = REB
+}
+3808.1.1 = {
+	revolt = {
+	}
+
+}
+3809.1.1 = {
+	controller = HAB
+}
+3856.1.1 = {
+	base_manpower = 3
+}
+3889.1.1 = {
+	base_tax = 5
+}
+3922.1.1 = {
+	base_production = 5
+}
+3956.1.1 = {
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4016.10.28 = {
+	owner = CZS
+	controller = CZS
+	add_core = CZS
+	remove_core = HAB
+	remove_core = HUN
+	capital = "Nitra"
+}
+4037.3.14 = {
+	owner = SVK
+	controller = SVK
+	add_core = SVK
+}
+4043.5.8 = {
+	owner = CZS
+	controller = CZS
+}
+4091.1.0 = {
+	owner = SVK
+	controller = SVK
+	remove_core = CZS
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

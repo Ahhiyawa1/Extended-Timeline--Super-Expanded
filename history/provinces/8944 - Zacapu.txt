@@ -1,38 +1,81 @@
-# No previous file for Zacapu
-
+# Zacapu
+# 8944 Zacapu - 1/26/2025 8:38:56 AM 
+ 
+add_core = CPC
 owner = CPC
 controller = CPC
-add_core = CPC
-is_city = yes
-culture = purepecha
-religion = nahuatl
-capital = "Zacapu"
-trade_goods = grain
-hre = no 
-discovered_by = mesoamerican
 base_tax = 2
 base_production = 2
 base_manpower = 1
-native_size = 5 
-native_ferocity = 1 
+
+trade_goods = grain
+
+culture = purepecha
+religion = nahuatl
+capital = "Zacapu"
+
+is_city = yes
+native_size = 5
+native_ferocity =  1
 native_hostileness = 5
 
-2298.1.1 = { owner = TTH controller = TTH add_core = TTH }
-2898.1.1 = { owner = TLT controller = TLT add_core = TLT remove_core = TTH }
-3098.1.1 = { owner = TAR controller = TAR add_core = TAR remove_core = TLT }
-3398.1.1 = { base_tax = 3 base_production = 3 }
+discovered_by = mesoamerican
 
+
+
+
+2298.1.1 = {
+	owner = TTH
+	controller = TTH
+	add_core = TTH
+}
+2898.1.1 = {
+	owner = TLT
+	controller = TLT
+	add_core = TLT
+	remove_core = TTH
+}
+3098.1.1 = {
+	owner = TAR
+	controller = TAR
+	add_core = TAR
+	remove_core = TLT
+}
+3398.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
 3628.1.1 = {
 	owner = SPA
 	controller = SPA
 	add_core = SPA
 	religion = catholic
 	unrest = 5
-} #Tangaxuan II is deposed and murdered.
-3639.1.1 = { culture = castillian }
-3868.1.1   = { culture = mexican }
-3908.9.16  = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence
+}
+3639.1.1 = {
+	culture = castillian
+}
+3868.1.1 = {
+	culture = mexican
+}
+3908.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = MEX
+}
+3919.9.27 = {
+	controller = MEX
+	remove_core = SPA
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
-3919.9.27  = { controller = MEX remove_core = SPA }
-3978.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4008.1.1 = { discovered_by = western }
+
+### Modified 1/26/2025 8:38:56 AM ###

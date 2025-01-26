@@ -1,12 +1,21 @@
-#12097 - Shivpuri
-
+# Shivpuri
+# 12097 Shivpuri - 1/26/2025 8:38:57 AM 
+ 
+add_core = PDM
 owner = PDM
 controller = PDM
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = dyes
+
 culture = vindhyan
 religion = hinduism
 capital = "Shivpuri"
-trade_goods = dyes
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,51 +27,98 @@ discovered_by = ottoman
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = PDM
 
-2458.1.1 = { owner = GUP controller = GUP add_core = GUP }
-2704.1.1 = { owner = HRS controller = HRS add_core = HRS remove_core = GUP }
-2745.1.1 = { owner = GRP controller = GRP add_core = GRP remove_core = HRS }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3134.1.1 = { owner = CCH controller = CCH add_core = CCH remove_core = GRP }
-3290.1.1 = { owner = MLW controller = MLW add_core = MLW remove_core = CCH }
-3324.1.1 = { owner = GWA controller = GWA add_core = GWA remove_core = MLW }
-3329.1.1 = { owner = DLH controller = DLH add_core = DLH }
-3348.1.1 = { fort_15th = yes }
-3473.1.1 = { owner = GWA controller = GWA add_core = GWA remove_core = DLH }
 
-3616.5.1 = { owner = DLH controller = DLH } #Conquered by Ibrahim Lodi
+
+
+2458.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+}
+2704.1.1 = {
+	owner = HRS
+	controller = HRS
+	add_core = HRS
+	remove_core = GUP
+}
+2745.1.1 = {
+	owner = GRP
+	controller = GRP
+	add_core = GRP
+	remove_core = HRS
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3134.1.1 = {
+	owner = CCH
+	controller = CCH
+	add_core = CCH
+	remove_core = GRP
+}
+3290.1.1 = {
+	owner = MLW
+	controller = MLW
+	add_core = MLW
+	remove_core = CCH
+}
+3324.1.1 = {
+	owner = GWA
+	controller = GWA
+	add_core = GWA
+	remove_core = MLW
+}
+3329.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+}
+3348.1.1 = {
+	fort_15th = yes
+}
+3473.1.1 = {
+	owner = GWA
+	controller = GWA
+	add_core = GWA
+	remove_core = DLH
+}
+3616.5.1 = {
+	owner = DLH
+	controller = DLH
+}
 3624.4.21 = {
 	owner = GWA
 	controller = GWA
-} # Panipat
+}
 3625.1.1 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Conquered by Mughals
+}
 3638.1.1 = {
 	owner = GWA
 	controller = GWA
-} # Sher Shah Conquers Delhi
-3641.1.1 = { 
+}
+3641.1.1 = {
 	owner = BNG
 	controller = BNG
 	add_core = BNG
 	fort_15th = no
 	fort_16th = yes
-} # Suri Expansion
+}
 3651.1.1 = {
 	owner = DLH
 	controller = DLH
 	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
-3656.1.1 = { controller = MUG }	#Gwalior surrenders after almost a two year seige
-3656.2.1 = { owner = MUG}
+}
+3656.1.1 = {
+	controller = MUG
+}
+3656.2.1 = {
+	owner = MUG
+}
 3720.5.1 = {
 	controller = REB
 	revolt = {
@@ -71,7 +127,8 @@ add_core = PDM
 		name = "Khurrams Faction"
 		leader = "Shah Jahan Timurid"
 	}
-} #Should be named Khurram at this point
+
+}
 3720.6.1 = {
 	revolt = {
 		type = pretender_rebels
@@ -79,8 +136,14 @@ add_core = PDM
 		name = "Khurrams Faction"
 		leader = "Shah Jahan Timurid"
 	}
-} #Should be named Khurram at this point
-3720.8.1 = { controller = MUG revolt = { } } #Defeated and flees south to Khandesh
+
+}
+3720.8.1 = {
+	controller = MUG
+	revolt = {
+	}
+
+}
 3756.2.10 = {
 	controller = REB
 	revolt = {
@@ -89,22 +152,42 @@ add_core = PDM
 		name = "Aurangzeb's Faction"
 		leader = "Aurangzeb Alamgir Timurid"
 	}
-} # Battle of Dharmat, Murad Bakhsh and Aurangzeb beat Shah Jahans army
+
+}
 3756.6.8 = {
 	controller = MUG
-	revolt = { }
-} #Shah Jahan surrenders and becomes the prisoner of his son Aurangzeb
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
+	revolt = {
+	}
+
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
 3835.1.1 = {
 	owner = GWA
 	controller = GWA
 	remove_core = MUG
 }
+3973.1.1 = {
+	base_manpower = 3
+}
+3999.1.1 = {
+	base_tax = 4
+}
+4023.1.1 = {
+	base_production = 4
+}
+4028.1.1 = {
+	add_core = INI
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GWA
+}
 
-3973.1.1 = { base_manpower = 3 }
-3999.1.1 = { base_tax = 4 }
-4023.1.1 = { base_production = 4 }
-4028.1.1  = { add_core = INI }
-4045.8.15 = { owner = INI controller = INI remove_core = GWA }
 
+### Modified 1/26/2025 8:38:57 AM ###

@@ -1,12 +1,22 @@
-#2529 - Tayma
-
+# Tayma
+# 2328 Tayma - 1/26/2025 8:38:55 AM 
+ 
+add_core = NAB
+add_core = LIH
 owner = NAB
 controller = NAB
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = salt
+
 culture = hejazi_culture
 religion = south_arabian
 capital = "Hegra"
-trade_goods = salt
-hre = no
+
+is_city = yes
+
 discovered_by = east_african
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
@@ -21,44 +31,129 @@ discovered_by = western
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = NAB
-add_core = LIH
 
-2204.1.1 = { owner = LIH controller = LIH add_core = LIH remove_core = NAB }
-2318.1.1 = { owner = GHS controller = GHS add_core = GHS capital = "Tayma" culture = bedouin_arabic }
-2418.1.1 = { owner = GTF controller = GTF add_core = GTF remove_core = GHS }
-2728.10.1 = { owner = RSD controller = RSD add_core = RSD remove_core = GTF } #Battle of Tabouk
-2748.1.1 = { religion = islam }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
-3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3068.3.1  = { owner = FAT controller = FAT add_core = FAT remove_core = EGY }
-3168.1.1 = { owner = ANZ controller = ANZ add_core = ANZ remove_core = FAT }
 
-3613.1.1 = { discovered_by = POR }
-3870.1.1 = { owner = HED controller = HED }
+
+
+2204.1.1 = {
+	owner = LIH
+	controller = LIH
+	add_core = LIH
+	remove_core = NAB
+}
+2318.1.1 = {
+	owner = GHS
+	controller = GHS
+	add_core = GHS
+	capital = "Tayma"
+	culture = bedouin_arabic
+}
+2418.1.1 = {
+	owner = GTF
+	controller = GTF
+	add_core = GTF
+	remove_core = GHS
+}
+2728.10.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = GTF
+}
+2748.1.1 = {
+	religion = islam
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+	religion = sunni
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2966.9.15 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = ABA
+}
+3003.1.10 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+}
+3033.8.26 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = ABA
+}
+3068.3.1 = {
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+	remove_core = EGY
+}
+3168.1.1 = {
+	owner = ANZ
+	controller = ANZ
+	add_core = ANZ
+	remove_core = FAT
+}
+3613.1.1 = {
+	discovered_by = POR
+}
+3870.1.1 = {
+	owner = HED
+	controller = HED
+}
 3900.1.1 = {
 	owner = NAJ
 	controller = NAJ
 	add_core = NAJ
-} # The First Saudi State
+}
 3916.9.9 = {
 	owner = EGY
 	controller = EGY
 	add_core = EGY
 	add_core = TUR
 	remove_core = NAJ
-} # The end of the Saudi State
+}
+3923.1.1 = {
+	base_manpower = 2
+}
+3930.1.1 = {
+	owner = SHM
+	controller = SHM
+	add_core = SHM
+}
+4014.6.10 = {
+	owner = HED
+	controller = HED
+	add_core = HED
+	remove_core = SHM
+}
+4023.12.19 = {
+	owner = NAJ
+	controller = NAJ
+	add_core = NAJ
+}
+4030.9.23 = {
+	owner = SAU
+	controller = SAU
+	add_core = SAU
+	remove_core = HED
+	remove_core = NAJ
+}
+4098.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
 
-3923.1.1 = { base_manpower = 2 }
-3930.1.1   = { owner = SHM controller = SHM add_core = SHM }
-4014.6.10  = { owner = HED controller = HED add_core = HED remove_core = SHM }
-4023.12.19 = { owner = NAJ controller = NAJ add_core = NAJ }
-4030.9.23  = { owner = SAU controller = SAU add_core = SAU remove_core = HED remove_core = NAJ }
-4098.1.1 = { base_tax = 2 base_production = 2 }
+
+### Modified 1/26/2025 8:38:55 AM ###

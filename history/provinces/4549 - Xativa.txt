@@ -1,10 +1,21 @@
-# 1750 - Alicante
+# Xativa
+# 4549 Xativa - 1/26/2025 8:38:55 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-add_core = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = cloth
+
 culture = iberi
 religion = canaanite_religion
-hre = no
+capital = "Saetabis"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,89 +23,183 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = cloth
-base_manpower = 1
-capital = "Saetabis"
-is_city = yes
-2438.1.1 = { religion = chalcedonism } 
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2546.1.1 = { owner = EAL controller = EAL add_core = EAL } 
-2551.1.1 = { owner = ROW controller = ROW remove_core = EAL } 
-2554.1.1 = { owner = GVI controller = GVI add_core = GVI } 
-2556.10.1 = { owner = ROW controller = ROW } # Battle of Arelate
-2559.8.2 = { owner = GVI controller = GVI remove_core = ROW } # Assassination of Majorian
-2650.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
-2686.1.1 = { owner = GVI controller = GVI remove_core = BYZ } 
-2698.1.1 = { base_tax = 2 base_production = 2 } 
-2809.1.1 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = GVI
-    capital = "Xativa"
+
+
+
+2438.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2546.1.1 = {
+	owner = EAL
+	controller = EAL
+	add_core = EAL
+}
+2551.1.1 = {
+	owner = ROW
+	controller = ROW
+	remove_core = EAL
+}
+2554.1.1 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+}
+2556.10.1 = {
+	owner = ROW
+	controller = ROW
+}
+2559.8.2 = {
+	owner = GVI
+	controller = GVI
+	remove_core = ROW
+}
+2650.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+}
+2686.1.1 = {
+	owner = GVI
+	controller = GVI
+	remove_core = BYZ
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2809.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = GVI
+	capital = "Xativa"
+}
+2848.8.6 = {
+	owner = CRD
+	controller = CRD
+	add_core = CRD
+	remove_core = UMA
+}
+2858.1.1 = {
+	religion = sunni
+}
+2898.1.1 = {
+	base_manpower = 2
+	culture = andalucian
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3108.1.1 = {
+	owner = DEN
+	controller = DEN
+	add_core = DEN
+	remove_core = CRD
+}
+3174.1.1 = {
+	owner = ZAR
+	controller = ZAR
+	add_core = ZAR
+}
+3179.1.1 = {
+	owner = TTA
+	controller = TTA
+	add_core = TTA
+	remove_core = ZAR
+}
+3190.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = TTA
+}
+3298.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3322.1.1 = {
+	owner = DEN
+	controller = DEN
+	remove_core = MOR
+}
+3342.1.1 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+	remove_core = DEN
+}
+3378.1.1 = {
+	religion = catholic
+	culture = catalan
+}
+3398.1.1 = {
+	trade_goods = paper
+}
+3614.1.23 = {
+	controller = SPA
+	owner = SPA
+	add_core = SPA
+}
+3617.7.1 = {
+	unrest = 2
+}
+3619.9.11 = {
+	unrest = 0
+}
+3707.9.22 = {
+	unrest = 2
+}
+3707.11.1 = {
+	unrest = 0
+}
+3803.12.16 = {
+	controller = HAB
+}
+3805.5.8 = {
+	controller = SPA
+}
+3811.7.13 = {
+	remove_core = ARA
+}
+3906.6.6 = {
+	revolt = {
+		type = pretender_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3910.1.1 = {
+	revolt = {
+	}
+
+	controller = SPA
+}
+3911.3.19 = {
+	revolt = {
+		type = pretender_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3911.12.11 = {
+	revolt = {
+	}
+
+	controller = SPA
+}
+4008.1.1 = {
+	discovered_by = asian
 }
 
-2848.8.6 = { 
-    owner = CRD
-    controller = CRD
-    add_core = CRD
-    remove_core = UMA
-}
 
-2858.1.1 = { religion = sunni } 
-2898.1.1 = { base_manpower = 2 culture = andalucian } 
-3098.1.1 = { base_tax = 3 base_production = 3 } 
-3108.1.1 = { 
-    owner = DEN
-    controller = DEN
-    add_core = DEN
-    remove_core = CRD
-}
-
-3174.1.1 = { owner = ZAR controller = ZAR add_core = ZAR } 
-3179.1.1 = { 
-    owner = TTA
-    controller = TTA
-    add_core = TTA
-    remove_core = ZAR
-}
-
-3190.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = TTA
-}
-
-3298.1.1 = { base_tax = 4 base_production = 4 } 
-3322.1.1 = { owner = DEN controller = DEN remove_core = MOR } 
-3342.1.1 = { 
-    owner = ARA
-    controller = ARA
-    add_core = ARA
-    remove_core = DEN
-}
-
-3378.1.1 = { religion = catholic culture = catalan } 
-3398.1.1 = { trade_goods = paper } 
-3614.1.23 = { controller = SPA owner = SPA add_core = SPA } # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
-3617.7.1 = { unrest = 2 } # Revolt of the Germanies, which is at first moderate and appeased by the King
-3619.9.11 = { unrest = 0 } # The Agermanats are soundly defeated in Oriola.
-3707.9.22 = { unrest = 2 } # Decree for the expulsion of the morisques in Valencia. Morisque mutiny in the Alicante harbour.
-3707.11.1 = { unrest = 0 } # The morisque mutiny is finally controlled. (economic consequences should be added)
-3803.12.16 = { controller = HAB } # Alicante joins the Austrian side in the War of the Spanish Succession
-3805.5.8 = { controller = SPA } # Alicante falls to the Borbonic troops
-3811.7.13 = { remove_core = ARA } 
-3906.6.6 = { revolt = { type = pretender_rebels size = 0 } controller = REB } 
-3910.1.1 = { revolt = { } controller = SPA } 
-3911.3.19 = { revolt = { type = pretender_rebels size = 0 } controller = REB } 
-3911.12.11 = { revolt = { } controller = SPA } 
-4008.1.1 = { discovered_by = asian } 
+### Modified 1/26/2025 8:38:55 AM ###

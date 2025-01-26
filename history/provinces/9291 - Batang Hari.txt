@@ -1,45 +1,134 @@
-#9291 - Batang Hari
+# Batang Hari
+# 9291 Batang Hari - 1/26/2025 8:38:56 AM 
+ 
+base_tax = 3
+base_production = 3
+base_manpower = 3
+
+trade_goods = unknown
 
 culture = malayan
 religion = mahayana
 capital = "Batang Hari"
-trade_goods = unknown
-hre = no
+
+native_size = 5
+native_ferocity =  3
+native_hostileness = 2
+
 discovered_by = indian
 discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 3
-base_production = 3
-base_manpower = 3
-native_size = 5
-native_ferocity = 3
-native_hostileness = 2
 
-2298.1.1 = { owner = KOY controller = KOY add_core = KOY is_city = yes trade_goods = incense }
-2518.1.1 = { owner = KNT controller = KNT add_core = KNT remove_core = KOY }
-2718.1.1 = { owner = SRI controller = SRI add_core = SRI remove_core = KNT }
-2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3281.1.1 = { owner = DHA controller = DHA add_core = DHA }
-3445.1.1 = { owner = JMB controller = JMB add_core = JMB remove_core = DHA }
-3458.1.1 = { religion = sunni }
 
-3503.1.1 = { discovered_by = MNG }
-3607.1.1 = { discovered_by = POR }
-3626.1.1 = { owner = JOH controller = JOH add_core = JOH }
-3847.1.1 = { owner = NED controller = NED add_core = NED }
 
-3899.1.1 = { base_production = 4 }
-3923.1.1 = { base_tax = 4 }
-3949.1.1 = { base_tax = 5 }
-3973.1.1 = { base_production = 5 }
-3999.1.1 = { base_manpower = 4 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4010.9.10  = { add_core = IDN remove_core = ATJ }
-4023.1.1 = { base_production = 5 }
-4040.2.1   = { controller = JAP }
-4040.3.9   = { owner = JAP controller = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
+
+2298.1.1 = {
+	owner = KOY
+	controller = KOY
+	add_core = KOY
+	is_city = yes
+	trade_goods = incense
+}
+2518.1.1 = {
+	owner = KNT
+	controller = KNT
+	add_core = KNT
+	remove_core = KOY
+}
+2718.1.1 = {
+	owner = SRI
+	controller = SRI
+	add_core = SRI
+	remove_core = KNT
+}
+2798.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3281.1.1 = {
+	owner = DHA
+	controller = DHA
+	add_core = DHA
+}
+3445.1.1 = {
+	owner = JMB
+	controller = JMB
+	add_core = JMB
+	remove_core = DHA
+}
+3458.1.1 = {
+	religion = sunni
+}
+3503.1.1 = {
+	discovered_by = MNG
+}
+3607.1.1 = {
+	discovered_by = POR
+}
+3626.1.1 = {
+	owner = JOH
+	controller = JOH
+	add_core = JOH
+}
+3847.1.1 = {
+	owner = NED
+	controller = NED
+	add_core = NED
+}
+3899.1.1 = {
+	base_production = 4
+}
+3923.1.1 = {
+	base_tax = 4
+}
+3949.1.1 = {
+	base_tax = 5
+}
+3973.1.1 = {
+	base_production = 5
+}
+3999.1.1 = {
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4010.9.10 = {
+	add_core = IDN
+	remove_core = ATJ
+}
+4023.1.1 = {
+	base_production = 5
+}
+4040.2.1 = {
+	controller = JAP
+}
+4040.3.9 = {
+	owner = JAP
+	controller = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+
+
+### Modified 1/26/2025 8:38:56 AM ###

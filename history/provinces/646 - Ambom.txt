@@ -1,10 +1,20 @@
-#646 - Ambon
+# Ambon
+# 646 Ambon - 1/26/2025 8:38:55 AM 
+ 
+base_tax = 5
+base_production = 5
+base_manpower = 2
+
+trade_goods = unknown
 
 culture = moluccan
 religion = animism
 capital = "Ambon"
-trade_goods = unknown
-hre = no
+
+native_size = 5
+native_ferocity =  1
+native_hostileness = 3
+
 discovered_by = TID
 discovered_by = TER
 discovered_by = MGD
@@ -24,40 +34,103 @@ discovered_by = BAN
 discovered_by = BLI
 discovered_by = MKS
 discovered_by = MAJ
-base_tax = 5
-base_production = 5
-base_manpower = 2
-native_size = 5
-native_ferocity = 1
-native_hostileness = 3
-
-3598.1.1 = { owner = TID controller = TID add_core = TID is_city = yes trade_goods = spices }
-3609.1.1 = { discovered_by = POR }
-3618.1.1 = { religion = sunni }
-3638.1.1 = { owner = TER controller = TER add_core = TER remove_core = TID }
-3678.1.1 = {	owner = POR
-		controller = POR
-		religion = catholic
-	   } # The Portuguese took possession of the island
-3703.1.1 = { add_core = POR }
-3707.1.1 = {	owner = NED
-		controller = NED
-		remove_core = POR
-	   	religion = reformed
-	   }
-3732.1.1 = { add_core = NED }
-3894.1.1 = { owner = GBR controller = GBR add_core = GBR } # Captured by the British
-
-3948.1.1   = { discovered_by = asian }
-4008.1.1 = { discovered_by = western }
-4010.9.10  = { add_core = IDN remove_core = TER }
-4038.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4040.3.9   = { owner = JAP controller = JAP }
-4043.8.15  = { owner = NED revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4043.8.17  = { owner = IDN revolt = {} controller = IDN }
-4047.12.27 = { remove_core = NED }
-4048.4.25  = { revolt = { type = nationalist_rebels size = 1 } controller = REB } #Republic of South Maluku
-4048.11.1  = { revolt = {} controller = IDN }
 
 
 
+
+3598.1.1 = {
+	owner = TID
+	controller = TID
+	add_core = TID
+	is_city = yes
+	trade_goods = spices
+}
+3609.1.1 = {
+	discovered_by = POR
+}
+3618.1.1 = {
+	religion = sunni
+}
+3638.1.1 = {
+	owner = TER
+	controller = TER
+	add_core = TER
+	remove_core = TID
+}
+3678.1.1 = {
+	owner = POR
+	controller = POR
+	religion = catholic
+}
+3703.1.1 = {
+	add_core = POR
+}
+3707.1.1 = {
+	owner = NED
+	controller = NED
+	remove_core = POR
+	religion = reformed
+}
+3732.1.1 = {
+	add_core = NED
+}
+3894.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+3948.1.1 = {
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4010.9.10 = {
+	add_core = IDN
+	remove_core = TER
+}
+4038.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4040.3.9 = {
+	owner = JAP
+	controller = JAP
+}
+4043.8.15 = {
+	owner = NED
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4043.8.17 = {
+	owner = IDN
+	revolt = {
+	}
+
+	controller = IDN
+}
+4047.12.27 = {
+	remove_core = NED
+}
+4048.4.25 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4048.11.1 = {
+	revolt = {
+		controller = IDN
+	}
+
+}
+
+
+### Modified 1/26/2025 8:38:55 AM ###

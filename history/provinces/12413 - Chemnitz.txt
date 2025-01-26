@@ -1,14 +1,22 @@
-#12413 - Chemnitz
-
+# Chemnitz
+# 12413 Chemnitz - 1/26/2025 8:38:57 AM 
+ 
+add_core = SNN
 owner = SNN
 controller = SNN
-add_core = SNN
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+center_of_trade = 1
+trade_goods = iron
+
 culture = franconian
 religion = germanic
 capital = "Kamenice"
-trade_goods = iron
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -16,46 +24,160 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 1
-base_production = 1
-base_manpower = 1
-center_of_trade = 1
 
-2378.1.1 = { owner = BUR controller = BUR add_core = BUR remove_core = SNN culture = burgundione }
-2493.1.1 = { owner = SRB controller = SRB add_core = SRB remove_core = LOM culture = sorbian religion = slavic }
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2898.1.1 = { base_manpower = 2 }
-3030.1.1 = { owner = SAX controller = SAX add_core = SAX remove_core = SRB }
-3038.1.1 = { fort_15th = yes }
-3053.1.1 = { owner = BRA controller = BRA add_core = BRA remove_core = SAX }
-3058.1.1 = { culture = saxon religion = catholic }
-3060.2.2 = { hre = yes }
-3063.5.20 = { owner = MEI controller = MEI add_core = MEI remove_core = BRA }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3198.1.1 = { base_tax = 4 base_production = 4 }
-3298.1.1 = { base_tax = 5 base_production = 5 }
-3398.1.1 = { base_tax = 6 base_production = 6 }
 
-3521.1.6 = { owner = SAX controller = SAX add_core = SAX remove_core = MEI capital = "Dresden" } # Incorporated into Saxony
-3562.1.1 = { capital = "Chemnitz" }
-3629.1.1 = { religion = protestant }
-3687.1.1 = { fort_15th = no fort_16th = yes } # Current structure of Festung Königstein is built
-3848.1.1 = { base_tax = 6 base_manpower = 3 }
-3873.1.1 = { base_tax = 7 base_manpower = 4 }
-3888.8.1 = { unrest = 5 } # Peasant revolt
-3889.1.1 = { unrest = 0 }
-3898.1.1 = { base_production = 7 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
 
-3923.1.1 = { base_tax = 9 base_production = 8 }
-3948.1.1 = { base_tax = 11 }
-3969.1.18  = { owner = GER controller = GER add_core = GER } # German unification
-3973.1.1 = { base_production = 10 }
-3998.1.1   = { remove_core = SAX }
-3999.1.1 = { base_tax = 12 base_production = 11 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_tax = 13 base_production = 12 base_manpower = 5 }
-4043.5.8   = { owner = EGE controller = EGE add_core = EGE }
-4048.1.1 = { base_manpower = 6 }
-4073.1.1 = { base_production = 13 base_manpower = 7 }
-4088.10.3  = { owner = GER controller = GER remove_core = EGE }
+
+2378.1.1 = {
+	owner = BUR
+	controller = BUR
+	add_core = BUR
+	remove_core = SNN
+	culture = burgundione
+}
+2493.1.1 = {
+	owner = SRB
+	controller = SRB
+	add_core = SRB
+	remove_core = LOM
+	culture = sorbian
+	religion = slavic
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2898.1.1 = {
+	base_manpower = 2
+}
+3030.1.1 = {
+	owner = SAX
+	controller = SAX
+	add_core = SAX
+	remove_core = SRB
+}
+3038.1.1 = {
+	fort_15th = yes
+}
+3053.1.1 = {
+	owner = BRA
+	controller = BRA
+	add_core = BRA
+	remove_core = SAX
+}
+3058.1.1 = {
+	culture = saxon
+	religion = catholic
+}
+3060.2.2 = {
+	hre = yes
+}
+3063.5.20 = {
+	owner = MEI
+	controller = MEI
+	add_core = MEI
+	remove_core = BRA
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3198.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3298.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3398.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3521.1.6 = {
+	owner = SAX
+	controller = SAX
+	add_core = SAX
+	remove_core = MEI
+	capital = "Dresden"
+}
+3562.1.1 = {
+	capital = "Chemnitz"
+}
+3629.1.1 = {
+	religion = protestant
+}
+3687.1.1 = {
+	fort_15th = no
+	fort_16th = yes
+}
+3848.1.1 = {
+	base_tax = 6
+	base_manpower = 3
+}
+3873.1.1 = {
+	base_tax = 7
+	base_manpower = 4
+}
+3888.8.1 = {
+	unrest = 5
+}
+3889.1.1 = {
+	unrest = 0
+}
+3898.1.1 = {
+	base_production = 7
+}
+3904.7.12 = {
+	hre = no
+}
+3923.1.1 = {
+	base_tax = 9
+	base_production = 8
+}
+3948.1.1 = {
+	base_tax = 11
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+}
+3973.1.1 = {
+	base_production = 10
+}
+3998.1.1 = {
+	remove_core = SAX
+}
+3999.1.1 = {
+	base_tax = 12
+	base_production = 11
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4023.1.1 = {
+	base_tax = 13
+	base_production = 12
+	base_manpower = 5
+}
+4043.5.8 = {
+	owner = EGE
+	controller = EGE
+	add_core = EGE
+}
+4048.1.1 = {
+	base_manpower = 6
+}
+4073.1.1 = {
+	base_production = 13
+	base_manpower = 7
+}
+4088.10.3 = {
+	owner = GER
+	controller = GER
+	remove_core = EGE
+}
+
+
+### Modified 1/26/2025 8:38:57 AM ###

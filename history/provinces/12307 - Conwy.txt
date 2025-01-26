@@ -1,53 +1,158 @@
-#12307 - Conwy
-
+# Conwy
+# 12307 Conwy - 1/26/2025 8:38:57 AM 
+ 
+add_core = ORV
 owner = ORV
 controller = ORV
-add_core = ORV
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = livestock
+
 culture = briton
 religion = druidism
-hre = no
+capital = "Cynwy"
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = livestock
-base_manpower = 1
-capital = "Cynwy"
 
-2176.1.1 = { owner = ROM controller = ROM add_core = ROM }
-2298.1.1 = { culture = welsh }
-2448.1.1 = { owner = GWY controller = GWY add_core = GWY remove_core = ORV remove_core = ROM capital = "Conwy" }
-2758.1.1 = { religion = chalcedonism }
-2965.1.1 = { religion = catholic }
-3048.1.1 = { base_tax = 2 base_production = 2 discovered_by = muslim discovered_by = ottoman }
-3380.1.1 = { owner = ENG controller = ENG add_core = ENG add_core = WLS remove_core = GWY }
 
-3497.1.1 = { unrest = 20 } # Buildup to the Welsh Revolt
-3498.9.16 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } # The Welsh Revolt
-3513.1.1 = { unrest = 0 revolt = {} controller = ENG } # English rule is restored
-3551.1.1 = { unrest = 5 } # Start of the War of the Roses
-3559.6.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 2 leader = "Henry of Lancaster" } controller = REB } # Lancastrian Holdouts after Coronation of Edward IV
-3565.1.1 = { revolt = {} unrest = 5 } # Rivalry between Edward IV & Warwick
-3566.6.1 = { controller = ENG }
-3569.1.1 = { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
-3569.3.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-3569.5.4 = { revolt = {} unrest = 2 controller = ENG } # Murder of Henry VI & Restoration of Edward IV
-3581.6.26 = { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
-3583.8.23 = { unrest = 0 } # Battle of Bosworth Field & the End of the War of the Roses
-3805.5.12 = {	owner = GBR
+
+
+2176.1.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+}
+2298.1.1 = {
+	culture = welsh
+}
+2448.1.1 = {
+	owner = GWY
+	controller = GWY
+	add_core = GWY
+	remove_core = ORV
+	remove_core = ROM
+	capital = "Conwy"
+}
+2758.1.1 = {
+	religion = chalcedonism
+}
+2965.1.1 = {
+	religion = catholic
+}
+3048.1.1 = {
+	base_tax = 2
+	base_production = 2
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3380.1.1 = {
+	owner = ENG
+	controller = ENG
+	add_core = ENG
+	add_core = WLS
+	remove_core = GWY
+}
+3497.1.1 = {
+	unrest = 20
+}
+3498.9.16 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3513.1.1 = {
+	unrest = 0
+	revolt = {
+	}
+
+	controller = ENG
+}
+3551.1.1 = {
+	unrest = 5
+}
+3559.6.1 = {
+	unrest = 0
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+		leader = "Henry of Lancaster"
+	}
+
+	controller = REB
+}
+3565.1.1 = {
+	revolt = {
+	}
+
+	unrest = 5
+}
+3566.6.1 = {
+	controller = ENG
+}
+3569.1.1 = {
+	unrest = 8
+}
+3569.3.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3569.5.4 = {
+	revolt = {
+	}
+
+	unrest = 2
+	controller = ENG
+}
+3581.6.26 = {
+	unrest = 8
+}
+3583.8.23 = {
+	unrest = 0
+}
+3805.5.12 = {
+	owner = GBR
 	controller = GBR
 	add_core = GBR
 	remove_core = ENG
 }
-3848.1.1 = { religion = anglican }
-3850.1.1 = { base_tax = 3 }
-3877.1.1 = { base_tax = 4 }
+3848.1.1 = {
+	religion = anglican
+}
+3850.1.1 = {
+	base_tax = 3
+}
+3877.1.1 = {
+	base_tax = 4
+}
+3904.1.1 = {
+	base_manpower = 2
+}
+3932.1.1 = {
+	base_production = 3
+}
+3959.1.1 = {
+	base_manpower = 3
+}
+3986.1.1 = {
+	base_production = 4
+}
+4008.1.1 = {
+	discovered_by = asian
+}
 
-3904.1.1 = { base_manpower = 2 }
-3932.1.1 = { base_production = 3 }
-3959.1.1 = { base_manpower = 3 }
-3986.1.1 = { base_production = 4 }
-4008.1.1 = { discovered_by = asian }
+
+### Modified 1/26/2025 8:38:57 AM ###

@@ -1,56 +1,158 @@
-#10152 - Lumut
-
+# Lumut
+# 10152 Lumut - 1/26/2025 8:38:57 AM 
+ 
+add_core = GGG
 owner = GGG
 controller = GGG
-add_core = GGG
-is_city = yes
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = copper
+
 culture = malayan
 religion = hinduism
 capital = "Lumut"
-trade_goods = copper #Tin
-hre = no
+
+is_city = yes
+
 discovered_by = indian
 discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 2
-base_production = 2
-base_manpower = 2
 
-2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
-2868.1.1 = { owner = SRI controller = SRI add_core = SRI }
-3123.1.1 = { owner = KED controller = KED remove_core = SRI }
-3198.1.1 = { base_tax = 3 base_production = 3 }
-3234.1.1 = { religion = sunni }
-3278.1.1 = { owner = PRK controller = PRK add_core = PRK remove_core = KED } #Beruas Kingdom
-3298.1.1 = { base_tax = 4 base_production = 4 }
-3398.1.1 = { base_tax = 5 base_production = 5 }
-3498.1.1 = { owner = MLC controller = MLC add_core = MLC remove_core = PRK }
 
-3614.1.1 = { discovered_by = POR } # Godinho de Eredia
-3626.1.1 = {
-		owner = PRK
-		controller = PRK
-		add_core = PRK
+
+
+2798.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
 }
-3849.1.1 = { base_manpower = 4 }
-3873.1.1 = { base_tax = 7 }
+2868.1.1 = {
+	owner = SRI
+	controller = SRI
+	add_core = SRI
+}
+3123.1.1 = {
+	owner = KED
+	controller = KED
+	remove_core = SRI
+}
+3198.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3234.1.1 = {
+	religion = sunni
+}
+3278.1.1 = {
+	owner = PRK
+	controller = PRK
+	add_core = PRK
+	remove_core = KED
+}
+3298.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3398.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3498.1.1 = {
+	owner = MLC
+	controller = MLC
+	add_core = MLC
+	remove_core = PRK
+}
+3614.1.1 = {
+	discovered_by = POR
+}
+3626.1.1 = {
+	owner = PRK
+	controller = PRK
+	add_core = PRK
+}
+3849.1.1 = {
+	base_manpower = 4
+}
+3873.1.1 = {
+	base_tax = 7
+}
+3899.1.1 = {
+	base_production = 7
+}
+3923.1.1 = {
+	base_tax = 8
+	base_production = 8
+}
+3949.1.1 = {
+	base_tax = 9
+	base_production = 9
+}
+3972.1.20 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+3973.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-3899.1.1 = { base_production = 7 }
-3923.1.1 = { base_tax = 8 base_production = 8 }
-3949.1.1 = { base_tax = 9 base_production = 9 }
-3972.1.20  = { owner = GBR controller = GBR add_core = GBR } #Pangkor Treaty
-3973.1.1   = { revolt = { type = nationalist_rebels size = 1 } controller = REB } #Perak War
-3974.1.1 = { base_tax = 10 base_production = 10 }
-3975.1.1   = { revolt = {} controller = GBR }
-3994.1.1   = { capital = "Bagan Datuk" }
-3999.1.1 = { base_production = 11 base_manpower = 5 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 11 base_production = 12 }
-4039.12.15 = { controller = JAP }
-4043.8.1   = { controller = GBR }
-4044.4.1   = { add_core = MSA remove_core = MLC }
-4049.1.1 = { base_manpower = 7 }
-4055.8.31  = { owner = MSA controller = MSA remove_core = GBR }
-4061.9.16  = { owner = MLA controller = MLA add_core = MLA remove_core = MSA }
+	controller = REB
+}
+3974.1.1 = {
+	base_tax = 10
+	base_production = 10
+}
+3975.1.1 = {
+	revolt = {
+	}
+
+	controller = GBR
+}
+3994.1.1 = {
+	capital = "Bagan Datuk"
+}
+3999.1.1 = {
+	base_production = 11
+	base_manpower = 5
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 11
+	base_production = 12
+}
+4039.12.15 = {
+	controller = JAP
+}
+4043.8.1 = {
+	controller = GBR
+}
+4044.4.1 = {
+	add_core = MSA
+	remove_core = MLC
+}
+4049.1.1 = {
+	base_manpower = 7
+}
+4055.8.31 = {
+	owner = MSA
+	controller = MSA
+	remove_core = GBR
+}
+4061.9.16 = {
+	owner = MLA
+	controller = MLA
+	add_core = MLA
+	remove_core = MSA
+}
+
+
+### Modified 1/26/2025 8:38:57 AM ###

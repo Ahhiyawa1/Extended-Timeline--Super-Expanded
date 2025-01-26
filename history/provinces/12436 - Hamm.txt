@@ -1,17 +1,22 @@
-# 12436 - Hamm
-
+# Hamm
+# 12436 Hamm - 1/26/2025 8:38:57 AM 
+ 
+add_core = SCB
 owner = SCB
 controller = SCB
-add_core = SCB
-is_city = yes
-culture = frankish
-religion = germanic
-trade_goods = cloth
-capital = "Hamm"
 base_tax = 1
 base_production = 1
 base_manpower = 1
-hre = no
+
+center_of_trade = 1
+trade_goods = cloth
+
+culture = frankish
+religion = germanic
+capital = "Hamm"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -19,40 +24,131 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-center_of_trade = 1
 
-2458.1.1 = { owner = FRK controller = FRK add_core = FRK }
-2498.1.1 = { culture = hessian }
-2609.11.27 = { owner = AUT controller = AUT add_core = AUT }
-2653.1.1 = { owner = SOI controller = SOI add_core = SOI }
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = SOI }
-2659.11.29 = { owner = AUT controller = AUT }
-2698.1.1 = { religion = chalcedonism }
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
-2721.1.1 = { owner = AUT controller = AUT }
-2727.10.18 = { owner = FRK controller = FRK }
-2732.1.1 = { owner = AUT controller = AUT }
-2777.12.23 = { owner = FRK controller = FRK }
-2798.1.1 = { base_tax = 2 base_production = 2 }
-2938.6.21 = { owner = FRE controller = FRE add_core = FRE remove_core = FRK }
-2948.1.1 = { base_tax = 3 base_production = 3 }
-2965.1.1 = { religion = catholic }
-3009.11.10 = { owner = LOT controller = LOT add_core = LOT remove_core = FRE }
-3037.10.23 = { owner = PAL controller = PAL add_core = PAL remove_core = LOT }
-3060.2.2 = { hre = yes }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3190.1.1 = { owner = KLE controller = KLE add_core = KLE remove_core = PAL } #In reality Kleves and Berg are not united before 1510.
-3278.1.1 = { owner = MUN controller = MUN add_core = MUN remove_core = KLE }
-3298.1.1 = { base_tax = 5 base_production = 5 }
-3391.1.1 = { owner = RVA controller = RVA add_core = RVA remove_core = MUN }
-3398.1.1 = { base_tax = 6 }
 
+
+
+2458.1.1 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2498.1.1 = {
+	culture = hessian
+}
+2609.11.27 = {
+	owner = AUT
+	controller = AUT
+	add_core = AUT
+}
+2653.1.1 = {
+	owner = SOI
+	controller = SOI
+	add_core = SOI
+}
+2656.12.23 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = SOI
+}
+2659.11.29 = {
+	owner = AUT
+	controller = AUT
+}
+2698.1.1 = {
+	religion = chalcedonism
+}
+2711.10.10 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2721.1.1 = {
+	owner = AUT
+	controller = AUT
+}
+2727.10.18 = {
+	owner = FRK
+	controller = FRK
+}
+2732.1.1 = {
+	owner = AUT
+	controller = AUT
+}
+2777.12.23 = {
+	owner = FRK
+	controller = FRK
+}
+2798.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2938.6.21 = {
+	owner = FRE
+	controller = FRE
+	add_core = FRE
+	remove_core = FRK
+}
+2948.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2965.1.1 = {
+	religion = catholic
+}
+3009.11.10 = {
+	owner = LOT
+	controller = LOT
+	add_core = LOT
+	remove_core = FRE
+}
+3037.10.23 = {
+	owner = PAL
+	controller = PAL
+	add_core = PAL
+	remove_core = LOT
+}
+3060.2.2 = {
+	hre = yes
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3190.1.1 = {
+	owner = KLE
+	controller = KLE
+	add_core = KLE
+	remove_core = PAL
+}
+3278.1.1 = {
+	owner = MUN
+	controller = MUN
+	add_core = MUN
+	remove_core = KLE
+}
+3298.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3391.1.1 = {
+	owner = RVA
+	controller = RVA
+	add_core = RVA
+	remove_core = MUN
+}
+3398.1.1 = {
+	base_tax = 6
+}
 3901.4.27 = {
 	owner = NSA
 	controller = NSA
 	add_core = NSA
 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3904.7.12 = {
+	hre = no
+}
 3906.3.1 = {
 	owner = BRG
 	controller = BRG
@@ -64,18 +160,67 @@ center_of_trade = 1
 	controller = PRU
 	add_core = PRU
 	remove_core = BRG
-} # Congress of Vienna
+}
+3923.1.1 = {
+	base_tax = 9
+	base_production = 10
+	base_manpower = 9
+}
+3949.1.1 = {
+	base_tax = 10
+	base_production = 12
+	base_manpower = 9
+}
+3968.1.1 = {
+	trade_goods = coal
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+	remove_core = PRU
+}
+3973.1.1 = {
+	base_tax = 11
+	base_production = 14
+	base_manpower = 10
+}
+3998.1.1 = {
+	remove_core = KLE
+}
+3999.1.1 = {
+	base_tax = 12
+	base_production = 16
+	base_manpower = 11
+}
+4023.1.1 = {
+	base_tax = 13
+	base_production = 17
+	base_manpower = 12
+}
+4042.4.18 = {
+	controller = USA
+}
+4043.5.8 = {
+	owner = WGE
+	controller = WGE
+	add_core = WGE
+}
+4049.1.1 = {
+	base_tax = 14
+	base_production = 18
+	base_manpower = 13
+}
+4073.1.1 = {
+	base_tax = 15
+	base_production = 19
+	base_manpower = 14
+}
+4088.10.3 = {
+	owner = GER
+	controller = GER
+	remove_core = WGE
+}
 
-3923.1.1 = { base_tax = 9 base_production = 10 base_manpower = 9 }
-3949.1.1 = { base_tax = 10 base_production = 12 base_manpower = 9 }
-3968.1.1   = { trade_goods = coal }
-3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
-3973.1.1 = { base_tax = 11 base_production = 14 base_manpower = 10 }
-3998.1.1   = { remove_core = KLE }
-3999.1.1 = { base_tax = 12 base_production = 16 base_manpower = 11 }
-4023.1.1 = { base_tax = 13 base_production = 17 base_manpower = 12 }
-4042.4.18  = { controller = USA }
-4043.5.8   = { owner = WGE controller = WGE add_core = WGE }
-4049.1.1 = { base_tax = 14 base_production = 18 base_manpower = 13 }
-4073.1.1 = { base_tax = 15 base_production = 19 base_manpower = 14 }
-4088.10.3  = { owner = GER controller = GER remove_core = WGE }
+
+### Modified 1/26/2025 8:38:57 AM ###

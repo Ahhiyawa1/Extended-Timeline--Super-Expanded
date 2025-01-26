@@ -1,10 +1,23 @@
-# 10778 - Beqaa
-owner = ROM
-controller = ROM
+# Beqaa
+# 10778 Beqaa - 1/26/2025 8:38:57 AM 
+ 
+add_core = NI9
+add_core = NI9
+owner = NI9
+controller = NI9
+base_tax = 5
+base_production = 5
+base_manpower = 4
+
+center_of_trade = 1
+trade_goods = grain
+
 culture = aramaic
 religion = canaanite_religion
 capital = "Beqaa"
-trade_goods = grain
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -15,83 +28,217 @@ discovered_by = eastern
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 5
-base_production = 5
-base_manpower = 4
-is_city = yes
-add_core = ROM
-center_of_trade = 1
-2056.1.1 = { 
-    remove_core = ROM
-    owner = NI9
-    add_core = SAA
-    controller = NI9
-    remove_core = SAA
-    add_core = SG0
-    remove_core = SG0
-    add_core = SYR
-    remove_core = SYR
-    add_core = NI9
+
+
+
+
+2056.1.1 = {
+	remove_core = ROM
+	owner = NI9
+	add_core = SAA
+	controller = NI9
+	remove_core = SAA
+	add_core = SG0
+	remove_core = SG0
+	add_core = SYR
+	remove_core = SYR
+	add_core = NI9
+}
+2128.1.1 = {
+	religion = chalcedonism
+}
+2367.1.1 = {
+	add_core = PLM
+	controller = REB
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+}
+2370.1.1 = {
+	controller = ROM
+	owner = ROM
+	add_core = ROM
+	remove_core = NI9
+	revolt = {
+		size = 1
+	}
+
+}
+2493.1.17 = {
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+}
+2610.11.16 = {
+	religion = coptic
+}
+2708.1.1 = {
+	controller = REB
+	revolt = {
+		type = jewish_rebels
+		size = 4
+	}
+
+}
+2711.1.1 = {
+	controller = ERS
+	revolt = {
+		size = 1
+	}
+
+}
+2725.1.1 = {
+	controller = BYZ
+}
+2743.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+}
+2966.9.15 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+}
+3003.1.10 = {
+	owner = ABA
+	controller = ABA
+}
+3033.8.26 = {
+	owner = EGY
+	controller = EGY
+}
+3043.1.1 = {
+	owner = SYR
+	controller = SYR
+	add_core = SYR
+}
+3058.1.1 = {
+	culture = al_suryah_arabic
+}
+3100.1.1 = {
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+}
+3184.1.1 = {
+	owner = SYR
+	controller = SYR
+}
+3198.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3200.1.1 = {
+	owner = TPL
+	controller = TPL
+	add_core = TPL
+}
+3202.1.1 = {
+	religion = catholic
+}
+3207.6.10 = {
+	owner = TOU
+	controller = TOU
+	add_core = TOU
+}
+3210.1.1 = {
+	owner = TPL
+	controller = TPL
+}
+3387.4.26 = {
+	owner = MAM
+	controller = MAM
+	add_core = MAM
+	capital = "Zahle"
+}
+3475.1.1 = {
+	controller = REB
+	revolt = {
+		type = pretender_rebels
+		size = 3
+	}
+
+}
+3480.1.1 = {
+	controller = MAM
+	revolt = {
+		size = 1
+	}
+
+}
+3614.8.24 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+3850.1.1 = {
+	base_tax = 7
+}
+3877.1.1 = {
+	base_manpower = 5
+}
+3904.1.1 = {
+	base_production = 7
+}
+3931.5.6 = {
+	owner = EGY
+	controller = EGY
+}
+3932.1.1 = {
+	base_manpower = 6
+}
+3939.2.1 = {
+	owner = TUR
+	controller = TUR
+}
+3959.1.1 = {
+	base_tax = 8
+}
+3986.1.1 = {
+	base_manpower = 7
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4013.1.1 = {
+	base_tax = 9
+}
+4018.3.8 = {
+	owner = SYR
+	controller = SYR
+}
+4018.7.24 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	add_core = LEB
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4039.7.1 = {
+	owner = FR2
+	controller = FR2
+}
+4041.11.22 = {
+	owner = LEB
+	controller = LEB
 }
 
-2128.1.1 = { religion = chalcedonism } 
-2367.1.1 = { add_core = PLM controller = REB revolt = { type = nationalist_rebels size = 1 } } 
-2370.1.1 = { 
-    controller = ROM
-    owner = ROM
-    add_core = ROM
-    remove_core = NI9
-    revolt = { size = 1 } 
-}
 
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ } 
-2610.11.16 = { religion = coptic } 
-2708.1.1 = { controller = REB revolt = { type = jewish_rebels size = 4 } } 
-2711.1.1 = { controller = ERS revolt = { size = 1 } } 
-2725.1.1 = { controller = BYZ } 
-2743.1.1 = { owner = RSD controller = RSD add_core = RSD } 
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA } 
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA } 
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY } 
-3003.1.10 = { owner = ABA controller = ABA } 
-3033.8.26 = { owner = EGY controller = EGY } 
-3043.1.1 = { owner = SYR controller = SYR add_core = SYR } 
-3058.1.1 = { culture = al_suryah_arabic } 
-3100.1.1 = { owner = FAT controller = FAT add_core = FAT } 
-3184.1.1 = { owner = SYR controller = SYR } 
-3198.1.1 = { base_tax = 6 base_production = 6 } 
-3200.1.1 = { owner = TPL controller = TPL add_core = TPL } 
-3202.1.1 = { religion = catholic } 
-3207.6.10 = { owner = TOU controller = TOU add_core = TOU } 
-3210.1.1 = { owner = TPL controller = TPL } 
-3387.4.26 = { 
-    owner = MAM
-    controller = MAM
-    add_core = MAM
-    capital = "Zahle"
-}
-
-3475.1.1 = { controller = REB revolt = { type = pretender_rebels size = 3 } } 
-3480.1.1 = { controller = MAM revolt = { size = 1 } } 
-3614.8.24 = { owner = TUR controller = TUR add_core = TUR } 
-3850.1.1 = { base_tax = 7 } 
-3877.1.1 = { base_manpower = 5 } 
-3904.1.1 = { base_production = 7 } 
-3931.5.6 = { owner = EGY controller = EGY } 
-3932.1.1 = { base_manpower = 6 } 
-3939.2.1 = { owner = TUR controller = TUR } 
-3959.1.1 = { base_tax = 8 } 
-3986.1.1 = { base_manpower = 7 } 
-4008.1.1 = { discovered_by = asian } 
-4013.1.1 = { base_tax = 9 } 
-4018.3.8 = { owner = SYR controller = SYR } 
-4018.7.24 = { 
-    owner = FR2
-    controller = FR2
-    add_core = FR2
-    add_core = LEB
-}
-
-4038.6.14 = { owner = FRV controller = FRV add_core = FRV } 
-4039.7.1 = { owner = FR2 controller = FR2 } 
-4041.11.22 = { owner = LEB controller = LEB } 
+### Modified 1/26/2025 8:38:57 AM ###

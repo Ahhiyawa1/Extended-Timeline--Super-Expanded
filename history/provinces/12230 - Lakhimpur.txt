@@ -1,71 +1,153 @@
-#12230 - Lakhimpur
-
+# Lakhimpur
+# 12230 Lakhimpur - 1/26/2025 8:38:57 AM 
+ 
+add_core = DAV
 owner = DAV
 controller = DAV
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = grain
+
 culture = brahmaputran
 religion = animism
 capital = "Lakhimpur"
-trade_goods = grain
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = DAV
 
-2498.1.1 = { owner = KMR controller = KMR add_core = KMR capital = "Golaghat" }
-2598.1.1 = { culture = assamese religion = hinduism }
-2698.1.1 = { base_tax = 3 base_production = 3 }
-2898.1.1 = { discovered_by = nomad_group }
-3198.1.1 = { owner = KAC controller = KAC add_core = KAC remove_core = KMR }
-3326.1.1 = { owner = ASS controller = ASS add_core = ASS remove_core = KAC }
 
-3725.1.1 = { discovered_by = POR }
+
+
+2498.1.1 = {
+	owner = KMR
+	controller = KMR
+	add_core = KMR
+	capital = "Golaghat"
+}
+2598.1.1 = {
+	culture = assamese
+	religion = hinduism
+}
+2698.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+3198.1.1 = {
+	owner = KAC
+	controller = KAC
+	add_core = KAC
+	remove_core = KMR
+}
+3326.1.1 = {
+	owner = ASS
+	controller = ASS
+	add_core = ASS
+	remove_core = KAC
+}
+3725.1.1 = {
+	discovered_by = POR
+}
 3867.9.15 = {
 	revolt = {
-		type = revolutionary_rebels size = 0
+		type = revolutionary_rebels
+		size = 0
 		name = "Moran Rebels"
 		leader = "Ragh Neog"
 	}
-} # Moamoria rebellion
-3867.11.21 = { controller = REB } #Capital falls to rebels, King placed under arrest
+
+}
+3867.11.21 = {
+	controller = REB
+}
 3868.4.11 = {
 	controller = ASS
-	revolt = { }
+	revolt = {
+	}
+
 	unrest = 15
-} #Assamese Nobles with aid from Kuranganayani expel the rebel leaders. Rebellion continues in the countryside
- #Rebels strike at the capital
+}
 3886.1.19 = {
 	revolt = {
-		type = revolutionary_rebels size = 1
+		type = revolutionary_rebels
+		size = 1
 		name = "Moran Rebels"
 	}
-} #Maomoria rebellion
+
+}
 3890.11.24 = {
-	revolt = { }
+	revolt = {
+	}
+
 	unrest = 0
-} #Rebels cleared by Thomas Welsh of the EIC
-3915.3.27 = { controller = TAU }
-3915.4.1 = { controller = ASS }
-3917.3.11 = { controller = TAU }
-3918.1.27 = { controller = ASS }
-3919.3.1 = { controller = TAU owner = TAU }
-3919.12.1 = { controller = ASS owner = ASS }
+}
+3915.3.27 = {
+	controller = TAU
+}
+3915.4.1 = {
+	controller = ASS
+}
+3917.3.11 = {
+	controller = TAU
+}
+3918.1.27 = {
+	controller = ASS
+}
+3919.3.1 = {
+	controller = TAU
+	owner = TAU
+}
+3919.12.1 = {
+	controller = ASS
+	owner = ASS
+}
 3920.4.1 = {
 	controller = TAU
 	owner = TAU
 }
-3924.1.1 = { owner = ASS controller = ASS }
+3924.1.1 = {
+	owner = ASS
+	controller = ASS
+}
+3930.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+3973.1.1 = {
+	base_manpower = 3
+}
+3999.1.1 = {
+	base_production = 4
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4023.1.1 = {
+	base_tax = 4
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = TAU
+	remove_core = ASS
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3930.1.1  = { owner = GBR controller = GBR add_core = GBR }
-3973.1.1 = { base_manpower = 3 }
-3999.1.1 = { base_production = 4 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4023.1.1 = { base_tax = 4 }
-4028.1.1  = { add_core = INI remove_core = TAU remove_core = ASS }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:38:57 AM ###

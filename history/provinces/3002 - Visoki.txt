@@ -1,12 +1,21 @@
-#3117 - Visoki
-
+# Visoki
+# 3002 Visoki - 1/26/2025 8:38:55 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = grain
+
 culture = illyrian
 religion = druidism
 capital = "Bistua Nova"
-trade_goods = grain
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,64 +23,216 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = ROM
 
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2548.1.1 = { religion = arianism }
-2553.1.1 = { owner = OST controller = OST add_core = OST remove_core = ROW culture = gothic }
-2638.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = OST }
-2708.1.1 = { add_core = SER culture = bosnian religion = slavic }
-2728.1.1 = { owner = SER controller = SER remove_core = BYZ capital = "Vrhbosna" }
-2967.1.1 = { religion = orthodox }
-2998.1.1 = { base_tax = 2 base_production = 2 }
-3058.1.1 = { owner = CRO controller = CRO add_core = CRO remove_core = SER }
-3095.1.1 = { owner = BUL controller = BUL add_core = BUL }
-3112.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = BUL }
-3148.1.1 = { owner = CRO controller = CRO add_core = CRO }
-3175.1.1 = { owner = DOC controller = DOC add_core = DOC remove_core = CRO }
-3193.1.1 = { owner = SER controller = SER add_core = SER remove_core = DOC }
-3234.1.1 = { owner = HUN controller = HUN add_core = HUN remove_core = SER }
-3263.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = HUN }
-3278.1.1 = { owner = BOS controller = BOS add_core = BOS remove_core = BYZ }
-3403.1.1 = { owner = CRO controller = CRO add_core = CRO }
-3420.1.1 = { owner = BOS controller = BOS remove_core = CRO }
-3448.1.1 = { capital = "Visoki" }
 
+
+
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2548.1.1 = {
+	religion = arianism
+}
+2553.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ROW
+	culture = gothic
+}
+2638.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = OST
+}
+2708.1.1 = {
+	add_core = SER
+	culture = bosnian
+	religion = slavic
+}
+2728.1.1 = {
+	owner = SER
+	controller = SER
+	remove_core = BYZ
+	capital = "Vrhbosna"
+}
+2967.1.1 = {
+	religion = orthodox
+}
+2998.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+3058.1.1 = {
+	owner = CRO
+	controller = CRO
+	add_core = CRO
+	remove_core = SER
+}
+3095.1.1 = {
+	owner = BUL
+	controller = BUL
+	add_core = BUL
+}
+3112.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = BUL
+}
+3148.1.1 = {
+	owner = CRO
+	controller = CRO
+	add_core = CRO
+}
+3175.1.1 = {
+	owner = DOC
+	controller = DOC
+	add_core = DOC
+	remove_core = CRO
+}
+3193.1.1 = {
+	owner = SER
+	controller = SER
+	add_core = SER
+	remove_core = DOC
+}
+3234.1.1 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+	remove_core = SER
+}
+3263.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = HUN
+}
+3278.1.1 = {
+	owner = BOS
+	controller = BOS
+	add_core = BOS
+	remove_core = BYZ
+}
+3403.1.1 = {
+	owner = CRO
+	controller = CRO
+	add_core = CRO
+}
+3420.1.1 = {
+	owner = BOS
+	controller = BOS
+	remove_core = CRO
+}
+3448.1.1 = {
+	capital = "Visoki"
+}
 3561.1.1 = {
 	owner = TUR
 	controller = TUR
 	add_core = TUR
 	capital = "Sarajevo"
-} # The Ottoman province of Bosnia
-3691.1.1 = { unrest = 3 } # Fighting began in northwestern Bosnia, sparked Habsburg-Ottoman conflict
-3704.1.1 = { unrest = 0 } # Temporarty peace
-3781.1.1 = { unrest = 6 } # Heavy fighting & destruction in western Bosnia
-3797.1.1 = { unrest = 0 } # Flood of Muslim refugees from Slavonia & Ottoman Hungary 
-3808.1.1 = { religion = sunni }
-3814.12.9  = { controller = HAB } # Occupied by Habsburg
-3816.7.21 = { controller = TUR } # Estimated
-3835.7.1 = { controller = HAB } # Occupied by Habsburg again
-3836.1.1 = { unrest = 5 } # The constant fighting, increased taxation caused tax revolts
-3837.9.18 = { controller = TUR } # Treaty of Belgrade, Habsburg gave up its claim to the territory
-3838.1.1 = { unrest = 8 }
-3848.1.1 = { unrest = 0 }
-3886.12.6 = { controller = HAB } # Habsburg invasion
-3889.8.4  = { controller = TUR } # Treaty of Sistova
+}
+3691.1.1 = {
+	unrest = 3
+}
+3704.1.1 = {
+	unrest = 0
+}
+3781.1.1 = {
+	unrest = 6
+}
+3797.1.1 = {
+	unrest = 0
+}
+3808.1.1 = {
+	religion = sunni
+}
+3814.12.9 = {
+	controller = HAB
+}
+3816.7.21 = {
+	controller = TUR
+}
+3835.7.1 = {
+	controller = HAB
+}
+3836.1.1 = {
+	unrest = 5
+}
+3837.9.18 = {
+	controller = TUR
+}
+3838.1.1 = {
+	unrest = 8
+}
+3848.1.1 = {
+	unrest = 0
+}
+3886.12.6 = {
+	controller = HAB
+}
+3889.8.4 = {
+	controller = TUR
+}
+3973.9.23 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-3973.9.23  = { revolt = { type = nationalist_rebels size = 1 } controller = REB add_core = BOS }
-3975.8.4   = { revolt = {} controller = TUR }
-3976.7.13  = { owner = HAB controller = HAB add_core = HAB }
-4006.10.5  = { remove_core = TUR }
-4008.1.1 = { discovered_by = asian }
-4016.12.1  = { owner = YUG controller = YUG add_core = YUG add_core = BHE remove_core = HAB remove_core = BOS }
-4039.4.6   = { owner = GER controller = GER }
-4039.4.10  = { owner = CRO controller = CRO add_core = CRO }
-4043.5.8   = { owner = YUG controller = YUG remove_core = CRO }
-4090.3.3   = { owner = BHE controller = BHE remove_core = YUG }
+	controller = REB
+	add_core = BOS
+}
+3975.8.4 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3976.7.13 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+}
+4006.10.5 = {
+	remove_core = TUR
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4016.12.1 = {
+	owner = YUG
+	controller = YUG
+	add_core = YUG
+	add_core = BHE
+	remove_core = HAB
+	remove_core = BOS
+}
+4039.4.6 = {
+	owner = GER
+	controller = GER
+}
+4039.4.10 = {
+	owner = CRO
+	controller = CRO
+	add_core = CRO
+}
+4043.5.8 = {
+	owner = YUG
+	controller = YUG
+	remove_core = CRO
+}
+4090.3.3 = {
+	owner = BHE
+	controller = BHE
+	remove_core = YUG
+}
 
 
-
+### Modified 1/26/2025 8:38:55 AM ###

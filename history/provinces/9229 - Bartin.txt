@@ -1,11 +1,22 @@
-# 9229 - Bartin
+# Bartin
+# 9229 Bartin - 1/26/2025 8:38:56 AM 
+ 
+add_core = ROM
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = fish
+
 culture = paphlagonian
 religion = hellenism
 capital = "Parthenios"
-trade_goods = fish
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = nomad_group
 discovered_by = western_nomad_group
@@ -15,61 +26,193 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = ROM
-2086.11.1 = { owner = ROM controller = ROM add_core = ROM remove_core = M10 }
-2348.1.1 = { religion = chalcedonism } 
-2488.1.1 = { culture = greek } 
-2493.1.17 = { 
-    controller = BYZ
-    owner = BYZ
-    add_core = BYZ
-    remove_core = ROM
-} # Final division of the empire
 
-2528.1.1 = { religion = chalcedonism } 
-2713.1.1 = { controller = ERS } 
-2724.1.1 = { controller = BYZ } 
-2965.1.1 = { religion = orthodox } 
-3173.1.1 = { owner = RUM controller = RUM add_core = RUM } 
-3195.1.1 = { owner = BYZ controller = BYZ remove_core = RUM } 
-3302.4.13 = { owner = NCA controller = NCA add_core = NCA } 
-3359.1.1 = { owner = BYZ controller = BYZ remove_core = NCA } 
-3423.1.1 = { 
-    owner = TUR
-    controller = TUR
-    add_core = TUR
-    capital = "Bartin"
+
+
+
+2086.11.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+	remove_core = M10
+}
+2348.1.1 = {
+	religion = chalcedonism
+}
+2488.1.1 = {
+	culture = greek
+}
+2493.1.17 = {
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+	remove_core = ROM
+}
+2528.1.1 = {
+	religion = chalcedonism
+}
+2713.1.1 = {
+	controller = ERS
+}
+2724.1.1 = {
+	controller = BYZ
+}
+2965.1.1 = {
+	religion = orthodox
+}
+3173.1.1 = {
+	owner = RUM
+	controller = RUM
+	add_core = RUM
+}
+3195.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	remove_core = RUM
+}
+3302.4.13 = {
+	owner = NCA
+	controller = NCA
+	add_core = NCA
+}
+3359.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	remove_core = NCA
+}
+3423.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	capital = "Bartin"
+}
+3448.1.1 = {
+	religion = sunni
+	culture = turkish
+	remove_core = BYZ
+}
+3502.1.1 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3579.6.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3580.7.26 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3607.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3611.1.1 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3713.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3719.1.1 = {
+	unrest = 6
+}
+3720.5.20 = {
+	unrest = 7
+}
+3720.6.1 = {
+	controller = TUR
+	unrest = 0
+}
+3721.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3723.1.1 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3816.1.1 = {
+	unrest = 3
+	base_tax = 4
+	base_production = 4
+}
+3818.1.1 = {
+	unrest = 0
+}
+3893.1.1 = {
+	unrest = 6
+}
+3905.5.30 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3906.6.29 = {
+	revolt = {
+	}
+
+	controller = TUR
+}
+3913.1.1 = {
+	base_production = 4
+}
+3943.1.1 = {
+	base_manpower = 3
+}
+3948.1.1 = {
+	remove_core = CND
+}
+3973.1.1 = {
+	base_production = 5
+}
+4003.1.1 = {
+	base_tax = 5
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4018.4.24 = {
+	owner = TKY
+	controller = TKY
+	add_core = TKY
+}
+4020.11.1 = {
+	remove_core = TUR
+}
+4033.1.1 = {
+	base_production = 6
+}
+4063.1.1 = {
+	base_manpower = 4
+}
+4098.1.1 = {
+	base_tax = 6
 }
 
-3448.1.1 = { religion = sunni culture = turkish remove_core = BYZ } 
-3502.1.1 = { revolt = { } controller = TUR } 
-3579.6.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Civil war, Bayezid & Jem
-3580.7.26 = { revolt = { } controller = TUR } # Jem escapes to Rhodes
-3607.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Civil war
-3611.1.1 = { revolt = { } controller = TUR } 
-3713.1.1 = { base_tax = 3 base_production = 3 } # The Decentralizing Effect of the Provincial System
-3719.1.1 = { unrest = 6 } # Osman II's reforms against the Janissaries
-3720.5.20 = { unrest = 7 } # Osman II is murdered
-3720.6.1 = { controller = TUR unrest = 0 } # Mustafa I, estimated
-3721.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # The empire fell into anarchy, Janissaries stormed the palace
-3723.1.1 = { revolt = { } controller = TUR } # Murad tries to quell the corruption
-3816.1.1 = { unrest = 3 base_tax = 4 base_production = 4 } # Lale Devri (the tulip age), not appreciated by everyone
-3818.1.1 = { unrest = 0 } 
-3893.1.1 = { unrest = 6 } # Reforms by Sultan Selim III, tried to replace the Janissary corps
-3905.5.30 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Janissary revolt
-3906.6.29 = { revolt = { } controller = TUR } # Mahmud II takes the throne
-3913.1.1 = { base_production = 4 } 
-3943.1.1 = { base_manpower = 3 } 
-3948.1.1 = { remove_core = CND } 
-3973.1.1 = { base_production = 5 } 
-4003.1.1 = { base_tax = 5 } 
-4008.1.1 = { discovered_by = asian } 
-4018.4.24 = { owner = TKY controller = TKY add_core = TKY } 
-4020.11.1 = { remove_core = TUR } 
-4033.1.1 = { base_production = 6 } 
-4063.1.1 = { base_manpower = 4 } 
-4098.1.1 = { base_tax = 6 } 
+
+### Modified 1/26/2025 8:38:56 AM ###

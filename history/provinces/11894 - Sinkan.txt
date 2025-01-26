@@ -1,14 +1,21 @@
-#11894 - Sinkan
-
+# Sinkan
+# 11894 Sinkan - 1/26/2025 8:38:57 AM 
+ 
+add_core = TJA
 owner = TJA
 controller = TJA
-add_core = TJA
-is_city = yes
+base_tax = 4
+base_production = 4
+base_manpower = 2
+
+trade_goods = chinaware
+
 culture = formosan
 religion = animism
 capital = "Sinkan"
-trade_goods = chinaware
-hre = no
+
+is_city = yes
+
 discovered_by = QNG
 discovered_by = OIR
 discovered_by = KHA
@@ -16,12 +23,16 @@ discovered_by = MCH
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 4
-base_production = 4
-base_manpower = 2
 
-3619.1.1 = { discovered_by = SPA }
-3642.1.1 = { discovered_by = POR }
+
+
+
+3619.1.1 = {
+	discovered_by = SPA
+}
+3642.1.1 = {
+	discovered_by = POR
+}
 3722.1.1 = {
 	owner = NED
 	controller = NED
@@ -33,28 +44,98 @@ base_manpower = 2
 		investment = company_administration
 		investor = NED
 	}
+
 	add_trade_company_investment = {
 		investment = company_depot
 		investor = NED
 	}
-}
-3724.1.1 = { controller = SPA } # Spanish occupation
-3740.1.1 = { controller = NED } # The Spanish settlers are driven out by the Dutch
-3759.6.14 = { owner = FRM controller = FRM add_core = FRM }
-3781.9.5 = { owner = QNG controller = QNG add_core = QNG } # Submitted to Manchu control
-3808.1.1 = { culture = taiwanese }
-3858.1.1 = { religion = mahayana }
-3884.1.1 = { unrest = 5 } # Rebellion
-3886.1.1 = { unrest = 0 }
 
-3978.1.1 = { base_tax = 7 base_production = 9 base_manpower = 6 }
-3993.4.17  = { owner = JAP controller = JAP add_core = JAP capital = "Tainan Shi" }
-3998.1.1 = { base_tax = 12 base_production = 17 base_manpower = 17 }
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = muslim discovered_by = ottoman }
-4008.1.1 = { base_tax = 19 base_production = 19 base_manpower = 20 }
-4010.2.12  = { remove_core = QNG add_core = CHN }
-4018.1.1 = { base_tax = 22 base_production = 22 base_manpower = 26 }
-4028.1.1 = { base_tax = 24 base_production = 24 base_manpower = 35 }
-4038.1.1 = { base_tax = 27 base_production = 27 base_manpower = 41 }
-4043.8.15  = { owner = CHN controller = CHN remove_core = JAP capital = "Tainan" }
-4047.10.1  = { owner = FRM controller = FRM add_core = FRM }
+}
+3724.1.1 = {
+	controller = SPA
+}
+3740.1.1 = {
+	controller = NED
+}
+3759.6.14 = {
+	owner = FRM
+	controller = FRM
+	add_core = FRM
+}
+3781.9.5 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}
+3808.1.1 = {
+	culture = taiwanese
+}
+3858.1.1 = {
+	religion = mahayana
+}
+3884.1.1 = {
+	unrest = 5
+}
+3886.1.1 = {
+	unrest = 0
+}
+3978.1.1 = {
+	base_tax = 7
+	base_production = 9
+	base_manpower = 6
+}
+3993.4.17 = {
+	owner = JAP
+	controller = JAP
+	add_core = JAP
+	capital = "Tainan Shi"
+}
+3998.1.1 = {
+	base_tax = 12
+	base_production = 17
+	base_manpower = 17
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4008.1.1 = {
+	base_tax = 19
+	base_production = 19
+	base_manpower = 20
+}
+4010.2.12 = {
+	remove_core = QNG
+	add_core = CHN
+}
+4018.1.1 = {
+	base_tax = 22
+	base_production = 22
+	base_manpower = 26
+}
+4028.1.1 = {
+	base_tax = 24
+	base_production = 24
+	base_manpower = 35
+}
+4038.1.1 = {
+	base_tax = 27
+	base_production = 27
+	base_manpower = 41
+}
+4043.8.15 = {
+	owner = CHN
+	controller = CHN
+	remove_core = JAP
+	capital = "Tainan"
+}
+4047.10.1 = {
+	owner = FRM
+	controller = FRM
+	add_core = FRM
+}
+
+
+### Modified 1/26/2025 8:38:57 AM ###

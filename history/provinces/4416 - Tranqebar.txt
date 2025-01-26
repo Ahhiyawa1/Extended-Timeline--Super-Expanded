@@ -1,12 +1,21 @@
-#540 - Coromandel
-
+# Tranqebar
+# 4416 Tranqebar - 1/26/2025 8:38:55 AM 
+ 
+add_core = CLS
 owner = CLS
 controller = CLS
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+trade_goods = cloth
+
 culture = tamil
 religion = hinduism
 capital = "Tranqebar"
-trade_goods = cloth
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -15,26 +24,76 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 3
-base_production = 3
-base_manpower = 1
-is_city = yes
-add_core = CLS
 
-2298.1.1 = { owner = PND controller = PND add_core = PND remove_core = CLS }
-2348.1.1 = { owner = KLA controller = KLA add_core = KLA }
-2708.1.1 = { owner = TNJ controller = TNJ add_core = TNJ remove_core = KLA }
-2898.1.1 = { discovered_by = nomad_group }
-2946.1.1 = { owner = CLS controller = CLS add_core = CLS remove_core = TNJ }
-3377.1.1 = { owner = PND controller = PND add_core = PND }
-3420.1.1 = { owner = CLS controller = CLS add_core = CLS }
-3473.1.1 = { owner = VIJ controller = VIJ add_core = VIJ remove_core = CLS }
-3497.1.1 = { add_core = MAD }
 
-3596.1.1 = { discovered_by = POR }
-3641.1.1 = { controller = REB revolt = { size = 0 type = nationalist_rebels } }
-3648.1.1 = { controller = VIJ revolt = { } }
-3663.7.1 = { owner = TNJ controller = TNJ } # The Vijayanagar empire collapses
+
+
+2298.1.1 = {
+	owner = PND
+	controller = PND
+	add_core = PND
+	remove_core = CLS
+}
+2348.1.1 = {
+	owner = KLA
+	controller = KLA
+	add_core = KLA
+}
+2708.1.1 = {
+	owner = TNJ
+	controller = TNJ
+	add_core = TNJ
+	remove_core = KLA
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+2946.1.1 = {
+	owner = CLS
+	controller = CLS
+	add_core = CLS
+	remove_core = TNJ
+}
+3377.1.1 = {
+	owner = PND
+	controller = PND
+	add_core = PND
+}
+3420.1.1 = {
+	owner = CLS
+	controller = CLS
+	add_core = CLS
+}
+3473.1.1 = {
+	owner = VIJ
+	controller = VIJ
+	add_core = VIJ
+	remove_core = CLS
+}
+3497.1.1 = {
+	add_core = MAD
+}
+3596.1.1 = {
+	discovered_by = POR
+}
+3641.1.1 = {
+	controller = REB
+	revolt = {
+		size = 0
+		type = nationalist_rebels
+	}
+
+}
+3648.1.1 = {
+	controller = VIJ
+	revolt = {
+	}
+
+}
+3663.7.1 = {
+	owner = TNJ
+	controller = TNJ
+}
 3718.1.1 = {
 	owner = DAN
 	controller = DAN
@@ -45,29 +104,62 @@ add_core = CLS
 		investment = permanent_quarters
 		investor = DAN
 	}
+
 	add_trade_company_investment = {
 		investment = district
 		investor = DAN
 	}
+
 	add_trade_company_investment = {
 		investment = townships
 		investor = DAN
 	}
+
 	add_trade_company_investment = {
 		investment = company_depot
 		investor = DAN
 	}
+
 	add_trade_company_investment = {
 		investment = governor_general_mansion
 		investor = DAN
 	}
+
+}
+3943.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = DAN
+	capital = "Mayiladuthurai"
+}
+3998.1.1 = {
+	base_manpower = 2
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4028.1.1 = {
+	add_core = INI
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
+4048.1.1 = {
+	base_manpower = 3
+}
+4073.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+4098.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 4
 }
 
-3943.1.1  = { owner = GBR controller = GBR add_core = GBR remove_core = DAN capital = "Mayiladuthurai" }
-3998.1.1 = { base_manpower = 2 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4028.1.1  = { add_core = INI }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
-4048.1.1 = { base_manpower = 3 }
-4073.1.1 = { base_tax = 4 base_production = 4 }
-4098.1.1 = { base_tax = 5 base_production = 5 base_manpower = 4 }
+
+### Modified 1/26/2025 8:38:55 AM ###

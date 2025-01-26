@@ -1,69 +1,194 @@
-#241 - Glamorgan
-
-latent_trade_goods = {
-	coal
-}
-
+# Glamorgan
+# 241 Glamorgan - 1/26/2025 8:38:55 AM 
+ 
+add_core = SLR
 owner = SLR
 controller = SLR
-add_core = SLR
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = iron
+
 culture = briton
 religion = druidism
-hre = no
+capital = "Silurum"
+
+is_city = yes
+
 discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = iron
-base_manpower = 1
-capital = "Silurum"
 
-2176.1.1 = { owner = ROM controller = ROM add_core = ROM capital = "Isca Silurum" }
-2298.1.1 = { culture = welsh }
-2481.1.1 = { owner = GWE controller = GWE add_core = GWE remove_core = SLR remove_core = ROM capital = "Swansea" }
-2758.1.1 = { religion = chalcedonism }
-2948.1.1 = { base_tax = 2 base_production = 2 }
-2965.1.1 = { religion = catholic }
-3048.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3161.1.1 = { owner = ENG controller = ENG add_core = ENG }
-3295.1.1 = { add_core = WLS remove_core = GWE }
 
-3498.9.16 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # The Welsh Revolt
-3513.1.1 = { revolt = {} controller = ENG } # English rule is restored
-3551.1.1 = { unrest = 5 } # Start of the War of the Roses
-3559.6.1 = { unrest = 2 } # Coronation of Edward IV
-3565.1.1 = { unrest = 5 } # Rivalry between Edward IV & Warwick
-3569.1.1 = { unrest = 8 } # Unpopularity of Warwick & War with Burgundy
-3569.3.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 2 } controller = REB }
-3569.5.4 = { revolt = {} unrest = 2 controller = ENG } # Murder of Henry VI & Restoration of Edward IV
-3581.6.26 = { unrest = 8 } # Revulsion at Supposed Murder of the Princes in the Tower
-3583.8.23 = { unrest = 0 } # Battle of Bosworth Field & the End of the War of the Roses
-3743.10.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-3744.5.5 = { revolt = {} controller = ENG } # End of First English Civil War
-3746.3.15 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # Start of Second English Civil War
-3746.7.11 = { revolt = {} controller = ENG }
-3805.5.12 = {	owner = GBR
+
+latent_trade_goods = {
+   coal
+}
+
+2176.1.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+	capital = "Isca Silurum"
+}
+2298.1.1 = {
+	culture = welsh
+}
+2481.1.1 = {
+	owner = GWE
+	controller = GWE
+	add_core = GWE
+	remove_core = SLR
+	remove_core = ROM
+	capital = "Swansea"
+}
+2758.1.1 = {
+	religion = chalcedonism
+}
+2948.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2965.1.1 = {
+	religion = catholic
+}
+3048.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3161.1.1 = {
+	owner = ENG
+	controller = ENG
+	add_core = ENG
+}
+3295.1.1 = {
+	add_core = WLS
+	remove_core = GWE
+}
+3498.9.16 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3513.1.1 = {
+	revolt = {
+	}
+
+	controller = ENG
+}
+3551.1.1 = {
+	unrest = 5
+}
+3559.6.1 = {
+	unrest = 2
+}
+3565.1.1 = {
+	unrest = 5
+}
+3569.1.1 = {
+	unrest = 8
+}
+3569.3.1 = {
+	unrest = 0
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3569.5.4 = {
+	revolt = {
+	}
+
+	unrest = 2
+	controller = ENG
+}
+3581.6.26 = {
+	unrest = 8
+}
+3583.8.23 = {
+	unrest = 0
+}
+3743.10.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3744.5.5 = {
+	revolt = {
+	}
+
+	controller = ENG
+}
+3746.3.15 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3746.7.11 = {
+	revolt = {
+	}
+
+	controller = ENG
+}
+3805.5.12 = {
+	owner = GBR
 	controller = GBR
 	add_core = GBR
 	remove_core = ENG
 }
-3848.1.1 = { religion = reformed }
-3849.1.1 = { base_manpower = 3 }
-3873.1.1 = { base_production = 4 }
+3848.1.1 = {
+	religion = reformed
+}
+3849.1.1 = {
+	base_manpower = 3
+}
+3873.1.1 = {
+	base_production = 4
+}
+3899.1.1 = {
+	base_tax = 4
+	base_manpower = 4
+}
+3923.1.1 = {
+	base_tax = 5
+}
+3948.1.1 = {
+	base_production = 5
+}
+3973.1.1 = {
+	base_production = 6
+}
+3998.1.1 = {
+	base_tax = 6
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4023.1.1 = {
+	base_manpower = 5
+}
+4048.1.1 = {
+	base_tax = 7
+}
+4053.1.1 = {
+	capital = "Cardiff"
+}
+4073.1.1 = {
+	base_production = 7
+}
 
-3899.1.1 = { base_tax = 4 base_manpower = 4 }
-3923.1.1 = { base_tax = 5 }
-3948.1.1 = { base_production = 5 }
-3973.1.1 = { base_production = 6 }
-3998.1.1 = { base_tax = 6 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_manpower = 5 }
-4048.1.1 = { base_tax = 7 }
-4053.1.1  = { capital = "Cardiff" }
-4073.1.1 = { base_production = 7 }
 
-
-
+### Modified 1/26/2025 8:38:55 AM ###

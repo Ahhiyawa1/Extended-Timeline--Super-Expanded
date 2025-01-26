@@ -1,66 +1,148 @@
-# 9978 - Ghrigana
+# Ghrigana
+# 9978 Ghrigana - 1/26/2025 8:38:57 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = unknown
+
 culture = nubian
 religion = egyptian
 capital = "Ghrigana"
+
 native_size = 40
-native_ferocity = 4
+native_ferocity =  4
 native_hostileness = 9
-base_manpower = 2
-trade_goods = unknown
-hre = no
-base_tax = 1
-base_production = 1
+
 discovered_by = east_african
-2598.1.1 = { 
-    owner = ALO
-    controller = ALO
-    add_core = ALO
-    is_city = yes
-    trade_goods = grain
+
+
+
+
+2598.1.1 = {
+	owner = ALO
+	controller = ALO
+	add_core = ALO
+	is_city = yes
+	trade_goods = grain
+}
+2748.1.1 = {
+	religion = coptic
+}
+3398.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3601.1.1 = {
+	owner = NUB
+	controller = NUB
+	add_core = NUB
+}
+3621.1.1 = {
+	religion = sunni
+}
+3663.1.1 = {
+	unrest = 8
+}
+3664.1.1 = {
+	unrest = 0
+}
+3680.1.1 = {
+	unrest = 8
+}
+3681.1.1 = {
+	unrest = 0
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3682.1.1 = {
+	revolt = {
+	}
+
+	controller = NUB
+}
+3709.1.1 = {
+	unrest = 4
+}
+3710.1.1 = {
+	unrest = 2
+}
+3804.1.1 = {
+	unrest = 6
+}
+3807.1.1 = {
+	unrest = 0
+}
+3816.1.1 = {
+	unrest = 6
+}
+3818.1.1 = {
+	unrest = 0
+}
+3854.1.1 = {
+	unrest = 4
+}
+3859.1.1 = {
+	unrest = 9
+}
+3860.1.1 = {
+	unrest = 4
+}
+3861.1.1 = {
+	unrest = 0
+}
+3919.6.14 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	add_core = TUR
+}
+3948.1.1 = {
+	culture = sudanese
+}
+3958.1.1 = {
+	discovered_by = GBR
+}
+3980.9.13 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = TUR
+}
+3981.6.1 = {
+	add_core = SUD
+	remove_core = NUB
+}
+3983.1.26 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3997.11.24 = {
+	revolt = {
+	}
+
+	controller = GBR
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+	discovered_by = asian
+}
+4054.1.1 = {
+	owner = SUD
+	controller = SUD
+	remove_core = GBR
+	remove_core = EGY
 }
 
-2748.1.1 = { religion = coptic } 
-3398.1.1 = { discovered_by = muslim discovered_by = ottoman } 
-3601.1.1 = { owner = NUB controller = NUB add_core = NUB } 
-3621.1.1 = { religion = sunni } # Funj sultans declare Islam state religion
-3663.1.1 = { unrest = 8 } # Shaykh Ajib launches invasion of Funj heartland
-3664.1.1 = { unrest = 0 } # Shaykh Ajib forces Funj out of Sennar
-3680.1.1 = { unrest = 8 } # Dakin invasdes Jazira to restore Funj rule
-3681.1.1 = { unrest = 0 revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Shaykh Ajib expelled from Sennar
-3682.1.1 = { revolt = { } controller = NUB } # Dakin and Ajib reach agreement to end conflict
-3709.1.1 = { unrest = 4 } # Ajib revolts again against Funj
-3710.1.1 = { unrest = 2 } # Funj destroy Ajib at Karkoj
-3804.1.1 = { unrest = 6 } # Badi III faces revolt over development of slave army at aristocrats expense
-3807.1.1 = { unrest = 0 } # Badi III faces revolt over development of slave army at aristocrats expense
-3816.1.1 = { unrest = 6 } # Unsa III comes into conflict with aristocrats
-3818.1.1 = { unrest = 0 } # Unsa III deposed, new Funj dynasty set up by aristocrats
-3854.1.1 = { unrest = 4 } # Badi IV comes into conflict with aristocrats over new slave army plan
-3859.1.1 = { unrest = 9 } # Badi IV persecutes aristocrats who challenge his authority
-3860.1.1 = { unrest = 4 } # Badi IV deposed by Muhammad Abu Likaylik
-3861.1.1 = { unrest = 0 } 
-3919.6.14 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    add_core = TUR
-}
 
-3948.1.1 = { culture = sudanese } 
-3958.1.1 = { discovered_by = GBR } 
-3980.9.13 = { 
-    owner = GBR
-    controller = GBR
-    add_core = GBR
-    remove_core = TUR
-}
-
-3981.6.1 = { add_core = SUD remove_core = NUB } 
-3983.1.26 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } 
-3997.11.24 = { revolt = { } controller = GBR } 
-4008.1.1 = { discovered_by = western discovered_by = eastern discovered_by = asian } 
-4054.1.1 = { 
-    owner = SUD
-    controller = SUD
-    remove_core = GBR
-    remove_core = EGY
-}
+### Modified 1/26/2025 8:38:57 AM ###
