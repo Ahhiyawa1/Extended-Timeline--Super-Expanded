@@ -10,8 +10,25 @@ proto_italic_faith = {
 		color = { 198 92 75 }
 		icon = 132
 		country = {
-			global_tax_modifier = 0.6
+			global_tax_modifier = 0.5
 			global_unrest = -1
+		}
+		country_as_secondary = {
+			global_unrest = -1 
+			global_tax_modifier = 0.1
+		}
+		
+		personal_deity = yes
+
+		heretic = { SERAPIS }
+	}
+
+	picentine_polytheism = {
+		color = { 67 84 73 }
+		icon = 133
+		country = {
+			global_tax_modifier = 0.4
+			global_unrest = -1.2
 		}
 		country_as_secondary = {
 			global_unrest = -1 
@@ -20,8 +37,10 @@ proto_italic_faith = {
 
 		personal_deity = yes
 
+
 		heretic = { SERAPIS }
 	}
+
 	harmonized_modifier = harmonized_italic
 	
 	crusade_name = CRUSADE
