@@ -1,0 +1,1361 @@
+pontus_bosporan_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PON
+			tag = BSP
+			was_tag = PON
+			was_tag = BSP
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	pon_amicitia_of_rome_mission = {
+		icon = a_roman_empire
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = ROM
+				is_capital_of = BYZ
+				is_capital_of = ROW
+				AND = {
+					is_capital = yes
+					owner = {
+						was_tag = ROM
+					}
+				}
+				AND = {
+					is_capital = yes
+					owner = {
+						was_tag = ROW
+					}
+				}
+				AND = {
+					is_capital = yes
+					owner = {
+						was_tag = BYZ
+					}
+				}
+			}
+			owner = {
+				overlord_of = ROOT
+			}
+		}
+		trigger = {
+			any_known_country = {
+				OR = {
+					tag = ROM
+					tag = ROW
+					tag = BYZ
+					was_tag = ROM
+					was_tag = ROW
+					was_tag = BYZ
+				}
+				overlord_of = ROOT
+				OR = {
+					has_opinion = {
+						who = ROOT
+						value = 190
+					}
+					AND = {
+						marriage_with = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+				}
+			}
+			hidden_trigger = {
+				ai = no			#AI can never complete this mission task
+			}
+		}
+		effect = {
+			custom_tooltip = pon_amicitia_of_rome_mission.tt
+			country_event = {
+				id = mmetr_PON_mission_events.1
+			}
+			tooltip = {
+				add_country_modifier = {
+					name = "me_pon_trustworthy_friend"
+					duration = 14600	#40 years
+				}
+				random_known_country = {
+					limit = {
+						OR = {
+							tag = ROM
+							tag = ROW
+							tag = BYZ
+							was_tag = ROM
+							was_tag = ROW
+							was_tag = BYZ
+						}
+						overlord_of = ROOT
+					}
+					create_subject = {
+						subject_type = foederatus_subject
+						subject = ROOT
+					}
+				}
+			}
+		}
+	}
+	pon_pontic_independence_mission = {
+		icon = mission_dice_roll_roman
+		required_missions = {  }
+		position = 2
+		trigger = {
+			OR = {
+				is_free_or_tributary_trigger = yes
+				war_with = ROM
+				war_with = BYZ
+				war_with = ROW
+			}
+		}
+		effect = {
+			country_event = {
+				id = mmetr_PON_mission_events.2
+			}
+			tooltip = {
+				add_prestige = 15
+				add_country_modifier = {
+					name = "me_pon_pontic_restoration"
+					duration = 14600	#40 years
+				}
+			}
+		}
+	}
+	pon_expand_amaseia_mission = {
+		icon = mission_road_construction_ancient
+		required_missions = {  }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 1846	#Amaseia
+			OR = {
+				NOT = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				NOT = {
+					num_of_times_improved_by_owner = 3
+				}
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 1846
+			1846 = {
+				num_of_times_improved_by_owner = 3
+			}
+		}
+		effect = {
+			1846 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_province_modifier = {
+					name = "me_pon_hellenistic_city"
+					duration = -1	#40 years
+				}
+			}
+		}
+	}
+	pon_palace_in_sinope_mission = {
+		icon = mission_roman_forum_imperial
+		required_missions = { pon_expand_amaseia_mission }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 328	#Sinope
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 328
+		}
+		effect = {
+			328 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+			}
+			country_event = {
+				id = mmetr_PON_mission_events.3
+			}
+		}
+	}
+	pon_phrygia_and_cappadocia_mission = {
+		icon = mission_roman_caesars_legions
+		required_missions = { pon_legacy_of_mithridates_vi_mission }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = germiyan_area
+				area = karaman_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			germiyan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			karaman_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 20
+			add_country_modifier = {
+				name = "me_pon_victorious_army"
+				duration = 10950
+			}
+		}
+	}
+	pon_hegemon_of_asia_minor_mission = {
+		icon = mission_greek_general_surrendering
+		required_missions = { pon_phrygia_and_cappadocia_mission pon_integrate_the_eastern_greeks_mission }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = kastamonu_area
+				area = ankara_area
+				area = rum_area
+				area = karaman_area 
+				area = germiyan_area
+				area = hudavendigar_area
+				area = aydin_area
+				province_id = 327	#Cukurova provs except for Cyprus
+				province_id = 2302
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			stability = 1
+			farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 327
+			owns_or_non_sovereign_subject_of = 2302
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_lord_of_asia_minor"
+				duration = -1
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			al_jazira_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_seleukid_cities_mission = {
+		icon = mission_greek_city_burning
+		required_missions = { pon_hegemon_of_asia_minor_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				area = aleppo_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+				name = "me_pon_silver_shields_of_macedon"
+				duration = 10950
+			}
+		}
+	}
+	pon_greek_rule_in_aegyptos_mission = {
+		icon = mission_rb_seize_alexandria
+		required_missions = { pon_seleukid_cities_mission }
+		position = 8
+		provinces_to_highlight = {
+			province_id = 358	#Alexandria
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 358
+		}
+		effect = {
+			358 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+			}
+			add_country_modifier = {
+				name = "me_pon_ptolemaic_legacy"
+				duration = 10950
+			}
+		}
+	}
+}
+
+pontus_bosporan_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PON
+			tag = BSP
+			was_tag = PON
+			was_tag = BSP
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	pon_euxine_merchants_mission = {
+		icon = mission_roman_ship_mosaic
+		required_missions = { pon_restore_the_greek_cities_mission }
+		position = 2
+		trigger = {
+			OR = {
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60
+				}
+				num_of_estate_agendas_completed = {
+					estate = estate_burghers
+					value = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_pontic_merchants"
+				duration = 10950
+			}
+		}
+	}
+	pon_legacy_of_mithridates_vi_mission = {
+		icon = mission_mithridates
+		required_missions = { pon_command_the_greek_armies_mission pon_expand_amaseia_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = kastamonu_area
+				area = ankara_area
+				area = rum_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			kastamonu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ankara_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_pontic_realm_restored"
+				duration = 10950
+			}
+			add_army_tradition = 20
+			add_manpower = 5
+			anatolia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_integrate_the_eastern_greeks_mission = {
+		icon = mission_library_ancient
+		required_missions = { pon_legacy_of_mithridates_vi_mission }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = aydin_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 15
+			add_manpower = 2
+			add_country_modifier = {
+				name = "me_pon_aegean_trade"
+				duration = 10950
+			}
+			thrace_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			macedonia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_mithridates_ctesiphon_mission = {
+		icon = per_build_the_fire_temples
+		required_missions = { pon_hegemon_of_asia_minor_mission }
+		position = 7
+		provinces_to_highlight = {
+			province_id = 410	#Ctesiphon
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 410
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_heritage_of_persia"
+				duration = 14600	#40 years
+			}
+			basra_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			khuzestan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			farsistan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			persian_gulf_coast = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			luristan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			isfahan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_heirs_of_the_achaemenids_mission = {
+		icon = per_a_new_eranshahr
+		required_missions = { pon_mithridates_ctesiphon_mission pon_seleukid_cities_mission }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = farsistan_area
+				area = persian_gulf_coast
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			farsistan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_king_of_kings"
+				duration = -1
+			}
+		}
+	}
+}
+
+pontus_bosporan_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PON
+			tag = BSP
+			was_tag = PON
+			was_tag = BSP
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	pon_restore_the_greek_cities_mission = {
+		icon = mission_greek_city_acropolis
+		required_missions = {  }
+		position = 1
+		trigger = {
+			grown_by_development = 12
+			num_of_owned_provinces_with = {
+				value = 3
+				development = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_pontic_cities"
+				duration = 10950
+			}
+		}
+	}
+	pon_the_hospitable_sea_mission = {
+		icon = mission_entrepot_of_india
+		required_missions = { pon_restore_the_greek_cities_mission }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 1322		#Crimea trade node
+			NOT = {
+				trade_share = {	
+					country = ROOT
+					share = 30
+				}
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			1322 = {
+				trade_share = {	
+					country = ROOT
+					share = 30
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 2
+			add_country_modifier = {
+				name = "me_pon_pontic_monopoly"
+				duration = -1
+			}
+		}
+	}
+	pon_command_the_greek_armies_mission = {
+		icon = mission_greek_phalanx_antiquity
+		required_missions = {  }
+		position = 3
+		trigger = {
+			num_of_generals = 1
+			army_size_percentage = 1.0
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_pontic_army"
+				duration = 10950
+			}
+			463 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2195 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2197 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {		#Karadeniz
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rum_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_rule_the_pontos_euxeinos_mission = {
+		icon = byz_greek_fire
+		required_missions = { pon_legacy_of_mithridates_vi_mission pon_bosporan_kingdom_mission }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				province_id = 282
+				province_id = 1756
+				province_id = 4706
+				province_id = 159
+				province_id = 3250
+				province_id = 1764
+				province_id = 151
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 282
+			owns_or_non_sovereign_subject_of = 1756
+			owns_or_non_sovereign_subject_of = 4706
+			owns_or_non_sovereign_subject_of = 159
+			owns_or_non_sovereign_subject_of = 3250
+			owns_or_non_sovereign_subject_of = 1764
+			owns_or_non_sovereign_subject_of = 151
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_hospitable_emporia"
+				duration = 14600	#40 years
+			}
+		}
+	}
+	pon_throne_of_alexandros_mission = {
+		icon = mission_alexander_macedonian_flag
+		required_missions = { pon_integrate_the_eastern_greeks_mission }
+		position = 6
+		provinces_to_highlight = {
+			area = macedonia_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			macedonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_heir_of_alexander"
+				duration = 14600	#40 years
+			}
+		}
+	}
+	pon_hellenic_restoration_mission = {
+		icon = a_real_roman_empire
+		required_missions = { pon_throne_of_alexandros_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = central_greece_area
+				area = morea_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			central_greece_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			morea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_country_modifier = {
+				name = "me_pon_greek_liberator"
+				duration = -1
+			}
+		}
+	}
+}
+
+pontus_bosporan_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PON
+			tag = BSP
+			was_tag = PON
+			was_tag = BSP
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	pon_adopt_roman_infrastructure_mission = {
+		icon = mission_develop_visby
+		required_missions = {  }
+		position = 1
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				fort_level = 1
+			}
+			num_of_owned_provinces_with = {
+				value = 7
+				has_building = road
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_roman_aqueducts"
+				duration = 10950
+			}
+		}
+	}
+	pon_hellenistic_administration_mission = {
+		icon = mission_latin_farmer_latifundia
+		required_missions = { pon_restore_the_greek_cities_mission pon_adopt_roman_infrastructure_mission pon_hellenic_temples_mission }
+		position = 2
+		trigger = {
+			grown_by_states = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_hellenistic_king"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "me_pon_hellenistic_governance"
+				duration = 10950
+			}
+		}
+	}
+	pon_develop_pantikapaion_mission = {
+		icon = mission_greek_city_coastal
+		required_missions = {  }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 285
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+				num_of_times_improved_by_owner = 3
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 285
+			285 = {
+				num_of_times_improved_by_owner = 3
+			}
+		}
+		effect = {
+			285 = {
+				add_province_modifier = {
+					name = "me_pon_gem_of_the_bosporus"
+					duration = -1
+				}
+			}
+		}
+	}
+	pon_bosporan_kingdom_mission = {
+		icon = mission_greco_roman_market
+		required_missions = { pon_develop_pantikapaion_mission pon_command_the_greek_armies_mission }
+		position = 4
+		provinces_to_highlight = {
+			area = crimea_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			crimea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			if = {
+				limit = {
+					OR = {
+						tag = BSP
+						was_tag = BSP
+					}
+				}
+				development_in_provinces = {
+					value = 35
+					area = crimea_area
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_bosporan_unity"
+				duration = 10950
+			}
+			zaporizhia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_sarmatia_europaea_mission = {
+		icon = mission_conquer_malwa_mer
+		required_missions = { pon_bosporan_kingdom_mission }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = zaporizhia_area
+				area = yedisan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			zaporizhia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yedisan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 15
+			add_country_modifier = {
+				name = "me_pon_glorious_campaign"
+				duration = 10950
+			}
+			custom_tooltip = pon_sarmatia_europaea_mission.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						owned_by = SRT
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			bessarabia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			moldavia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			wallachia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			transylvania_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			southern_transylvania_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_land_of_the_dacians_mission = {
+		icon = mission_secure_khandesh
+		required_missions = { pon_sarmatia_europaea_mission }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = bessarabia_area
+				area = moldavia_area
+				area = wallachia_area
+				area = transylvania_area
+				area = southern_transylvania_area
+			}
+		}
+		trigger = {
+			bessarabia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			moldavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			wallachia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			transylvania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_transylvania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			add_country_modifier = {
+				name = "me_pon_dacian_falx"
+				duration = 10950
+			}
+			add_country_modifier = {
+				name = "me_pon_dacian_fortress_techniques"
+				duration = 18250
+			}
+		}
+	}
+}
+
+pontus_bosporan_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PON
+			tag = BSP
+			was_tag = PON
+			was_tag = BSP
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	pon_hellenic_temples_mission = {
+		icon = mission_parthenon
+		required_missions = {  }
+		position = 1
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = glorious_monument
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_legitimacy = 10
+			add_country_modifier = {
+				name = "me_pon_temple_states"
+				duration = 10950
+			}
+		}
+	}
+	pon_subjugate_the_siraces_mission = {
+		icon = mission_avar_mounted_archers
+		required_missions = {  }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				province_id = 463
+				province_id = 2195
+				province_id = 2197
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 463
+			owns_or_non_sovereign_subject_of = 2195
+			owns_or_non_sovereign_subject_of = 2197
+		}
+		effect = {
+			add_country_modifier = {
+				name = "me_pon_siraci_vassals"
+				duration = 10950
+			}
+			crimea_region = {
+				limit = {
+					NOT = {
+						has_discovered = ROOT
+					}
+				}
+				discover_country = ROOT
+			}
+			circassia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			astrakhan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dagestan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_overpower_the_alani_mission = {
+		icon = mission_indo_scythians
+		required_missions = { pon_subjugate_the_siraces_mission }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = circassia_area
+				area = astrakhan_area
+				area = dagestan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			circassia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			astrakhan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			dagestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			add_country_modifier = {
+				name = "me_pon_alani_mounted_archers"
+				duration = 10950
+			}
+			kartli_kakheti_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			armenia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	pon_caucasian_campaign_mission = {
+		icon = arm_artaxiad_legacy
+		required_missions = { pon_overpower_the_alani_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = kartli_kakheti_area
+				area = armenia_area
+				area = shirvan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			kartli_kakheti_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			armenia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = "me_pon_caucasian_fortresses"
+				duration = -1
+			}
+		}
+	}
+	pon_scythian_neapolis_mission = {
+		icon = mission_horses_with_ancient_soldier
+		required_missions = { pon_bosporan_kingdom_mission }
+		position = 5
+		provinces_to_highlight = {
+			province_id = 284
+			OR = {
+				NOT = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				NOT = {
+					num_of_times_improved_by_owner = 3
+				}
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			owns_core_province = 284
+			284 = {
+				num_of_times_improved_by_owner = 3
+			}
+		}
+		effect = {
+			284 = {
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+			284 = {
+				add_province_modifier = {
+					name = "me_pon_scythian_neapolis"
+					duration = 10950
+				}
+			}
+			284 = {
+				rename_capital = "Scythian Neapolis"
+			}
+		}
+	}
+	pon_incorporate_the_sarmatians_mission = {
+		icon = mission_nomad_camp
+		required_missions = { pon_scythian_neapolis_mission pon_sarmatia_europaea_mission }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = yedisan_area
+				area = zaporizhia_area
+			}
+			OR = {
+				NOT = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				has_owner_accepted_culture = no
+				has_owner_religion = no
+				unrest = 5
+			}
+			has_discovered = ROOT
+		}
+		trigger = {
+			yedisan_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				NOT = {
+					unrest = 5
+				}
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_religion = yes
+				}
+			}
+			zaporizhia_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				NOT = {
+					unrest = 5
+				}
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_religion = yes
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_manpower = 1
+			}
+			add_country_modifier = {
+				name = "me_pon_king_of_the_sarmatians"
+				duration = -1
+			}
+		}
+	}
+}

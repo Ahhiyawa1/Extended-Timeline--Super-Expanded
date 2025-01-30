@@ -139,7 +139,7 @@ VertexShader =
 			VS_OUTPUT_BORDER VertexOut;
 			float4 pos = float4( VertexIn.position, 1.0f );
 			float vClampHeight = saturate( ( WATER_HEIGHT - VertexIn.position.y ) * float(10000) );
-			pos.y = vClampHeight * WATER_HEIGHT + ( 1.0f - vClampHeight ) * pos.y;
+			pos.y = vClampHeight * WATER_HEIGHT + ( 1.0f - vClampHeight ) * pos.y +.1; // added +.1 which puts borders slightly above ground to prevent clipping
 			VertexOut.pos = pos.xyz;
 			float4 vDistortedPos = pos - float4( vCamLookAtDir * 0.08f, 0.0f );
 			pos = mul( ViewProjectionMatrix, pos );
@@ -176,19 +176,27 @@ PixelShader =
 			float4 vFoWColor = GetFoWColor( Input.pos, FoWTexture);
 			float TI = GetTI( vFoWColor );
 			clip( 0.99f - TI );
-			float4 vColor = tex2D( BorderDiffuse, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) );
-			float4 vData = tex2D( BorderData, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) );
+			float4 vColor = tex2D( BorderDiffuse, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) )*1.1f; //added *1.1f to make borders more prominent
+			float4 vData = tex2D( BorderData, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) )*1.2; //increases country border brightness
 			vColor.rgb += lerp( 
 				vData.r * COLOR_TINT[0] + vData.g * COLOR_TINT[1] + vData.b * COLOR_TINT[2], 
-				vData.r * COLOR_TINT[3] + vData.g * COLOR_TINT[4] + vData.b * COLOR_TINT[5],
-				vData.a ).rgb;
-			vColor.rgb = lerp(vColor.rgb, float3(1,1,1), 0.1f);
-			vColor.a *= lerp( COLOR_TINT[0].a, COLOR_TINT[3].a, vData.a );
+				vData.r * COLOR_TINT[3] + vData.g * COLOR_TINT[4] + vData.b * COLOR_TINT[5], vData.a ).rgb;
+			vColor.a *= lerp( COLOR_TINT[0].a, COLOR_TINT[3].a, vData.a )*1.2f; //added *1.2f to make borders even more prominent
 			
-			float vGlowFactor = smoothstep( 0.0f, 1.0f, GLOW_AMOUNT - abs( Input.uv.x - 0.5f )) * GLOW_COLOR.a; 
-			vColor.rgb = saturate( vColor.rgb + GLOW_COLOR.rgb * saturate( vGlowFactor - vColor.a * 0.1f ));
-			vColor.rgb = ApplyDistanceFog( vColor.rgb, Input.pos ) * max( GetFoW( Input.pos, vFoWColor, FoWDiffuse ), 0.5f );
-			return vColor;
+			float vGlowFactor = smoothstep( 0.0f, 1.0f, 
+					GLOW_AMOUNT
+					- abs( Input.uv.x - 0.5f ) //Fade out on edges
+					) 
+				* GLOW_COLOR.a; 
+			vColor.rgb = saturate( vColor.rgb + GLOW_COLOR.rgb * saturate( vGlowFactor - vColor.a * 0.35f ) )*1.15f; // added *1.15f to make borders more colorful
+			
+			// Grab the shadow term
+			float fShadowTerm = GetShadowScaled( SHADOW_WEIGHT_BORDER, Input.vScreenCoord, ShadowMap );		
+			vColor.rgb *=  fShadowTerm;
+			vColor.rgb = ApplyDistanceFog( vColor.rgb, Input.pos ) * max( GetFoW( Input.pos, vFoWColor, FoWDiffuse ), vGlowFactor );
+
+			//return float4(1.0f, 0.0f, 0.0f ,1.0f);
+			return float4( ComposeSpecular( vColor.rgb, 0.0f ), max( vColor.a, vGlowFactor - 0.2f )*(1.0f - TI) );
 		}
 	]]
 

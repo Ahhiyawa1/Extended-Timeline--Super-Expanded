@@ -144,7 +144,7 @@ PixelShader =
 			MipFilter = "Linear"
 			MinFilter = "Linear"
 		}
-		
+
 		IndirectionMap =
 		{
 			AddressV = "Clamp"
@@ -207,10 +207,12 @@ VertexShader =
 			VertexOut.screen_pos.y = FLIP_SCREEN_POS( VertexOut.screen_pos.y );
 			VertexOut.uv = float2( ( VertexIn.position.x + 0.5f ) / MAP_SIZE_X,  ( VertexIn.position.y + 0.5f - MAP_SIZE_Y ) / -MAP_SIZE_Y );
 			VertexOut.uv *= float2( MAP_POW2_X, MAP_POW2_Y ); //POW2
-			VertexOut.uv_ice = float2(0,0);
-			VertexOut.cubeRotation = float3(0,0,0);
+			VertexOut.uv_ice = VertexOut.uv * float2( MAP_SIZE_X, MAP_SIZE_Y ) * 0.1f;
+			VertexOut.uv_ice *= float2( FOW_POW2_X, FOW_POW2_Y ); //POW2
+			float vAnimTime = vTime_HalfPixelOffset.x * 0.01f;
+			VertexOut.cubeRotation = normalize( float3( sin( vAnimTime ) * 0.5f, sin( vAnimTime ), cos( vAnimTime ) * 0.3f ) );
 			
-			VertexOut.vShadowProj = mul( ShadowMapTextureMatrix, float4( VertexOut.pos, 1.0f ) );	
+			VertexOut.vShadowProj = mul( ShadowMapTextureMatrix, float4( VertexOut.pos, 1.0f ) );	//shadows on water 1.0 = on
 			
 			// Output the screen-space texture coordinates
 			VertexOut.vScreenCoord.x = ( VertexOut.position.x * 0.5 + VertexOut.position.w * 0.5 );
@@ -236,8 +238,10 @@ VertexShader =
 			VertexOut.screen_pos.y = FLIP_SCREEN_POS( VertexOut.screen_pos.y );
 			VertexOut.uv = float2( ( VertexIn.position.x + 0.5f ) / MAP_SIZE_X,  ( VertexIn.position.y + 0.5f - MAP_SIZE_Y ) / -MAP_SIZE_Y );
 			VertexOut.uv *= float2( MAP_POW2_X, MAP_POW2_Y ); //POW2
-			VertexOut.uv_ice = float2(0,0);
-			VertexOut.cubeRotation = float3(0,0,0);
+			VertexOut.uv_ice = VertexOut.uv * float2( MAP_SIZE_X, MAP_SIZE_Y ) * 0.1f;
+			VertexOut.uv_ice *= float2( FOW_POW2_X, FOW_POW2_Y ); //POW2
+			float vAnimTime = vTime_HalfPixelOffset.x * 0.01f;
+			VertexOut.cubeRotation = normalize( float3( sin( vAnimTime ) * 0.5f, sin( vAnimTime ), cos( vAnimTime ) * 0.3f ) );
 			
 			VertexOut.vShadowProj = mul( ShadowMapTextureMatrix, float4( VertexOut.pos, 1.0f ) );	
 			
@@ -262,7 +266,37 @@ PixelShader =
 {
 	MainCode PixelShader
 	[[
-	
+		float3 CalcWaterNormal( float2 uv, float vTimeSpeed )
+		{
+			float vScaledTime = vTime_HalfPixelOffset.x * vTimeSpeed;
+			float vScaleUV =5.0f; //25.0f - bigger numbers = smaller waves
+			float2 time1 = vScaledTime * float2( 0.3f, 0.7f )*0.25f;
+			float2 time2 = -vScaledTime * 0.25f * float2( 0.8f, 0.2f )*0.25f;
+			float2 uv1 = vScaleUV * uv;
+			float2 uv2 = vScaleUV * uv * 0.3; // 0.75
+			float noiseScale = 12.0f; //5.0
+			float3 noiseNormal1 = tex2D( WaterNoise, uv1 * noiseScale + time1 * 1.0f ).rgb - 0.5f;
+			float3 noiseNormal2 = tex2D( WaterNoise, uv2 * noiseScale + time2 * 1.0f ).rgb - 0.5f;
+			float3 normalNoise = noiseNormal1 + noiseNormal2 + float3( 0.0f, 0.0f, 0.3f );
+			return normalize( /*normalWaves +*/ normalNoise ).xzy;
+		}
+
+		float4 ApplyIce( float4 vColor, float2 vPos, inout float3 vNormal, float4 vFoWColor, float2 vIceUV, out float vIceFade )
+		{
+			float vSnow = saturate( GetSnow(vFoWColor) - 0.9f );  // 0.2f set to 0.9 to make ice less visible
+			vIceFade = vSnow*8.0f;
+			float vIceNoise = tex2D( FoWDiffuse, ( vPos + 0.5f ) / 64.0f  ).r;
+			vIceFade *= vIceNoise;
+			float vMapLimitFade = saturate( saturate( (vPos.y/MAP_SIZE_Y) - 0.74f )*800.0f );
+			vIceFade *= vMapLimitFade;
+			vIceFade = saturate( ( vIceFade-0.5f ) * 10.0f );
+			//vNormal = lerp( vNormal, tex2D( IceNormal, vIceUV ).rgb, vIceFade );
+			vNormal = normalize( lerp( vNormal, normalize( tex2D( IceNormal, vIceUV ).rbg - 0.5f ), vIceFade ) )*0.75f;  //	added *0.75f to make ice even less visible
+			float4 vIceColor = tex2D( IceDiffuse, vIceUV );
+			vColor = lerp( vColor, vIceColor, saturate(vIceFade) );
+			return vColor;
+		}
+
 		float4 main( VS_OUTPUT_WATER Input ) : PDX_COLOR
 		{
 		#ifdef MAP_IGNORE_HEIGHT
@@ -276,51 +310,189 @@ PixelShader =
 
 			float4 vFoWColor = GetFoWColor( Input.pos, FoWTexture);	
 			float TI = GetTI( vFoWColor );	
-			float4 vTIColor = float4(0.5255, 0.4902, 0.4627, 1);//GetTIColor( Input.pos, TITexture );
+			float4 vTIColor = GetTIColor( Input.pos, TITexture );
 
 			if( ( TI - 0.99f ) * 1000.0f > 0.0f )
 			{
 				return float4( vTIColor.rgb, 1.0f - waterHeight );
 			}
-			
+
+			float3 normal = CalcWaterNormal( Input.uv * WATER_TILE, vTimeScale * WATER_TIME_SCALE );
+
+			//Ice effect
 			float4 waterColor = tex2D( WaterColor, Input.uv );
 			
 			// Region colors (provinces)
-			//float2 flippedUV = Input.uv;
-			//flippedUV.y = 1.0f - flippedUV.y;
-			//float4 vSample = tex2D( ProvinceColorMap, flippedUV );
-			//waterColor.rgb = lerp( waterColor.rgb, vSample.rgb, saturate( vSample.a ) );
+			float2 flippedUV = Input.uv;
+			flippedUV.y = 1.0f - flippedUV.y;
+			float4 vSample = GetProvinceColorSampled( flippedUV, IndirectionMap, ProvinceIndirectionMapSize, ProvinceColorMap, ProvinceColorMapSize, 1 )*0.05f; // transparency of color overlay
+			waterColor.rgb = lerp( waterColor.rgb, vSample.rgb, saturate( vSample.a ) ); // brightness used in the addon
 
-			float3 outColor = lerp( float3(0.23f, 0.28f, 0.46f), waterColor.rgb, 0.3f);	
+			float vIceFade = 0.0f;
+			waterColor = ApplyIce( waterColor, Input.pos.xz, normal, vFoWColor, Input.uv_ice, vIceFade );
+			
+			float3 vEyeDir = normalize( Input.pos - vCamPos.xyz );
+			float3 reflection = reflect( vEyeDir, normal );
+
+		#ifdef PDX_OPENGLES
+			reflection.y *= -1.0f;
+		#endif 
+
+			float3 reflectiveColor = texCUBE( ReflectionCubeMap, reflection ).rgb;
+
+		#ifdef PDX_OPENGLES
+			float3 refractiveColor = float3(0.5, 0.5, 0.5); // (0.1, 0.3, 0.5)
+			float vRefractionScale = saturate( 5.0f - ( Input.screen_pos.z / Input.screen_pos.w ) * 5.0f ); 
+		#else
+			float2 refractiveUV = ( Input.screen_pos.xy / Input.screen_pos.w ) * 0.5f + 0.5f;
+			refractiveUV.y = 1.0f - refractiveUV.y;
+			refractiveUV += vTime_HalfPixelOffset.gb;
+			float vRefractionScale = saturate( 5.0f - ( Input.screen_pos.z / Input.screen_pos.w ) * 5.0f );
+			float3 refractiveColor = tex2D( WaterRefraction, (refractiveUV.xy - normal.xz * vRefractionScale * 1.0f) ).rgb; // 0.15 wave pattern size
+		#endif
+
+			float fresnelBias = 0.8f; // 0.2f brightness
+			float fresnel = saturate( dot( -vEyeDir, normal ) ) * 0.2f; // 0.5 brightness
+			fresnel = saturate( fresnelBias + ( 1.0f - fresnelBias ) * pow( 0.95f - fresnel, 3.0f ) ); // ( 1.0f - fresnel, 10.0f ) 
+			fresnel *= (1.0f-vIceFade); //No fresnel when we have snow
+			
+			float3 H = normalize( -vLightDir + -vEyeDir );
+			float vSpecWidth = MAP_SIZE_X*0.9f;
+			
+			float vSpecMultiplier = 3.0f;
+			float specular = saturate( pow( saturate( dot( H, normal ) ), vSpecWidth ) * vSpecMultiplier );
+			
+			refractiveColor = lerp( refractiveColor, waterColor.rgb, 0.85f+(0.7f*vIceFade) ); // 0.3f+(0.7f*vIceFade) contrast of waves - higher number = lower contrast
+			float3 outColor = refractiveColor * ( 1.578f - fresnel ) + reflectiveColor * fresnel; // 1.0 brightness
+			
+			outColor = ApplySnow( outColor, Input.pos, normal, vFoWColor, FoWDiffuse );		
 			
 			float vFoW = GetFoW( Input.pos, vFoWColor, FoWDiffuse );
+	
+			// Grab the shadow term
+			float4 vShadowCoord = Input.vScreenCoord;
+			vShadowCoord.xz = vShadowCoord.xz + normal.xz * vRefractionScale * 0.06f;
+			float fShadowTerm = GetShadowScaled( SHADOW_WEIGHT_WATER, vShadowCoord, ShadowMap );
+			outColor *= fShadowTerm;	
+
 			outColor = ApplyDistanceFog( outColor, Input.pos ) * vFoW;
-			return float4( lerp( outColor, vTIColor.rgb, TI ), 1.0f - waterHeight );
+			return float4( lerp( ComposeSpecular( outColor, specular * vFoW ), vTIColor.rgb, TI ), 1.0f - waterHeight );
 		}
 	]]
 	
 	MainCode PixelShaderLake
 	[[
+		float3 CalcWaterNormal( float2 uv, float vTimeSpeed )
+		{
+			float vScaledTime = vTime_HalfPixelOffset.x * vTimeSpeed;
+			float vScaleUV =600.0f; //25.0f - bigger numbers = smaller waves
+			float2 time1 = vScaledTime * float2( 0.3f, 0.7f );
+			float2 time2 = -vScaledTime * 0.25f * float2( 0.8f, 0.2f );
+			float2 uv1 = vScaleUV * uv;
+			float2 uv2 = vScaleUV * uv * 0.3; // 0.75
+			float noiseScale = 1.0f; //5.0
+			float3 noiseNormal1 = tex2D( WaterNoise, uv1 * noiseScale + time1 * 1.0f ).rgb - 0.5f;
+			float3 noiseNormal2 = tex2D( WaterNoise, uv2 * noiseScale + time2 * 1.0f ).rgb - 0.5f;
+			float3 normalNoise = noiseNormal1 + noiseNormal2 + float3( 0.0f, 0.0f, 0.3f );
+			return normalize( /*normalWaves +*/ normalNoise ).xzy;
+		}
+
+		float4 ApplyIce( float4 vColor, float2 vPos, inout float3 vNormal, float4 vFoWColor, float2 vIceUV, out float vIceFade )
+		{
+			float vSnow = saturate( GetSnow(vFoWColor) - 0.9f );  // 0.2f set to 0.9 to make ice less visible
+			vIceFade = vSnow*8.0f;
+			float vIceNoise = tex2D( FoWDiffuse, ( vPos + 0.5f ) / 64.0f  ).r;
+			vIceFade *= vIceNoise;
+			float vMapLimitFade = saturate( saturate( (vPos.y/MAP_SIZE_Y) - 0.74f )*800.0f );
+			vIceFade *= vMapLimitFade;
+			vIceFade = saturate( ( vIceFade-0.5f ) * 10.0f );
+			//vNormal = lerp( vNormal, tex2D( IceNormal, vIceUV ).rgb, vIceFade );
+			vNormal = normalize( lerp( vNormal, normalize( tex2D( IceNormal, vIceUV ).rbg - 0.5f ), vIceFade ) )*0.75f;  //	added *0.75f to make ice even less visible
+			float4 vIceColor = tex2D( IceDiffuse, vIceUV );
+			vColor = lerp( vColor, vIceColor, saturate(vIceFade) );
+			return vColor;
+		}
+
 		float4 main( VS_OUTPUT_WATER Input ) : PDX_COLOR
 		{
 			float waterHeight = Input.pos.y - ( tex2D( HeightTexture, Input.uv ).x * 51.0 );
 			waterHeight = ( 0.9f - waterHeight ) * 1.2f;
+			
+			//if ( waterHeight > 0.99f )
+			//	return float4( 0.0f, 1.0f, 0.0f, 1.0f );
+			//else if ( waterHeight > 0.0f )
+			//	return float4( 1.0f, 0.0f, 0.0f, 1.0f );
+			//else
+			//	return float4( 0.0f, 0.0f, 1.0f, 1.0f );
+			
+			//waterHeight = 0.5f - waterHeight;
+			//waterHeight -= Input.pos.y;
+			//waterHeight /= ( 93.7f / 255.0f );
+			//waterHeight = saturate( ( waterHeight - 0.995f ) * 50.0f );
 
 			float4 vFoWColor = GetFoWColor( Input.pos, FoWTexture);	
 			float TI = GetTI( vFoWColor );	
-			float4 vTIColor = float4(0.5255f, 0.4902f, 0.4627f, 1.0f);//GetTIColor( Input.pos, TITexture );
+			float4 vTIColor = GetTIColor( Input.pos, TITexture );
 
 			if( ( TI - 0.99f ) * 1000.0f > 0.0f )
 			{
 				return float4( vTIColor.rgb, 1.0f - waterHeight );
 			}
-			
+
+			float3 normal = CalcWaterNormal( Input.uv * WATER_TILE, vTimeScale * WATER_TIME_SCALE );
+
+			//Ice effect
 			float4 waterColor = tex2D( WaterColor, Input.uv );
-			float3 outColor = lerp( float3(0.23f, 0.28f, 0.46f), waterColor.rgb, 0.3f);	
+			float vIceFade = 0.0f;
+			waterColor = ApplyIce( waterColor, Input.pos.xz, normal, vFoWColor, Input.uv_ice, vIceFade );
+			
+			float3 vEyeDir = normalize( Input.pos - vCamPos.xyz );
+			float3 reflection = reflect( vEyeDir, normal );
+
+		#ifdef PDX_OPENGLES
+			reflection.y *= -1.0f;
+		#endif 
+		
+			float3 reflectiveColor = texCUBE( ReflectionCubeMap, reflection ).rgb;
+
+		#ifdef PDX_OPENGLES
+			float3 refractiveColor = float3(0.1, 0.3, 0.5);
+			float vRefractionScale = saturate( 5.0f - ( Input.screen_pos.z / Input.screen_pos.w ) * 5.0f );
+		#else
+			float2 refractiveUV = ( Input.screen_pos.xy / Input.screen_pos.w ) * 0.5f + 0.5f;
+			refractiveUV.y = 1.0f - refractiveUV.y;
+			refractiveUV += vTime_HalfPixelOffset.gb;
+			float vRefractionScale = saturate( 5.0f - ( Input.screen_pos.z / Input.screen_pos.w ) * 5.0f );
+			float3 refractiveColor = tex2D( WaterRefraction, (refractiveUV.xy - normal.xz * vRefractionScale * 1.0f) ).rgb; // 0.15 wave pattern size
+		#endif
+
+			float fresnelBias = 0.25f;
+			float fresnel = saturate( dot( -vEyeDir, normal ) ) * 0.5f;
+			fresnel = saturate( fresnelBias + ( 1.0f - fresnelBias ) * pow( 1.0f - fresnel, 10.0f ) );
+			fresnel *= (1.0f-vIceFade); //No fresnel when we have snow
+			
+			float3 H = normalize( -vLightDir + -vEyeDir );
+			float vSpecWidth = MAP_SIZE_X*0.9f;
+			
+			float vSpecMultiplier = 3.0f;
+			float specular = saturate( pow( saturate( dot( H, normal ) ), vSpecWidth ) * vSpecMultiplier );
+			
+			refractiveColor = lerp( refractiveColor, waterColor.rgb, 0.3f+(0.7f*vIceFade) );
+			float3 outColor = refractiveColor * ( 1.0f - fresnel ) + reflectiveColor * fresnel;
+			
+			outColor = ApplySnow( outColor, Input.pos, normal, vFoWColor, FoWDiffuse );		
 			
 			float vFoW = GetFoW( Input.pos, vFoWColor, FoWDiffuse );
+
+			// Grab the shadow term
+			float4 vShadowCoord = Input.vScreenCoord;
+			vShadowCoord.xz = vShadowCoord.xz + normal.xz * vRefractionScale * 0.06f;
+			float fShadowTerm = GetShadowScaled( SHADOW_WEIGHT_WATER, vShadowCoord, ShadowMap );
+			outColor *= fShadowTerm;	
+
 			outColor = ApplyDistanceFog( outColor, Input.pos ) * vFoW;
-			return float4( lerp( outColor, vTIColor.rgb, TI ), 1.0f - waterHeight );
+			//return float4( waterHeight, 0.0f, 0.0f, 1.0f );
+			return float4( lerp( ComposeSpecular( outColor, specular * vFoW ), vTIColor.rgb, TI ), 1.0f - waterHeight );
 		}
 	]]
 	
@@ -330,7 +502,7 @@ PixelShader =
 		{
 			// Grab the shadow term
 			float fShadowTerm = CalculateShadow( Input.vShadowProj, ShadowMap);		
-			return float4( fShadowTerm, fShadowTerm, fShadowTerm, 1.0f );
+			return float4( fShadowTerm, fShadowTerm, fShadowTerm, 1.0f );  // 0.0 = full deep shadow, 1.0 = no deep shadow
 		}
 	]]
 
