@@ -1,0 +1,2486 @@
+namespace = cpbm_independence_south_america
+
+##########################
+###MODERN NATION STATES###
+##########################
+
+#Colombia
+country_event = {
+	id = cpbm_independence_south_america.1
+	title = cpbm_independence_south_america.1.t
+	desc = cpbm_independence_south_america.1.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.1.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = bogota_area
+					area = western_llanos
+					area = popayan_area
+					area = coquivacoa_area
+					area = cordillera_occidental_area
+					area = colombian_amazonas_area
+				}  
+            }
+			cede_province = COL
+			add_core = COL
+			remove_core = ROOT 
+		}
+		vassalize = COL
+		COL = { set_capital = 825 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.1.b
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = bogota_area
+					area = western_llanos
+					area = popayan_area
+					area = coquivacoa_area
+					area = cordillera_occidental_area
+					area = colombian_amazonas_area
+				}  
+            }
+			cede_province = COL
+			add_core = COL
+			remove_core = ROOT 
+		}
+		COL = { 
+			every_neighbor_country = { add_truce_with = COL } 
+			set_capital = 825
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.1.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = bogota_area
+					area = western_llanos
+					area = popayan_area
+					area = coquivacoa_area
+					area = cordillera_occidental_area
+					area = colombian_amazonas_area
+				}  
+            }
+			add_unrest = 5
+			add_core = COL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.1.dd
+		every_owned_province = { 
+			limit = { 
+				OR = {
+					area = bogota_area
+					area = western_llanos
+					area = popayan_area
+					area = coquivacoa_area
+					area = cordillera_occidental_area
+					area = colombian_amazonas_area
+				}  
+            }
+			cede_province = COL
+			add_core = COL
+		}
+		COL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 825
+		}
+		hidden_effect = {
+			COL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 825 = { every_core_country = { limit = { tag = COL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		COL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Venezuela, Guyana, Suriname
+country_event = {
+	id = cpbm_independence_south_america.2
+	title = cpbm_independence_south_america.2.t
+	desc = cpbm_independence_south_america.2.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.2.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+        if = {
+            limit = {
+                NOT = { culture_group = british }
+                NOT = { culture_group = germanic }
+            }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = VNZ
+                add_core = VNZ
+                remove_core = ROOT 
+            }
+            vassalize = VNZ
+            VNZ = { set_capital = 831 }
+        }
+        else_if = {
+            limit = { culture_group = british }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = GYA
+                add_core = GYA
+                remove_core = ROOT 
+            }
+            vassalize = GYA
+            GYA = { set_capital = 744 }
+        }
+        else = {
+            limit = { culture_group = germanic }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = SRN
+                add_core = SRN
+                remove_core = ROOT 
+            }
+            vassalize = SRN
+            SRN = { set_capital = 745 }
+        }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.2.b
+        if = {
+            limit = {
+                NOT = { culture_group = british }
+                NOT = { culture_group = germanic }
+            }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = VNZ
+                add_core = VNZ
+                remove_core = ROOT 
+            }
+            VNZ = { 
+                every_neighbor_country = { add_truce_with = VNZ } 
+                set_capital = 831
+            }
+        }
+        else_if = {
+            limit = { culture_group = british }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = GYA
+                add_core = GYA
+                remove_core = ROOT 
+            }
+            GYA = { 
+                every_neighbor_country = { add_truce_with = GYA } 
+                set_capital = 744
+            }
+        }
+        else = {
+            limit = { culture_group = germanic }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = SRN
+                add_core = SRN
+                remove_core = ROOT 
+            }
+            SRN = { 
+                every_neighbor_country = { add_truce_with = SRN } 
+                set_capital = 745
+            }
+        }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.2.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+        if = {
+            limit = {
+                NOT = { culture_group = british }
+                NOT = { culture_group = germanic }
+            }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                add_unrest = 5
+                add_core = VNZ
+            }
+        }
+        else_if = {
+            limit = { culture_group = british }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                add_unrest = 5
+                add_core = GYA
+            }
+        }
+        else = {
+            limit = { culture_group = germanic }
+            every_owned_province = { 
+                limit = { 
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                add_unrest = 5
+                add_core = SRN
+            }
+        }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.2.dd
+        if = {
+            limit = {
+                NOT = { culture_group = british }
+                NOT = { culture_group = germanic }
+            }
+            every_owned_province = { 
+                limit = {
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = VNZ
+                add_core = VNZ
+            }
+            VNZ = { 
+                declare_war_with_cb = {
+                    who = ROOT
+                    casus_belli = cb_independence_war
+                }
+                set_capital = 831
+            }
+            hidden_effect = {
+                VNZ = {
+                    capital_scope = {
+                        build_to_forcelimit = {
+                            infantry = 0.8
+                            cavalry = 0.2
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = { culture_group = british }
+            every_owned_province = { 
+                limit = {
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = GYA
+                add_core = GYA
+            }
+            GYA = { 
+                declare_war_with_cb = {
+                    who = ROOT
+                    casus_belli = cb_independence_war
+                }
+                set_capital = 744
+            }
+            hidden_effect = {
+                GYA = {
+                    capital_scope = {
+                        build_to_forcelimit = {
+                            infantry = 0.8
+                            cavalry = 0.2
+                        }
+                    }
+                }
+            }
+        }
+        else = {
+            limit = { culture_group = germanic }
+            every_owned_province = { 
+                limit = {
+                    OR = {
+                        area = venezuela_area 
+                        area = eastern_llanos 
+                        area = central_llanos_area
+                        area = maracaibo_area
+                        area = upper_guyana_area
+                        area = guyana_area
+                        area = suriname_area
+                        area = amapa_area
+                    }  
+                }
+                cede_province = SRN
+                add_core = SRN
+            }
+            SRN = { 
+                declare_war_with_cb = {
+                    who = ROOT
+                    casus_belli = cb_independence_war
+                }
+                set_capital = 745
+            }
+            hidden_effect = {
+                SRN = {
+                    capital_scope = {
+                        build_to_forcelimit = {
+                            infantry = 0.8
+                            cavalry = 0.2
+                        }
+                    }
+                }
+            }
+        }
+	}
+    
+    after = { 
+        if = {
+            limit = {
+                NOT = { culture_group = british }
+                NOT = { culture_group = germanic }
+            }
+			831 = { every_country = { limit = { tag = VNZ } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+            VNZ = {
+				every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+				every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+			}
+		}
+        else_if = {
+            limit = { culture_group = british }
+			744 = { every_country = { limit = { tag = GYA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+            GYA = { 
+				every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+				every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT }
+			}
+		}
+        else = {
+            limit = { culture_group = germanic }
+			745 = { every_country = { limit = { tag = SRN } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+            SRN = { 
+				every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+				every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } 
+			}
+		}
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+    }
+}
+
+#Ecuador
+country_event = {
+	id = cpbm_independence_south_america.3
+	title = cpbm_independence_south_america.3.t
+	desc = cpbm_independence_south_america.3.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.3.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = quito_area }
+			cede_province = ECU
+			add_core = ECU
+			remove_core = ROOT 
+		}
+		vassalize = ECU
+		ECU = { set_capital = 820 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.3.b
+		every_owned_province = { 
+			limit = { area = quito_area }
+			cede_province = ECU
+			add_core = ECU
+			remove_core = ROOT 
+		}
+		ECU = { 
+			every_neighbor_country = { add_truce_with = ECU } 
+			set_capital = 820
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.3.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = quito_area }
+			add_unrest = 5
+			add_core = ECU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.3.dd
+		every_owned_province = { 
+			limit = { area = quito_area }
+			cede_province = ECU
+			add_core = ECU
+		}
+		ECU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 820
+		}
+		hidden_effect = {
+			ECU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 820 = { every_core_country = { limit = { tag = ECU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ECU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Peru
+country_event = {
+	id = cpbm_independence_south_america.4
+	title = cpbm_independence_south_america.4.t
+	desc = cpbm_independence_south_america.4.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.4.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = PEU
+			add_core = PEU
+			remove_core = ROOT 
+		}
+		vassalize = PEU
+		PEU = { set_capital = 809 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.4.b
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = PEU
+			add_core = PEU
+			remove_core = ROOT 
+		}
+		PEU = { 
+			every_neighbor_country = { add_truce_with = PEU } 
+			set_capital = 809
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.4.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			add_unrest = 5
+			add_core = PEU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.4.dd
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = PEU
+			add_core = PEU
+		}
+		PEU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 809
+		}
+		hidden_effect = {
+			PEU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 809 = { every_core_country = { limit = { tag = PEU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PEU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Bolivia
+country_event = {
+	id = cpbm_independence_south_america.5
+	title = cpbm_independence_south_america.5.t
+	desc = cpbm_independence_south_america.5.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.5.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = beni_area
+                    area = moxos_area
+                    area = upper_peru
+                    area = potosi_area
+                    province_id = 802
+                    province_id = 2831
+                    province_id = 2840
+                    province_id = 2841
+                    province_id = 3035
+                } 
+            }
+			cede_province = BOL
+			add_core = BOL
+			remove_core = ROOT 
+		}
+		vassalize = BOL
+		BOL = { set_capital = 802 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.5.b
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = beni_area
+                    area = moxos_area
+                    area = upper_peru
+                    area = potosi_area
+                    province_id = 802
+                    province_id = 2831
+                    province_id = 2840
+                    province_id = 2841
+                    province_id = 3035
+                } 
+            }
+			cede_province = BOL
+			add_core = BOL
+			remove_core = ROOT 
+		}
+		BOL = { 
+			every_neighbor_country = { add_truce_with = BOL } 
+			set_capital = 802
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.5.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = beni_area
+                    area = moxos_area
+                    area = upper_peru
+                    area = potosi_area
+                    province_id = 802
+                    province_id = 2831
+                    province_id = 2840
+                    province_id = 2841
+                    province_id = 3035
+                } 
+            }
+			add_unrest = 5
+			add_core = BOL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.5.dd
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = beni_area
+                    area = moxos_area
+                    area = upper_peru
+                    area = potosi_area
+                    province_id = 802
+                    province_id = 2831
+                    province_id = 2840
+                    province_id = 2841
+                    province_id = 3035
+                } 
+            }
+			cede_province = BOL
+			add_core = BOL
+		}
+		BOL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 802
+		}
+		hidden_effect = {
+			BOL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 802 = { every_core_country = { limit = { tag = BOL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BOL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Brazil
+country_event = {
+	id = cpbm_independence_south_america.6
+	title = cpbm_independence_south_america.6.t
+	desc = cpbm_independence_south_america.6.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.6.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = BRZ
+			add_core = BRZ
+			remove_core = ROOT 
+		}
+		vassalize = BRZ
+		BRZ = { set_capital = 763 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.6.b
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = BRZ
+			add_core = BRZ
+			remove_core = ROOT 
+		}
+		BRZ = { 
+			every_neighbor_country = { add_truce_with = BRZ } 
+			set_capital = 763
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.6.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			add_unrest = 5
+			add_core = BRZ
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.6.dd
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = BRZ
+			add_core = BRZ
+		}
+		BRZ = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 763
+		}
+		hidden_effect = {
+			BRZ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 763 = { every_core_country = { limit = { tag = BRZ } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		BRZ = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Paraguay
+country_event = {
+	id = cpbm_independence_south_america.7
+	title = cpbm_independence_south_america.7.t
+	desc = cpbm_independence_south_america.7.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.7.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = paraguay_area
+                    province_id = 2858
+                    province_id = 2859
+                } 
+            }
+			cede_province = PRG
+			add_core = PRG
+			remove_core = ROOT 
+		}
+		vassalize = PRG
+		PRG = { set_capital = 775 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.7.b
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = paraguay_area
+                    province_id = 2858
+                    province_id = 2859
+                } 
+            }
+			cede_province = PRG
+			add_core = PRG
+			remove_core = ROOT 
+		}
+		PRG = { 
+			every_neighbor_country = { add_truce_with = PRG } 
+			set_capital = 775
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.7.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = paraguay_area
+                    province_id = 2858
+                    province_id = 2859
+                } 
+            }
+			add_unrest = 5
+			add_core = PRG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.7.dd
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = paraguay_area
+                    province_id = 2858
+                    province_id = 2859
+                } 
+            }
+			cede_province = PRG
+			add_core = PRG
+		}
+		PRG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 775
+		}
+		hidden_effect = {
+			PRG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 775 = { every_core_country = { limit = { tag = PRG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PRG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Chile
+country_event = {
+	id = cpbm_independence_south_america.8
+	title = cpbm_independence_south_america.8.t
+	desc = cpbm_independence_south_america.8.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.8.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area
+                    area = central_chile_area 
+                    area = southern_chile_area
+                    province_id = 782
+                } 
+            }
+			cede_province = CHL
+			add_core = CHL
+			remove_core = ROOT 
+		}
+		vassalize = CHL
+		CHL = { set_capital = 787 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.8.b
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area
+                    area = central_chile_area 
+                    area = southern_chile_area
+                    province_id = 782
+                } 
+            }
+			cede_province = CHL
+			add_core = CHL
+			remove_core = ROOT 
+		}
+		CHL = { 
+			every_neighbor_country = { add_truce_with = CHL } 
+			set_capital = 787
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.8.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area
+                    area = central_chile_area 
+                    area = southern_chile_area
+                    province_id = 782
+                } 
+            }
+			add_unrest = 5
+			add_core = CHL
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.8.dd
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area
+                    area = central_chile_area 
+                    area = southern_chile_area
+                    province_id = 782
+                } 
+            }
+			cede_province = CHL
+			add_core = CHL
+		}
+		CHL = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 787
+		}
+		hidden_effect = {
+			CHL = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 787 = { every_core_country = { limit = { tag = CHL } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		CHL = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Argentina
+country_event = {
+	id = cpbm_independence_south_america.9
+	title = cpbm_independence_south_america.9.t
+	desc = cpbm_independence_south_america.9.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.9.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area 
+                    area = central_chile_area 
+                    area = southern_chile_area 
+                    area = paraguay_area
+                    area = banda_oriental_area
+                    area = misiones_area 
+                    province_id = 777
+                    province_id = 2853
+                    province_id = 2855
+                } 
+            }
+			cede_province = LAP
+			add_core = LAP
+			remove_core = ROOT 
+		}
+		vassalize = LAP
+		LAP = { set_capital = 778 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.9.b
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area 
+                    area = central_chile_area 
+                    area = southern_chile_area 
+                    area = paraguay_area
+                    area = banda_oriental_area
+                    area = misiones_area 
+                    province_id = 777
+                    province_id = 2853
+                    province_id = 2855
+                } 
+            }
+			cede_province = LAP
+			add_core = LAP
+			remove_core = ROOT 
+		}
+		LAP = { 
+			every_neighbor_country = { add_truce_with = LAP } 
+			set_capital = 778
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.9.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area 
+                    area = central_chile_area 
+                    area = southern_chile_area 
+                    area = paraguay_area
+                    area = banda_oriental_area
+                    area = misiones_area 
+                    province_id = 777
+                    province_id = 2853
+                    province_id = 2855
+                } 
+            }
+			add_unrest = 5
+			add_core = LAP
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.9.dd
+		every_owned_province = { 
+			limit = {                                 
+                OR = {
+                    area = northern_chile_area 
+                    area = central_chile_area 
+                    area = southern_chile_area 
+                    area = paraguay_area
+                    area = banda_oriental_area
+                    area = misiones_area 
+                    province_id = 777
+                    province_id = 2853
+                    province_id = 2855
+                } 
+            }
+			cede_province = LAP
+			add_core = LAP
+		}
+		LAP = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 778
+		}
+		hidden_effect = {
+			LAP = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 778 = { every_core_country = { limit = { tag = LAP } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		LAP = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Uruguay
+country_event = {
+	id = cpbm_independence_south_america.10
+	title = cpbm_independence_south_america.10.t
+	desc = cpbm_independence_south_america.10.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.10.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = banda_oriental_area }
+			cede_province = URU
+			add_core = URU
+			remove_core = ROOT 
+		}
+		vassalize = URU
+		URU = { set_capital = 2850 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.10.b
+		every_owned_province = { 
+			limit = { area = banda_oriental_area }
+			cede_province = URU
+			add_core = URU
+			remove_core = ROOT 
+		}
+		URU = { 
+			every_neighbor_country = { add_truce_with = URU } 
+			set_capital = 2850
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.10.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = banda_oriental_area }
+			add_unrest = 5
+			add_core = URU
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.10.dd
+		every_owned_province = { 
+			limit = { area = banda_oriental_area }
+			cede_province = URU
+			add_core = URU
+		}
+		URU = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2850
+		}
+		hidden_effect = {
+			URU = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2850 = { every_core_country = { limit = { tag = URU } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		URU = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#######################
+###ADDITIONAL STATES###
+#######################
+
+#Inca
+country_event = {
+	id = cpbm_independence_south_america.11
+	title = cpbm_independence_south_america.11.t
+	desc = cpbm_independence_south_america.11.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.11.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = INC
+			add_core = INC
+			remove_core = ROOT 
+		}
+		vassalize = INC
+		INC = { set_capital = 808 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.11.b
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = INC
+			add_core = INC
+			remove_core = ROOT 
+		}
+		INC = { 
+			every_neighbor_country = { add_truce_with = INC } 
+			set_capital = 808
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.11.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			add_unrest = 5
+			add_core = INC
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.11.dd
+		every_owned_province = { 
+			limit = { colonial_region = colonial_peru }
+			cede_province = INC
+			add_core = INC
+		}
+		INC = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 808
+		}
+		hidden_effect = {
+			INC = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 808 = { every_core_country = { limit = { tag = INC } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		INC = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Medellin
+country_event = {
+	id = cpbm_independence_south_america.12
+	title = cpbm_independence_south_america.12.t
+	desc = cpbm_independence_south_america.12.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.12.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 827 }
+			cede_province = ME2
+			add_core = ME2
+			remove_core = ROOT 
+		}
+		vassalize = ME2
+		ME2 = { set_capital = 827 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.12.b
+		every_owned_province = { 
+			limit = { province_id = 827 }
+			cede_province = ME2
+			add_core = ME2
+			remove_core = ROOT 
+		}
+		ME2 = { 
+			every_neighbor_country = { add_truce_with = ME2 } 
+			set_capital = 827
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.12.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 827 }
+			add_unrest = 5
+			add_core = ME2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.12.dd
+		every_owned_province = { 
+			limit = { province_id = 827 }
+			cede_province = ME2
+			add_core = ME2
+		}
+		ME2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 827
+		}
+		hidden_effect = {
+			ME2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 827 = { every_core_country = { limit = { tag = ME2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		ME2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Quito
+country_event = {
+	id = cpbm_independence_south_america.13
+	title = cpbm_independence_south_america.13.t
+	desc = cpbm_independence_south_america.13.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.13.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 817 
+                    province_id = 819 
+                    province_id = 820 
+                    province_id = 2820
+                }
+            }
+			cede_province = QTO
+			add_core = QTO
+			remove_core = ROOT 
+		}
+		vassalize = QTO
+		QTO = { set_capital = 820 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.13.b
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 817 
+                    province_id = 819 
+                    province_id = 820 
+                    province_id = 2820
+                }
+            }
+			cede_province = QTO
+			add_core = QTO
+			remove_core = ROOT 
+		}
+		QTO = { 
+			every_neighbor_country = { add_truce_with = QTO } 
+			set_capital = 820
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.13.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 817 
+                    province_id = 819 
+                    province_id = 820 
+                    province_id = 2820
+                }
+            }
+			add_unrest = 5
+			add_core = QTO
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.13.dd
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 817 
+                    province_id = 819 
+                    province_id = 820 
+                    province_id = 2820
+                }
+            }
+			cede_province = QTO
+			add_core = QTO
+		}
+		QTO = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 820
+		}
+		hidden_effect = {
+			QTO = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 820 = { every_core_country = { limit = { tag = QTO } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		QTO = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Guarani
+country_event = {
+	id = cpbm_independence_south_america.14
+	title = cpbm_independence_south_america.14.t
+	desc = cpbm_independence_south_america.14.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.14.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 768 
+                    province_id = 2855
+                    province_id = 2859
+                    province_id = 2879
+                    province_id = 2884
+                }
+            }
+			cede_province = GUA
+			add_core = GUA
+			remove_core = ROOT 
+		}
+		vassalize = GUA
+		GUA = { set_capital = 2884 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.14.b
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 768 
+                    province_id = 2855
+                    province_id = 2859
+                    province_id = 2879
+                    province_id = 2884
+                }
+            }
+			cede_province = GUA
+			add_core = GUA
+			remove_core = ROOT 
+		}
+		GUA = { 
+			every_neighbor_country = { add_truce_with = GUA } 
+			set_capital = 2884
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.14.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 768 
+                    province_id = 2855
+                    province_id = 2859
+                    province_id = 2879
+                    province_id = 2884
+                }
+            }
+			add_unrest = 5
+			add_core = GUA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.14.dd
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 768 
+                    province_id = 2855
+                    province_id = 2859
+                    province_id = 2879
+                    province_id = 2884
+                }
+            }
+			cede_province = GUA
+			add_core = GUA
+		}
+		GUA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2884
+		}
+		hidden_effect = {
+			GUA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2884 = { every_core_country = { limit = { tag = GUA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		GUA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Muisca
+country_event = {
+	id = cpbm_independence_south_america.15
+	title = cpbm_independence_south_america.15.t
+	desc = cpbm_independence_south_america.15.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.15.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 825 
+                    province_id = 832 
+                    province_id = 4603
+                }
+            }
+			cede_province = MCA
+			add_core = MCA
+			remove_core = ROOT 
+		}
+		vassalize = MCA
+		MCA = { set_capital = 825 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.15.b
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 825 
+                    province_id = 832 
+                    province_id = 4603
+                }
+            }
+			cede_province = MCA
+			add_core = MCA
+			remove_core = ROOT 
+		}
+		MCA = { 
+			every_neighbor_country = { add_truce_with = MCA } 
+			set_capital = 825
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.15.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 825 
+                    province_id = 832 
+                    province_id = 4603
+                }
+            }
+			add_unrest = 5
+			add_core = MCA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.15.dd
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 825 
+                    province_id = 832 
+                    province_id = 4603
+                }
+            }
+			cede_province = MCA
+			add_core = MCA
+		}
+		MCA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 825
+		}
+		hidden_effect = {
+			MCA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 825 = { every_core_country = { limit = { tag = MCA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		MCA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Potiguara
+country_event = {
+	id = cpbm_independence_south_america.16
+	title = cpbm_independence_south_america.16.t
+	desc = cpbm_independence_south_america.16.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.16.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 751 }
+			cede_province = PTG
+			add_core = PTG
+			remove_core = ROOT 
+		}
+		vassalize = PTG
+		PTG = { set_capital = 751 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.16.b
+		every_owned_province = { 
+			limit = { province_id = 751 }
+			cede_province = PTG
+			add_core = PTG
+			remove_core = ROOT 
+		}
+		PTG = { 
+			every_neighbor_country = { add_truce_with = PTG } 
+			set_capital = 751
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.16.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 751 }
+			add_unrest = 5
+			add_core = PTG
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.16.dd
+		every_owned_province = { 
+			limit = { province_id = 751 }
+			cede_province = PTG
+			add_core = PTG
+		}
+		PTG = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 751
+		}
+		hidden_effect = {
+			PTG = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 751 = { every_core_country = { limit = { tag = PTG } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PTG = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Pindorama
+country_event = {
+	id = cpbm_independence_south_america.17
+	title = cpbm_independence_south_america.17.t
+	desc = cpbm_independence_south_america.17.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.17.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PI0
+			add_core = PI0
+			remove_core = ROOT 
+		}
+		vassalize = PI0
+		PI0 = { set_capital = 763 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.17.b
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PI0
+			add_core = PI0
+			remove_core = ROOT 
+		}
+		PI0 = { 
+			every_neighbor_country = { add_truce_with = PI0 } 
+			set_capital = 763
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.17.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			add_unrest = 5
+			add_core = PI0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.17.dd
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PI0
+			add_core = PI0
+		}
+		PI0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 763
+		}
+		hidden_effect = {
+			PI0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 763 = { every_core_country = { limit = { tag = PI0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PI0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Wanka
+country_event = {
+	id = cpbm_independence_south_america.18
+	title = cpbm_independence_south_america.18.t
+	desc = cpbm_independence_south_america.18.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.18.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 810 
+                    province_id = 811
+                }
+            }
+			cede_province = WKA
+			add_core = WKA
+			remove_core = ROOT 
+		}
+		vassalize = WKA
+		WKA = { set_capital = 810 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.18.b
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 810 
+                    province_id = 811
+                }
+            }
+			cede_province = WKA
+			add_core = WKA
+			remove_core = ROOT 
+		}
+		WKA = { 
+			every_neighbor_country = { add_truce_with = WKA } 
+			set_capital = 810
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.18.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 810 
+                    province_id = 811
+                }
+            }
+			add_unrest = 5
+			add_core = WKA
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.18.dd
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 810 
+                    province_id = 811
+                }
+            }
+			cede_province = WKA
+			add_core = WKA
+		}
+		WKA = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 810
+		}
+		hidden_effect = {
+			WKA = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 810 = { every_core_country = { limit = { tag = WKA } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		WKA = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Guayaquil
+country_event = {
+	id = cpbm_independence_south_america.19
+	title = cpbm_independence_south_america.19.t
+	desc = cpbm_independence_south_america.19.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.19.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { province_id = 819 }
+			cede_province = GU2
+			add_core = GU2
+			remove_core = ROOT 
+		}
+		vassalize = GU2
+		GU2 = { set_capital = 819 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.19.b
+		every_owned_province = { 
+			limit = { province_id = 819 }
+			cede_province = GU2
+			add_core = GU2
+			remove_core = ROOT 
+		}
+		GU2 = { 
+			every_neighbor_country = { add_truce_with = GU2 } 
+			set_capital = 819
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.19.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { province_id = 819 }
+			add_unrest = 5
+			add_core = GU2
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.19.dd
+		every_owned_province = { 
+			limit = { province_id = 819 }
+			cede_province = GU2
+			add_core = GU2
+		}
+		GU2 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 819
+		}
+		hidden_effect = {
+			GU2 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 819 = { every_core_country = { limit = { tag = GU2 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		GU2 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Santa Cruz
+country_event = {
+	id = cpbm_independence_south_america.20
+	title = cpbm_independence_south_america.20.t
+	desc = cpbm_independence_south_america.20.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.20.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 800 
+                    province_id = 2834
+                    province_id = 2882
+                }
+            }
+			cede_province = SC0
+			add_core = SC0
+			remove_core = ROOT 
+		}
+		vassalize = SC0
+		SC0 = { set_capital = 2834 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.20.b
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 800 
+                    province_id = 2834
+                    province_id = 2882
+                }
+            }
+			cede_province = SC0
+			add_core = SC0
+			remove_core = ROOT 
+		}
+		SC0 = { 
+			every_neighbor_country = { add_truce_with = SC0 } 
+			set_capital = 2834
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.20.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 800 
+                    province_id = 2834
+                    province_id = 2882
+                }
+            }
+			add_unrest = 5
+			add_core = SC0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.20.dd
+		every_owned_province = { 
+			limit = { 
+                OR = {
+                    province_id = 800 
+                    province_id = 2834
+                    province_id = 2882
+                }
+            }
+			cede_province = SC0
+			add_core = SC0
+		}
+		SC0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 2834
+		}
+		hidden_effect = {
+			SC0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 2834 = { every_core_country = { limit = { tag = SC0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SC0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Peru-Bolivia
+country_event = {
+	id = cpbm_independence_south_america.21
+	title = cpbm_independence_south_america.21.t
+	desc = cpbm_independence_south_america.21.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.21.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PB0
+			add_core = PB0
+			remove_core = ROOT 
+		}
+		vassalize = PB0
+		PB0 = { set_capital = 805 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.21.b
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PB0
+			add_core = PB0
+			remove_core = ROOT 
+		}
+		PB0 = { 
+			every_neighbor_country = { add_truce_with = PB0 } 
+			set_capital = 805
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.21.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			add_unrest = 5
+			add_core = PB0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.21.dd
+		every_owned_province = { 
+			limit = { colonial_region = colonial_brazil }
+			cede_province = PB0
+			add_core = PB0
+		}
+		PB0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 805
+		}
+		hidden_effect = {
+			PB0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 805 = { every_core_country = { limit = { tag = PB0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		PB0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}
+
+#Sao Paulo
+country_event = {
+	id = cpbm_independence_south_america.22
+	title = cpbm_independence_south_america.22.t
+	desc = cpbm_independence_south_america.22.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence_south_america.22.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		every_owned_province = { 
+			limit = { area = sao_paolo_area }
+			cede_province = SP0
+			add_core = SP0
+			remove_core = ROOT 
+		}
+		vassalize = SP0
+		SP0 = { set_capital = 766 }
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.22.b
+		every_owned_province = { 
+			limit = { area = sao_paolo_area }
+			cede_province = SP0
+			add_core = SP0
+			remove_core = ROOT 
+		}
+		SP0 = { 
+			every_neighbor_country = { add_truce_with = SP0 } 
+			set_capital = 766
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.22.c
+		trigger = { AND = { adm_power = 100 dip_power = 100 mil_power = 100 } }
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_years_of_income = -2
+		every_owned_province = { 
+			limit = { area = sao_paolo_area }
+			add_unrest = 5
+			add_core = SP0
+		}
+	}
+	
+	option = {
+		name = cpbm_independence_south_america.22.dd
+		every_owned_province = { 
+			limit = { area = sao_paolo_area }
+			cede_province = SP0
+			add_core = SP0
+		}
+		SP0 = { 
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+			set_capital = 766
+		}
+		hidden_effect = {
+			SP0 = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+    
+    after = { 766 = { every_core_country = { limit = { tag = SP0 } change_primary_culture = PREV change_religion = PREV change_government = ROOT } }
+		SP0 = { every_province = { limit = { owned_by = ROOT is_in_capital_area = no NOT = { range = ROOT } trade_range = PREV } cede_province = PREV add_core = PREV }
+		every_owned_province = { limit = { is_in_capital_area = no NOT = { range = PREV } trade_range = ROOT } cede_province = ROOT add_core = ROOT } }
+		random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } }
+	}
+}

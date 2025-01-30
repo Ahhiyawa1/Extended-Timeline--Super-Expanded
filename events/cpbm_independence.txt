@@ -1,0 +1,2264 @@
+namespace = cpbm_independence
+
+#Any Subject Nation
+country_event = {
+	id = cpbm_independence.1
+	title = cpbm_independence.1.t
+	desc = cpbm_independence.1.d
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.1.a
+        trigger = { 
+            overlord = { reverse_has_opinion = { who = ROOT value = 100 } } 
+            adm_power = 50
+            adm_power = 50
+            adm_power = 50
+            treasury = 100
+        }
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		add_treasury = -100
+		overlord = {
+            add_opinion = {
+                who = ROOT
+                modifier = offered_support_to_us
+            }
+        }
+		overlord = { country_event = { id = cpbm_independence.2 } }
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = cpbm_independence.1.b
+		ai_chance = { factor = 2 }
+	}
+	
+	option = {
+		name = cpbm_independence.1.c
+        trigger = { NOT = { has_opinion = { who = FROM value = 100 } } }
+		overlord = { country_event = { id = cpbm_independence.3 } }
+		ai_chance = { factor = 3 }
+	}
+	
+	option = {
+		name = cpbm_independence.1.dd
+        trigger = { NOT = { has_opinion = { who = FROM value = 0 } } }
+		overlord = { country_event = { id = cpbm_independence.4 } }
+		ai_chance = { factor = 4 }
+	}
+    
+    after = { overlord = { random_list = { 1 = { country_event = { id = cpbm_independence_trigger.1 } } 9 = { } } } }
+}
+
+#Subject assists us
+country_event = {
+	id = cpbm_independence.2
+	title = cpbm_independence.2.t
+	desc = cpbm_independence.2.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.2.a
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_treasury = 100
+		ai_chance = { factor = 4 }
+	}
+	
+	option = {
+		name = cpbm_independence.2.b
+        trigger = { 
+            has_opinion = { who = FROM value = 100 }
+            trust = { who = FROM value = 50 }
+        }
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_treasury = 100
+		FROM = {
+            add_opinion = {
+                who = ROOT
+                modifier = released_us_freely
+            }
+        }
+		FROM = { 
+            grant_independence = yes
+            country_event = { id = cpbm_independence.5 } 
+        }
+        create_alliance = FROM
+        add_historical_friend = FROM
+		ai_chance = { factor = 1 }
+	}
+}
+
+#Subject requests aid
+country_event = {
+	id = cpbm_independence.3
+	title = cpbm_independence.3.t
+	desc = cpbm_independence.3.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.3.a
+        FROM = { add_liberty_desire = 100 }
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+		name = cpbm_independence.3.b
+        trigger = {
+            has_opinion = { who = FROM value = 100 }
+            trust = { who = FROM value = 50 }
+            adm_power = 50
+            adm_power = 50
+            adm_power = 50
+            treasury = 100
+        }
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		add_treasury = -100
+        FROM = { country_event = { id = cpbm_independence.6 } }
+		ai_chance = { 
+            factor = 1
+			modifier = { 
+				factor = 3
+				has_opinion = { who = FROM value = 150 }
+                trust = { who = FROM value = 75 }
+			}
+        }
+	}
+}
+
+#Subject declares war of independence
+country_event = {
+	id = cpbm_independence.4
+	title = cpbm_independence.4.t
+	desc = cpbm_independence.4.d
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.4.a
+        FROM = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_independence_war
+            }
+        }
+        hidden_effect = {
+			FROM = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+        }
+	}
+}
+
+#Overlord grants us Independence
+country_event = {
+	id = cpbm_independence.5
+	title = cpbm_independence.5.t
+	desc = cpbm_independence.5.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.5.a
+        change_dip = 1
+	}
+}
+
+#Overlord accepts demands
+country_event = {
+	id = cpbm_independence.6
+	title = cpbm_independence.6.t
+	desc = cpbm_independence.6.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = cpbm_independence.6.a
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_treasury = 100
+	}
+}
+
+
+
+
+
+
+##Norway
+#country_event = {
+#	id = cpbm_independence.2
+#	title = cpbm_independence.2.t
+#	desc = cpbm_independence.2.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 17 #Oslo
+#		NOT = { AND = { owns = 1 owns = 1777 owns = 4152 } } #Stockholm, Murmansk, Inari
+#		NOT = { capital_scope = { region = scandinavia_region } }
+#		NOT = { exists = NOR }
+#		NOT = { exists = NO6 }
+#		NOT = { exists = NO7 }
+#		NOT = { exists = NO8 }
+#		NOT = { exists = NO2 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.2.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = eastern_norway
+#					area = western_norway
+#					province_id = 20
+#					province_id = 21
+#					province_id = 315
+#				}
+#			}
+#			cede_province = NOR
+#			add_core = NOR
+#			remove_core = ROOT 
+#		}
+#		vassalize = NOR
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.2.b
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = eastern_norway
+#					area = western_norway
+#					province_id = 20
+#					province_id = 21
+#					province_id = 315
+#				}
+#			}
+#			cede_province = NOR
+#			add_core = NOR
+#			remove_core = ROOT 
+#		}
+#		NOR = { every_neighbor_country = { add_truce_with = NOR } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.2.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = eastern_norway
+#					area = western_norway
+#					province_id = 20
+#					province_id = 21
+#					province_id = 315
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = NOR
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.2.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = eastern_norway
+#					area = western_norway
+#					province_id = 20
+#					province_id = 21
+#					province_id = 315
+#				}
+#			}
+#			cede_province = NOR
+#			add_core = NOR
+#		}
+#		NOR = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			NOR = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.2.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = eastern_norway
+#					area = western_norway
+#					province_id = 20
+#					province_id = 21
+#					province_id = 315
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = NOR	
+#		}
+#	}
+#}
+#
+##Finland
+#country_event = {
+#	id = cpbm_independence.3
+#	title = cpbm_independence.3.t
+#	desc = cpbm_independence.3.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		AND = { owns = 27 owns = 28 } #Turku, Helsinki
+#		NOT = { AND = { owns = 1 owns = 33 owns = 295 owns = 315 } } #Stockholm, St. Petersburg, Moscow, Tromso
+#		NOT = { 
+#			OR = {
+#				capital_scope = { region = scandinavia_region }
+#				capital_scope = { region = russia_region }
+#			}
+#		}
+#		NOT = { exists = FIN }
+#		NOT = { exists = SU4 }
+#		NOT = { exists = FI3 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.3.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = finland_area 
+#					area = bothnia_area
+#					province_id = 30
+#					province_id = 32
+#					province_id = 1930
+#					province_id = 4124
+#					province_id = 4152
+#				}
+#			}
+#			cede_province = FIN
+#			add_core = FIN
+#			remove_core = ROOT 
+#		}
+#		vassalize = FIN
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.3.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = finland_area 
+#					area = bothnia_area
+#					province_id = 30
+#					province_id = 32
+#					province_id = 1930
+#					province_id = 4124
+#					province_id = 4152
+#				}
+#			}
+#			cede_province = FIN
+#			add_core = FIN
+#			remove_core = ROOT 
+#		}
+#		FIN = { every_neighbor_country = { add_truce_with = FIN } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.3.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = finland_area 
+#					area = bothnia_area
+#					province_id = 30
+#					province_id = 32
+#					province_id = 1930
+#					province_id = 4124
+#					province_id = 4152
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = FIN
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.3.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = finland_area 
+#					area = bothnia_area
+#					province_id = 30
+#					province_id = 32
+#					province_id = 1930
+#					province_id = 4124
+#					province_id = 4152
+#				}
+#			}
+#			cede_province = FIN
+#			add_core = FIN
+#		}
+#		FIN = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			FIN = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.3.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = finland_area 
+#					area = bothnia_area
+#					province_id = 30
+#					province_id = 32
+#					province_id = 1930
+#					province_id = 4124
+#					province_id = 4152
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = FIN	
+#		}
+#	}
+#}
+#
+##Sami
+#country_event = {
+#	id = cpbm_independence.4
+#	title = cpbm_independence.4.t
+#	desc = cpbm_independence.4.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		AND = { owns = 315 owns = 4152 } #Tromso, Inari
+#		NOT = { AND = { owns = 1 owns = 17 owns = 27 owns = 28 owns = 1776 } } #Stockholm, Oslo, Turku, Helsinki, Kem'
+#		NOT = { capital_scope = { region = scandinavia_region } }
+#		NOT = { exists = SMI }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.4.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = laponia_area
+#					province_id = 18
+#					province_id = 4114
+#					province_id = 4151
+#				}
+#			}
+#			cede_province = SMI
+#			add_core = SMI
+#			remove_core = ROOT 
+#		}
+#		vassalize = SMI
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.4.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = laponia_area
+#					province_id = 18
+#					province_id = 4114
+#					province_id = 4151
+#				}
+#			}
+#			cede_province = SMI
+#			add_core = SMI
+#			remove_core = ROOT 
+#		}
+#		SMI = { every_neighbor_country = { add_truce_with = SMI } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.4.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = laponia_area
+#					province_id = 18
+#					province_id = 4114
+#					province_id = 4151
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = SMI
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.4.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = laponia_area
+#					province_id = 18
+#					province_id = 4114
+#					province_id = 4151
+#				}
+#			}
+#			cede_province = SMI
+#			add_core = SMI
+#		}
+#		SMI = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			SMI = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.4.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = laponia_area
+#					province_id = 18
+#					province_id = 4114
+#					province_id = 4151
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = SMI	
+#		}
+#	}
+#}
+#
+##Indonesia
+#country_event = {
+#	id = cpbm_independence.5
+#	title = cpbm_independence.5.t
+#	desc = cpbm_independence.5.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 630 #Jakarta
+#		NOT = { 
+#			OR = {
+#				capital_scope = { region = indonesia_region }
+#				capital_scope = { region = malaya_region }
+#				capital_scope = { region = moluccas_region }
+#			}
+#		}
+#		NOT = { exists = IDN }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.5.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = indonesia_region
+#					area = south_sumatra_area
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = makassar_area
+#					area = south_sulawesi_area
+#					area = sulawesi_area
+#					area = molluca_area
+#					area = timor_area
+#					area = spice_islands_area
+#					province_id = 2686
+#					province_id = 3213
+#				}
+#			}
+#			cede_province = IDN
+#			add_core = IDN
+#			remove_core = ROOT 
+#		}
+#		vassalize = IDN
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.5.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					region = indonesia_region
+#					area = south_sumatra_area
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = makassar_area
+#					area = south_sulawesi_area
+#					area = sulawesi_area
+#					area = molluca_area
+#					area = timor_area
+#					area = spice_islands_area
+#					province_id = 2686
+#					province_id = 3213
+#				}
+#			}
+#			cede_province = IDN
+#			add_core = IDN
+#			remove_core = ROOT 
+#		}
+#		IDN = { every_neighbor_country = { add_truce_with = IDN } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.5.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = indonesia_region
+#					area = south_sumatra_area
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = makassar_area
+#					area = south_sulawesi_area
+#					area = sulawesi_area
+#					area = molluca_area
+#					area = timor_area
+#					area = spice_islands_area
+#					province_id = 2686
+#					province_id = 3213
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = IDN
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.5.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = indonesia_region
+#					area = south_sumatra_area
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = makassar_area
+#					area = south_sulawesi_area
+#					area = sulawesi_area
+#					area = molluca_area
+#					area = timor_area
+#					area = spice_islands_area
+#					province_id = 2686
+#					province_id = 3213
+#				}
+#			}
+#			cede_province = IDN
+#			add_core = IDN
+#		}
+#		IDN = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			IDN = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.5.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = indonesia_region
+#					area = south_sumatra_area
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = makassar_area
+#					area = south_sulawesi_area
+#					area = sulawesi_area
+#					area = molluca_area
+#					area = timor_area
+#					area = spice_islands_area
+#					province_id = 2686
+#					province_id = 3213
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = IDN	
+#		}
+#	}
+#}
+#
+##Aceh
+#country_event = {
+#	id = cpbm_independence.6
+#	title = cpbm_independence.6.t
+#	desc = cpbm_independence.6.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 617 #Banda Aceh
+#		NOT = { capital_scope = { region = malaya_region } }
+#		NOT = { exists = ATJ }
+#		NOT = { exists = LAM }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.6.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = { area = north_sumatra_area }
+#			cede_province = ATJ
+#			add_core = ATJ
+#			remove_core = ROOT 
+#		}
+#		vassalize = ATJ
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.6.b
+#		every_owned_province = {
+#			limit = { area = north_sumatra_area }
+#			cede_province = ATJ
+#			add_core = ATJ
+#			remove_core = ROOT 
+#		}
+#		ATJ = { every_neighbor_country = { add_truce_with = ATJ } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.6.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = { area = north_sumatra_area }
+#			add_unrest = 5
+#			add_core = ATJ
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.6.dd
+#		every_owned_province = { 
+#			limit = { area = north_sumatra_area }
+#			cede_province = ATJ
+#			add_core = ATJ
+#		}
+#		ATJ = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			ATJ = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.6.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = { area = north_sumatra_area }
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = ATJ	
+#		}
+#	}
+#}
+#
+##Yemen
+#country_event = {
+#	id = cpbm_independence.7
+#	title = cpbm_independence.7.t
+#	desc = cpbm_independence.7.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		AND = { owns = 390 owns = 4279 owns = 4280 } #Sanaa, Al-Hudaydah, Taiz
+#		NOT = { AND = { owns = 392 owns = 400 owns = 403 owns = 2766 } } #Riyadh, Muscat, Nizwa, Asmara
+#		NOT = { capital_scope = { region = arabia_region } }
+#		NOT = { exists = YEM }
+#		NOT = { exists = AF2 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.7.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = upper_yemen_area 
+#					area = yemen_area
+#					area = hadramut_area
+#					area = mahra_area
+#					province_id = 387
+#					province_id = 4279
+#					province_id = 4282
+#				}
+#			}
+#			cede_province = YEM
+#			add_core = YEM
+#			remove_core = ROOT 
+#		}
+#		vassalize = YEM
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.7.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = upper_yemen_area 
+#					area = yemen_area
+#					area = hadramut_area
+#					area = mahra_area
+#					province_id = 387
+#					province_id = 4279
+#					province_id = 4282
+#				}
+#			}
+#			cede_province = YEM
+#			add_core = YEM
+#			remove_core = ROOT 
+#		}
+#		YEM = { every_neighbor_country = { add_truce_with = YEM } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.7.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = upper_yemen_area 
+#					area = yemen_area
+#					area = hadramut_area
+#					area = mahra_area
+#					province_id = 387
+#					province_id = 4279
+#					province_id = 4282
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = YEM
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.7.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = upper_yemen_area 
+#					area = yemen_area
+#					area = hadramut_area
+#					area = mahra_area
+#					province_id = 387
+#					province_id = 4279
+#					province_id = 4282
+#				}
+#			}
+#			cede_province = YEM
+#			add_core = YEM
+#		}
+#		YEM = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			YEM = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.7.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = upper_yemen_area 
+#					area = yemen_area
+#					area = hadramut_area
+#					area = mahra_area
+#					province_id = 387
+#					province_id = 4279
+#					province_id = 4282
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = YEM	
+#		}
+#	}
+#}
+#
+##Hadhramaut
+#country_event = {
+#	id = cpbm_independence.8
+#	title = cpbm_independence.8.t
+#	desc = cpbm_independence.8.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		AND = { owns = 2343 owns = 4283 } #Seiyun, Ash-Shihr
+#		NOT = { AND = { owns = 390 owns = 392 owns = 400 owns = 403 owns = 4279 owns = 4280 } } #Sana'a, Riyadh, Muscat, Nizwa, Al-Hudaydah, Taiz
+#		NOT = { capital_scope = { region = arabia_region } }
+#		NOT = { exists = HDR }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.8.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = hadramut_area
+#					province_id = 402
+#					province_id = 4284
+#				}
+#			}
+#			cede_province = HDR
+#			add_core = HDR
+#			remove_core = ROOT 
+#		}
+#		vassalize = HDR
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.8.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = hadramut_area
+#					province_id = 402
+#					province_id = 4284
+#				}
+#			}
+#			cede_province = HDR
+#			add_core = HDR
+#			remove_core = ROOT 
+#		}
+#		HDR = { every_neighbor_country = { add_truce_with = HDR } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.8.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = hadramut_area
+#					province_id = 402
+#					province_id = 4284
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = HDR
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.8.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = hadramut_area
+#					province_id = 402
+#					province_id = 4284
+#				}
+#			}
+#			cede_province = HDR
+#			add_core = HDR
+#		}
+#		HDR = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			HDR = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.8.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = hadramut_area
+#					province_id = 402
+#					province_id = 4284
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}	
+#			add_core = HDR
+#		}
+#	}
+#}
+#
+##Srivijaya
+#country_event = {
+#	id = cpbm_independence.9
+#	title = cpbm_independence.9.t
+#	desc = cpbm_independence.9.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 622 #Palembang
+#		NOT = { AND = { owns = 598 owns = 4831 } } #Pahang/Kuantan, Bangkok
+#		NOT = { capital_scope = { region = malaya_region } }
+#		NOT = { exists = SRI }
+#		NOT = { exists = PLB }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = malacca_area
+#					province_id = 597
+#					province_id = 622
+#					province_id = 623
+#					province_id = 2394
+#					province_id = 2678
+#					province_id = 2686
+#					province_id = 4813
+#					province_id = 4815
+#				}
+#			}
+#			cede_province = SRI
+#			add_core = SRI
+#			remove_core = ROOT 
+#		}
+#		vassalize = SRI
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = malacca_area
+#					province_id = 597
+#					province_id = 622
+#					province_id = 623
+#					province_id = 2394
+#					province_id = 2678
+#					province_id = 2686
+#					province_id = 4813
+#					province_id = 4815
+#				}
+#			}
+#			cede_province = SRI
+#			add_core = SRI
+#			remove_core = ROOT 
+#		}
+#		SRI = { every_neighbor_country = { add_truce_with = SRI } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = malacca_area
+#					province_id = 597
+#					province_id = 622
+#					province_id = 623
+#					province_id = 2394
+#					province_id = 2678
+#					province_id = 2686
+#					province_id = 4813
+#					province_id = 4815
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = SRI
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = malacca_area
+#					province_id = 597
+#					province_id = 622
+#					province_id = 623
+#					province_id = 2394
+#					province_id = 2678
+#					province_id = 2686
+#					province_id = 4813
+#					province_id = 4815
+#				}
+#			}
+#			cede_province = SRI
+#			add_core = SRI
+#		}
+#		SRI = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			SRI = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = rejang_area
+#					area = jambi_area
+#					area = minangkabau_area
+#					area = central_sumatra_area
+#					area = batak_area
+#					area = north_sumatra_area
+#					area = malacca_area
+#					province_id = 597
+#					province_id = 622
+#					province_id = 623
+#					province_id = 2394
+#					province_id = 2678
+#					province_id = 2686
+#					province_id = 4813
+#					province_id = 4815
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}	
+#			add_core = SRI
+#		}
+#	}
+#}
+#
+##Philippines
+#country_event = {
+#	id = cpbm_independence.10
+#	title = cpbm_independence.10.t
+#	desc = cpbm_independence.10.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 656 #Manila
+#		NOT = { capital_scope = { region = moluccas_region } }
+#		NOT = { exists = PHI }
+#		NOT = { exists = MNA }
+#		NOT = { exists = MI5 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = southern_luzon_area
+#					area = luzon_area
+#					area = palawan_area
+#					area = visayas_area
+#					area = mindanao_area
+#					area = west_mindanao_area
+#				}
+#			}
+#			cede_province = MNA
+#			add_core = MNA
+#			remove_core = ROOT 
+#		}
+#		vassalize = MNA
+#		MNA = { change_tag = PHI }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = southern_luzon_area
+#					area = luzon_area
+#					area = palawan_area
+#					area = visayas_area
+#					area = mindanao_area
+#					area = west_mindanao_area
+#				}
+#			}
+#			cede_province = MNA
+#			add_core = MNA
+#			remove_core = ROOT 
+#		}
+#		MNA = { 
+#			every_neighbor_country = { add_truce_with = MNA } 
+#			change_tag = PHI
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = {
+#					area = southern_luzon_area
+#					area = luzon_area
+#					area = palawan_area
+#					area = visayas_area
+#					area = mindanao_area
+#					area = west_mindanao_area
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = MNA
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = southern_luzon_area
+#					area = luzon_area
+#					area = palawan_area
+#					area = visayas_area
+#					area = mindanao_area
+#					area = west_mindanao_area
+#				}
+#			}
+#			cede_province = MNA
+#			add_core = MNA
+#		}
+#		MNA = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#			hidden_effect = {	
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#			change_tag = PHI
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.9.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = southern_luzon_area
+#					area = luzon_area
+#					area = palawan_area
+#					area = visayas_area
+#					area = mindanao_area
+#					area = west_mindanao_area
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = MNA	
+#		}
+#	}
+#}
+#
+##Belarus
+#country_event = {
+#	id = cpbm_independence.11
+#	title = cpbm_independence.11.t
+#	desc = cpbm_independence.11.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 276 #Minsk
+#		NOT = { 
+#			AND = { 
+#				owns = 33 	#St. Petersburg
+#				owns = 254 	#Poznan
+#				owns = 257 	#Warsaw
+#				owns = 262 	#Krakow
+#				owns = 269 	#Bialystok (Prevent WW1 Russian Enclave)
+#				owns = 272 	#Vilnius
+#				owns = 273 	#Latgalia
+#				owns = 280 	#Kiev
+#				owns = 295 	#Moscow
+#			} 
+#		}
+#		NOT = { 
+#			OR = {
+#				capital_scope = { region = ruthenia_region }
+#				capital_scope = { region = baltic_region }
+#			}
+#		}
+#		NOT = { exists = BLR }
+#		NOT = { exists = BE9 }
+#		NOT = { exists = BE7 }
+#		NOT = { exists = BE6 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.11.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = minsk_area 
+#					area = pripyat_area
+#					area = white_ruthenia_area
+#					province_id = 277
+#					province_id = 770
+#					province_id = 1937
+#					province_id = 4536
+#				}
+#			}
+#			cede_province = BLR
+#			add_core = BLR
+#			remove_core = ROOT 
+#		}
+#		vassalize = BLR
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.11.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = minsk_area 
+#					area = pripyat_area
+#					area = white_ruthenia_area
+#					province_id = 277
+#					province_id = 770
+#					province_id = 1937
+#					province_id = 4536
+#				}
+#			}
+#			cede_province = BLR
+#			add_core = BLR
+#			remove_core = ROOT
+#		}
+#		BLR = { every_neighbor_country = { add_truce_with = BLR } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.11.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = {
+#					area = minsk_area 
+#					area = pripyat_area
+#					area = white_ruthenia_area
+#					province_id = 277
+#					province_id = 770
+#					province_id = 1937
+#					province_id = 4536
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = BLR
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.11.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = minsk_area 
+#					area = pripyat_area
+#					area = white_ruthenia_area
+#					province_id = 277
+#					province_id = 770
+#					province_id = 1937
+#					province_id = 4536
+#				}
+#			}
+#			cede_province = BLR
+#			add_core = BLR
+#		}
+#		BLR = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			BLR = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.11.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = minsk_area 
+#					area = pripyat_area
+#					area = white_ruthenia_area
+#					province_id = 277
+#					province_id = 770
+#					province_id = 1937
+#					province_id = 4536
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}	
+#			add_core = BLR
+#		}
+#	}
+#}
+#
+##Russia
+#country_event = {
+#	id = cpbm_independence.12
+#	title = cpbm_independence.12.t
+#	desc = cpbm_independence.12.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		AND = { owns = 33 owns = 295 } #St. Petersburg, Moscow
+#		NOT = { 
+#			AND = { 
+#				owns = 27	#Turku
+#				owns = 28	#Helsinki
+#				owns = 36	#Tallinn
+#				owns = 38	#Riga
+#				owns = 276	#Minsk
+#				owns = 280	#Kiev
+#				owns = 315 	#Finnmark
+#				owns = 421	#Baku
+#				owns = 423	#Tbilisi
+#				owns = 461	#Almaty
+#				owns = 462	#Batumi
+#				owns = 476	#Astana
+#				owns = 735	#Seoul
+#				owns = 1020	#Kyoto
+#				owns = 1028	#Tokyo
+#				owns = 1816	#Beijing
+#				owns = 1821	#Nanjing
+#				owns = 1845	#Pyongyang
+#				owns = 2116	#Tov/Ulaabaatar
+#				owns = 4678	#Ovorkhangai
+#			} 
+#		} 
+#		NOT = { 
+#			OR = {
+#				capital_scope = { region = russia_region }
+#				capital_scope = { region = scandinavia_region }
+#				capital_scope = { region = ural_region }
+#				capital_scope = { region = ruthenia_region }
+#				capital_scope = { region = crimea_region }
+#				capital_scope = { region = caucasia_region }
+#				capital_scope = { region = west_siberia_region }
+#				capital_scope = { region = mongolia_region }
+#				capital_scope = { region = east_siberia_region }
+#				capital_scope = { region = manchuria_region }
+#				capital_scope = { region = japan_region }
+#			}
+#		}
+#		NOT = { exists = RUS }
+#		NOT = { exists = KRU }
+#		NOT = { exists = KR6 }
+#		NOT = { exists = KR7 }
+#		NOT = { exists = KR8 }
+#		NOT = { exists = SOV }
+#		NOT = { exists = RU6 }
+#		NOT = { exists = RU8 }
+#		NOT = { exists = RU0 }
+#		NOT = { exists = FI1 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.12.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = russia_region
+#					region = ural_region
+#					region = east_siberia_region
+#					area = astrakhan_area
+#					area = circassia_area 
+#					area = dagestan_area
+#					area = kara_area
+#					area = ob_area
+#					area = central_siberia_area
+#					area = tunguska_area
+#					area = irkutsk_area
+#					area = east_heilongjiang_area
+#					area = ilan_hala_area
+#					area = central_ilin_hala_area
+#					area = furdan_area
+#					province_id = 1777
+#					province_id = 4543
+#					province_id = 298
+#					province_id = 299
+#					province_id = 467
+#					province_id = 1971
+#					province_id = 288
+#					province_id = 286
+#					province_id = 2414
+#					province_id = 287
+#					province_id = 2447
+#					province_id = 1076
+#					province_id = 1075
+#					province_id = 1074
+#					province_id = 4690
+#					province_id = 1071
+#					province_id = 4689
+#					province_id = 4688
+#					province_id = 2434
+#					province_id = 1065
+#					province_id = 1066
+#					province_id = 716
+#					province_id = 2102
+#					province_id = 729
+#					province_id = 4217
+#					province_id = 1032
+#				}
+#				NOT = { province_id = 4124 }
+#			}
+#			cede_province = RUS
+#			add_core = RUS
+#			remove_core = ROOT 
+#		}
+#		vassalize = RUS
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.12.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					region = russia_region
+#					region = ural_region
+#					region = east_siberia_region
+#					area = astrakhan_area
+#					area = circassia_area 
+#					area = dagestan_area
+#					area = kara_area
+#					area = ob_area
+#					area = central_siberia_area
+#					area = tunguska_area
+#					area = irkutsk_area
+#					area = east_heilongjiang_area
+#					area = ilan_hala_area
+#					area = central_ilin_hala_area
+#					area = furdan_area
+#					province_id = 1777
+#					province_id = 4543
+#					province_id = 298
+#					province_id = 299
+#					province_id = 467
+#					province_id = 1971
+#					province_id = 288
+#					province_id = 286
+#					province_id = 2414
+#					province_id = 287
+#					province_id = 2447
+#					province_id = 1076
+#					province_id = 1075
+#					province_id = 1074
+#					province_id = 4690
+#					province_id = 1071
+#					province_id = 4689
+#					province_id = 4688
+#					province_id = 2434
+#					province_id = 1065
+#					province_id = 1066
+#					province_id = 716
+#					province_id = 2102
+#					province_id = 729
+#					province_id = 4217
+#					province_id = 1032
+#				}
+#				NOT = { province_id = 4124 }
+#			}
+#			cede_province = RUS
+#			add_core = RUS
+#			remove_core = ROOT
+#		}
+#		RUS = { every_neighbor_country = { add_truce_with = RUS } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.12.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = russia_region
+#					region = ural_region
+#					region = east_siberia_region
+#					area = astrakhan_area
+#					area = circassia_area 
+#					area = dagestan_area
+#					area = kara_area
+#					area = ob_area
+#					area = central_siberia_area
+#					area = tunguska_area
+#					area = irkutsk_area
+#					area = east_heilongjiang_area
+#					area = ilan_hala_area
+#					area = central_ilin_hala_area
+#					area = furdan_area
+#					province_id = 1777
+#					province_id = 4543
+#					province_id = 298
+#					province_id = 299
+#					province_id = 467
+#					province_id = 1971
+#					province_id = 288
+#					province_id = 286
+#					province_id = 2414
+#					province_id = 287
+#					province_id = 2447
+#					province_id = 1076
+#					province_id = 1075
+#					province_id = 1074
+#					province_id = 4690
+#					province_id = 1071
+#					province_id = 4689
+#					province_id = 4688
+#					province_id = 2434
+#					province_id = 1065
+#					province_id = 1066
+#					province_id = 716
+#					province_id = 2102
+#					province_id = 729
+#					province_id = 4217
+#					province_id = 1032
+#				}
+#				NOT = { province_id = 4124 }
+#			}
+#			add_unrest = 5
+#			add_core = RUS
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.12.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = russia_region
+#					region = ural_region
+#					region = east_siberia_region
+#					area = astrakhan_area
+#					area = circassia_area 
+#					area = dagestan_area
+#					area = kara_area
+#					area = ob_area
+#					area = central_siberia_area
+#					area = tunguska_area
+#					area = irkutsk_area
+#					area = east_heilongjiang_area
+#					area = ilan_hala_area
+#					area = central_ilin_hala_area
+#					area = furdan_area
+#					province_id = 1777
+#					province_id = 4543
+#					province_id = 298
+#					province_id = 299
+#					province_id = 467
+#					province_id = 1971
+#					province_id = 288
+#					province_id = 286
+#					province_id = 2414
+#					province_id = 287
+#					province_id = 2447
+#					province_id = 1076
+#					province_id = 1075
+#					province_id = 1074
+#					province_id = 4690
+#					province_id = 1071
+#					province_id = 4689
+#					province_id = 4688
+#					province_id = 2434
+#					province_id = 1065
+#					province_id = 1066
+#					province_id = 716
+#					province_id = 2102
+#					province_id = 729
+#					province_id = 4217
+#					province_id = 1032
+#				}
+#				NOT = { province_id = 4124 }
+#			}
+#			cede_province = RUS
+#			add_core = RUS
+#		}
+#		RUS = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			RUS = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.12.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					region = russia_region
+#					region = ural_region
+#					region = east_siberia_region
+#					area = astrakhan_area
+#					area = circassia_area 
+#					area = dagestan_area
+#					area = kara_area
+#					area = ob_area
+#					area = central_siberia_area
+#					area = tunguska_area
+#					area = irkutsk_area
+#					area = east_heilongjiang_area
+#					area = ilan_hala_area
+#					area = central_ilin_hala_area
+#					area = furdan_area
+#					province_id = 1777
+#					province_id = 4543
+#					province_id = 298
+#					province_id = 299
+#					province_id = 467
+#					province_id = 1971
+#					province_id = 288
+#					province_id = 286
+#					province_id = 2414
+#					province_id = 287
+#					province_id = 2447
+#					province_id = 1076
+#					province_id = 1075
+#					province_id = 1074
+#					province_id = 4690
+#					province_id = 1071
+#					province_id = 4689
+#					province_id = 4688
+#					province_id = 2434
+#					province_id = 1065
+#					province_id = 1066
+#					province_id = 716
+#					province_id = 2102
+#					province_id = 729
+#					province_id = 4217
+#					province_id = 1032
+#				}
+#				NOT = { province_id = 4124 }
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = RUS	
+#		}
+#	}
+#}
+#
+##Ryazan (Long MTTH)
+#country_event = {
+#	id = cpbm_independence.13
+#	title = cpbm_independence.13.t
+#	desc = cpbm_independence.13.d
+#	picture = MILITARY_CAMP_eventPicture
+#
+#	trigger = {
+#		owns = 301 #Ryazan
+#		NOT = { 
+#			AND = { 
+#				owns = 296	#Kaluga
+#				owns = 298	#Kursk
+#				owns = 299	#Voronezh
+#				owns = 302	#Tambov
+#				owns = 304	#Penza
+#				owns = 307	#Vladimir
+#				owns = 1754	#Arzamas
+#				owns = 2423	#Mordovia
+#				owns = 4116	#Oryol
+#				owns = 4252	#Kolomna
+#			} 
+#		}
+#		NOT = { capital_scope = { region = russia_region } }
+#		NOT = { exists = RYA }
+#		NOT = { exists = RY8 }
+#		NOT = { exists = RY7 }
+#		NOT = { exists = RY6 }
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 6000
+#
+#		modifier = {
+#			factor = 0.1
+#			is_year = 1950
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.13.a
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = ryazan_area
+#					province_id = 300
+#					province_id = 2408
+#				}
+#			}
+#			cede_province = RYA
+#			add_core = RYA
+#			remove_core = ROOT 
+#		}
+#		vassalize = RYA
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.13.b
+#		every_owned_province = {
+#			limit = {
+#				OR = { 
+#					area = ryazan_area
+#					province_id = 300
+#					province_id = 2408
+#				}
+#			}
+#			cede_province = RYA
+#			add_core = RYA
+#			remove_core = ROOT
+#		}
+#		RYA = { every_neighbor_country = { add_truce_with = RYA } }
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.13.c
+#		add_adm_power = -200
+#		add_dip_power = -200
+#		add_mil_power = -200
+#		add_years_of_income = -2
+#		every_owned_province = { 
+#			limit = {
+#				OR = {
+#					area = ryazan_area
+#					province_id = 300
+#					province_id = 2408
+#				}
+#			}
+#			add_unrest = 5
+#			add_core = RYA
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.13.dd
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = ryazan_area
+#					province_id = 300
+#					province_id = 2408
+#				}
+#			}
+#			cede_province = RYA
+#			add_core = RYA
+#		}
+#		RYA = { 
+#			declare_war_with_cb = {
+#				who = ROOT
+#				casus_belli = cb_independence_war
+#			}
+#		}
+#		hidden_effect = {
+#			RYA = {
+#				capital_scope = {
+#					build_to_forcelimit = {
+#						infantry = 0.8
+#						cavalry = 0.2
+#					}
+#				}
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = cpbm_independence.13.e
+#		highlight = yes
+#		trigger = { mil = 5 }
+#		every_owned_province = { 
+#			limit = {
+#				OR = { 
+#					area = ryazan_area
+#					province_id = 300
+#					province_id = 2408
+#				}
+#			}
+#			add_province_modifier = {
+#				name = "suppress_minority"
+#				duration = 3650
+#			}
+#			add_core = RYA	
+#		}
+#	}
+#}
