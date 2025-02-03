@@ -1,0 +1,98 @@
+# Force a raiding nation to end its raiding ways
+po_force_end_raiding = {
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 0.0
+	prestige_base = 0.5
+	ae_base = 0.0
+	warscore_cost = {
+		no_provinces = 50.0
+	}
+	warscore_cap = 50
+	requires_demand_independence = no
+	is_make_subject = no
+	requires_is_allowed = no
+	
+	is_visible = {
+		FROM = {
+			any_owned_province = {
+				has_port = yes
+			}
+			OR = {
+				has_global_modifier_value = {
+					which = may_perform_slave_raid
+					value = 1
+				}
+				has_global_modifier_value = {
+					which = may_perform_slave_raid_on_same_religion
+					value = 1
+				}
+			}
+		}
+	}
+	
+	effect = {
+		FROM = {
+			set_country_flag = piracy_ended
+			if = {
+				limit = {
+					OR = {
+						KNI_ideas = 1
+						JAJ_ideas = 1
+						#MOR_ideas = 1
+						#TUN_ideas = 1
+						NRM_ideas = 1
+						#berber_ideas = 1
+					}
+				}
+				swap_free_idea_group = yes
+			}
+			if = {
+				limit = {
+					has_reform = barbary_sultanate_reform
+				}
+				add_government_reform = iqta
+			}
+			if = {
+				limit = {
+					has_reform = barbary_eyalet_government
+				}
+				add_government_reform = iqta
+			}
+			if = {
+				limit = {
+					has_reform = pirate_republic_reform
+				}
+				add_government_reform = oligarchy_reform
+			}
+			if = {
+				limit = {
+					has_reform = embedded_norse_government_reform
+				}
+				add_government_reform = curtail_clergy_power_reform
+			}
+		}
+	}
+	ai_weight = {
+		limit = {
+			NOT = { # ROOT isn't a hypocrite
+				ROOT = {
+					OR = {
+						has_global_modifier_value = {
+							which = may_perform_slave_raid
+							value = 1
+						}
+						has_global_modifier_value = {
+							which = may_perform_slave_raid_on_same_religion
+							value = 1
+						}
+					}
+				}
+			}
+		}
+		export_to_variable = {
+			variable_name = ai_value 
+			value = 100
+		}
+	}
+}

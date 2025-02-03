@@ -1,0 +1,69 @@
+spanish_civil_war = {
+	potential = {
+		tag = SPR
+		NOT = { exists = SPF }
+		is_free_or_tributary_trigger = yes
+		government = republic
+		has_reform = multi_party_system
+		religion = secularism
+		dominant_religion = catholic
+		capital_scope = {
+			region = iberia_region
+		}
+		aragon_area			 = { type = all owned_by = ROOT }
+		asturias_area		 = { type = all owned_by = ROOT }
+		basque_country		 = { type = all owned_by = ROOT }
+		castille_area		 = { type = all owned_by = ROOT }
+		extremadura_area	 = { type = all owned_by = ROOT }
+		galicia_area		 = { type = all owned_by = ROOT }
+		leon_area			 = { type = all owned_by = ROOT }
+		toledo_area			 = { type = all owned_by = ROOT }
+		upper_andalucia_area = { type = all owned_by = ROOT }
+		valencia_area		 = { type = all owned_by = ROOT }
+		catalonia_area		 = { type = all OR = { owned_by = ROOT province_id = 197 } }
+		lower_andalucia_area = { type = all OR = { owned_by = ROOT province_id = 226 } }
+		is_year = 4033
+		NOT = { started_in = 4037.4.1 }
+		NOT = { has_global_flag = spanish_civil_war_flag }
+	}
+
+	can_start = {
+		if = {
+			limit = {
+				ai = yes
+			}
+			is_year = 4033
+		}
+		else_if = {
+			limit = {
+				is_year = 4033
+			}
+			NOT = { stability = 3 }
+		}
+		else = {
+			hidden_trigger = { always = no }
+		}
+	}
+
+	can_stop = {
+		if = {
+			limit = {
+				ai = yes
+			}
+			always = no
+		}
+		else = {
+			stability = 3
+		}
+	}
+
+	progress = {
+		factor = 4
+	}
+
+	can_end = {
+		always = yes
+	}
+
+	on_start = etf_event_scw.001
+}

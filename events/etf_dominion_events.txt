@@ -1,0 +1,648 @@
+namespace = etf_dominion
+
+# Become a Dominion?
+#country_event = {
+#	id = etf_dominion.1
+#	title = etf_dominion.1.t
+#	desc = etf_dominion.1.d
+#	picture = DEBATE_REPUBLICAN_eventPicture
+#
+#	trigger = {
+#		is_colonial_subject_type = yes
+#		overlord = {
+#			can_be_overlord = dominion
+#		}
+#		is_at_war = no
+#		overlord = {
+#			is_at_war = no
+#		}
+#		NOT = { has_reform = trade_company_government }
+#		NOT = { has_country_flag = denied_dominionship }
+#		
+#		# Canada:
+#		if = {
+#			limit = {
+#				capital_scope = {
+#					colonial_region = colonial_canada
+#				}
+#				NOT = { tag = NFL }
+#			}
+#			OR = {
+#				AND = {
+#					is_year = 3962
+#					tag = UCA # Upper Canada
+#				}
+#				is_year = 3968
+#			}
+#			NOT = {
+#				alias_exists = { tag = CAN }
+#			}
+#		}
+#		# Newfoundland:
+#		else_if = {
+#			limit = {
+#				tag = NFL
+#			}
+#			is_year = 4005
+#		}
+#		# Misc. Newworld Colonies (except Carribean):
+#		else_if = {
+#			limit = {
+#				capital_scope = {
+#					OR = {
+#						continent = north_america
+#						continent = south_america
+#					}
+#					NOT = { colonial_region = colonial_the_carribean }
+#				}
+#			}
+#			is_year = 3998
+#		}
+#		# Australia:
+#		else_if = {
+#			limit = {
+#				capital_scope = {
+#					colonial_region = colonial_australia
+#				}
+#			}
+#			OR = {
+#				AND = {
+#					is_year = 3999
+#					is_colonial_nation = yes
+#					NOT = {
+#						alias_exists = { tag = AUS }
+#					}
+#				}
+#				AND = {
+#					is_year = 3999
+#					country_is = { tag = AUS }
+#				}
+#				is_year = 4008
+#			}
+#		}
+#		# New Zealand:
+#		else_if = {
+#			limit = {
+#				capital_scope = {
+#					new_zealand_trigger = yes
+#				}
+#			}
+#			is_year = 4005
+#			NOT = {
+#				alias_exists = { tag = NZL }
+#			}
+#		}
+#		# South Africa:
+#		else_if = {
+#			limit = {
+#				capital_scope = {
+#					south_africa_trigger = yes
+#				}
+#			}
+#			is_year = 4008
+#			NOT = {
+#				alias_exists = { tag = RSA }
+#			}
+#		}
+#		# India:
+#		else_if = {
+#			limit = {
+#				country_is = { tag = RHJ }
+#			}
+#			is_year = 4045
+#			NOT = {
+#				alias_exists = { tag = INI }
+#			}
+#		}
+#		# Any and all remaining colonies:
+#		else = {
+#			is_year = 4058
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 3
+#	}
+#
+#	option = { # We should request greater autonomy as a Dominion.
+#		name = etf_dominion.1.ra
+#		overlord = {
+#			country_event = { id = etf_dominion.2 }
+#			custom_tooltip = IF_ACCEPTED
+#			tooltip = {
+#				make_dominion = { target = ROOT }
+#			}
+#		}
+#	}
+#
+#	option = { # We are content with being a colony.
+#		name = etf_dominion.1.rb
+#		set_country_flag = denied_dominionship
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#}
+
+# The Dominion of <Colonial Region>
+country_event = {
+	id = etf_dominion.2
+	title = etf_dominion.2.t
+	desc = etf_dominion.2.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # We welcome them as our equal!
+		name = etf_dominion.2.ra
+		tooltip = {
+			make_dominion = { target = FROM }
+		}
+		FROM = {
+			country_event = { id = etf_dominion.3 }
+		}
+	}
+
+	option = { # We have other plans in mind for [From.GetNameShort].
+		name = etf_dominion.2.rb
+		FROM = {
+			add_liberty_desire = 25
+			set_country_flag = denied_dominionship
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Dominion status Accepted!
+country_event = {
+	id = etf_dominion.3
+	title = etf_dominion.3.t
+	desc = etf_dominion.3.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_dominion.3.r
+		overlord = {
+			make_dominion = { target = ROOT }
+		}
+		if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_canada }
+			}
+			if = {
+				limit = {
+					event_target:_CAN = {
+						exists = yes
+					}
+					capital_scope = {
+						OR = {
+							area = newfoundland_area
+							area = labrador_area
+						}
+					}
+				}
+				change_tag = NFL
+			}
+			else = {
+				change_tag = CAN
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_eastern_america }
+			}
+			if = {
+				limit = {
+					event_target:_USA = {
+						exists = yes
+					}
+					capital_scope = {
+						OR = {
+							area = great_woods_area
+							area = massachusetts_bay_area
+							area = connecticut_valley_area
+							area = maine_area
+							area = south_iroquoisia_area
+							area = eastern_maine_area
+						}
+					}
+				}
+				change_tag = NEN
+			}
+			else = {
+				change_tag = USA
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_louisiana }
+			}
+			change_tag = LOU
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_california }
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = alaska_area
+							area = east_alaska_area
+							area = northern_alaska_area
+						}
+					}
+				}
+				change_tag = ALA
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = oregon_area
+							area = columbia_river_area
+							area = snake_river_area
+							area = salish_sea_area
+							area = interior_plateau_area
+							area = hecate_strait_area
+							area = straits_of_georgia_area
+							area = yukon_area
+						}
+					}
+				}
+				change_tag = CSC
+			}
+			else = {
+				change_tag = CAL
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_mexico }
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = guatemala_area
+							area = guatemala_lowlands_area
+						}
+					}
+				}
+				change_tag = GTM
+			}
+			else_if = {
+				limit = {
+					capital_scope = { area = honduras_area }
+				}
+				change_tag = HON
+			}
+			else_if = {
+				limit = {
+					capital_scope = { area = nicaragua_area }
+				}
+				change_tag = NCR
+			}
+			else_if = {
+				limit = {
+					capital_scope = { area = costa_rica_area }
+				}
+				change_tag = COS
+			}
+			else = {
+				change_tag = MEX
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_the_carribean }
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = cuba_area
+							area = east_cuba_area
+						}
+					}
+				}
+				change_tag = CUB
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = hispaniola_area
+							area = dominica_area
+						}
+					}
+				}
+				change_tag = HAT
+			}
+			else = {
+				change_tag = WSI
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_colombia }
+			}
+			change_tag = COL
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_peru }
+			}
+			change_tag = PEU
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_la_plata }
+			}
+			change_tag = LAP
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_brazil }
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							area = suriname_area
+							area = guyana_area
+						}
+					}
+				}
+				change_tag = GYA
+			}
+			else = {
+				change_tag = BRZ
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_australia }
+			}
+			change_tag = AUS
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_oceania }
+			}
+			change_tag = NZL
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_south_africa }
+			}
+			if = {
+				limit = {
+					capital_scope = { namibia_trigger = yes }
+				}
+				change_tag = NMB
+			}
+			else_if = {
+				limit = {
+					capital_scope = { botswana_trigger = yes }
+				}
+				change_tag = BOT
+			}
+			else = {
+				change_tag = RSA
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_zambezi }
+			}
+			if = {
+				limit = {
+					capital_scope = { zimbabwe_trigger = yes }
+				}
+				change_tag = GZI
+			}
+			else_if = {
+				limit = {
+					capital_scope = { mozambique_trigger = yes }
+				}
+				change_tag = MZM
+			}
+			else_if = {
+				limit = {
+					capital_scope = { madagascar_trigger = yes }
+				}
+				change_tag = MDG
+			}
+			else = {
+				change_tag = ZAM
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_congo }
+			}
+			if = {
+				limit = {
+					capital_scope = { angola_trigger = yes }
+				}
+				change_tag = AGL
+			}
+			else = {
+				change_tag = DRC
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_east_africa }
+			}
+			if = {
+				limit = {
+					capital_scope = { kenya_trigger = yes }
+				}
+				change_tag = KEY
+			}
+			else_if = {
+				limit = {
+					capital_scope = { uganda_trigger = yes }
+				}
+				change_tag = UGA
+			}
+			else = {
+				change_tag = TNZ
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_ethiopia }
+			}
+			if = {
+				limit = {
+					capital_scope = { eritrea_trigger = yes }
+				}
+				change_tag = ERT
+			}
+			else_if = {
+				limit = {
+					capital_scope = { somalia_trigger = yes }
+				}
+				change_tag = SOM
+			}
+			else = {
+				change_tag = ETH
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_sudan }
+			}
+			change_tag = SUD
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_central_africa }
+			}
+			if = {
+				limit = {
+					capital_scope = { chad_trigger = yes }
+				}
+				change_tag = CDD
+			}
+			else_if = {
+				limit = {
+					capital_scope = { cameroon_trigger = yes }
+				}
+				change_tag = CMR
+			}
+			else_if = {
+				limit = {
+					capital_scope = { gabon_trigger = yes }
+				}
+				change_tag = GAB
+			}
+			else_if = {
+				limit = {
+					capital_scope = { congo_brazzaville_trigger = yes }
+				}
+				change_tag = CNG
+			}
+			else = {
+				change_tag = CAF
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_niger }
+			}
+			if = {
+				limit = {
+					capital_scope = { niger_trigger = yes }
+				}
+				change_tag = NGR
+			}
+			else = {
+				change_tag = NIG
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_ivory_coast }
+			}
+			if = {
+				limit = {
+					capital_scope = { guinea_trigger = yes }
+				}
+				change_tag = GUI
+			}
+			else_if = {
+				limit = {
+					capital_scope = { ghana_trigger = yes }
+				}
+				change_tag = GHA
+			}
+			else_if = {
+				limit = {
+					capital_scope = { togo_trigger = yes }
+				}
+				change_tag = TGO
+			}
+			else = {
+				change_tag = IVO
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_mali }
+			}
+			if = {
+				limit = {
+					capital_scope = { burkina_faso_trigger = yes }
+				}
+				change_tag = BFA
+			}
+			else = {
+				change_tag = MAL
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_west_africa }
+			}
+			if = {
+				limit = {
+					capital_scope = { senegal_trigger = yes }
+				}
+				change_tag = SGL
+			}
+			else = {
+				change_tag = MRT
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					country_is = { tag = RHJ }
+					country_is = { tag = EIC }
+				}
+			}
+			change_tag = INI
+		}
+		on_change_tag_effect = yes
+		if = {
+			limit = {
+				NOT = { religion = new_variable:dominant_religion }
+				NOT = { religion = secularism }
+			}
+			change_religion = capital
+		}
+		if = {
+			limit = {
+				NOT = { primary_culture = new_variable:dominant_culture }
+			}
+			change_primary_culture = capital
+		}
+		if = {
+			limit = {
+				NOT = { ruler_culture = new_variable:primary_culture }
+			}
+			hidden_effect = {
+				define_ruler = {} # Colonial governor is replaced
+			}
+		}
+		every_country = {
+			limit = {
+				is_colonial_subject_type = yes
+				same_colonial_region = { who = ROOT }
+				overlord = {
+					overlord_of = ROOT
+				}
+				NOT = { tag = ROOT }
+			}
+			country_event = { id = etf_annexation.1 }
+		}
+	}
+}

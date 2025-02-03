@@ -1,0 +1,310 @@
+# turn_troops_into_rebels = {
+	# if = {
+		# limit = {
+			# num_of_units_in_province = { who = owner amount = 10 } # Atleast 10
+		# }
+		# custom_tooltip = turn_troops_into_rebels_tt # Army in [This.Province] revolts.
+	# }
+	# hidden_effect = {
+		# if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 120 } }
+			# kill_units = { who = owner }
+			# $type$ = 12
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 110 } }
+			# kill_units = { who = owner }
+			# $type$ = 11
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 100 } }
+			# kill_units = { who = owner }
+			# $type$ = 10
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 90 } }
+			# kill_units = { who = owner }
+			# $type$ = 9
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 80 } }
+			# kill_units = { who = owner }
+			# $type$ = 8
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 70 } }
+			# kill_units = { who = owner }
+			# $type$ = 7
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 60 } }
+			# kill_units = { who = owner }
+			# $type$ = 6
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 50 } }
+			# kill_units = { who = owner }
+			# $type$ = 5
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 40 } }
+			# kill_units = { who = owner }
+			# $type$ = 4
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 30 } }
+			# kill_units = { who = owner }
+			# $type$ = 3
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 20 } }
+			# kill_units = { who = owner }
+			# $type$ = 2
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 10 } }
+			# kill_units = { who = owner }
+			# $type$ = 1
+		# }
+	# }
+# }
+
+# spawn_rebels_in_area = {
+	# $area$ = {
+		# spawn_rebels = {
+			# [[type]
+				# type = $type$
+			# ]
+			# [[size]
+				# size = $size$
+			# ]
+			# win = yes
+		# }
+		# hidden_effect = { # All provinces in area become occupied, but only one rebel-stack remains.
+			# if = {
+				# limit = {
+					# NOT = {
+						# highest_supply_limit_in_area = yes
+					# }
+				# }
+				# kill_units = {
+					# who = REB
+				# }
+			# }
+		# }
+	# }
+# }
+
+start_civil_war = {
+	tooltip = {
+		$tag$ = {
+			[[play_as]
+				if = {
+					limit = {
+						always = $play_as$ # play_as = yes
+					}
+					switch_tag = $tag$
+				}
+			]
+			custom_tooltip = start_civil_war_tooltip # "§RStarts a Civil War against [Prev.GetNameShort]!§!"
+		}
+	}
+	hidden_effect = {
+		# Add cores to inputted provinces
+		[[every_owned_province]
+			every_owned_province = {
+				limit = {
+					$every_owned_province$
+				}
+				add_core = $tag$
+			}
+		]
+		[[provinces]
+			every_owned_province = {
+				limit = {
+					$provinces$
+				}
+				add_core = $tag$
+			}
+		]
+		if = {
+			limit = {
+				$tag$ = {
+					exists = no
+				}
+				any_owned_province = {
+					is_core = $tag$
+				}
+			}
+			release = $tag$
+			$tag$ = {
+				set_country_flag = is_revolting
+				# Starting Resources
+				add_adm_power = 50
+				add_dip_power = 50
+				add_mil_power = 50
+				every_owned_province = {
+					add_local_autonomy = -100 # Provinces, upon flipping, sometimes start with 90% autonomy.
+				}
+				#if = {
+				#	limit = {
+				#		[[treasury]
+				#			always = no
+				#		]
+				#	}
+				#	add_treasury = 100
+				#	export_to_variable = {
+				#		which = total_development_var
+				#		value = trigger_value:total_development
+				#	}
+				#	for_variable_amount = {
+				#		variable = total_development_var
+				#		effect = "
+				#			add_treasury = 1
+				#		"
+				#	}
+				#}
+				#else = {
+					[[treasury]
+						add_treasury = $treasury$
+					]
+				#}
+				#if = {
+				#	limit = {
+				#		[[manpower]
+				#			always = no
+				#		]
+				#	}
+				#	export_to_variable = {
+				#		which = max_manpower_var
+				#		value = trigger_value:max_manpower
+				#	}
+				#	for_variable_amount = {
+				#		variable = max_manpower_var
+				#		effect = "
+				#			add_manpower = 0.5
+				#		"
+				#	}
+				#}
+				#else = {
+					[[manpower]
+						add_manpower = $manpower$
+					]
+				#}
+				# Culture & Religion
+				[[culture]
+					change_primary_culture = $culture$
+				]
+				[[religion]
+					change_religion = $religion$
+				]
+				# Government
+				[[government]
+					change_government = $government$
+				]
+				[[communist] # Overrides previous choice
+					if = {
+						limit = {
+							always = $communist$ # communist = yes
+						}
+						change_government = republic
+						add_government_reform = single_party_system
+						add_government_reform = communist_government
+					}
+				]
+				[[fascist]
+					if = {
+						limit = {
+							always = $fascist$ # fascist = yes
+						}
+						if = {
+							limit = {
+								government = monarchy
+							}
+							add_government_reform = parliamentary_reform
+							add_government_reform = landed_parliament
+							add_government_reform = ceremonial_monarch
+						}
+						else = {
+							change_government = republic
+							add_government_reform = single_party_system
+						}
+						add_government_reform = fascist_government
+					}
+				]
+				# Capital
+				[[capital]
+					if = {
+						limit = {
+							owns_core_province = $capital$
+						}
+						set_capital = $capital$
+					}
+					else = {
+						random_owned_province = {
+							$tag$ = {
+								set_capital = PREV
+							}
+						}
+					}
+				]
+				[[random_capital]
+					if = {
+						limit = {
+							always = $random_capital$ # random_capital = yes
+						}
+						random_owned_province = {
+							$tag$ = {
+								set_capital = PREV
+							}
+						}
+					}
+				]
+				# Troops
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.1
+						artillery = 0.2
+					}
+				}
+				# Ruler
+				define_ruler = {
+					[[monarch]
+						$monarch$
+					]
+				}
+			}
+		}
+		# Should the losing side lose their cores?
+		[[delete_cores_after]
+			# Flags trigger an extra effect upon "Unite the Nation" peace deal that deletes cores
+			if = {
+				limit = {
+					always = $delete_cores_after$ # delete_cores_after = yes
+				}
+				set_country_flag = delete_cores_post_civil_war
+				$tag$ = {
+					set_country_flag = delete_cores_post_civil_war
+				}
+			}
+		]
+		# Start War
+		[[type]
+			# "attacker" or "mutual", decides who can annex who.
+			declare_war_with_cb = {
+				who = $tag$
+				casus_belli = cb_civil_war_$type$
+			}
+		]
+		# Switch tag?
+		[[play_as]
+			if = {
+				limit = {
+					always = $play_as$ # play_as = yes
+				}
+				switch_tag = $tag$
+			}
+		]
+	}
+}

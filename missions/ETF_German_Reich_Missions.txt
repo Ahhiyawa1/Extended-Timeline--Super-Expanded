@@ -1,0 +1,495 @@
+facger_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		country_is = { tag = GER }
+		started_in = 4034.1.1
+		NOT = { started_in = 4043.1.1 }
+	}
+	has_country_shield = yes
+
+	ger_remilitarize_rheinland = {
+		icon = mission_assemble_an_army
+		position = 8
+		required_missions = {
+		}
+		completed_by = 4034.3.7
+		
+		provinces_to_highlight = {
+			OR = {
+				area = lower_rhineland_area
+				area = north_rhine_area
+				area = palatinate_area
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			country_event = { id = etf_event_hoi.200 days = 70 }
+		}
+	}
+
+	ger_anschluss = {
+		icon = mission_have_two_subjects
+		required_missions = {
+			ger_remilitarize_rheinland
+		}
+		completed_by = 4036.3.12
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_HAB
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year = 4036
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			army_size = 150
+			event_target:_HAB = {
+				is_neighbor_of = ROOT
+				NOT = { war_with = ROOT }
+				OR = {
+					is_free_or_tributary_trigger = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_HAB = {
+				country_event = { id = etf_event_hoi.210 days = 70 }
+			}
+		}
+	}
+
+	ger_sudetenland = {
+		icon = mission_cannons_firing
+		required_missions = {
+			ger_anschluss
+		}
+		completed_by = 4036.9.30
+		
+		provinces_to_highlight = {
+			owned_by = event_target:_CZS
+			culture_group = germanic
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year = 4036
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			army_size = 200
+			event_target:_CZS = {
+				is_neighbor_of = ROOT
+				NOT = { war_with = ROOT }
+				any_owned_province = {
+					culture_group = germanic
+				}
+				OR = {
+					is_free_or_tributary_trigger = yes
+					is_subject_of = ROOT
+				}
+			}
+			event_target:_GBR = {
+				is_great_power = yes
+				NOT = { war_with = ROOT }
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_GBR = {
+				country_event = { id = etf_event_hoi.220 days = 70 }
+			}
+		}
+	}
+
+	ger_invade_czs = {
+		icon = mission_unite_home_region
+		required_missions = {
+			ger_sudetenland
+		}
+		completed_by = 4037.3.16
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_CZS
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year = 4037
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			army_size = 220
+			event_target:_CZS = {
+				is_neighbor_of = ROOT
+				NOT = { war_with = ROOT }
+				OR = {
+					is_free_or_tributary_trigger = yes
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_CZS = {
+				country_event = { id = etf_event_hoi.230 days = 70 }
+			}
+		}
+	}
+
+	ger_molotov_ribbentrop = {
+		icon = mission_alliances
+		required_missions = {
+			ger_invade_czs
+		}
+		completed_by = 4037.8.23
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_RUS
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year = 4037
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			army_size = 250
+			event_target:_RUS = {
+				is_great_power = yes
+				NOT = { war_with = ROOT }
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_RUS = {
+				country_event = { id = etf_event_hoi.250 days = 70 }
+			}
+		}
+	}
+
+	ger_danzig_or_war = {
+		icon = mission_hanseatic_city
+		required_missions = {
+			ger_molotov_ribbentrop
+		}
+		completed_by = 4037.9.1
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_POL
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year = 4037
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			army_size = 300
+			event_target:_POL = {
+				is_neighbor_of = ROOT
+				NOT = { war_with = ROOT }
+				is_free_or_tributary_trigger = yes
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_POL = {
+				country_event = { id = etf_event_hoi.260 days = 70 }
+			}
+		}
+	}
+}
+
+facger_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		country_is = { tag = GER }
+		started_in = 4034.1.1
+		NOT = { started_in = 4043.1.1 }
+	}
+	has_country_shield = yes
+
+	ger_ally_italy = {
+		icon = mission_alliances
+		position = 11
+		required_missions = {
+		}
+		completed_by = 4037.5.22
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_ITA
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			event_target:_ITA = {
+				is_free_or_tributary_trigger = yes
+				is_fascist = yes
+				NOT = { war_with = ROOT }
+				NOT = { is_subject_of_type = close_alliance }
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			event_target:_ITA = {
+				country_event = { id = etf_event_hoi.270 days = 70 }
+			}
+		}
+	}
+
+	ger_deal_with_the_french = {
+		icon = mission_have_two_subjects
+		required_missions = {
+		}
+		completed_by = 4038.6.22
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_FRA
+		}
+		trigger = {
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			event_target:_FRA = {
+				capital_scope = {
+					controlled_by = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					controlled_by = ROOT
+				}
+			}
+			hidden_trigger = {
+				war_with = event_target:_FRA
+				NOT = { exists = FRV }
+			}
+		}
+		effect = {
+			tooltip = {
+				create_subject = {
+					subject_type = puppet_state
+					subject = FRV
+				}
+			}
+			hidden_effect = {
+				event_target:_FRA = {
+					# Move capital into exile:
+					if = {
+						limit = {
+							owns_core_province = 338
+						}
+						set_capital = 338 # Algiers
+					}
+					else = {
+						random_owned_province = {
+							limit = {
+								NOT = { continent = europe }
+							}
+							PREV = {
+								set_capital = PREV
+							}
+						}
+					}
+					# Cede German core provinces:
+					every_owned_province = {
+						limit = {
+							is_core = ROOT
+						}
+						cede_province = ROOT
+					}
+					# Vichy France released:
+					every_owned_province = {
+						limit = {
+							OR = {
+								area = pyrenees_area
+								area = languedoc_area
+								area = guyenne_area
+								area = massif_central_area
+								area = provence_area
+								area = savoy_dauphine_area
+								province_id = 102	# Nice
+								province_id = 197	# Roussillon
+								province_id = 1247	# Corsica
+							}
+							NOT = { province_id = 173 }	# Labourd
+							NOT = { province_id = 174 }	# Bordeaux
+						}
+						add_core = FRV
+					}
+					release = FRV
+					# Control the rest of France:
+					europe = {
+						limit = {
+							controlled_by = PREV
+						}
+						add_core = FRV
+						change_controller = ROOT
+					}
+				}
+				create_subject = {
+					subject_type = puppet_state
+					subject = FRV
+				}
+				FRV = {
+					set_country_flag = vichy_france
+					add_treasury = 200
+					add_manpower = 25
+					add_liberty_desire = -20
+					change_government_to_dictatorial_republic = yes
+					add_government_reform = fascist_government
+					define_ruler = {
+						name = "Philippe Pétain"
+						adm = 3
+						dip = 3
+						mil = 5
+						age = 84
+					}
+					join_all_offensive_wars_of = ROOT
+					join_all_defensive_wars_of = ROOT
+				}
+			}
+			event_target:_FRA = {
+				set_country_flag = free_france
+				change_tag = FRF # Free France
+			}
+		}
+	}
+
+	ger_barbarossa = {
+		icon = mission_assemble_an_army
+		required_missions = {
+			ger_molotov_ribbentrop ger_deal_with_the_french
+		}
+		completed_by = 4039.6.22
+		
+		provinces_to_highlight = {
+			is_capital_of = event_target:_RUS
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = 70_DAYS
+				if = {
+					limit = {
+						has_country_flag = focus_cooldown
+					}
+					had_country_flag = {
+						flag = focus_cooldown
+						days = 70
+					}
+				}
+			}
+			is_year_and_month = {
+				year = 4039
+				april = yes
+			}
+			is_free_or_tributary_trigger = yes
+			is_fascist = yes
+			event_target:_RUS = {
+				is_great_power = yes
+				NOT = { war_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+			}
+		}
+		effect = {
+			clr_country_flag = focus_cooldown
+			set_country_flag = focus_cooldown
+			
+			country_event = { id = etf_event_hoi.290 days = 70 }
+		}
+	}
+}

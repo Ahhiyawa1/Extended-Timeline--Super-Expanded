@@ -17,6 +17,7 @@ country_decisions = {
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = GBR }
+			NOT = { tag = NGC }
 			OR = {
 				culture_group = germanic
 				tag = GOT
@@ -32,17 +33,6 @@ country_decisions = {
 				}
 			}
 			owns = 45
-			
-			#New added MMETR
-			OR = {
-				has_institution = guilds
-				AND = {
-					NOT = {
-						has_institution = guilds
-					}
-					government = republic
-				}
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -93,9 +83,9 @@ country_decisions = {
 						is_part_of_hre = no
 						is_elector = yes
 					}
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 			if = { 
 				limit = { 

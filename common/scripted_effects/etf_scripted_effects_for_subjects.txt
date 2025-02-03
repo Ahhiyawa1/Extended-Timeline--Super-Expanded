@@ -1,0 +1,180 @@
+release_subject = {
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_province = {
+					is_core = $subject$
+				}
+				NOT = { exists = $subject$ }
+			}
+			every_owned_province = {
+				limit = {
+					is_core = $subject$
+				}
+				remove_core = PREV
+			}
+			release = $subject$
+			[[effect]
+				$subject$ = {
+					$effect$
+				}
+			]
+		}
+	}
+	create_subject = {
+		subject_type = $subject_type$
+		subject = $subject$
+	}
+	[[can_be_annexed]
+		if = {
+			limit = {
+				NOT = { always = $can_be_annexed$ } # can_be_annexed = no
+			}
+			$subject$ = {
+				disable_subject_annexation = yes
+			}
+		}
+		else = {
+			$subject$ = {
+				enable_subject_annexation = yes
+			}
+		}
+	]
+}
+
+# release_country_effect = {
+	# hidden_effect = {
+		# save_event_target_as = root_target
+		
+		# $tag$ = {
+			# every_core_province = {
+				# limit = {
+					# NOT = {
+						# [[trigger]
+							# $trigger$
+						# ]
+					# }
+				# }
+				# remove_core = PREV
+			# }
+			# every_province = {
+				# limit = {
+					# [[owned_by]
+						# owned_by = event_target:root_target
+					# ]
+					# [[country_or_non_sovereign_subject_holds]
+						# country_or_non_sovereign_subject_holds = event_target:root_target
+					# ]
+					# [[trigger]
+						# $trigger$
+					# ]
+				# }
+				# remove_core = owner
+				# add_core = PREV
+				# if = {
+					# limit = {
+						# NOT = { owned_by = event_target:root_target }
+					# }
+					# cede_province = event_target:root_target
+				# }
+			# }
+		# }
+		
+		# release = $tag$
+		# $tag$ = {
+			# add_years_of_income = 1
+			# add_yearly_manpower = 1
+			# [[government]
+				# change_government = $government$
+			# ]
+			# [[colony]
+				# change_primary_culture = event_target:root_target
+				# change_religion = event_target:root_target
+				# change_technology_group = event_target:root_target
+			# ]
+			# if = {
+				# limit = {
+					# owns_core_province = $set_capital$
+				# }
+				# set_capital = $set_capital$
+			# }
+			# define_ruler = {
+				# [[define_ruler]
+					# $define_ruler$
+				# ]
+			# }
+			# if = {
+				# limit = {
+					# has_heir = yes
+				# }
+				# remove_heir = {}
+			# }
+		# }
+	# }
+# }
+
+enable_subject_annexation = {
+	if = {
+		limit = {
+			has_country_modifier = disable_subject_annexation_modifier
+		}
+		remove_country_modifier = disable_subject_annexation_modifier
+	}
+}
+
+disable_subject_annexation = {
+	if = {
+		limit = {
+			is_subject = yes
+			NOT = { has_country_modifier = disable_subject_annexation_modifier }
+		}
+		add_country_modifier = {
+			name = disable_subject_annexation_modifier
+			duration = -1
+		}
+	}
+}
+
+make_dominion = {
+	hidden_effect = {
+		$target$ = {
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				grant_independence = yes
+			}
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
+				catch_up_on_reforms_effect = yes
+			}
+			set_country_flag = dominion_of_@PREV
+			set_country_flag = ruler_is_prime_minister
+			add_government_reform = dominion_reform
+		}
+	}
+	create_subject = {
+		subject_type = dominion
+		subject = $target$
+	}
+}
+
+change_subject_type_effect = { # "change_subject_type" sometimes doesn't seem to work.
+	$subject$ = {
+		if = {
+			limit = {
+				is_subject = yes
+				NOT = { is_subject_of_type = $subject_type$ }
+			}
+			overlord = {
+				create_subject = {
+					subject = $subject$
+					subject_type = $subject_type$
+				}
+			}
+		}
+	}
+}

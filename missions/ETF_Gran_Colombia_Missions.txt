@@ -1,0 +1,525 @@
+gco_slot_1 = {
+	slot = 1
+	generic = yes # IN CASE ANOTHER MOD ADDS A PROPER TREE!
+	ai = yes
+	potential = {
+		OR = {
+			tag = COL
+			tag = ECU
+			tag = VNZ
+			tag = GCO
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	gco_secure_our_home = {
+		icon = mission_conquer_50_development
+		required_missions = {}
+		trigger = {
+			if = {
+				limit = {
+					num_of_cities = 12
+				}
+				num_of_owned_provinces_with = {
+					fort_level = 2
+					value = 3
+				}
+			}
+			else = {
+				num_of_owned_provinces_with = {
+					fort_level = 2
+					value = 1
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = gco_secure_our_home_modifier
+				duration = 7300
+			}
+		}
+		ai_weight = {
+			factor = 25
+		}
+	}
+
+	gco_bolivars_legacy = {
+		icon = mission_simon_bolivar
+		required_missions = {
+			gco_secure_our_home
+		}
+		provinces_to_highlight = {
+			is_capital = yes
+			OR = {
+				AND = {
+					ROOT = {
+						NOT = { tag = COL }
+						NOT = { total_development = COL }
+					}
+					owned_by = COL
+				}
+				AND = {
+					ROOT = {
+						NOT = { tag = ECU }
+						NOT = { total_development = ECU }
+					}
+					owned_by = ECU
+				}
+				AND = {
+					ROOT = {
+						NOT = { tag = VNZ }
+						NOT = { total_development = VNZ }
+					}
+					owned_by = VNZ
+				}
+				AND = {
+					ROOT = {
+						NOT = { tag = GCO }
+						NOT = { total_development = GCO }
+					}
+					owned_by = GCO
+				}
+			}
+		}
+		trigger = {
+			army_size_percentage = 1
+			if = {
+				limit = {
+					NOT = { tag = COL }
+				}
+				OR = {
+					total_development = COL
+					NOT = { exists = COL }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { tag = ECU }
+				}
+				OR = {
+					total_development = ECU
+					NOT = { exists = ECU }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { tag = VNZ }
+				}
+				OR = {
+					total_development = VNZ
+					NOT = { exists = VNZ }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { tag = GCO }
+				}
+				OR = {
+					total_development = GCO
+					NOT = { exists = GCO }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = gco_bolivars_legacy_modifier
+				duration = 5475
+			}
+			if = {
+				limit = {
+					OR = {
+						COL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						ECU = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						VNZ = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						GCO = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+				}
+				if = {
+					limit = {
+						COL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = COL
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						ECU = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = ECU
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						VNZ = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = VNZ
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						GCO = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = GCO
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+			}
+			else = {
+				colombia_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	gco_form_gran_colombia = {
+		icon = mission_alliances
+		required_missions = {
+			gco_bolivars_legacy
+		}
+		trigger = {
+			if = {
+				limit = {
+					was_tag = GCO
+				}
+				OR = {
+					tag = GCO
+					AND = {
+						was_tag = GCO
+						NOT = { exists = GCO }
+					}
+				}
+			}
+			else = {
+				tag = GCO
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = gco_form_gran_colombia_modifier
+				duration = 5475
+			}
+			if = {
+				limit = {
+					OR = {
+						PEU = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						SPE = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						BOL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						PBO = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+				}
+				if = {
+					limit = {
+						PEU = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = PEU
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						SPE = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = SPE
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						BOL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = BOL
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						PBO = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = PBO
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+			}
+			else = {
+				peru_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				upper_peru_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	gco_subjugate_peru = {
+		icon = mission_have_two_subjects
+		required_missions = {
+			gco_form_gran_colombia
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					region = peru_region
+					NOT = {
+						ROOT = {
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								region = peru_region
+								value = 15
+							}
+						}
+					}
+				}
+				AND = {
+					region = upper_peru_region
+					NOT = {
+						ROOT = {
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								region = upper_peru_region
+								value = 15
+							}
+						}
+					}
+				}
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = peru_region
+				value = 15
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = upper_peru_region
+				value = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = gco_subjugate_peru_modifier
+				duration = 5475
+			}
+			if = {
+				limit = {
+					OR = {
+						CHL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+						LAP = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+				}
+				if = {
+					limit = {
+						CHL = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = CHL
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+				if = {
+					limit = {
+						LAP = {
+							exists = yes
+							NOT = { is_subject_of = ROOT }
+							NOT = { tag = ROOT }
+						}
+					}
+					add_casus_belli = {
+						target = LAP
+						type = cb_vassalize_mission
+						months = 180 # 15 years
+					}
+				}
+			}
+			else = {
+				la_plata_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	gco_subjugate_la_plata = {
+		icon = mission_hanseatic_city
+		required_missions = {
+			gco_subjugate_peru
+		}
+		provinces_to_highlight = {
+			region = la_plata_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = la_plata_region
+				value = 30
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = gco_subjugate_la_plata_modifier
+				duration = -1
+			}
+			if = {
+				limit = {
+					BRZ = { # Final boss of South America
+						exists = yes
+						NOT = { is_subject_of = ROOT }
+						NOT = { tag = ROOT }
+					}
+				}
+				add_casus_belli = {
+					target = BRZ
+					type = cb_vassalize_mission
+					months = 180 # 15 years
+				}
+			}
+			else_if = {
+				limit = {
+					BR2 = {
+						exists = yes
+						NOT = { is_subject_of = ROOT }
+						NOT = { tag = ROOT }
+					}
+				}
+				add_casus_belli = {
+					target = BR2
+					type = cb_vassalize_mission
+					months = 180 # 15 years
+				}
+			}
+			else = {
+				brazil_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}

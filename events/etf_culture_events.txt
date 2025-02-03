@@ -1,0 +1,851 @@
+namespace = etf_event_culture
+
+##########################
+# Conversion/Assimilation
+# (inspired by Victoria 3 dev diary of the same topic)
+##########################
+
+# Province Converts
+province_event = {
+	id = etf_event_culture.1
+	title = etf_event_culture.1.t
+	desc = etf_event_culture.1.d
+	picture = CONQUEST_eventPicture
+	goto = ROOT
+
+	trigger = {
+		#post_napoleonic_age = yes
+		owner = {
+			OR = {
+				religion = secularism
+				has_country_modifier = religious_freedom_modifier
+			}
+			NOT = { dominant_religion = irreligious }
+			NOT = { has_country_modifier = state_atheism }
+		}
+		# Religion spreads from neighboring province
+		NOT = {
+			OR = {
+				religion_group = owner
+				owner = {
+					any_owned_province = {
+						religion_group = ROOT # Religion group of ROOT province is NOT dominant
+						owner = {
+							dominant_religion = PREV
+						}
+					}
+				}
+			}
+		}
+		any_neighbor_province = {
+			OR = {
+				religion_group = owner
+				owner = {
+					dominant_religion = PREV
+				}
+			}
+		}
+		# Local Missionary Strength isn't zero/negative
+		if = {
+			limit = {
+				owner = { religion = secularism } # Take into account that Secularism significantly reduces M.S.
+			}
+			total_local_missionary_strength = { value = -9.999 }
+		}
+		else = {
+			total_local_missionary_strength = { value = 0.001 } # Not negative
+		}
+		NOT = { has_missionary = yes }
+	}
+
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 2.5 # Penalty for non-pagans
+			NOT = {
+				OR = {
+					religion_group = pagan
+					religion_group = american_pagan
+					religion_group = slavic_pagan
+					religion_group = german_pagan
+					religion_group = african_pagan
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5 # Bonus for colonies
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = africa
+				region = australia_region
+			}
+			owner = {
+				OR = {
+					is_colonial_nation = yes
+					is_former_colonial_nation = yes
+					has_country_flag = changed_from_colonial_nation
+				}
+			}
+		}
+		# Missionary Strength:
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.99 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.01 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.98 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.02 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.97 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.03 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.96 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.04 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.95 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.05 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.94 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.06 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.93 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.07 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.92 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.08 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.91 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.09 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			if = {
+				limit = {
+					owner = { religion = secularism }
+				}
+				total_local_missionary_strength = { value = -9.90 }
+			}
+			else = {
+				total_local_missionary_strength = { value = 0.10 }
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			export_to_variable = {
+				which = owners_dominant_religion
+				value = trigger_value:dominant_religion
+				who = owner
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_culture.1.r
+		if = {
+			limit = {
+				owner = { religion = secularism }
+			}
+			change_religion = variable:owners_dominant_religion
+		}
+		else = {
+			change_religion = owner
+		}
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 3650
+		}
+	}
+}
+
+# Province Assimilates
+province_event = {
+	id = etf_event_culture.2
+	title = etf_event_culture.2.t
+	desc = etf_event_culture.2.d
+	picture = CONQUEST_eventPicture
+	goto = ROOT
+
+	trigger = {
+		#post_napoleonic_age = yes
+		OR = {
+			continent = north_america
+			continent = south_america
+			continent = oceania
+			owner = {
+				has_institution = nationalism_institution
+			}
+		}
+		# Convert culture in states of correct religion
+		is_state_core = owner
+		OR = {
+			culture_group = owner # Either part of culture group, or NOT an accepted culture and outside culture group
+			has_owner_accepted_culture = no
+		}
+		OR = {
+			religion_group = owner
+			owner = {
+				any_owned_province = {
+					religion_group = ROOT # Religion group of ROOT province is dominant
+					owner = {
+						dominant_religion = PREV
+					}
+				}
+			}
+		}
+		# American integration conditions:
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						primary_culture = british_louisianan
+						primary_culture = british_californian
+						primary_culture = american
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_province_modifier = slave_state_modifier
+				}
+				NOT = { culture = british_louisianan }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						region = california_region
+						region = cascadia_region
+						area = montana_area
+						area = upper_missouri_area
+						area = badlands_area
+						area = high_plains_area
+						area = new_mexico_area
+						area = llano_estacado_area
+					}
+				}
+				NOT = { culture = british_californian }
+			}
+			else = {
+				NOT = { culture = american }
+			}
+			NOT = { culture = afro_american }
+			NOT = { # If any core-country shares the province culture, core has to expire first
+				any_core_country = {
+					primary_culture = ROOT
+				}
+			}
+		}
+		# Normal integration conditions:
+		else = {
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							primary_culture = israeli
+							primary_culture = ashkenazim
+							primary_culture = sephardim
+							primary_culture = mizrahim
+						}
+					}
+				}
+				NOT = {
+					OR = {
+						culture = israeli
+						culture = ashkenazim
+						culture = sephardim
+						culture = mizrahim
+					}
+				}
+			}
+			NOT = { culture = owner }
+			NOT = { # If any core-country shares the province culture, core has to expire first
+				any_core_country = {
+					culture_group = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+		modifier = {
+			factor = 5 # Penalty for India/China/Indonesia
+			OR = {
+				superregion = india_superregion
+				superregion = china_superregion
+				region = indonesia_region
+			}
+		}
+		modifier = {
+			factor = 0.5 # Bonus for colonies
+			OR = {
+				continent = north_america
+				continent = south_america
+				region = australia_region
+			}
+			owner = {
+				OR = {
+					is_colonial_nation = yes
+					is_former_colonial_nation = yes
+					has_country_flag = changed_from_colonial_nation
+				}
+			}
+		}
+		# Culture Conversion Cost:
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.1 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.2 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.3 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.4 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.5 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.6 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.7 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.8 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -0.9 }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				total_local_culture_conversion_cost = { value = -1.0 }
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_culture.2.r
+		# American integration:
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						primary_culture = british_louisianan
+						primary_culture = british_californian
+						primary_culture = american
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_province_modifier = slave_state_modifier
+				}
+				random_list = {
+					50 = { change_culture = british_louisianan }	# Dixie
+					50 = { change_culture = afro_american }			# African American
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						region = california_region
+						region = cascadia_region
+						area = montana_area
+						area = upper_missouri_area
+						area = badlands_area
+						area = high_plains_area
+						area = new_mexico_area
+						area = llano_estacado_area
+					}
+				}
+				change_culture = british_californian # Western American
+			}
+			else = {
+				change_culture = american
+			}
+		}
+		# Normal integration:
+		else = {
+			change_culture = owner
+		}
+	}
+}
+
+#######################
+# Cultural Unification
+#######################
+
+# Minor AI nation considers joining cultural hegemon
+country_event = {
+	id = etf_event_culture.10
+	title = "Considered Joining a Cultural Hegemon?"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	trigger = {
+		current_age = industrial_age
+		has_institution = nationalism_institution
+		ai = yes
+		is_at_war = no
+		is_subject = yes
+		was_player = no
+		NOT = { total_development = 250 }
+		
+		OR = {
+			AND = { # North Germany
+				is_north_german_culture_trigger = yes
+				NOT = { primary_culture = baltic_german }
+				
+				overlord = {
+					is_north_german_culture_trigger = yes
+					same_continent = ROOT
+					OR = {
+						is_great_power = yes
+						country_is = { tag = NGC }
+					}
+					NOT = {
+						country_is = { tag = HAB }
+					}
+				}
+			}
+			AND = { # South Germany
+				is_south_german_culture_trigger = yes
+				
+				overlord = {
+					is_south_german_culture_trigger = yes
+					same_continent = ROOT
+					OR = {
+						is_great_power = yes
+						country_is = { tag = SGC }
+					}
+					NOT = {
+						country_is = { tag = HAB }
+					}
+				}
+			}
+			AND = { # Germany
+				is_german_culture_trigger = yes
+				NOT = { primary_culture = baltic_german }
+				
+				overlord = {
+					is_german_culture_trigger = yes
+					same_continent = ROOT
+					country_is = { tag = GER }
+				}
+			}
+			AND = { # Italy
+				culture_group = latin
+				
+				overlord = {
+					culture_group = latin
+					same_continent = ROOT
+					OR = {
+						is_great_power = yes
+						country_is = { tag = ITA }
+					}
+				}
+			}
+			AND = { # Yugoslavia
+				culture_group = south_slavic
+				
+				overlord = {
+					culture_group = south_slavic
+					same_continent = ROOT
+					OR = {
+						is_great_power = yes
+						country_is = { tag = YUG }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 1.2
+			overlord = {
+				is_great_power = no
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 3958
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 3968
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 3978
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 3988
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 3998
+		}
+	}
+	
+	option = {
+		name = None
+		overlord = {
+			country_event = { id = etf_event_culture.11 }
+		}
+	}
+}
+
+# Annex like-minded sphere
+country_event = {
+	id = etf_event_culture.11
+	title = etf_event_culture.11.t
+	desc = etf_event_culture.11.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = etf_event_culture.11.ra
+		annex_tag = {
+			target = FROM
+			transfer_troops = no
+		}
+	}
+	
+	option = {
+		name = etf_event_culture.11.rb
+		add_prestige = -5
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+###############
+# New Cultures
+###############
+
+# Germanic/Iberian/Iranian to Ashkenazi/Sephardi/Mizrahi
+province_event = {
+	id = etf_event_culture.20
+	title = etf_event_culture.20.t
+	desc = etf_event_culture.20.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				culture_group = germanic
+				NOT = { culture = ashkenazim }
+			}
+			AND = {
+				culture_group = iberian
+				NOT = { culture = sephardim }
+			}
+			AND = {
+				culture_group = iranian
+				NOT = { culture = mizrahim }
+			}
+		}
+		religion = jewish
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = {
+		name = etf_event_culture.20.ra
+		trigger = {
+			OR = {
+				owner = {
+					NOT = {
+						OR = {
+							primary_culture = israeli
+							primary_culture = ashkenazim
+							primary_culture = sephardim
+							primary_culture = mizrahim
+						}
+					}
+				}
+				AND = {
+					culture_group = germanic
+					owner = {
+						accepted_culture = ashkenazim
+					}
+				}
+				AND = {
+					culture_group = iberian
+					owner = {
+						accepted_culture = sephardim
+					}
+				}
+				AND = {
+					culture_group = iranian
+					owner = {
+						accepted_culture = mizrahim
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				culture_group = germanic
+			}
+			change_culture = ashkenazim
+		}
+		else_if = {
+			limit = {
+				culture_group = iberian
+			}
+			change_culture = sephardim
+		}
+		else_if = {
+			limit = {
+				culture_group = iranian
+			}
+			change_culture = mizrahim
+		}
+	}
+
+	option = {
+		name = etf_event_culture.20.rb
+		trigger = {
+			owner = {
+				OR = {
+					primary_culture = israeli
+					primary_culture = ashkenazim
+					primary_culture = sephardim
+					primary_culture = mizrahim
+				}
+			}
+			OR = {
+				AND = {
+					culture_group = germanic
+					owner = {
+						NOT = { accepted_culture = ashkenazim }
+					}
+				}
+				AND = {
+					culture_group = iberian
+					owner = {
+						NOT = { accepted_culture = sephardim }
+					}
+				}
+				AND = {
+					culture_group = iranian
+					owner = {
+						NOT = { accepted_culture = mizrahim }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				culture_group = germanic
+			}
+			change_culture = ashkenazim
+			owner = {
+				add_accepted_culture = ashkenazim
+			}
+		}
+		else_if = {
+			limit = {
+				culture_group = iberian
+			}
+			change_culture = sephardim
+			owner = {
+				add_accepted_culture = sephardim
+			}
+		}
+		else_if = {
+			limit = {
+				culture_group = iranian
+			}
+			change_culture = mizrahim
+			owner = {
+				add_accepted_culture = mizrahim
+			}
+		}
+	}
+}
+
+# European diaspora in Africa
+province_event = {
+	id = etf_event_culture.21
+	title = etf_event_culture.21.t
+	desc = etf_event_culture.21.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		continent = africa
+		OR = {
+			AND = {
+				region = maghreb_region
+				culture_group = french
+				NOT = { culture = pied_noir }
+			}
+			AND = {
+				region = zambezi_region
+				culture_group = british
+				NOT = { culture = rhodesian }
+			}
+			AND = {
+				region = south_africa_region
+				culture_group = germanic
+				NOT = { culture = boer }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	option = {
+		name = etf_event_culture.21.r
+		if = {
+			limit = {
+				region = maghreb_region
+				culture_group = french
+			}
+			change_culture = pied_noir
+		}
+		else_if = {
+			limit = {
+				region = zambezi_region
+				culture_group = british
+			}
+			change_culture = rhodesian
+		}
+		else_if = {
+			limit = {
+				region = south_africa_region
+				culture_group = germanic
+			}
+			change_culture = boer
+		}
+	}
+}

@@ -1,0 +1,765 @@
+namespace = etf_FoC_disaster
+
+# Protestors March on Capital
+country_event = {
+	id = etf_FoC_disaster.1
+	title = etf_FoC_disaster.1.t
+	desc = etf_FoC_disaster.1.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_stability = -2
+		hidden_effect = {
+			capital_scope = {
+				if = {
+					limit = {
+						owner = {
+							num_of_states = 5 # Country is moderately big
+						}
+					}
+					every_province_in_state = {
+						set_province_flag = had_FoC_protest_event # 1 Event per State
+					}
+				}
+				else = {
+					set_province_flag = had_FoC_protest_event # 1 Event per Province
+				}
+			}
+		}
+		set_country_flag = had_fall_of_communism_disaster
+	}
+
+	option = { # Try to negotiate
+		name = etf_FoC_disaster.1.ra
+		custom_tooltip = etf_FoC_disaster.1.ra.tt
+		add_prestige = -20
+		set_country_flag = FoC_negotiation_path
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_ruler = "Nicolae Ceausescu"
+			}
+		}
+	}
+
+	option = { # Mobilize the troops!
+		name = etf_FoC_disaster.1.rb
+		custom_tooltip = etf_FoC_disaster.1.rb.tt
+		add_yearly_manpower = 0.5
+		capital_scope = {
+			revolutionary_rebels = 2
+		}
+		random_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					is_capital_of = ROOT
+				}
+			}
+			revolutionary_rebels = 1
+		}
+		set_country_flag = FoC_suppression_path
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_ruler = "Mikhail Gorbachev"
+					AND = {
+						is_subject_other_than_tributary_trigger = yes
+						overlord = {
+							has_ruler = "Mikhail Gorbachev"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Protests Spread to [Province]
+province_event = {
+	id = etf_FoC_disaster.2
+	title = etf_FoC_disaster.2.t
+	desc = etf_FoC_disaster.2.d
+	picture = CHARTISTS_eventPicture
+
+	trigger = {
+		owner = {
+			has_disaster = fall_of_communism
+		}
+		NOT = { has_province_flag = had_FoC_protest_event }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	is_mtth_scaled_to_size = 1
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					owner = {
+						num_of_states = 5 # Country is moderately big
+					}
+				}
+				every_province_in_state = {
+					set_province_flag = had_FoC_protest_event # 1 Event per State
+				}
+			}
+			else = {
+				set_province_flag = had_FoC_protest_event # 1 Event per Province
+			}
+		}
+	}
+
+	option = { # Open a dialogue
+		name = etf_FoC_disaster.2.ra
+		owner = {
+			add_prestige = -10
+		}
+		ai_chance = {
+			modifier = {
+				factor = 1000
+				owner = {
+					has_country_flag = FoC_negotiation_path
+				}
+			}
+		}
+	}
+
+	option = { # Crush them!
+		name = etf_FoC_disaster.2.rb
+		revolutionary_rebels = 1
+		ai_chance = {
+			modifier = {
+				factor = 1000
+				owner = {
+					has_country_flag = FoC_suppression_path
+				}
+			}
+		}
+	}
+}
+
+# Hardliners Resist Reforms
+country_event = {
+	id = etf_FoC_disaster.3
+	title = etf_FoC_disaster.3.t
+	desc = etf_FoC_disaster.3.d
+	picture = CHARTISTS_eventPicture
+
+	trigger = {
+		has_disaster = fall_of_communism
+		has_country_flag = FoC_negotiation_path
+		NOT = { prestige = 0 } # Negative prestige
+		NOT = {
+			had_country_flag = { # (mutually exclusive with "Government Resigns")
+				flag = had_fall_of_communism_disaster
+				days = 100
+			}
+		}
+		NOT = { has_country_flag = had_FoC_hardliners_revolt }
+	}
+
+	mean_time_to_happen = {
+		months = 20
+		modifier = {
+			factor = 0.75
+			NOT = { prestige = -25 }
+		}
+		modifier = {
+			factor = 0.50
+			NOT = { prestige = -50 }
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { prestige = -75 }
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { prestige = -99 }
+		}
+	}
+
+	option = {
+		name = etf_FoC_disaster.3.r
+		capital_scope = {
+			communist_rebels = 2
+		}
+		set_country_flag = had_FoC_hardliners_revolt
+	}
+}
+
+# Hardliners Take Power
+country_event = {
+	id = etf_FoC_disaster.4
+	title = etf_FoC_disaster.4.t
+	desc = etf_FoC_disaster.4.d
+	picture = CHARTISTS_eventPicture
+
+	trigger = {
+		has_disaster = fall_of_communism
+		capital_scope = {
+			has_rebel_faction = communist_rebels
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			disband_rebels = communist_rebels
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = communist_rebels
+				}
+				change_controller = ROOT
+			}
+			if = {
+				limit = {
+					is_dictatorship = no
+				}
+				add_government_reform = dictatorial_rule
+			}
+			if = {
+				limit = {
+					NOT = { has_reform = communist_government }
+				}
+				add_government_reform = communist_government
+			}
+			hidden_effect = {
+				define_ruler = {}
+			}
+			clr_country_flag = FoC_negotiation_path
+			set_country_flag = FoC_suppression_path
+		}
+	}
+
+	option = {
+		name = etf_FoC_disaster.4.r
+		add_stability = -2
+		random_owned_province = {
+			revolutionary_rebels = 2
+		}
+	}
+}
+
+# Government Resigns
+country_event = {
+	id = etf_FoC_disaster.5
+	title = etf_FoC_disaster.5.t
+	desc = etf_FoC_disaster.5.d
+	picture = CHARTISTS_eventPicture
+
+	trigger = {
+		has_disaster = fall_of_communism
+		has_country_flag = FoC_negotiation_path
+		had_country_flag = {
+			flag = had_fall_of_communism_disaster
+			days = 100
+		}
+		NOT = { prestige = -50 }
+		NOT = { has_spawned_rebels = communist_rebels }
+		NOT = { has_country_flag = had_FoC_government_resigns }
+	}
+
+	option = {
+		name = etf_FoC_disaster.5.r
+		set_country_flag = had_FoC_government_resigns
+	}
+}
+
+#####################
+# Conclusion Events :
+#####################
+
+# The State Survives
+country_event = {
+	id = etf_FoC_disaster.10
+	title = etf_FoC_disaster.10.t
+	desc = etf_FoC_disaster.10.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_communist = yes
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = {
+			has_spawned_rebels = revolutionary_rebels
+		}
+		had_country_flag = {
+			flag = had_fall_of_communism_disaster
+			days = 365 # A year has passed
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			clear_rebels_country = yes
+		}
+		end_disaster = fall_of_communism
+	}
+
+	option = {
+		name = etf_FoC_disaster.10.r
+		add_stability = 1
+	}
+
+	after = {
+		clr_country_flag = FoC_negotiation_path
+		clr_country_flag = FoC_suppression_path
+		clr_country_flag = had_FoC_hardliners_revolt
+		clr_country_flag = had_FoC_government_resigns
+		every_province = {
+			limit = {
+				owner = {
+					NOT = { has_disaster = fall_of_communism }
+				}
+			}
+			clr_province_flag = had_FoC_protest_event
+		}
+	}
+}
+
+# The New Regime
+country_event = {
+	id = etf_FoC_disaster.20
+	title = etf_FoC_disaster.20.t
+	desc = etf_FoC_disaster.20.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			capital_scope = {
+				has_rebel_faction = revolutionary_rebels
+			}
+			has_country_flag = had_FoC_government_resigns
+			NOT = { is_communist = yes }
+		}
+		NOT = {
+			AND = {
+				tag = EGE
+			}
+			AND = {
+				tag = CZS
+				any_owned_province = {
+					is_core = SVK
+				}
+				NOT = { exists = SVK }
+			}
+			AND = {
+				country_is = { tag = RUS }
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			clear_rebels_country = yes
+			# If Overlord is Communist, declare independence
+			if = {
+				limit = {
+					is_subject = yes
+					overlord = {
+						is_communist = yes
+					}
+				}
+				remove_from_sphere = yes
+				grant_independence = yes
+				every_war_enemy_country = {
+					white_peace = ROOT
+				}
+			}
+		}
+		end_disaster = fall_of_communism
+		change_government_to_democratic_republic = yes
+		hidden_effect = {
+			define_ruler = {}
+		}
+	}
+
+	option = {
+		name = etf_FoC_disaster.20.r
+		add_stability = 1
+	}
+
+	after = {
+		clr_country_flag = FoC_negotiation_path
+		clr_country_flag = FoC_suppression_path
+		clr_country_flag = had_FoC_hardliners_revolt
+		clr_country_flag = had_FoC_government_resigns
+		every_province = {
+			limit = {
+				owner = {
+					NOT = { has_disaster = fall_of_communism }
+				}
+			}
+			clr_province_flag = had_FoC_protest_event
+		}
+	}
+}
+
+# Fall of the Berlin Wall
+country_event = {
+	id = etf_FoC_disaster.21
+	title = etf_FoC_disaster.21.t
+	desc = etf_FoC_disaster.21.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			capital_scope = {
+				has_rebel_faction = revolutionary_rebels
+			}
+			has_country_flag = had_FoC_government_resigns
+			NOT = { is_communist = yes }
+		}
+		tag = EGE
+	}
+
+	immediate = {
+		hidden_effect = {
+			clear_rebels_country = yes
+			# If Overlord is Communist, declare independence
+			if = {
+				limit = {
+					is_subject = yes
+					overlord = {
+						is_communist = yes
+					}
+				}
+				remove_from_sphere = yes
+				grant_independence = yes
+				every_war_enemy_country = {
+					white_peace = ROOT
+				}
+			}
+		}
+		end_disaster = fall_of_communism
+		change_government_to_democratic_republic = yes
+		hidden_effect = {
+			define_ruler = {}
+		}
+	}
+
+	option = {
+		name = etf_FoC_disaster.21.r
+		add_stability = 1
+	}
+
+	after = {
+		clr_country_flag = FoC_negotiation_path
+		clr_country_flag = FoC_suppression_path
+		clr_country_flag = had_FoC_hardliners_revolt
+		clr_country_flag = had_FoC_government_resigns
+		every_province = {
+			limit = {
+				owner = {
+					NOT = { has_disaster = fall_of_communism }
+				}
+			}
+			clr_province_flag = had_FoC_protest_event
+		}
+	}
+}
+
+# Velvet Revolution
+country_event = {
+	id = etf_FoC_disaster.22
+	title = etf_FoC_disaster.22.t
+	desc = etf_FoC_disaster.22.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			capital_scope = {
+				has_rebel_faction = revolutionary_rebels
+			}
+			has_country_flag = had_FoC_government_resigns
+			NOT = { is_communist = yes }
+		}
+		tag = CZS
+		any_owned_province = {
+			is_core = SVK
+		}
+		NOT = { exists = SVK }
+	}
+
+	immediate = {
+		hidden_effect = {
+			clear_rebels_country = yes
+			# If Overlord is Communist, declare independence
+			if = {
+				limit = {
+					is_subject = yes
+					overlord = {
+						is_communist = yes
+					}
+				}
+				remove_from_sphere = yes
+				grant_independence = yes
+				every_war_enemy_country = {
+					white_peace = ROOT
+				}
+			}
+		}
+		end_disaster = fall_of_communism
+		change_government_to_democratic_republic = yes
+		hidden_effect = {
+			define_ruler = {
+				name = "Václav Havel"
+				adm = 4
+				dip = 4
+				mil = 2
+				religion = catholic
+			}
+		}
+	}
+
+	option = { # Grant independence to Slovakia
+		name = etf_FoC_disaster.22.ra
+		add_stability = 1
+		change_tag = CZE
+		on_change_tag_effect = yes
+		release = SVK
+		hidden_effect = {
+			SVK = {
+				every_core_province = {
+					remove_core = CZE
+				}
+			}
+		}
+		CZE = {
+			add_historical_friend = SVK
+		}
+		SVK = {
+			add_historical_friend = CZE
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					accepted_culture = slovak
+					NOT = { primary_culture = slovak }
+					NOT = {
+						any_owned_province = {
+							culture = slovak
+						}
+					}
+				}
+				remove_accepted_culture = slovak
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+
+	option = { # Seek a Federal Solution
+		name = etf_FoC_disaster.22.rb
+		change_tag = CZE
+		on_change_tag_effect = yes
+		release_subject = {
+			subject_type = puppet_state
+			subject = SVK
+			can_be_annexed = no
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					accepted_culture = slovak
+					NOT = { primary_culture = slovak }
+					NOT = {
+						any_owned_province = {
+							culture = slovak
+						}
+					}
+				}
+				remove_accepted_culture = slovak
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = { # Suppress the Slovaks
+		name = etf_FoC_disaster.22.rc
+		add_stability = -1
+		if = {
+			limit = {
+				accepted_culture = slovak
+				NOT = { primary_culture = slovak }
+			}
+			remove_accepted_culture = slovak
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	after = {
+		clr_country_flag = FoC_negotiation_path
+		clr_country_flag = FoC_suppression_path
+		clr_country_flag = had_FoC_hardliners_revolt
+		clr_country_flag = had_FoC_government_resigns
+		every_province = {
+			limit = {
+				owner = {
+					NOT = { has_disaster = fall_of_communism }
+				}
+			}
+			clr_province_flag = had_FoC_protest_event
+		}
+	}
+}
+
+# Collapse of the Soviet Union
+country_event = {
+	id = etf_FoC_disaster.23
+	title = etf_FoC_disaster.23.t
+	desc = etf_FoC_disaster.23.d
+	picture = CHARTISTS_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			capital_scope = {
+				has_rebel_faction = revolutionary_rebels
+			}
+			has_country_flag = had_FoC_government_resigns
+			NOT = { is_communist = yes }
+		}
+		country_is = { tag = RUS }
+	}
+
+	immediate = {
+		hidden_effect = {
+			clear_rebels_country = yes
+			# Free Subjects:
+			every_subject_country = {
+				limit = {
+					is_communist = yes
+				}
+				remove_from_sphere = yes
+				grant_independence = yes
+				every_war_enemy_country = {
+					white_peace = PREV
+				}
+			}
+		}
+		end_disaster = fall_of_communism
+	}
+
+	option = {
+		name = etf_FoC_disaster.23.r
+		add_stability = 1
+		change_government_to_democratic_republic = yes
+		hidden_effect = {
+			define_ruler = {
+				name = "Boris Yeltsin"
+				adm = 2
+				dip = 2
+				mil = 4
+				religion = orthodox
+			}
+		}
+		every_country_including_inactive = {
+			limit = {
+				capital_scope = {
+					always = yes
+				}
+				OR = {
+					country_is = { tag = EST }
+					country_is = { tag = LTV }
+					country_is = { tag = LIT }
+					country_is = { tag = BLR }
+					country_is = { tag = UKR }
+					country_is = { tag = MDV }
+					country_is = { tag = KZK }
+					country_is = { tag = UZB }
+					country_is = { tag = TRK }
+					country_is = { tag = KYR }
+					country_is = { tag = TJK }
+					country_is = { tag = GEO }
+					country_is = { tag = ARM }
+					country_is = { tag = AZE }
+				}
+				any_core_province = {
+					owned_by = ROOT
+				}
+				NOT = { exists = yes }
+			}
+			hidden_effect = {
+				change_government = republic
+				add_government_reform = oligarchy_reform
+				add_government_reform = multi_party_system
+				change_religion = secularism
+			}
+			PREV = {
+				release = PREV
+				add_to_sphere = { tag = PREV }
+			}
+			hidden_effect = {
+				add_country_modifier = {
+					name = post_soviet_modifier
+					duration = -1
+				}
+				every_core_province = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = FoC_negotiation_path
+		clr_country_flag = FoC_suppression_path
+		clr_country_flag = had_FoC_hardliners_revolt
+		clr_country_flag = had_FoC_government_resigns
+		every_province = {
+			limit = {
+				owner = {
+					NOT = { has_disaster = fall_of_communism }
+				}
+			}
+			clr_province_flag = had_FoC_protest_event
+		}
+	}
+}

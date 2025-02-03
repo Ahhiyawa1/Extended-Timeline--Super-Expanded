@@ -1,0 +1,133 @@
+requestpeace = {
+	condition = {
+		tooltip = CIVIL_WAR_TT
+		potential = {
+			OR = {
+				is_in_war = {
+					attacker_leader = ROOT
+					defender_leader = FROM
+					casus_belli = cb_civil_war_mutual
+				}
+				is_in_war = {
+					attacker_leader = FROM
+					defender_leader = ROOT
+					casus_belli = cb_civil_war_mutual
+				}
+			}
+		}
+		allow = {
+			war_score_against = {
+				who = FROM
+				value = 70
+			}
+		}
+	}
+}
+
+milaccess = {
+	condition = {
+		tooltip = ""
+		potential = {
+			ai = yes
+			NOT = { is_part_of_hre = yes }
+			NOT = { alliance_with = FROM }
+			NOT = {
+				any_war_enemy_country = {
+					war_with = FROM
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+offermilaccess = {
+	condition = {
+		tooltip = ""
+		potential = {
+			ai = yes
+			NOT = { is_part_of_hre = yes }
+			NOT = { alliance_with = FROM }
+			NOT = {
+				any_war_enemy_country = {
+					war_with = FROM
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+improve_relation = {
+	condition = {
+		tooltip = ""
+		potential = {
+			ai = yes
+			is_subject = yes
+			NOT = { is_subject_of = FROM }
+			NOT = { liberty_desire = 50 }
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+designate_march = {
+	condition = {
+		tooltip = INTEGRATE_DIFFICULT_FROM
+		potential = {
+			FROM = {
+				has_country_modifier = disable_subject_annexation_modifier
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+ask_for_march = {
+	condition = {
+		tooltip = INTEGRATE_DIFFICULT_THIS
+		potential = {
+			has_country_modifier = disable_subject_annexation_modifier
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+intervene_in_war = {
+	condition = {
+		tooltip = ""
+		potential = {
+			ai = yes
+			OR = { # Don't "save" ideological enemies.
+				AND = {
+					ruler_has_personality = anti_communist_personality
+					FROM = {
+						is_communist = yes
+					}
+				}
+				AND = {
+					ruler_has_personality = anti_fascist_personality
+					FROM = {
+						OR = {
+							has_reform = military_government
+							is_fascist = yes
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}

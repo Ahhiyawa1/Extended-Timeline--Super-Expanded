@@ -1,0 +1,121 @@
+yankee_ideas = {
+	trigger = {
+		OR = {
+			primary_culture = american
+			primary_culture = british_californian # Western American
+		}
+	}
+	free = yes
+
+	start = {
+		republican_tradition = 0.3
+		years_of_nationalism = -5
+	}
+	bonus = {
+		infantry_power = 0.15
+	}
+
+	yankee_early_industry = {
+		build_cost = -0.1
+	}
+	yankee_protestantism = {
+		tolerance_heretic = 2
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 0.25
+	}
+	yankee_the_new_world = {
+		global_colonial_growth = 15
+	}
+	yankee_fenian_raids = {
+		land_morale = 0.1
+	}
+	yankee_abolitionism = {
+		prestige = 1
+	}
+	yankee_varied_workforce = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	yankee_freedmen = {
+		global_tax_modifier = 0.1
+	}
+}
+
+dixie_ideas = {
+	trigger = {
+		primary_culture = british_louisianan # Dixie
+	}
+	free = yes
+
+	start = {
+		army_tradition = 0.5
+		global_unrest = -1
+	}
+	bonus = {
+		discipline = 0.05
+	}
+
+	dixie_rural_living = {
+		production_efficiency = 0.1
+	}
+	dixie_baptist_church = {
+		stability_cost_modifier = -0.1
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 0.25
+	}
+	dixie_reconstruction = {
+		development_cost = -0.1
+	}
+	dixie_southern_pride = {
+		land_morale = 0.1
+	}
+	dixie_export_trade = {
+		trade_efficiency = 0.1
+	}
+	dixie_plantations = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	dixie_carpetbaggers = {
+		build_cost = -0.1
+	}
+}
+
+african_ideas = {
+	trigger = {
+		capital_scope = {
+			continent = africa
+		}
+		has_country_flag = changed_from_colonial_nation # Is Post-colonial
+	}
+	free = yes
+
+	start = {
+		global_trade_goods_size_modifier = 0.1
+		manpower_recovery_speed = 0.2
+	}
+	bonus = {
+		governing_capacity_modifier = 0.1
+	}
+
+	african_biodiversity = {
+		prestige = 1
+	}
+	african_industrial_potential = {
+		build_cost = -0.1
+		production_efficiency = 0.1
+	}
+	african_human_origin = {
+		global_manpower_modifier = 0.1
+	}
+	african_cultural_diversity = {
+		promote_culture_cost = -0.25
+	}
+	african_religious_diversity = {
+		no_religion_penalty = yes
+	}
+	african_anti_colonialism = {
+		land_morale = 0.15
+	}
+	african_union = {
+		diplomatic_upkeep = 1
+	}
+}

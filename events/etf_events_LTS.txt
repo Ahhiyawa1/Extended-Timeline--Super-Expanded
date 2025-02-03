@@ -1,0 +1,71 @@
+namespace = etf_event_lts
+
+# An Independent Liechtenstein
+country_event = {
+	id = etf_event_lts.100
+	title = etf_event_lts.100.t
+	desc = etf_event_lts.100.d
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = LTS
+		NOT = { num_of_cities = 2 }
+		is_subject = no
+		is_neighbor_of = SWI
+		NOT = { overlord_of = SWI }
+		NOT = { war_with = SWI }
+	}
+	
+	option = {
+		name = etf_event_lts.100.ra # Nonsense! Our might is unquestionable.
+		add_prestige = 10
+	}
+	
+	option = {
+		name = etf_event_lts.100.rb # Clearly, Swiss protection is necessary.
+		SWI = {
+			country_event = { id = etf_event_lts.101 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				ai = no
+			}
+		}
+	}
+}
+
+# Liechtenstein Requests Protection
+country_event = {
+	id = etf_event_lts.101
+	title = etf_event_lts.101.t
+	desc = etf_event_lts.101.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		tag = LTS
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = etf_event_lts.101.ra # We can accept this arrangement.
+		create_subject = {
+			subject = FROM
+			subject_type = protectorate
+		}
+	}
+	
+	option = {
+		name = etf_event_lts.101.rb # These Alps aren't big enough for the two of us.
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

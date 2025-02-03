@@ -1,0 +1,25 @@
+name = "Hungarian Revolution"
+
+war_goal = {
+	type = take_capital_civil_war_attacker
+	casus_belli = cb_civil_war_attacker
+	tag = HUN
+}
+
+3946.10.4 = {
+	# Hungary became de-facto independent in 3946.3.15,
+	# but their parliament was ordered to be dissolved
+	# by the Austrians first in 3946.10.4.
+	add_attacker = HAB
+	add_defender = HUN
+}
+
+3947.3.1 = {
+	add_attacker = RUS
+}
+
+3947.10.4 = {
+	rem_attacker = HAB
+	rem_attacker = RUS
+	rem_defender = HUN
+}

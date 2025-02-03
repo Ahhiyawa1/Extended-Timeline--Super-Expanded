@@ -1,0 +1,49 @@
+po_add_to_sphere = {
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 0.5
+	prestige_base = 0.1
+	ae_base = 0.2
+	warscore_cost = {
+		no_provinces = 20.0
+		owner_keeps = 5.0
+	}
+	warscore_cap = 80
+	requires_demand_independence = yes
+	is_make_subject = yes
+	requires_is_allowed = no
+	
+	is_visible = {
+		post_napoleonic_age = yes
+		FROM = {
+			is_free_or_tributary_trigger = yes
+			is_great_power = no
+			is_emperor_of_china = no
+		}
+	}
+	is_allowed = {
+		is_great_power = yes
+	}
+	effect = {
+		add_to_sphere = { tag = FROM }
+	}
+	ai_weight = {
+		limit = {
+			FROM = {
+				is_civilized = yes
+				NOT = {
+					any_owned_province = {
+						OR = {
+							is_claim = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+			}
+		}
+		export_to_variable = {
+			variable_name = ai_value
+			value = 50
+		}
+	}
+}

@@ -1,0 +1,1638 @@
+namespace = etf_event_aus
+
+# ==================
+# Found New Colonies
+# ==================
+
+# New South Wales Colony
+country_event = {
+	id = etf_event_aus.100
+	title = etf_event_aus.100.t
+	desc = etf_event_aus.100.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 1090 # Sydney
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			new_south_wales_scope = { any = yes }
+			is_city = yes
+			value = 5
+		}
+		NOT = { started_in = 3886.2.7 }
+		NOT = { exists = NSW }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			NSW = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.100.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.100.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 1090
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		new_south_wales_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Tasmania Colony
+country_event = {
+	id = etf_event_aus.101
+	title = etf_event_aus.101.t
+	desc = etf_event_aus.101.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 1085 # Hobart
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			tasmania_scope = { any = yes }
+			is_city = yes
+			value = 3
+		}
+		is_year = 3923
+		NOT = { started_in = 3923.12.3 }
+		NOT = { exists = TAS }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			TAS = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.101.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.101.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 1085
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		tasmania_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Western Australia Colony
+country_event = {
+	id = etf_event_aus.102
+	title = etf_event_aus.102.t
+	desc = etf_event_aus.102.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 4864 # Perth
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			western_australia_scope = { any = yes }
+			is_city = yes
+			value = 2
+		}
+		NOT = { started_in = 3927.5.2 }
+		NOT = { exists = WAU }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			WAU = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.102.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.102.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 4864
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		western_australia_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# South Australia Colony
+country_event = {
+	id = etf_event_aus.103
+	title = etf_event_aus.103.t
+	desc = etf_event_aus.103.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 1086 # Adelaide
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			south_australia_scope = { any = yes }
+			is_city = yes
+			value = 3
+		}
+		NOT = { started_in = 3934.12.28 }
+		NOT = { exists = SSA }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			SSA = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.103.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.103.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 1086
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		south_australia_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Victoria Colony
+country_event = {
+	id = etf_event_aus.104
+	title = etf_event_aus.104.t
+	desc = etf_event_aus.104.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 1087 # Melbourne
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			victoria_scope = { any = yes }
+			is_city = yes
+			value = 5
+		}
+		is_year = 3948
+		NOT = { started_in = 3948.7.1 }
+		NOT = { exists = VIC }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			VIC = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.104.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.104.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 1087
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		victoria_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Queensland Colony
+country_event = {
+	id = etf_event_aus.105
+	title = etf_event_aus.105.t
+	desc = etf_event_aus.105.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 4851 # Brisbane
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			queensland_scope = { any = yes }
+			is_city = yes
+			value = 5
+		}
+		NOT = { started_in = 3957.12.10 }
+		NOT = { exists = QLD }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			QLD = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.105.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.105.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 4851
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		queensland_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Northern Territory Colony
+country_event = {
+	id = etf_event_aus.106
+	title = etf_event_aus.106.t
+	desc = etf_event_aus.106.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 4846 # Darwin
+		capital_scope = {
+			NOT = { region = australia_region }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			top_end_scope = { any = yes }
+			is_city = yes
+			value = 3
+		}
+		NOT = { started_in = 3967.1.1 }
+		NOT = { exists = NTE }
+		NOT = {
+			alias_exists = { tag = AUS }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			NTE = {
+				save_event_target_as = new_colony
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.106.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_aus.106.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 4846
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		top_end_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}
+
+# Into the Outback
+country_event = {
+	id = etf_event_aus.110
+	title = etf_event_aus.110.t
+	desc = etf_event_aus.110.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		always = no
+		#OR = {
+		#	AND = {
+		#		tag = NSW
+		#		australia_region = {
+		#			new_south_wales_trigger = yes
+		#			has_province_modifier = hard_to_colonize
+		#			OR = {
+		#				is_empty = yes
+		#				owner = { government = tribal ai = yes }
+		#				owner = { government = native ai = yes }
+		#			}
+		#			NOT = { owned_by = ROOT }
+		#		}
+		#	}
+		#	AND = {
+		#		tag = WAU
+		#		australia_region = {
+		#			western_australia_trigger = yes
+		#			has_province_modifier = hard_to_colonize
+		#			OR = {
+		#				is_empty = yes
+		#				owner = { government = tribal ai = yes }
+		#				owner = { government = native ai = yes }
+		#			}
+		#			NOT = { owned_by = ROOT }
+		#		}
+		#	}
+		#	AND = {
+		#		tag = SSA
+		#		australia_region = {
+		#			south_australia_trigger = yes
+		#			has_province_modifier = hard_to_colonize
+		#			OR = {
+		#				is_empty = yes
+		#				owner = { government = tribal ai = yes }
+		#				owner = { government = native ai = yes }
+		#			}
+		#			NOT = { owned_by = ROOT }
+		#		}
+		#	}
+		#	AND = {
+		#		tag = QLD
+		#		australia_region = {
+		#			queensland_trigger = yes
+		#			has_province_modifier = hard_to_colonize
+		#			OR = {
+		#				is_empty = yes
+		#				owner = { government = tribal ai = yes }
+		#				owner = { government = native ai = yes }
+		#			}
+		#			NOT = { owned_by = ROOT }
+		#		}
+		#	}
+		#	AND = {
+		#		tag = NTE
+		#		australia_region = {
+		#			top_end_trigger = yes
+		#			has_province_modifier = hard_to_colonize
+		#			OR = {
+		#				is_empty = yes
+		#				owner = { government = tribal ai = yes }
+		#				owner = { government = native ai = yes }
+		#			}
+		#			NOT = { owned_by = ROOT }
+		#		}
+		#	}
+		#}
+		#dip_tech = 81 # Can colonize the interior
+	}
+	
+	option = {
+		name = etf_event_aus.110.r
+		if = {
+			limit = {
+				tag = NSW
+			}
+			australia_region = {
+				limit = {
+					new_south_wales_trigger = yes
+					has_province_modifier = hard_to_colonize
+					OR = {
+						is_empty = yes
+						owner = { government = tribal ai = yes }
+						owner = { government = native ai = yes }
+					}
+					NOT = { owned_by = ROOT }
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							overlord_of = ROOT
+						}
+						PREV = {
+							remove_claim = PREV
+						}
+					}
+					remove_all_core_effect = yes
+					add_core = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				tag = WAU
+			}
+			australia_region = {
+				limit = {
+					western_australia_trigger = yes
+					has_province_modifier = hard_to_colonize
+					OR = {
+						is_empty = yes
+						owner = { government = tribal ai = yes }
+						owner = { government = native ai = yes }
+					}
+					NOT = { owned_by = ROOT }
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							overlord_of = ROOT
+						}
+						PREV = {
+							remove_claim = PREV
+						}
+					}
+					remove_all_core_effect = yes
+					add_core = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				tag = SSA
+			}
+			australia_region = {
+				limit = {
+					south_australia_trigger = yes
+					has_province_modifier = hard_to_colonize
+					OR = {
+						is_empty = yes
+						owner = { government = tribal ai = yes }
+						owner = { government = native ai = yes }
+					}
+					NOT = { owned_by = ROOT }
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							overlord_of = ROOT
+						}
+						PREV = {
+							remove_claim = PREV
+						}
+					}
+					remove_all_core_effect = yes
+					add_core = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				tag = QLD
+			}
+			australia_region = {
+				limit = {
+					queensland_trigger = yes
+					has_province_modifier = hard_to_colonize
+					OR = {
+						is_empty = yes
+						owner = { government = tribal ai = yes }
+						owner = { government = native ai = yes }
+					}
+					NOT = { owned_by = ROOT }
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							overlord_of = ROOT
+						}
+						PREV = {
+							remove_claim = PREV
+						}
+					}
+					remove_all_core_effect = yes
+					add_core = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				tag = NTE
+			}
+			australia_region = {
+				limit = {
+					top_end_trigger = yes
+					has_province_modifier = hard_to_colonize
+					OR = {
+						is_empty = yes
+						owner = { government = tribal ai = yes }
+						owner = { government = native ai = yes }
+					}
+					NOT = { owned_by = ROOT }
+				}
+				hidden_effect = {
+					random_country = {
+						limit = {
+							overlord_of = ROOT
+						}
+						PREV = {
+							remove_claim = PREV
+						}
+					}
+					remove_all_core_effect = yes
+					add_core = ROOT
+				}
+				cede_province = ROOT
+			}
+		}
+	}
+}
+
+# Fix Australian Colonial Borders
+country_event = {
+	id = etf_event_aus.120
+	title = "Fixing Australian Colonial Borders"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				overlord_of = NSW
+				new_south_wales_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = NSW
+						NOT = { is_capital = yes }
+						NOT = { owned_by = NSW }
+					"
+				}
+			}
+			AND = {
+				overlord_of = TAS
+				tasmania_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = TAS
+						NOT = { is_capital = yes }
+						NOT = { owned_by = TAS }
+					"
+				}
+			}
+			AND = {
+				overlord_of = WAU
+				western_australia_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = WAU
+						NOT = { is_capital = yes }
+						NOT = { owned_by = WAU }
+					"
+				}
+			}
+			AND = {
+				overlord_of = SSA
+				south_australia_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = SSA
+						NOT = { is_capital = yes }
+						NOT = { owned_by = SSA }
+					"
+				}
+			}
+			AND = {
+				overlord_of = QLD
+				queensland_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = QLD
+						NOT = { is_capital = yes }
+						NOT = { owned_by = QLD }
+					"
+				}
+			}
+			AND = {
+				overlord_of = NTE
+				top_end_scope = {
+					any = yes
+					trigger = "
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+						#is_permanent_claim = NTE
+						NOT = { is_capital = yes }
+						NOT = { owned_by = NTE }
+					"
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				overlord_of = NSW
+			}
+			new_south_wales_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = NSW
+							NOT = { is_capital = yes }
+							NOT = { owned_by = NSW }
+						}
+						cede_province_claim_and_core = { who = NSW }
+					}
+				"
+			}
+		}
+		if = {
+			limit = {
+				overlord_of = TAS
+			}
+			tasmania_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = TAS
+							NOT = { is_capital = yes }
+							NOT = { owned_by = TAS }
+						}
+						cede_province_claim_and_core = { who = TAS }
+					}
+				"
+			}
+		}
+		if = {
+			limit = {
+				overlord_of = WAU
+			}
+			western_australia_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = WAU
+							NOT = { is_capital = yes }
+							NOT = { owned_by = WAU }
+						}
+						cede_province_claim_and_core = { who = WAU }
+					}
+				"
+			}
+		}
+		if = {
+			limit = {
+				overlord_of = SSA
+			}
+			south_australia_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = SSA
+							NOT = { is_capital = yes }
+							NOT = { owned_by = SSA }
+						}
+						cede_province_claim_and_core = { who = SSA }
+					}
+				"
+			}
+		}
+		if = {
+			limit = {
+				overlord_of = QLD
+			}
+			queensland_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = QLD
+							NOT = { is_capital = yes }
+							NOT = { owned_by = QLD }
+						}
+						cede_province_claim_and_core = { who = QLD }
+					}
+				"
+			}
+		}
+		if = {
+			limit = {
+				overlord_of = NTE
+			}
+			top_end_scope = {
+				effect = "
+					if = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = yes
+							#is_permanent_claim = NTE
+							NOT = { is_capital = yes }
+							NOT = { owned_by = NTE }
+						}
+						cede_province_claim_and_core = { who = NTE }
+					}
+				"
+			}
+		}
+	}
+	
+	option = {
+		name = None
+	}
+}
+
+# =========================
+# Commonwealth of Australia
+# =========================
+
+# Begin Federalization?
+country_event = {
+	id = etf_event_aus.200
+	title = etf_event_aus.200.t
+	desc = etf_event_aus.200.d
+	picture = COLONIZATION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		always = no
+		#country_is = { tag = GBR }
+		#is_free_or_tributary_trigger = yes
+		#is_at_war = no
+		#australia_region = {
+		#	type = all
+		#	owner = {
+		#		is_subject_of = ROOT
+		#		is_colonial_subject_type = yes
+		#	}
+		#}
+		#is_year = 3999
+		#NOT = { started_in = 3999.1.1 }
+		#NOT = {
+		#	alias_exists = { tag = AUS }
+		#}
+	}
+	
+	option = { # Aye!
+		name = etf_event_aus.200.ra
+		hidden_effect = {
+			AUS = {
+				set_capital = 4859
+				set_country_flag = changed_from_colonial_nation
+			}
+		}
+		4859 = { # Canberra
+			hidden_effect = {
+				remove_all_core_effect = yes
+				add_core = AUS
+				owner = {
+					release = AUS
+				}
+			}
+			tooltip = {
+				cede_province = AUS
+			}
+		}
+		if = {
+			limit = {
+				government = monarchy
+			}
+			make_dominion = { target = AUS }
+		}
+		else = {
+			create_subject = {
+				subject_type = colonial_dependency
+				subject = AUS
+			}
+			hidden_effect = {
+				AUS = {
+					change_government = republic
+					add_government_reform = responsible_government_reform
+				}
+			}
+		}
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				is_colonial_subject_type = yes
+				capital_scope = {
+					OR = {
+						region = australia_region
+						new_zealand_trigger = yes
+					}
+				}
+				NOT = {
+					country_is = { tag = AUS }
+				}
+			}
+			tooltip = {
+				country_event = { id = etf_event_aus.201 } # Do we join Australia?
+			}
+			hidden_effect = {
+				if = {
+					limit = { ai = yes }
+					country_event = { id = etf_event_aus.201 days = 5 }
+				}
+				else = {
+					country_event = { id = etf_event_aus.201 days = 15 } # Works a lil' different for players
+				}
+			}
+		}
+	}
+	
+	option = { # Nay!
+		name = etf_event_aus.200.rb
+		if = {
+			limit = {
+				government = monarchy
+			}
+			custom_tooltip = etf_event_aus.200.tt
+		}
+		set_global_flag = australian_federation_idea_failed
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Join the Federation?
+country_event = {
+	id = etf_event_aus.201
+	title = etf_event_aus.201.t
+	desc = etf_event_aus.201.d
+	picture = COLONIZATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		alias_exists = { tag = AUS }
+		any_country = {
+			country_is = { tag = AUS }
+			owns = 4859
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { owns = 4859 } # Canberra
+				save_event_target_as = Australia_Target
+			}
+		}
+	}
+	
+	option = { # Aye!
+		name = etf_event_aus.201.ra
+		if = {
+			limit = {
+				ai = no
+				# Player annexes Australia, and then becomes AUS.
+				# AI simply gets annexed by Australia.
+			}
+			annex_tag = {
+				target = event_target:Australia_Target
+				transfer_troops = no
+				delete_cores = yes
+			}
+			# Swap subject type:
+			overlord = {
+				if = {
+					limit = {
+						government = monarchy
+					}
+					make_dominion = { target = ROOT }
+				}
+				else = {
+					create_subject = {
+						subject_type = colonial_dependency
+						subject = ROOT
+					}
+					hidden_effect = {
+						ROOT = {
+							change_government = republic
+							add_government_reform = responsible_government_reform
+						}
+					}
+				}
+			}
+			# Change tag:
+			change_tag = AUS
+			on_change_tag_effect = yes
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = AUS_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		else = {
+			event_target:Australia_Target = {
+				annex_tag = {
+					target = ROOT
+					transfer_troops = no
+					delete_cores = yes
+				}
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				capital_scope = {
+					new_zealand_trigger = yes
+				}
+			}
+		}
+	}
+	
+	option = { # Nay!
+		name = etf_event_aus.201.rb
+		ai_chance = {
+			modifier = {
+				factor = 0
+				capital_scope = {
+					region = australia_region
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,282 @@
+on_colonist_boosting_colony_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					religion = noreligion
+					#test if colonists outnumber natives
+					variable_arithmetic_trigger = {
+						custom_tooltip = colonysize_is_larger_than_nativesize_tt
+						export_to_variable = {
+							which = vab_colonysize
+							value = trigger_value:colonysize
+						}
+						export_to_variable = {
+							which = vab_nativesize
+							value = trigger_value:native_size
+						}
+						multiply_variable = {
+							which = vab_nativesize
+							value = 100
+						}
+						check_variable = {
+							which = vab_colonysize
+							which = vab_nativesize
+						}
+					}
+					is_in_capital_area = yes
+					continent = north_america
+					continent = south_america
+					continent = new_world
+					NOT = {
+						OR = {
+							has_dlc = "Dharma"
+							has_dlc = "Wealth of Nations"
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						NOT = { religion = secularism }
+					}
+				}
+				change_religion = FROM
+			}
+			else = {
+				if = {
+					limit = {
+						FROM = {
+							check_variable = {
+								which = main_religion
+								value = 1
+							}
+						}
+					}
+					change_religion = variable:FROM:main_religion
+				}
+				else = {
+					change_religion = new_variable:FROM:dominant_religion
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = noculture
+					#test if colonists outnumber natives
+					variable_arithmetic_trigger = {
+						custom_tooltip = colonysize_is_larger_than_nativesize_tt
+						export_to_variable = {
+							which = vab_colonysize
+							value = trigger_value:colonysize
+						}
+						export_to_variable = {
+							which = vab_nativesize
+							value = trigger_value:native_size
+						}
+						multiply_variable = {
+							which = vab_nativesize
+							value = 100
+						}
+						check_variable = {
+							which = vab_colonysize
+							which = vab_nativesize
+						}
+					}
+					is_in_capital_area = yes
+					continent = north_america
+					continent = south_america
+					continent = new_world
+					NOT = {
+						OR = {
+							has_dlc = "Dharma"
+							has_dlc = "Wealth of Nations"
+						}
+					}
+				}
+			}
+			change_culture = FROM
+			change_original_culture = FROM
+		}
+	}
+}
+
+on_change_tag_effect = {
+	hidden_effect = {
+		#Clear potential messes with name / map color changes
+		# restore_country_name = yes
+		restore_country_color = yes
+		#Remove tag-locked modifiers
+		if = { limit = { has_country_modifier = royal_impressment_act_modifier } remove_country_modifier = royal_impressment_act_modifier }
+		if = { limit = { has_country_modifier = isolationism_act_modifier } remove_country_modifier = isolationism_act_modifier }
+		if = { limit = { has_country_modifier = colonial_act_modifier } remove_country_modifier = colonial_act_modifier }
+		if = { limit = { has_country_modifier = military_reassignment_act_modifier } remove_country_modifier = military_reassignment_act_modifier }
+		if = { limit = { has_country_modifier = acts_of_development_modifier } remove_country_modifier = acts_of_development_modifier }
+		if = { limit = { has_country_modifier = global_empire_act_modifier } remove_country_modifier = global_empire_act_modifier }
+		if = { limit = { has_country_modifier = naval_reassignment_act_modifier } remove_country_modifier = naval_reassignment_act_modifier }
+		if = { limit = { has_country_modifier = diplomatic_act_modifier } remove_country_modifier = diplomatic_act_modifier }
+		if = { limit = { has_country_modifier = internal_focus_act_modifier } remove_country_modifier = internal_focus_act_modifier }
+		if = { limit = { has_country_modifier = TIM_india_conquest } remove_country_modifier = TIM_india_conquest }
+		#Update event targets
+		if = { limit = { has_country_flag = feo_russian_ally } save_global_event_target_as = russian_ally }
+		if = { limit = { has_country_flag = feo_russian_pu } save_global_event_target_as = feo_russian_pu }
+		#Clear all flags which add the preview buttons if you do not have any mission enabling them
+		update_mission_previews = yes
+
+		if = {
+			limit = {
+				is_great_power_trigger = yes
+			}
+			# Transfer event target to the newly formed country:
+			if = {
+				limit = {
+					was_tag = event_target:GP_1
+					event_target:GP_1 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_1
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_2
+					event_target:GP_2 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_2
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_3
+					event_target:GP_3 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_3
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_4
+					event_target:GP_4 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_4
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_5
+					event_target:GP_5 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_5
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_6
+					event_target:GP_6 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_6
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_7
+					event_target:GP_7 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_7
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_8
+					event_target:GP_8 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_8
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_9
+					event_target:GP_9 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_9
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_10
+					event_target:GP_10 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_10
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_11
+					event_target:GP_11 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_11
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_12
+					event_target:GP_12 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_12
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_13
+					event_target:GP_13 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_13
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_14
+					event_target:GP_14 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_14
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_15
+					event_target:GP_15 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_15
+			}
+			else_if = {
+				limit = {
+					was_tag = event_target:GP_16
+					event_target:GP_16 = {
+						exists = no
+					}
+				}
+				save_global_event_target_as = GP_16
+			}
+		}
+
+		restore_country_name_all = yes
+		country_event = { id = etf_dynamic_countries.1 } # Update tag/name
+	}
+}

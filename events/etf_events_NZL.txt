@@ -1,0 +1,159 @@
+namespace = etf_event_nzl
+
+# New Zealand Colony
+country_event = {
+	id = etf_event_nzl.100
+	title = etf_event_nzl.100.t
+	desc = etf_event_nzl.100.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				region = australia_region
+				new_zealand_scope = { any = yes }
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+		country_is = { tag = GBR }
+		is_free_or_tributary_trigger = yes
+		owns_or_non_sovereign_subject_of = 1107 # Wellington
+		capital_scope = {
+			NOT = {
+				new_zealand_scope = { any = yes }
+			}
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			new_zealand_scope = { any = yes }
+			is_city = yes
+			value = 5
+		}
+		NOT = { started_in = 3939.5.3 }
+		NOT = {
+			alias_exists = { tag = NZL }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					country_is = { tag = GBR }
+					has_country_flag = formed_united_kingdom_flag
+				}
+				NZ2 = {
+					save_event_target_as = new_colony
+				}
+			}
+			else_if = {
+				limit = {
+					country_is = { tag = GBR }
+				}
+				NZ1 = {
+					save_event_target_as = new_colony
+				}
+			}
+			else = {
+				NZL = {
+					save_event_target_as = new_colony
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = etf_event_nzl.100.ra
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = etf_event_nzl.100.rb
+		tooltip = {
+			event_target:new_colony = {
+				custom_tooltip = reorganise_gets_cores_tt
+			}
+			create_subject = {
+				subject = event_target:new_colony
+				subject_type = colonial_dependency
+			}
+			custom_tooltip = " "
+			switch_tag = event_target:new_colony
+		}
+		set_country_flag = will_switch_tag
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		event_target:new_colony = {
+			set_capital = 1107
+			capital_scope = {
+				add_all_institution_embracement = yes
+			}
+			every_core_province = {
+				remove_core = PREV
+			}
+		}
+		new_zealand_scope = {
+			effect = "
+				remove_claim = ROOT
+				remove_claim = NSW
+				if = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					if = {
+						limit = {
+							is_colony = yes
+						}
+						decolonize = THIS
+					}
+					remove_all_core_effect = yes
+					add_core = event_target:new_colony
+					if = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						cede_province = ROOT
+					}
+				}
+				else = {
+					add_permanent_claim = event_target:new_colony
+				}
+			"
+		}
+		release = event_target:new_colony
+		create_subject = {
+			subject = event_target:new_colony
+			subject_type = colonial_dependency
+		}
+		event_target:new_colony = {
+			change_government = republic
+			add_government_reform = colonial_oligarchy_reform
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				has_country_flag = will_switch_tag
+			}
+			clr_country_flag = will_switch_tag
+			switch_tag = event_target:new_colony
+		}
+	}
+}

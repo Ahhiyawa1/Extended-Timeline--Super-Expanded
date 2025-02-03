@@ -1,0 +1,100 @@
+mil_tech_modifier_tooltip = {
+	army_professionalism = 0.0
+	
+	marker_sprite = GFX_pa_mil_tech
+	# This specific modifier provides an icon and tooltip explaining how this mechanic works.
+	# I wanted to create an icon for every level of 'Mil-tech modifier'
+	# but this ended up crashing the game on loading a new one :(
+}
+
+mil_tech_modifier_1 = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = { # Early Victorian Era
+		mil_tech = 77
+		NOT = { mil_tech = 80 }
+	}
+	
+	free_leader_pool = 2
+	siege_ability = 0.25
+	movement_speed = 0.15
+	land_maintenance_modifier = 0.2
+	global_regiment_cost = 0.4
+	morale_damage_received = -0.2
+}
+
+mil_tech_modifier_2 = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = { # Late Victorian Era
+		mil_tech = 80
+		NOT = { mil_tech = 84 }
+	}
+	
+	free_leader_pool = 3
+	siege_ability = 0.5
+	movement_speed = 0.3
+	land_maintenance_modifier = 0.4
+	global_regiment_cost = 0.8
+	morale_damage_received = -0.4
+}
+
+mil_tech_modifier_3 = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = { # WW2
+		mil_tech = 84
+		NOT = { mil_tech = 89 }
+	}
+	
+	free_leader_pool = 4
+	siege_ability = 0.75
+	movement_speed = 0.45
+	land_maintenance_modifier = 0.5
+	global_regiment_cost = 1
+	morale_damage_received = -0.6
+}
+
+mil_tech_modifier_4 = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = { # Modern tanks
+		mil_tech = 89
+	}
+	
+	free_leader_pool = 5
+	siege_ability = 1
+	movement_speed = 0.6
+	land_maintenance_modifier = 0.6
+	global_regiment_cost = 1.2
+	morale_damage_received = -0.8
+}
+
+general_staff_modifier = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = {
+		mil_tech = 80
+		land_maintenance = 1.0
+	}
+	
+	army_tradition = 1
+	yearly_army_professionalism = 0.01
+}
+
+gas_attack_modifier = {
+	hidden = yes
+	army_professionalism = 0.0
+	
+	trigger = {
+		mil_tech = 82
+	}
+	
+	# Useful for fighting rebels and natives
+	infantry_power = 0.2
+}

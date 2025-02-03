@@ -296,12 +296,19 @@ papal_subjugation = {
 		has_discovered = 118	# Roma
 		religion = catholic
 		NOT = { tag = PAP }
+		NOT = { tag = RMR }
 	}
 
 	trigger = {	
 		overlord_of = PAP
-		NOT = { tag = ITA }
-		NOT = { tag = HLR }
+		NOT = {
+			OR = {
+				country_is = { tag = ITA }
+				country_is = { tag = HLR }
+				tag = ROW # Created errors
+				country_is = { tag = ROM }
+			}
+		}
 		if = {
 			limit = {
 				is_emperor = yes
@@ -385,7 +392,7 @@ submission_to_emperor = {
 		has_global_flag = italians_leave_hre
 		NOT = { has_country_flag = reined_in_for_shadow_kingdom }
 		is_emperor = no
-		NOT = { is_year = 3648 }
+		NOT = { is_year = 1550 }
 		culture_group = latin
 		OR = {
 			is_subject = no
@@ -397,7 +404,7 @@ submission_to_emperor = {
 		is_part_of_hre = yes
 		NOT = { tag = ITA }
 		NOT = { emperor = { alliance_with = ROOT } }
-		NOT = { is_year = 3648 } # Duplicating so it shows in tooltip
+		NOT = { is_year = 1550 } # Duplicating so it shows in tooltip
 	}
 
 	global_unrest = 3

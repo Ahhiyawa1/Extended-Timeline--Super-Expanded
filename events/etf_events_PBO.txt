@@ -1,0 +1,413 @@
+namespace = etf_event_pbo
+
+# ========================
+# Salaverry-Santa Cruz War
+# ========================
+
+# Salaverry Captured
+country_event = {
+	id = etf_event_pbo.100
+	title = etf_event_pbo.100.t
+	desc = etf_event_pbo.100.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		is_subject_of = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BOL
+		exists = SPE
+		OR = {
+			SPE = {
+				ai = yes
+				is_in_war = {
+					attacker_leader = ROOT
+					defender_leader = SPE
+					casus_belli = take_capital_vassalize
+				}
+				capital_scope = {
+					OR = { # Captured enemy capital
+						controlled_by = ROOT
+						controller = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			has_won_war_against = {
+				who = SPE
+				max_years_since = 1
+			}
+		}
+		started_in = 3933.2.25
+		NOT = { started_in = 3934.2.7 }
+	}
+
+	option = { # Execute him, and our unification can conclude!
+		name = etf_event_pbo.100.r
+		hidden_effect = {
+			every_war_enemy_country = {
+				limit = {
+					is_in_war = {
+						attacker_leader = ROOT
+						defender_leader = SPE
+						casus_belli = take_capital_vassalize
+					}
+				}
+				PREV = {
+					white_peace = PREV
+				}
+			}
+		}
+		create_subject = {
+			subject_type = puppet_state
+			subject = SPE
+		}
+		SPE = {
+			hidden_effect = {
+				every_core_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { owned_by = PREV }
+					}
+					if = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+					}
+					cede_province = PREV
+				}
+				add_100_opinion_effect = { who = ROOT }
+				change_government = ROOT # If they're somehow a Monarchy, I dunno.
+			}
+			kill_ruler = yes
+		}
+	}
+}
+
+# Salaverry Takes the North
+country_event = {
+	id = etf_event_pbo.110
+	title = etf_event_pbo.110.t
+	desc = etf_event_pbo.110.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		war_with = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPE
+		exists = PEU
+		PEU = {
+			ai = yes
+			is_in_war = {
+				attacker_leader = BOL
+				defender_leader = ROOT
+				casus_belli = take_capital_vassalize
+			}
+			all_owned_province = {
+				controlled_by = ROOT
+			}
+		}
+		started_in = 3933.2.25
+		NOT = { started_in = 3934.2.7 }
+	}
+
+	option = { # We are the one, and only, government of Peru!
+		name = etf_event_pbo.110.r
+		annex_tag = {
+			target = PEU
+			transfer_troops = no
+		}
+		change_tag = PEU
+		on_change_tag_effect = yes
+	}
+}
+
+# Should PBO still be formable after etf_event_pbo.110? The war could still turn, consider TODO.
+
+# =================
+# The Confederation
+# =================
+
+# The Peru-Bolivia Confederation is Created
+country_event = {
+	id = etf_event_pbo.200
+	title = etf_event_pbo.200.t
+	desc = etf_event_pbo.200.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	major_trigger = {
+		same_continent = FROM
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BOL
+		PEU = { # "North" Peru
+			is_subject_of = ROOT
+			is_subject_of_type = puppet_state
+		}
+		SPE = { # South Peru
+			is_subject_of = ROOT
+			is_subject_of_type = puppet_state
+		}
+		started_in = 3933.2.25
+		NOT = { started_in = 3934.2.7 }
+	}
+
+	option = {
+		name = etf_event_pbo.200.r
+		set_stability = { value = -1 }
+		add_adm_power = -100
+		custom_tooltip = etf_event_pbo.200.tt # "\nPeruvian subjects will have their loyalty to us secured if their Liberty Desire is decreased to §Y0%§!. This will give us cores on their territory, and significantly reduce their Liberty Desire further."
+		every_subject_country = {
+			limit = {
+				OR = {
+					tag = PEU
+					tag = SPE
+				}
+			}
+			set_stability = { value = -1 }
+			add_adm_power = -100
+			sub_50_opinion_effect = { who = ROOT }
+			add_liberty_desire = 45
+		}
+		custom_tooltip = " " # Line break
+		every_neighbor_country = {
+			limit = {
+				alliance_with = ROOT
+			}
+			break_alliance = ROOT
+		}
+		every_neighbor_country = {
+			limit = {
+				NOT = { is_subject_of = ROOT }
+			}
+			sub_100_opinion_effect = { who = ROOT }
+		}
+		set_country_flag = peru_bolivia_confederation
+	}
+}
+
+# [loyal_subject.GetAdjective] Loyalty Secured
+country_event = {
+	id = etf_event_pbo.201
+	title = etf_event_pbo.201.t
+	desc = etf_event_pbo.201.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:loyal_subject
+	}
+
+	trigger = {
+		has_country_flag = peru_bolivia_confederation
+		any_subject_country = {
+			OR = {
+				tag = PEU
+				tag = SPE
+			}
+			NOT = { liberty_desire = 1 } # 0 Liberty Desire
+			NOT = { has_country_flag = pbo_loyalty_secured }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_subject_country = {
+				limit = {
+					OR = {
+						tag = PEU
+						tag = SPE
+					}
+					NOT = { liberty_desire = 1 } # 0 Liberty Desire
+					NOT = { has_country_flag = pbo_loyalty_secured }
+				}
+				save_event_target_as = loyal_subject
+			}
+		}
+	}
+
+	option = { # They will be remembered.
+		name = etf_event_pbo.201.r
+		event_target:loyal_subject = {
+			add_50_opinion_effect = { who = ROOT }
+			add_liberty_desire = -45
+			hidden_effect = {
+				every_core_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						OR = {
+							PREV = {
+								tag = SPE
+							}
+							NOT = { is_core = SPE }
+						}
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = pbo_loyalty_secured
+		}
+		custom_tooltip = etf_event_pbo.201.tt # "We gain cores on every §Y[loyal_subject.GetAdjective]§! core province."
+	}
+}
+
+# War of the Confederation
+country_event = {
+	id = etf_event_pbo.210
+	title = etf_event_pbo.210.t
+	desc = etf_event_pbo.210.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes # TODO
+
+	trigger = {
+		
+	}
+
+	option = {
+		name = etf_event_pbo.210.r
+		
+	}
+}
+
+# The Confederation's End
+country_event = {
+	id = etf_event_pbo.220
+	title = etf_event_pbo.220.t
+	desc = etf_event_pbo.220.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			tag = PEU
+			tag = SPE
+		}
+	}
+
+	trigger = {
+		has_country_flag = peru_bolivia_confederation
+		is_at_war = no
+		OR = { # Has lost one or both Peru's
+			AND = {
+				exists = PEU
+				NOT = { overlord_of = PEU }
+			}
+			AND = {
+				exists = SPE
+				NOT = { overlord_of = SPE }
+			}
+		}
+		NOT = { exists = PBO }
+	}
+
+	immediate = {
+		clr_country_flag = peru_bolivia_confederation
+	}
+
+	option = { # The experiment has come to an end.
+		name = etf_event_pbo.220.r
+		add_prestige = -20
+		custom_tooltip = etf_event_pbo.220.tt # "The §YPeru-Bolivia Confederation§! will dissolve."
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = PEU
+						tag = SPE
+					}
+				}
+				every_core_province = {
+					limit = {
+						is_core = ROOT
+						NOT = { owned_by = ROOT }
+					}
+					remove_core = ROOT
+				}
+				if = {
+					limit = {
+						is_subject_of = ROOT
+					}
+					grant_independence = yes
+				}
+			}
+		}
+	}
+}
+
+# Reunification of Peru
+country_event = {
+	id = etf_event_pbo.221
+	title = etf_event_pbo.221.t
+	desc = etf_event_pbo.221.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		tag = PEU
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPE
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		PEU = {
+			is_neighbor_of = ROOT
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		started_in = 3933.2.25
+		NOT = { started_in = 3934.2.7 }
+	}
+
+	option = { # We'll join them on our own accord.
+		name = etf_event_pbo.221.ra
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		annex_tag_into = { target = PEU }
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = no
+			}
+		}
+	}
+
+	option = { # They'll unite under us, and they'll like it!
+		name = etf_event_pbo.221.rb
+		PEU = {
+			sub_100_opinion_effect = {
+				who = ROOT
+				mutual = yes
+			}
+			every_core_province = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = yes
+			}
+		}
+	}
+}

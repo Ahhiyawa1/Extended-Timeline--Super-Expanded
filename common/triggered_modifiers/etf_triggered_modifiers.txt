@@ -1,0 +1,481 @@
+# Military bonuses are added via Triggered Modifier if CoC is NOT installed,
+# else triggers them via Army Professionalism mechanic
+mil_tech_triggered_modifier_1 = {
+	potential = {
+		mil_tech = 77
+		NOT = { mil_tech = 80 }
+		NOT = { has_dlc = "Cradle of Civilization" }
+	}
+	trigger = {
+		mil_tech = 77
+		NOT = { mil_tech = 80 }
+	}
+
+	free_leader_pool = 2
+	siege_ability = 0.25
+	movement_speed = 0.15
+	land_maintenance_modifier = 0.2
+	global_regiment_cost = 0.4
+	morale_damage_received = -0.2
+}
+
+mil_tech_triggered_modifier_2 = {
+	potential = {
+		mil_tech = 80
+		NOT = { mil_tech = 84 }
+		NOT = { has_dlc = "Cradle of Civilization" }
+	}
+	trigger = {
+		mil_tech = 80
+		NOT = { mil_tech = 84 }
+	}
+
+	free_leader_pool = 3
+	siege_ability = 0.5
+	movement_speed = 0.3
+	land_maintenance_modifier = 0.4
+	global_regiment_cost = 0.8
+	morale_damage_received = -0.4
+}
+
+mil_tech_triggered_modifier_3 = {
+	potential = {
+		mil_tech = 84
+		NOT = { mil_tech = 89 }
+		NOT = { has_dlc = "Cradle of Civilization" }
+	}
+	trigger = {
+		mil_tech = 84
+		NOT = { mil_tech = 89 }
+	}
+
+	free_leader_pool = 4
+	siege_ability = 0.75
+	movement_speed = 0.45
+	land_maintenance_modifier = 0.5
+	global_regiment_cost = 1
+	morale_damage_received = -0.6
+}
+
+mil_tech_triggered_modifier_4 = {
+	potential = {
+		mil_tech = 89
+		NOT = { has_dlc = "Cradle of Civilization" }
+	}
+	trigger = {
+		mil_tech = 89
+	}
+
+	free_leader_pool = 5
+	siege_ability = 1
+	movement_speed = 0.6
+	land_maintenance_modifier = 0.6
+	global_regiment_cost = 1.2
+	morale_damage_received = -0.8
+}
+
+# unstable_autocracy = {
+	# potential = {
+		# has_institution = nationalism_institution
+		# OR = {
+			# government = monarchy
+			# government = republic
+		# }
+		# is_not_democracy = yes
+		# NOT = { has_reform = dominion_reform }
+	# }
+	# trigger = {
+		# if = {
+			# limit = {
+				# government = monarchy
+			# }
+			# NOT = { legitimacy = 25 }
+		# }
+		# else_if = {
+			# limit = {
+				# government = republic
+			# }
+			# NOT = { republican_tradition = 25 }
+		# }
+	# }
+
+	# global_unrest = 10
+# }
+
+liberalism_issues = { # Jacobite Sentiment
+	potential = {
+		has_country_flag = age_of_liberalism_triggered
+		NOT = { is_year = 1849 }
+	}
+	trigger = {
+		government = monarchy
+		NOT = { has_reform = elected_parliament }
+	}
+
+	global_unrest = 5
+	liberal_party_influence = 0.05
+}
+
+industrial_power = {
+	potential = {
+		check_variable = {
+			which = industry_score
+			value = 1 # At least one
+		}
+	}
+	trigger = {
+		OR = {
+			has_country_modifier = industrial_power # Once you have it, won't go away
+			variable_arithmetic_trigger = {
+				custom_tooltip = industrial_power_tt # "§YIndustry Score§! (currently §Y[This.industry_score.GetValue]§!) is at least as high as number of owned provinces in states (currently §Y[num_of_provinces_in_states_var.GetValue]§!)"
+				export_to_variable = {
+					which = num_of_provinces_in_states_var
+					value = trigger_value:num_of_provinces_in_states
+				}
+				check_variable = {
+					which = industry_score
+					which = num_of_provinces_in_states_var
+				}
+			}
+		}
+	}
+
+	development_cost = -0.1
+	manpower_recovery_speed = 0.1
+	global_regiment_cost = -0.1
+	global_supply_limit_modifier = 0.15
+}
+
+industrial_superpower = {
+	potential = {
+		check_variable = {
+			which = industry_score
+			value = 1 # At least one
+		}
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = industrial_superpower_tt # "Has the highest §YIndustry Score§! (currently §Y[This.industry_score.GetValue]§!) in the world"
+			NOT = {
+				any_country = {
+					check_variable = {
+						which = industry_score
+						which = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	development_cost = -0.2
+	manpower_recovery_speed = 0.2
+	global_regiment_cost = -0.2
+	global_supply_limit_modifier = 0.35
+}
+
+edo_period_sakoku = {
+	potential = {
+		OR = {
+			AND = {
+				has_reform = shogunate
+				NOT = { has_country_flag = started_bakumatsu_flag }
+				NOT = { has_country_flag = had_imperial_restoration }
+			}
+			AND = {
+				is_subject_of_type = daimyo_vassal
+				overlord = {
+					has_reform = shogunate
+					NOT = { has_country_flag = started_bakumatsu_flag }
+					NOT = { has_country_flag = had_imperial_restoration }
+				}
+			}
+		}
+		OR = {
+			has_country_flag = edo_period_flag
+			started_in = 1603.3.24
+		}
+		NOT = { started_in = 1869.6.27 }
+		NOT = { has_global_flag = boshin_war_flag }
+	}
+	trigger = {
+		OR = {
+			has_reform = shogunate
+			is_subject_of_type = daimyo_vassal
+		}
+	}
+	
+	stability_cost_modifier = -0.2
+	diplomatic_annexation_cost = 1.0
+	global_institution_spread = -0.5
+	stability_cost_to_declare_war = 1
+	influence_defence_modifier = 2.0
+}
+
+edo_period_bakumatsu = {
+	potential = {
+		OR = {
+			AND = {
+				has_reform = shogunate
+				has_country_flag = started_bakumatsu_flag
+				NOT = { has_country_flag = had_imperial_restoration }
+			}
+			AND = {
+				is_subject_of_type = daimyo_vassal
+				overlord = {
+					has_reform = shogunate
+					has_country_flag = started_bakumatsu_flag
+					NOT = { has_country_flag = had_imperial_restoration }
+				}
+			}
+		}
+		OR = {
+			has_country_flag = edo_period_flag
+			started_in = 1603.3.24
+		}
+		NOT = { started_in = 1869.6.27 }
+		NOT = { has_global_flag = boshin_war_flag }
+	}
+	trigger = {
+		OR = {
+			has_reform = shogunate
+			is_subject_of_type = daimyo_vassal
+		}
+	}
+	
+	stability_cost_modifier = 0.2
+	global_institution_spread = 0.25
+	stability_cost_to_declare_war = 1
+	influence_defence_modifier = -0.2
+}
+
+nation_state_modifier = {
+	potential = {
+		has_institution = nationalism_institution
+	}
+	trigger = {
+		has_institution = nationalism_institution
+		if = {
+			limit = {
+				development_in_provinces = {
+					is_state = yes
+					value = 50
+				}
+			}
+			at_least_80_percent_of_state_development_trigger = {
+				trigger = "
+					has_owner_culture = yes
+				"
+			}
+		}
+		else = {
+			all_state_province = {
+				has_owner_culture = yes
+			}
+		}
+	}
+	
+	land_morale = 0.1
+	global_autonomy = -0.05
+}
+
+multi_national_state_modifier = {
+	potential = {
+		has_institution = nationalism_institution
+	}
+	trigger = {
+		has_institution = nationalism_institution
+		NOT = { has_country_modifier = nation_state_modifier }
+		if = {
+			limit = {
+				development_in_provinces = {
+					is_state = yes
+					value = 50
+				}
+			}
+			at_least_80_percent_of_state_development_trigger = {
+				trigger = "
+					OR = {
+						has_owner_culture = yes
+						has_owner_accepted_culture = yes
+					}
+				"
+			}
+		}
+		else = {
+			all_state_province = {
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
+		}
+	}
+	
+	land_morale = 0.05
+	global_autonomy = -0.025
+}
+
+ethnic_dissonance_modifier = {
+	potential = {
+		has_institution = nationalism_institution
+	}
+	trigger = {
+		has_institution = nationalism_institution
+		NOT = { has_country_modifier = nation_state_modifier }
+		NOT = { has_country_modifier = multi_national_state_modifier }
+	}
+	
+	global_unrest = 5
+	years_of_nationalism = 5
+	legitimacy = -0.5
+	republican_tradition = -0.15
+	devotion = -0.5
+	meritocracy = -0.5
+	horde_unity = -0.5
+}
+
+masters_of_the_mediterranean_modifier = {
+	potential = {
+		any_owned_province = {
+			sea_zone = {
+				region = mediterrenean_region
+			}
+		}
+	}
+	trigger = {
+		226 = {	# Gibraltar
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		4316 = { # Sharqiya
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		2315 = { # Suez
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		4316 = {
+			has_great_project = {
+				type = suez_canal
+				tier = 3
+			}
+		}
+	}
+	
+	naval_morale = 0.1
+	global_tariffs = 0.25
+	range = 0.1
+}
+
+masters_of_the_adriatic_modifier = {
+	potential = {
+		any_owned_province = {
+			sea_zone = {
+				OR = {
+					province_id = 1308
+					province_id = 1309
+					province_id = 1310
+				}
+			}
+		}
+	}
+	trigger = {
+		122 = { # Taranto
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		4174 = { # Durrës
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+	}
+	
+	naval_morale = 0.05
+	global_tariffs = 0.1
+}
+
+masters_of_the_baltic_modifier = {
+	potential = {
+		any_owned_province = {
+			sea_zone = {
+				region = baltic_sea_region
+			}
+		}
+	}
+	trigger = {
+		4145 = { # Agdesiden
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		1984 = { # Nordjylland
+			country_or_non_sovereign_subject_holds = ROOT
+			controlled_by = owner
+		}
+		if = {
+			limit = {
+				1775 = {
+					has_great_project = {
+						type = kiel_canal
+						tier = 3
+					}
+				}
+			}
+			4141 = { # Dithmarschen
+				country_or_non_sovereign_subject_holds = ROOT
+				controlled_by = owner
+			}
+			1775 = { # Holstein
+				country_or_non_sovereign_subject_holds = ROOT
+				controlled_by = owner
+			}
+			1775 = {
+				has_great_project = {
+					type = kiel_canal
+					tier = 3
+				}
+			}
+		}
+	}
+	
+	naval_morale = 0.05
+	global_tariffs = 0.1
+}
+
+# united_nations_modifier = {
+	# potential = {
+		# is_institution_enabled = globalization
+	# }
+	# trigger = {
+		# is_institution_enabled = globalization
+		# NOT = { has_country_modifier = unrecognized_state_modifier }
+	# }
+	
+	# stability_cost_to_declare_war = 1
+# }
+
+# economy_low_inflation_modifier = {
+	# trigger = {
+		# years_of_income = 2.5
+		# NOT = { years_of_income = 5.0 }
+	# }
+	
+	# inflation_reduction = -0.25
+# }
+
+# economy_medium_inflation_modifier = {
+	# trigger = {
+		# years_of_income = 5.0
+		# NOT = { years_of_income = 10.0 }
+	# }
+	
+	# inflation_reduction = -0.5
+# }
+
+# economy_high_inflation_modifier = {
+	# trigger = {
+		# years_of_income = 10.0
+	# }
+	
+	# inflation_reduction = -1.0
+# }

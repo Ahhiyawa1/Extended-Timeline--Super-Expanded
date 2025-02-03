@@ -48,7 +48,6 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_states_general_mechanic = yes }
-		NOT = { has_faction = conservative_party }
 		NOT = { has_government_attribute = lottery_election }
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		NOT = { has_reform = military_dictatorship_reform }
@@ -61,6 +60,13 @@ country_event = {
 			}
 			republican_tradition = 50
 		}
+		NOT = { has_government_attribute = has_direct_democracy_election }
+		NOT = { has_government_attribute = has_multi_party_election }
+		NOT = { has_government_attribute = has_single_party_election }
+		NOT = { has_government_attribute = has_communist_election }
+		NOT = { has_government_attribute = has_fascist_election }
+		NOT = { has_government_attribute = has_prime_minister }
+		NOT = { has_government_attribute = has_federal_monarchy_election }
 	}
 
 	immediate = {
@@ -514,7 +520,6 @@ country_event = {
 	trigger = {
 		NOT = { has_states_general_mechanic = yes }
 		NOT = { has_government_attribute = lottery_election }
-		NOT = { has_faction = conservative_party }
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		NOT = { has_reform = military_dictatorship_reform }
 		NOT = { has_reform = admiralty_reform }
@@ -528,6 +533,13 @@ country_event = {
 			}
 			republican_tradition = 50
 		}
+		NOT = { has_government_attribute = has_direct_democracy_election }
+		NOT = { has_government_attribute = has_multi_party_election }
+		NOT = { has_government_attribute = has_single_party_election }
+		NOT = { has_government_attribute = has_communist_election }
+		NOT = { has_government_attribute = has_fascist_election }
+		NOT = { has_government_attribute = has_prime_minister }
+		NOT = { has_government_attribute = has_federal_monarchy_election }
 	}
 
 	immediate = {
@@ -872,6 +884,8 @@ country_event = {
 			is_lesser_in_union = no
 			is_statists_in_power = yes
 		}
+		NOT = { has_government_attribute = has_communist_election }
+		NOT = { has_reform = islamic_republic_reform }
 	}
 	
 	option = {
@@ -1057,6 +1071,8 @@ country_event = {
 			is_lesser_in_union = no
 			is_statists_in_power = yes
 		}
+		NOT = { has_government_attribute = has_communist_election }
+		NOT = { has_reform = islamic_republic_reform }
 	}
 	
 	option = {

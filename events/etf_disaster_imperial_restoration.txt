@@ -1,0 +1,407 @@
+namespace = etf_imperial_restoration
+
+# Boshin War
+country_event = {
+	id = etf_imperial_restoration.1
+	title = etf_imperial_restoration.1.t
+	desc = etf_imperial_restoration.1.d
+	picture = BOSHIN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = is_the_shogun_flag # Used to identify the Shogun
+		set_global_flag = boshin_war_flag
+	}
+
+	option = {
+		name = etf_imperial_restoration.1.ra
+		hidden_effect = {
+			# Prepare non-loyalist subjects for transfer
+			every_subject_country = {
+				limit = {
+					has_country_flag = daimyo_loyal_to_empire
+				}
+				every_country = {
+					limit = {
+						war_with = PREV
+					}
+					white_peace = PREV
+				}
+				grant_independence = yes
+			}
+		}
+		start_civil_war = {
+			tag = JAP
+			every_owned_province = "
+				OR = {
+					area = kinai_area
+					area = sanindo_area
+					area = saigoku_area
+					area = shikoku_area
+					area = northern_kyushu
+					area = kyushu_area
+				}
+			"
+			type = mutual
+			delete_cores_after = yes
+			
+			treasury = 500
+			manpower = 50
+			
+			religion = ROOT
+			government = monarchy
+			capital = 1020 # Kyoto
+		}
+	}
+
+	option = {
+		name = etf_imperial_restoration.1.rb
+		trigger = {
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		hidden_effect = {
+			# Prepare non-loyalist subjects for transfer
+			every_subject_country = {
+				limit = {
+					has_country_flag = daimyo_loyal_to_empire
+				}
+				every_country = {
+					limit = {
+						war_with = PREV
+					}
+					white_peace = PREV
+				}
+				grant_independence = yes
+			}
+		}
+		start_civil_war = {
+			tag = JAP
+			every_owned_province = "
+				OR = {
+					area = kinai_area
+					area = sanindo_area
+					area = saigoku_area
+					area = shikoku_area
+					area = northern_kyushu
+					area = kyushu_area
+				}
+			"
+			type = mutual
+			delete_cores_after = yes
+			play_as = yes
+			
+			treasury = 500
+			manpower = 50
+			
+			religion = ROOT
+			government = monarchy
+			capital = 1020 # Kyoto
+		}
+	}
+
+	after = {
+		JAP = {
+			change_government = monarchy
+			set_government_rank = 3
+			define_ruler = {
+				name = "Meiji"
+				dynasty = "Yamato"
+				adm = 5
+				dip = 3
+				mil = 4
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						area = sanindo_area
+						area = saigoku_area
+					}
+				}
+				create_army = {
+					infantry = 20
+					cavalry = 5
+					artillery = 5
+				}
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						area = shikoku_area
+						area = northern_kyushu
+						area = kyushu_area
+					}
+				}
+				create_army = {
+					infantry = 20
+					cavalry = 5
+					artillery = 5
+				}
+			}
+			add_army_professionalism = 0.3
+			set_tech = { # Equal to European starting tech
+				adm_tech = 77
+				dip_tech = 77
+				mil_tech = 77
+			}
+			set_country_flag = formed_japan_flag
+		}
+		every_country = {
+			limit = {
+				has_country_flag = daimyo_loyal_to_empire
+			}
+			JAP = {
+				create_subject = {
+					subject_type = daimyo_vassal
+					subject = PREV
+				}
+			}
+			join_all_defensive_wars_of = JAP
+		}
+	}
+}
+
+# Imperial Victory
+country_event = {
+	id = etf_imperial_restoration.2
+	title = etf_imperial_restoration.2.t
+	desc = etf_imperial_restoration.2.d
+	picture = BOSHIN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = daimyo_loyal_to_shogun
+				}
+				PREV = {
+					create_subject = {
+						subject_type = daimyo_vassal
+						subject = PREV
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_country_flag = daimyo_loyal_to_shogun
+						has_country_flag = daimyo_loyal_to_empire
+					}
+				}
+				clr_country_flag = daimyo_loyal_to_shogun
+				clr_country_flag = daimyo_loyal_to_empire
+			}
+		}
+	}
+
+	option = {
+		name = etf_imperial_restoration.2.r
+		japan_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+			}
+			hidden_effect = {
+				remove_claim = ROOT
+			}
+			add_core = ROOT
+		}
+		if = {
+			limit = {
+				owns_core_province = 1028 # Mushashi/Tokyo
+			}
+			set_capital = 1028
+			1028 = {
+				change_province_name = "Tokyo"
+				hidden_effect = {
+					rename_capital = "Tokyo"
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = etf_imperial_restoration.11 days = 30  } # Republic of Ezo
+			country_event = { id = etf_imperial_restoration.12 days = 150 } # Western Reforms
+		}
+	}
+}
+
+# Shogunate Victory
+country_event = {
+	id = etf_imperial_restoration.3
+	title = etf_imperial_restoration.3.t
+	desc = etf_imperial_restoration.3.d
+	picture = BOSHIN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = daimyo_loyal_to_empire
+				}
+				PREV = {
+					create_subject = {
+						subject_type = daimyo_vassal
+						subject = PREV
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_country_flag = daimyo_loyal_to_shogun
+						has_country_flag = daimyo_loyal_to_empire
+					}
+				}
+				clr_country_flag = daimyo_loyal_to_shogun
+				clr_country_flag = daimyo_loyal_to_empire
+			}
+			clr_country_flag = is_the_shogun_flag
+		}
+	}
+
+	option = { # Reintegrate the Emperor
+		name = etf_imperial_restoration.3.ra
+		trigger = {
+			government = monarchy
+		}
+		if = {
+			limit = {
+				NOT = { has_reform = shogunate }
+			}
+			add_government_reform = shogunate
+		}
+		add_legitimacy = 100
+	}
+
+	option = { # Proclaim the Republic!
+		name = etf_imperial_restoration.3.rb
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			change_government = republic
+		}
+		override_country_name_add_flag = {
+			name = JAP
+			special = yes
+		}
+		set_country_flag = formed_japan_flag
+	}
+}
+
+# Republic of Ezo
+country_event = {
+	id = etf_imperial_restoration.11
+	title = etf_imperial_restoration.11.t
+	desc = etf_imperial_restoration.11.d
+	picture = BOSHIN_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		hokkaido_area = {
+			owned_by = ROOT
+		}
+	}
+
+	option = { # Let's finish this!
+		name = etf_imperial_restoration.11.ra
+		start_civil_war = {
+			tag = EZO
+			every_owned_province = "
+				area = hokkaido_area
+			"
+			type = attacker
+			
+			treasury = 100
+			manpower = 10
+			
+			religion = ROOT
+			government = republic
+			capital = 4193
+		}
+	}
+
+	option = { # Become Ezo!
+		name = etf_imperial_restoration.11.rb
+		trigger = {
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		start_civil_war = {
+			tag = EZO
+			every_owned_province = "
+				area = hokkaido_area
+			"
+			type = attacker
+			play_as = yes
+			
+			treasury = 100
+			manpower = 10
+			
+			religion = ROOT
+			government = republic
+			capital = 4193
+		}
+	}
+
+	after = {
+		EZO = {
+			add_government_reform = presidential_reform
+			define_ruler = {
+				name = "Enomoto Takeaki"
+				adm = 3
+				dip = 2
+				mil = 3
+			}
+		}
+	}
+}
+
+# Westernization
+country_event = {
+	id = etf_imperial_restoration.12
+	title = etf_imperial_restoration.12.t
+	desc = etf_imperial_restoration.12.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_imperial_restoration.12.ra
+		add_country_modifier = {
+			name = western_reforms
+			duration = 3650
+		}
+		capital_scope = {
+			add_all_institution_embracement = yes
+			add_building = factory
+		}
+		if = {
+			limit = {
+				government = monarchy
+			}
+			add_government_reform = parliamentary_reform
+			add_government_reform = landed_parliament
+		}
+	}
+
+	option = {
+		name = etf_imperial_restoration.12.rb
+		add_stability = 1
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

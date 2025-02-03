@@ -1,0 +1,402 @@
+guiTypes = {
+	windowType = {
+		name = "public_support_mechanic_gui"
+		size = { x = 100 y = 80 }
+		moveable = 0
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM" #placeholder
+			position = { x = 4 y = 0 }
+			orientation = "UPPER_LEFT"
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+	}
+	
+	windowType = {
+		name = "ruler_popularity_power"
+		size = { x = 300 y = 20 }
+		moveable = 0
+		
+		# Bar
+		iconType = {
+			name = "government_power_bar"
+			spriteType = "GFX_ruler_popularity_power_bar"
+			position = { x = 37 y = 4 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		# Frame
+		iconType = {
+			name = "government_power_bar_frame"
+			spriteType = "GFX_ruler_popularity_power_bar_frame"
+			position = { x = 23 y = 0 }
+			orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "jingoism_power"
+		size = { x = 300 y = 20 }
+		moveable = 0
+		
+		# Bar
+		iconType = {
+			name = "government_power_bar"
+			spriteType = "GFX_jingoism_power_bar"
+			position = { x = 37 y = 4 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		# Frame
+		iconType = {
+			name = "government_power_bar_frame"
+			spriteType = "GFX_jingoism_power_bar_frame"
+			position = { x = 23 y = 0 }
+			orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+	}
+}
+
+guiTypes = {
+	windowType = {
+		name = "bolster_party_gui_conservative"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_conservative_party"
+			spriteType = "GFX_icon_conservative_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "conservative_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "bolster_party_gui_liberal"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_liberal_party"
+			spriteType = "GFX_icon_liberal_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "liberal_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "bolster_party_gui_nationalist"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_nationalist_party"
+			spriteType = "GFX_icon_nationalist_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "nationalist_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "bolster_party_gui_social_democratic"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_social_democratic_party"
+			spriteType = "GFX_icon_social_democratic_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "social_democratic_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "bolster_party_gui_communist"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_communist_party"
+			spriteType = "GFX_icon_communist_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "communist_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "bolster_party_gui_national_socialist"
+		size = { x = 130 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		iconType = {
+			name = "bg_party_interactions"
+			spriteType = "GFX_bg_party_interactions"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		iconType = {
+			name = "icon_national_socialist_party"
+			spriteType = "GFX_icon_national_socialist_party"
+			position = { x = 0 y = 0 }
+			orientation = "UPPER_LEFT"
+			hint_tag = "national_socialist_party"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 23 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "bolster_party_label"
+			position = { x = 45 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BOLSTER_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "suppress_party_gui"
+		size = { x = 85 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 0 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "suppress_party_label"
+			position = { x = 0 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "SUPPRESS_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+	
+	windowType = {
+		name = "ban_party_gui"
+		size = { x = 85 y = 45 }
+		moveable = 0
+		orientation = "UPPER_LEFT"
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 0 y = 7 }
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+		
+		instantTextBoxType = {
+			name = "ban_party_label"
+			position = { x = 0 y = 7 }
+			orientation = "UPPER_LEFT"
+			text = "BAN_PARTY"
+			font = "vic_18"
+			maxWidth = 85
+			maxHeight = 29
+			format = centre
+			borderSize = { x = 0 y = 5 }
+			alwaystransparent = yes
+		}
+	}
+}
+
+guiTypes = {
+	windowType = {
+		name = "prime_minister_mechanic_gui"
+		size = { x = 100 y = 90 }
+		moveable = 0
+		
+		iconType = {
+			name = "bg_prime_minister"
+			spriteType = "GFX_bg_prime_minister"
+			position = { x = 17 y = 12 }
+			orientation = "UPPER_LEFT"
+		}
+		
+		guiButtonType = {
+			name = "government_interaction_button"
+			quadTextureSprite = "GFX_russian_ability_ADM"
+			position = { x = 0 y = 21 }
+			orientation = "UPPER_LEFT"
+			buttonFont = "vic_18"
+			clicksound = back_click
+		}
+	}
+}

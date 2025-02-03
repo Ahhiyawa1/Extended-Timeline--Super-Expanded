@@ -1,0 +1,6033 @@
+namespace = SoI
+
+# Embassy under Siege
+country_event = {
+	id = SoI.1
+	title = SoI.1.t
+	desc = SoI.1.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # We must protect our interests, with force.
+		name = SoI.1.ra
+		add_casus_belli = {
+			target = FROM
+			type = cb_restore_sphere
+			months = 12
+		}
+		if = {
+			limit = {
+				ai = yes
+				is_great_power_trigger = yes
+				is_at_war = no
+			}
+			if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 3.0
+					}
+				}
+				declare_war_with_cb = {
+					who = FROM
+					casus_belli = cb_restore_sphere
+				}
+			}
+			else_if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 2.0
+					}
+				}
+				random = {
+					chance = 75
+					declare_war_with_cb = {
+						who = FROM
+						casus_belli = cb_restore_sphere
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 1.0
+					}
+				}
+				random = {
+					chance = 50
+					declare_war_with_cb = {
+						who = FROM
+						casus_belli = cb_restore_sphere
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # We'll salvage what little influence we have left.
+		name = SoI.1.rb
+		add_prestige = -15
+		add_diplomatic_influence = {
+			who = FROM
+			value = 10
+		}
+	}
+}
+
+# [From.GetName] Expels our Advisors
+country_event = {
+	id = SoI.2
+	title = SoI.2.t
+	desc = SoI.2.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # We must protect our interests, with force.
+		name = SoI.1.ra
+		add_casus_belli = {
+			target = FROM
+			type = cb_restore_sphere
+			months = 12
+		}
+		if = {
+			limit = {
+				ai = yes
+				is_great_power_trigger = yes
+				is_at_war = no
+			}
+			if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 3.0
+					}
+				}
+				declare_war_with_cb = {
+					who = FROM
+					casus_belli = cb_restore_sphere
+				}
+			}
+			else_if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 2.0
+					}
+				}
+				random = {
+					chance = 75
+					declare_war_with_cb = {
+						who = FROM
+						casus_belli = cb_restore_sphere
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					military_strength = {
+						who = FROM
+						value = 1.0
+					}
+				}
+				random = {
+					chance = 50
+					declare_war_with_cb = {
+						who = FROM
+						casus_belli = cb_restore_sphere
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # We'll salvage what little influence we have left.
+		name = SoI.1.rb
+		add_prestige = -10
+		add_diplomatic_influence = {
+			who = FROM
+			value = 15
+		}
+	}
+}
+
+# Discredit other Great Power (Redirect Event)
+country_event = {
+	id = SoI.10
+	title = "Discredit other Great Power (Redirect Event)"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		FROM = {
+			country_event = { id = SoI.11 }
+		}
+	}
+}
+
+# Discredit other Great Power
+country_event = {
+	id = SoI.11
+	title = SoI.11.t
+	desc = SoI.11.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = SoI.11.r1
+		trigger = {
+			has_saved_global_event_target = GP_1
+			event_target:GP_1 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_1
+				}
+			}
+		}
+		event_target:GP_1 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_1 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r2
+		trigger = {
+			has_saved_global_event_target = GP_2
+			event_target:GP_2 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_2
+				}
+			}
+		}
+		event_target:GP_2 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_2 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r3
+		trigger = {
+			has_saved_global_event_target = GP_3
+			event_target:GP_3 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_3
+				}
+			}
+		}
+		event_target:GP_3 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_3 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r4
+		trigger = {
+			has_saved_global_event_target = GP_4
+			event_target:GP_4 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_4
+				}
+			}
+		}
+		event_target:GP_4 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_4 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r5
+		trigger = {
+			has_saved_global_event_target = GP_5
+			event_target:GP_5 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_5
+				}
+			}
+		}
+		event_target:GP_5 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_5 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r6
+		trigger = {
+			has_saved_global_event_target = GP_6
+			event_target:GP_6 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_6
+				}
+			}
+		}
+		event_target:GP_6 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_6 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r7
+		trigger = {
+			has_saved_global_event_target = GP_7
+			event_target:GP_7 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_7
+				}
+			}
+		}
+		event_target:GP_7 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_7 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r8
+		trigger = {
+			has_saved_global_event_target = GP_8
+			event_target:GP_8 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_8
+				}
+			}
+		}
+		event_target:GP_8 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_8 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r9
+		trigger = {
+			has_saved_global_event_target = GP_9
+			event_target:GP_9 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_9
+				}
+			}
+		}
+		event_target:GP_9 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_9 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r10
+		trigger = {
+			has_saved_global_event_target = GP_10
+			event_target:GP_10 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_10
+				}
+			}
+		}
+		event_target:GP_10 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_10 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r11
+		trigger = {
+			has_saved_global_event_target = GP_11
+			event_target:GP_11 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_11
+				}
+			}
+		}
+		event_target:GP_11 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_11 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r12
+		trigger = {
+			has_saved_global_event_target = GP_12
+			event_target:GP_12 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_12
+				}
+			}
+		}
+		event_target:GP_12 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_12 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r13
+		trigger = {
+			has_saved_global_event_target = GP_13
+			event_target:GP_13 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_13
+				}
+			}
+		}
+		event_target:GP_13 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_13 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r14
+		trigger = {
+			has_saved_global_event_target = GP_14
+			event_target:GP_14 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_14
+				}
+			}
+		}
+		event_target:GP_14 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_14 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r15
+		trigger = {
+			has_saved_global_event_target = GP_15
+			event_target:GP_15 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_15
+				}
+			}
+		}
+		event_target:GP_15 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_15 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r16
+		trigger = {
+			has_saved_global_event_target = GP_16
+			event_target:GP_16 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = discredit_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_16
+				}
+			}
+		}
+		event_target:GP_16 = {
+			add_diplomatic_modifier = {
+				name = discredit_modifier
+				duration = 180
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_16 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Fallback
+		name = SoI.11.r17
+		add_diplomatic_influence = {
+			who = FROM
+			value = 25
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Expel Advisors of other Great Power (Redirect Event)
+country_event = {
+	id = SoI.12
+	title = "Expel Advisors of other Great Power (Redirect Event)"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		FROM = {
+			country_event = { id = SoI.13 }
+		}
+	}
+}
+
+# Expel Advisors of other Great Power
+country_event = {
+	id = SoI.13
+	title = SoI.13.t
+	desc = SoI.13.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = SoI.11.r1
+		trigger = {
+			has_saved_global_event_target = GP_1
+			event_target:GP_1 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_1
+				}
+			}
+		}
+		event_target:GP_1 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_1 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r2
+		trigger = {
+			has_saved_global_event_target = GP_2
+			event_target:GP_2 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_2
+				}
+			}
+		}
+		event_target:GP_2 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_2 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r3
+		trigger = {
+			has_saved_global_event_target = GP_3
+			event_target:GP_3 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_3
+				}
+			}
+		}
+		event_target:GP_3 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_3 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r4
+		trigger = {
+			has_saved_global_event_target = GP_4
+			event_target:GP_4 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_4
+				}
+			}
+		}
+		event_target:GP_4 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_4 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r5
+		trigger = {
+			has_saved_global_event_target = GP_5
+			event_target:GP_5 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_5
+				}
+			}
+		}
+		event_target:GP_5 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_5 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r6
+		trigger = {
+			has_saved_global_event_target = GP_6
+			event_target:GP_6 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_6
+				}
+			}
+		}
+		event_target:GP_6 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_6 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r7
+		trigger = {
+			has_saved_global_event_target = GP_7
+			event_target:GP_7 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_7
+				}
+			}
+		}
+		event_target:GP_7 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_7 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r8
+		trigger = {
+			has_saved_global_event_target = GP_8
+			event_target:GP_8 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_8
+				}
+			}
+		}
+		event_target:GP_8 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_8 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r9
+		trigger = {
+			has_saved_global_event_target = GP_9
+			event_target:GP_9 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_9
+				}
+			}
+		}
+		event_target:GP_9 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_9 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r10
+		trigger = {
+			has_saved_global_event_target = GP_10
+			event_target:GP_10 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_10
+				}
+			}
+		}
+		event_target:GP_10 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_10 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r11
+		trigger = {
+			has_saved_global_event_target = GP_11
+			event_target:GP_11 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_11
+				}
+			}
+		}
+		event_target:GP_11 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_11 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r12
+		trigger = {
+			has_saved_global_event_target = GP_12
+			event_target:GP_12 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_12
+				}
+			}
+		}
+		event_target:GP_12 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_12 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r13
+		trigger = {
+			has_saved_global_event_target = GP_13
+			event_target:GP_13 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_13
+				}
+			}
+		}
+		event_target:GP_13 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_13 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r14
+		trigger = {
+			has_saved_global_event_target = GP_14
+			event_target:GP_14 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_14
+				}
+			}
+		}
+		event_target:GP_14 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_14 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r15
+		trigger = {
+			has_saved_global_event_target = GP_15
+			event_target:GP_15 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_15
+				}
+			}
+		}
+		event_target:GP_15 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_15 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r16
+		trigger = {
+			has_saved_global_event_target = GP_16
+			event_target:GP_16 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_16
+				}
+			}
+		}
+		event_target:GP_16 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_16 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Fallback
+		name = SoI.11.r17
+		add_diplomatic_influence = {
+			who = FROM
+			value = 50
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Ban Embassy of other Great Power (Redirect Event)
+country_event = {
+	id = SoI.14
+	title = "Ban Embassy of other Great Power (Redirect Event)"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		FROM = {
+			country_event = { id = SoI.15 }
+		}
+	}
+}
+
+# Ban Embassy of other Great Power
+country_event = {
+	id = SoI.15
+	title = SoI.15.t
+	desc = SoI.15.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = SoI.11.r1
+		trigger = {
+			has_saved_global_event_target = GP_1
+			event_target:GP_1 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_1
+				}
+			}
+		}
+		event_target:GP_1 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_1 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_1 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r2
+		trigger = {
+			has_saved_global_event_target = GP_2
+			event_target:GP_2 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_2
+				}
+			}
+		}
+		event_target:GP_2 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_2 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_2 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r3
+		trigger = {
+			has_saved_global_event_target = GP_3
+			event_target:GP_3 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_3
+				}
+			}
+		}
+		event_target:GP_3 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_3 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_3 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r4
+		trigger = {
+			has_saved_global_event_target = GP_4
+			event_target:GP_4 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_4
+				}
+			}
+		}
+		event_target:GP_4 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_4 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_4 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r5
+		trigger = {
+			has_saved_global_event_target = GP_5
+			event_target:GP_5 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_5
+				}
+			}
+		}
+		event_target:GP_5 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_5 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_5 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r6
+		trigger = {
+			has_saved_global_event_target = GP_6
+			event_target:GP_6 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_6
+				}
+			}
+		}
+		event_target:GP_6 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_6 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_6 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r7
+		trigger = {
+			has_saved_global_event_target = GP_7
+			event_target:GP_7 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_7
+				}
+			}
+		}
+		event_target:GP_7 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_7 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_7 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r8
+		trigger = {
+			has_saved_global_event_target = GP_8
+			event_target:GP_8 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_8
+				}
+			}
+		}
+		event_target:GP_8 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_8 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_8 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r9
+		trigger = {
+			has_saved_global_event_target = GP_9
+			event_target:GP_9 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_9
+				}
+			}
+		}
+		event_target:GP_9 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_9 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_9 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r10
+		trigger = {
+			has_saved_global_event_target = GP_10
+			event_target:GP_10 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_10
+				}
+			}
+		}
+		event_target:GP_10 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_10 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_10 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r11
+		trigger = {
+			has_saved_global_event_target = GP_11
+			event_target:GP_11 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_11
+				}
+			}
+		}
+		event_target:GP_11 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_11 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_11 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r12
+		trigger = {
+			has_saved_global_event_target = GP_12
+			event_target:GP_12 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_12
+				}
+			}
+		}
+		event_target:GP_12 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_12 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_12 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r13
+		trigger = {
+			has_saved_global_event_target = GP_13
+			event_target:GP_13 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_13
+				}
+			}
+		}
+		event_target:GP_13 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_13 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_13 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r14
+		trigger = {
+			has_saved_global_event_target = GP_14
+			event_target:GP_14 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_14
+				}
+			}
+		}
+		event_target:GP_14 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_14 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_14 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r15
+		trigger = {
+			has_saved_global_event_target = GP_15
+			event_target:GP_15 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_15
+				}
+			}
+		}
+		event_target:GP_15 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_15 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_15 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.11.r16
+		trigger = {
+			has_saved_global_event_target = GP_16
+			event_target:GP_16 = {
+				exists = yes
+				is_great_power_trigger = yes
+				NOT = { tag = ROOT }
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+			FROM = {
+				capital_scope = {
+					trade_range = event_target:GP_16
+				}
+			}
+		}
+		event_target:GP_16 = {
+			add_diplomatic_influence = {
+				who = FROM
+				value = -100
+			}
+			add_diplomatic_modifier = {
+				name = ban_embassy_modifier
+				duration = 365
+				with = FROM
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:GP_16 = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 20
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:GP_16 = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Fallback
+		name = SoI.11.r17
+		add_diplomatic_influence = {
+			who = FROM
+			value = 65
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Which Great Power should we befriend?
+country_event = {
+	id = SoI.20
+	title = SoI.20.t
+	desc = SoI.20.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = SoI.20.r1
+		trigger = {
+			has_saved_global_event_target = GP_1
+			event_target:GP_1 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_1
+			}
+		}
+		event_target:GP_1 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_1 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_1 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_1
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r2
+		trigger = {
+			has_saved_global_event_target = GP_2
+			event_target:GP_2 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_2
+			}
+		}
+		event_target:GP_2 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_2 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_2 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_2
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r3
+		trigger = {
+			has_saved_global_event_target = GP_3
+			event_target:GP_3 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_3
+			}
+		}
+		event_target:GP_3 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_3 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_3 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_3
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r4
+		trigger = {
+			has_saved_global_event_target = GP_4
+			event_target:GP_4 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_4
+			}
+		}
+		event_target:GP_4 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_4 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_4 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_4
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r5
+		trigger = {
+			has_saved_global_event_target = GP_5
+			event_target:GP_5 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_5
+			}
+		}
+		event_target:GP_5 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_5 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_5 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_5
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r6
+		trigger = {
+			has_saved_global_event_target = GP_6
+			event_target:GP_6 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_6
+			}
+		}
+		event_target:GP_6 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_6 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_6 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_6
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r7
+		trigger = {
+			has_saved_global_event_target = GP_7
+			event_target:GP_7 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_7
+			}
+		}
+		event_target:GP_7 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_7 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_7 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_7
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r8
+		trigger = {
+			has_saved_global_event_target = GP_8
+			event_target:GP_8 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_8
+			}
+		}
+		event_target:GP_8 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_8 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_8 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_8
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r9
+		trigger = {
+			has_saved_global_event_target = GP_9
+			event_target:GP_9 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_9
+			}
+		}
+		event_target:GP_9 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_9 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_9 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_9
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r10
+		trigger = {
+			has_saved_global_event_target = GP_10
+			event_target:GP_10 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_10
+			}
+		}
+		event_target:GP_10 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_10 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_10 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_10
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r11
+		trigger = {
+			has_saved_global_event_target = GP_11
+			event_target:GP_11 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_11
+			}
+		}
+		event_target:GP_11 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_11 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_11 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_11
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r12
+		trigger = {
+			has_saved_global_event_target = GP_12
+			event_target:GP_12 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_12
+			}
+		}
+		event_target:GP_12 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_12 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_12 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_12
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r13
+		trigger = {
+			has_saved_global_event_target = GP_13
+			event_target:GP_13 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_13
+			}
+		}
+		event_target:GP_13 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_13 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_13 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_13
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r14
+		trigger = {
+			has_saved_global_event_target = GP_14
+			event_target:GP_14 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_14
+			}
+		}
+		event_target:GP_14 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_14 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_14 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_14
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r15
+		trigger = {
+			has_saved_global_event_target = GP_15
+			event_target:GP_15 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_15
+			}
+		}
+		event_target:GP_15 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_15 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_15 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_15
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.20.r16
+		trigger = {
+			has_saved_global_event_target = GP_16
+			event_target:GP_16 = {
+				exists = yes
+				is_great_power_trigger = yes
+				ROOT = {
+					knows_country = PREV
+				}
+				NOT = { tag = ROOT }
+				NOT = { overlord_of = ROOT }
+			}
+			capital_scope = {
+				trade_range = event_target:GP_16
+			}
+		}
+		event_target:GP_16 = {
+			country_event = { id = SoI.21 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 100
+				AI_wants_to_be_influenced_by_trigger = { who = event_target:GP_16 }
+			}
+			modifier = {
+				factor = 2
+				event_target:GP_16 = {
+					AI_wants_to_influence_trigger = { who = ROOT }
+				}
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					has_opinion = {
+						who = event_target:GP_16
+						value = 0
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Fallback
+		name = SoI.11.r17
+		add_dip_power = 50
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				remove_country_modifier = befriend_great_power_timer
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# [From.GetName] seeks closer ties
+country_event = {
+	id = SoI.21
+	title = SoI.21.t
+	desc = SoI.21.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:from_target
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				save_event_target_as = from_target
+			}
+		}
+	}
+	
+	option = { # We should accept their offer.
+		name = SoI.21.ra
+		if = {
+			limit = {
+				ai = yes
+			}
+			custom_tooltip = SoI.21.tt # §Y[This.GetName]§! will be more likely to influence §Y[From.GetName]§! in the future.
+		}
+		add_diplomatic_influence = {
+			who = FROM
+			value = 20
+		}
+		add_diplomatic_modifier = {
+			name = influence_modifier
+			duration = 365
+			with = FROM
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] tried befriending [This.GetName], and succeded."
+		}
+		ai_chance = {
+			modifier = {
+				factor = 1000
+				AI_wants_to_influence_trigger = { who = FROM }
+			}
+			modifier = {
+				factor = 0.001
+				NOT = {
+					AI_wants_to_influence_trigger = { who = FROM }
+				}
+			}
+		}
+	}
+	
+	option = { # We have other plans in mind for [From.GetName].
+		name = SoI.21.rb
+		FROM = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_bad_opinion
+			}
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] tried befriending [This.GetName], but failed."
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0 # Always accept if:
+				FROM = {
+					ai = no # FROM is a player,
+				}
+				has_opinion = { # and not terrible opinion.
+					who = FROM
+					value = 0
+				}
+			}
+		}
+	}
+}
+
+# =============
+# Flavor Events
+# =============
+
+# Anti-foreign Demonstrations
+country_event = {
+	id = SoI.30
+	title = SoI.30.t
+	desc = SoI.30.d
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 1.25
+			overlord = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			overlord = {
+				NOT = { culture_group = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -150
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				save_event_target_as = protest_province
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.30.ra
+		goto = protest_province
+		event_target:protest_province = {
+			if = {
+				limit = {
+					can_spawn_rebels = revolutionary_rebels
+				}
+				revolutionary_rebels = 2
+			}
+			else = {
+				anti_tax_rebels = 1
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = SoI.30.rb
+		add_liberty_desire = 5
+		ai_chance = {
+			modifier = {
+				factor = 5
+				liberty_desire = 20
+			}
+		}
+	}
+}
+
+# Ambassador Humiliated
+country_event = {
+	id = SoI.31
+	title = SoI.31.t
+	desc = SoI.31.d
+	picture = ACCUSATION_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 1.25
+			overlord = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			overlord = {
+				NOT = { culture_group = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -150
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.31.ra
+		add_prestige = -5
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = SoI.31.rb
+		add_liberty_desire = 5
+		overlord = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_bad_opinion
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 5
+				liberty_desire = 20
+			}
+		}
+	}
+}
+
+# Foreign National Assassinated
+country_event = {
+	id = SoI.32
+	title = SoI.32.t
+	desc = SoI.32.d
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+		liberty_desire = 30 # *some* pre-existing rebellious sentiment
+	}
+	
+	mean_time_to_happen = {
+		months = 900
+		modifier = {
+			factor = 1.25
+			overlord = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			overlord = {
+				NOT = { culture_group = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -150
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.32.ra
+		add_prestige = -10
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = SoI.32.rb
+		add_liberty_desire = 20
+		overlord = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_terrible_opinion
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 5
+				liberty_desire = 50
+			}
+		}
+	}
+}
+
+# Diplomatic Scuffle
+country_event = {
+	id = SoI.33
+	title = SoI.33.t
+	desc = SoI.33.d
+	picture = ACCUSATION_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+		overlord = {
+			any_rival_country = {
+				can_influence_trigger = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.8
+			overlord = {
+				any_rival_country = {
+					has_diplomatic_influence = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				any_rival_country = {
+					has_diplomatic_influence = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				any_rival_country = {
+					has_diplomatic_influence = {
+						who = ROOT
+						value = 30
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				any_rival_country = {
+					has_diplomatic_influence = {
+						who = ROOT
+						value = 40
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				any_rival_country = {
+					has_diplomatic_influence = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			overlord = {
+				random_rival_country = {
+					limit = {
+						can_influence_trigger = yes
+					}
+					save_event_target_as = overlord_rival
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.33.ra
+		overlord = {
+			add_diplomatic_influence = {
+				who = ROOT
+				value = 10
+			}
+		}
+		event_target:overlord_rival = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_bad_opinion
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = SoI.33.rb
+		event_target:overlord_rival = {
+			add_diplomatic_influence = {
+				who = ROOT
+				value = 10
+			}
+		}
+		overlord = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_bad_opinion
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = SoI.33.rc
+		overlord = {
+			add_diplomatic_influence = {
+				who = ROOT
+				value = -5
+			}
+		}
+		event_target:overlord_rival = {
+			add_diplomatic_influence = {
+				who = ROOT
+				value = -5
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# [This.Overlord.GetAdjective] Investments
+country_event = {
+	id = SoI.34
+	title = SoI.34.t
+	desc = SoI.34.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+		NOT = { liberty_desire = 50 }
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.8
+			overlord = {
+				has_opinion = {
+					who = ROOT
+					value = 200
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				has_opinion = {
+					who = ROOT
+					value = 150
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			overlord = {
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+				}
+				save_event_target_as = investment_province
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.34.r
+		goto = investment_province
+		event_target:investment_province = {
+			add_base_tax = 1
+			add_base_production = 1
+		}
+	}
+}
+
+# Expanding our reach
+country_event = {
+	id = SoI.35
+	title = SoI.35.t
+	desc = SoI.35.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+		NOT = { liberty_desire = 50 }
+		overlord = {
+			any_subject_country = {
+				is_subject_of_type = sphere_member
+				NOT = { tag = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 1.25
+			overlord = {
+				primary_culture = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.75
+			overlord = {
+				NOT = { culture_group = ROOT }
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -50
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -100
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.9
+			overlord = {
+				NOT = {
+					reverse_has_opinion = {
+						who = ROOT
+						value = -150
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			overlord = {
+				random_subject_country = {
+					limit = {
+						is_subject_of_type = sphere_member
+						NOT = { tag = ROOT }
+					}
+					save_event_target_as = random_sphere_member
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = SoI.35.r
+		event_target:random_sphere_member = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_good_opinion
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = generic_good_opinion
+			}
+		}
+	}
+}
+
+# =====
+# Debug
+# =====
+
+# SoI Debug Event
+country_event = {
+	id = SoI.100
+	title = "SoI Debug Event"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	trigger = {
+		is_great_power_trigger = yes
+		can_influence_trigger = no
+		OR = {
+			NOT = { has_saved_global_event_target = GP_1 }
+			NOT = { has_saved_global_event_target = GP_2 }
+			NOT = { has_saved_global_event_target = GP_3 }
+			NOT = { has_saved_global_event_target = GP_4 }
+			NOT = { has_saved_global_event_target = GP_5 }
+			NOT = { has_saved_global_event_target = GP_6 }
+			NOT = { has_saved_global_event_target = GP_7 }
+			NOT = { has_saved_global_event_target = GP_8 }
+			NOT = { has_saved_global_event_target = GP_9 }
+			NOT = { has_saved_global_event_target = GP_10 }
+			NOT = { has_saved_global_event_target = GP_11 }
+			NOT = { has_saved_global_event_target = GP_12 }
+			NOT = { has_saved_global_event_target = GP_13 }
+			NOT = { has_saved_global_event_target = GP_14 }
+			NOT = { has_saved_global_event_target = GP_15 }
+			NOT = { has_saved_global_event_target = GP_16 }
+			event_target:GP_1 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_2 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_3 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_4 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_5 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_6 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_7 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_8 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_9 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_10 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_11 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_12 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_13 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_14 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_15 = { OR = { exists = no is_great_power_trigger = no } }
+			event_target:GP_16 = { OR = { exists = no is_great_power_trigger = no } }
+		}
+	}
+	
+	option = {
+		update_diplomatic_influence_system = yes
+	}
+}
+
+# Sphere Debug
+country_event = {
+	id = SoI.101
+	title = "Sphere Debug"
+	desc = None
+	picture = None
+	hidden = yes
+	
+	trigger = {
+		is_subject_of_type = sphere_member
+		overlord = {
+			is_great_power_trigger = no
+		}
+	}
+	
+	option = {
+		grant_independence = yes
+	}
+}

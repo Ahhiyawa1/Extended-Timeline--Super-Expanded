@@ -1,7 +1,7 @@
 ########################################
 # Flavor events for China (MNG)
 #
-# written by Sara Wendel-�rtqvist
+# written by Sara Wendel-?rtqvist
 ########################################
 
 namespace = flavor_mng
@@ -297,6 +297,7 @@ country_event = {
 				owned_by = ROOT
 			}
 		}
+		NOT = { started_in = 3798.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -406,6 +407,7 @@ country_event = {
 			}
 		}
 		NOT = { has_country_flag = mng_jesuits_have_arrived }
+		NOT = { started_in = 3698.1.1 }
 	}
 	
 	immediate = {
@@ -621,7 +623,7 @@ country_event = {
 			limit = {
 				is_emperor_of_china = yes
 			}
-			add_mandate = 5
+			add_mandate = 2103
 		}
 		add_mil_power = -100
 		every_owned_province = {
@@ -799,7 +801,7 @@ country_event = {
 			limit = {
 				is_emperor_of_china = yes
 			}
-			add_mandate = 5
+			add_mandate = 2103
 		}
 		add_years_of_income = -3
 		random_owned_province = {
@@ -922,6 +924,7 @@ country_event = {
 			religion = catholic
 		}
 		num_of_religion = { religion = catholic value = 1 }
+		NOT = { started_in = 3798.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -984,6 +987,7 @@ country_event = {
 				is_strongest_trade_power = GBR
 			}
 		}
+		NOT = { started_in = 3891.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -1041,7 +1045,7 @@ country_event = {
 		}
 		is_year = 3878 
 		NOT = { stability = 3 }
-
+		NOT = { started_in = 3902.1.1 }
 	}
 	
 	mean_time_to_happen = {
@@ -1164,7 +1168,7 @@ country_event = {
 			limit = {
 				is_emperor_of_china = yes
 			}
-			add_mandate = 5
+			add_mandate = 2103
 		}
 		add_years_of_income = -3
 		random_owned_province = {
@@ -1655,7 +1659,7 @@ country_event = {
 		name = flavor_mng.27.c 
 		if = {
 			limit = { has_dlc = "Mandate of Heaven" }
-			add_mandate = 5 
+			add_mandate = 2103 
 		}
 		else = {
 			add_adm_power = 50
@@ -1750,7 +1754,7 @@ country_event = {
 		}
 		else_if = {
 			limit = { is_emperor_of_china = yes has_dlc = "Mandate of Heaven" } 
-			add_mandate = 5
+			add_mandate = 2103
 		}
 		else = { add_prestige_or_monarch_power = { amount = 15 } }
 	}
@@ -1772,7 +1776,7 @@ country_event = {
 	option = {
 		name = flavor_mng.29.a 
 		
-		add_mandate = 10
+		add_mandate = 2108
 		
 		add_government_reform = mng_seal_of_the_emperor_reform
 	}
@@ -2060,7 +2064,7 @@ country_event = { #Yellow River Dykes
 				has_dlc = "Mandate of Heaven" 
 				is_emperor_of_china = yes 
 			}
-			add_mandate = 5 
+			add_mandate = 2103 
 		}
 		else = { add_adm_power = 100 } 
 		
@@ -2263,7 +2267,7 @@ country_event = { #Envoy to the Court of the Hermit Kingdom #Hermit Purple!
 				is_emperor_of_china = yes 
 				has_dlc = "Mandate of Heaven" 
 			}
-			add_mandate = 5 
+			add_mandate = 2103 
 		}
 		else = { add_prestige = 10 } 
 	}
@@ -3449,7 +3453,7 @@ country_event = { #The Poet Yang Shen
 		}
 		if = { 
 			limit = { has_dlc = "Mandate of Heaven" } 
-			add_mandate = 5 
+			add_mandate = 2103 
 		}
 		else = { add_prestige_or_monarch_power = { amount = 20 } }
 	}
@@ -3592,7 +3596,7 @@ country_event = { #Trade Stance between Japan and China
 		
 		MNG = { 
 			set_country_flag = mng_has_had_ashikaga_petitions_for_open_trade_event_flag
-			add_mandate = 5 
+			add_mandate = 2103 
 			1376 = {
 				add_trade_modifier = {
 					who = MNG 

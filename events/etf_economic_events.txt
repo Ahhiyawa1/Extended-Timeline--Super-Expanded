@@ -1,0 +1,154 @@
+namespace = etf_economic
+
+# King Cotton
+#country_event = {
+#	id = etf_economic.100
+#	title = etf_economic.100.t
+#	desc = etf_economic.100.d
+#	picture = REFORM_eventPicture
+#
+#	trigger = {
+#		OR = {
+#			southeast_america_region = {
+#				owned_by = ROOT
+#				trade_goods = cotton
+#				NOT = { has_province_modifier = free_state_modifier }
+#				NOT = { has_province_modifier = king_cotton_modifier }
+#			}
+#			mississippi_region = {
+#				owned_by = ROOT
+#				trade_goods = cotton
+#				NOT = { has_province_modifier = free_state_modifier }
+#				NOT = { has_province_modifier = king_cotton_modifier }
+#			}
+#		}
+#		NOT = {
+#			has_country_modifier = the_abolish_slavery_act
+#		}
+#		is_year = 3928
+#		NOT = { is_year = 3959 }
+#	}
+#
+#	option = {
+#		name = etf_economic.100.r
+#		southeast_america_region = {
+#			limit = {
+#				owned_by = ROOT
+#				trade_goods = cotton
+#				NOT = { has_province_modifier = free_state_modifier }
+#				NOT = { has_province_modifier = king_cotton_modifier }
+#			}
+#			add_province_modifier = {
+#				name = king_cotton_modifier
+#				duration = -1
+#			}
+#		}
+#		mississippi_region = {
+#			limit = {
+#				owned_by = ROOT
+#				trade_goods = cotton
+#				NOT = { has_province_modifier = free_state_modifier }
+#				NOT = { has_province_modifier = king_cotton_modifier }
+#			}
+#			add_province_modifier = {
+#				name = king_cotton_modifier
+#				duration = -1
+#			}
+#		}
+#	}
+#}
+
+# Remove King Cotton
+#country_event = {
+#	id = etf_economic.101
+#	title = None
+#	desc = None
+#	picture = None
+#	hidden = yes
+#
+#	trigger = {
+#		OR = {
+#			southeast_america_region = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#				OR = {
+#					has_province_modifier = free_state_modifier
+#					NOT = { trade_goods = cotton }
+#				}
+#			}
+#			mississippi_region = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#				OR = {
+#					has_province_modifier = free_state_modifier
+#					NOT = { trade_goods = cotton }
+#				}
+#			}
+#		}
+#	}
+#
+#	option = {
+#		southeast_america_region = {
+#			limit = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#				OR = {
+#					has_province_modifier = free_state_modifier
+#					NOT = { trade_goods = cotton }
+#				}
+#			}
+#			remove_province_modifier = king_cotton_modifier
+#		}
+#		mississippi_region = {
+#			limit = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#				OR = {
+#					has_province_modifier = free_state_modifier
+#					NOT = { trade_goods = cotton }
+#				}
+#			}
+#			remove_province_modifier = king_cotton_modifier
+#		}
+#	}
+#}
+
+# End of King Cotton
+#country_event = {
+#	id = etf_economic.102
+#	title = etf_economic.102.t
+#	desc = etf_economic.102.d
+#	picture = REFORM_eventPicture
+#
+#	trigger = {
+#		OR = {
+#			southeast_america_region = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#			}
+#			mississippi_region = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#			}
+#		}
+#		has_country_modifier = the_abolish_slavery_act
+#	}
+#
+#	option = {
+#		name = etf_economic.102.r
+#		southeast_america_region = {
+#			limit = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#			}
+#			remove_province_modifier = king_cotton_modifier
+#		}
+#		mississippi_region = {
+#			limit = {
+#				owned_by = ROOT
+#				has_province_modifier = king_cotton_modifier
+#			}
+#			remove_province_modifier = king_cotton_modifier
+#		}
+#	}
+#}

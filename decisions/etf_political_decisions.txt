@@ -1,0 +1,332 @@
+country_decisions = { # Unban Political Party decisions
+
+	unban_conservative_party = {
+		potential = {
+			has_faction = conservative_party
+			has_country_modifier = banned_conservative_party
+		}
+		allow = {
+			has_country_modifier = banned_conservative_party
+		}
+		effect = {
+			remove_country_modifier = banned_conservative_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_not_communist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_communist = yes
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	unban_liberal_party = {
+		potential = {
+			has_faction = liberal_party
+			has_country_modifier = banned_liberal_party
+		}
+		allow = {
+			has_country_modifier = banned_liberal_party
+		}
+		effect = {
+			remove_country_modifier = banned_liberal_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_not_communist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_autocracy = yes
+					is_communist = yes
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	unban_nationalist_party = {
+		potential = {
+			has_faction = nationalist_party
+			has_country_modifier = banned_nationalist_party
+		}
+		allow = {
+			has_country_modifier = banned_nationalist_party
+		}
+		effect = {
+			remove_country_modifier = banned_nationalist_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_not_communist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_communist = yes
+				}
+			}
+		}
+	}
+
+	unban_social_democratic_party = {
+		potential = {
+			has_faction = social_democratic_party
+			has_country_modifier = banned_social_democratic_party
+		}
+		allow = {
+			has_country_modifier = banned_social_democratic_party
+		}
+		effect = {
+			remove_country_modifier = banned_social_democratic_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_not_communist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_autocracy = yes
+					is_communist = yes
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	unban_communist_party = {
+		potential = {
+			has_faction = communist_party
+			has_country_modifier = banned_communist_party
+		}
+		allow = {
+			has_country_modifier = banned_communist_party
+		}
+		effect = {
+			remove_country_modifier = banned_communist_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_communist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_autocracy = yes
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	unban_national_socialist_party = {
+		potential = {
+			has_faction = national_socialist_party
+			has_country_modifier = banned_national_socialist_party
+		}
+		allow = {
+			has_country_modifier = banned_national_socialist_party
+		}
+		effect = {
+			remove_country_modifier = banned_national_socialist_party
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Friendly ideologies want them around:
+				factor = 10
+				OR = {
+					is_fascist = yes
+				}
+			}
+			modifier = { # Hostile ideologies want them gone:
+				factor = 0
+				OR = {
+					is_communist = yes
+				}
+			}
+		}
+	}
+
+}
+
+country_decisions = {
+
+	adopt_religious_freedom = {
+		potential = {
+			adm_tech = 74 # Rights of Man
+			NOT = { has_country_modifier = religious_freedom_modifier }
+			NOT = { religion = secularism }
+			NOT = { government = theocracy }
+			NOT = { has_reform = caliphate_reform }
+			NOT = { has_reform = feudal_theocracy }
+			NOT = { has_reform = iqta }
+			is_force_converted = no
+			is_part_of_hre = no
+			is_emperor = no
+			is_emperor_of_china = no
+			OR = {
+				is_free_or_tributary_trigger = yes
+				overlord = {
+					OR = {
+						has_country_modifier = religious_freedom_modifier
+						religion = secularism
+					}
+				}
+			}
+		}
+		allow = {
+			stability = 2
+			is_at_war = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = religious_freedom_modifier
+				duration = -1  
+			}
+			if = {
+				limit = {
+					NOT = { adm_tech = 79 } # "Adopt Secularism" decision is available
+				}
+				add_stability = -1
+			}
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = -15
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 77 }
+				NOT = { has_idea_group = humanist_ideas }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					religion_group = muslim
+					has_idea_group = religious_ideas
+				}
+				NOT = { adm_tech = 81 }
+			}
+			modifier = {
+				factor = 0
+				is_subject = yes
+				overlord = {
+					NOT = { has_country_modifier = religious_freedom_modifier }
+					NOT = { religion = secularism }
+				}
+			}
+		}
+	}
+
+}
+
+country_decisions = {
+
+	# declare_anti_communist_regime = {
+		# potential = {
+			# is_not_communist = yes
+			# any_neighbor_country = {
+				# is_communist = yes
+			# }
+		# }
+		# allow = {
+			# any_neighbor_country = {
+				# is_great_power = yes
+				# is_communist = yes
+				# NOT = {
+					# has_opinion = {
+						# who = PREV
+						# value = 50
+					# }
+				# }
+			# }
+			# is_not_communist = yes
+			# NOT = { faction_in_power = communist_party }
+		# }
+		# effect = {
+			# if = {
+				# limit = {
+					# has_faction = communist_party
+				# }
+				# add_faction_influence = {
+					# faction = communist_party
+					# influence = -20
+				# }
+			# }
+			# add_country_modifier = {
+				# name = anti_communist_regime_modifier
+				# duration = -1
+			# }
+		# }
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# NOT = {
+					# OR = {
+						# is_not_democracy = yes
+						# primary_culture = american
+					# }
+				# }
+			# }
+		# }
+	# }
+
+	# end_anti_communist_regime = {
+		# potential = {
+			# has_country_modifier = anti_communist_regime_modifier
+		# }
+		# allow = {
+			# has_country_modifier = anti_communist_regime_modifier
+		# }
+		# effect = {
+			# remove_country_modifier = anti_communist_regime_modifier
+		# }
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# NOT = {
+					# OR = {
+						# is_communist = yes
+					# }
+				# }
+			# }
+		# }
+	# }
+
+}

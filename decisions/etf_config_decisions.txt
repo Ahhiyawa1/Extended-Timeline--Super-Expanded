@@ -1,0 +1,226 @@
+country_decisions = {
+
+	# Toggle config. visibility:
+	CONFIG_hide_options = {
+		color = { 120 120 120 }
+		potential = {
+			ai = no
+			started_in = 4048.1.1
+			NOT = {
+				OR = {
+					has_global_flag = CONFIG_hide_options_flag
+					had_global_flag = {
+						flag = etf_setup_global
+						days = 30
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CONFIG_hide_options_tt
+			set_global_flag = CONFIG_hide_options_flag
+			
+			custom_tooltip = CONFIG_decision_tt
+		}
+	}
+	CONFIG_show_options = {
+		color = { 120 120 120 }
+		potential = {
+			ai = no
+			started_in = 4048.1.1
+			has_global_flag = CONFIG_hide_options_flag
+			NOT = {
+				had_global_flag = {
+					flag = etf_setup_global
+					days = 30
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CONFIG_show_options_tt
+			clr_global_flag = CONFIG_hide_options_flag
+			
+			custom_tooltip = CONFIG_decision_tt
+		}
+	}
+
+	CONFIG_reset_spheres = {
+		color = { 120 120 120 }
+		potential = {
+			ai = no
+			started_in = 4048.1.1
+			NOT = { has_global_flag = CONFIG_reset_spheres_flag }
+			NOT = {
+				OR = {
+					has_global_flag = CONFIG_hide_options_flag
+					had_global_flag = {
+						flag = etf_setup_global
+						days = 30
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CONFIG_reset_spheres_tt
+			hidden_effect = {
+				every_country = {
+					limit = { # Is tributaresque subject
+						is_subject = yes
+						is_free_or_tributary_trigger = yes
+					}
+					grant_independence = yes
+				}
+			}
+			set_global_flag = CONFIG_reset_spheres_flag
+			
+			custom_tooltip = CONFIG_decision_tt
+		}
+	}
+
+	#CONFIG_increase_war = {
+	#	color = { 120 120 120 }
+	#	potential = {
+	#		ai = no
+	#		started_in = 4048.1.1
+	#		NOT = { has_global_flag = CONFIG_increase_war_flag }
+	#		NOT = {
+	#			OR = {
+	#				has_global_flag = CONFIG_hide_options_flag
+	#				had_global_flag = {
+	#					flag = etf_setup_global
+	#					days = 30
+	#				}
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		custom_tooltip = CONFIG_increase_war_tt
+	#		hidden_effect = {
+	#			every_country_including_inactive = {
+	#				limit = {
+	#					capital_scope = {
+	#						always = yes
+	#					}
+	#				}
+	#				add_country_modifier = {
+	#					name = patriotism_modifier # More Jingoism!
+	#					duration = -1
+	#				}
+	#			}
+	#		}
+	#		set_global_flag = CONFIG_increase_war_flag
+	#		
+	#		custom_tooltip = CONFIG_decision_tt
+	#	}
+	#}
+
+	CONFIG_decrease_development = {
+		color = { 120 120 120 }
+		potential = {
+			ai = no
+			started_in = 4048.1.1
+			NOT = { has_global_flag = CONFIG_decrease_development_flag }
+			NOT = {
+				OR = {
+					has_global_flag = CONFIG_hide_options_flag
+					had_global_flag = {
+						flag = etf_setup_global
+						days = 30
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CONFIG_decrease_development_tt
+			hidden_effect = {
+				every_province = {
+					limit = { development = 20 }
+					random_list = {
+						33 = { add_base_tax = -1 add_base_production = -1 add_base_manpower = -1 }
+						33 = { add_base_tax = -2 add_base_production = -2 add_base_manpower = -2 }
+						33 = { add_base_tax = -3 add_base_production = -3 add_base_manpower = -3 }
+					}
+				}
+				every_province = {
+					limit = { development = 100 }
+					set_base_tax = 33
+					set_base_production = 33
+					set_base_manpower = 33
+				}
+			}
+			set_global_flag = CONFIG_decrease_development_flag
+			
+			custom_tooltip = CONFIG_decision_tt
+		}
+	}
+
+	CONFIG_government_randomizer = {
+		color = { 120 120 120 }
+		potential = {
+			ai = no
+			started_in = 4048.1.1
+			NOT = { has_global_flag = CONFIG_government_randomizer_flag }
+			NOT = {
+				OR = {
+					has_global_flag = CONFIG_hide_options_flag
+					had_global_flag = {
+						flag = etf_setup_global
+						days = 30
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = CONFIG_government_randomizer_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						is_colonial_nation = no
+					}
+					random_list = {
+						25 = { # Autocratic
+							random_list = {
+								50 = {
+									change_government_to_autocratic_monarchy = yes
+								}
+								50 = {
+									change_government_to_dictatorial_republic = yes
+								}
+							}
+						}
+						25 = { # Democratic
+							random_list = {
+								50 = {
+									change_government_to_parliamentary_monarchy = yes
+								}
+								50 = {
+									change_government_to_democratic_republic = yes
+								}
+							}
+						}
+						25 = { # Communist
+							change_government_to_dictatorial_republic = yes
+							add_government_reform = communist_government
+						}
+						25 = { # Fascist
+							random_list = {
+								50 = {
+									change_government_to_fascist_monarchy = yes
+								}
+								50 = {
+									change_government_to_dictatorial_republic = yes
+									add_government_reform = fascist_government
+								}
+							}
+						}
+					}
+					define_ruler = {}
+				}
+			}
+			set_global_flag = CONFIG_government_randomizer_flag
+			
+			custom_tooltip = CONFIG_decision_tt
+		}
+	}
+
+}

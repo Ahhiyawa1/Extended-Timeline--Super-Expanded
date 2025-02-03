@@ -1,0 +1,186 @@
+# When a nation is annexed via Unite the Nation peacetreaty
+on_unite_the_nation_peace = {
+	# Carlist War
+	if = {
+		limit = {
+			tag = SPA
+			FROM = { tag = SPC }
+		}
+		country_event = { id = etf_event_spa.110 days = 1 }
+	}
+	if = {
+		limit = {
+			tag = SPC
+			FROM = { tag = SPA }
+		}
+		country_event = { id = etf_event_spa.120 days = 1 }
+	}
+	# The Taiping Rebellion
+	if = {
+		limit = {
+			has_country_flag = the_taiping_flag
+			FROM = { tag = TPG }
+		}
+		country_event = { id = etf_event_chn.420 } # Taiping Defeat
+	}
+	if = {
+		limit = {
+			tag = TPG
+			FROM = { has_country_flag = the_taiping_flag }
+		}
+		country_event = { id = etf_event_chn.421 } # Taiping Victory
+	}
+	# Imperial Restoration
+	if = {
+		limit = {
+			tag = JAP
+			FROM = { has_country_flag = is_the_shogun_flag }
+		}
+		country_event = { id = etf_imperial_restoration.2 } # Imperials Victorious
+	}
+	if = {
+		limit = {
+			has_country_flag = is_the_shogun_flag
+			FROM = { tag = JAP }
+		}
+		country_event = { id = etf_imperial_restoration.3 } # Imperials Defeated
+	}
+	# American Civil War
+	if = {
+		limit = {
+			country_is = { tag = USA }
+			FROM = {
+				country_is = { tag = CSA }
+			}
+		}
+		country_event = { id = etf_event_acw.20 }
+	}
+	# Xinhai Revolution
+	if = {
+		limit = {
+			tag = KUO
+			FROM = {
+				has_disaster = xinhai_revolution
+			}
+		}
+		country_event = { id = etf_event_xinhai.12 }
+	}
+	# Russian Civil War
+	if = {
+		limit = {
+			country_is = { tag = RUS }
+			FROM = {
+				country_is = { tag = RUS }
+			}
+		}
+		country_event = { id = etf_event_rcw.10 }
+	}
+	# Spanish Civil War
+	if = {
+		limit = {
+			OR = {
+				country_name_is = { name = REPUBLICAN_SPAIN }
+				country_name_is = { name = NATIONALIST_SPAIN }
+			}
+			FROM = {
+				OR = {
+					country_name_is = { name = REPUBLICAN_SPAIN }
+					country_name_is = { name = NATIONALIST_SPAIN }
+				}
+			}
+		}
+		country_event = { id = etf_event_scw.100 days = 1 }
+	}
+}
+
+on_secession_peace = {
+	
+}
+
+on_monthly_pulse_effect = {
+	add_monthly_influence_effect = yes
+	# Delete Manpower:
+	if = {
+		limit = {
+			has_country_modifier = no_army
+		}
+		add_manpower = -50
+		add_sailors = -50000
+	}
+	# Remove/Add Entrenchment:
+	# if = {
+		# limit = {
+			# any_owned_province = {
+				# OR = {
+					# has_province_modifier = entrenchment_1_modifier
+					# has_province_modifier = entrenchment_2_modifier
+					# has_province_modifier = entrenchment_3_modifier
+				# }
+			# }
+		# }
+		# every_owned_province = {
+			# limit = {
+				# OR = {
+					# has_province_modifier = entrenchment_1_modifier
+					# has_province_modifier = entrenchment_2_modifier
+					# has_province_modifier = entrenchment_3_modifier
+				# }
+				# OR = {
+					# controller = {
+						# is_at_war = no
+					# }
+					# controller = {
+						# NOT = { mil_tech = 77 }
+					# }
+					# AND = {
+						# NOT = { infantry_in_province = controller }
+						# NOT = { cavalry_in_province = controller }
+						# NOT = { artillery_in_province = controller }
+					# }
+				# }
+			# }
+			# remove_province_modifier = entrenchment_1_modifier
+			# remove_province_modifier = entrenchment_2_modifier
+			# remove_province_modifier = entrenchment_3_modifier
+		# }
+	# }
+	# if = {
+		# limit = {
+			# is_at_war = yes
+			# any_war_enemy_country = {
+				# mil_tech = 77
+			# }
+		# }
+		# every_owned_province = {
+			# limit = {
+				# controller = {
+					# mil_tech = 77
+				# }
+				# OR = {
+					# infantry_in_province = controller
+					# cavalry_in_province = controller
+					# artillery_in_province = controller
+				# }
+				# NOT = { has_province_modifier = entrenchment_3_modifier }
+			# }
+			# add_province_modifier_upgrade_effect = {
+				# 1 = entrenchment_1_modifier
+				# 2 = entrenchment_2_modifier
+				# 3 = entrenchment_3_modifier
+				# duration = -1
+			# }
+		# }
+	# }
+}
+
+# When reforms are selected (in general)
+on_reform_effect = {
+	ideology_opinion_effect = yes
+	if = {
+		limit = {
+			has_country_modifier = eic_reform_the_company_modifier
+			NOT = { has_reform = trade_company_government }
+		}
+		remove_country_modifier = eic_reform_the_company_modifier
+	}
+}

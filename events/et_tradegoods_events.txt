@@ -13,6 +13,7 @@ country_event = {
 	trigger = {
 		is_year = 4078
 		any_owned_province = { trade_goods = fur }
+		NOT = { has_global_flag = animal_rights_flag }
 	}
 
 	mean_time_to_happen = {
@@ -27,6 +28,7 @@ country_event = {
 			value = -0.25
 			duration = -1
 		}
+		set_global_flag = animal_rights_flag
 	}
 }
 
@@ -43,6 +45,7 @@ country_event = {
 	trigger = {
 		is_year = 4028
 		any_owned_province = { trade_goods = fur }
+		NOT = { has_global_flag = fake_fur_flag }
 	}
 
 	mean_time_to_happen = {
@@ -57,6 +60,7 @@ country_event = {
 			value = -0.25
 			duration = -1
 		}
+		set_global_flag = fake_fur_flag
 	}
 }
 
@@ -73,6 +77,7 @@ country_event = {
 	trigger = {
 		is_year = 4088
 		technology_group = western
+		NOT = { has_global_flag = ivory_ban_flag }
 	}
 
 	mean_time_to_happen = {
@@ -87,6 +92,7 @@ country_event = {
 			value = -0.5
 			duration = -1
 		}
+		set_global_flag = ivory_ban_flag
 	}
 }
 
@@ -102,6 +108,7 @@ country_event = {
 	
 	trigger = {
 		has_institution = electrification
+		NOT = { has_global_flag = conductor_flag }
 	}
 
 	mean_time_to_happen = {
@@ -116,6 +123,7 @@ country_event = {
 			value = 0.2
 			duration = -1
 		}
+		set_global_flag = conductor_flag
 	}
 }
 
@@ -132,6 +140,7 @@ country_event = {
 	trigger = {
 		has_institution = internet
 		is_year = 4103
+		NOT = { has_global_flag = digitalization_flag }
 	}
 
 	mean_time_to_happen = {
@@ -152,6 +161,7 @@ country_event = {
 			value = 0.2
 			duration = -1
 		}
+		set_global_flag = digitalization_flag
 	}
 }
 
@@ -168,6 +178,7 @@ country_event = {
 	trigger = {
 		is_year = 4108
 		technology_group = western
+		NOT = { has_global_flag = environmentalism_flag }
 	}
 
 	mean_time_to_happen = {
@@ -188,6 +199,7 @@ country_event = {
 			value = -0.1
 			duration = -1
 		}
+		set_global_flag = environmentalism_flag
 	}
 }
 

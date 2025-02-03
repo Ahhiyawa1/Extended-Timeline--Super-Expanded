@@ -1,0 +1,1813 @@
+country_decisions = {
+
+	# Dutch Irredentism
+	dutch_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = NED }
+			has_institution = nationalism_institution
+			europe_superregion = {
+				culture = flemish
+				NOT = { owned_by = ROOT }
+			}
+			started_in = 3929.1.1
+			NOT = { has_country_flag = dutch_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = dutch_irredentism_tt
+			hidden_effect = {
+				europe_superregion = {
+					limit = {
+						culture = flemish
+						NOT = { owned_by = ROOT }
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = dutch_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	dutch_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = NED }
+			has_country_flag = dutch_irredentism_flag
+			NOT = { has_country_flag = dutch_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			superregion = europe_superregion
+			culture = flemish
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				superregion = europe_superregion
+				culture = flemish
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = UNITED_NETHERLANDS
+				definite = yes
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			low_countries_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = dutch_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Swedish Irredentism
+	swedish_irredentism_decision = {
+		major = yes
+		potential = {
+			has_saved_global_event_target = _SWE
+			has_saved_global_event_target = _FIN
+			
+			tag = event_target:_SWE
+			has_institution = nationalism_institution
+			europe = {
+				is_core = event_target:_FIN
+				is_capital_of = event_target:_FIN
+				NOT = { owned_by = ROOT }
+			}
+			started_in = 3907.1.1
+			NOT = { has_country_flag = swedish_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = swedish_irredentism_tt
+			hidden_effect = {
+				europe = {
+					limit = {
+						is_core = event_target:_FIN
+						NOT = { is_core = ROOT }
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = swedish_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	swedish_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			has_saved_global_event_target = _SWE
+			has_saved_global_event_target = _FIN
+			
+			tag = event_target:_SWE
+			has_country_flag = swedish_irredentism_flag
+			europe = {
+				is_core = event_target:_FIN
+			}
+			NOT = { has_country_flag = swedish_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			continent = europe
+			is_core = event_target:_FIN
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				continent = europe
+				is_core = event_target:_FIN
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = SWEDISH_EMPIRE
+				definite = yes
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			if = {
+				limit = {
+					government = monarchy
+					event_target:_NOR = {
+						government = monarchy
+						OR = {
+							is_free_or_tributary_trigger = yes
+							NOT = { is_subject_of = ROOT }
+						}
+					}
+				}
+				add_casus_belli = {
+					target = event_target:_NOR
+					type = cb_restore_personal_union
+					months = 12
+				}
+			}
+			karelia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			estonia_ingria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			livonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = swedish_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Hungarian Irredentism
+	hungarian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = HUN }
+			has_institution = nationalism_institution
+			eastern_europe_superregion = {
+				OR = {
+					area = slovakia_area
+					area = transylvania_area
+					area = southern_transylvania_area
+					area = vojvodina_area
+				}
+				NOT = { owned_by = ROOT }
+			}
+			started_in = 4016.1.1
+			NOT = { has_country_flag = hungarian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			slovakia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			transylvania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			southern_transylvania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			vojvodina_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			set_country_flag = hungarian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	hungarian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = HUN }
+			has_country_flag = hungarian_irredentism_flag
+			NOT = { has_country_flag = hungarian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = slovakia_area
+				area = transylvania_area
+				area = southern_transylvania_area
+				area = vojvodina_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = slovakia_area
+					area = transylvania_area
+					area = southern_transylvania_area
+					area = vojvodina_area
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = GREATER_HUNGARY
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			slovakia_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			transylvania_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			southern_transylvania_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			vojvodina_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = hungarian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Finnish Irredentism
+	finnish_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = FIN }
+			has_institution = nationalism_institution
+			any_province = {
+				OR = {
+					area = north_karelia
+					area = karelia_area
+					province_id = 1777 # Kola
+				}
+				NOT = { owned_by = ROOT }
+			}
+			NOT = { has_country_flag = finnish_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			north_karelia = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			karelia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			1777 = {
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+					}
+					hidden_effect = {
+						remove_claim = ROOT
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = finnish_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	finnish_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = FIN }
+			has_country_flag = finnish_irredentism_flag
+			NOT = { has_country_flag = finnish_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = north_karelia
+				area = karelia_area
+				province_id = 1777 # Kola
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = north_karelia
+					area = karelia_area
+					province_id = 1777 # Kola
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = GREATER_FINLAND
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			custom_tooltip = finnish_irredentism_achieved_tt
+			hidden_effect = {
+				europe = {
+					limit = {
+						culture_group = finno_ugric
+						NOT = { is_core = ROOT }
+					}
+					remove_claim = ROOT
+					add_core = ROOT
+				}
+			}
+			north_karelia = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			karelia_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			1777 = {
+				if = {
+					limit = {
+						owned_by = ROOT
+						NOT = { culture = ROOT }
+					}
+					add_province_modifier = {
+						name = irredentist_conversion_modifier
+						duration = 7300
+					}
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = finnish_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Greek Irredentism
+	greek_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = GRE }
+			has_institution = nationalism_institution
+			any_province = {
+				OR = {
+					area = thrace_area
+					area = hudavendigar_area
+					area = aydin_area
+					province_id = 321 # Cyprus
+				}
+				NOT = { owned_by = ROOT }
+			}
+			NOT = { has_country_flag = greek_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					hidden_trigger = {
+						NOT = { province_id = 1764 } # Burgas
+					}
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			321 = { # Cyprus
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+					}
+					hidden_effect = {
+						remove_claim = ROOT
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = greek_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	greek_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = GRE }
+			has_country_flag = greek_irredentism_flag
+			NOT = { has_country_flag = greek_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+				area = hudavendigar_area
+				area = aydin_area
+			}
+			NOT = { province_id = 1764 } # Burgas
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = thrace_area
+					area = hudavendigar_area
+					area = aydin_area
+				}
+				hidden_trigger = {
+					NOT = { province_id = 1764 } # Burgas
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = GREATER_GREECE
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			thrace_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			hudavendigar_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			aydin_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = greek_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Bulgarian Irredentism
+	bulgarian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = BUL }
+			has_institution = nationalism_institution
+			eastern_europe_superregion = {
+				OR = {
+					area = macedonia_area
+					area = thrace_area
+				}
+				NOT = { owned_by = ROOT }
+			}
+			NOT = { has_country_flag = bulgarian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			macedonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			set_country_flag = bulgarian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	bulgarian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = BUL }
+			has_country_flag = bulgarian_irredentism_flag
+			NOT = { has_country_flag = bulgarian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = macedonia_area
+				area = thrace_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = macedonia_area
+					area = thrace_area
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = BULGARIAN_EMPIRE
+				definite = yes
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			macedonia_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			thrace_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = bulgarian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Mongolian Irredentism
+	mongolian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = KHA }
+			has_institution = nationalism_institution
+			any_province = {
+				OR = {
+					area = tannu_uriankhai_area
+					area = buryatia_area
+					inner_mongolia_trigger = yes
+				}
+				NOT = { owned_by = ROOT }
+			}
+			NOT = { has_country_flag = mongolian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			tannu_uriankhai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			buryatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			custom_tooltip = mongolian_irredentism_tt
+			hidden_effect = {
+				inner_mongolia_scope = {
+					effect = "
+						if = {
+							limit = {
+								NOT = { is_core = ROOT }
+							}
+							remove_claim = ROOT
+							add_core = ROOT
+						}
+					"
+				}
+				#every_province = {
+				#	limit = {
+				#		inner_mongolia_trigger = yes
+				#		NOT = { is_core = ROOT }
+				#	}
+				#	hidden_effect = {
+				#		remove_claim = ROOT
+				#	}
+				#	add_core = ROOT
+				#}
+			}
+			set_country_flag = mongolian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	mongolian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = KHA }
+			has_country_flag = mongolian_irredentism_flag
+			NOT = { has_country_flag = mongolian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tannu_uriankhai_area
+				area = buryatia_area
+				inner_mongolia_trigger = yes
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = tannu_uriankhai_area
+					area = buryatia_area
+					inner_mongolia_trigger = yes
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = GREATER_MONGOLIA
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			mongolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_asia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_siberia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_siberia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_china_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			# Too many claims? Bah, go crazy Genghis!
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = mongolian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Armenian Irredentism
+	armenian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = ARM }
+			has_institution = nationalism_institution
+			NOT = { has_country_flag = armenian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			armenia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			samtskhe_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			set_country_flag = armenian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	armenian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = ARM }
+			has_country_flag = armenian_irredentism_flag
+			NOT = { has_country_flag = armenian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = armenia_area
+				area = samtskhe_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = armenia_area
+					area = samtskhe_area
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = UNITED_ARMENIA
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			imereti_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			armenia_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			samtskhe_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = armenian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Macedonian Irredentism
+	macedonian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = MAC }
+			has_institution = nationalism_institution
+			NOT = { has_country_flag = macedonian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			macedonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			4703 = {
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+					}
+					hidden_effect = {
+						remove_claim = ROOT
+					}
+					add_core = ROOT
+				}
+			}
+			set_country_flag = macedonian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	macedonian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = MAC }
+			has_country_flag = macedonian_irredentism_flag
+			NOT = { has_country_flag = macedonian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = macedonia_area
+				province_id = 4703
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = macedonia_area
+					province_id = 4703
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				clear_country_name_with_flag = { name = NORTH_MACEDONIA }
+			}
+			override_country_name_add_flag = {
+				name = UNITED_MACEDONIA
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			macedonia_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { culture = ROOT }
+				}
+				add_province_modifier = {
+					name = irredentist_conversion_modifier
+					duration = 7300
+				}
+			}
+			4703 = {
+				if = {
+					limit = {
+						owned_by = ROOT
+						NOT = { culture = ROOT }
+					}
+					add_province_modifier = {
+						name = irredentist_conversion_modifier
+						duration = 7300
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_core_province = 148 # Thessaloniki
+				}
+				set_capital = 148
+				148 = {
+					change_province_name = "Solun"
+					rename_capital = "Solun"
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = macedonian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Yugoslav Irredentism
+	yugoslav_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = YUG }
+			has_institution = nationalism_institution
+			NOT = { has_country_flag = yugoslav_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			albania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			bulgaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			silistria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			set_country_flag = yugoslav_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	yugoslav_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = YUG }
+			has_country_flag = yugoslav_irredentism_flag
+			NOT = { has_country_flag = yugoslav_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = albania_area
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					area = albania_area
+					area = bulgaria_area
+					area = silistria_area
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = BALKAN_FEDERATION
+				definite = yes
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			balkan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = yugoslav_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# Indian Irredentism
+	indian_irredentism_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = INI }
+			has_institution = nationalism_institution
+			NOT = { has_country_flag = indian_irredentism_flag }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			if = {
+				limit = {
+					has_government_mechanic = public_support_mechanic
+				}
+				has_government_power = {
+					mechanic_type = public_support_mechanic
+					power_type = jingoism
+					value = 20
+				}
+			}
+			else_if = {
+				limit = {
+					has_government_attribute = uses_revolutionary_zeal
+				}
+				revolutionary_zeal = 20
+			}
+			else = {
+				absolutism = 50
+				prestige = 50
+			}
+			if = {
+				limit = {
+					OR = {
+						has_faction = nationalist_party
+						has_faction = national_socialist_party
+					}
+				}
+				OR = {
+					faction_in_power = nationalist_party
+					faction_in_power = national_socialist_party
+				}
+			}
+		}
+		effect = {
+			india_superregion = {
+				limit = {
+					NOT = { is_core = ROOT }
+				}
+				hidden_effect = {
+					remove_claim = ROOT
+				}
+				add_core = ROOT
+			}
+			khorasan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tibet_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			burma_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			set_country_flag = indian_irredentism_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_not_fascist = yes
+			}
+		}
+	}
+
+	indian_irredentism_achieved_decision = {
+		major = yes
+		potential = {
+			is_main_tag_of = { tag = INI }
+			has_country_flag = indian_irredentism_flag
+			NOT = { has_country_flag = indian_irredentism_achieved_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				superregion = india_superregion
+				region = khorasan_region
+				region = tibet_region
+				region = burma_region
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_all_provinces = {
+				OR = {
+					superregion = india_superregion
+					region = khorasan_region
+					region = tibet_region
+					region = burma_region
+				}
+			}
+		}
+		effect = {
+			override_country_name_add_flag = {
+				name = AKHAND_BHARAT
+				definite = no
+				special = yes
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = indian_irredentism_achieved_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

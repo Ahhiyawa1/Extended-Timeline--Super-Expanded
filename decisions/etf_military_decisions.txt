@@ -1,0 +1,168 @@
+country_decisions = {
+
+	etf_create_army_institution = {
+		potential = {
+			has_country_modifier = no_army
+		}
+		allow = {
+			mil_power = 150
+			has_country_modifier = no_army
+		}
+		effect = {
+			add_mil_power = -150
+			remove_country_modifier = no_army
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_subject = yes
+			}
+		}
+	}
+
+	etf_national_mobilization = { # Mobilizes ALL reserve manpower as basic Infantry
+		major = yes
+		potential = {
+			post_napoleonic_age = yes
+			NOT = { has_country_modifier = no_army }
+			NOT = { has_country_modifier = national_mobilization_modifier }
+		}
+		allow = {
+			is_at_war = yes
+			mil_power = 50
+			manpower = 20
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.6 # Conscript Army
+			}
+			else = {
+				mil_tech = 77
+			}
+		}
+		effect = {
+			add_mil_power = -50
+			custom_tooltip = etf_national_mobilization_tt
+			hidden_effect = {
+				set_variable = {
+					which = num_of_mobilized_regiments
+					value = 0
+				}
+				while = {
+					limit = {
+						manpower = 1
+					}
+					every_owned_province = {
+						limit = {
+							continent = capital
+							controlled_by = owner
+							has_siege = no
+						}
+						owner = {
+							if = {
+								limit = {
+									manpower = 1
+								}
+								add_manpower = -1
+								infantry = PREV
+								change_variable = {
+									which = num_of_mobilized_regiments
+									value = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = explain_state_firearm_regiments # "Gives... until revoked:"
+			add_country_modifier = {
+				name = national_mobilization_modifier
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # Don't mobilize unless the enemy is strong
+				factor = 0
+				NOT = {
+					any_war_enemy_country = {
+						army_strength = {
+							who = ROOT
+							value = 1.2
+						}
+					}
+				}
+			}
+			modifier = { # Don't mobilize for colonial conflicts
+				factor = 0
+				NOT = {
+					any_war_enemy_country = {
+						same_continent = ROOT
+					}
+				}
+			}
+		}
+		ai_importance = 400
+	}
+
+	etf_national_demobilization = {
+		major = yes
+		potential = {
+			has_country_modifier = national_mobilization_modifier
+		}
+		allow = {
+		}
+		effect = {
+			if = {
+				limit = { 	# Non-CoC havers regain the manpower they lost
+					OR = { 	# (because they don't have return_manpower_modifier)
+						NOT = { has_dlc = "Cradle of Civilization" }
+						NOT = { army_professionalism = 0.6 }
+					}
+				}
+				custom_tooltip = etf_national_demobilization_tt
+				hidden_effect = {
+					while = {
+						limit = {
+							check_variable = {
+								which = num_of_mobilized_regiments
+								value = 1
+							}
+						}
+						random_province = {
+							limit = {
+								num_of_units_in_province = {
+									who = ROOT
+									type = infantry
+									amount = 1
+								}
+							}
+							kill_units = {
+								who = ROOT
+								type = infantry
+								amount = 1
+							}
+						}
+						add_manpower = 0.5
+						subtract_variable = {
+							which = num_of_mobilized_regiments
+							value = 1
+						}
+					}
+				}
+			}
+			remove_country_modifier = national_mobilization_modifier
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+		}
+		ai_importance = 400
+	}
+
+}

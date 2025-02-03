@@ -1,0 +1,174 @@
+namespace = etf_diplomacy
+
+###############################
+# Alliance Diplomatic Actions :
+###############################
+
+# Country is Expelled from Alliance
+country_event = {
+	id = etf_diplomacy.100
+	title = etf_diplomacy.100.t
+	desc = etf_diplomacy.100.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.100.r
+	}
+}
+
+# Country Leaves Alliance
+country_event = {
+	id = etf_diplomacy.101
+	title = etf_diplomacy.101.t
+	desc = etf_diplomacy.101.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.101.r
+	}
+}
+
+################################
+# Espionage Diplomatic Actions :
+################################
+
+# Government Overthrown!
+country_event = {
+	id = etf_diplomacy.400
+	title = etf_diplomacy.400.t
+	desc = etf_diplomacy.400.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.400.r
+		if = {
+			limit = {
+				FROM = { is_democracy = yes }
+			}
+			change_government_to_democratic_republic = yes
+		}
+		else_if = {
+			limit = {
+				FROM = { is_communist = yes }
+			}
+			change_government_to_dictatorial_republic = yes
+			add_government_reform = communist_government
+		}
+		else_if = {
+			limit = {
+				FROM = { is_fascist = yes }
+			}
+			change_government_to_dictatorial_republic = yes
+			add_government_reform = fascist_government
+		}
+		define_ruler = {
+		}
+		if = {
+			limit = {
+				NOT = { is_subject_of = FROM }
+			}
+			FROM = {
+				add_to_sphere = { tag = ROOT }
+			}
+		}
+	}
+
+	after = {
+		FROM = {
+			country_event = { id = etf_diplomacy.401 }
+		}
+	}
+}
+
+# Coup Successful!
+country_event = {
+	id = etf_diplomacy.401
+	title = etf_diplomacy.401.t
+	desc = etf_diplomacy.401.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.401.r
+		tooltip = {
+			FROM = {
+				if = {
+					limit = {
+						ROOT = { is_democracy = yes }
+					}
+					change_government_to_democratic_republic = yes
+				}
+				else_if = {
+					limit = {
+						ROOT = { is_communist = yes }
+					}
+					change_government_to_dictatorial_republic = yes
+					add_government_reform = communist_government
+				}
+				else_if = {
+					limit = {
+						ROOT = { is_fascist = yes }
+					}
+					change_government_to_dictatorial_republic = yes
+					add_government_reform = fascist_government
+				}
+				if = {
+					limit = {
+						NOT = { is_subject_of = ROOT }
+					}
+					ROOT = {
+						add_to_sphere = { tag = FROM }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Plotters Found!
+country_event = {
+	id = etf_diplomacy.410
+	title = etf_diplomacy.410.t
+	desc = etf_diplomacy.410.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.410.r
+		sub_50_opinion_effect = { who = FROM }
+	}
+
+	after = {
+		FROM = {
+			country_event = { id = etf_diplomacy.411 }
+		}
+	}
+}
+
+# Coup Failed!
+country_event = {
+	id = etf_diplomacy.411
+	title = etf_diplomacy.411.t
+	desc = etf_diplomacy.411.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_diplomacy.411.r
+		add_prestige = -10
+		tooltip = {
+			FROM = {
+				sub_50_opinion_effect = { who = ROOT }
+			}
+		}
+	}
+}

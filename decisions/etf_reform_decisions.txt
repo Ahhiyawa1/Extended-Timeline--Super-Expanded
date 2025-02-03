@@ -1,0 +1,285 @@
+country_decisions = {
+
+	# Title and description of decision varies
+	# based on which tier is currently selected,
+	# uses Customizable Localization.
+
+	#healthcare_reform_decision = {
+	#	potential = {
+	#		# Modifier comes in three different tiers, each
+	#		# with their own tech-requirement
+	#		OR = {
+	#			AND = {
+	#				adm_tech = 79
+	#				NOT = { has_country_modifier = healthcare_simple_modifier }
+	#				NOT = { has_country_modifier = healthcare_mediocre_modifier }
+	#				NOT = { has_country_modifier = healthcare_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 83
+	#				NOT = { has_country_modifier = healthcare_mediocre_modifier }
+	#				NOT = { has_country_modifier = healthcare_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 87
+	#				NOT = { has_country_modifier = healthcare_great_modifier }
+	#			}
+	#		}
+	#		# A timer hides the decision once pressed, this allows
+	#		# the name and description to update.
+	#		NOT = { has_country_modifier = reformed_healthcare_timer }
+	#	}
+	#	allow = {
+	#		government_reform_progress = 200
+	#	}
+	#	effect = {
+	#		change_government_reform_progress = -200
+	#		# Effect that 'upgrades' the current modifier, or adds
+	#		# the basic one if country has none of them.
+	#		add_country_modifier_upgrade_effect = {
+	#			1 = healthcare_simple_modifier
+	#			2 = healthcare_mediocre_modifier
+	#			3 = healthcare_great_modifier
+	#			duration = -1
+	#		}
+	#		hidden_effect = {
+	#			# Timer to hide decision.
+	#			add_country_modifier = { name = reformed_healthcare_timer duration = 5 hidden = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			factor = 0
+	#			NOT = {
+	#				OR = {
+	#					faction_in_power = social_democratic_party
+	#					faction_in_power = communist_party
+	#					faction_in_power = national_socialist_party
+	#					average_unrest = 0 # Above 0
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+
+	#education_reform_decision = {
+	#	potential = {
+	#		OR = {
+	#			AND = {
+	#				adm_tech = 76
+	#				NOT = { has_country_modifier = education_simple_modifier }
+	#				NOT = { has_country_modifier = education_mediocre_modifier }
+	#				NOT = { has_country_modifier = education_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 79
+	#				NOT = { has_country_modifier = education_mediocre_modifier }
+	#				NOT = { has_country_modifier = education_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 82
+	#				NOT = { has_country_modifier = education_great_modifier }
+	#			}
+	#		}
+	#		NOT = { has_country_modifier = reformed_education_timer }
+	#	}
+	#	allow = {
+	#		government_reform_progress = 100
+	#		if = {
+	#			limit = {
+	#				has_country_modifier = serfdom_complete
+	#			}
+	#			NOT = { has_country_modifier = serfdom_complete }
+	#		}
+	#	}
+	#	effect = {
+	#		change_government_reform_progress = -100
+	#		add_country_modifier_upgrade_effect = {
+	#			1 = education_simple_modifier
+	#			2 = education_mediocre_modifier
+	#			3 = education_great_modifier
+	#			duration = -1
+	#		}
+	#		hidden_effect = {
+	#			add_country_modifier = { name = reformed_education_timer duration = 5 hidden = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+
+	#min_wage_reform_decision = {
+	#	potential = {
+	#		OR = {
+	#			AND = {
+	#				adm_tech = 82
+	#				NOT = { has_country_modifier = min_wage_simple_modifier }
+	#				NOT = { has_country_modifier = min_wage_mediocre_modifier }
+	#				NOT = { has_country_modifier = min_wage_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 85
+	#				NOT = { has_country_modifier = min_wage_mediocre_modifier }
+	#				NOT = { has_country_modifier = min_wage_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 88
+	#				NOT = { has_country_modifier = min_wage_great_modifier }
+	#			}
+	#		}
+	#		NOT = { has_country_modifier = reformed_min_wage_timer }
+	#	}
+	#	allow = {
+	#		government_reform_progress = 150
+	#	}
+	#	effect = {
+	#		change_government_reform_progress = -150
+	#		add_estate_loyalty = {
+	#			estate = estate_corporations
+	#			loyalty = -5
+	#		}
+	#		add_country_modifier_upgrade_effect = {
+	#			1 = min_wage_simple_modifier
+	#			2 = min_wage_mediocre_modifier
+	#			3 = min_wage_great_modifier
+	#			duration = -1
+	#		}
+	#		hidden_effect = {
+	#			add_country_modifier = { name = reformed_min_wage_timer duration = 5 hidden = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			factor = 0
+	#			NOT = {
+	#				OR = {
+	#					faction_in_power = social_democratic_party
+	#					faction_in_power = communist_party
+	#					#faction_in_power = national_socialist_party
+	#					average_unrest = 0 # Above 0
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+
+	#unions_reform_decision = {
+	#	potential = {
+	#		OR = {
+	#			AND = {
+	#				adm_tech = 78
+	#				NOT = { has_country_modifier = unions_simple_modifier }
+	#				NOT = { has_country_modifier = unions_mediocre_modifier }
+	#				NOT = { has_country_modifier = unions_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 81
+	#				NOT = { has_country_modifier = unions_mediocre_modifier }
+	#				NOT = { has_country_modifier = unions_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 84
+	#				NOT = { has_country_modifier = unions_great_modifier }
+	#			}
+	#		}
+	#		NOT = { has_country_modifier = reformed_unions_timer }
+	#	}
+	#	allow = {
+	#		government_reform_progress = 100
+	#	}
+	#	effect = {
+	#		change_government_reform_progress = -100
+	#		add_country_modifier_upgrade_effect = {
+	#			1 = unions_simple_modifier
+	#			2 = unions_mediocre_modifier
+	#			3 = unions_great_modifier
+	#			duration = -1
+	#		}
+	#		hidden_effect = {
+	#			add_country_modifier = { name = reformed_unions_timer duration = 5 hidden = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			factor = 0
+	#			NOT = {
+	#				OR = {
+	#					faction_in_power = social_democratic_party
+	#					faction_in_power = communist_party
+	#					faction_in_power = national_socialist_party
+	#					average_unrest = 0 # Above 0
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			# Communists/Fascists prefer State-Run/Regulated Unions
+	#			OR = {
+	#				has_country_modifier = unions_simple_modifier
+	#				has_country_modifier = unions_mediocre_modifier
+	#			}
+	#			OR = {
+	#				faction_in_power = communist_party
+	#				faction_in_power = national_socialist_party
+	#			}
+	#		}
+	#	}
+	#}
+
+	#work_c_reform_decision = {
+	#	potential = {
+	#		OR = {
+	#			AND = {
+	#				adm_tech = 78
+	#				NOT = { has_country_modifier = work_c_simple_modifier }
+	#				NOT = { has_country_modifier = work_c_mediocre_modifier }
+	#				NOT = { has_country_modifier = work_c_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 81
+	#				NOT = { has_country_modifier = work_c_mediocre_modifier }
+	#				NOT = { has_country_modifier = work_c_great_modifier }
+	#			}
+	#			AND = {
+	#				adm_tech = 84
+	#				NOT = { has_country_modifier = work_c_great_modifier }
+	#			}
+	#		}
+	#		NOT = { has_country_modifier = reformed_work_c_timer }
+	#	}
+	#	allow = {
+	#		government_reform_progress = 100
+	#	}
+	#	effect = {
+	#		change_government_reform_progress = -100
+	#		add_country_modifier_upgrade_effect = {
+	#			1 = work_c_simple_modifier
+	#			2 = work_c_mediocre_modifier
+	#			3 = work_c_great_modifier
+	#			duration = -1
+	#		}
+	#		hidden_effect = {
+	#			add_country_modifier = { name = reformed_work_c_timer duration = 5 hidden = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			factor = 0
+	#			NOT = {
+	#				OR = {
+	#					faction_in_power = social_democratic_party
+	#					faction_in_power = communist_party
+	#					faction_in_power = national_socialist_party
+	#					average_unrest = 0 # Above 0
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+
+}

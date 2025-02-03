@@ -1,0 +1,886 @@
+namespace = etf_event_ita
+
+##############################
+# Central Italy/Roman Republic
+##############################
+
+# Agitation for secession in the Papal States
+country_event = {
+	id = etf_event_ita.110
+	title = etf_event_ita.110.t
+	desc = etf_event_ita.110.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PAP
+		is_neighbor_of = ITC
+		any_owned_province = {
+			is_core = ITC
+		}
+		NOT = { started_in = 3957.12.8 }
+	}
+
+	option = { # Darned Nationalists!
+		name = etf_event_ita.110.ra
+		random_owned_province = {
+			limit = {
+				is_core = ITC
+			}
+			nationalist_rebels = 3
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = { # No need for bloodshed
+		name = etf_event_ita.110.rb
+		add_stability = 1
+		every_owned_province = {
+			limit = {
+				is_core = ITC
+			}
+			remove_core = ROOT
+			cede_province = ITC
+		}
+		hidden_effect = {
+			ITC = {
+				country_event = { id = etf_event_ita.111 }
+			}
+		}
+	}
+}
+
+# Alert for Central Italy
+country_event = {
+	id = etf_event_ita.111
+	title = etf_event_ita.111.t
+	desc = etf_event_ita.111.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ita.111.r
+	}
+}
+
+# Instability in Central Italy/Roman Republic
+country_event = {
+	id = etf_event_ita.112
+	title = etf_event_ita.112.t
+	desc = etf_event_ita.112.d
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		OR = {
+			tag = ITC
+			tag = RMR
+		}
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		OR = {
+			ai = yes
+			num_of_rebel_controlled_provinces = 1
+			NOT = { stability = 0 }
+		}
+		any_neighbor_country = {
+			is_free_or_tributary_trigger = yes
+			culture_group = latin
+			total_development = ROOT # Bigger than ROOT
+			NOT = { tag = PAP }
+		}
+		NOT = { has_country_flag = had_central_italy_annexation_event }
+		NOT = { started_in = 3959.3.17 }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.01
+			ai = yes
+			is_year = 3958
+		}
+		modifier = {
+			factor = 0.1
+			num_of_rebel_controlled_provinces = 1
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { stability = 0 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_free_or_tributary_trigger = yes
+					culture_group = latin
+					total_development = ROOT
+					NOT = { tag = PAP }
+				}
+				save_event_target_as = strong_italian_neighbour
+			}
+		}
+		set_country_flag = had_central_italy_annexation_event
+	}
+
+	option = { # Join [Strong-Italian-Neighbour]
+		name = etf_event_ita.112.ra
+		if = {
+			limit = {
+				ai = no
+			}
+			custom_tooltip = GAME_OVER
+		}
+		event_target:strong_italian_neighbour = {
+			country_event = { id = etf_event_ita.113 }
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = no
+			}
+		}
+	}
+
+	option = { # Never!
+		name = etf_event_ita.112.rb
+		add_stability = -1
+		ai_chance = {
+			modifier = {
+				factor = 0
+				ai = yes
+			}
+		}
+	}
+}
+
+# FROM joins us!
+country_event = {
+	id = etf_event_ita.113
+	title = etf_event_ita.113.t
+	desc = etf_event_ita.113.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Welcome!
+		name = etf_event_ita.113.ra
+		annex_tag = {
+			target = FROM
+			transfer_troops = no
+		}
+	}
+
+	option = { # Never!
+		name = etf_event_ita.113.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+############################
+# Expedition of the Thousand
+############################
+
+# Garibaldi's Expedition
+country_event = {
+	id = etf_event_ita.200
+	title = etf_event_ita.200.t
+	desc = etf_event_ita.200.d
+	picture = GARIBALDI_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SPI
+		is_year = 3958
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		# Two Sicilies:
+		any_country = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_great_power = no
+			capital_scope = {
+				OR = {
+					area = naples_area
+					area = calabria_area
+					area = apulia_area
+				}
+			}
+			# Owns Sicily:
+			owns = 124
+			owns = 125
+			owns = 2982
+			owns = 4736
+			owns = 4737
+			NOT = { is_subject_of = ROOT }
+		}
+		NOT = { exists = SIC }
+		NOT = { started_in = 3958.5.11 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					owns = 124
+					owns = 125
+					owns = 2982
+					owns = 4736
+					owns = 4737
+				}
+				save_global_event_target_as = naples_target
+			}
+		}
+	}
+
+	option = { # Go forth, Bald-boy!
+		name = etf_event_ita.200.ra
+		event_target:naples_target = {
+			country_event = { id = etf_event_ita.201 days = 30 }
+		}
+		set_country_flag = sponsored_garibaldi
+	}
+
+	option = { # What utter nonsense
+		name = etf_event_ita.200.rb
+		add_prestige = 5
+		hidden_effect = { # Baldy goes on his own anyway
+			event_target:naples_target = {
+				country_event = { id = etf_event_ita.201 days = 30 }
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Expedition of the Thousand
+country_event = {
+	id = etf_event_ita.201
+	title = etf_event_ita.201.t
+	desc = etf_event_ita.201.d
+	picture = GARIBALDI_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			sicily_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = SIC
+			}
+			western_sicily_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = SIC
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_ita.201.r
+		start_civil_war = {
+			tag = SIC
+			treasury = 250
+			manpower = 20
+			religion = capital
+			government = republic
+			capital = 125
+			type = mutual
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_flag = sponsored_garibaldi
+				}
+			}
+			custom_tooltip = etf_event_ita.201.tt # "FROM will join the conflict"
+		}
+	}
+
+	after = {
+		FROM = {
+			if = {
+				limit = {
+					has_country_flag = sponsored_garibaldi
+				}
+				create_alliance = SIC
+				join_all_defensive_wars_of = SIC
+			}
+		}
+		SIC = {
+			define_general = {
+				name = "Giuseppe Garibaldi"
+				shock = 4
+				fire = 3
+				manuever = 4
+				siege = 2
+				trait = inspirational_leader_general_personality
+			}
+			define_ruler = {
+				name = "Giuseppe Garibaldi"
+				religion = catholic
+				culture = ligurian
+				adm = 2
+				dip = 3
+				mil = 4
+				attach_leader = "Giuseppe Garibaldi"
+			}
+			set_country_flag = garibaldi_expedition
+		}
+	}
+}
+
+# Garibaldi enters Naples
+country_event = {
+	id = etf_event_ita.210
+	title = etf_event_ita.210.t
+	desc = etf_event_ita.210.d
+	picture = GARIBALDI_eventPicture
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			continent = europe
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = SIC
+		has_country_flag = garibaldi_expedition
+		event_target:naples_target = {
+			ai = yes
+			war_with = ROOT
+			capital_scope = {
+				controller = {
+					OR = {
+						tag = ROOT
+						alliance_with = ROOT
+						overlord_of = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Join our sponsor
+		name = etf_event_ita.210.ra
+		trigger = {
+			any_country = {
+				has_country_flag = sponsored_garibaldi
+			}
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			custom_tooltip = GAME_OVER
+		}
+		random_country = {
+			limit = {
+				has_country_flag = sponsored_garibaldi
+			}
+			annex_tag = {
+				target = event_target:naples_target
+				transfer_troops = no
+			}
+			annex_tag = {
+				target = ROOT
+				transfer_troops = no
+			}
+		}
+	}
+
+	option = { # We're on our own!
+		name = etf_event_ita.210.rb
+		add_prestige = 25
+		if = {
+			limit = {
+				any_country = {
+					has_country_flag = sponsored_garibaldi
+				}
+			}
+			random_country = {
+				limit = {
+					has_country_flag = sponsored_garibaldi
+				}
+				sub_100_opinion_effect = { who = ROOT }
+			}
+		}
+		annex_tag = {
+			target = event_target:naples_target
+			transfer_troops = no
+		}
+		italy_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				any_country = {
+					has_country_flag = sponsored_garibaldi
+				}
+			}
+		}
+	}
+
+	after = {
+		clear_global_event_target = naples_target
+	}
+}
+
+################################
+# Land tranfers with Pope/France
+################################
+
+# Bridging North and South
+country_event = {
+	id = etf_event_ita.300
+	title = etf_event_ita.300.t
+	desc = etf_event_ita.300.d
+	picture = CONQUEST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		culture_group = latin
+		capital_scope = {
+			region = italy_region
+		}
+		post_napoleonic_age = yes
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		PAP = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			any_owned_province = {
+				region = italy_region
+				NOT = { province_id = 118 } # Rome
+			}
+			# Is only neighbor of PAP
+			is_neighbor_of = ROOT
+			NOT = {
+				any_neighbor_country = {
+					NOT = { tag = ROOT }
+				}
+			}
+			NOT = { # Pope isn't too big
+				is_great_power = yes
+				total_development = 300
+				any_country = { is_subject_of = PAP }
+			}
+		}
+		NOT = { started_in = 3959.3.17 }
+	}
+
+	option = { # Send a threatening message
+		name = etf_event_ita.300.ra
+		PAP = {
+			country_event = { id = etf_event_ita.301 }
+		}
+		set_country_flag = threatened_pope_flag
+	}
+
+	option = { # We'll leave the Pope alone
+		name = etf_event_ita.300.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Pope is Threatened
+country_event = {
+	id = etf_event_ita.301
+	title = etf_event_ita.301.t
+	desc = etf_event_ita.301.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			has_country_flag = threatened_pope_flag
+			overlord_of = PAP
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { # Give up demands
+		name = etf_event_ita.301.ra
+		every_owned_province = {
+			limit = {
+				region = italy_region
+				NOT = { province_id = 118 }
+			}
+			cede_province = FROM
+		}
+	}
+
+	option = { # Excommunicate them
+		name = etf_event_ita.301.rb
+		FROM = {
+			sub_100_opinion_effect = { who = ROOT }
+		}
+		every_owned_province = {
+			limit = {
+				region = italy_region
+			}
+			add_permanent_claim = FROM
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	after = {
+		FROM = {
+			clr_country_flag = threatened_pope_flag
+		}
+	}
+}
+
+# Annex the Pope
+country_event = {
+	id = etf_event_ita.310
+	title = etf_event_ita.310.t
+	desc = etf_event_ita.310.d
+	picture = CONQUEST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = ITA }
+		post_napoleonic_age = yes
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		PAP = {
+			exists = yes
+			all_owned_province = {
+				province_id = 118
+			}
+			is_at_war = no
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+				overlord = {
+					any_war_enemy_country = { # Overlord is at war with random GP
+						is_great_power = yes
+					}
+				}
+			}
+		}
+		NOT = { started_in = 3968.9.20 }
+	}
+
+	option = { # Annex Mr. Pope
+		name = etf_event_ita.310.ra
+		annex_tag = {
+			target = PAP
+			transfer_troops = no
+		}
+		add_core = 118
+		set_capital = 118
+	}
+
+	option = { # Leave him be
+		name = etf_event_ita.310.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Plombières Agreement
+country_event = {
+	id = etf_event_ita.320
+	title = etf_event_ita.320.t
+	desc = etf_event_ita.320.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_main_tag_of = { tag = FRA }
+		is_at_war = no
+		is_great_power = yes
+		is_year = 3956
+		NOT = { started_in = 3956.7.21 }
+		# Neighbours most developed Italian Unification candidate:
+		any_neighbor_country = {
+			is_free_or_tributary_trigger = yes
+			culture_group = latin
+			capital_scope = {
+				region = italy_region
+			}
+			NOT = {
+				any_country = {
+					culture_group = latin
+					capital_scope = {
+						region = italy_region
+					}
+					total_development = PREV
+				}
+			}
+			OR = { # Savoy and Nice:
+				savoy_dauphine_area = {
+					owned_by = PREV
+					range = ROOT
+				}
+				102 = {
+					owned_by = PREV
+					range = ROOT
+				}
+			}
+			NOT = { # Does NOT own territories further into France
+				any_owned_province = {
+					OR = {
+						area = languedoc_area
+						area = bourgogne_area
+						area = west_burgundy_area
+						area = massif_central_area
+					}
+				}
+			}
+		}
+		has_saved_global_event_target = _ITA
+		event_target:_ITA = {
+			exists = no
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_free_or_tributary_trigger = yes
+					culture_group = latin
+					capital_scope = {
+						region = italy_region
+					}
+					NOT = {
+						any_country = {
+							culture_group = latin
+							capital_scope = {
+								region = italy_region
+							}
+							total_development = PREV
+						}
+					}
+					OR = { # Savoy and Nice:
+						savoy_dauphine_area = {
+							owned_by = PREV
+							range = ROOT
+						}
+						102 = {
+							owned_by = PREV
+							range = ROOT
+						}
+					}
+					NOT = { # Does NOT own territories further into France
+						any_owned_province = {
+							OR = {
+								area = languedoc_area
+								area = bourgogne_area
+								area = west_burgundy_area
+								area = massif_central_area
+							}
+						}
+					}
+				}
+				save_event_target_as = italian_country
+			}
+		}
+	}
+
+	option = { # Approach [italian_country.GetNameShort] with the offer.
+		name = etf_event_ita.320.ra
+		event_target:italian_country = {
+			country_event = { id = etf_event_ita.321 }
+		}
+		tooltip = {
+			custom_tooltip = IF_ACCEPTED
+			add_100_opinion_effect = {
+				who = event_target:italian_country
+				mutual = yes
+			}
+			ROOT = {
+				add_historical_friend = event_target:italian_country
+			}
+			event_target:italian_country = {
+				add_historical_friend = ROOT
+			}
+			if = {
+				limit = {
+					NOT = { alliance_with = event_target:italian_country }
+					NOT = { overlord_of = event_target:italian_country }
+				}
+				create_alliance = event_target:italian_country
+			}
+			savoy_dauphine_area = {
+				limit = {
+					owned_by = event_target:italian_country
+					range = ROOT
+				}
+				remove_core = event_target:italian_country
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			102 = {
+				if = {
+					limit = {
+						owned_by = event_target:italian_country
+						range = ROOT
+					}
+					remove_core = event_target:italian_country
+					cede_province = ROOT
+					add_core = ROOT
+				}
+			}
+		}
+	}
+
+	option = { # Involvement in Italian affairs have never ended well for [This.GetNameShort].
+		name = etf_event_ita.320.rb
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Treaty of Turin
+country_event = {
+	id = etf_event_ita.321
+	title = etf_event_ita.321.t
+	desc = etf_event_ita.321.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_FRA
+	}
+
+	is_triggered_only = yes
+
+	option = { # [From.GetAdjective] support will help bring about the unification of Italy.
+		name = etf_event_ita.321.ra
+		add_100_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+		ROOT = {
+			add_historical_friend = FROM
+		}
+		FROM = {
+			add_historical_friend = ROOT
+		}
+		if = {
+			limit = {
+				NOT = { alliance_with = FROM }
+				NOT = { is_subject_of = FROM }
+			}
+			create_alliance = FROM
+		}
+		savoy_dauphine_area = {
+			limit = {
+				owned_by = ROOT
+				range = FROM
+			}
+			remove_core = ROOT
+			cede_province = FROM
+			add_core = FROM
+		}
+		102 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					range = FROM
+				}
+				remove_core = ROOT
+				cede_province = FROM
+				add_core = FROM
+			}
+		}
+		set_global_flag = treaty_of_turin
+	}
+
+	option = { # We will not exchange land for empty promises.
+		name = etf_event_ita.321.rb
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Clear 'Historical Friend' with France on Italian Unification
+country_event = {
+	id = etf_event_ita.322
+	title = None
+	desc = None
+	picture = None
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		is_main_tag_of = { tag = ITA }
+		has_saved_global_event_target = _FRA
+		OR = {
+			historical_friend_with = event_target:_FRA
+			event_target:_FRA = {
+				historical_friend_with = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = None
+		remove_historical_friend = event_target:_FRA
+		event_target:_FRA = {
+			remove_historical_friend = ROOT
+		}
+	}
+}
+
+#######################
+# Unification of Italy!
+#######################
+
+# The Risorgimento
+country_event = {
+	id = etf_event_ita.400
+	title = etf_event_ita.400.t
+	desc = etf_event_ita.400.d
+	picture = RISORGIMENTO_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_ita.400.r
+	}
+}

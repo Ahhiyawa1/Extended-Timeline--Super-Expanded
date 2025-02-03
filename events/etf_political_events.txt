@@ -1,0 +1,4001 @@
+namespace = etf_political
+
+# ===================
+# Birth of Ideologies
+# ===================
+
+# Birth of Socialism
+country_event = {
+	id = etf_political.100
+	title = etf_political.100.t
+	desc = etf_political.100.d
+	picture = COMMUNISM_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_parliament_or_reform = yes
+			AND = {
+				government = republic
+				is_not_dictatorship = yes
+			}
+		}
+		is_year = 3946
+		has_institution = industrialization
+		NOT = { is_colonial_nation = yes }
+		NOT = { has_global_flag = etf_socialism_enabled }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 1.5
+			NOT = { factory = 1 } # No factories
+		}
+		modifier = {
+			factor = 0.8
+			capital_scope = {
+				continent = europe
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_reform = peasants_republic
+		}
+		modifier = {
+			factor = 0.001
+			is_year = 3958
+		}
+	}
+
+	option = {
+		name = etf_political.100.r
+		custom_tooltip = etf_political.100.tt
+		add_country_modifier = {
+			name = birthplace_of_socialism_modifier
+			duration = 3650
+		}
+	}
+
+	after = {
+		set_global_flag = etf_socialism_enabled
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_reform = elected_parliament
+						has_reform = multi_party_system
+					}
+				}
+				add_faction = social_democratic_party
+				add_faction_influence = {
+					faction = social_democratic_party
+					influence = 5
+				}
+			}
+		}
+	}
+}
+
+# Birth of Communism
+country_event = {
+	id = etf_political.101
+	title = etf_political.101.t
+	desc = etf_political.101.d
+	picture = COMMUNISM_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_parliament_or_reform = yes
+			AND = {
+				government = republic
+				is_not_dictatorship = yes
+			}
+		}
+		has_global_flag = etf_socialism_enabled
+		is_year = 3958
+		has_institution = industrialization
+		NOT = { is_colonial_nation = yes }
+		NOT = { has_global_flag = etf_communism_enabled }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 1.5
+			NOT = { factory = 1 } # No factories
+		}
+		modifier = {
+			factor = 0.8
+			capital_scope = {
+				continent = europe
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_reform = peasants_republic
+		}
+		modifier = {
+			factor = 0.001
+			is_year = 3973
+		}
+	}
+
+	option = {
+		name = etf_political.101.r
+		custom_tooltip = etf_political.101.tt
+		add_country_modifier = {
+			name = birthplace_of_communism_modifier
+			duration = 3650
+		}
+	}
+
+	after = {
+		set_global_flag = etf_communism_enabled
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_reform = elected_parliament
+						has_reform = multi_party_system
+					}
+				}
+				add_faction = communist_party
+				add_faction_influence = {
+					faction = communist_party
+					influence = 5
+				}
+			}
+		}
+	}
+}
+
+# Birth of Fascism
+country_event = {
+	id = etf_political.102
+	title = etf_political.102.t
+	desc = etf_political.102.d
+	picture = STREET_SPEECH_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_parliament_or_reform = yes
+			AND = {
+				government = republic
+				is_not_dictatorship = yes
+			}
+		}
+		is_year = 4018
+		has_institution = nationalism_institution
+		NOT = { is_colonial_nation = yes }
+		NOT = { has_global_flag = etf_fascism_enabled }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.8
+			capital_scope = {
+				continent = europe
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_country_flag = nation_dismantled_flag
+		}
+		modifier = {
+			factor = 0.001
+			is_year = 4028
+		}
+	}
+
+	option = {
+		name = etf_political.102.r
+		custom_tooltip = etf_political.102.tt
+		add_country_modifier = {
+			name = birthplace_of_fascism_modifier
+			duration = 3650
+		}
+	}
+
+	after = {
+		set_global_flag = etf_fascism_enabled
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						has_reform = elected_parliament
+						has_reform = multi_party_system
+					}
+				}
+				add_faction = national_socialist_party
+				add_faction_influence = {
+					faction = national_socialist_party
+					influence = 5
+				}
+			}
+		}
+	}
+}
+
+# Birth of Islamism
+country_event = {
+	id = etf_political.103
+	title = etf_political.103.t
+	desc = etf_political.103.d
+	picture = STREET_SPEECH_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			religion_group = muslim
+			dominant_religion = islam
+			dominant_religion = sunni
+			dominant_religion = shiite
+			dominant_religion = ibadi
+		}
+		is_year = 4058
+		has_institution = globalization
+		NOT = { technology_group = western }
+		NOT = { has_global_flag = etf_islamism_enabled }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 1.2
+			religion = secularism
+		}
+		modifier = {
+			factor = 0.8
+			government = theocracy
+		}
+		modifier = {
+			factor = 0.001
+			is_year = 4078
+		}
+	}
+
+	option = {
+		name = etf_political.103.r
+		custom_tooltip = etf_political.103.tt
+	}
+
+	after = {
+		set_global_flag = etf_islamism_enabled
+	}
+}
+
+# =====================
+# Revolution and Reform
+# =====================
+
+# Revolutionaries seize the Capital! (Revolution Done Quick)
+# - No need to wait years for rebels to break the country,
+# - this event gives countries the option of accepting
+# - rebel demands within 30 days of the capital falling.
+country_event = {
+	id = etf_political.200
+	title = etf_political.200.t
+	desc = etf_political.200.d
+	picture = REVOLUTION_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_subject_of = FROM
+			overlord_of = FROM
+			FROM = {
+				is_great_power = yes
+			}
+		}
+	}
+	
+	is_triggered_only = yes # on_actions, "on_siege_won_province"
+	
+	trigger = {
+		OR = {
+			AND = {
+				has_spawned_rebels = conservative_rebels
+				capital_scope = {
+					has_rebel_faction = conservative_rebels
+				}
+			}
+			AND = {
+				has_spawned_rebels = revolutionary_rebels
+				capital_scope = {
+					has_rebel_faction = revolutionary_rebels
+				}
+			}
+			AND = {
+				has_spawned_rebels = socialist_rebels
+				capital_scope = {
+					has_rebel_faction = socialist_rebels
+				}
+			}
+			AND = {
+				has_spawned_rebels = communist_rebels
+				capital_scope = {
+					has_rebel_faction = communist_rebels
+				}
+			}
+			AND = {
+				has_spawned_rebels = fascist_rebels
+				capital_scope = {
+					has_rebel_faction = fascist_rebels
+				}
+			}
+		}
+		post_napoleonic_age = yes
+		has_any_disaster = no
+		is_at_war = no
+	}
+	
+	option = { # Reactionary Revolution!
+		name = etf_political.200.con
+		trigger = {
+			capital_scope = {
+				has_rebel_faction = conservative_rebels
+			}
+		}
+		revolutionary_rebel_demands = yes
+		reactionary_rebel_demands = yes
+		set_country_flag = accepted_reactionary_demands
+	}
+	
+	option = { # Liberal Revolution!
+		name = etf_political.200.lib
+		trigger = {
+			capital_scope = {
+				has_rebel_faction = revolutionary_rebels
+			}
+		}
+		revolutionary_rebel_demands = yes
+		liberal_rebel_demands = yes
+		set_country_flag = accepted_liberal_demands
+	}
+	
+	option = { # Socialist Revolution!
+		name = etf_political.200.soc
+		trigger = {
+			capital_scope = {
+				has_rebel_faction = socialist_rebels
+			}
+		}
+		revolutionary_rebel_demands = yes
+		socialist_rebel_demands = yes
+		set_country_flag = accepted_socialist_demands
+	}
+	
+	option = { # Communist Revolution!
+		name = etf_political.200.com
+		trigger = {
+			capital_scope = {
+				has_rebel_faction = communist_rebels
+			}
+		}
+		revolutionary_rebel_demands = yes
+		communist_rebel_demands = yes
+		set_country_flag = accepted_communist_demands
+	}
+	
+	option = { # Fascist Revolution!
+		name = etf_political.200.fac
+		trigger = {
+			capital_scope = {
+				has_rebel_faction = fascist_rebels
+			}
+		}
+		revolutionary_rebel_demands = yes
+		fascist_rebel_demands = yes
+		set_country_flag = accepted_fascist_demands
+	}
+	
+	option = { # This isn't over!
+		name = etf_political.200.ref
+		reduce_stability_or_adm_power = yes
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		trigger_switch = {
+			on_trigger = has_country_flag
+			
+			accepted_reactionary_demands = {
+				disband_rebels = conservative_rebels
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = conservative_rebels
+					}
+					change_controller = owner
+				}
+			}
+			accepted_liberal_demands = {
+				disband_rebels = revolutionary_rebels
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = revolutionary_rebels
+					}
+					change_controller = owner
+				}
+			}
+			accepted_socialist_demands = {
+				disband_rebels = socialist_rebels
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = socialist_rebels
+					}
+					change_controller = owner
+				}
+			}
+			accepted_communist_demands = {
+				disband_rebels = communist_rebels
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = communist_rebels
+					}
+					change_controller = owner
+				}
+			}
+			accepted_fascist_demands = {
+				disband_rebels = fascist_rebels
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = fascist_rebels
+					}
+					change_controller = owner
+				}
+			}
+		}
+		clr_country_flag = accepted_reactionary_demands
+		clr_country_flag = accepted_liberal_demands
+		clr_country_flag = accepted_socialist_demands
+		clr_country_flag = accepted_communist_demands
+		clr_country_flag = accepted_fascist_demands
+	}
+}
+
+# Monarchy Abolished by Parliament
+country_event = {
+	id = etf_political.210
+	title = etf_political.210.t
+	desc = etf_political.210.d
+	picture = REFORM_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_political.210.r
+	}
+}
+
+# Communist Coup
+country_event = {
+	id = etf_political.211
+	title = etf_political.211.t
+	desc = etf_political.211.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_subject_of = FROM
+			overlord_of = FROM
+			FROM = {
+				is_great_power = yes
+			}
+		}
+	}
+	
+	trigger = {
+		ai = yes # Players should have more freedom of choice
+		has_ruler_flag = ruler_from_communist_party
+		faction_influence = {
+			faction = communist_party
+			influence = 50
+		}
+		is_not_communist = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = etf_political.211.r
+		change_government_to_dictatorial_republic = yes
+		add_government_reform = communist_government
+	}
+}
+
+# Fascist Coup
+country_event = {
+	id = etf_political.212
+	title = etf_political.212.t
+	desc = etf_political.212.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			same_continent = FROM
+			is_subject_of = FROM
+			overlord_of = FROM
+			FROM = {
+				is_great_power = yes
+			}
+		}
+	}
+	
+	trigger = {
+		ai = yes # Players should have more freedom of choice
+		has_ruler_flag = ruler_from_national_socialist_party
+		faction_influence = {
+			faction = national_socialist_party
+			influence = 50
+		}
+		is_not_fascist = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = etf_political.212.r
+		if = {
+			limit = {
+				government = monarchy
+			}
+			change_government_to_fascist_monarchy = yes
+		}
+		else = {
+			change_government_to_dictatorial_republic = yes
+			add_government_reform = fascist_government
+		}
+	}
+}
+
+# Rise of the Leader
+country_event = {
+	id = etf_political.213
+	title = etf_political.213.t
+	desc = {
+		trigger = {
+			is_communist = yes
+		}
+		desc = etf_political.213.da
+	}
+	desc = {
+		trigger = {
+			is_fascist = yes
+		}
+		desc = etf_political.213.db
+	}
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		has_regency = no
+		NOT = { has_ruler_flag = ruler_has_died_flag }
+		
+		is_democracy = no
+		OR = { # Non-Communist/Fascist ruler is ousted.
+			AND = {
+				is_communist = yes
+				NOT = { has_ruler_flag = ruler_from_communist_party }
+			}
+			AND = {
+				is_fascist = yes
+				NOT = { has_ruler_flag = ruler_from_national_socialist_party }
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			create_ruler_candidate = {
+				key = new_dictator_@ROOT
+				option = 0
+			}
+		}
+	}
+	
+	option = { # I love democracy.
+		name = etf_political.213.r
+		set_ruler = new_dictator_@ROOT
+		if = {
+			limit = {
+				is_communist = yes
+			}
+			set_ruler_flag = ruler_from_communist_party
+		}
+		else_if = {
+			limit = {
+				is_fascist = yes
+			}
+			set_ruler_flag = ruler_from_national_socialist_party
+		}
+	}
+	
+	after = {
+		clear_exiled_ruler = new_dictator_@ROOT
+	}
+}
+
+# Liberals/Socialists push for Suffrage
+country_event = {
+	id = etf_political.220
+	title = etf_political.220.t
+	desc = etf_political.220.d
+	picture = CHARTISTS_eventPicture
+
+	trigger = {
+		OR = {
+			faction_in_power = liberal_party
+			faction_in_power = social_democratic_party
+		}
+		OR = {
+			has_reform = landed_parliament
+			has_reform = single_party_system
+		}
+		is_year = 3948
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = { # Widen Suffrage
+		name = etf_political.220.ra
+		if = {
+			limit = { has_reform = landed_parliament }
+			add_government_reform = elected_parliament
+		}
+		else_if = {
+			limit = { has_reform = single_party_system }
+			add_government_reform = multi_party_system
+		}
+	}
+
+	option = { # Keep current system
+		name = etf_political.220.rb
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_reform = royal_power }
+			}
+		}
+		add_stability = -1
+		if = {
+			limit = { faction_in_power = liberal_party }
+			add_faction_influence = {
+				faction = liberal_party
+				influence = -15
+			}
+		}
+		else_if = {
+			limit = { faction_in_power = social_democratic_party }
+			add_faction_influence = {
+				faction = social_democratic_party
+				influence = -15
+			}
+		}
+	}
+}
+
+# Religion in a Socialist State
+country_event = {
+	id = etf_political.221
+	title = etf_political.221.t
+	desc = etf_political.221.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	trigger = {
+		is_communist = yes
+		NOT = { religion = secularism }
+		NOT = { has_country_modifier = religion_and_socialism_timer }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = religion_and_socialism_timer
+				duration = 3600
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.221.ra
+		change_religion = secularism
+	}
+
+	option = {
+		name = etf_political.221.rb
+		add_stability = -1
+		if = {
+			limit = { has_estate = estate_church }
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Nationalists and Minorities
+province_event = {
+	id = etf_political.222
+	title = etf_political.222.t
+	desc = etf_political.222.d
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		# Nationalist parties are currently quite powerful in terms
+		# of the modifiers they give, why not make it a drawback
+		# that they can't accept cultures outside their culture-group?
+		owner = {
+			OR = {
+				faction_in_power = nationalist_party
+				faction_in_power = national_socialist_party
+			}
+			NOT = { has_country_modifier = nationalism_and_minorities_timer }
+		}
+		has_owner_accepted_culture = yes
+		NOT = { culture_group = owner }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	is_mtth_scaled_to_size = 1
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				add_country_modifier = {
+					name = nationalism_and_minorities_timer
+					duration = 500
+					hidden = yes
+				}
+			}
+		}
+	}
+
+	option = { # Let's reverse these policies
+		name = etf_political.222.ra
+		owner = {
+			change_ruling_party_support = { amount = 5 }
+			remove_accepted_culture = PREV
+			# Return Dip-power relative to Culture Promote Cost
+			if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = 0.0 } }
+				add_dip_power = 100
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.10 } }
+				add_dip_power = 90
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.20 } }
+				add_dip_power = 80
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.30 } }
+				add_dip_power = 70
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.40 } }
+				add_dip_power = 60
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.50 } }
+				add_dip_power = 50
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.60 } }
+				add_dip_power = 40
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.70 } }
+				add_dip_power = 30
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.80 } }
+				add_dip_power = 20
+			}
+			else_if = {
+				limit = { has_global_modifier_value = { which = promote_culture_cost value = -0.90 } }
+				add_dip_power = 10
+			}
+			# Less than -90% and you get no refund
+		}
+	}
+
+	option = { # Unity is strength!
+		name = etf_political.222.rb
+		owner = {
+			if = {
+				limit = { is_fascist = yes }
+				add_stability = -1 # Heresy!
+			}
+			else = {
+				change_ruling_party_support = { amount = -10 }
+			}
+		}
+		random_list = {
+			33 = { add_base_tax = 1 }
+			33 = { add_base_production = 1 }
+			33 = { add_base_manpower = 1 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_fascist = yes
+			}
+		}
+	}
+}
+
+# Colonialism in a Socialist State
+country_event = {
+	id = etf_political.223
+	title = etf_political.223.t
+	desc = etf_political.223.d
+	picture = ACCUSATION_eventPicture
+
+	trigger = {
+		is_communist = yes
+		any_subject_country = {
+			is_colonial_subject_type = yes
+		}
+	}
+
+	option = { # They're not our slaves, they're our COMRADES.
+		name = etf_political.223.ra
+		add_prestige = -50
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				is_colonial_subject_type = yes
+			}
+			country_event = { id = etf_political.224 } # FROM demands restructuring
+			custom_tooltip = IF_ACCEPTED
+			custom_tooltip = etf_political.223.tt # "Will become a Communist Puppet State."
+		}
+	}
+
+	option = { # Fine, let them go.
+		name = etf_political.223.rb
+		add_prestige = 20
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				is_colonial_subject_type = yes
+			}
+			tooltip = {
+				grant_independence = yes
+			}
+			hidden_effect = {
+				country_event = { id = etf_political.225 } # FROM Decolonizes
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Colonial Overlord demands some (socialist) restructuring
+country_event = {
+	id = etf_political.224
+	title = etf_political.224.t
+	desc = etf_political.224.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # We're loyal to the cause!
+		name = etf_political.224.ra
+		hidden_effect = {
+			grant_independence = yes
+		}
+		FROM = {
+			create_subject = {
+				subject_type = puppet_state
+				subject = PREV
+			}
+		}
+		disable_subject_annexation = yes
+		change_government_to_dictatorial_republic = yes
+		add_government_reform = communist_government
+	}
+
+	option = { # Screw 'em!
+		name = etf_political.224.rb
+		grant_independence = yes
+		change_government_to_oligarchic_republic = yes
+		sub_100_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Colonial Overlord Decolonizes
+country_event = {
+	id = etf_political.225
+	title = etf_political.225.t
+	desc = etf_political.225.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_political.225.r
+		grant_independence = yes
+		change_government_to_oligarchic_republic = yes
+		add_100_opinion_effect = {
+			who = FROM
+			mutual = yes
+		}
+	}
+}
+
+# A Secular Theocracy?
+country_event = {
+	id = etf_political.226
+	title = etf_political.226.t
+	desc = etf_political.226.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		government = theocracy
+		religion_group = secular
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					owner = {
+						dominant_religion = PREV
+					}
+				}
+				save_event_target_as = desired_religion
+			}
+		}
+	}
+
+	option = { # We're no godless heathens!
+		name = etf_political.226.ra
+		trigger = {
+			event_target:desired_religion = {
+				NOT = { religion_group = secular } # We ARE godless heathens, apparently.
+			}
+		}
+		change_religion = event_target:desired_religion
+	}
+
+	option = { # Perhaps this 'Theocracy' thing isn't working out for us...
+		name = etf_political.226.rb
+		change_government = republic
+	}
+}
+
+# Introduce Parliament
+country_event = {
+	id = etf_political.230
+	title = etf_political.230.t
+	desc = etf_political.230.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # The Nobility will represent us well
+		name = etf_political.230.ra
+		add_aristocratic_estate_loyalty = {
+			loyalty = 10
+		}
+		add_wealthy_estate_loyalty = {
+			loyalty = -5
+		}
+		if = {
+			limit = {
+				has_estate = estate_workers
+			}
+			add_estate_loyalty = {
+				estate = estate_workers
+				loyalty = -10
+			}
+		}
+		add_government_reform = appointed_parliament
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_estate = estate_nobles }
+			}
+		}
+	}
+
+	option = { # The Middle Class will represent us well
+		name = etf_political.230.rb
+		add_aristocratic_estate_loyalty = {
+			loyalty = 5
+		}
+		add_wealthy_estate_loyalty = {
+			loyalty = 10
+		}
+		if = {
+			limit = {
+				has_estate = estate_workers
+			}
+			add_estate_loyalty = {
+				estate = estate_workers
+				loyalty = -5
+			}
+		}
+		add_government_reform = landed_parliament
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_estate = estate_burghers }
+				NOT = { has_estate = estate_corporations }
+			}
+		}
+	}
+
+	option = { # The People will represent us well
+		name = etf_political.230.rc
+		add_aristocratic_estate_loyalty = {
+			loyalty = -10
+		}
+		add_wealthy_estate_loyalty = {
+			loyalty = -5
+		}
+		if = {
+			limit = {
+				has_estate = estate_workers
+			}
+			add_estate_loyalty = {
+				estate = estate_workers
+				loyalty = 5
+			}
+		}
+		add_government_reform = elected_parliament
+	}
+}
+
+# Dominion Obtains Sovereignty Alert
+country_event = {
+	id = etf_political.231
+	title = etf_political.231.t
+	desc = etf_political.231.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_political.231.r
+		tooltip = {
+			if = {
+				limit = {
+					is_great_power_trigger = yes
+				}
+				add_to_sphere = { tag = FROM }
+			}
+			else = {
+				create_alliance = FROM
+			}
+		}
+	}
+}
+
+# Dominion Declares Independence Alert
+country_event = {
+	id = etf_political.232
+	title = etf_political.232.t
+	desc = etf_political.232.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_political.232.r
+		tooltip = {
+			FROM = {
+				grant_independence = yes
+			}
+		}
+	}
+}
+
+# Overlord loses PU's on changing government
+country_event = {
+	id = etf_political.240
+	title = etf_political.240.t
+	desc = etf_political.240.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_subject_country = {
+			OR = {
+				is_lesser_in_union = yes
+				is_subject_of_type = dominion
+			}
+		}
+		NOT = { government = monarchy }
+	}
+
+	option = {
+		name = etf_political.240.r
+		every_country = {
+			limit = {
+				is_subject_of = ROOT
+				OR = {
+					is_lesser_in_union = yes
+					is_subject_of_type = dominion
+				}
+			}
+			hidden_effect = {
+				grant_independence = yes
+			}
+			country_event = { id = etf_political.241 }
+		}
+	}
+}
+
+# PU's Reaction to Overlord changing government
+country_event = {
+	id = etf_political.241
+	title = etf_political.241.t
+	desc = etf_political.241.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Forge a new Dynasty!
+		name = etf_political.241.ra
+		tooltip = {
+			grant_independence = yes
+		}
+		custom_tooltip = " "
+		if = {
+			limit = {
+				has_reform = dominion_reform
+			}
+			tooltip = {
+				remove_government_reform = dominion_reform
+			}
+			hidden_effect = {
+				add_government_reform = autocracy_reform
+			}
+			define_ruler = {}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 1000
+				capital_scope = {
+					continent = europe
+				}
+			}
+			modifier = {
+				factor = 0
+				is_year = 4048
+			}
+		}
+	}
+
+	option = { # No more crowns!
+		name = etf_political.241.rb
+		tooltip = {
+			grant_independence = yes
+		}
+		custom_tooltip = " "
+		change_government = republic
+		define_ruler = {}
+		ai_chance = {
+			modifier = {
+				factor = 1000
+				OR = {
+					capital_scope = { continent = north_america }
+					capital_scope = { continent = south_america }
+					primary_culture = finnish
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { is_year = 3848 }
+			}
+		}
+	}
+}
+
+# # [This.GetEventTargetPartyAdj]s turn Insurrectionary
+# country_event = {
+	# id = etf_political.250
+	# title = etf_political.250.t
+	# desc = etf_political.250.d
+	# picture = ELECTION_REPUBLICAN_eventPicture
+
+	# trigger = {
+		# OR = {
+			# AND = {
+				# has_country_modifier = banned_conservative_party
+				# faction_influence = {
+					# faction = conservative_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = conservative_party }
+				# NOT = { has_country_flag = conservative_party:is_insurrectionary }
+			# }
+			# AND = {
+				# has_country_modifier = banned_liberal_party
+				# faction_influence = {
+					# faction = liberal_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = liberal_party }
+				# NOT = { has_country_flag = liberal_party:is_insurrectionary }
+			# }
+			# AND = {
+				# has_country_modifier = banned_nationalist_party
+				# faction_influence = {
+					# faction = nationalist_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = nationalist_party }
+				# NOT = { has_country_flag = nationalist_party:is_insurrectionary }
+			# }
+			# AND = {
+				# has_country_modifier = banned_social_democratic_party
+				# faction_influence = {
+					# faction = social_democratic_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = social_democratic_party }
+				# NOT = { has_country_flag = social_democratic_party:is_insurrectionary }
+			# }
+			# AND = {
+				# has_country_modifier = banned_communist_party
+				# faction_influence = {
+					# faction = communist_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = communist_party }
+				# NOT = { has_country_flag = communist_party:is_insurrectionary }
+			# }
+			# AND = {
+				# has_country_modifier = banned_national_socialist_party
+				# faction_influence = {
+					# faction = national_socialist_party
+					# influence = 25
+				# }
+				# NOT = { faction_in_power = national_socialist_party }
+				# NOT = { has_country_flag = national_socialist_party:is_insurrectionary }
+			# }
+		# }
+	# }
+
+	# immediate = {
+		# hidden_effect = {
+			# random_list = {
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_conservative_party
+						# faction_influence = {
+							# faction = conservative_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = conservative_party }
+						# NOT = { has_country_flag = conservative_party:is_insurrectionary }
+					# }
+					# set_country_flag = conservative_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_liberal_party
+						# faction_influence = {
+							# faction = liberal_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = liberal_party }
+						# NOT = { has_country_flag = liberal_party:is_insurrectionary }
+					# }
+					# set_country_flag = liberal_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_nationalist_party
+						# faction_influence = {
+							# faction = nationalist_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = nationalist_party }
+						# NOT = { has_country_flag = nationalist_party:is_insurrectionary }
+					# }
+					# set_country_flag = nationalist_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_social_democratic_party
+						# faction_influence = {
+							# faction = social_democratic_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = social_democratic_party }
+						# NOT = { has_country_flag = social_democratic_party:is_insurrectionary }
+					# }
+					# set_country_flag = social_democratic_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_communist_party
+						# faction_influence = {
+							# faction = communist_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = communist_party }
+						# NOT = { has_country_flag = communist_party:is_insurrectionary }
+					# }
+					# set_country_flag = communist_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_modifier = banned_national_socialist_party
+						# faction_influence = {
+							# faction = national_socialist_party
+							# influence = 25
+						# }
+						# NOT = { faction_in_power = national_socialist_party }
+						# NOT = { has_country_flag = national_socialist_party:is_insurrectionary }
+					# }
+					# set_country_flag = national_socialist_party:event_target
+				# }
+			# }
+		# }
+	# }
+
+	# option = { # Arrest their leaders.
+		# name = etf_political.250.ra
+		# reduce_stability_or_adm_power = yes
+		# trigger_switch = {
+			# on_trigger = has_country_flag
+			# conservative_party:event_target = {
+				# add_faction_influence = {
+					# faction = conservative_party
+					# influence = -25
+				# }
+			# }
+			# liberal_party:event_target = {
+				# add_faction_influence = {
+					# faction = liberal_party
+					# influence = -25
+				# }
+			# }
+			# nationalist_party:event_target = {
+				# add_faction_influence = {
+					# faction = nationalist_party
+					# influence = -25
+				# }
+			# }
+			# social_democratic_party:event_target = {
+				# add_faction_influence = {
+					# faction = social_democratic_party
+					# influence = -25
+				# }
+			# }
+			# communist_party:event_target = {
+				# add_faction_influence = {
+					# faction = communist_party
+					# influence = -25
+				# }
+			# }
+			# national_socialist_party:event_target = {
+				# add_faction_influence = {
+					# faction = national_socialist_party
+					# influence = -25
+				# }
+			# }
+		# }
+	# }
+
+	# option = { # Action is unnecessary, they're not a threat.
+		# name = etf_political.250.rb
+		# custom_tooltip = etf_political.250.tt
+		# trigger_switch = {
+			# on_trigger = has_country_flag
+			# conservative_party:event_target = {
+				# set_country_flag = conservative_party:is_insurrectionary
+			# }
+			# liberal_party:event_target = {
+				# set_country_flag = liberal_party:is_insurrectionary
+			# }
+			# nationalist_party:event_target = {
+				# set_country_flag = nationalist_party:is_insurrectionary
+			# }
+			# social_democratic_party:event_target = {
+				# set_country_flag = social_democratic_party:is_insurrectionary
+			# }
+			# communist_party:event_target = {
+				# set_country_flag = communist_party:is_insurrectionary
+			# }
+			# national_socialist_party:event_target = {
+				# set_country_flag = national_socialist_party:is_insurrectionary
+			# }
+		# }
+	# }
+
+	# after = {
+		# clr_country_flag = conservative_party:event_target
+		# clr_country_flag = liberal_party:event_target
+		# clr_country_flag = nationalist_party:event_target
+		# clr_country_flag = social_democratic_party:event_target
+		# clr_country_flag = communist_party:event_target
+		# clr_country_flag = national_socialist_party:event_target
+	# }
+# }
+
+# # [This.GetEventTargetPartyAdj]s Reconcile
+# country_event = {
+	# id = etf_political.251
+	# title = etf_political.251.t
+	# desc = etf_political.251.d
+	# picture = ELECTION_REPUBLICAN_eventPicture
+
+	# trigger = {
+		# OR = {
+			# AND = {
+				# has_country_flag = conservative_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_conservative_party }
+			# }
+			# AND = {
+				# has_country_flag = liberal_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_liberal_party }
+			# }
+			# AND = {
+				# has_country_flag = nationalist_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_nationalist_party }
+			# }
+			# AND = {
+				# has_country_flag = social_democratic_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_social_democratic_party }
+			# }
+			# AND = {
+				# has_country_flag = communist_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_communist_party }
+			# }
+			# AND = {
+				# has_country_flag = national_socialist_party:is_insurrectionary
+				# NOT = { has_country_modifier = banned_national_socialist_party }
+			# }
+		# }
+	# }
+
+	# immediate = {
+		# hidden_effect = {
+			# random_list = {
+				# 10 = {
+					# trigger = {
+						# has_country_flag = conservative_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_conservative_party }
+					# }
+					# set_country_flag = conservative_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_flag = liberal_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_liberal_party }
+					# }
+					# set_country_flag = liberal_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_flag = nationalist_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_nationalist_party }
+					# }
+					# set_country_flag = nationalist_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_flag = social_democratic_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_social_democratic_party }
+					# }
+					# set_country_flag = social_democratic_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_flag = communist_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_communist_party }
+					# }
+					# set_country_flag = communist_party:event_target
+				# }
+				# 10 = {
+					# trigger = {
+						# has_country_flag = national_socialist_party:is_insurrectionary
+						# NOT = { has_country_modifier = banned_national_socialist_party }
+					# }
+					# set_country_flag = national_socialist_party:event_target
+				# }
+			# }
+		# }
+	# }
+
+	# option = { # Glad they've put down the pitchforks.
+		# name = etf_political.251.r
+		# trigger_switch = {
+			# on_trigger = has_country_flag
+			# conservative_party:event_target = {
+				# clr_country_flag = conservative_party:is_insurrectionary
+			# }
+			# liberal_party:event_target = {
+				# clr_country_flag = liberal_party:is_insurrectionary
+			# }
+			# nationalist_party:event_target = {
+				# clr_country_flag = nationalist_party:is_insurrectionary
+			# }
+			# social_democratic_party:event_target = {
+				# clr_country_flag = social_democratic_party:is_insurrectionary
+			# }
+			# communist_party:event_target = {
+				# clr_country_flag = communist_party:is_insurrectionary
+			# }
+			# national_socialist_party:event_target = {
+				# clr_country_flag = national_socialist_party:is_insurrectionary
+			# }
+		# }
+	# }
+
+	# after = {
+		# clr_country_flag = conservative_party:event_target
+		# clr_country_flag = liberal_party:event_target
+		# clr_country_flag = nationalist_party:event_target
+		# clr_country_flag = social_democratic_party:event_target
+		# clr_country_flag = communist_party:event_target
+		# clr_country_flag = national_socialist_party:event_target
+	# }
+# }
+
+# The [This.GetEventTargetPartyAdj] Resurgence
+country_event = {
+	id = etf_political.252
+	title = etf_political.252.t
+	desc = etf_political.252.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	trigger = {
+		OR = {
+			AND = {
+				faction_in_power = conservative_party
+				has_country_modifier = banned_conservative_party
+			}
+			AND = {
+				faction_in_power = liberal_party
+				has_country_modifier = banned_liberal_party
+			}
+			AND = {
+				faction_in_power = nationalist_party
+				has_country_modifier = banned_nationalist_party
+			}
+			AND = {
+				faction_in_power = social_democratic_party
+				has_country_modifier = banned_social_democratic_party
+			}
+			AND = {
+				faction_in_power = communist_party
+				has_country_modifier = banned_communist_party
+			}
+			AND = {
+				faction_in_power = national_socialist_party
+				has_country_modifier = banned_national_socialist_party
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				10 = {
+					trigger = {
+						faction_in_power = conservative_party
+						has_country_modifier = banned_conservative_party
+					}
+					set_country_flag = conservative_party:event_target
+				}
+				10 = {
+					trigger = {
+						faction_in_power = liberal_party
+						has_country_modifier = banned_liberal_party
+					}
+					set_country_flag = liberal_party:event_target
+				}
+				10 = {
+					trigger = {
+						faction_in_power = nationalist_party
+						has_country_modifier = banned_nationalist_party
+					}
+					set_country_flag = nationalist_party:event_target
+				}
+				10 = {
+					trigger = {
+						faction_in_power = social_democratic_party
+						has_country_modifier = banned_social_democratic_party
+					}
+					set_country_flag = social_democratic_party:event_target
+				}
+				10 = {
+					trigger = {
+						faction_in_power = communist_party
+						has_country_modifier = banned_communist_party
+					}
+					set_country_flag = communist_party:event_target
+				}
+				10 = {
+					trigger = {
+						faction_in_power = national_socialist_party
+						has_country_modifier = banned_national_socialist_party
+					}
+					set_country_flag = national_socialist_party:event_target
+				}
+			}
+		}
+	}
+
+	option = { # The party's continued ban cannot be justified.
+		name = etf_political.252.r
+		trigger_switch = {
+			on_trigger = has_country_flag
+			conservative_party:event_target = {
+				remove_country_modifier = banned_conservative_party
+				clr_country_flag = conservative_party:is_insurrectionary
+			}
+			liberal_party:event_target = {
+				remove_country_modifier = banned_liberal_party
+				clr_country_flag = liberal_party:is_insurrectionary
+			}
+			nationalist_party:event_target = {
+				remove_country_modifier = banned_nationalist_party
+				clr_country_flag = nationalist_party:is_insurrectionary
+			}
+			social_democratic_party:event_target = {
+				remove_country_modifier = banned_social_democratic_party
+				clr_country_flag = social_democratic_party:is_insurrectionary
+			}
+			communist_party:event_target = {
+				remove_country_modifier = banned_communist_party
+				clr_country_flag = communist_party:is_insurrectionary
+			}
+			national_socialist_party:event_target = {
+				remove_country_modifier = banned_national_socialist_party
+				clr_country_flag = national_socialist_party:is_insurrectionary
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = conservative_party:event_target
+		clr_country_flag = liberal_party:event_target
+		clr_country_flag = nationalist_party:event_target
+		clr_country_flag = social_democratic_party:event_target
+		clr_country_flag = communist_party:event_target
+		clr_country_flag = national_socialist_party:event_target
+	}
+}
+
+# ================
+# Political Flavor
+# ================
+
+# Communist Infiltration
+country_event = {
+	id = etf_political.300
+	title = etf_political.300.t
+	desc = etf_political.300.d
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_known_country = {
+			is_communist = yes
+			has_spy_network_in = {
+				who = ROOT
+				value = 30
+			}
+		}
+		NOT = { is_communist = yes }
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = {
+					is_communist = yes
+					has_spy_network_in = {
+						who = ROOT
+						value = 30
+					}
+				}
+				save_event_target_as = communist_infiltrator
+			}
+		}
+	}
+
+	option = { # Detain them!
+		name = etf_political.300.ra
+		reverse_add_opinion = {
+			who = event_target:communist_infiltrator
+			modifier = generic_bad_opinion
+		}
+		add_spy_network_from = {
+			who = event_target:communist_infiltrator
+			value = -30
+		}
+	}
+
+	option = { # We can't risk souring relations with [communist_infiltrator.GetNameShort].
+		name = etf_political.300.rb
+		if = {
+			limit = {
+				has_faction = communist_party
+			}
+			random = {
+				chance = 50
+				add_faction_influence = {
+					faction = communist_party
+					influence = 10
+				}
+			}
+		}
+		else = {
+			random = {
+				chance = 50
+				add_stability = -1
+			}
+		}
+	}
+}
+
+# Factory isn't turning a profit
+country_event = {
+	id = etf_political.301
+	title = etf_political.301.t
+	desc = etf_political.301.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	goto = factory_province
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			controlled_by = owner
+			has_building = factory
+			NOT = { base_production = 4 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					controlled_by = owner
+					has_building = factory
+					NOT = { base_production = 4 }
+				}
+				save_event_target_as = factory_province
+			}
+		}
+	}
+
+	option = { # Industry is our nation's life and blood, support the factory!
+		name = etf_political.301.ra
+		highlight = yes
+		trigger = {
+			OR = {
+				faction_in_power = nationalist_party
+				faction_in_power = communist_party
+				faction_in_power = national_socialist_party
+			}
+		}
+		add_treasury = -450
+		event_target:factory_province = {
+			add_base_production = 2
+		}
+		# 100% chance factory survives
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				num_of_loans = 3
+			}
+		}
+	}
+
+	option = { # We'll offer them some support.
+		name = etf_political.301.rb
+		add_treasury = -300
+		random_list = {
+			80 = {
+				event_target:factory_province = {
+					add_base_production = 2
+				}
+			}
+			20 = {
+				event_target:factory_province = {
+					remove_building = factory
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				num_of_loans = 3
+			}
+			modifier = {
+				factor = 0
+				faction_in_power = liberal_party
+			}
+		}
+	}
+
+	option = { # They'll just have to make do.
+		name = etf_political.301.rc
+		random = {
+			chance = 80
+			event_target:factory_province = {
+				remove_building = factory
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Industrialist seeks a Deal
+country_event = {
+	id = etf_political.302
+	title = etf_political.302.t
+	desc = etf_political.302.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_estate = estate_corporations
+		is_communist = no
+		any_owned_province = {
+			controlled_by = owner
+			is_state = yes
+			base_production = 5
+			NOT = {
+				has_building = factory
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					controlled_by = owner
+					is_state = yes
+					base_production = 5
+					NOT = {
+						has_building = factory
+					}
+				}
+				save_event_target_as = factory_province
+			}
+		}
+	}
+
+	option = { # It's a worthwhile investment.
+		name = etf_political.302.ra
+		add_corruption = 0.5
+		event_target:factory_province = {
+			add_building_construction = {
+				building = factory
+				cost = 0.5
+				speed = 0.5
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				num_of_loans = 1
+			}
+		}
+	}
+
+	option = { # Don't turn to the government expecting an investor.
+		name = etf_political.302.rb
+		add_estate_loyalty = {
+			estate = estate_corporations
+			loyalty = -5
+		}
+		event_target:factory_province = {
+			random = {
+				chance = 25
+				add_building_construction = { # They'll be fine on their own, but it'll be slower.
+					building = factory
+					cost = 0
+					speed = 2.0
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Demonstration turned violent
+country_event = {
+	id = etf_political.303
+	title = etf_political.303.t
+	desc = etf_political.303.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		num_of_cities = 3
+		post_napoleonic_age = yes
+		
+		any_owned_province = {
+			controlled_by = owner
+			is_in_capital_area = yes
+			OR = {
+				likely_rebels = revolutionary_rebels
+				likely_rebels = conservative_rebels
+				likely_rebels = socialist_rebels
+				likely_rebels = communist_rebels
+				likely_rebels = fascist_rebels
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		modifier = {
+			factor = 0.2
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 2
+			stability = 1
+		}
+		modifier = {
+			factor = 2
+			stability = 2
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					controlled_by = owner
+					is_in_capital_area = yes
+					OR = {
+						likely_rebels = revolutionary_rebels
+						likely_rebels = conservative_rebels
+						likely_rebels = socialist_rebels
+						likely_rebels = communist_rebels
+						likely_rebels = fascist_rebels
+					}
+				}
+				save_event_target_as = protest_province
+			}
+		}
+	}
+
+	option = { # We must restore order!
+		name = etf_political.303.ra
+		event_target:protest_province = { # Triggers a small rebellion
+			trigger_switch = {
+				on_trigger = likely_rebels
+				
+				revolutionary_rebels = {
+					revolutionary_rebels = 0
+				}
+				conservative_rebels = {
+					conservative_rebels = 0
+				}
+				socialist_rebels = {
+					socialist_rebels = 0
+				}
+				communist_rebels = {
+					communist_rebels = 0
+				}
+				fascist_rebels = {
+					fascist_rebels = 0
+				}
+			}
+		}
+	}
+
+	option = { # Pretend it's nothing.
+		name = etf_political.303.rb
+		random_list = {
+			50 = {
+				reduce_stability_or_adm_power = yes
+			}
+			50 = {
+				add_prestige = -10
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { stability = 0 }
+			}
+		}
+	}
+}
+
+# Ideological Envy
+country_event = {
+	id = etf_political.304
+	title = etf_political.304.t
+	desc = etf_political.304.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_deficit = yes # Economic troubles
+		num_of_loans = 1
+		NOT = { has_country_modifier = democratic_movement_modifier }
+		NOT = { has_country_modifier = communist_movement_modifier }
+		NOT = { has_country_modifier = fascist_movement_modifier }
+		
+		any_neighbor_country = {
+			total_development = ROOT
+			
+			is_in_deficit = no # No economic troubles
+			NOT = { num_of_loans = 1 }
+			
+			OR = { # But they don't share our ideology...
+				AND = {
+					is_democracy = yes
+					ROOT = { is_not_democracy = yes }
+				}
+				AND = {
+					is_communist = yes
+					ROOT = { is_not_communist = yes }
+				}
+				AND = {
+					is_fascist = yes
+					ROOT = { is_not_fascist = yes }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					total_development = ROOT
+					
+					is_in_deficit = no
+					NOT = { num_of_loans = 1 }
+					
+					OR = {
+						AND = {
+							is_democracy = yes
+							ROOT = { is_not_democracy = yes }
+						}
+						AND = {
+							is_communist = yes
+							ROOT = { is_not_communist = yes }
+						}
+						AND = {
+							is_fascist = yes
+							ROOT = { is_not_fascist = yes }
+						}
+					}
+				}
+				save_event_target_as = ideological_rival
+			}
+		}
+	}
+
+	option = { # Perhaps we should be more like [ideological_rival.GetNameShort]...
+		name = etf_political.304.ra
+		reduce_stability_or_adm_power = yes
+		if = {
+			limit = {
+				event_target:ideological_rival = { is_democracy = yes }
+			}
+			add_country_modifier = {
+				name = democratic_movement_modifier
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				event_target:ideological_rival = { is_communist = yes }
+			}
+			add_country_modifier = {
+				name = communist_movement_modifier
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				event_target:ideological_rival = { is_fascist = yes }
+			}
+			add_country_modifier = {
+				name = fascist_movement_modifier
+				duration = 3650
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0.2
+				OR = {
+					is_rival = event_target:ideological_rival
+					is_enemy = event_target:ideological_rival
+				}
+			}
+		}
+	}
+
+	option = { # Invest in some good causes and keep them distracted.
+		name = etf_political.304.rb
+		add_years_of_income = -0.2
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_bankrupt = yes # Extremely dire situations may herald the need for great change...
+			}
+		}
+	}
+}
+
+# [This.GetIdeologyGroupAdjective] Fraternity
+country_event = {
+	id = etf_political.305
+	title = etf_political.305.t
+	desc = etf_political.305.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_neighbor_country = { # A neighbor shares our ideology:
+			is_free_or_tributary_trigger = yes
+			NOT = {
+				war_with = ROOT
+			}
+			OR = {
+				AND = {
+					is_democracy = yes
+					ROOT = { is_democracy = yes }
+				}
+				AND = {
+					is_communist = yes
+					ROOT = { is_communist = yes }
+				}
+				AND = {
+					is_fascist = yes
+					ROOT = { is_fascist = yes }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					is_free_or_tributary_trigger = yes
+					NOT = {
+						war_with = ROOT
+					}
+					OR = {
+						AND = {
+							is_democracy = yes
+							ROOT = { is_democracy = yes }
+						}
+						AND = {
+							is_communist = yes
+							ROOT = { is_communist = yes }
+						}
+						AND = {
+							is_fascist = yes
+							ROOT = { is_fascist = yes }
+						}
+					}
+				}
+				save_event_target_as = ideological_friend
+			}
+		}
+	}
+
+	option = { # We're certainly good friends with [ideological_friend.GetNameShort].
+		name = etf_political.305.ra
+		add_50_opinion_effect = {
+			who = event_target:ideological_friend
+			mutual = yes
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				OR = {
+					is_rival = event_target:ideological_friend
+					is_enemy = event_target:ideological_friend
+				}
+			}
+		}
+	}
+
+	option = { # We have less than nothing in common.
+		name = etf_political.305.rb
+		sub_50_opinion_effect = {
+			who = event_target:ideological_friend
+			mutual = yes
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				OR = {
+					alliance_with = event_target:ideological_friend # Don't diss your own allies!
+					is_subject_of = event_target:ideological_friend
+					event_target:ideological_friend = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+# The Allure of a Crown (1)
+#country_event = {
+#	id = etf_political.306
+#	title = etf_political.306.t
+#	desc = etf_political.306.d
+#	picture = GOOD_WITH_MONARCH_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		ruler_has_personality = monarchist_personality
+#		NOT = { has_ruler_flag = had_monarchist_event }
+#		NOT = { government = monarchy }
+#	}
+#
+#	immediate = {
+#		set_ruler_flag = had_monarchist_event
+#	}
+#
+#	option = { # The path to Monarchy starts here!
+#		name = etf_political.306.ra
+#		add_ruler_modifier = {
+#			name = path_to_monarchy_modifier
+#			duration = -1
+#		}
+#		custom_tooltip = etf_political.306.tt
+#	}
+#
+#	option = { # With time, our ambitions will be achieved naturally.
+#		name = etf_political.306.rb
+#		add_stability_or_adm_power = yes
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#}
+
+# The Allure of a Crown (2)
+#country_event = {
+#	id = etf_political.307
+#	title = etf_political.307.t
+#	desc = etf_political.307.d
+#	picture = GOOD_WITH_MONARCH_eventPicture
+#
+#	trigger = {
+#		ruler_has_personality = monarchist_personality
+#		has_ruler_modifier = path_to_monarchy_modifier
+#		had_ruler_flag = {
+#			flag = had_monarchist_event
+#			duration = 1460 # 4 years
+#		}
+#		NOT = { is_dictatorship = yes }
+#		NOT = { government = monarchy }
+#	}
+#
+#	option = { # Render to Ceasar!
+#		name = etf_political.307.r
+#		hidden_effect = {
+#			remove_country_modifier = path_to_monarchy_modifier
+#		}
+#		change_government_to_monarchy = yes
+#	}
+#}
+
+# The Allure of a Crown (3)
+#country_event = {
+#	id = etf_political.308
+#	title = etf_political.308.t
+#	desc = etf_political.308.d
+#	picture = GOOD_WITH_MONARCH_eventPicture
+#
+#	trigger = {
+#		ruler_has_personality = monarchist_personality
+#		is_dictatorship = yes
+#		NOT = { has_ruler_flag = had_dictatorship_to_monarchy_event }
+#		NOT = { government = monarchy }
+#	}
+#
+#	immediate = {
+#		set_ruler_flag = had_dictatorship_to_monarchy_event
+#	}
+#
+#	option = { # True power is derived from shiny gold trinkets!
+#		name = etf_political.308.ra
+#		hidden_effect = {
+#			remove_country_modifier = path_to_monarchy_modifier
+#		}
+#		change_government_to_monarchy = yes
+#	}
+#
+#	option = { # Who cares about regalia? My power is already absolute.
+#		name = etf_political.308.rb
+#		hidden_effect = {
+#			remove_country_modifier = path_to_monarchy_modifier
+#		}
+#		add_stability_or_adm_power = yes
+#	}
+#}
+
+# The End of the Monarchy (1)
+#country_event = {
+#	id = etf_political.309
+#	title = etf_political.309.t
+#	desc = etf_political.309.d
+#	picture = BAD_WITH_MONARCH_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		ruler_has_personality = republican_personality
+#		NOT = { has_ruler_flag = had_republican_event }
+#		NOT = { government = republic }
+#	}
+#
+#	immediate = {
+#		set_ruler_flag = had_republican_event
+#	}
+#
+#	option = { # The path to Republic starts here!
+#		name = etf_political.309.ra
+#		add_ruler_modifier = {
+#			name = path_to_republic_modifier
+#			duration = -1
+#		}
+#		custom_tooltip = etf_political.306.tt
+#	}
+#
+#	option = { # With time, our ambitions will be achieved naturally.
+#		name = etf_political.309.rb
+#		add_stability_or_adm_power = yes
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#}
+
+# The Pit of Dictatorship
+
+# =========
+# Elections
+# =========
+
+# Election! (Multi-party system)
+country_event = {
+	id = etf_political.400
+	title = etf_political.400.t
+	desc = {
+		trigger = {
+			NOT = { has_regency = yes }
+			NOT = { has_ruler_flag = ruler_has_died_flag }
+		}
+		desc = etf_political.400.da
+	}
+	desc = {
+		trigger = {
+			has_regency = yes
+		}
+		desc = etf_political.400.db
+	}
+	desc = {
+		trigger = {
+			has_ruler_flag = ruler_has_died_flag
+		}
+		desc = etf_political.400.dc
+	}
+	picture = {
+		trigger = {
+			has_government_attribute = has_prime_minister
+		}
+		picture = PARLIAMENT_eventPicture
+	}
+	picture = {
+		trigger = {
+			always = yes
+		}
+		picture = ELECTION_REPUBLICAN_eventPicture
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government_attribute = has_multi_party_election
+		OR = {
+			has_faction = conservative_party
+			has_faction = liberal_party
+			has_faction = nationalist_party
+			has_faction = social_democratic_party
+			has_faction = communist_party
+			has_faction = national_socialist_party
+		}
+		OR = {
+			has_government_attribute = has_prime_minister
+			NOT = { government = monarchy }
+		}
+		NOT = { has_ruler_flag = monarch_getting_replaced_flag }
+		
+		OR = {
+			has_reform = islamic_republic_reform
+			NOT = { has_states_general_mechanic = yes }
+		}
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+
+	immediate = {
+		create_ruler_candidate = {
+			key = candidate_conservative_@ROOT
+			adm = 4 dip = 1 mil = 1 option = 0
+		}
+		create_ruler_candidate = {
+			key = candidate_liberal_@ROOT
+			adm = 1 dip = 4 mil = 1 option = 1
+		}
+		create_ruler_candidate = {
+			key = candidate_nationalist_@ROOT
+			adm = 1 dip = 1 mil = 4 option = 2
+		}
+		create_ruler_candidate = {
+			key = candidate_social_democratic_@ROOT
+			adm = 3 dip = 2 mil = 1 option = 3
+		}
+		create_ruler_candidate = {
+			key = candidate_communist_@ROOT
+			adm = 3 dip = 1 mil = 2 option = 4
+		}
+		create_ruler_candidate = {
+			key = candidate_national_socialist_@ROOT
+			adm = 1 dip = 2 mil = 3 option = 5
+		}
+		create_ruler_candidate = {
+			key = candidate_islamist_@ROOT
+			option = 6
+		}
+		
+		hidden_effect = {
+			#pre_select_possible_ruler_focus = yes
+			if = {
+				limit = { has_government_attribute = has_limited_terms }
+				export_to_variable = {
+					which = max_election_term
+					value = modifier:max_terms
+				}
+			}
+		}
+	}
+	after = {
+		clear_exiled_ruler = candidate_conservative_@ROOT
+		clear_exiled_ruler = candidate_liberal_@ROOT
+		clear_exiled_ruler = candidate_nationalist_@ROOT
+		clear_exiled_ruler = candidate_social_democratic_@ROOT
+		clear_exiled_ruler = candidate_communist_@ROOT
+		clear_exiled_ruler = candidate_national_socialist_@ROOT
+		clear_exiled_ruler = candidate_islamist_@ROOT
+		
+		clr_country_flag = caretaker_revolutionary_government
+		#post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = etf_political.r.reelect
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+			NOT = { has_ruler_flag = ruler_has_died_flag }
+			NOT = { has_ruler_flag = placeholder_prime_minister }
+			NOT = { has_states_general_mechanic = yes }
+			OR = {
+				NOT = { has_government_attribute = has_limited_terms }
+				check_variable = {
+					which = max_election_term
+					which = election_term
+				}
+			}
+		}
+		reelect_ruler_effect = yes
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { legitimacy_equivalent = 25 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy_equivalent = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy_equivalent = 75 }
+			}
+			modifier = {
+				factor = 2.0
+				legitimacy_equivalent = 90
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.conservative
+		trigger = {
+			faction_influence = {
+				faction = conservative_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_conservative_party }
+		}
+		set_ruler = candidate_conservative_@ROOT
+		set_ruler_flag = ruler_from_conservative_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_balanced
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = conservative_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				faction_in_power = conservative_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.liberal
+		trigger = {
+			faction_influence = {
+				faction = liberal_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_liberal_party }
+		}
+		set_ruler = candidate_liberal_@ROOT
+		set_ruler_flag = ruler_from_liberal_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_capitalist
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = liberal_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5 
+			modifier = {
+				factor = 10
+				faction_in_power = liberal_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.nationalist
+		trigger = {
+			faction_influence = {
+				faction = nationalist_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_nationalist_party }
+		}
+		set_ruler = candidate_nationalist_@ROOT
+		set_ruler_flag = ruler_from_nationalist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = nationalist_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5 
+			modifier = {
+				factor = 10
+				faction_in_power = nationalist_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.socdem
+		trigger = {
+			faction_influence = {
+				faction = social_democratic_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_social_democratic_party }
+		}
+		set_ruler = candidate_social_democratic_@ROOT
+		set_ruler_flag = ruler_from_social_democratic_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_diplomat
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = social_democratic_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5 
+			modifier = {
+				factor = 10
+				faction_in_power = social_democratic_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.communist
+		trigger = {
+			faction_influence = {
+				faction = communist_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_communist_party }
+		}
+		set_ruler = candidate_communist_@ROOT
+		set_ruler_flag = ruler_from_communist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_balanced
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = communist_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				faction_in_power = communist_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.fascist
+		trigger = {
+			faction_influence = {
+				faction = national_socialist_party
+				influence = 10
+			}
+			NOT = { has_country_modifier = banned_national_socialist_party }
+		}
+		set_ruler = candidate_national_socialist_@ROOT
+		set_ruler_flag = ruler_from_national_socialist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		if = {
+			limit = {
+				NOT = { faction_in_power = national_socialist_party }
+			}
+			add_corruption = 2
+			add_country_modifier = {
+				name = minority_party_won_election
+				duration = 365
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				faction_in_power = national_socialist_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.islamist
+		trigger = {
+			has_reform = islamic_republic_reform
+		}
+		add_scaled_republican_tradition = -15
+		set_ruler = candidate_islamist_@ROOT
+		set_ruler_flag = ruler_from_islamist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 0.33
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				has_reform = islamist_government
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.banned
+		trigger = {
+			OR = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+				has_faction = national_socialist_party
+			}
+			OR = {
+				AND = {
+					has_faction = conservative_party
+					has_country_modifier = banned_conservative_party
+				}
+				NOT = { has_faction = conservative_party }
+			}
+			OR = {
+				AND = {
+					has_faction = liberal_party
+					has_country_modifier = banned_liberal_party
+				}
+				NOT = { has_faction = liberal_party }
+			}
+			OR = {
+				AND = {
+					has_faction = nationalist_party
+					has_country_modifier = banned_nationalist_party
+				}
+				NOT = { has_faction = nationalist_party }
+			}
+			OR = {
+				AND = {
+					has_faction = social_democratic_party
+					has_country_modifier = banned_social_democratic_party
+				}
+				NOT = { has_faction = social_democratic_party }
+			}
+			OR = {
+				AND = {
+					has_faction = communist_party
+					has_country_modifier = banned_communist_party
+				}
+				NOT = { has_faction = communist_party }
+			}
+			OR = {
+				AND = {
+					has_faction = national_socialist_party
+					has_country_modifier = banned_national_socialist_party
+				}
+				NOT = { has_faction = national_socialist_party }
+			}
+		}
+		custom_tooltip = etf_political.r.banned_tt
+	}
+
+	option = {
+		name = etf_political.r.error
+		trigger = {
+			NOT = { has_faction = conservative_party }
+			NOT = { has_faction = liberal_party }
+			NOT = { has_faction = nationalist_party }
+			NOT = { has_faction = social_democratic_party }
+			NOT = { has_faction = communist_party }
+			NOT = { has_faction = national_socialist_party }
+		}
+		custom_tooltip = etf_political.r.error_tt
+		define_ruler = {
+			name = "Bob DeBuggah"
+		}
+	}
+}
+
+# Election! (Single-party system)
+country_event = {
+	id = etf_political.401
+	title = etf_political.401.t
+	desc = {
+		trigger = {
+			NOT = { has_regency = yes }
+			NOT = { has_ruler_flag = ruler_has_died_flag }
+		}
+		desc = etf_political.401.da
+	}
+	desc = {
+		trigger = {
+			has_regency = yes
+		}
+		desc = etf_political.401.db
+	}
+	desc = {
+		trigger = {
+			has_ruler_flag = ruler_has_died_flag
+		}
+		desc = etf_political.401.dc
+	}
+	picture = {
+		trigger = {
+			has_government_attribute = has_prime_minister
+		}
+		picture = LIBERUM_VETO_eventPicture
+	}
+	picture = {
+		trigger = {
+			always = yes
+		}
+		picture = ELECTION_REPUBLICAN_eventPicture
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_government_attribute = has_direct_democracy_election # temporary?
+			has_government_attribute = has_single_party_election
+			AND = {
+				has_government_attribute = has_multi_party_election
+				NOT = {
+					OR = {
+						has_faction = conservative_party
+						has_faction = liberal_party
+						has_faction = nationalist_party
+						has_faction = social_democratic_party
+						has_faction = communist_party
+						has_faction = national_socialist_party
+					}
+				}
+			}
+		}
+		OR = {
+			has_government_attribute = has_prime_minister
+			NOT = { government = monarchy }
+		}
+		NOT = { has_ruler_flag = monarch_getting_replaced_flag }
+		
+		OR = {
+			has_reform = islamic_republic_reform
+			NOT = { has_states_general_mechanic = yes }
+		}
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+
+	immediate = {
+		create_ruler_candidate = {
+			key = candidate_adm_@ROOT
+			adm = 4 dip = 1 mil = 1 option = 0
+		}
+		create_ruler_candidate = {
+			key = candidate_dip_@ROOT
+			adm = 1 dip = 4 mil = 1 option = 1
+		}
+		create_ruler_candidate = {
+			key = candidate_mil_@ROOT
+			adm = 1 dip = 1 mil = 4 option = 2
+		}
+		create_ruler_candidate = {
+			key = candidate_islamist_@ROOT
+			option = 3
+		}
+		
+		hidden_effect = {
+			#pre_select_possible_ruler_focus = yes
+			if = {
+				limit = { has_government_attribute = has_limited_terms }
+				export_to_variable = {
+					which = max_election_term
+					value = modifier:max_terms
+				}
+			}
+		}
+	}
+	after = {
+		clear_exiled_ruler = candidate_adm_@ROOT
+		clear_exiled_ruler = candidate_dip_@ROOT
+		clear_exiled_ruler = candidate_mil_@ROOT
+		clear_exiled_ruler = candidate_islamist_@ROOT
+		
+		clr_country_flag = caretaker_revolutionary_government
+		#post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = etf_political.r.reelect
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+			NOT = { has_ruler_flag = ruler_has_died_flag }
+			NOT = { has_ruler_flag = placeholder_prime_minister }
+			NOT = { has_states_general_mechanic = yes }
+			OR = {
+				NOT = { has_government_attribute = has_limited_terms }
+				check_variable = {
+					which = max_election_term
+					which = election_term
+				}
+			}
+		}
+		reelect_ruler_effect = yes
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { legitimacy_equivalent = 25 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy_equivalent = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { legitimacy_equivalent = 75 }
+			}
+			modifier = {
+				factor = 2.0
+				legitimacy_equivalent = 90
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.conservative
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { is_fascist = yes }
+			NOT = { has_country_modifier = banned_conservative_party }
+		}
+		set_ruler = candidate_adm_@ROOT
+		set_ruler_flag = ruler_from_conservative_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_balanced
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				faction_in_power = conservative_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.liberal
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { is_fascist = yes }
+			NOT = { has_country_modifier = banned_liberal_party }
+		}
+		set_ruler = candidate_dip_@ROOT
+		set_ruler_flag = ruler_from_liberal_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_capitalist
+			}
+		}
+		ai_chance = {
+			factor = 5 
+			modifier = {
+				factor = 10
+				faction_in_power = liberal_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.nationalist
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { is_fascist = yes }
+			NOT = { has_country_modifier = banned_nationalist_party }
+		}
+		set_ruler = candidate_mil_@ROOT
+		set_ruler_flag = ruler_from_nationalist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = -0.33
+		}
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		ai_chance = {
+			factor = 5 
+			modifier = {
+				factor = 10
+				faction_in_power = nationalist_party
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.islamist
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { is_fascist = yes }
+			has_reform = islamic_republic_reform
+		}
+		add_scaled_republican_tradition = -15
+		set_ruler = candidate_islamist_@ROOT
+		set_ruler_flag = ruler_from_islamist_party
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 0.33
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				has_reform = islamist_government
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.r.banned
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { is_fascist = yes }
+			has_country_modifier = banned_conservative_party
+			has_country_modifier = banned_liberal_party
+			has_country_modifier = banned_nationalist_party
+			NOT = { has_reform = islamic_republic_reform }
+		}
+		custom_tooltip = etf_political.r.banned_tt
+	}
+
+	option = {
+		name = etf_political.r.hardline
+		trigger = {
+			is_communist = yes
+		}
+		set_ruler = candidate_adm_@ROOT
+		set_ruler_flag = ruler_from_communist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_balanced
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.r.reformist
+		trigger = {
+			is_communist = yes
+		}
+		set_ruler = candidate_dip_@ROOT
+		set_ruler_flag = ruler_from_communist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_diplomat
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.r.revolutionary
+		trigger = {
+			is_communist = yes
+		}
+		set_ruler = candidate_mil_@ROOT
+		set_ruler_flag = ruler_from_communist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.r.fascist
+		trigger = {
+			is_fascist = yes
+		}
+		set_ruler = candidate_adm_@ROOT
+		set_ruler_flag = ruler_from_national_socialist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.r.nazi
+		trigger = {
+			is_fascist = yes
+		}
+		set_ruler = candidate_dip_@ROOT
+		set_ruler_flag = ruler_from_national_socialist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.r.general
+		trigger = {
+			is_fascist = yes
+		}
+		set_ruler = candidate_mil_@ROOT
+		set_ruler_flag = ruler_from_national_socialist_party
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_militarist
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+# Parliamentary Elections
+country_event = {
+	id = etf_political.410
+	title = etf_political.410.t
+	desc = etf_political.410.d
+	picture = PARLIAMENT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_faction = conservative_party
+			has_faction = liberal_party
+			has_faction = nationalist_party
+			has_faction = social_democratic_party
+			has_faction = communist_party
+			has_faction = national_socialist_party
+		}
+		government = monarchy
+		NOT = { has_government_attribute = has_prime_minister }
+		NOT = { has_government_attribute = has_federal_monarchy_election }
+		
+		NOT = { has_states_general_mechanic = yes }
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+
+	option = {
+		name = etf_political.410.ra
+		trigger = {
+			has_faction = conservative_party
+			NOT = { has_country_modifier = banned_conservative_party }
+		}
+		add_faction_influence = {
+			faction = conservative_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.410.rb
+		trigger = {
+			has_faction = liberal_party
+			NOT = { has_country_modifier = banned_liberal_party }
+		}
+		add_faction_influence = {
+			faction = liberal_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.410.rc
+		trigger = {
+			has_faction = nationalist_party
+			NOT = { has_country_modifier = banned_nationalist_party }
+		}
+		add_faction_influence = {
+			faction = nationalist_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+
+	option = {
+		name = etf_political.410.rd
+		trigger = {
+			has_faction = social_democratic_party
+			NOT = { has_country_modifier = banned_social_democratic_party }
+		}
+		add_faction_influence = {
+			faction = social_democratic_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+
+	option = {
+		name = etf_political.410.re
+		trigger = {
+			has_faction = communist_party
+			NOT = { has_country_modifier = banned_communist_party }
+		}
+		add_faction_influence = {
+			faction = communist_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+
+	option = {
+		name = etf_political.410.rf
+		trigger = {
+			has_faction = national_socialist_party
+			NOT = { has_country_modifier = banned_national_socialist_party }
+		}
+		add_faction_influence = {
+			faction = national_socialist_party
+			influence = 5
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+
+	option = {
+		name = etf_political.r.banned
+		trigger = {
+			OR = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+				has_faction = national_socialist_party
+			}
+			OR = {
+				AND = {
+					has_faction = conservative_party
+					has_country_modifier = banned_conservative_party
+				}
+				NOT = { has_faction = conservative_party }
+			}
+			OR = {
+				AND = {
+					has_faction = liberal_party
+					has_country_modifier = banned_liberal_party
+				}
+				NOT = { has_faction = liberal_party }
+			}
+			OR = {
+				AND = {
+					has_faction = nationalist_party
+					has_country_modifier = banned_nationalist_party
+				}
+				NOT = { has_faction = nationalist_party }
+			}
+			OR = {
+				AND = {
+					has_faction = social_democratic_party
+					has_country_modifier = banned_social_democratic_party
+				}
+				NOT = { has_faction = social_democratic_party }
+			}
+			OR = {
+				AND = {
+					has_faction = communist_party
+					has_country_modifier = banned_communist_party
+				}
+				NOT = { has_faction = communist_party }
+			}
+			OR = {
+				AND = {
+					has_faction = national_socialist_party
+					has_country_modifier = banned_national_socialist_party
+				}
+				NOT = { has_faction = national_socialist_party }
+			}
+		}
+		custom_tooltip = etf_political.r.banned_tt
+	}
+
+	option = {
+		name = etf_political.r.error
+		trigger = {
+			NOT = { has_faction = conservative_party }
+			NOT = { has_faction = liberal_party }
+			NOT = { has_faction = nationalist_party }
+			NOT = { has_faction = social_democratic_party }
+			NOT = { has_faction = communist_party }
+			NOT = { has_faction = national_socialist_party }
+		}
+	}
+}
+
+# Federal Monarchy Election
+country_event = {
+	id = etf_political.411
+	title = etf_political.411.t
+	desc = {
+		trigger = {
+			has_regency = no
+			has_ruler_flag = ruler_has_died_flag
+		}
+		desc = etf_political.411.db
+	}
+	desc = {
+		trigger = {
+			always = yes
+		}
+		desc = etf_political.411.da
+	}
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_government_attribute = has_federal_monarchy_election
+		NOT = { has_government_attribute = has_prime_minister }
+		
+		NOT = { has_states_general_mechanic = yes }
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+	
+	immediate = {
+		create_ruler_candidate = {
+			key = candidate_a_@ROOT
+			option = 0
+		}
+		create_ruler_candidate = {
+			key = candidate_b_@ROOT
+			option = 1
+		}
+		create_ruler_candidate = {
+			key = candidate_c_@ROOT
+			option = 2
+		}
+		
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+					NOT = { has_province_flag = candidate_home_flag }
+				}
+				save_event_target_as = candidate_a_home
+				set_province_flag = candidate_home_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+					NOT = { has_province_flag = candidate_home_flag }
+				}
+				save_event_target_as = candidate_b_home
+				set_province_flag = candidate_home_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_in_capital_area = yes
+					NOT = { has_province_flag = candidate_home_flag }
+				}
+				save_event_target_as = candidate_c_home
+				set_province_flag = candidate_home_flag
+			}
+			every_owned_province = {
+				clr_province_flag = candidate_home_flag
+			}
+			
+			#pre_select_possible_ruler_focus = yes
+		}
+	}
+	after = {
+		clear_exiled_ruler = candidate_a_@ROOT
+		clear_exiled_ruler = candidate_b_@ROOT
+		clear_exiled_ruler = candidate_c_@ROOT
+		
+		clr_country_flag = caretaker_revolutionary_government
+		#post_ruler_focus_clearance = yes
+	}
+	
+	option = {
+		name = etf_political.r.reelect
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+			NOT = { has_ruler_flag = ruler_has_died_flag }
+			NOT = { has_ruler_flag = placeholder_prime_minister }
+		}
+		custom_tooltip = remains_ruler
+		add_legitimacy = 10
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				OR = {
+					tag = UAE
+					was_tag = UAE
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					tag = MLA
+					was_tag = MLA
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = etf_political.411.ra
+		trigger = {
+			has_saved_event_target = candidate_a_home
+		}
+		set_ruler = candidate_a_@ROOT
+		add_legitimacy = -50
+		event_target:candidate_a_home = {
+			random_list = {
+				33 = { add_base_tax = 1 }
+				33 = { add_base_production = 1 }
+				33 = { add_base_manpower = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	option = {
+		name = etf_political.411.rb
+		trigger = {
+			has_saved_event_target = candidate_b_home
+		}
+		set_ruler = candidate_b_@ROOT
+		add_legitimacy = -50
+		event_target:candidate_b_home = {
+			random_list = {
+				33 = { add_base_tax = 1 }
+				33 = { add_base_production = 1 }
+				33 = { add_base_manpower = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+	
+	option = {
+		name = etf_political.411.rc
+		trigger = {
+			has_saved_event_target = candidate_c_home
+		}
+		set_ruler = candidate_c_@ROOT
+		add_legitimacy = -50
+		event_target:candidate_c_home = {
+			random_list = {
+				33 = { add_base_tax = 1 }
+				33 = { add_base_production = 1 }
+				33 = { add_base_manpower = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+		}
+	}
+}
+
+# Communist Reformers vs. Hardliners Election
+country_event = {
+	id = etf_political.420
+	title = etf_political.420.t
+	desc = {
+		trigger = {
+			has_regency = no
+			has_ruler_flag = ruler_has_died_flag
+		}
+		desc = etf_political.420.db
+	}
+	desc = {
+		trigger = {
+			always = yes
+		}
+		desc = etf_political.420.da
+	}
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government_attribute = has_communist_election
+		has_states_general_mechanic = yes
+		
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+
+	option = {
+		name = etf_political.420.ra
+		define_ruler = {
+			max_random_adm = 4
+			max_random_dip = 6
+			max_random_mil = 4
+		}
+		set_ruler_flag = ruler_from_communist_party
+		change_statists_vs_orangists = -0.33
+		custom_tooltip = etf_political.420.tt
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				is_orangists_in_power = yes
+			}
+		}
+	}
+
+	option = {
+		name = etf_political.420.rb
+		define_ruler = {
+			max_random_adm = 6
+			max_random_dip = 4
+			max_random_mil = 4
+		}
+		set_ruler_flag = ruler_from_communist_party
+		change_statists_vs_orangists = 0.33
+		custom_tooltip = etf_political.420.tt
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				is_statists_in_power = yes
+			}
+		}
+	}
+
+	# -100 to -75 = direct_democracy_system (If reform has been had before)
+	# -75  to 0   = single_party_system
+	#  0   to 75  = dictatorial_rule
+	#  75  to 100 = totalitarian_rule
+	after = {
+		if = {
+			limit = {
+				OR = {
+					has_reform = direct_democracy_system
+					has_reform = single_party_system
+					has_reform = dictatorial_rule
+					has_reform = totalitarian_rule
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_reform = direct_democracy_system
+						have_had_reform = direct_democracy_system
+					}
+					NOT = { statists_vs_orangists = -0.75 }
+				}
+				if = {
+					limit = {
+						NOT = { has_reform = direct_democracy_system }
+					}
+					add_government_reform = direct_democracy_system
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { statists_vs_orangists = 0 }
+				}
+				if = {
+					limit = {
+						NOT = { has_reform = single_party_system }
+					}
+					add_government_reform = single_party_system
+				}
+			}
+			else_if = {
+				limit = {
+					statists_vs_orangists = 0
+					NOT = { statists_vs_orangists = 0.75 }
+				}
+				if = {
+					limit = {
+						NOT = { has_reform = dictatorial_rule }
+					}
+					add_government_reform = dictatorial_rule
+				}
+			}
+			else_if = {
+				limit = {
+					statists_vs_orangists = 0.75
+				}
+				if = {
+					limit = {
+						NOT = { has_reform = totalitarian_rule }
+					}
+					add_government_reform = totalitarian_rule
+				}
+			}
+		}
+	}
+}
+
+# Islamic Republicans vs. Theocrats Election
+country_event = {
+	id = etf_political.421
+	title = etf_political.421.t
+	desc = {
+		trigger = {
+			has_regency = no
+			has_ruler_flag = ruler_has_died_flag
+		}
+		desc = etf_political.421.db
+	}
+	desc = {
+		trigger = {
+			always = yes
+		}
+		desc = etf_political.421.da
+	}
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = islamic_republic_reform
+		has_states_general_mechanic = yes
+		NOT = { has_government_attribute = has_multi_party_election }
+		NOT = { has_government_attribute = has_direct_democracy_election }
+		NOT = { has_government_attribute = has_single_party_election }
+		
+		NOT = { has_government_attribute = lottery_election }
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		NOT = { has_reform = military_dictatorship_reform }
+		NOT = { has_reform = admiralty_reform }
+		NOT = { has_reform = prussian_republic_reform }
+		NOT = { has_disaster =  bonfire_of_the_vanities_disaster }
+	}
+	
+	option = {
+		name = etf_political.421.ra
+		define_ruler = {}
+		change_statists_vs_orangists = -0.33
+	}
+	
+	option = {
+		name = etf_political.421.rb
+		define_ruler = {}
+		change_statists_vs_orangists = 0.33
+	}
+}
+
+# =====
+# Debug
+# =====
+
+# Add missing political factions
+country_event = {
+	id = etf_political.900
+	title = "Add missing political factions event"
+	desc = None
+	picture = None
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_reform = elected_parliament
+			has_reform = multi_party_system
+		}
+		OR = {
+			AND = {
+				has_global_flag = etf_socialism_enabled
+				NOT = { has_faction = social_democratic_party }
+			}
+			AND = {
+				has_global_flag = etf_communism_enabled
+				NOT = { has_faction = communist_party }
+			}
+			AND = {
+				has_global_flag = etf_fascism_enabled
+				NOT = { has_faction = national_socialist_party }
+			}
+		}
+	}
+
+	option = {
+		name = None
+		if = {
+			limit = {
+				has_global_flag = etf_socialism_enabled
+				NOT = { has_faction = social_democratic_party }
+			}
+			add_faction = social_democratic_party
+		}
+		if = {
+			limit = {
+				has_global_flag = etf_communism_enabled
+				NOT = { has_faction = communist_party }
+			}
+			add_faction = communist_party
+		}
+		if = {
+			limit = {
+				has_global_flag = etf_fascism_enabled
+				NOT = { has_faction = national_socialist_party }
+			}
+			add_faction = national_socialist_party
+		}
+	}
+}
+
+# Political Faction Influence Setup
+country_event = {
+	id = etf_political.901
+	title = "Political Faction Influence Setup"
+	desc = None
+	picture = None
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_faction = conservative_party
+			has_faction = liberal_party
+			has_faction = nationalist_party
+			has_faction = social_democratic_party
+			has_faction = communist_party
+			has_faction = national_socialist_party
+		}
+	}
+
+	option = {
+		name = None
+		if = {
+			limit = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+				has_faction = national_socialist_party
+			}
+			set_faction_influence = { faction = conservative_party 		 influence = 25 }
+			set_faction_influence = { faction = liberal_party 			 influence = 25 }
+			set_faction_influence = { faction = nationalist_party 		 influence = 15 }
+			set_faction_influence = { faction = social_democratic_party  influence = 25 }
+			set_faction_influence = { faction = communist_party 		 influence =  5 }
+			set_faction_influence = { faction = national_socialist_party influence =  5 }
+		}
+		else_if = {
+			limit = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+				has_faction = communist_party
+			}
+			set_faction_influence = { faction = conservative_party 		 influence = 40 }
+			set_faction_influence = { faction = liberal_party 			 influence = 20 }
+			set_faction_influence = { faction = nationalist_party 		 influence = 15 }
+			set_faction_influence = { faction = social_democratic_party  influence = 20 }
+			set_faction_influence = { faction = communist_party 		 influence =  5 }
+		}
+		else_if = {
+			limit = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+				has_faction = social_democratic_party
+			}
+			set_faction_influence = { faction = conservative_party 		 influence = 50 }
+			set_faction_influence = { faction = liberal_party 			 influence = 20 }
+			set_faction_influence = { faction = nationalist_party 		 influence = 15 }
+			set_faction_influence = { faction = social_democratic_party  influence = 15 }
+		}
+		else_if = {
+			limit = {
+				has_faction = conservative_party
+				has_faction = liberal_party
+				has_faction = nationalist_party
+			}
+			set_faction_influence = { faction = conservative_party 		 influence = 65 }
+			set_faction_influence = { faction = liberal_party 			 influence = 10 }
+			set_faction_influence = { faction = nationalist_party 		 influence = 25 }
+		}
+	}
+}

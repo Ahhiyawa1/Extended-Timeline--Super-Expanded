@@ -1,0 +1,1126 @@
+namespace = etf_event_hoi
+
+# ===============
+# Japanese Events
+# ===============
+
+# Marco Polo Bridge Incident
+country_event = {
+	id = etf_event_hoi.100
+	title = etf_event_hoi.100.t
+	desc = etf_event_hoi.100.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:_JAP
+		overlord_of = event_target:_MCH
+		event_target:_CHN = {
+			is_free_or_tributary_trigger = yes
+			OR = {
+				is_neighbor_of = ROOT
+				is_neighbor_of = event_target:_MCH
+			}
+			NOT = { war_with = ROOT }
+		}
+		is_year_and_month = {
+			year = 4035
+			july = yes
+		}
+		started_in = 4034.1.1
+		NOT = { started_in = 4035.7.7 }
+	}
+
+	option = { # This calls for escalation!
+		name = etf_event_hoi.100.ra
+		declare_war_with_cb = {
+			who = event_target:_CHN
+			casus_belli = cb_imperial
+		}
+		event_target:_CHN = {
+			country_event = { id = etf_event_hoi.101 }
+		}
+	}
+
+	option = { # Rein in the troops and apologize.
+		name = etf_event_hoi.100.rb
+		add_stability = -1
+		add_prestige = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# War of Resistance
+country_event = {
+	id = etf_event_hoi.101
+	title = etf_event_hoi.101.t
+	desc = etf_event_hoi.101.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # To arms!
+		name = etf_event_hoi.101.r
+		add_yearly_manpower = 2.0
+	}
+}
+
+# =================
+# German Focus Tree
+# =================
+
+# Remilitarization of the Rhineland
+country_event = {
+	id = etf_event_hoi.200
+	title = etf_event_hoi.200.t
+	desc = etf_event_hoi.200.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.200.r
+		add_yearly_manpower = 1.5
+		add_army_tradition = 25
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = lower_rhineland_area
+						area = north_rhine_area
+						area = palatinate_area
+					}
+					OR = {
+						has_building = fort_15th
+						has_building = fort_16th
+						has_building = fort_17th
+					}
+				}
+				remove_building = fort_15th
+				remove_building = fort_16th
+				remove_building = fort_17th
+				add_building = fort_18th
+			}
+		}
+	}
+}
+
+# The Anschluss
+country_event = {
+	id = etf_event_hoi.210
+	title = etf_event_hoi.210.t
+	desc = etf_event_hoi.210.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_core_province = {
+				add_core = FROM
+			}
+		}
+	}
+
+	option = { # Austria's destiny is with the Germans.
+		name = etf_event_hoi.210.ra
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		tooltip = {
+			FROM = {
+				annex_tag = {
+					target = ROOT
+					transfer_troops = no
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.211 }
+		}
+	}
+
+	option = { # Our independence will not be lost so easily.
+		name = etf_event_hoi.210.rb
+		FROM = {
+			country_event = { id = etf_event_hoi.212 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Anschluss - Austria Accepts
+country_event = {
+	id = etf_event_hoi.211
+	title = etf_event_hoi.211.t
+	desc = etf_event_hoi.211.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # The Germans have been united.
+		name = etf_event_hoi.211.r
+		annex_tag = {
+			target = FROM
+			transfer_troops = no
+		}
+		add_yearly_manpower = 0.5
+	}
+}
+
+# The Anschluss - Austria Refuses
+country_event = {
+	id = etf_event_hoi.212
+	title = etf_event_hoi.212.t
+	desc = etf_event_hoi.212.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # Unification can be achieved by other means.
+		name = etf_event_hoi.212.ra
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_civil_war_attacker
+		}
+	}
+
+	option = { # They'll be dealt with later.
+		name = etf_event_hoi.212.rb
+		add_prestige = -10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Munich Conference
+country_event = {
+	id = etf_event_hoi.220
+	title = etf_event_hoi.220.t
+	desc = etf_event_hoi.220.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # There will be peace for our time.
+		name = etf_event_hoi.220.ra
+		event_target:_CZS = {
+			country_event = { id = etf_event_hoi.221 }
+		}
+	}
+
+	option = { # Guarantee [_CZS.GetNameShort]!
+		name = etf_event_hoi.220.rb
+		add_stability = -1
+		create_guarantee = event_target:_CZS
+		FROM = {
+			country_event = { id = etf_event_hoi.223 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Munich Conference - Czechoslovakia's Response
+country_event = {
+	id = etf_event_hoi.221
+	title = etf_event_hoi.221.t
+	desc = etf_event_hoi.221.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Without western support, we have to acquiesce.
+		name = etf_event_hoi.221.ra
+		tooltip = {
+			every_owned_province = {
+				limit = {
+					culture_group = germanic
+				}
+				cede_province = event_target:_GER
+				add_core = event_target:_GER
+			}
+		}
+		event_target:_GER = {
+			country_event = { id = etf_event_hoi.222 }
+		}
+	}
+
+	option = { # Alone if we must, we shall resist the Germans!
+		name = etf_event_hoi.221.rb
+		add_prestige = 20
+		event_target:_GER = {
+			country_event = { id = etf_event_hoi.223 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Munich Conference - Diplomatic Success
+country_event = {
+	id = etf_event_hoi.222
+	title = etf_event_hoi.222.t
+	desc = etf_event_hoi.222.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # The Sudetenland is ours, and [_CZS.GetNameShort] lays exposed.
+		name = etf_event_hoi.222.r
+		FROM = {
+			every_owned_province = {
+				limit = {
+					culture_group = germanic
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		add_yearly_manpower = 0.3
+	}
+}
+
+# The Munich Conference - Diplomatic Failure
+country_event = {
+	id = etf_event_hoi.223
+	title = etf_event_hoi.223.t
+	desc = etf_event_hoi.223.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # Don't say we didn't warn them.
+		name = etf_event_hoi.223.ra
+		add_stability = -1
+		declare_war_with_cb = {
+			who = event_target:_CZS
+			casus_belli = cb_annex
+		}
+	}
+
+	option = { # If diplomacy didn't work... try more diplomacy?
+		name = etf_event_hoi.223.rb
+		add_prestige = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Fate of Czechoslovakia
+country_event = {
+	id = etf_event_hoi.230
+	title = etf_event_hoi.230.t
+	desc = etf_event_hoi.230.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Do we even stand a chance if we resist?
+		name = etf_event_hoi.230.ra
+		if = {
+			limit = { ai = no }
+			custom_tooltip = GAME_OVER
+		}
+		tooltip = {
+			FROM = {
+				annex_tag = {
+					target = ROOT
+					transfer_troops = no
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.231 }
+		}
+	}
+
+	option = { # We only stand a chance if we resist!
+		name = etf_event_hoi.230.rb
+		add_stability = -1
+		FROM = {
+			country_event = { id = etf_event_hoi.232 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Occupation of Czechoslovakia
+country_event = {
+	id = etf_event_hoi.231
+	title = etf_event_hoi.231.t
+	desc = etf_event_hoi.231.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # Annex [From.GetNameShort] entirely.
+		name = etf_event_hoi.231.ra
+		annex_tag = {
+			target = FROM
+			transfer_troops = no
+		}
+		ai_chance = {
+			modifier = {
+				factor = 0
+				event_target:_HUN = {
+					is_free_or_tributary_trigger = yes
+					NOT = { war_with = ROOT }
+					NOT = { is_democracy = yes }
+					NOT = { is_communist = yes }
+				}
+				FROM = {
+					owns = 1952
+				}
+			}
+		}
+	}
+
+	option = { # Split [From.GetNameShort] with some potential allies.
+		name = etf_event_hoi.231.rb
+		if = {
+			limit = {
+				event_target:_HUN = {
+					is_free_or_tributary_trigger = yes
+					NOT = { war_with = ROOT }
+					NOT = { is_democracy = yes }
+					NOT = { is_communist = yes }
+				}
+				FROM = {
+					owns = 1952
+				}
+			}
+			event_target:_HUN = {
+				country_event = { id = etf_event_hoi.233 }
+			}
+		}
+		tooltip = {
+			if = {
+				limit = {
+					FROM = {
+						any_owned_province = {
+							culture = slovak
+						}
+					}
+					NOT = { exists = SVK }
+				}
+				create_subject = {
+					subject = SVK
+					subject_type = puppet_state
+				}
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_owned_province = {
+							culture = slovak
+						}
+						NOT = { exists = SVK }
+					}
+					every_owned_province = {
+						limit = {
+							culture = slovak
+						}
+						add_core = SVK
+					}
+					release = SVK
+					SVK = {
+						change_government_to_dictatorial_republic = yes
+						add_government_reform = fascist_government
+					}
+					ROOT = {
+						create_subject = {
+							subject = SVK
+							subject_type = puppet_state
+						}
+					}
+				}
+			}
+		}
+		annex_tag = {
+			target = FROM
+			transfer_troops = no
+		}
+	}
+
+	after = {
+		if = {
+			limit = {
+				event_target:_POL = {
+					is_free_or_tributary_trigger = yes
+					any_owned_province = {
+						is_core = ROOT
+					}
+					NOT = { war_with = ROOT }
+					NOT = { alliance_with = ROOT }
+					
+					event_target:_GBR = {
+						is_great_power = yes
+						NOT = { war_with = PREV }
+					}
+				}
+			}
+			event_target:_POL = {
+				country_event = { id = etf_event_hoi.240 days = 5 }
+			}
+		}
+	}
+}
+
+# Occupation of Czechoslovakia - Czech's Resist!
+country_event = {
+	id = etf_event_hoi.232
+	title = etf_event_hoi.232.t
+	desc = etf_event_hoi.232.d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Very well then.
+		name = etf_event_hoi.232.r
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_annex
+		}
+	}
+}
+
+# Occupation of Czechoslovakia - First Vienna Award
+country_event = {
+	id = etf_event_hoi.233
+	title = etf_event_hoi.233.t
+	desc = etf_event_hoi.233.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	major_trigger = {
+		tag = event_target:_GER
+	}
+
+	is_triggered_only = yes
+
+	option = { # An alliance it is!
+		name = etf_event_hoi.233.ra
+		FROM = {
+			create_subject = {
+				subject_type = close_alliance
+				subject = ROOT
+			}
+		}
+		1952 = {
+			if = {
+				limit = {
+					owned_by = FROM
+				}
+				hidden_effect = {
+					remove_core = FROM
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+
+	option = { # The land they offer is covered in [_CZS.GetAdjective] blood, no.
+		name = etf_event_hoi.233.rb
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Concern in Poland
+country_event = {
+	id = etf_event_hoi.240
+	title = etf_event_hoi.240.t
+	desc = etf_event_hoi.240.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Seek western guarantees.
+		name = etf_event_hoi.240.ra
+		event_target:_GBR = {
+			country_event = { id = etf_event_hoi.241 }
+		}
+	}
+
+	option = { # Poland stands alone!
+		name = etf_event_hoi.240.rb
+		add_prestige = 10
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Poland seeks Guarantees
+country_event = {
+	id = etf_event_hoi.241
+	title = etf_event_hoi.241.t
+	desc = etf_event_hoi.241.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.241.ra
+		create_guarantee = FROM
+		set_country_flag = guaranteed_poland_flag
+		FROM = {
+			country_event = { id = etf_event_hoi.242 }
+		}
+	}
+
+	option = {
+		name = etf_event_hoi.241.rb
+		add_prestige = -25
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.243 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Guarantees Granted
+country_event = {
+	id = etf_event_hoi.242
+	title = etf_event_hoi.242.t
+	desc = etf_event_hoi.242.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.242.r
+		tooltip = {
+			FROM = {
+				create_guarantee = ROOT
+			}
+		}
+	}
+}
+
+# Guarantees Refused
+country_event = {
+	id = etf_event_hoi.243
+	title = etf_event_hoi.243.t
+	desc = etf_event_hoi.243.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.243.r
+		tooltip = {
+			sub_50_opinion_effect = { who = FROM }
+		}
+	}
+}
+
+# The Molotov-Rippentrop Pact
+country_event = {
+	id = etf_event_hoi.250
+	title = etf_event_hoi.250.t
+	desc = etf_event_hoi.250.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.250.ra
+		add_truce_with = FROM
+		# Baltic Influence:
+		if = {
+			limit = {
+				event_target:_EST = {
+					is_free_or_tributary_trigger = yes
+					NOT = {
+						OR = {
+							is_subject_of = ROOT
+							war_with = ROOT
+						}
+					}
+				}
+			}
+			add_to_sphere = { tag = event_target:_EST }
+		}
+		if = {
+			limit = {
+				event_target:_LTV = {
+					is_free_or_tributary_trigger = yes
+					NOT = {
+						OR = {
+							is_subject_of = ROOT
+							war_with = ROOT
+						}
+					}
+				}
+			}
+			add_to_sphere = { tag = event_target:_LTV }
+		}
+		if = {
+			limit = {
+				event_target:_LIT = {
+					is_free_or_tributary_trigger = yes
+					NOT = {
+						OR = {
+							is_subject_of = ROOT
+							war_with = ROOT
+						}
+					}
+				}
+			}
+			add_to_sphere = { tag = event_target:_LIT }
+		}
+		# Claims in Romania:
+		bessarabia_area = {
+			limit = {
+				owned_by = event_target:_RMN
+			}
+			add_claim = ROOT
+		}
+		hidden_effect = {
+			3061 = { # Bucovina
+				if = {
+					limit = {
+						owned_by = event_target:_RMN
+					}
+					add_claim = ROOT
+				}
+			}
+		}
+		# Cores in Poland:
+		custom_tooltip = etf_event_hoi.250.tt
+		hidden_effect = {
+			event_target:_POL = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							is_core = event_target:_LIT
+							is_core = event_target:_BLR
+							is_core = event_target:_UKR
+						}
+					}
+					add_core = ROOT
+				}
+			}
+		}
+		
+		FROM = {
+			country_event = { id = etf_event_hoi.251 }
+		}
+		set_country_flag = accepted_molotov_ribbentrop
+	}
+
+	option = {
+		name = etf_event_hoi.250.rb
+		FROM = {
+			country_event = { id = etf_event_hoi.252 }
+		}
+		set_country_flag = refused_molotov_ribbentrop
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Molotov-Rippentrop Pact - Accepted
+country_event = {
+	id = etf_event_hoi.251
+	title = etf_event_hoi.251.t
+	desc = etf_event_hoi.251.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.251.r
+		tooltip = {
+			add_truce_with = FROM
+		}
+		custom_tooltip = etf_event_hoi.251.tt
+		hidden_effect = {
+			event_target:_POL = {
+				every_owned_province = {
+					limit = {
+						NOT = { is_core = FROM }
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_claim = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Molotov-Rippentrop Pact - Denied
+country_event = {
+	id = etf_event_hoi.252
+	title = etf_event_hoi.252.t
+	desc = etf_event_hoi.252.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.252.r
+	}
+}
+
+# Danzig or War
+country_event = {
+	id = etf_event_hoi.260
+	title = etf_event_hoi.260.t
+	desc = etf_event_hoi.260.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Poland is not yet lost!
+		name = etf_event_hoi.260.ra
+		FROM = {
+			country_event = { id = etf_event_hoi.261 }
+		}
+	}
+
+	option = {
+		name = etf_event_hoi.260.rb
+		west_prussia_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			cede_province = FROM
+		}
+		if = {
+			limit = {
+				overlord_of = DNZ
+			}
+			FROM = {
+				annex_tag = {
+					target = DNZ
+					transfer_troops = no
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.262 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Danzig or War - Poland Refuses
+country_event = {
+	id = etf_event_hoi.261
+	title = etf_event_hoi.261.t
+	desc = etf_event_hoi.261.d
+	picture = BATTLE_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.261.ra
+		declare_war_with_cb = {
+			who = FROM
+			casus_belli = cb_imperial
+		}
+		random_country = {
+			limit = {
+				has_country_flag = guaranteed_poland_flag
+			}
+			ROOT = {
+				declare_war_with_cb = {
+					who = PREV
+					casus_belli = cb_great_war
+				}
+			}
+		}
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = accepted_molotov_ribbentrop
+				}
+				country_event = { id = etf_event_hoi.263 days = 16 }
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_hoi.261.rb
+		add_prestige = -50
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Danzig or War - Poland Accepts
+country_event = {
+	id = etf_event_hoi.262
+	title = etf_event_hoi.262.t
+	desc = etf_event_hoi.262.d
+	picture = CONQUEST_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.262.r
+		tooltip = {
+			west_prussia_area = {
+				#limit = {
+				#	owned_by = FROM
+				#}
+				cede_province = ROOT
+			}
+		}
+	}
+}
+
+# Danzig or War - [This.GetAdjective] Invasion of Poland
+country_event = {
+	id = etf_event_hoi.263
+	title = etf_event_hoi.263.t
+	desc = etf_event_hoi.263.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.263.r
+		event_target:_POL = {
+			country_event = { id = etf_event_hoi.264 }
+		}
+	}
+}
+
+# Danzig or War - [From.GetNameShortCap] Occupies Eastern Poland
+country_event = {
+	id = etf_event_hoi.264
+	title = etf_event_hoi.264.t
+	desc = etf_event_hoi.264.d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.264.r
+		every_owned_province = {
+			limit = {
+				is_core = FROM
+			}
+			cede_province = FROM
+		}
+	}
+}
+
+# The Pact of Steel
+country_event = {
+	id = etf_event_hoi.270
+	title = etf_event_hoi.270.t
+	desc = etf_event_hoi.270.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Sign the pact.
+		name = etf_event_hoi.270.ra
+		FROM = {
+			create_subject = {
+				subject = ROOT
+				subject_type = close_alliance
+			}
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.271 }
+		}
+	}
+
+	option = { # Nonsense! We'd be nothing more than a German puppet.
+		name = etf_event_hoi.270.rb
+		add_prestige = 10
+		FROM = {
+			sub_50_opinion_effect = { who = ROOT }
+		}
+		FROM = {
+			country_event = { id = etf_event_hoi.272 }
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# The Pact of Steel - Success
+country_event = {
+	id = etf_event_hoi.271
+	title = etf_event_hoi.271.t
+	desc = etf_event_hoi.271.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.271.r
+		tooltip = {
+			create_subject = {
+				subject = FROM
+				subject_type = close_alliance
+			}
+		}
+	}
+}
+
+# The Pact of Steel - Failure
+country_event = {
+	id = etf_event_hoi.272
+	title = etf_event_hoi.272.t
+	desc = etf_event_hoi.272.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = etf_event_hoi.272.r
+		tooltip = {
+			FROM = {
+				add_prestige = 10
+			}
+			sub_50_opinion_effect = { who = FROM }
+		}
+	}
+}
+
+# Operation Barbarossa
+country_event = {
+	id = etf_event_hoi.290
+	title = etf_event_hoi.290.t
+	desc = etf_event_hoi.290.d
+	picture = LAND_MILITARY_eventPicture
+	major = yes
+
+	is_triggered_only = yes
+
+	option = { # Launch the operation!
+		name = etf_event_hoi.290.ra
+		europe = {
+			limit = {
+				owned_by = event_target:_RUS
+			}
+			add_claim = ROOT
+		}
+		declare_war_with_cb = {
+			who = event_target:_RUS
+			casus_belli = cb_annex
+		}
+	}
+
+	option = { # Scrap the plans.
+		name = etf_event_hoi.290.rb
+		add_stability = -1
+		add_prestige = -20
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# =====================
+# Minor European Events
+# =====================
+
+# End of Horthy's Regency
+country_event = {
+	id = etf_event_hoi.300
+	title = etf_event_hoi.300.t
+	desc = etf_event_hoi.300.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Continue the regency.
+		name = etf_event_hoi.300.ra
+		clr_country_flag = end_horthy_regency_flag
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = { # Invite Prince Otto to rule.
+		name = etf_event_hoi.300.rb
+		define_ruler = {
+			name = "Otto I"
+			dynasty = "von Habsburg"
+			adm = 3
+			dip = 4
+			mil = 2
+			culture = austrian
+			religion = catholic
+		}
+		ai_chance = {
+			factor = 0.9
+			modifier = {
+				factor = 0
+				is_subject = yes
+				overlord = {
+					is_fascist = yes
+				}
+			}
+		}
+	}
+
+	option = { # Install the Arrow Cross Party into government.
+		name = etf_event_hoi.300.rc
+		if = {
+			limit = {
+				NOT = { faction_in_power = national_socialist_party }
+			}
+			reduce_stability_or_adm_power = yes
+		}
+		change_government_to_dictatorial_republic = yes
+		add_government_reform = fascist_government
+		define_ruler = {
+			name = "Ferenc Szálasi"
+			adm = 3
+			dip = 2
+			mil = 1
+			religion = catholic
+		}
+		ai_chance = {
+			factor = 0.1
+		}
+	}
+}

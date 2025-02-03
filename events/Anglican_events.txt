@@ -9,7 +9,7 @@ country_event = {
 	desc = anglican_events.1.d
 	picture = ANGLICAN_SERMON_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Ensures event is only triggered explicitly
 	
 	trigger = {
 		has_dlc = "Rule Britannia"
@@ -18,34 +18,36 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		days = 1  # Event happens immediately
 	}
 	
 	option = {
 		name = anglican_events.1.a
-		add_church_power = 25
+		add_church_power = 25  # Adds church power directly
 	}
 }
 
+
 # Recusancy
+# Focus on religious or political threats
 country_event = {
 	id = anglican_events.2
 	title = anglican_events.2.t
 	desc = anglican_events.2.d
 	picture = CATHOLICS_PERSECUTION_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Event only runs when explicitly triggered
 	
 	trigger = {
 		has_dlc = "Rule Britannia"
 		religion = anglican
-		NOT = {
-			has_country_modifier = "political_recusancy"
-		}
+		NOT = { has_country_modifier = "political_recusancy" }
 	}
+	
 	mean_time_to_happen = {
-		days = 1
-	}	
+		days = 1  # Event happens immediately
+	}
+
 	option = {
 		name = anglican_events.2.a # Focus on Catholics
 		add_church_power = 50
@@ -59,208 +61,224 @@ country_event = {
 		name = anglican_events.2.c # Focus on political threats
 		add_country_modifier = {
 			name = "political_recusancy"
-			duration = 3650
+			duration = 3650  # 10 years duration
 		}
 	}
 }
 
 # Prophesying
 # Bible study and sermons
+# Puritan Religious Tension Event
 country_event = {
 	id = anglican_events.3
 	title = anglican_events.3.t
 	desc = anglican_events.3.d
 	picture = PURITANS_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Event only runs when explicitly triggered
 	
 	trigger = {
 		has_dlc = "Rule Britannia"
 		is_religion_enabled = reformed
-		religion = anglican
-	}
-	mean_time_to_happen = {
-		days = 1
+		religion = anglican  # Anglican religion must be the current state
 	}
 	
-	option = { # ban
+	mean_time_to_happen = {
+		days = 1  # Event happens immediately
+	}
+
+	option = { # Ban the Puritans
 		name = anglican_events.3.a
 		add_church_power = 33
 	}
-	option = { # allow
+	
+	option = { # Allow the Puritans
 		name = anglican_events.3.b
 		add_innovativeness_small_effect = yes
-		random_list = {
-			50 = {}
-			50 = {
-				random_owned_province = {
-					limit = {
-						religion = anglican
-						is_capital = no
-						is_reformation_center = no
-					}
-					change_religion = reformed
-				}
+		random_owned_province = {
+			limit = {
+				religion = anglican
+				is_capital = no
+				is_reformation_center = no
 			}
+			change_religion = reformed
+			# Only one province change happens if conditions are met, removing extra random checks
 		}
 	}
 }
 
+
 # Parliamentary debate on new doctrine
+# Anglican Church Reform Event
 country_event = {
 	id = anglican_events.4
 	title = anglican_events.4.t
 	desc = anglican_events.4.d
 	picture = ANGLICAN_SERMON_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Only triggered manually, not random
 	
 	trigger = {
-		has_dlc = "Rule Britannia"
+		has_dlc = "Rule Britannia"  # Requires the DLC to trigger
 		religion = anglican
-		has_parliament = yes
-		NOT = {
-			has_country_modifier = "commons_decide_doctrine"
-		}
+		has_parliament = yes  # Parliament must be present
+		NOT = { has_country_modifier = "commons_decide_doctrine" }  # Ensure the modifier is not already present
 	}
+	
 	mean_time_to_happen = {
-		days = 1
-	}	
-	option = { # Pass the reforms exactly as the monarch says
+		days = 1  # Immediate event resolution
+	}
+
+	option = { # Pass the reforms as the monarch says
 		name = anglican_events.4.a
 		add_church_power = 10
 		if = {
 			limit = {
-				has_dlc = "Common Sense"
+				has_dlc = "Common Sense"  # Common Sense DLC required for this branch
 				any_owned_province = {
-					has_seat_in_parliament = yes
-					is_backing_current_issue = yes
+					has_seat_in_parliament = yes  # Province must have a seat in parliament
+					is_backing_current_issue = yes  # Province must be backing the current issue
 				}
 			}
+			# If conditions met, change support in the parliament
 			random_owned_province = {
 				limit = {
 					has_seat_in_parliament = yes
 					is_backing_current_issue = yes
 				}
-				back_current_issue = no
+				back_current_issue = no  # Prevent further backing of the current issue
 			}
 		}
 		else = {
-			reduce_legitimacy_medium_effect = yes
+			reduce_legitimacy_medium_effect = yes  # Reduce legitimacy as a fallback
 		}
 	}
+	
 	option = { # Lords win the day
 		name = anglican_events.4.b
-		add_church_power = -33
+		add_church_power = -33  # Deduct church power when Lords prevail
 	}
+	
 	option = { # Commons have their way
 		name = anglican_events.4.c
 		if = {
 			limit = {
-				has_estate = estate_burghers
-			}				
+				has_estate = estate_burghers  # Ensure estate_burghers is present
+			}
+			# If Commons estate has influence, apply a modifier
 			add_estate_influence_modifier = {
 				estate = estate_burghers
 				desc = COMMONS_REFORM_CHURCH
 				influence = 10
-				duration = 3650
+				duration = 3650  # Influence duration set to 10 years
 			}
 		}
 		else = {
+			# Commons will decide on doctrine, applying the modifier
 			add_country_modifier = {
 				name = "commons_decide_doctrine"
-				duration = 3650
+				duration = 3650  # Modifier duration set to 10 years
 			}
 		}
 	}
 }
 
 # Marprelate Tracts
+# Marprelate Event: Anglican Church vs Printing Press
 country_event = {
 	id = anglican_events.5
 	title = anglican_events.5.t
 	desc = anglican_events.5.d
 	picture = PRINTING_PRESS_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Triggered manually, not random
 	
 	trigger = {
-		has_dlc = "Rule Britannia"
+		has_dlc = "Rule Britannia"  # Requires DLC to trigger
 		religion = anglican
-		has_institution = printing_press
+		has_institution = printing_press  # Must have the printing press institution
 		NOT = {
-			has_country_modifier = ignore_marprelate
+			has_country_modifier = ignore_marprelate  # Avoid triggering if modifier already exists
 			has_country_modifier = respond_marprelate
 			has_country_modifier = imprison_marprelate
 		}
 	}
+	
 	mean_time_to_happen = {
-		days = 1
+		days = 1  # Immediate resolution of the event
 	}
-	option = {
-		name = anglican_events.5.a # ignore it
-		add_church_power = -25
+	
+	option = { # Ignore the controversy
+		name = anglican_events.5.a
+		add_church_power = -25  # Reduce church power as a penalty
 		add_country_modifier = {
 			name = ignore_marprelate
-			duration = 3650
+			duration = 3650  # Modifier duration for 10 years
 		}
 	}
-	option = {
-		name = anglican_events.5.b # Respond in kind, war of pamphlets
-		add_adm_power = -25
+	
+	option = { # Respond in kind, a war of pamphlets
+		name = anglican_events.5.b
+		add_adm_power = -25  # Penalty on administrative power
 		add_country_modifier = {
 			name = respond_marprelate
-			duration = 3650
+			duration = 3650  # Modifier duration for 10 years
 		}
 	}
-	option = {
-		name = anglican_events.5.c # Find and imprison the authors
-		add_mil_power = -25
+	
+	option = { # Find and imprison the authors
+		name = anglican_events.5.c
+		add_mil_power = -25  # Penalty on military power
 		add_country_modifier = {
 			name = imprison_marprelate
-			duration = 3650
+			duration = 3650  # Modifier duration for 10 years
 		}
 	}
 }
 
+
 # Prayer Book Rebellions
+# Rebellion Against Anglicans Event
 country_event = {
 	id = anglican_events.6
 	title = anglican_events.6.t
 	desc = anglican_events.6.d
 	picture = REBELLION_AGAINST_ANGLICANS_eventPicture
 	
-	is_triggered_only = yes
+	is_triggered_only = yes  # Triggered manually, not random
 	
 	trigger = {
-		has_dlc = "Rule Britannia"
+		has_dlc = "Rule Britannia"  # Requires DLC to trigger
 		religion = anglican
 		any_owned_province = {
 			is_capital = no
 			OR = {
-				religion = reformed
 				religion = protestant
+				religion = reformed
 				religion = catholic
 			}
 		}
 		NOT = {
 			any_owned_province = {
-				has_province_modifier = "prayer_book_rebels_appeased"
+				has_province_modifier = "prayer_book_rebels_appeased"  # Avoid if modifier is already active
 			}
 		}
 	}
+
 	mean_time_to_happen = {
-		days = 1
+		days = 1  # Immediate resolution of the event
 	}
+	
 	immediate = {
+		# Save target province for later use
 		hidden_effect = {
 			random_owned_province = {
 				limit = {
 					is_capital = no
 					OR = {
 						religion = protestant
-						religion = catholic
 						religion = reformed
+						religion = catholic
 					}
 				}
 				save_event_target_as = prayer_book_province
@@ -268,12 +286,12 @@ country_event = {
 		}
 	}
 
-	option = { # reconsider the revisions
+	option = { # Reconsider the revisions
 		name = anglican_events.6.a
-		ai_chance = {
-			factor = 1
-		}
-		add_church_power = -25
+		ai_chance = { factor = 1 }  # AI will always choose this option
+		add_church_power = -25  # Penalize church power
+
+		# Apply modifier to target province saved earlier
 		event_target:prayer_book_province = {
 			area = {
 				limit = {
@@ -281,13 +299,13 @@ country_event = {
 					is_capital = no
 					OR = {
 						religion = protestant
-						religion = catholic
 						religion = reformed
+						religion = catholic
 					}
 				}
 				add_province_modifier = {
 					name = "prayer_book_rebels_appeased"
-					duration = 3650
+					duration = 3650  # Modifier duration for 10 years
 				}
 			}
 		}
@@ -295,8 +313,8 @@ country_event = {
 	
 	option = { # Go through with the revisions. Punish dissenters
 		name = anglican_events.6.b
-		ai_chance = {
-			factor = 1
+		ai_chance = { 
+			factor = 1 
 			modifier = {
 				factor = 0
 				OR = {
@@ -306,10 +324,12 @@ country_event = {
 				}
 			}
 		}
+
+		# Spawn rebels in target province
 		event_target:prayer_book_province = {
 			spawn_rebels = {
 				type = catholic_rebels
-				size = 2
+				size = 2  # Rebel army size
 			}
 		}
 	}

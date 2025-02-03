@@ -1,0 +1,145 @@
+# custom_button = {
+    # name = factory_upgrade_button
+    # potential = {
+		# has_building = factory
+	# }
+    # trigger = {
+		# can_build = factory_upgrade
+		# FROM = {
+			# treasury = 200
+		# }
+	# }
+    # effect = {
+		# add_building_construction = {
+			# building = factory_upgrade
+			# cost = 0.0
+			# speed = 1.0
+		# }
+		# FROM = {
+			# add_treasury = -200
+		# }
+	# }
+    # tooltip = factory_upgrade_button_tt
+# }
+
+# custom_button = {
+    # name = entrench_unit_button
+    # potential = {
+		# FROM = {
+			# mil_tech = 77
+		# }
+	# }
+    # trigger = {
+		# FROM = {
+			# mil_power_cost = 25
+		# }
+	# }
+    # effect = {
+		# FROM = {
+			# mil_power_cost = 25
+		# }
+		# add_province_modifier_upgrade_effect = { # Field Entrenchment. Penalty to movement, bonus to defence
+			# 1 = entrenchment_1_modifier
+			# 2 = entrenchment_2_modifier
+			# 3 = entrenchment_3_modifier
+			# duration = 1825 # 5 years
+		# }
+	# }
+    # tooltip = entrench_unit_button_tt
+# }
+
+custom_icon = {
+    name = member_of_something_icon
+    potential = {
+		OR = {
+			# is_part_of_hre = yes
+			is_GCF_member = yes
+			has_country_modifier = european_union
+		}
+		NOT = { is_part_of_hre = yes } # Regret. "member_of_HRE" element cannot be removed without a crash.
+	}
+    tooltip = member_of_something_icon_tt
+    frame = {
+        number = 3
+        trigger = {
+			has_country_modifier = european_union
+		}
+    }
+    frame = {
+        number = 2
+        trigger = {
+			is_GCF_member = yes
+		}
+    }
+    frame = {
+        number = 1
+        trigger = {
+			is_part_of_hre = yes
+		}
+    }
+}
+
+custom_icon = {
+    name = country_ideology_icon
+    tooltip = country_ideology_icon_tt
+	frame = {
+		number = 1
+		trigger = {
+			is_fascist = yes
+		}
+	}
+	frame = {
+		number = 2
+		trigger = {
+			OR = {
+				has_reform = anarchist_society
+				is_communist = yes
+			}
+		}
+	}
+	frame = {
+		number = 3
+		trigger = {
+			is_democracy = yes
+		}
+	}
+	frame = {
+		number = 4
+		trigger = {
+			is_revolutionary = yes
+		}
+	}
+	# frame = {
+		# number = 5
+		# trigger = {
+			# is_autocracy = yes
+		# }
+	# }
+	frame = {
+		number = 6
+		trigger = {
+			always = yes # Fallback
+		}
+	}
+}
+
+custom_icon = {
+	name = industry_score_bg
+	potential = {
+		check_variable = {
+			which = industry_score
+			value = 1
+		}
+	}
+}
+
+custom_text_box = {
+	name = industry_score_value
+	potential = {
+		check_variable = {
+			which = industry_score
+			value = 1
+		}
+	}
+	tooltip = industry_score_value_tt
+}

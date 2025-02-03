@@ -1,0 +1,382 @@
+namespace = etf_event_spa
+
+# First Carlist War
+country_event = {
+	id = etf_event_spa.100
+	title = etf_event_spa.100.t
+	desc = etf_event_spa.100.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	is_triggered_only = yes # Triggered by effect in Vic2 Bookmark
+
+	trigger = {
+		government = monarchy
+		NOT = { is_year = 3938 }
+	}
+
+	immediate = {
+		set_global_flag = first_carlist_war_flag
+	}
+
+	option = { # Isabella's rule must continue!
+		name = etf_event_spa.100.ra
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = basque_country
+						area = aragon_area
+						area = catalonia_area
+					}
+				}
+				add_core = SPC
+			}
+		}
+		start_civil_war = {
+			tag = SPC
+			treasury = 300
+			manpower = 30
+			religion = catholic
+			government = monarchy
+			random_capital = yes
+			delete_cores_after = yes
+			type = mutual
+		}
+	}
+
+	option = { # The Carlists are right!
+		name = etf_event_spa.100.rb
+		trigger = {
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = basque_country
+						area = aragon_area
+						area = catalonia_area
+					}
+				}
+				add_core = SPC
+			}
+		}
+		start_civil_war = {
+			tag = SPC
+			treasury = 300
+			manpower = 30
+			religion = catholic
+			government = monarchy
+			random_capital = yes
+			delete_cores_after = yes
+			type = mutual
+			play_as = yes
+		}
+	}
+
+	after = {
+		SPA = {
+			add_government_reform = parliamentary_reform
+			add_government_reform = landed_parliament
+		}
+		SPC = {
+			change_government_to_autocratic_monarchy = yes
+			define_ruler = {
+				name = "Carlos"
+				dynasty = "de Bourbon"
+				age = 45
+				claim = 75
+			}
+			add_accepted_culture = basque
+		}
+	}
+}
+
+# Isabella's Faction Wins
+country_event = {
+	id = etf_event_spa.110
+	title = etf_event_spa.110.t
+	desc = etf_event_spa.110.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = first_carlist_war_flag
+	}
+
+	option = {
+		name = etf_event_spa.110.r
+		add_stability = 1
+	}
+}
+
+# Carlos' Faction Wins
+country_event = {
+	id = etf_event_spa.120
+	title = etf_event_spa.120.t
+	desc = etf_event_spa.120.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = first_carlist_war_flag
+	}
+
+	option = {
+		name = etf_event_spa.120.r
+		add_absolutism = 50
+	}
+}
+
+# Cuban War of Independence
+country_event = {
+	id = etf_event_spa.300
+	title = etf_event_spa.300.t
+	desc = etf_event_spa.300.d
+	picture = ENCOMIENDA_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = SPA }
+		is_free_or_tributary_trigger = yes
+		484 = { # Havanna
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+		OR = {
+			# Loss of GP or rebellious-ness in the carribean
+			is_great_power = no
+			any_subject_country = {
+				capital_scope = { colonial_region = colonial_the_carribean }
+				liberty_desire = 50
+			}
+		}
+		is_year = 3993
+		NOT = { is_year = 3996 }
+		NOT = { exists = CUB }
+	}
+
+	immediate = {
+		hidden_effect = {
+			cuba_area = {
+				limit = { country_or_non_sovereign_subject_holds = ROOT }
+				add_core = CUB
+			}
+			east_cuba_area = {
+				limit = { country_or_non_sovereign_subject_holds = ROOT }
+				add_core = CUB
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_spa.300.ra
+		hidden_effect = {
+			cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			east_cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+		}
+		start_civil_war = {
+			tag = CUB
+			treasury = 150
+			manpower = 20
+			government = republic
+			capital = 484
+			type = attacker
+		}
+	}
+
+	option = {
+		name = etf_event_spa.300.rb
+		hidden_effect = {
+			cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			east_cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+		}
+		start_civil_war = {
+			tag = CUB
+			treasury = 150
+			manpower = 20
+			government = republic
+			capital = 484
+			type = attacker
+			play_as = yes
+		}
+	}
+
+	option = {
+		name = etf_event_spa.300.rc
+		hidden_effect = {
+			cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+			east_cuba_area = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+			}
+		}
+		add_stability = -1
+		add_prestige = -25
+		release = CUB
+	}
+
+	after = {
+		CUB = {
+			set_country_flag = changed_from_colonial_nation
+		}
+	}
+}
+
+# The Maine!
+country_event = {
+	id = etf_event_spa.310
+	title = etf_event_spa.310.t
+	desc = etf_event_spa.310.d
+	picture = FLAGSHIP_SUNK_eventPicture
+	major = yes
+	major_trigger = {
+		OR = {
+			country_is = { tag = SPA }
+			tag = CUB
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		country_is = { tag = USA }
+		is_free_or_tributary_trigger = yes
+		navy_size = 50 # Moderate Navy power
+		any_country = {
+			country_is = { tag = SPA }
+			war_with = CUB
+			NOT = { war_with = ROOT }
+			NOT = { alliance_with = ROOT }
+		}
+		is_year = 3993
+		NOT = { is_year = 4003 }
+		NOT = { war_with = CUB }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					country_is = { tag = SPA }
+					war_with = CUB
+					NOT = { war_with = ROOT }
+					NOT = { alliance_with = ROOT }
+				}
+				save_event_target_as = spanish_bastards
+			}
+		}
+	}
+
+	option = { # Remember the Maine, to hell with Spain!
+		name = etf_event_spa.310.ra
+		colonial_the_carribean = {
+			limit = {
+				country_or_non_sovereign_subject_holds = event_target:spanish_bastards
+			}
+			add_claim = ROOT
+		}
+		add_100_opinion_effect = {
+			who = CUB
+			mutual = yes
+		}
+		add_to_sphere = { tag = CUB }
+		join_all_defensive_wars_of = CUB
+	}
+
+	option = { # It was clearly an accident...
+		name = etf_event_spa.310.rb
+		add_prestige = -20
+		event_target:spanish_bastards = {
+			add_50_opinion_effect = { who = ROOT }
+		}
+	}
+}
+
+# Spanish Civil War Setup
+country_event = {
+	id = etf_event_spa.420
+	title = etf_event_spa.420.t
+	desc = etf_event_spa.420.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { is_year = 4037 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			# Lack of moderates
+			add_faction_influence = {
+				faction = social_democratic_party
+				influence = 30
+			}
+			add_faction_influence = {
+				faction = communist_party
+				influence = 10
+			}
+			add_faction_influence = {
+				faction = nationalist_party
+				influence = 20
+			}
+			add_faction_influence = {
+				faction = national_socialist_party
+				influence = 5
+			}
+		}
+	}
+
+	option = {
+		name = etf_event_spa.420.r
+		add_disaster_progress = {
+			disaster = spanish_civil_war
+			value = 50
+		}
+	}
+}

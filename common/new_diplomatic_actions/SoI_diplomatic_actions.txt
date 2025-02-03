@@ -1,0 +1,1559 @@
+SoI_debug_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		ai = no
+		has_global_flag = SoI_debug_flag
+	}
+	is_allowed = {
+		always = no
+	}
+}
+
+call_sphere_into_wars_action = {
+	category = influence
+	
+	#alert_index = 20
+	#alert_tooltip = call_sphere_into_wars_action_alert_tooltip
+	
+	require_acceptance = no
+	
+	is_visible = {
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = sphere_member
+		}
+	}
+	is_allowed = { # copied from "call_eyalet_into_wars", mostly
+		if = {
+			limit = {
+				FROM = { liberty_desire = 50 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_REBELLIOUS_TT
+				FROM = { liberty_desire = 50 }
+			}
+		}
+		if = {
+			limit = {
+				is_at_war = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_NOT_AT_WAR_TT
+				is_at_war = yes
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						owes_favors = {
+							who = ROOT
+							value = 10
+						}
+					}
+				}
+				is_in_war = {
+					defender_leader = ROOT
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_MUST_OWE_10_FAVORS_DEFENSIVE_WAR_TT
+				FROM = {
+					owes_favors = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						owes_favors = {
+							who = ROOT
+							value = 20
+						}
+					}
+				}
+				NOT = {
+					is_in_war = {
+						defender_leader = ROOT
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_MUST_OWE_20_FAVORS_TT
+				FROM = {
+					owes_favors = {
+						who = ROOT
+						value = 20
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { is_at_war = yes }
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_AT_WAR_TT
+				FROM = { is_at_war = no }
+			}
+		}
+	}
+	
+	on_accept = {
+		FROM = {
+			ROOT = {
+				add_favors = {
+					who = PREV
+					amount = -10
+				}
+			}
+			join_all_defensive_wars_of = ROOT
+		}
+		if = {
+			limit = {
+				FROM = {
+					owes_favors = {
+						who = ROOT
+						value = 10
+					}
+				}
+			}
+			FROM = {
+				ROOT = {
+					add_favors = {
+						who = PREV
+						amount = -10
+					}
+				}
+				join_all_offensive_wars_of = ROOT
+			}
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] accepted CtA of [This.GetName]."
+		}
+	}
+	on_decline = {
+		hidden_effect = {
+			log = "SoI: [From.GetName] declined CtA of [This.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		always = yes
+	}
+}
+
+# Gain Influence
+buy_influence_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_great_power_trigger = no
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { dip_power = 10 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_10_DIP_TT
+				dip_power = 10
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_influence = {
+					who = FROM
+					value = 100
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = INFLUENCE_IS_MAX_TT
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				variable_arithmetic_trigger = {
+					export_to_variable = {
+						which = influence_offence_variable
+						value = modifier:influence_offence_modifier
+					}
+					export_to_variable = {
+						which = influence_defence_variable
+						value = modifier:influence_defence_modifier
+						who = FROM
+					}
+					
+					export_to_variable = {
+						which = influence_summary_variable
+						value = 1.00 # 100%
+					}
+					change_variable = {
+						which = influence_summary_variable # +
+						which = influence_offence_variable
+					}
+					subtract_variable = {
+						which = influence_summary_variable # -
+						which = influence_defence_variable
+					}
+					
+					NOT = {
+						check_variable = { # influence_summary_variable < 0.001
+							which = influence_summary_variable
+							value = 0.001
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_HAS_INFLUENCE_RESISTANCE_TT
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				war_with = FROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = WAR_WITH_FROM_TT
+				NOT = { war_with = FROM }
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_part_of_hre = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_HRE_TT
+				FROM = {
+					is_part_of_hre = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_diplomatic_modifier = {
+					name = ban_embassy_modifier
+					with = FROM
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = EMBASSY_BANNED_TT
+				NOT = {
+					has_diplomatic_modifier = {
+						name = ban_embassy_modifier
+						with = FROM
+					}
+				}
+			}
+		}
+	}
+	
+	on_accept = {
+		if = {
+			limit = {
+				ai = no
+			}
+			add_dip_power = -10
+			# AI doesn't know how to use Influence effectively anyway,
+			# I see no harm in removing the DIP requirement.
+		}
+		add_diplomatic_influence = {
+			who = FROM
+			value = 5
+			scaled = yes
+		}
+		add_diplomatic_modifier = {
+			name = influence_modifier
+			duration = 365
+			with = FROM
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] bought Influence in [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		AI_wants_to_influence_trigger = { who = FROM }
+		if = {
+			limit = {
+				NOT = { is_year = 1700 }
+				NOT = { has_global_flag = age_of_influence } # Set flag to enable early
+			}
+			# AI shouldn't build up influence too quickly, too early:
+			NOT = {
+				has_diplomatic_modifier = {
+					name = influence_modifier
+					with = FROM
+				}
+			}
+		}
+	}
+}
+
+# Influence Spending Options
+discredit_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_great_power_trigger = no
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 25
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_25_INFLUENCE_TT
+				has_diplomatic_influence = {
+					who = FROM
+					value = 25
+				}
+			}
+		}
+		if = {
+			limit = {
+				war_with = FROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = WAR_WITH_FROM_TT
+				NOT = { war_with = FROM }
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_subject = yes
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_NOT_OUR_SUBJECT_TT
+				FROM = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_part_of_hre = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_HRE_TT
+				FROM = {
+					is_part_of_hre = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+						calc_true_if = {
+							NOT = { trade_range = event_target:GP_1 }
+							NOT = { trade_range = event_target:GP_2 }
+							NOT = { trade_range = event_target:GP_3 }
+							NOT = { trade_range = event_target:GP_4 }
+							NOT = { trade_range = event_target:GP_5 }
+							NOT = { trade_range = event_target:GP_6 }
+							NOT = { trade_range = event_target:GP_7 }
+							NOT = { trade_range = event_target:GP_8 }
+							NOT = { trade_range = event_target:GP_9 }
+							NOT = { trade_range = event_target:GP_10 }
+							NOT = { trade_range = event_target:GP_11 }
+							NOT = { trade_range = event_target:GP_12 }
+							NOT = { trade_range = event_target:GP_13 }
+							NOT = { trade_range = event_target:GP_14 }
+							NOT = { trade_range = event_target:GP_15 }
+							NOT = { trade_range = event_target:GP_16 }
+							amount = 15
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_GREAT_POWERS_IN_RANGE_TT
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				FROM = { # Everyone has already been discredited
+					has_country_modifier = discredit_modifier_GP_1
+					has_country_modifier = discredit_modifier_GP_2
+					has_country_modifier = discredit_modifier_GP_3
+					has_country_modifier = discredit_modifier_GP_4
+					has_country_modifier = discredit_modifier_GP_5
+					has_country_modifier = discredit_modifier_GP_6
+					has_country_modifier = discredit_modifier_GP_7
+					has_country_modifier = discredit_modifier_GP_8
+					has_country_modifier = discredit_modifier_GP_9
+					has_country_modifier = discredit_modifier_GP_10
+					has_country_modifier = discredit_modifier_GP_11
+					has_country_modifier = discredit_modifier_GP_12
+					has_country_modifier = discredit_modifier_GP_13
+					has_country_modifier = discredit_modifier_GP_14
+					has_country_modifier = discredit_modifier_GP_15
+					has_country_modifier = discredit_modifier_GP_16
+				}
+			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+	}
+	
+	on_accept = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -25
+		}
+		FROM = {
+			country_event = { id = SoI.10 }
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] used action 'Discredit' in [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		OR = {
+			overlord_of = FROM
+			has_diplomatic_influence = {
+				who = FROM
+				value = 50 # They're interested in sphering this one
+			}
+		}
+		any_country = {
+			has_diplomatic_influence = {
+				who = FROM
+				value = 20 # A rival emerges
+			}
+			NOT = { tag = ROOT }
+		}
+	}
+}
+
+expel_advisors_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_great_power_trigger = no
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 50
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_50_INFLUENCE_TT
+				has_diplomatic_influence = {
+					who = FROM
+					value = 50
+				}
+			}
+		}
+		if = {
+			limit = {
+				war_with = FROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = WAR_WITH_FROM_TT
+				NOT = { war_with = FROM }
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_subject = yes
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_NOT_OUR_SUBJECT_TT
+				FROM = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_part_of_hre = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_HRE_TT
+				FROM = {
+					is_part_of_hre = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+						calc_true_if = {
+							NOT = { trade_range = event_target:GP_1 }
+							NOT = { trade_range = event_target:GP_2 }
+							NOT = { trade_range = event_target:GP_3 }
+							NOT = { trade_range = event_target:GP_4 }
+							NOT = { trade_range = event_target:GP_5 }
+							NOT = { trade_range = event_target:GP_6 }
+							NOT = { trade_range = event_target:GP_7 }
+							NOT = { trade_range = event_target:GP_8 }
+							NOT = { trade_range = event_target:GP_9 }
+							NOT = { trade_range = event_target:GP_10 }
+							NOT = { trade_range = event_target:GP_11 }
+							NOT = { trade_range = event_target:GP_12 }
+							NOT = { trade_range = event_target:GP_13 }
+							NOT = { trade_range = event_target:GP_14 }
+							NOT = { trade_range = event_target:GP_15 }
+							NOT = { trade_range = event_target:GP_16 }
+							amount = 15
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_GREAT_POWERS_IN_RANGE_TT
+				always = no
+			}
+		}
+	}
+	
+	on_accept = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -50
+		}
+		FROM = {
+			country_event = { id = SoI.12 }
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] used action 'Expel Advisors' in [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		OR = {
+			overlord_of = FROM
+			has_diplomatic_influence = {
+				who = FROM
+				value = 50 # They're interested in sphering this one
+			}
+		}
+		any_country = {
+			has_diplomatic_influence = {
+				who = FROM
+				value = 20 # A rival emerges
+			}
+			NOT = { tag = ROOT }
+		}
+	}
+}
+
+ban_embassy_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_great_power_trigger = no
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 65
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_65_INFLUENCE_TT
+				has_diplomatic_influence = {
+					who = FROM
+					value = 65
+				}
+			}
+		}
+		if = {
+			limit = {
+				war_with = FROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = WAR_WITH_FROM_TT
+				NOT = { war_with = FROM }
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_subject = yes
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_NOT_OUR_SUBJECT_TT
+				FROM = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_part_of_hre = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_HRE_TT
+				FROM = {
+					is_part_of_hre = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+						calc_true_if = {
+							NOT = { trade_range = event_target:GP_1 }
+							NOT = { trade_range = event_target:GP_2 }
+							NOT = { trade_range = event_target:GP_3 }
+							NOT = { trade_range = event_target:GP_4 }
+							NOT = { trade_range = event_target:GP_5 }
+							NOT = { trade_range = event_target:GP_6 }
+							NOT = { trade_range = event_target:GP_7 }
+							NOT = { trade_range = event_target:GP_8 }
+							NOT = { trade_range = event_target:GP_9 }
+							NOT = { trade_range = event_target:GP_10 }
+							NOT = { trade_range = event_target:GP_11 }
+							NOT = { trade_range = event_target:GP_12 }
+							NOT = { trade_range = event_target:GP_13 }
+							NOT = { trade_range = event_target:GP_14 }
+							NOT = { trade_range = event_target:GP_15 }
+							NOT = { trade_range = event_target:GP_16 }
+							amount = 15
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = NO_GREAT_POWERS_IN_RANGE_TT
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				FROM = { # Everyone is already embassy-less
+					has_country_modifier = ban_embassy_modifier_GP_1
+					has_country_modifier = ban_embassy_modifier_GP_2
+					has_country_modifier = ban_embassy_modifier_GP_3
+					has_country_modifier = ban_embassy_modifier_GP_4
+					has_country_modifier = ban_embassy_modifier_GP_5
+					has_country_modifier = ban_embassy_modifier_GP_6
+					has_country_modifier = ban_embassy_modifier_GP_7
+					has_country_modifier = ban_embassy_modifier_GP_8
+					has_country_modifier = ban_embassy_modifier_GP_9
+					has_country_modifier = ban_embassy_modifier_GP_10
+					has_country_modifier = ban_embassy_modifier_GP_11
+					has_country_modifier = ban_embassy_modifier_GP_12
+					has_country_modifier = ban_embassy_modifier_GP_13
+					has_country_modifier = ban_embassy_modifier_GP_14
+					has_country_modifier = ban_embassy_modifier_GP_15
+					has_country_modifier = ban_embassy_modifier_GP_16
+				}
+			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+	}
+	
+	on_accept = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -65
+		}
+		FROM = {
+			country_event = { id = SoI.14 }
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] used action 'Ban Embassy' in [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		OR = {
+			overlord_of = FROM
+			has_diplomatic_influence = {
+				who = FROM
+				value = 50 # They're interested in sphering this one
+			}
+		}
+		any_country = {
+			has_diplomatic_influence = {
+				who = FROM
+				value = 20 # A rival emerges
+			}
+			NOT = { tag = ROOT }
+		}
+	}
+}
+
+# Sphere Interactions
+add_to_sphere_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_great_power_trigger = no
+			NOT = { is_subject_of = ROOT }
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = { # With DLC, use Great Power Influence as trigger:
+			limit = {
+				#has_great_power_DLC_trigger = yes
+				always = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_diplomatic_influence = {
+							who = FROM
+							value = 100
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = REQUIRES_100_INFLUENCE_TT
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+		else = { # else, use Opinion:
+			if = {
+				limit = {
+					full_idea_group = influence_ideas
+					NOT = {
+						reverse_has_opinion = {
+							who = FROM
+							value = 125
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = REQUIRES_125_OPINION_TT
+					reverse_has_opinion = {
+						who = FROM
+						value = 125
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						reverse_has_opinion = {
+							who = FROM
+							value = 150
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = REQUIRES_150_OPINION_TT
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						government_rank = 3
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = FROM_IS_AN_EMPIRE_TT
+					FROM = {
+						NOT = { government_rank = 3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_AT_WAR_TT
+				is_at_war = no
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						OR = {
+							is_subject = no
+							is_subject_of_type = sphere_member
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_NOT_INDEPENDENT_OR_SPHERE_TT
+				FROM = {
+					OR = {
+						is_subject = no
+						is_subject_of_type = sphere_member
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_part_of_hre = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_HRE_TT
+				FROM = {
+					is_part_of_hre = no
+				}
+			}
+		}
+	}
+	
+	on_accept = {
+		add_to_sphere = { tag = FROM }
+		hidden_effect = {
+			log = "SoI: [This.GetName] sphered [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		NOT = {
+			FROM = { # FROM is a potential target of conquest:
+				OR = {
+					all_owned_province = {
+						OR = {
+							is_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					calc_true_if = {
+						all_owned_province = {
+							OR = {
+								is_claim = ROOT
+								is_core = ROOT
+							}
+						}
+						amount = 5
+					}
+				}
+			}
+		}
+	}
+}
+
+demand_vassalage_action = {
+	category = influence
+	
+	alert_index = 6
+	alert_tooltip = demand_vassalage_action_alert_tooltip
+	
+	require_acceptance = yes
+	
+	is_visible = {
+		can_influence_trigger = yes
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = sphere_member
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_100_INFLUENCE_TT
+				has_diplomatic_influence = {
+					who = FROM
+					value = 100
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_AT_WAR_TT
+				is_at_war = no
+			}
+		}
+	}
+	
+	on_accept = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -100
+		}
+		FROM = {
+			every_subject_country = {
+				limit = {
+					NOT = { is_subject_of_type = colony }
+					NOT = { is_subject_of_type = crown_colony }
+					NOT = { is_subject_of_type = private_enterprise }
+					NOT = { is_subject_of_type = self_governing_colony }
+				}
+				grant_independence = yes
+			}
+		}
+		create_subject = {
+			subject_type = vassal
+			subject = FROM
+			keep_liberty_desire = yes
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] accepted vassalage demand of [This.GetName]."
+		}
+	}
+	on_decline = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -100
+		}
+		add_opinion = {
+			who = FROM
+			modifier = generic_bad_opinion
+		}
+		reverse_add_opinion = {
+			who = FROM
+			modifier = generic_bad_opinion
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] declined vassalage demand of [This.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		is_neighbor_of = FROM
+		num_of_free_diplomatic_relations = 1
+		
+		is_emperor_of_china = no # "demand_tributary_action" is preferred.
+	}
+	ai_acceptance = { # copied from "reign_in_eyalet", mostly
+        add_entry = {
+            name = DIPLO_OPPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.2
+			}
+        }
+		add_entry = {
+			name = AI_TRUST_TOWARDS_ROOT
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = FROM
+				with = ROOT
+			}			
+			subtract_variable = { 
+				which = ai_value
+				value = 50
+			}
+			#1 trust = +4 ai points
+			multiply_variable = {
+				which = ai_value
+				value = 0.4
+			}
+		}
+		add_entry = {
+			name = AI_DIPLOMATIC_REPUTATION
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 4
+			multiply_variable = {
+				which = ai_value
+				value = 4
+			}
+		}
+		add_entry = {
+			name = AI_TOTAL_DEVELOPMENT
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = FROM
+			}
+			#2 dev = -1
+			multiply_variable = {
+				which = ai_value
+				value = -0.5
+			}
+		}
+		add_entry = {
+			name = AI_LIBERTY_DESIRE
+			export_to_variable = {
+				variable_name = ai_value
+				value = liberty_desire
+				who = FROM
+			}
+			multiply_variable = {
+				which = ai_value
+				value = -1
+			}
+		}
+		add_entry = {
+			name = AI_IS_THE_POPE
+			limit = {
+				religion_group = christian
+				FROM = {
+					tag = PAP
+				}
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -1000
+			}
+		}
+	}
+}
+
+demand_tributary_action = {
+	category = influence
+	
+	alert_index = 40
+	alert_tooltip = demand_tributary_action_alert_tooltip
+	
+	require_acceptance = yes
+	
+	is_visible = {
+		can_influence_trigger = yes
+		can_be_overlord = tributary_state
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = sphere_member
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						capital_scope = {
+							trade_range = ROOT
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_CAPITAL_IN_TRADE_RANGE_TT
+				FROM = {
+					capital_scope = {
+						trade_range = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_diplomatic_influence = {
+						who = FROM
+						value = 50
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = REQUIRES_50_INFLUENCE_TT
+				has_diplomatic_influence = {
+					who = FROM
+					value = 50
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_AT_WAR_TT
+				is_at_war = no
+			}
+		}
+	}
+	
+	on_accept = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -50
+		}
+		create_subject = {
+			subject_type = tributary_state
+			subject = FROM
+			keep_liberty_desire = yes
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] accepted tributary demand of [This.GetName]."
+		}
+	}
+	on_decline = {
+		add_diplomatic_influence = {
+			who = FROM
+			value = -50
+		}
+		add_opinion = {
+			who = FROM
+			modifier = generic_bad_opinion
+		}
+		reverse_add_opinion = {
+			who = FROM
+			modifier = generic_bad_opinion
+		}
+		hidden_effect = {
+			log = "SoI: [From.GetName] declined tributary demand of [This.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		is_emperor_of_china = yes
+	}
+	ai_acceptance = { # copied from "reign_in_eyalet", mostly
+        add_entry = {
+            name = DIPLO_OPPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.2
+			}
+        }
+		add_entry = {
+			name = AI_TRUST_TOWARDS_ROOT
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = FROM
+				with = ROOT
+			}			
+			subtract_variable = { 
+				which = ai_value
+				value = 50
+			}
+			#1 trust = +4 ai points
+			multiply_variable = {
+				which = ai_value
+				value = 0.4
+			}
+		}
+		add_entry = {
+			name = AI_DIPLOMATIC_REPUTATION
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 4
+			multiply_variable = {
+				which = ai_value
+				value = 4
+			}
+		}
+		add_entry = {
+			name = AI_TOTAL_DEVELOPMENT
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = FROM
+			}
+			#4 dev = -1
+			multiply_variable = {
+				which = ai_value
+				value = -0.25
+			}
+		}
+		add_entry = {
+			name = AI_LIBERTY_DESIRE
+			export_to_variable = {
+				variable_name = ai_value
+				value = liberty_desire
+				who = FROM
+			}
+			multiply_variable = {
+				which = ai_value
+				value = -1
+			}
+		}
+		add_entry = {
+			name = AI_IS_THE_POPE
+			limit = {
+				religion_group = christian
+				FROM = {
+					tag = PAP
+				}
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -1000
+			}
+		}
+	}
+}
+
+remove_from_sphere_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = sphere_member
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_AT_WAR_TT
+				is_at_war = no
+			}
+		}
+	}
+	
+	on_accept = {
+		FROM = {
+			if = {
+				limit = {
+					NOT = { liberty_desire = 50 }
+				}
+				add_opinion = { # Why betray your loyal subject? :(
+					who = ROOT
+					modifier = generic_bad_opinion
+				}
+			}
+			remove_from_sphere = yes
+		}
+		if = {
+			limit = {
+				ai = yes
+				FROM = {
+					any_owned_province = {
+						OR = {
+							is_claim = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+			}
+			set_ai_attitude = {
+				attitude = attitude_hostile
+				who = FROM
+			}
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] un-sphered [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		FROM = { # FROM is a potential target of conquest:
+			OR = {
+				all_owned_province = {
+					OR = {
+						is_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				calc_true_if = {
+					all_owned_province = {
+						OR = {
+							is_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					amount = 5
+				}
+			}
+		}
+	}
+}
+
+leave_sphere_action = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = {
+		is_subject_of = FROM
+		is_subject_of_type = sphere_member
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				is_at_war = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_IS_AT_WAR_TT
+				is_at_war = no
+			}
+		}
+		#if = {
+		#	limit = {
+		#		has_opinion = {
+		#			who = FROM
+		#			value = 0
+		#		}
+		#	}
+		#	custom_trigger_tooltip = {
+		#		tooltip = OPINION_LESS_THAN_0_TT
+		#		NOT = {
+		#			has_opinion = {
+		#				who = FROM
+		#				value = 0
+		#			}
+		#		}
+		#	}
+		#}
+		if = {
+			limit = {
+				NOT = { liberty_desire = 50 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = LD_LESS_THAN_50_TT
+				liberty_desire = 50
+			}
+		}
+		if = {
+			limit = {
+				truce_with = FROM
+			}
+			custom_trigger_tooltip = {
+				tooltip = TRUCE_WITH_FROM_TT
+				NOT = { truce_with = FROM }
+			}
+		}
+	}
+	
+	on_accept = {
+		remove_from_sphere = yes
+		reduce_stability_or_adm_power = yes
+		FROM = {
+			add_opinion = {
+				who = ROOT
+				modifier = generic_terrible_opinion
+			}
+			country_event = { id = SoI.2 } # "[From.GetName] Expels our Advisors"
+		}
+		hidden_effect = {
+			log = "SoI: [This.GetName] left sphere of [From.GetName]."
+		}
+	}
+	
+	ai_will_do = {
+		stability = 1
+		OR = {
+			NOT = {
+				has_opinion = {
+					who = FROM
+					value = 0
+				}
+			}
+			liberty_desire = 100
+		}
+	}
+}

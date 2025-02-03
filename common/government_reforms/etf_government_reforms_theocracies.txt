@@ -1,0 +1,30 @@
+prince_bishopric_reform = {
+	icon = "russian_principality"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	potential = {
+		OR = {
+			has_reform = prince_bishopric_reform
+			have_had_reform = prince_bishopric_reform
+		}
+	}
+	trigger = {
+		religion = orthodox
+	}
+	modifiers = {
+		tolerance_own = 1
+		max_absolutism = 10
+		church_loyalty_modifier = 0.1
+	}
+
+	fixed_rank = 1
+	heir = no
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	ai = {
+		factor = 0.5
+	}
+}

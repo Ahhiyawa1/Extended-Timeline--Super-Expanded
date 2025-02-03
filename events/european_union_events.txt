@@ -16,20 +16,28 @@ country_event = {
 		hidden_effect = {
 			remove_country_modifier = european_union
 			remove_country_modifier = european_leader
-			dismantle_hre = yes
+			#dismantle_hre = yes
 		}
 		add_country_modifier = {
 			name = unita_in_diversitate
 			duration = -1
 		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			change_government = republic
+		}
 		change_tag = EUR
+		on_change_tag_effect = yes
 		swap_free_idea_group = yes
-		change_government = republic
-		add_faction_influence = { faction = conservative_party influence = 5 }
 		every_country = {
-			limit = { 
+			limit = {
 				is_subject_of = ROOT
 				is_subject_of_type = eu_state
+			}
+			hidden_effect = {
+				remove_country_modifier = european_union
 			}
 			country_event = { id = european_union.16 }
 		}
@@ -88,12 +96,12 @@ country_event = {
 				duration = -1
 			}
 		}
-		if = {
-			limit = {
-				is_elector = no
-			}
-			elector = yes
-		}
+		#if = {
+		#	limit = {
+		#		is_elector = no
+		#	}
+		#	elector = yes
+		#}
 		every_country = {
 			limit = {
 				NOT = { tag = ROOT }
@@ -117,9 +125,12 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			if = {
-				limit = { is_elector = yes }
+				limit = {
+					#is_elector = yes
+					has_country_modifier = european_leader
+				}
+				#elector = no
 				remove_country_modifier = european_leader
-				elector = no
 			}
 		}
 	}
@@ -500,36 +511,36 @@ country_event = {
 			}
 			country_event = { id = european_union.4 }
 		}
-		every_country = {
-			limit = { has_country_modifier = european_union }
-			every_owned_province = {
-				limit = { is_part_of_hre = no }
-				if = {
-					limit = {
-						any_core_country = {
-							has_country_modifier = european_union
-						}
-					}
-					set_in_empire = yes
-				}
-			}
-		}
-		every_country = {
-			limit = { NOT = { has_country_modifier = european_union } }
-			every_owned_province = {
-				limit = { is_part_of_hre = yes }
-				if = {
-					limit = {
-						NOT = {
-							any_core_country = {
-								has_country_modifier = european_union
-							}
-						}
-					}
-					set_in_empire = no
-				}
-			}
-		}
+		#every_country = {
+		#	limit = { has_country_modifier = european_union }
+		#	every_owned_province = {
+		#		limit = { is_part_of_hre = no }
+		#		if = {
+		#			limit = {
+		#				any_core_country = {
+		#					has_country_modifier = european_union
+		#				}
+		#			}
+		#			set_in_empire = yes
+		#		}
+		#	}
+		#}
+		#every_country = {
+		#	limit = { NOT = { has_country_modifier = european_union } }
+		#	every_owned_province = {
+		#		limit = { is_part_of_hre = yes }
+		#		if = {
+		#			limit = {
+		#				NOT = {
+		#					any_core_country = {
+		#						has_country_modifier = european_union
+		#					}
+		#				}
+		#			}
+		#			set_in_empire = no
+		#		}
+		#	}
+		#}
 	}
 }
 
@@ -589,10 +600,10 @@ country_event = {
 		if = {
 			limit = { has_global_flag = centralized_warfare_policy_enacted }
 			remove_country_modifier = european_union
-			elector = no
-			every_owned_province = {
-				set_in_empire = no
-			}
+			#elector = no
+			#every_owned_province = {
+			#	set_in_empire = no
+			#}
 		}
 		if = {
 			limit = { is_subject_of = EUR }
@@ -1038,13 +1049,13 @@ country_event = {
 	option = {
 		name = "EUOPTA15"
 		remove_country_modifier = european_union
-		elector = no
-		hidden_effect = {
-			every_owned_province = {
-				limit = { is_core = ROOT }
-				set_in_empire = no
-			}
-		}
+		#elector = no
+		#hidden_effect = {
+		#	every_owned_province = {
+		#		limit = { is_core = ROOT }
+		#		set_in_empire = no
+		#	}
+		#}
 	}
 }
 

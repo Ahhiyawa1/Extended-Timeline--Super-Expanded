@@ -107,29 +107,34 @@ country_decisions = {
 				duration = 10950
 			}
 			set_country_flag = early_caliphate
-			arabia_region = {
+			if = {
 				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					exists = RSD
 				}
-				add_permanent_claim = RSD
-			}
-			mashriq_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				arabia_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = RSD
 				}
-				add_permanent_claim = RSD
-			}
-			egypt_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				mashriq_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = RSD
 				}
-				add_permanent_claim = RSD
+				egypt_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = RSD
+				}
 			}
 			add_stability = 2
 		}
@@ -235,7 +240,7 @@ country_decisions = {
 			always = no
 		}
 		effect = {
-			set_revolution_target = REB
+			set_revolution_target = XXX
 		}
 		ai_will_do = {
 			factor = 0
@@ -331,7 +336,7 @@ country_decisions = {
 				name = european_union
 				duration = -1
 			}
-			every_owned_province = { set_in_empire = yes }
+			#every_owned_province = { set_in_empire = yes }
 		}
 		ai_will_do = {
 			factor = 0
@@ -347,7 +352,7 @@ country_decisions = {
 		}
 		effect = {
 			remove_country_modifier = european_union
-			every_owned_province = { set_in_empire = no }
+			#every_owned_province = { set_in_empire = no }
 		}
 		ai_will_do = {
 			factor = 0
