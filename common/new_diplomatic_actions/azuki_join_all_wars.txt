@@ -1,0 +1,81 @@
+
+
+# 加入防御战争
+azuki_join_all_defensive_war = {
+	category = alliance
+	require_acceptance = no
+	is_visible = {
+		always = yes
+		# ROOT = {
+		# 	NOT = {
+		# 		war_with = FROM
+		# 	}
+		# }
+	}
+	is_allowed = {
+		FROM = {
+			is_in_war = {
+				defender_leader = FROM
+				#duration = 1875
+			}
+		}
+		ROOT = {
+			ai = no
+			dip_power = 25
+			mil_power = 25
+			NOT = {
+				war_with = FROM
+			}
+		}
+	}
+	on_accept = {
+		ROOT = {
+			add_dip_power = -25
+			add_mil_power = -25
+			join_all_defensive_wars_of = FROM
+		}
+	}
+	ai_will_do = {
+		always = no
+	}
+}
+
+# 加入进攻战争
+azuki_join_all_offensive_war = {
+	category = alliance
+	require_acceptance = no
+	is_visible = {
+		always = yes
+		# ROOT = {
+		# 	NOT = {
+		# 		war_with = FROM
+		# 	}
+		# }
+	}
+	is_allowed = {
+		FROM = {
+			is_in_war = {
+				attacker_leader = FROM
+				#duration = 1875
+			}
+		}
+		ROOT = {
+			ai = no
+			dip_power = 25
+			mil_power = 25
+			NOT = {
+				war_with = FROM
+			}
+		}
+	}
+	on_accept = {
+		ROOT = {
+			add_dip_power = -25
+			add_mil_power = -25
+			join_all_offensive_wars_of = FROM
+		}
+	}
+	ai_will_do = {
+		always = no
+	}
+}
