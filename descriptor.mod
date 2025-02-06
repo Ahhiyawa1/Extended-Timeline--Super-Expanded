@@ -5,7 +5,6 @@ replace_path="map"
 replace_path="missions"
 replace_path="history/provinces"
 replace_path="history"
-replace_path="interface"
 replace_path="history/countries"
 replace_path="common/bookmarks"
 dependencies={

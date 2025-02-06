@@ -1,0 +1,113 @@
+prussian_republic = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = yes
+	republic = yes
+	legacy_government = yes
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+	has_term_election = no
+	republican_name = yes
+	royal_marriage = no
+	
+	nation_designer_trigger = {
+		primary_culture =  prussian
+	}
+	
+	trigger = {
+		OR = {
+			is_playing_custom_nation = yes
+			religion = protestant
+			religion = reformed
+		}
+	}
+	
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		republican_tradition = -0.5
+		governing_capacity_modifier = -0.2
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+	
+	custom_attributes = {
+		generals_become_rulers = yes
+	}
+}
+
+prussian_monarchy_legacy = {
+	# government mechanics flags go here
+	allow_normal_conversion = no
+	icon = "crown"
+	legacy_government = yes
+	valid_for_new_country = no
+	allow_convert = no
+
+	potential = {
+		OR = {
+			is_playing_custom_nation = yes
+			religion = protestant
+			religion = reformed
+		}
+	}
+
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	monarchy = yes
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = 10
+		monarch_military_power = 3
+		governing_capacity_modifier = -0.2
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+
+	ai = {
+		factor = 5
+	}
+}
+
+shaka_regime_legacy = {
+	# government mechanics flags go here
+	icon = "chieftain"
+	allow_normal_conversion = no
+
+	legacy_government = yes
+	valid_for_new_country = no
+
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+
+	modifiers = {
+		monarch_military_power = 2
+		global_unrest = -2
+		war_exhaustion = -0.02
+		governing_capacity_modifier = -0.2
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man"
+		}
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+}
+
