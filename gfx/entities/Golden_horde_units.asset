@@ -1,0 +1,430 @@
+######steppegfx
+
+entity = {
+	name = "GOL_INFANTRY_1"
+	pdxmesh = "xangelo_GOL_infantry_01_mesh"
+        version = 10
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "centralasia_sword_03" 
+		Left_hand_node = "Goldenhorde_shield" 
+	}
+}
+
+entity = {
+	name = "GOLarti_INFANTRY_1"
+	pdxmesh = "xangelo_GOL_artillery_01_mesh"
+        version = 10
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "grhoup_spear_2_entity" 
+		Left_hand_node = "Timurids_shield" 
+	}
+}
+
+
+
+entity = {
+	name = "GOL_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GOLarti_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "GOL_INFANTRY_2"
+	pdxmesh = "xangelo_GOL_infantry_02_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "grhoup_rifle_02_entity" 
+	}
+}
+
+entity = {
+	name = "GOLarti_INFANTRY_2"
+	pdxmesh = "xangelo_GOL_artillery_02_mesh"
+        version = 10
+
+        state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "centralasia_sword_03" 
+		Left_hand_node = "Goldenhorde_shield" 
+	}
+}
+
+entity = {
+	name = "GOL_ARTILLERY_2"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GOLarti_INFANTRY_2" 
+		cannon_node = "asiangfx_ARTILLERY_2_cannon" 
+	}
+}
+
+entity = {
+	name = "GOL_INFANTRY_3"
+	pdxmesh = "xangelo_GOL_infantry_03_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "grhoup_rifle_03_entity" 
+	}
+}
+
+entity = {
+	name = "GOLarti_INFANTRY_3"
+	pdxmesh = "xangelo_GOL_artillery_03_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "centralasia_sword_03" 
+		Left_hand_node = "Goldenhorde_shield" 
+	}
+}
+
+entity = {
+	name = "GOL_ARTILLERY_3"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GOLarti_INFANTRY_3" 
+		cannon_node = "muslimgfx_ARTILLERY_3_cannon" 
+	}
+}
+
+
+entity = {
+	name = "GOL_INFANTRY_4"
+	pdxmesh = "xangelo_GOL_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "grhoup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "GOLarti_INFANTRY_4"
+	pdxmesh = "xangelo_GOL_artillery_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "grhoup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "GOL_ARTILLERY_4"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "GOLarti_INFANTRY_4" 
+		cannon_node = "muslimgfx_ARTILLERY_4_cannon" 
+	}
+}
+
+
+        ###################################################################################################################
+	#####                                            Horde  CAVALRY                                               #####
+	###################################################################################################################
+
+
+
+entity = {
+	name = "GOL_CAVALRY_1_rider"
+	pdxmesh = "xangelo_GOL_cavalry_01_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "steppe_mongol_sword" 
+		Left_hand_node = "steppe_mongol_lightshield"
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_1"
+	pdxmesh = "Steppe_mongol_heavy_horse_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" animation_speed = 2.4}
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GOL_CAVALRY_1_rider" 
+	}
+}
+
+
+entity = {
+	name = "GOL_CAVALRY_2_rider"
+	pdxmesh = "xangelo_GOL_cavalry_02_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "centralasia_lance_01" 
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_2"
+	pdxmesh = "grhoup_cavalry_horse_001_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GOL_CAVALRY_2_rider" 
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_3_rider"
+	pdxmesh = "xangelo_GOL_cavalry_03_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "grhoup_cavalry_1_saber" 
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_3"
+	pdxmesh = "grhoup_cavalry_horse_002_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GOL_CAVALRY_3_rider" 
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_4_rider"
+	pdxmesh = "xangelo_GOL_cavalry_04_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "grhoup_cavalry_1_saber" 
+	}
+}
+
+entity = {
+	name = "GOL_CAVALRY_4"
+	pdxmesh = "grhoup_cavalry_horse_002_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "GOL_CAVALRY_4_rider" 
+	}
+}
+
+
+
+# Great Horde to Golden Horde
+entity = { clone = "GOL_INFANTRY_1"           name = "GLH_INFANTRY_1" version = 3 }
+entity = { clone = "GOL_CAVALRY_1"	      name = "GLH_CAVALRY_1" version = 3 }
+entity = { clone = "GOL_ARTILLERY_1"          name = "GLH_ARTILLERY_1" version = 3 }
+entity = { clone = "GOL_INFANTRY_2"           name = "GLH_INFANTRY_2" version = 3 }
+entity = { clone = "GOL_CAVALRY_2"	      name = "GLH_CAVALRY_2" version = 3 }
+entity = { clone = "GOL_ARTILLERY_2"          name = "GLH_ARTILLERY_2" version = 3 }
+entity = { clone = "GOL_INFANTRY_3"           name = "GLH_INFANTRY_3" version = 3 }
+entity = { clone = "GOL_CAVALRY_3"	      name = "GLH_CAVALRY_3" version = 3 }
+entity = { clone = "GOL_ARTILLERY_3"          name = "GLH_ARTILLERY_3" version = 3 }
+entity = { clone = "GOL_INFANTRY_4"           name = "GLH_INFANTRY_4" version = 3 }
+entity = { clone = "GOL_ARTILLERY_4"          name = "GLH_ARTILLERY_4" version = 3 }
+entity = { clone = "GOL_CAVALRY_4"	      name = "GLH_CAVALRY_4" version = 3 }
+
+# Great Horde to Astrakhan
+entity = { clone = "GOL_INFANTRY_1"           name = "AST_INFANTRY_1" version = 1 }
+entity = { clone = "GOL_CAVALRY_1"	      name = "AST_CAVALRY_1" version = 1  }
+entity = { clone = "GOL_ARTILLERY_1"          name = "AST_ARTILLERY_1" version = 1}
+entity = { clone = "GOL_INFANTRY_2"           name = "AST_INFANTRY_2" version = 1 }
+entity = { clone = "GOL_CAVALRY_2"	      name = "AST_CAVALRY_2"  version = 1 }
+entity = { clone = "GOL_ARTILLERY_2"          name = "AST_ARTILLERY_2" version = 1}
+entity = { clone = "GOL_INFANTRY_3"           name = "AST_INFANTRY_3" version = 1 }
+entity = { clone = "GOL_CAVALRY_3"	      name = "AST_CAVALRY_3" version = 1  }
+entity = { clone = "GOL_ARTILLERY_3"          name = "AST_ARTILLERY_3" version = 1}
+entity = { clone = "GOL_INFANTRY_4"           name = "AST_INFANTRY_4" version = 1 }
+entity = { clone = "GOL_ARTILLERY_4"          name = "AST_ARTILLERY_4" version = 1}
+entity = { clone = "GOL_CAVALRY_4"	      name = "AST_CAVALRY_4"  version = 1 }
+
+
+# Great Horde to Ilkhanate
+entity = { clone = "GOL_INFANTRY_1"           name = "ILK_INFANTRY_1" version = 1 }
+entity = { clone = "GOL_CAVALRY_1"	      name = "ILK_CAVALRY_1" version = 1  }
+entity = { clone = "GOL_ARTILLERY_1"          name = "ILK_ARTILLERY_1" version = 1}
+entity = { clone = "GOL_INFANTRY_2"           name = "ILK_INFANTRY_2" version = 1 }
+entity = { clone = "GOL_CAVALRY_2"	      name = "ILK_CAVALRY_2"  version = 1 }
+entity = { clone = "GOL_ARTILLERY_2"          name = "ILK_ARTILLERY_2" version = 1}
+entity = { clone = "GOL_INFANTRY_3"           name = "ILK_INFANTRY_3" version = 1 }
+entity = { clone = "GOL_CAVALRY_3"	      name = "ILK_CAVALRY_3" version = 1  }
+entity = { clone = "GOL_ARTILLERY_3"          name = "ILK_ARTILLERY_3" version = 1}
+entity = { clone = "GOL_INFANTRY_4"           name = "ILK_INFANTRY_4" version = 1 }
+entity = { clone = "GOL_ARTILLERY_4"          name = "ILK_ARTILLERY_4" version = 1}
+entity = { clone = "GOL_CAVALRY_4"	      name = "ILK_CAVALRY_4"  version = 1 }

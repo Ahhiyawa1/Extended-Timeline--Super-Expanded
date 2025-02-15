@@ -1,0 +1,31 @@
+######germangfx
+
+entity = {
+	name = "german_saber"
+	pdxmesh = "german_saber"
+}
+
+entity = {
+	name = "german_cavalry_horse_04_mesh"
+	pdxmesh = "german_cavalry_horse_04_mesh"
+}
+
+entity = {
+	name = "german_rifle_02"
+	pdxmesh = "german_rifle_02"
+	state = { name = "attack"
+		event = { time = 0.90	node = "muzzle"		particle = "musket_muzzle" }
+		event = { time = 0.90	node = "muzzle"		particle = "musket_smoke_residue" }	  
+		event = { time = 0.90	node = "trigger"	particle = "musket_trigger_smoke" }			
+	}
+}
+
+entity = {
+	name = "xangelo_prussian_musket_04"
+	pdxmesh = "xangelo_prussian_musket_04"
+	state = { name = "attack"
+		event = { time = 1.60	node = "muzzle"		particle = "musket_muzzle" }
+		event = { time = 1.60	node = "muzzle"		particle = "musket_smoke_residue" }	  
+		event = { time = 1.60	node = "trigger"	particle = "musket_trigger_smoke" }			
+	}
+}
