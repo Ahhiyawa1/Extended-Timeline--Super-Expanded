@@ -1,0 +1,2045 @@
+namespace = byz_main
+# Gustiniani
+country_event = {
+	id = byz_main.1
+	title = "byz_main.t.1"
+	desc = "byz_main.d.1"
+	picture = BYZ_HARBOUR_eventPicture
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			is_year = 3553
+		}
+		OR = {
+			tag = BYZ
+			tag = LAT
+		}
+		NOT = {
+			has_country_modifier = byz_gustiniani
+		}
+		OR = {
+			defensive_war_with = TUR
+			offensive_war_with = TUR
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.1"
+		add_country_modifier = {
+			name = byz_gustiniani
+			duration = 3650
+		}
+		define_general = {
+			name = "Giovanni Giustiniani"
+			fire = 4
+			manuever = 4
+			siege = 1
+			shock = 1
+		}
+		cavalry = 151
+		heavy_ship = 151
+		heavy_ship = 151
+		galley = 151
+		galley = 151
+	}
+}
+
+#Welcome message
+country_event = {
+	id = byz_main.2
+	title = "byz_main.t.2"
+	desc = "byz_main.d.2"
+	picture = Phoenix_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		set_global_flag = purple_phoenix_arise
+	}
+	trigger = {
+		tag = BYZ
+		ai = no
+		is_year = 3542
+		NOT = {
+			is_year = 3551
+		}
+	}
+	option = {
+		name = "byz_main.a.2"		#Ave Caesar!
+		custom_tooltip = phoenix_setup
+	}
+}
+
+#survived 1453
+country_event = {
+	id = byz_main.3
+	title = "byz_main.t.3"
+	desc = "byz_main.d.3"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		tag = BYZ
+		ai = no
+		is_year = 3552
+	}
+	option = {
+		name = "byz_main.a.3"		#Time to crush Turkish barbarians!
+		add_prestige = 10
+		custom_tooltip = survive_setup
+		custom_tooltip = phoenix_setup
+	}
+}
+
+#univer
+country_event = {
+	id = byz_main.4
+	title = "byz_main.t.4"
+	desc = "byz_main.d.4"
+	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_regency = no
+	}
+	option = {
+		trigger = {
+			NOT = {
+				mil = 9
+			}
+		}
+		name = "byz_main.a.4"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					mil = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_mil = 1
+	}
+	option = {
+		trigger = {
+			NOT = {
+				dip = 9
+			}
+		}
+		name = "byz_main.b.4"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					dip = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_dip = 1
+	}
+	option = {
+		trigger = {
+			NOT = {
+				adm = 9
+			}
+		}
+		name = "byz_main.c.4"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					adm = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_adm = 1
+	}
+	option = {
+		trigger = {
+			adm = 9
+			dip = 9
+			mil = 9
+		}
+		name = "byz_main.d.4"
+		ai_chance = {
+			factor = 100
+		}
+		add_prestige_or_monarch_power = {
+			amount = 20
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.5
+	title = "byz_main.t.5"
+	desc = "byz_main.d.5"
+	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		has_regency = no
+	}
+	option = {
+		trigger = {
+			NOT = {
+				mil = 9
+			}
+		}
+		name = "byz_main.a.5"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					mil = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_mil = 1
+	}
+	option = {
+		trigger = {
+			NOT = {
+				dip = 9
+			}
+		}
+		name = "byz_main.b.5"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					dip = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_dip = 1
+	}
+	option = {
+		trigger = {
+			NOT = {
+				adm = 9
+			}
+		}
+		name = "byz_main.c.5"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 100
+				NOT = {
+					adm = 3
+				}
+			}
+		}
+		add_prestige = 5
+		change_adm = 1
+	}
+	option = {
+		trigger = {
+			adm = 9
+			dip = 9
+			mil = 9
+		}
+		name = "byz_main.d.5"
+		ai_chance = {
+			factor = 100
+		}
+		add_prestige_or_monarch_power = {
+			amount = 20
+		}
+	}
+}
+
+# Venetians
+country_event = {
+	id = byz_main.6
+	title = "byz_main.t.6"
+	desc = "byz_main.d.6"
+	picture = Byznaval_eventPicture
+	fire_only_once = yes
+	trigger = {
+		NOT = {
+			is_year = 3563
+		}
+		OR = {
+			tag = BYZ
+			tag = LAT
+		}
+		OR = {
+			defensive_war_with = TUR
+			offensive_war_with = TUR
+		}
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	option = {
+		name = "byz_main.a.6"
+		define_admiral = {
+			name = "Alviso Diedo"
+			fire = 3
+			manuever = 3
+			shock = 3
+		}
+		cavalry = 151
+		heavy_ship = 151
+		heavy_ship = 151
+		galley = 151
+		galley = 151
+		galley = 151
+		galley = 151
+		galley = 151
+		galley = 151
+	}
+}
+
+country_event = {
+	id = byz_main.7
+	title = "byz_main.t.7"
+	desc = "byz_main.desc.7"
+	picture = ARTWORK_eventPicture
+	mean_time_to_happen = {
+		days = 120
+	}
+	trigger = {
+		government = monarchy
+		has_ruler_modifier = byz_foruniver
+		NOT = {
+			has_ruler_modifier = byz_books
+		}
+	}
+	option = {
+		name = "byz_main.a.7"
+		ai_chance = {
+			factor = 0
+		}
+		add_prestige = 5
+		change_mil = 1
+		change_adm = -1
+		add_ruler_modifier = {
+			name = byz_books
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.b.7"
+		ai_chance = {
+			factor = 0
+		}
+		add_prestige = 5
+		change_mil = -1
+		change_dip = 1
+		add_ruler_modifier = {
+			name = byz_books
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.c.7"
+		ai_chance = {
+			factor = 0
+		}
+		add_prestige = 5
+		change_dip = -1
+		change_adm = 1
+		add_ruler_modifier = {
+			name = byz_books
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.d.7"
+		ai_chance = {
+			factor = 100
+		}
+		add_prestige_or_monarch_power = {
+			amount = 20
+		}
+		add_stability = 1
+		add_adm_power = 50
+		add_ruler_modifier = {
+			name = byz_books
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.8
+	title = "byz_main.t.8"
+	desc = "byz_main.d.8"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 10
+	}
+	trigger = {
+		dynasty = "Palaiologos"
+		ai = no
+		is_year = 3544
+	}
+	option = {
+		name = "byz_main.a.8"
+		add_prestige = 10
+		add_legitimacy = 30
+		add_treasury = -30
+	}
+	option = {
+		name = "byz_main.b.8"
+		add_prestige = 5
+		add_legitimacy = 10
+		add_treasury = -5
+	}
+}
+
+country_event = {
+	id = byz_main.9
+	title = "byz_main.t.9"
+	desc = "byz_main.d.9"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Palaiologos"
+		ai = no
+		is_year = 3557
+		NOT = {
+			is_year = 3559
+		}
+	}
+	option = {
+		name = "byz_main.a.9"
+		add_prestige = 10
+		add_legitimacy = 30
+		add_treasury = -30
+	}
+	option = {
+		name = "byz_main.b.9"
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = byz_main.10
+	title = "byz_main.t.10"
+	desc = "byz_main.d.10"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Palaiologos"
+		ai = no
+		is_year = 3657
+		NOT = {
+			is_year = 3659
+		}
+	}
+	option = {
+		name = "byz_main.a.10"
+		add_prestige = 10
+		add_legitimacy = 30
+		add_treasury = -70
+	}
+	option = {
+		name = "byz_main.b.10"
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = byz_main.11
+	title = "byz_main.t.11"
+	desc = "byz_main.d.11"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Palaiologos"
+		ai = no
+		is_year = 3757
+		NOT = {
+			is_year = 3759
+		}
+	}
+	option = {
+		name = "byz_main.a.11"
+		add_prestige = 10
+		add_legitimacy = 30
+		add_treasury = -150
+	}
+	option = {
+		name = "byz_main.b.11"
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = byz_main.12
+	title = "byz_main.t.12"
+	desc = "byz_main.d.12"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Palaiologos"
+		ai = no
+		is_year = 3857
+		NOT = {
+			is_year = 3859
+		}
+	}
+	option = {
+		name = "byz_main.a.12"
+		add_prestige = 10
+		add_legitimacy = 30
+		add_treasury = -200
+	}
+	option = {
+		name = "byz_main.b.12"
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = byz_main.13
+	title = "byz_main.t.13"
+	desc = "byz_main.d.13"
+	picture = BYZ_REVOLUTION_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		is_year = 3544
+		NOT = {
+			dynasty = "Palaiologos"
+		}
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = LAT
+		}
+	}
+	option = {
+		name = "byz_main.a.13"
+		add_prestige = 5
+		add_legitimacy = 10
+		add_treasury = -100
+	}
+	option = {
+		name = "byz_main.b.13"
+		add_legitimacy = -30
+	}
+}
+
+country_event = {
+	id = byz_main.14
+	title = "byz_main.t.14"
+	desc = "byz_main.d.14"
+	picture = CONQUEST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		is_year = 3543
+		NOT = {
+			is_year = 3563
+		}
+		OR = {
+			tag = BYZ
+			tag = LAT
+		}
+	}
+	mean_time_to_happen = {
+		days = 20
+	}
+	option = {
+		name = "byz_main.a.14"
+		add_treasury = -5
+		cavalry = 151
+		cavalry = 151
+		cavalry = 151
+		cavalry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+	}
+	option = {
+		name = "byz_main.b.14"
+		add_prestige = -1
+	}
+}
+
+country_event = {
+	id = byz_main.15
+	title = "byz_main.t.15"
+	desc = "byz_main.d.15"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Komnenos"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.15"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.15"
+		add_legitimacy = 15
+	}
+}
+
+country_event = {
+	id = byz_main.16
+	title = "byz_main.t.16"
+	desc = "byz_main.d.16"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Doukas"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.16"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.16"
+		add_legitimacy = 15
+	}
+}
+
+country_event = {
+	id = byz_main.17
+	title = "byz_main.t.17"
+	desc = "byz_main.d.17"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Kantakouzenos"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.17"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.17"
+		add_legitimacy = 15
+	}
+}
+
+country_event = {
+	id = byz_main.18
+	title = "byz_main.t.18"
+	desc = "byz_main.d.18"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Angelos"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.18"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.18"
+		add_legitimacy = 15
+	}
+}
+
+#####################################################
+country_event = {
+	id = byz_main.20
+	title = "byz_main.t.20"
+	desc = "byz_main.d.20"
+	picture = CONQUEST_eventPicture
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_at_war = yes
+		years_of_income = 0.2
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	option = {
+		name = "byz_main.a.20"
+		add_years_of_income = -0.2
+		cavalry = 151
+		cavalry = 151
+		cavalry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+	}
+	option = {
+		name = "byz_main.b.20"
+		add_army_tradition = 10
+	}
+}
+
+#events from EU4 event contest
+country_event = {
+	id = byz_main.22
+	title = "byz_main.t.22"
+	desc = "byz_main.d.22"
+	picture = BYZ_DRAGON_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_year = 3553
+		NOT = {
+			is_year = 3558
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "byz_main.a.22"
+		add_treasury = -50
+		define_general = {
+			name = "Vladimir II Shevchuk"
+			fire = 5
+			manuever = 3
+			siege = 2
+			shock = 5
+		}
+	}
+	option = {
+		name = "byz_main.b.22"
+		add_prestige = 10
+	}
+}
+
+country_event = {
+	id = byz_main.23
+	title = "byz_main.t.23"
+	desc = "byz_main.d.23"
+	picture = BYZ_BATTLE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_year = 3549
+		NOT = {
+			is_year = 3552
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "byz_main.a.23"
+		add_manpower = 8
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		add_prestige = -20
+	}
+	option = {
+		name = "byz_main.b.23"
+		add_prestige = 10
+	}
+}
+
+country_event = {
+	id = byz_main.24
+	title = "byz_main.t.24"
+	desc = "byz_main.d.24"
+	picture = BYZ_COURT_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_year = 3546
+		NOT = {
+			is_year = 3549
+		}
+		exists = SER
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "byz_main.a.24"
+		add_casus_belli = {
+			target = SER
+			type = cb_insult
+			months = 12
+		}
+		add_prestige = 5
+		add_legitimacy = -10
+	}
+	option = {
+		name = "byz_main.b.24"
+		add_prestige = -5
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.c.24"
+		add_prestige = -10
+		add_legitimacy = 15
+		add_treasury = -20
+	}
+}
+
+country_event = {
+	id = byz_main.25
+	title = "byz_main.t.25"
+	desc = "byz_main.d.25"
+	picture = BYZ_JERUSALEM_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		owns = 377		#Aleppo
+	}
+	mean_time_to_happen = {
+		months = 3
+	}
+	option = {
+		name = "byz_main.a.25"
+		add_prestige = 10
+		add_adm_power = 30
+		add_treasury = -50
+	}
+	option = {
+		name = "byz_main.b.25"
+		add_dip_power = 50
+		add_prestige = 5
+		add_treasury = -50
+	}
+	option = {
+		name = "byz_main.c.25"
+		add_mil_power = 50
+		add_prestige = 5
+		add_treasury = -50
+	}
+}
+
+country_event = {
+	id = byz_main.26
+	title = "byz_main.t.26"
+	desc = "byz_main.d.26"
+	picture = ACCUSATION_eventPicture
+	mean_time_to_happen = {
+		months = 240
+	}
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		has_regency = no
+		years_of_income = 0.2
+	}
+	option = {
+		name = "byz_main.a.26"
+		add_prestige = 1
+		random_list = {
+			50 = {
+				add_years_of_income = 0.2
+			}
+			50 = {
+				add_years_of_income = -0.2
+			}
+		}
+	}
+	option = {
+		name = "byz_main.b.26"
+		add_prestige = -1
+	}
+}
+
+country_event = {
+	id = byz_main.27
+	title = "byz_main.t.27"
+	desc = "byz_main.d.27"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Phokas"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.27"
+		add_prestige = 5
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.27"
+		add_legitimacy = 15
+	}
+}
+
+country_event = {
+	id = byz_main.28
+	title = "byz_main.t.28"
+	desc = "byz_main.d.28"
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		dynasty = "Laskaris"
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.28"
+		add_prestige = 5
+		add_legitimacy = 10
+	}
+	option = {
+		name = "byz_main.b.28"
+		add_legitimacy = 15
+	}
+}
+
+country_event = {
+	id = byz_main.29
+	title = "byz_main.t.29"
+	desc = "byz_main.d.29"
+	picture = BYZ_RIOT_eventPicture_eventPicture
+	mean_time_to_happen = {
+		months = 340
+	}
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_at_war = no
+	}
+	option = {
+		name = "byz_main.a.29"
+		add_prestige = -3
+		random_list = {
+			50 = {
+				add_years_of_income = 0.8
+			}
+			50 = {
+				add_prestige = -3
+			}
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+	option = {
+		name = "byz_main.b.29"
+		add_prestige = -3
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.30
+	title = "byz_main.t.30"
+	desc = "byz_main.d.30"
+	picture = BYZ_RIOT_eventPicture_eventPicture
+	mean_time_to_happen = {
+		months = 360
+	}
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_at_war = no
+	}
+	option = {
+		name = "byz_main.a.30"
+		add_prestige = -5
+		random_list = {
+			40 = {
+				add_prestige = -3
+			}
+			50 = {
+				add_prestige = 10
+			}
+			10 = {
+				add_stability = 1
+			}
+		}
+	}
+	option = {
+		name = "byz_main.b.30"
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = byz_main.31
+	title = "byz_main.t.31"
+	desc = "byz_main.d.31"
+	picture = BYZ_EMPEROR_eventPicture
+	mean_time_to_happen = {
+		months = 320
+	}
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+		is_at_war = no
+	}
+	option = {
+		name = "byz_main.a.31"
+		random_list = {
+			50 = {
+				add_prestige = -5
+			}
+			50 = {
+				add_prestige = 5
+			}
+		}
+	}
+	option = {
+		trigger = {
+			years_of_income = 0.1
+		}
+		name = "byz_main.b.31"
+		add_years_of_income = -0.1
+	}
+}
+
+country_event = {
+	id = byz_main.32
+	title = "byz_main.t.32"
+	desc = "byz_main.d.32"
+	picture = STREET_SPEECH_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = PQR
+			tag = LAT
+		}
+	}
+	option = {
+		name = "byz_main.a.32"
+		add_prestige = 10
+	}
+}
+
+country_event = {
+	id = byz_main.34
+	title = "byz_main.t.34"
+	desc = "byz_main.d.34"
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.34"
+		add_ruler_modifier = {
+			name = byz_parakoimomenos
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.b.34"
+		add_ruler_modifier = {
+			name = byz_protovestiarios
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.c.34"
+		add_ruler_modifier = {
+			name = byz_pinkernes
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.e.34"
+		add_ruler_modifier = {
+			name = byz_kanikleios
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.f.34"
+		add_ruler_modifier = {
+			name = byz_trapezes
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.35
+	title = "byz_main.t.35"
+	desc = "byz_main.d.35"
+	picture = BORDER_TENSION_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.35"
+		add_ruler_modifier = {
+			name = byz_domestikos
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.b.35"
+		add_ruler_modifier = {
+			name = byz_strategos
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.c.35"
+		add_ruler_modifier = {
+			name = byz_protostrator
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.e.35"
+		add_ruler_modifier = {
+			name = byz_megasdoux
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.f.35"
+		add_ruler_modifier = {
+			name = byz_ethnarches
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.36
+	title = "byz_main.t.36"
+	desc = "byz_main.d.36"
+	picture = BANKRUPTCY_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.36"
+		add_ruler_modifier = {
+			name = byz_protasekretis
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.b.36"
+		add_ruler_modifier = {
+			name = byz_genikou
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.c.36"
+		add_ruler_modifier = {
+			name = byz_dromou
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.e.36"
+		add_ruler_modifier = {
+			name = byz_stratiotikou
+			duration = -1
+		}
+	}
+	option = {
+		name = "byz_main.f.36"
+		add_ruler_modifier = {
+			name = byz_sakellarios
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.37
+	title = "byz_main.t.37"
+	desc = "byz_main.d.37"
+	picture = WESTERNISATION_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		tag = BYZ
+		ai = no
+		is_year = 3542
+		NOT = {
+			is_year = 3543
+		}
+	}
+	option = {
+		name = "byz_main.a.37"
+		add_treasury = 9999
+	}
+	option = {
+		name = "byz_main.b.37"
+	}
+}
+
+country_event = {
+	id = byz_main.38
+	title = "byz_main.t.38"
+	desc = "byz_main.d.38"
+	picture = TOURNAMENT_eventPicture
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	trigger = {
+		ai = no
+	}
+	option = {
+		name = "byz_main.a.38"
+		add_legitimacy = 20
+		add_ruler_modifier = {
+			name = byz_games
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.39
+	title = "byz_main.t.39"
+	desc = "byz_main.d.39"
+	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
+	mean_time_to_happen = {
+		months = 600
+	}
+	trigger = {
+		ai = no
+		has_regency = no
+		NOT = {
+			stability = 3
+		}
+	}
+	option = {
+		name = "byz_main.a.39"
+		random_list = {
+			50 = {
+				change_adm = -1
+			}
+			50 = {
+				change_dip = -1
+			}
+		}
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = byz_main.40
+	title = "byz_main.t.40"
+	desc = "byz_main.d.40"
+	picture = ANGRY_MOB_eventPicture
+	mean_time_to_happen = {
+		months = 120
+	}
+	trigger = {
+		is_at_war = no
+		has_female_heir = yes
+		NOT = {
+			heir_adm = 6
+		}
+		NOT = {
+			heir_dip = 6
+		}
+		NOT = {
+			heir_mil = 6
+		}
+		NOT = {
+			has_country_modifier = deserters
+		}
+	}
+	option = {
+		name = "byz_main.a.40"
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+			}
+			pretender_rebels = 1
+			change_siege = 20			#so they take them quickly
+		}
+		random_owned_province = {
+			limit = {
+				is_core = ROOT
+			}
+			pretender_rebels = 2
+			change_siege = 20			#so they take them quickly
+		}
+		add_country_modifier = {
+			name = "deserters"
+			duration = 1825
+		}
+		add_prestige = -10
+	}
+	option = {
+		name = "byz_main.b.40"
+		trigger = {
+			OR = {
+				heir_adm = 6
+				heir_dip = 6
+				heir_mil = 6
+			}
+		}
+		add_prestige = 1
+	}
+}
+
+country_event = {
+	id = byz_main.41
+	title = "byz_main.t.41"
+	desc = "byz_main.d.41"
+	picture = ORTHODOX_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 12
+	}
+	trigger = {
+		has_country_modifier = pentarchy_mod
+	}
+	option = {
+		name = "byz_main.a.41"
+	}
+}
+
+country_event = {
+	id = byz_main.42
+	title = "byz_main.t.42"
+	desc = "byz_main.d.42"
+	picture = CONQUEST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_opinion = {
+			who = PAP
+			value = 75
+		}
+		religion = catholic
+		OR = {
+			tag = BYZ
+			tag = LAT
+		}
+		OR = {
+			defensive_war_with = TUR
+			offensive_war_with = TUR
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	option = {
+		name = "byz_main.a.42"
+		cavalry = 151
+		cavalry = 151
+		cavalry = 151
+		cavalry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		infantry = 151
+		add_treasury = 150
+	}
+	option = {
+		name = "byz_main.b.42"
+		add_prestige = -1
+	}
+}
+
+country_event = {
+	id = byz_main.43
+	title = "byz_main.t.43"
+	desc = "byz_main.d.43"
+	picture = CONQUEST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_country_modifier = byz_moved_rome
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.43"
+		set_capital = 118
+		118 = {
+			add_base_tax = 3
+			add_base_manpower = 3
+			add_base_production = 3
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.54
+	title = "byz_main.t.54"
+	desc = "byz_main.d.54"
+	picture = CONQUEST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		ai = yes
+		OR = {
+			tag = ROM
+			tag = ROW
+			tag = BYZ
+			tag = LAT
+		}
+		NOT = {
+			num_of_heavy_ship = 30
+		}
+		has_country_modifier = byz_navy
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.54"
+		remove_country_modifier = byz_navy
+	}
+}
+
+country_event = {
+	id = byz_main.77
+	title = "byz_main.t.77"
+	desc = "byz_main.desc.77"
+	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
+	is_triggered_only = yes
+	trigger = {
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.77"
+		trigger = {
+			corruption = 1
+			NOT = {
+				corruption = 10
+			}
+		}
+		add_country_modifier = {
+			name = "invcorrupt_1"
+			duration = 3650
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 5
+			}
+		}
+	}
+	option = {
+		name = "byz_main.b.77"
+		trigger = {
+			corruption = 10
+			NOT = {
+				corruption = 20
+			}
+		}
+		add_country_modifier = {
+			name = "invcorrupt_2"
+			duration = 3650
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 10
+			}
+		}
+	}
+	option = {
+		name = "byz_main.c.77"
+		trigger = {
+			corruption = 20
+			NOT = {
+				corruption = 40
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 10
+			}
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 20
+			}
+		}
+		add_country_modifier = {
+			name = "invcorrupt_3"
+			duration = 3650
+		}
+	}
+	option = {
+		name = "byz_main.d.77"
+		trigger = {
+			corruption = 40
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 40
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 20
+			}
+		}
+		add_country_modifier = {
+			name = "invcorrupt_4"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.88
+	title = "byz_main.t.88"
+	desc = "byz_main.d.88"
+	picture = FALLOFROME_eventPicture
+	trigger = {
+		ai = no
+		ROM = {
+			exists = no
+		}
+		118 = {
+			owner = {
+				NOT = {
+					tag = ROW
+				}
+				NOT = {
+					tag = BYZ
+				}
+				NOT = {
+					tag = PQR
+				}
+			}
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.88"
+		add_prestige = 1
+	}
+}
+
+country_event = {
+	id = byz_main.89
+	title = "byz_main.t.89"
+	desc = "byz_main.d.89"
+	picture = FALLOFROME_eventPicture
+	trigger = {
+		ai = no
+		ROM = {
+			exists = no
+		}
+		151 = {
+			owner = {
+				NOT = {
+					tag = ROW
+				}
+				NOT = {
+					tag = BYZ
+				}
+				NOT = {
+					tag = PQR
+				}
+			}
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = "byz_main.a.88"
+		add_prestige = 1
+	}
+}
+
+country_event = {
+	id = byz_main.41
+	title = "byz_main.t.41"
+	desc = "byz_main.d.41"
+	picture = ORTHODOX_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 12
+	}
+	trigger = {
+		has_country_modifier = pentarchy_mod
+	}
+	option = {
+		name = "byz_main.a.41"
+	}
+}
+
+country_event = {
+	id = byz_main.63
+	title = offer_financial_compensation_title
+	desc = offer_financial_compensation_desc
+	is_triggered_only = yes
+	option = {
+		name = "Wait for their response"
+		random_list = {
+			40 = {
+				country_event = {
+					id = byz_main.64
+					days = 30
+				}
+				# Continue to the next event
+			}
+			40 = {
+				country_event = {
+					id = byz_main.65
+					days = 30
+				}
+				# Continue to the next event
+			}
+			20 = {
+				country_event = {
+					id = byz_main.66
+					days = 30
+				}
+				# Continue to the next event
+			}
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.64
+	title = sassanids_response_title
+	desc = sas_first_response
+	is_triggered_only = yes
+	option = {
+		name = sas_agreed
+		add_treasury = -250		# Remove 5x more money from BYZ
+		ERS = {
+			add_treasury = 250
+		}
+		# Add 5x more money to ERS
+		ERS = {
+			white_peace = ROOT
+		}
+		# Add 25-year truce
+	}
+}
+
+country_event = {
+	id = byz_main.65
+	title = sassanids_demand_more_title
+	desc = sassanids_demand_more_desc
+	is_triggered_only = yes
+	option = {
+		name = agreed_perpetual_peace
+		add_treasury = -500		# Remove 5x more money from BYZ
+		ERS = {
+			add_treasury = 500
+		}
+		# Add 5x more money to ERS
+		ERS = {
+			white_peace = ROOT
+		}
+		# Add 25-year truce
+	}
+}
+
+country_event = {
+	id = byz_main.66
+	title = sassanids_demand_more_title
+	desc = sassanids_demand_more_desc
+	is_triggered_only = yes
+	option = {
+		name = agreed_perpetual_peace
+		add_treasury = -1000		# Remove 5x more money from BYZ
+		ERS = {
+			add_treasury = 1000
+		}
+		# Add 25-year truce
+		ERS = {
+			white_peace = ROOT
+		}
+		# Add 25-year truce
+	}
+	option = {
+		name = "Agree to their demands"
+	}
+}
+
+country_event = {
+	id = byz_main.67
+	title = MEE_Byzantine_Events.5.t
+	desc = MEE_Byzantine_Events.5.d
+	picture = UNIVERSITY_eventPicture
+	mean_time_to_happen = {
+		months = 60
+	}
+	fire_only_once = yes
+	trigger = {
+		mission_completed = crw_rebuild_infresctuture
+		owns = 118
+		not = {
+			118 = {
+				is_capital_of = root
+			}
+		}
+	}
+	goto = 118
+	option = {
+		name = MEE_Byzantine_Events.5.a
+		ai_chance = {
+			factor = 1
+		}
+		capital_scope = {
+			add_province_modifier = {
+				name = BYZ_secondary_capital
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				not = {
+					118 = {
+						is_capital_of = root
+					}
+				}
+			}
+			118 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 4
+				custom_tooltip = ""
+				move_capital_effect = yes
+				add_province_triggered_modifier = BYZ_heart_of_the_empire
+			}
+		}
+	}
+	option = {
+		name = MEE_Byzantine_Events.5.b
+		ai_chance = {
+			factor = 1
+		}
+		118 = {
+			add_province_modifier = {
+				name = BYZ_secondary_capital
+				duration = -1
+			}
+		}
+		capital_scope = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			custom_tooltip = ""
+			add_province_triggered_modifier = BYZ_illustrious_court
+		}
+	}
+}
+
+country_event = {
+	id = byz_main.68
+	title = byz_main.68.t
+	desc = byz_main.68.d
+	picture = UNIVERSITY_eventPicture
+	mean_time_to_happen = {
+		months = 60
+	}
+	fire_only_once = yes
+	trigger = {
+		mashriq_region = {
+			type = all
+			OR = {
+				owned_by = ROOT
+				owner = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		persia_region = {
+			type = all
+			OR = {
+				owned_by = ROOT
+				owner = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+	goto = 410
+	option = {
+		name = byz_main.68.a
+		ai_chance = {
+			factor = 1
+		}
+		410 = {
+			add_province_modifier = {
+				name = BYZ_silkroad_capital
+				duration = -1
+			}
+		}
+	}
+}
+
+# Run to Britanni
+country_event = {
+	id = byz_main.69
+	title = byz_main.69.t
+	desc = byz_main.69.d
+	picture = CIVIL_WAR_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = byz_main.69.a
+		change_tag = SOI
+		swap_free_idea_group = yes
+		swap_non_generic_missions = yes 
+		236 = {
+			move_capital_effect = yes
+		}
+		every_owned_province = {
+			limit = {
+				NOT = {
+					region = british_isles_region
+				}
+			}
+			cede_province = ROW
+			add_core = ROW
+			remove_core = SOI
+		}
+		if = {
+			limit = {
+				has_country_modifier = empire_destabilized
+			}
+			remove_country_modifier = empire_destabilized
+		}
+		if = {
+			limit = {
+				has_country_modifier = empire_declining
+			}
+			remove_country_modifier = empire_declining
+			ROW = {
+				add_country_modifier = {
+					name = empire_destabilized
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = empire_fragmenting
+			}
+			remove_country_modifier = empire_fragmenting
+			ROW = {
+				add_country_modifier = {
+					name = empire_declining
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = empire_collapsing
+			}
+			remove_country_modifier = empire_collapsing
+			ROW = {
+				add_country_modifier = {
+					name = empire_fragmenting
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = total_collapse
+			}
+			remove_country_modifier = total_collapse
+			ROW = {
+				add_country_modifier = {
+					name = empire_collapsing
+					duration = -1
+				}
+			}
+		}
+		ROW = {
+			change_religion = ROOT
+		}
+		ROW = {
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+			cavalry = 118
+			infantry = 118
+			infantry = 118
+			infantry = 118
+		}
+	}
+	option = {
+		name = byz_main.69.b
+	}
+}

@@ -1,0 +1,29 @@
+svgr3 = {
+	category = influence
+	
+	require_acceptance = no
+	
+	is_visible = { # Only for Players
+		ROOT = {
+			ai = no
+		}
+	}
+	
+	is_allowed = {
+		FROM = {
+			is_subject_of = ROOT # Needs to be our Subject
+			NOT = { # Must be Loyal
+				liberty_desire = 99
+			}
+		}
+	}
+	
+	on_accept = {
+		FROM = {
+			set_government_rank = 10
+		}
+	}
+	
+	ai_will_do = 0
+	
+}

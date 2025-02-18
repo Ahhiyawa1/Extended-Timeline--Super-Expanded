@@ -1,0 +1,237 @@
+namespace = byz_new_heir
+country_event = {
+	id = byz_new_heir.19
+	title = "byz_new_heir.t.19"
+	desc = "byz_new_heir.d.19"
+	picture = BYZ_GOOD_WITH_MONARCH_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			has_reform = roman_constitutional_reform
+		}
+		modifier = {
+			factor = 0.8
+			ruler_age = 40
+		}
+		modifier = {
+			factor = 0.7
+			ruler_age = 45
+		}
+		modifier = {
+			factor = 0.6
+			ruler_age = 50
+		}
+		modifier = {
+			factor = 0.5
+			ruler_age = 55
+		}
+		modifier = {
+			factor = 0.4
+			ruler_age = 60
+		}
+		modifier = {
+			factor = 0.3
+			ruler_age = 65
+		}
+		modifier = {
+			factor = 0.2
+			ruler_age = 70
+		}
+		modifier = {
+			factor = 0.1
+			ruler_age = 75
+		}
+	}
+	trigger = {
+		has_heir = no
+		ai = no
+		has_regency = no
+		OR = {
+			tag = BYZ
+			tag = ROM
+			tag = ROW
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.a.19"
+		add_legitimacy = 15
+		define_heir = {
+			claim = 50
+			dynasty = "Komnenos"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.b.19"
+		add_legitimacy = 15
+		define_heir = {
+			claim = 50
+			dynasty = "Kantakouzenos"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.c.19"
+		add_legitimacy = 15
+		define_heir = {
+			claim = 50
+			dynasty = "Doukas"
+			name = "Michael"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.e.19"
+		add_legitimacy = 15
+		define_heir = {
+			claim = 50
+			dynasty = "Angelos"
+			name = "Alexander"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.f.19"
+		add_legitimacy = 15
+		define_heir = {
+			claim = 50
+			dynasty = "Palaiologos"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.g.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Phokas"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.i.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Theodosian"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.zc.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Flavian"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = BYZ
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.zk.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Justinian"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.zg.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Julio-Claudian"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.zb.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Nerva-Antonine"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.k.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Constantinian"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				tag = ROW
+				tag = ROM
+			}
+		}
+		name = "byz_new_heir.zt.19"
+		define_heir = {
+			claim = 50
+			dynasty = "Macedonian"
+		}
+	}
+	option = {
+		name = "byz_new_heir.zu.19"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+}

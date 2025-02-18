@@ -228,6 +228,31 @@ vassal = {
 
 	max_government_rank = 10 #MOD
 
+	can_fight = {
+		independent_nations = yes
+		other_overlord = all
+	}
+		can_rival = {
+		independent_nations = yes
+		other_overlord = all
+	}
+		can_ally = {
+		same_overlord = vassal
+		same_overlord = march
+		same_overlord = daimyo_vassal
+		same_overlord = client_vassal
+		same_overlord = client_march
+		same_overlord = appanage
+	}
+		can_marry = {
+		same_overlord = vassal
+		same_overlord = march
+		same_overlord = daimyo_vassal
+		same_overlord = client_vassal
+		same_overlord = client_march
+		same_overlord = appanage
+	}
+
 	liberty_desire_development_ratio = 0.0
 	liberty_desire_same_dynasty = -15.0
 	pays_overlord = 1.0
@@ -276,14 +301,6 @@ vassal = {
 			overlord = {
 				has_government_attribute = same_religion_subject_bonus
 				religion = PREV
-			}
-		}
-	}
-	modifier_subject = {
-		modifier = GER_extra_prov_trade_power
-		trigger = {
-			overlord = {
-				has_estate_privilege = estate_burghers_GER_customs_union
 			}
 		}
 	}
@@ -1598,16 +1615,6 @@ nahuatl_tributary = {
 			}
 		}
 		modifier = azt_nahuatl_tributary_buff
-	}
-	modifier_overlord = {
-		trigger = {
-			overlord = {
-				has_estate_privilege = estate_nobles_MAY_spread_dynastic_influence
-				dynasty = ROOT
-			}
-
-		}
-		modifier = may_dynastic_influence_modifier
 	}
 }
 
