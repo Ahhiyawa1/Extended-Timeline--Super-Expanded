@@ -154,7 +154,7 @@ AI_wants_to_be_influenced_by_trigger = { # THIS == Target, $who$ == Great Power
 			
 			if = { # Any province in home region is owned by '$who$'
 				limit = {
-					NOT = { is_year = 1700 }
+					NOT = { is_year = 3798 }
 					NOT = { has_global_flag = age_of_influence } # Set flag to enable early
 				}
 				capital_scope = {
@@ -260,7 +260,7 @@ AI_wants_to_influence_trigger = { # THIS == Great Power, $who$ == Target
 			
 			if = { # Any owned province is in home region of '$who$'
 				limit = {
-					NOT = { is_year = 1700 }
+					NOT = { is_year = 3798 }
 					NOT = { has_global_flag = age_of_influence } # Set flag to enable early
 				}
 				any_owned_province = {
