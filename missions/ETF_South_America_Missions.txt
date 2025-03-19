@@ -1,0 +1,124 @@
+# south_america_slot_5 = {
+	# slot = 5
+	# generic = yes # IN CASE ANOTHER MOD ADDS A PROPER TREE!
+	# ai = yes
+	# potential = {
+		# capital_scope = {
+			# continent = south_america
+		# }
+		# NOT = { map_setup = map_setup_random }
+	# }
+
+	# south_america_democratize = {
+		# icon = mission_alliances
+		# required_missions = {}
+		# trigger = {
+			# is_democracy = yes
+		# }
+		# effect = {
+			# add_prestige_or_monarch_power = { amount = 20 }
+			# add_country_modifier = {
+				# name = south_america_immigration
+				# duration = 7300 # 20 years
+			# }
+		# }
+		# ai_weight = {
+			# factor = 50
+		# }
+	# }
+
+	# south_america_utilize_resources = {
+		# icon = mission_high_income
+		# required_missions = {}
+		# trigger = {
+			# any_owned_province = {
+				# OR = {
+					# trade_goods = coal
+					# trade_goods = iron
+					# trade_goods = oil
+				# }
+				# development = 12
+			# }
+		# }
+		# effect = {
+			# every_owned_province = {
+				# limit = {
+					# OR = {
+						# trade_goods = coal
+						# trade_goods = iron
+						# trade_goods = oil
+					# }
+					# development = 12
+				# }
+				# add_province_modifier = {
+					# name = south_america_resources
+					# duration = 7300 # 20 years
+				# }
+			# }
+		# }
+		# ai_weight = {
+			# factor = 50
+		# }
+	# }
+
+	# south_america_independence_or_cooperation = {
+		# icon = mission_have_two_subjects
+		# required_missions = {}
+		# trigger = {
+			# OR = {
+				# AND = {
+					# is_subject = no
+					# army_size_percentage = 1
+					# all_core_province = {
+						# owned_by = ROOT
+					# }
+				# }
+				# AND = {
+					# is_subject = yes
+					# overlord = {
+						# has_opinion = {
+							# who = ROOT
+							# value = 150
+						# }
+					# }
+				# }
+			# }
+		# }
+		# effect = {
+			# custom_tooltip = south_america_independence_tt
+			# tooltip = {
+				# add_country_modifier = {
+					# name = south_america_our_own_path
+					# duration = 7300 # 20 years
+				# }
+			# }
+			# custom_tooltip = south_america_cooperation_tt
+			# tooltip = {
+				# add_country_modifier = {
+					# name = south_america_free_markets
+					# duration = 7300 # 20 years
+				# }
+			# }
+			# hidden_effect = {
+				# if = {
+					# limit = {
+						# is_subject = no
+					# }
+					# add_country_modifier = {
+						# name = south_america_our_own_path
+						# duration = 7300 # 20 years
+					# }
+				# }
+				# else = {
+					# add_country_modifier = {
+						# name = south_america_free_markets
+						# duration = 7300 # 20 years
+					# }
+				# }
+			# }
+		# }
+		# ai_weight = {
+			# factor = 50
+		# }
+	# }
+# }
