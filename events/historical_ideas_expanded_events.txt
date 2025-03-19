@@ -1,0 +1,33 @@
+namespace = historical_ideas_expanded_events
+
+#Sets HNI global flag
+country_event = {
+	id = historical_ideas_expanded_events.1
+	title = historical_ideas_expanded_events.EVTNAME1
+	desc = historical_ideas_expanded_events.EVTDESC1
+	picture = DIPLOMACY_eventPicture
+
+	hidden = yes
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = historical_ideas_expanded_mod_active
+			every_country = {
+				limit = { country_has_both_hie_vanilla_ideas = yes }
+				set_variable = {
+					which = historical_idea_expanded_swapped_ideas
+					value = 0
+				}
+			}
+		}
+	}
+
+	option = {
+		name = historical_ideas_expanded_events1.EVTOPT1
+
+		ai_chance = { factor = 100 }
+	}
+}

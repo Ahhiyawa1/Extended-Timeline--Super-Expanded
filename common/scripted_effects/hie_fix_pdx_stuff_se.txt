@@ -1,0 +1,230 @@
+hie_fix_broken_pdx_shit_effect = {
+	hidden_effect = {
+		every_owned_province = {
+			hie_build_cost_reduction_in_jungle_update = yes
+
+			hie_colonial_growth_in_colombian_provs_update = yes
+			hie_colonial_growth_in_mexican_provs_update = yes
+
+			hie_dev_cost_reduction_in_arctic_update = yes
+			hie_dev_cost_reduction_in_desert_update = yes
+			hie_dev_cost_reduction_in_dryland_update = yes
+			hie_dev_cost_reduction_in_jungle_update = yes
+			hie_dev_cost_reduction_in_jungle_strong_update = yes
+			hie_dev_cost_reduction_in_highlands_hills_mountains_update = yes
+			hie_dev_cost_reduction_in_metal_provs_update = yes
+			hie_dev_cost_reduction_in_tropic_update = yes
+
+			hie_enemy_movement_speed_in_owned_provs_update = yes
+
+			hie_gov_cost_reduction_primary_culture_update = yes
+			hie_gov_cost_reduction_prussia_update = yes
+
+			hie_gwa_land_of_the_ancients_update = yes
+
+			hie_unrest_build_cost_primary_culture_update = yes
+
+			hie_no_slaves_update = yes
+
+			hie_dgl_the_cowrie_trade_update = yes
+			hie_ita_culla_rinascimento_update = yes
+			hie_ita_sar_statute_sabaudiae_update = yes
+			hie_rajput_clan_system_update = yes
+			hie_revived_visigothic_codes_modifier_update = yes
+			hie_spa_ara_union_of_crowns_update = yes
+			hie_spa_bas_basque_shipyard_demand_update = yes
+			hie_spa_gal_modernized_camino_real_update = yes
+			hie_parliament_seat_dev_governing_cost_update = yes
+			hie_trade_power_in_highlands_hills_mountains_update = yes
+		}
+		every_subject_country = {
+			hie_spa_gal_asiento_system_update = yes
+		}
+		hie_eic_residency_update = yes
+
+		if = {
+			limit = { has_idea = hie_spa_por_imperator_hispanie_et_lusitanie }
+			country_event = { id = HIE_Events.1 }
+		}
+		if = {
+			limit = { has_idea = hie_pga_braccio_montone }
+			add_country_modifier = {
+				name = hie_pga_braccio_montone_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_idea = hie_ven_fanti_mar }
+			add_country_modifier = {
+				name = hie_ven_fanti_mar_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_idea = hie_ita_gpv_fanti_da_mar }
+			add_country_modifier = {
+				name = hie_ita_gpv_fanti_da_mar_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_idea = hie_hol_soldaten_ter_zee }
+			add_country_modifier = {
+				name = hie_hol_soldaten_ter_zee_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_idea = hie_nag_deogarh_fort }
+			capital_scope = {
+				add_province_modifier = {
+					name = hie_nag_deogarh_fort_modifier
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = hie_idr_the_phoenix_of_rajasthan
+					has_idea = hie_kat_rajputisation
+				}
+			}
+			unlock_estate = { estate = estate_rajput }
+		}
+		if = {
+			limit = { has_idea = hie_khd_rule_by_respect }
+			unlock_estate = { estate = estate_dhimmi }
+		}
+		if = {
+			limit = { has_idea = hie_khd_rule_by_respect }
+			unlock_estate = { estate = estate_dhimmi }
+		}
+		if = {
+			limit = { has_idea = hie_mlw_rajputs_and_marathas }
+			unlock_estate = { estate = estate_maratha }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = hie_mer_lead_the_confederation
+					has_idea = hie_rjp_guards_of_bharat
+				}
+			}
+			add_country_modifier = {
+				name = hie_mer_the_legion_mewar_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = hie_grk_rajput_heritage
+					has_idea = hie_npl_rajput_heritage
+				}
+			}
+			add_country_modifier = {
+				name = hie_grk_rajput_heritage_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { has_idea = hie_mew_alwar }
+			capital_scope = {
+				add_province_modifier = {
+					name = hie_mew_alwar_modifier
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = { has_idea = hie_mul_the_secret_network }
+			set_country_flag = no_scholar_adm_cost
+			set_country_flag = enabled_baseline_invite_scholar
+		}
+	}
+}
+
+hie_fix_broken_pdx_shit_removed_effect = {
+	hidden_effect = {
+		every_owned_province = {
+			hie_build_cost_reduction_in_jungle_update = yes
+
+			hie_colonial_growth_in_colombian_provs_update = yes
+			hie_colonial_growth_in_mexican_provs_update = yes
+
+			hie_dev_cost_reduction_in_arctic_update = yes
+			hie_dev_cost_reduction_in_desert_update = yes
+			hie_dev_cost_reduction_in_dryland_update = yes
+			hie_dev_cost_reduction_in_jungle_update = yes
+			hie_dev_cost_reduction_in_jungle_strong_update = yes
+			hie_dev_cost_reduction_in_highlands_hills_mountains_update = yes
+			hie_dev_cost_reduction_in_metal_provs_update = yes
+			hie_dev_cost_reduction_in_tropic_update = yes
+
+			hie_enemy_movement_speed_in_owned_provs_update = yes
+
+			hie_gov_cost_reduction_primary_culture_update = yes
+			hie_gov_cost_reduction_prussia_update = yes
+
+			hie_gwa_land_of_the_ancients_update = yes
+
+			hie_unrest_build_cost_primary_culture_update = yes
+
+			hie_no_slaves_update = yes
+
+			hie_dgl_the_cowrie_trade_update = yes
+			hie_ita_culla_rinascimento_update = yes
+			hie_ita_sar_statute_sabaudiae_update = yes
+			hie_rajput_clan_system_update = yes
+			hie_revived_visigothic_codes_modifier_update = yes
+			hie_spa_ara_union_of_crowns_update = yes
+			hie_spa_bas_basque_shipyard_demand_update = yes
+			hie_spa_gal_modernized_camino_real_update = yes
+			hie_parliament_seat_dev_governing_cost_update = yes
+			hie_trade_power_in_highlands_hills_mountains_update = yes
+		}
+		every_subject_country = {
+			hie_spa_gal_asiento_system_update = yes
+		}
+		hie_eic_residency_update = yes
+
+		remove_country_modifier = hie_ven_fanti_mar_modifier
+		remove_country_modifier = hie_hol_soldaten_ter_zee_modifier
+		remove_country_modifier = hie_ita_gpv_fanti_da_mar_modifier
+		remove_country_modifier = hie_pga_braccio_montone_modifier
+		remove_country_modifier = hie_mer_the_legion_mewar_modifier
+		remove_country_modifier = hie_grk_rajput_heritage_modifier
+
+		if = {
+			limit = { has_idea = hie_nag_deogarh_fort }
+			every_owned_province = { remove_province_modifier = hie_nag_deogarh_fort_modifier }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = hie_idr_the_phoenix_of_rajasthan
+					has_idea = hie_kat_rajputisation
+				}
+			}
+			disable_estate_effect = { estate = estate_rajput }
+		}
+		if = {
+			limit = { has_idea = hie_khd_rule_by_respect }
+			disable_estate_effect = { estate = estate_dhimmi }
+		}
+		if = {
+			limit = { has_idea = hie_mlw_rajputs_and_marathas }
+			disable_estate_effect = { estate = estate_maratha }
+		}
+		if = {
+			limit = { has_idea = hie_mew_alwar }
+			every_owned_province = { remove_province_modifier = hie_mew_alwar_modifier }
+		}
+		if = {
+			limit = { has_idea = hie_mul_the_secret_network }
+			clr_country_flag = no_scholar_adm_cost
+			clr_country_flag = enabled_baseline_invite_scholar
+		}
+	}
+}

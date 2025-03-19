@@ -1,0 +1,249 @@
+on_startup = {
+	country_event = { id = historical_ideas_expanded_events.1 } # set flag
+	hie_fix_broken_pdx_shit_effect = yes
+}
+
+on_admiral_recruited = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = hie_gbr_redcoats
+				has_idea = hie_ita_gpv_arsenali_marittimi_militari
+			}
+		}
+		add_army_professionalism = 0.005
+	}
+}
+
+on_general_recruited = {
+	if = {
+		limit = {
+			has_idea = hie_mug_mansab_dar
+		}
+		add_corruption = -0.1
+	}
+}
+
+#ROOT = new capital province, FROM = old capital
+on_capital_moved = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_nag_deogarh_fort }
+		}
+		add_province_modifier = {
+			name = hie_nag_deogarh_fort_modifier
+			duration = -1
+		}
+		FROM = {
+			remove_province_modifier = hie_nag_deogarh_fort_modifier
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_idea = hie_mew_alwar }
+		}
+		add_province_modifier = {
+			name = hie_mew_alwar_modifier
+			duration = -1
+		}
+		FROM = {
+			remove_province_modifier = hie_mew_alwar_modifier
+		}
+	}
+}
+
+
+#scope = new country, FROM = parent country
+on_colonial_nation_established = {
+	hie_spa_gal_asiento_system_update = yes
+}
+
+
+##scope = colony province, FROM = owner country or province if there's a minority expulsion source, fires when the colony is created
+on_colony_established = {
+	hie_colonial_growth_in_mexican_provs_update = yes
+	hie_colonial_growth_in_colombian_provs_update = yes
+}
+on_abandon_colony = { #ROOT - Province
+	hie_colonial_growth_in_mexican_provs_update = yes
+	hie_colonial_growth_in_colombian_provs_update = yes
+
+}
+on_colony_finished = { #ROOT - Province
+	hie_colonial_growth_in_mexican_provs_update = yes
+	hie_colonial_growth_in_colombian_provs_update = yes
+
+}
+
+# ROOT = Overlord, FROM = Minor
+on_dependency_gained = {
+	FROM = {
+		hie_spa_gal_asiento_system_update = yes
+	}
+	hie_eic_residency_update = yes
+}
+
+# ROOT = Overlord, FROM = Minor
+on_dependency_lost = {
+	FROM = { hie_spa_gal_asiento_system_update = yes }
+	hie_eic_residency_update = yes
+}
+
+#ROOT = province that was expanded in, FROM = country that did it
+on_expanded_infrastructure = {
+	hie_spa_gal_modernized_camino_real_update = yes
+}
+on_expanded_infrastructure_removed = {
+	hie_spa_gal_modernized_camino_real_update = yes
+}
+
+on_monthly_pulse = {
+	if = {
+		limit = { has_country_flag = is_kingdom_of_god_flag }
+		country_event = { id = HIE_Events.2 }
+	}
+}
+
+on_new_age = {
+	if = {
+		limit = {
+			country_has_both_hie_vanilla_ideas = yes
+			ai = no
+		}
+		clr_country_flag = hie_swap_ideas_@ROOT
+		set_variable = {
+			which = historical_idea_expanded_swapped_ideas
+			value = 0
+		}
+	}
+}
+# OBS: Consider that the following on_actions can be called for Personal Union juniors as well.
+# country
+on_new_monarch = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = hie_ita_mfv_stella_forte
+				has_idea = hie_dhu_divine_lineage
+			}
+		}
+		random = {
+			chance = 2
+			random_list = {
+				33 = {
+					define_heir = {
+						dynasty = ROOT
+						religion = ROOT
+						claim = 100
+						adm = 6
+					}
+				}
+				33 = {
+					define_heir = {
+						dynasty = ROOT
+						religion = ROOT
+						claim = 100
+						dip = 6
+					}
+				}
+				33 = {
+					define_heir = {
+						dynasty = ROOT
+						religion = ROOT
+						claim = 100
+						mil = 6
+					}
+				}
+			}
+		}
+	}
+}
+
+#province
+on_parliament_seat_given = {
+	hie_parliament_seat_dev_governing_cost_update = yes
+}
+
+#province
+on_parliament_seat_lost = {
+	hie_parliament_seat_dev_governing_cost_update = yes
+}
+
+on_primary_culture_changed = {
+	every_owned_province = {
+		hie_revived_visigothic_codes_modifier_update = yes
+		hie_gov_cost_reduction_primary_culture_update = yes
+		hie_unrest_build_cost_primary_culture_update = yes
+	}
+}
+
+# province, general conversion through effects
+on_province_culture_changed = {
+	hie_gov_cost_reduction_primary_culture_update = yes
+	hie_gov_cost_reduction_prussia_update = yes
+	hie_unrest_build_cost_primary_culture_update = yes
+
+	hie_revived_visigothic_codes_modifier_update = yes
+	hie_ita_sar_statute_sabaudiae_update = yes
+	hie_rajput_clan_system_update = yes
+}
+
+# FROM = old owner
+on_province_owner_change = {
+	hie_build_cost_reduction_in_jungle_update = yes
+
+	hie_colonial_growth_in_colombian_provs_update = yes
+	hie_colonial_growth_in_mexican_provs_update = yes
+
+	hie_dev_cost_reduction_in_arctic_update = yes
+	hie_dev_cost_reduction_in_desert_update = yes
+	hie_dev_cost_reduction_in_dryland_update = yes
+	hie_dev_cost_reduction_in_jungle_update = yes
+	hie_dev_cost_reduction_in_jungle_strong_update = yes
+	hie_dev_cost_reduction_in_highlands_hills_mountains_update = yes
+	hie_dev_cost_reduction_in_metal_provs_update = yes
+	hie_dev_cost_reduction_in_tropic_update = yes
+
+	hie_enemy_movement_speed_in_owned_provs_update = yes
+
+	hie_gov_cost_reduction_primary_culture_update = yes
+	hie_gov_cost_reduction_prussia_update = yes
+
+	hie_unrest_build_cost_primary_culture_update = yes
+
+	hie_no_slaves_update = yes
+
+	hie_dgl_the_cowrie_trade_update = yes
+	hie_ita_culla_rinascimento_update = yes
+	hie_ita_sar_statute_sabaudiae_update = yes
+	hie_rajput_clan_system_update = yes
+	hie_revived_visigothic_codes_modifier_update = yes
+	hie_spa_ara_union_of_crowns_update = yes
+	hie_spa_bas_basque_shipyard_demand_update = yes
+	hie_spa_gal_modernized_camino_real_update = yes
+	hie_parliament_seat_dev_governing_cost_update = yes
+
+	hie_gwa_land_of_the_ancients_update = yes
+	hie_trade_value_in_hill_update = yes
+}
+
+# ROOT = province, FROM = country
+on_trade_good_changed = {
+	hie_dev_cost_reduction_in_metal_provs_update = yes
+	hie_no_slaves_update = yes
+	hie_spa_bas_basque_shipyard_demand_update = yes
+}
+
+# root = winning country, from = loser country
+on_war_won = {
+	if = {
+		limit = {
+			has_idea = hie_ita_cru_dio_lo_vuole
+			FROM = {
+				NOT = { religion = ROOT }
+			}
+		}
+		add_prestige = 1
+		add_yearly_manpower = 1
+	}
+}
