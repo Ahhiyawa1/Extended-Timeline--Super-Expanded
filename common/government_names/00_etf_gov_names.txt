@@ -217,7 +217,7 @@ gov_soviet_socialist_republic = {
 			country_is = { tag = UZB }
 		}
 		is_communist = yes
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		
 		is_subject_other_than_tributary_trigger = yes
 		overlord = {
@@ -260,7 +260,7 @@ gov_autonomous_soviet_socialist_republic = {
 			country_is = { tag = YKU }
 		}
 		is_communist = yes
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		
 		is_subject_other_than_tributary_trigger = yes
 		overlord = {
@@ -283,7 +283,7 @@ gov_special_administrative_region = {
 	
 	trigger = {
 		government = republic
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		NOT = { has_reform = chinese_warlord_clique }
 		
 		OR = {
@@ -1111,7 +1111,7 @@ gov_chinese_warlord_clique = {
 			}
 			has_reform = chinese_warlord_clique
 		}
-		NOT = { government_rank = 3 }
+		NOT = { government_rank = 10 }
 	}
 }
 
@@ -2965,7 +2965,7 @@ JER_bailiwick_of_jersey_ceremonial_monarchy = {
 	trigger = {
 		tag = JER
 		government = monarchy
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		has_government_attribute = has_prime_minister
 	}
 }
@@ -2984,7 +2984,7 @@ JER_bailiwick_of_jersey = {
 	trigger = {
 		tag = JER
 		government = monarchy
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -3002,7 +3002,7 @@ KOI_lordship_of_mann_ceremonial_monarchy = {
 	trigger = {
 		primary_culture = highland_scottish
 		government = monarchy
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		has_government_attribute = has_prime_minister
 	}
 }
@@ -3274,7 +3274,7 @@ gov_state_ceremonial_monarchy = {
                     tag = BHR
                     tag = QTR
                 }
-                NOT = { government_rank = 2 }
+                NOT = { government_rank = 8 }
             }
         }
         government = monarchy
@@ -3285,19 +3285,19 @@ gov_state_ceremonial_monarchy = {
 
 IRA_imperial_state = {
 	rank = {
-		3 = IMPERIAL_STATE
+		10 = IMPERIAL_STATE
 	}
 	ruler_male = {
-		3 = SHAH
+		10 = SHAH
 	}
 	ruler_female = {
-		3 = SHAH
+		10 = SHAH
 	}
 
 	trigger = {
 		country_is = { tag = IRA }
 		government = monarchy
-		government_rank = 3
+		government_rank = 10
 	}
 }
 
@@ -3372,7 +3372,7 @@ gov_arab_gulf_state = {
 		}
 		government = monarchy
 		has_reform = royal_power
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -3927,7 +3927,7 @@ gov_malaysian_ceremonial_monarchy = {
                         }
                     }
                 }
-                NOT = { government_rank = 2 }
+                NOT = { government_rank = 8 }
             }
         }
         primary_culture = malayan
@@ -3997,7 +3997,7 @@ gov_malaysian_monarchy = { # Federation of smaller Sultanates, ruled by "Yang di
                         }
                     }
                 }
-                NOT = { government_rank = 2 }
+                NOT = { government_rank = 8 }
             }
         }
         primary_culture = malayan
@@ -4050,7 +4050,7 @@ gov_british_constituent_country_ceremonial_monarchy = {
 		}
 		government = monarchy
 		has_government_attribute = has_prime_minister
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -4097,7 +4097,7 @@ gov_british_constituent_country = {
 			}
 		}
 		government = monarchy
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -4392,7 +4392,7 @@ gov_sunanate = {
 		NOT = { has_reform = feudal_theocracy }
 		
 		tag = SKT # Surakarta
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -4417,7 +4417,7 @@ gov_minor_sultanate = {
 			culture_group = malay
 			primary_culture = papuan
 		}
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -5140,7 +5140,7 @@ gov_russian_puppet_republic = {
 			government = republic
 		}
 		government = republic
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -5521,7 +5521,7 @@ gov_swiss_confederation = {
         NOT = {
             AND = {
                 tag = SWI
-                NOT = { government_rank = 2 }
+                NOT = { government_rank = 8 }
             }
         }
     }
@@ -5571,7 +5571,7 @@ gov_prince_bishopric = {
 	trigger = {
 		government = theocracy
 		has_reform = prince_bishopric_reform
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 	}
 }
 
@@ -5611,7 +5611,7 @@ ottoman_vassals = {
 		}
 		
 		is_subject_other_than_tributary_trigger = yes
-		NOT = { government_rank = 2 }
+		NOT = { government_rank = 8 }
 		NOT = {
 			AND = {
 				OR = {

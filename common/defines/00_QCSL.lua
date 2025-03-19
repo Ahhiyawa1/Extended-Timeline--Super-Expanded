@@ -3,7 +3,7 @@
 -- NDefines.NDiplomacy.MAX_CLIENT_STATES = 20
 
 NDefines.NCountry.MONARCH_MIN_SKILL	= 4 -- Was 0, but I believe this is less annoying
-NDefines.NCountry.MONARCH_MAX_SKILL = 12 -- 24 from 6, quadrupled.
+NDefines.NCountry.MONARCH_MAX_SKILL = 24 -- 24 from 6, quadrupled.
 NDefines.NCountry.ADVISOR_COST_INCREASE_PER_YEAR = 0.00025 -- Decreased from 0.005
 NDefines.NCountry.MAXIMUM_ADVISOR_SKILL = 8 -- 10 from 5, quadrupled.
 NDefines.NCountry.MINIMUM_ADVISOR_DURATION = 18					-- _CDEF_MINIMUM_ADVISOR_DURATION_ Was 10.

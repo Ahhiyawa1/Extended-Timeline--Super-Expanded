@@ -7,82 +7,89 @@ christian = {
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = calvinist_school_modifier }
+				NOT = {
+					has_country_modifier = calvinist_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 }
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = swiss
-				accepted_culture = swiss
-						}
+					OR = {
+						primary_culture = swiss
+						accepted_culture = swiss
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = calvinist_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = calvinist_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = calvinist_school_modifier
-
 			picture = "GFX_icon_christian_school_calvinist"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			idea_cost = -0.05 #0.1
+			idea_cost = -0.05			#0.1
 		}
 		huguenots_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = huguenots_school_modifier }
+				NOT = {
+					has_country_modifier = huguenots_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = gascon
-				accepted_culture = gascon
-				primary_culture = occitain
-				accepted_culture = occitain
-				primary_culture = cosmopolitan_french
-				accepted_culture = cosmopolitan_french
-				primary_culture = burgundian
-				accepted_culture = burgundian
-				primary_culture = normand
-				accepted_culture = normand
-				primary_culture = wallonian
-				accepted_culture = wallonian
-						}
+					OR = {
+						primary_culture = gascon
+						accepted_culture = gascon
+						primary_culture = occitain
+						accepted_culture = occitain
+						primary_culture = cosmopolitan_french
+						accepted_culture = cosmopolitan_french
+						primary_culture = burgundian
+						accepted_culture = burgundian
+						primary_culture = normand
+						accepted_culture = normand
+						primary_culture = wallonian
+						accepted_culture = wallonian
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = huguenots_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = huguenots_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = huguenots_school_modifier
-
 			picture = "GFX_icon_christian_school_huguenot"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			diplomatic_reputation = 1
 		}
@@ -91,84 +98,90 @@ christian = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = baptists_school_modifier }
+				NOT = {
+					has_country_modifier = baptists_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = american
-				accepted_culture = american
-				primary_culture = quebecois
-				accepted_culture = quebecois
-				primary_culture = louisianans
-				accepted_culture = louisianans
-						}
+					OR = {
+						primary_culture = american
+						accepted_culture = american
+						primary_culture = quebecois
+						accepted_culture = quebecois
+						primary_culture = louisianans
+						accepted_culture = louisianans
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = baptists_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = baptists_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = baptists_school_modifier
-
 			picture = "GFX_icon_christian_school_baptist"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			tolerance_own = 1 #2
+			tolerance_own = 1			#2
 		}
 		knoxite_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = knoxite_school_modifier }
+				NOT = {
+					has_country_modifier = knoxite_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = scottish
-				accepted_culture = scottish
-				primary_culture = highland_scottish
-				accepted_culture = highland_scottish
-				primary_culture = irish
-				accepted_culture = irish
-						}
+					OR = {
+						primary_culture = scottish
+						accepted_culture = scottish
+						primary_culture = highland_scottish
+						accepted_culture = highland_scottish
+						primary_culture = irish
+						accepted_culture = irish
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = knoxite_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = knoxite_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = knoxite_school_modifier
-
 			picture = "GFX_icon_christian_school_knoxite"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			#land_morale = 0.05 #0.1
 			global_manpower_modifier = 0.1
@@ -178,139 +191,148 @@ christian = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = vasantine_school_modifier }
+				NOT = {
+					has_country_modifier = vasantine_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = swedish
-				accepted_culture = swedish
-				primary_culture = finnish
-				accepted_culture = finnish
-				primary_culture = sapmi
-				accepted_culture = sapmi
-				primary_culture = karelian
-				accepted_culture = karelian
-				primary_culture = estonian
-				accepted_culture = estonian
+					OR = {
+						primary_culture = swedish
+						accepted_culture = swedish
+						primary_culture = finnish
+						accepted_culture = finnish
+						primary_culture = sapmi
+						accepted_culture = sapmi
+						primary_culture = karelian
+						accepted_culture = karelian
+						primary_culture = estonian
+						accepted_culture = estonian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = vasantine_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = vasantine_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = vasantine_school_modifier
-
 			picture = "GFX_icon_christian_school_vasanite"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			technology_cost = -0.025 #5
+			technology_cost = -0.025			#5
 		}
 		julianic_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = julianic_school_modifier }
+				NOT = {
+					has_country_modifier = julianic_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = galician
-				accepted_culture = galician
-				primary_culture = leonese
-				accepted_culture = leonese
-				primary_culture = castillian
-				accepted_culture = castillian
-				primary_culture = aragonese
-				accepted_culture = aragonese
-				primary_culture = basque
-				accepted_culture = basque
-				primary_culture = catalan
-				accepted_culture = catalan
-				#primary_culture = valencian
-				#accepted_culture = valencian
-				#primary_culture = balearic
-				#accepted_culture = balearic
+					OR = {
+						primary_culture = galician
+						accepted_culture = galician
+						primary_culture = leonese
+						accepted_culture = leonese
+						primary_culture = castillian
+						accepted_culture = castillian
+						primary_culture = aragonese
+						accepted_culture = aragonese
+						primary_culture = basque
+						accepted_culture = basque
+						primary_culture = catalan
+						accepted_culture = catalan
+						#primary_culture = valencian
+						#accepted_culture = valencian
+						#primary_culture = balearic
+						#accepted_culture = balearic
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = julianic_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = julianic_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = julianic_school_modifier
-
 			picture = "GFX_icon_christian_school_julianic"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			trade_efficiency = 0.05 #0.15
+			trade_efficiency = 0.05			#0.15
 		}
 		socinian_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = socinian_school_modifier }
+				NOT = {
+					has_country_modifier = socinian_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				accepted_culture = transylvanian
-				primary_culture = transylvanian
-				accepted_culture = romanian
-				primary_culture = romanian
+					OR = {
+						accepted_culture = transylvanian
+						primary_culture = transylvanian
+						accepted_culture = romanian
+						primary_culture = romanian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = socinian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = socinian_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = socinian_school_modifier
-
 			picture = "GFX_icon_christian_school_socinian"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			#advisor_cost = -0.1
 			#tolerance_heretic = 2
@@ -319,74 +341,77 @@ christian = {
 		radzian_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
-				religion = reformed #protestant many similarieties but still its reformed
+				religion = reformed				#protestant many similarieties but still its reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = radzian_school_modifier }
+				NOT = {
+					has_country_modifier = radzian_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				accepted_culture = polish
-				primary_culture = polish
-				#accepted_culture = kashubian
-				#primary_culture = kashubian
-				#accepted_culture = kuyavian
-				#primary_culture = kuyavian
-				#primary_culture = mazovian
-				#accepted_culture = mazovian
-				#primary_culture = cracovian
-				#accepted_culture = cracovian
-				#primary_culture = goral
-				#accepted_culture = goral
-				#primary_culture = masurian
-				#accepted_culture = masurian
-				primary_culture = slovak
-				accepted_culture = slovak
-				primary_culture = lithuanian
-				accepted_culture = lithuanian
-				#primary_culture = samogitian
-				#accepted_culture = samogitian
-				#primary_culture = pruthenian
-				#accepted_culture = pruthenian
-				#primary_culture = podlachian
-				#accepted_culture = podlachian
-				#primary_culture = poleshuk
-				#accepted_culture = poleshuk
-				#primary_culture = boyko
-				#accepted_culture = boyko
-				#primary_culture = hutsul
-				#accepted_culture = hutsul
-				#primary_culture = lemko
-				#accepted_culture = lemko
-				primary_culture = ruthenian
-				accepted_culture = ruthenian
-				#primary_culture = zaporizhian
-				#accepted_culture = zaporizhian
-				culture_group = slavic
+					OR = {
+						accepted_culture = polish
+						primary_culture = polish
+						#accepted_culture = kashubian
+						#primary_culture = kashubian
+						#accepted_culture = kuyavian
+						#primary_culture = kuyavian
+						#primary_culture = mazovian
+						#accepted_culture = mazovian
+						#primary_culture = cracovian
+						#accepted_culture = cracovian
+						#primary_culture = goral
+						#accepted_culture = goral
+						#primary_culture = masurian
+						#accepted_culture = masurian
+						primary_culture = slovak
+						accepted_culture = slovak
+						primary_culture = lithuanian
+						accepted_culture = lithuanian
+						#primary_culture = samogitian
+						#accepted_culture = samogitian
+						#primary_culture = pruthenian
+						#accepted_culture = pruthenian
+						#primary_culture = podlachian
+						#accepted_culture = podlachian
+						#primary_culture = poleshuk
+						#accepted_culture = poleshuk
+						#primary_culture = boyko
+						#accepted_culture = boyko
+						#primary_culture = hutsul
+						#accepted_culture = hutsul
+						#primary_culture = lemko
+						#accepted_culture = lemko
+						primary_culture = ruthenian
+						accepted_culture = ruthenian
+						#primary_culture = zaporizhian
+						#accepted_culture = zaporizhian
+						culture_group = slavic
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = radzian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = radzian_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = radzian_school_modifier
-
 			picture = "GFX_icon_christian_school_radzian"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			development_cost = -0.05
 		}
@@ -395,98 +420,105 @@ christian = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = reformed
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = presbytarian_school_modifier }
-				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
-					alliance_with = FROM
-					is_subject_of = FROM
-					overlord_of = FROM
-				OR = {
-				primary_culture = scottish
-				accepted_culture = scottish
-				primary_culture = highland_scottish
-				accepted_culture = highland_scottish
-				primary_culture = irish
-				accepted_culture = irish
-				primary_culture = american
-				accepted_culture = american
-						}
+				NOT = {
+					has_country_modifier = presbytarian_school_modifier
 				}
-				hidden_progressive_opinion_for_scholar_trigger = yes
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				adm_power_cost = 50
-				clear_religious_scholar_modifiers_effect = yes
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = presbytarian_school_modifier duration = 7300 }
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = presbytarian_school_modifier
-
-			picture = "GFX_icon_christian_school_presbyterian"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			#war_exhaustion_cost = -0.10
-			administrative_efficiency = 0.025 #0.05
-		}
-		zwinglian_school = {
-			potential_invite_scholar = {
-				#knows_of_scholar_country_capital_trigger = yes
-				religion = reformed #protestant
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				adm_power_cost = 50
-				NOT = { has_country_modifier = zwinglian_school_modifier }
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = { #south german
-				TAG = TTL
-				TAG = GNV
-				TAG = SAV
-				TAG = SPI
-				#accepted_culture = swiss
-				#primary_culture = swabian
-				#accepted_culture = swabian
-				#primary_culture = bavarian
-				#accepted_culture = bavarian
-				#primary_culture = austrian
-				#accepted_culture = austrian
-				#primary_culture = franconian
-				#accepted_culture = franconian
-				#primary_culture = hessian
-				#accepted_culture = hessian
+					OR = {
+						primary_culture = scottish
+						accepted_culture = scottish
+						primary_culture = highland_scottish
+						accepted_culture = highland_scottish
+						primary_culture = irish
+						accepted_culture = irish
+						primary_culture = american
+						accepted_culture = american
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = zwinglian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = presbytarian_school_modifier
+					duration = 7300
+				}
 			}
-
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = presbytarian_school_modifier
+			picture = "GFX_icon_christian_school_presbyterian"
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			#war_exhaustion_cost = -0.10
+			administrative_efficiency = 0.025			#0.05
+		}
+		zwinglian_school = {
+			potential_invite_scholar = {
+				#knows_of_scholar_country_capital_trigger = yes
+				religion = reformed				#protestant
+			}
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				adm_power_cost = 50
+				NOT = {
+					has_country_modifier = zwinglian_school_modifier
+				}
+				OR = {
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
+					alliance_with = FROM
+					is_subject_of = FROM
+					overlord_of = FROM
+					OR = {
+						#south german
+						TAG = TTL
+						TAG = GNV
+						TAG = SAV
+						TAG = SPI
+						#accepted_culture = swiss
+						#primary_culture = swabian
+						#accepted_culture = swabian
+						#primary_culture = bavarian
+						#accepted_culture = bavarian
+						#primary_culture = austrian
+						#accepted_culture = austrian
+						#primary_culture = franconian
+						#accepted_culture = franconian
+						#primary_culture = hessian
+						#accepted_culture = hessian
+					}
+				}
+				hidden_progressive_opinion_for_scholar_trigger = yes
+			}
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				adm_power_cost = 50
+				clear_religious_scholar_modifiers_effect = yes
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = {
+					name = zwinglian_school_modifier
+					duration = 7300
+				}
+			}
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = zwinglian_school_modifier
-
 			picture = "GFX_icon_christian_school_zwinglist"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			defensiveness = 0.1 #0.2
+			defensiveness = 0.1			#0.2
 		}
 		##### PROTESTANT SCHOOLS #####
 		lutheran_school = {
@@ -494,322 +526,346 @@ christian = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = lutheran_school_modifier }
+				NOT = {
+					has_country_modifier = lutheran_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 }
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = saxon
-				accepted_culture = saxon
-						}
+					OR = {
+						primary_culture = saxon
+						accepted_culture = saxon
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = lutheran_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = lutheran_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = lutheran_school_modifier
-
 			picture = "GFX_icon_christian_school_lutheran"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			land_morale = 0.025 #0.05 OP
+			land_morale = 0.025			#0.05 OP
 		}
-melanchton_school = {
+		melanchton_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = melanchton_school_modifier }
+				NOT = {
+					has_country_modifier = melanchton_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = franconian
-				accepted_culture = franconian
+					OR = {
+						primary_culture = franconian
+						accepted_culture = franconian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = melanchton_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = melanchton_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = melanchton_school_modifier
-
 			picture = "GFX_icon_christian_school_melanchton"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			adm_tech_cost_modifier = -0.05 #moderate approach and focus on education and humanist scholarship
+			adm_tech_cost_modifier = -0.05			#moderate approach and focus on education and humanist scholarship
 		}
-didymus_school = {
+		didymus_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = didymus_school_modifier }
+				NOT = {
+					has_country_modifier = didymus_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = swabian
-				accepted_culture = swabian
+					OR = {
+						primary_culture = swabian
+						accepted_culture = swabian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = didymus_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = didymus_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = didymus_school_modifier
-
 			picture = "GFX_icon_christian_school_didymus"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-					global_heretic_missionary_strength = 0.02
+			global_heretic_missionary_strength = 0.02
 		}
-osiander_school = {
+		osiander_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = osiander_school_modifier }
+				NOT = {
+					has_country_modifier = osiander_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = bavarian
-				accepted_culture = bavarian
+					OR = {
+						primary_culture = bavarian
+						accepted_culture = bavarian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = osiander_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = osiander_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = osiander_school_modifier
-
 			picture = "GFX_icon_christian_school_osiander"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			ae_impact = -0.05
 		}
-bucer_school = {
+		bucer_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = bucer_school_modifier }
+				NOT = {
+					has_country_modifier = bucer_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = hessian
-				accepted_culture = hessian
+					OR = {
+						primary_culture = hessian
+						accepted_culture = hessian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = bucer_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = bucer_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = bucer_school_modifier
-
 			picture = "GFX_icon_christian_school_bucer"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			relation_with_same_religion = 10
 		}
-wied_school = {
+		wied_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = wied_school_modifier }
+				NOT = {
+					has_country_modifier = wied_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = hannoverian
-				accepted_culture = hannoverian
+					OR = {
+						primary_culture = hannoverian
+						accepted_culture = hannoverian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = wied_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = wied_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = wied_school_modifier
-
 			picture = "GFX_icon_christian_school_wied"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			reverse_relation_with_heretic_religion = 10
 		}
-bugenhagen_school = {
+		bugenhagen_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = bugenhagen_school_modifier }
+				NOT = {
+					has_country_modifier = bugenhagen_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = lower_saxon
-				accepted_culture = lower_saxon
+					OR = {
+						primary_culture = lower_saxon
+						accepted_culture = lower_saxon
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = bugenhagen_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = bugenhagen_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = bugenhagen_school_modifier
-
 			picture = "GFX_icon_christian_school_bugenhagen"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			monthly_church_power = 0.5
 		}
-tausenite_school = {
+		tausenite_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = tausenite_school_modifier }
+				NOT = {
+					has_country_modifier = tausenite_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = danish
-				accepted_culture = danish
-				primary_culture = norwegian
-				accepted_culture = norwegian
-				primary_culture = icelandic
-				accepted_culture = icelandic
-				primary_culture = scanian
-				accepted_culture = scanian
-				primary_culture = norse
-				accepted_culture = norse
-				primary_culture = latvian
-				accepted_culture = latvian
-				primary_culture = lithuanian
-				accepted_culture = lithuanian
+					OR = {
+						primary_culture = danish
+						accepted_culture = danish
+						primary_culture = norwegian
+						accepted_culture = norwegian
+						primary_culture = icelandic
+						accepted_culture = icelandic
+						primary_culture = scanian
+						accepted_culture = scanian
+						primary_culture = norse
+						accepted_culture = norse
+						primary_culture = latvian
+						accepted_culture = latvian
+						primary_culture = lithuanian
+						accepted_culture = lithuanian
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = tausenite_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = tausenite_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = tausenite_school_modifier
-
 			picture = "GFX_icon_christian_school_tausenite"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			#
 			prestige = 1
@@ -817,197 +873,209 @@ tausenite_school = {
 		arminian_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
-				religion = reformed #ok
+				religion = reformed				#ok
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = arminian_school_modifier }
+				NOT = {
+					has_country_modifier = arminian_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 }
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
 					OR = {
-				primary_culture = frisian
-				accepted_culture = frisian
-				primary_culture = dutch
-				accepted_culture = dutch
-				primary_culture = flemish
-				accepted_culture = flemish
+						primary_culture = frisian
+						accepted_culture = frisian
+						primary_culture = dutch
+						accepted_culture = dutch
+						primary_culture = flemish
+						accepted_culture = flemish
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = arminian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = arminian_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = arminian_school_modifier
-
 			picture = "GFX_icon_christian_school_arminian"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			#tolerance_heathen = 1
-			production_efficiency = 0.05 #0.1
+			production_efficiency = 0.05			#0.1
 		}
 		bironic_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = bironic_school_modifier }
+				NOT = {
+					has_country_modifier = bironic_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = hungarian
-				accepted_culture = hungarian
-				primary_culture = croatian
-				accepted_culture = croatian
-				primary_culture = transylvanian
-				accepted_culture = transylvanian
-				primary_culture = romanian
-				accepted_culture = romanian
-				primary_culture = slovene
-				accepted_culture = slovene
-				primary_culture = bosnian
-				accepted_culture = bosnian
-				primary_culture = serbian
-				accepted_culture = serbian
-				primary_culture = bulgarian
-				accepted_culture = bulgarian
-				primary_culture = slovak
-				accepted_culture = slovak
-				culture_group = slavic
+					OR = {
+						primary_culture = hungarian
+						accepted_culture = hungarian
+						primary_culture = croatian
+						accepted_culture = croatian
+						primary_culture = transylvanian
+						accepted_culture = transylvanian
+						primary_culture = romanian
+						accepted_culture = romanian
+						primary_culture = slovene
+						accepted_culture = slovene
+						primary_culture = bosnian
+						accepted_culture = bosnian
+						primary_culture = serbian
+						accepted_culture = serbian
+						primary_culture = bulgarian
+						accepted_culture = bulgarian
+						primary_culture = slovak
+						accepted_culture = slovak
+						culture_group = slavic
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = bironic_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = bironic_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = bironic_school_modifier
-
 			picture = "GFX_icon_christian_school_bironic"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			core_creation = -0.05 #0.1
+			core_creation = -0.05			#0.1
 		}
 		molinist_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = protestant
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = molinist_school_modifier }
+				NOT = {
+					has_country_modifier = molinist_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = galician
-				accepted_culture = galician
-				primary_culture = leonese
-				accepted_culture = leonese
-				primary_culture = castillian
-				accepted_culture = castillian
-				primary_culture = aragonese
-				accepted_culture = aragonese
-				primary_culture = basque
-				accepted_culture = basque
-				primary_culture = catalan
-				accepted_culture = catalan
-				primary_culture = valencian
-				accepted_culture = valencian
-				primary_culture = balearic
-				accepted_culture = balearic
+					OR = {
+						primary_culture = galician
+						accepted_culture = galician
+						primary_culture = leonese
+						accepted_culture = leonese
+						primary_culture = castillian
+						accepted_culture = castillian
+						primary_culture = aragonese
+						accepted_culture = aragonese
+						primary_culture = basque
+						accepted_culture = basque
+						primary_culture = catalan
+						accepted_culture = catalan
+						primary_culture = valencian
+						accepted_culture = valencian
+						primary_culture = balearic
+						accepted_culture = balearic
 					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = molinist_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = molinist_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = molinist_school_modifier
-
 			picture = "GFX_icon_christian_school_molinist"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			state_maintenance_modifier = -0.25
 		}
-##### HUSSITE #####
+		##### HUSSITE #####
 		utraquism_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = hussite
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = utraquism_school_modifier }
+				NOT = {
+					has_country_modifier = utraquism_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 }
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = sorbian
-				accepted_culture = sorbian
+					OR = {
+						primary_culture = sorbian
+						accepted_culture = sorbian
 					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = utraquism_school
-}
+				set_religious_school = {
+					group = christian
+					school = utraquism_school
+				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = utraquism_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = utraquism_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = utraquism_school_modifier
-
 			picture = "GFX_icon_christian_school_utraquism"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			development_cost_in_primary_culture = -0.05
 			reverse_relation_with_heretic_religion = 5
@@ -1017,41 +1085,44 @@ set_religious_school = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = hussite
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = orebites_school_modifier }
+				NOT = {
+					has_country_modifier = orebites_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = czech
-				accepted_culture = czech
+					OR = {
+						primary_culture = czech
+						accepted_culture = czech
 					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = orebites_school
-}
+				set_religious_school = {
+					group = christian
+					school = orebites_school
+				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = orebites_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = orebites_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = orebites_school_modifier
-
 			picture = "GFX_icon_christian_school_orebites"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			#relation_with_heretics = 0
 			manpower_in_true_faith_provinces = 0.1
@@ -1062,41 +1133,44 @@ set_religious_school = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = hussite
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = taborites_school_modifier }
+				NOT = {
+					has_country_modifier = taborites_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = slovak
-				accepted_culture = slovak
+					OR = {
+						primary_culture = slovak
+						accepted_culture = slovak
 					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = taborites_school
-}
+				set_religious_school = {
+					group = christian
+					school = taborites_school
+				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = taborites_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = taborites_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = taborites_school_modifier
-
 			picture = "GFX_icon_christian_school_taborites"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			shock_damage = 0.05
 			reverse_relation_with_heretic_religion = -15
@@ -1106,54 +1180,57 @@ set_religious_school = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = hussite
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = moravian_school_modifier }
+				NOT = {
+					has_country_modifier = moravian_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				#primary_culture = moravian
-				#accepted_culture = moravian
-				tag = MVA
-				265 = {
-				owned_by = ROOT
-				is_core = ROOT
-				}
-				4237 = {
-				owned_by = ROOT
-				is_core = ROOT
-				}
-				4726 = {
-				owned_by = ROOT
-				is_core = ROOT
-				}
+					OR = {
+						#primary_culture = moravian
+						#accepted_culture = moravian
+						tag = MVA
+						265 = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+						4237 = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+						4726 = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
 					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = moravian_school
-}
+				set_religious_school = {
+					group = christian
+					school = moravian_school
+				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = moravian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = moravian_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = moravian_school_modifier
-
 			picture = "GFX_icon_christian_school_moravian"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			reform_progress_growth = 0.05
 			reverse_relation_with_heretic_religion = -5
@@ -1163,287 +1240,303 @@ set_religious_school = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = hussite
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = neoadamites_school_modifier }
+				NOT = {
+					has_country_modifier = neoadamites_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = schlesian
-				accepted_culture = schlesian
+					OR = {
+						primary_culture = schlesian
+						accepted_culture = schlesian
 					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = neoadamites_school
-}
+				set_religious_school = {
+					group = christian
+					school = neoadamites_school
+				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = neoadamites_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = neoadamites_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = neoadamites_school_modifier
-
 			picture = "GFX_icon_christian_school_neoadamites"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			enforce_religion_cost = -0.15
 			reverse_relation_with_heretic_religion = -20
 		}
-##### ANGLICAN #####
-cranmer_school = {
+		##### ANGLICAN #####
+		cranmer_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = anglican
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = cranmer_school_modifier }
+				NOT = {
+					has_country_modifier = cranmer_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
 					AND = {
-				culture_group = british
-				NOT = {
-				primary_culture = american
-				}
-				}
-				}
-				#hidden_progressive_opinion_for_scholar_trigger = yes
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				adm_power_cost = 50
-				clear_religious_scholar_modifiers_effect = yes
-set_religious_school = {
-    group = christian
-    school = cranmer_school
-}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = cranmer_school_modifier duration = 7300 }
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = cranmer_school_modifier
-
-			picture = "GFX_icon_christian_school_cranmer"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			monthly_reform_progress = 0.1 #5
-		}
-wycliffe_school = {
-			potential_invite_scholar = {
-				#knows_of_scholar_country_capital_trigger = yes
-				religion = anglican
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				adm_power_cost = 50
-				NOT = { has_country_modifier = wycliffe_school_modifier }
-				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
-					alliance_with = FROM
-					is_subject_of = FROM
-					overlord_of = FROM
-					AND = {
-				culture_group = british
-				NOT = {
-				primary_culture = american
-				}
-				}
+						culture_group = british
+						NOT = {
+							primary_culture = american
+						}
+					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				set_religious_school = {
-   				 group = christian
-   				 school = wycliffe_school
+					group = christian
+					school = cranmer_school
 				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = wycliffe_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = cranmer_school_modifier
+					duration = 7300
+				}
 			}
-
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = cranmer_school_modifier
+			picture = "GFX_icon_christian_school_cranmer"
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			monthly_reform_progress = 0.1			#5
+		}
+		wycliffe_school = {
+			potential_invite_scholar = {
+				#knows_of_scholar_country_capital_trigger = yes
+				religion = anglican
+			}
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+			can_invite_scholar = {
+				adm_power_cost = 50
+				NOT = {
+					has_country_modifier = wycliffe_school_modifier
+				}
+				OR = {
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
+					alliance_with = FROM
+					is_subject_of = FROM
+					overlord_of = FROM
+					AND = {
+						culture_group = british
+						NOT = {
+							primary_culture = american
+						}
+					}
+				}
+				#hidden_progressive_opinion_for_scholar_trigger = yes
+			}
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				adm_power_cost = 50
+				clear_religious_scholar_modifiers_effect = yes
+				set_religious_school = {
+					group = christian
+					school = wycliffe_school
+				}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = {
+					name = wycliffe_school_modifier
+					duration = 7300
+				}
+			}
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = wycliffe_school_modifier
-
 			picture = "GFX_icon_christian_school_wycliffe"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			yearly_innovativeness = 0.25
 		}
-tyndale_school = {
+		tyndale_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = anglican
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = tyndale_school_modifier }
+				NOT = {
+					has_country_modifier = tyndale_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
 					AND = {
-				culture_group = british
-				NOT = {
-				primary_culture = american
-				}
-				}
+						culture_group = british
+						NOT = {
+							primary_culture = american
+						}
+					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				set_religious_school = {
-   				 group = christian
-   				 school = tyndale_school
+					group = christian
+					school = tyndale_school
 				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = tyndale_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = tyndale_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = tyndale_school_modifier
-
 			picture = "GFX_icon_christian_school_tyndale"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			stability_cost_modifier = -0.1
 		}
-hooper_school = {
+		hooper_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = anglican
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = hooper_school_modifier }
+				NOT = {
+					has_country_modifier = hooper_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
 					AND = {
-				culture_group = british
-				NOT = {
-				primary_culture = american
-				}
-				}
+						culture_group = british
+						NOT = {
+							primary_culture = american
+						}
+					}
 				}
 				#hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				set_religious_school = {
-   				 group = christian
-   				 school = hooper_school
+					group = christian
+					school = hooper_school
 				}
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = hooper_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = hooper_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = hooper_school_modifier
-
 			picture = "GFX_icon_christian_school_hooper"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			monthly_church_power = 0.1
 		}
-puritan_school = {
+		puritan_school = {
 			potential_invite_scholar = {
 				#knows_of_scholar_country_capital_trigger = yes
 				religion = anglican
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				adm_power_cost = 50
-				NOT = { has_country_modifier = puritan_school_modifier }
+				NOT = {
+					has_country_modifier = puritan_school_modifier
+				}
 				OR = {
-					reverse_has_opinion = { who = FROM value = 150 } #150
+					reverse_has_opinion = {
+						who = FROM
+						value = 150
+					}					#150
 					alliance_with = FROM
 					is_subject_of = FROM
 					overlord_of = FROM
-				OR = {
-				primary_culture = american
-				accepted_culture = american
-						}
+					OR = {
+						primary_culture = american
+						accepted_culture = american
+					}
 				}
 				hidden_progressive_opinion_for_scholar_trigger = yes
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = puritan_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = puritan_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = puritan_school_modifier
-
 			picture = "GFX_icon_christian_school_puritan"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			global_missionary_strength = 0.01 #
+			global_missionary_strength = 0.01			#
 		}
-null_christian_school = {
+		null_christian_school = {
 			potential_invite_scholar = {
 			}
-
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
 				always = no
 			}
-
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				adm_power_cost = 50
 				clear_religious_scholar_modifiers_effect = yes
 				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = null_christian_school_modifier duration = 7300 }
+				add_country_modifier = {
+					name = null_christian_school_modifier
+					duration = 7300
+				}
 			}
-
 			# If you don't set this it will expand on_invite_scholar effect which might be super big
 			invite_scholar_modifier_display = null_christian_school_modifier
-
 			picture = "GFX_icon_christian_school_base"
-
 			# religion_sub_modifier = no is possible, will hide icon in religious screen
 			religion_sub_modifier = no
 		}
