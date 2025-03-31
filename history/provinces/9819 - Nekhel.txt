@@ -25,53 +25,92 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = barbarian
 discovered_by = western
-1793.1.1 = { owner = PT0 controller = PT0 add_core = PT0 }
-2090.1.1 = { controller = ROM }
+1793.1.1 = { owner = PT0 controller = PT0 add_core = PT0 } 
+2090.1.1 = { 
+    owner = ROM
+    controller = ROM
+    add_core = ROM
+    remove_core = PT0
+}
+
+2100.1.1 = { controller = ROM add_core = ROM remove_core = PT0 owner = ROM }
 2493.1.17 = { 
-	controller = BYZ
-	add_core = BYZ
+    controller = BYZ
+    owner = BYZ
+    add_core = BYZ
+    remove_core = ROM
 }
-2498.1.1 = { religion = Chalcedonism }
-2716.1.1 = { controller = ERS }
-2726.1.1 = { controller = BYZ }
+
+2498.1.1 = { religion = chalcedonism } 
+2716.1.1 = { controller = ERS } 
+2726.1.1 = { controller = BYZ } 
 2733.1.1 = { 
-	controller = RSD
-	add_core = RSD
+    owner = RSD
+    controller = RSD
+    add_core = RSD
+    remove_core = BYZ
 }
+
 2759.7.28 = { 
-	controller = UMA
-	add_core = UMA
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = RSD
 }
-2818.1.1 = { religion = Sunni culture = al_misr_arabic }
+
+2818.1.1 = { religion = sunni culture = al_misr_arabic } 
 2848.8.6 = { 
-	controller = ABA
-	add_core = ABA
+    owner = ABA
+    controller = ABA
+    add_core = ABA
+    remove_core = UMA
 }
+
 2966.9.15 = { 
-	controller = EGY
-	add_core = EGY
+    owner = EGY
+    controller = EGY
+    add_core = EGY
+    remove_core = ABA
 }
-3003.1.10 = { controller = ABA }
+
+3003.1.10 = { owner = ABA controller = ABA add_core = ABA } 
 3033.8.26 = { 
-	controller = EGY
+    owner = EGY
+    controller = EGY
+    add_core = EGY
+    remove_core = ABA
 }
-3067.6.1 = { controller = FAT add_core = FAT }
+
+3067.6.1 = { owner = FAT controller = FAT add_core = FAT } 
 3269.1.1 = { 
-	controller = EGY
+    owner = EGY
+    controller = EGY
+    add_core = EGY
+    remove_core = FAT
 }
+
 3348.5.2 = { 
-	controller = MAM
-	add_core = MAM
+    owner = MAM
+    controller = MAM
+    add_core = MAM
+    remove_core = EGY
 }
-3615.1.1 = { controller = TUR add_core = TUR }
+
+3615.1.1 = { owner = TUR controller = TUR add_core = TUR } 
 3903.5.17 = { 
-	controller = EGY
+    owner = EGY
+    controller = EGY
+    add_core = EGY
+    remove_core = MAM
 }
-3948.1.1 = { capital = "Nekhel" }
+
 3980.9.13 = { 
-	controller = GBR
-	add_core = GBR
+    owner = GBR
+    controller = GBR
+    add_core = GBR
+    remove_core = TUR
 }
-4012.12.19 = { controller = EGY }
-4056.2.22 = { controller = ARB add_core = ARB }
-4069.9.2 = { controller = EGY }
+
+4012.12.19 = { owner = EGY controller = EGY remove_core = GBR } 
+4056.2.22 = { owner = ARB controller = ARB add_core = ARB } 
+4069.9.2 = { owner = EGY controller = EGY remove_core = ARB } 
