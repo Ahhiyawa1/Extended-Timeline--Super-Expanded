@@ -1,12 +1,15 @@
-#2603 - Vidin
-
-owner = ROM
-controller = ROM
+# Vidin
+# 2746 Vidin - 1/26/2025 8:46:43 AM
+owner = SX9
+controller = SX9
+base_tax = 1
+base_production = 1
+base_manpower = 1
+trade_goods = grain
 culture = thracian
 religion = zamolxism
 capital = "Bononia"
-trade_goods = grain
-hre = no
+is_city = yes
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -17,16 +20,28 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = ROM
-
-2448.1.1 = { owner = GVI controller = GVI add_core = GVI religion = germanic }
-2493.1.17 = { add_core = BYZ remove_core = ROM } # Final division of the empire
-2506.1.1 = { owner = BYZ controller = BYZ remove_core = GVI religion = tengri_pagan_reformed }
-2779.1.1 = { owner = BUL controller = BUL add_core = BUL culture = bulgarian capital = "Vidin" }
+2055.1.1 = { owner = M10 controller = M10 remove_core = ROM add_core = M10 }
+2057.1.1 = { owner = ROM controller = ROM remove_core = M10 add_core = ROM }
+2448.1.1 = { 
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	religion = germanic
+}
+2493.1.17 = { add_core = BYZ remove_core = ROM }
+2506.1.1 = { 
+	owner = BYZ
+	controller = BYZ
+	remove_core = GVI
+	religion = tengri_pagan_reformed
+}
+2779.1.1 = { 
+	owner = BUL
+	controller = BUL
+	add_core = BUL
+	culture = bulgarian
+	capital = "Vidin"
+}
 2962.1.1 = { religion = chalcedonism }
 2965.1.1 = { religion = orthodox }
 2998.1.1 = { base_tax = 2 base_production = 2 }
@@ -35,10 +50,24 @@ add_core = ROM
 3283.1.1 = { owner = BUL controller = BUL }
 3463.6.2 = { owner = HUN controller = HUN }
 3467.9.1 = { owner = BUL controller = BUL }
-3494.1.1 = { owner = TUR controller = TUR add_core = TUR remove_core = BYZ }
-
+3494.1.1 = { 
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_core = BYZ
+}
 3976.1.17 = { controller = RUS }
-3976.3.3  = { controller = TUR }
+3976.3.3 = { controller = TUR }
 3976.7.13 = { owner = BUL controller = BUL remove_core = TUR }
-
 4008.1.1 = { discovered_by = asian }
+2056.1.1 = { 
+	remove_core = M10
+}
+2090.2.1 = { 
+	remove_core = SX9
+}
+add_core = SX9
+fort_15th = yes
+2100.1.1 = { 
+	religion = zamolxism
+}

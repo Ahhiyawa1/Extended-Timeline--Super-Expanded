@@ -1,12 +1,21 @@
-# 12209 - Puruliya
-
+# Puruliya
+# 12209 Puruliya - 1/26/2025 8:46:45 AM 
+ 
+add_core = SUH
 owner = SUH
 controller = SUH
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = naval_supplies
+
 culture = bengali
 religion = hinduism
 capital = "Puruliya"
-trade_goods = naval_supplies
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -15,26 +24,56 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = SUH
 
-2418.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = SUH }
-2648.1.1 = { owner = VGA controller = VGA add_core = VGA remove_core = GUP }
-2724.1.1 = { owner = HRS controller = HRS add_core = HRS remove_core = VGA }
-2745.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = HRS }
-2792.1.1 = { owner = MBL controller = MBL add_core = MBL remove_core = GUP }
-2898.1.1 = { base_manpower = 2 discovered_by = nomad_group }
-3098.1.1 = { base_tax = 3 base_production = 3 }
 
+
+
+2418.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = SUH
+}
+2648.1.1 = {
+	owner = VGA
+	controller = VGA
+	add_core = VGA
+	remove_core = GUP
+}
+2724.1.1 = {
+	owner = HRS
+	controller = HRS
+	add_core = HRS
+	remove_core = VGA
+}
+2745.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = HRS
+}
+2792.1.1 = {
+	owner = MBL
+	controller = MBL
+	add_core = MBL
+	remove_core = GUP
+}
+2898.1.1 = {
+	base_manpower = 2
+	discovered_by = nomad_group
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
 3674.7.12 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
 }
-3725.1.1 = { discovered_by = POR }
+3725.1.1 = {
+	discovered_by = POR
+}
 3805.3.15 = {
 	owner = BNG
 	controller = BNG
@@ -44,10 +83,27 @@ add_core = SUH
 	owner = GBR
 	controller = GBR
 	add_core = GBR
-} # Given to GBR by Mughal Empire (was formerly british puppet)
+}
+3999.1.1 = {
+	base_manpower = 3
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = BNG
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3999.1.1 = { base_manpower = 3 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 4 base_production = 4 }
-4028.1.1  = { add_core = INI remove_core = BNG }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:46:45 AM ###

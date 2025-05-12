@@ -1,12 +1,21 @@
-#521 - Kathiawar
-
+# Rajkot
+# 521 Rajkot - 1/26/2025 8:46:43 AM 
+ 
+add_core = WSA
 owner = WSA
 controller = WSA
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = dyes
+
 culture = gujarati
 religion = hinduism
 capital = "Rajkot"
-trade_goods = dyes
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,65 +27,116 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = WSA
 
-2503.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = WSA }
-2573.1.1 = { owner = GUJ controller = GUJ add_core = GUJ remove_core = GUP }
-2832.1.1 = { owner = PRB controller = PRB add_core = PRB remove_core = GUJ }
-2973.1.1 = { owner = JGD controller = JGD add_core = JGD remove_core = PRB }
-3178.1.1 = { religion = jainism }
-3245.1.1 = { owner = KAT controller = KAT add_core = KAT remove_core = JGD }
-3288.1.1 = { religion = hinduism }
 
+
+
+2503.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = WSA
+}
+2573.1.1 = {
+	owner = GUJ
+	controller = GUJ
+	add_core = GUJ
+	remove_core = GUP
+}
+2832.1.1 = {
+	owner = PRB
+	controller = PRB
+	add_core = PRB
+	remove_core = GUJ
+}
+2973.1.1 = {
+	owner = JGD
+	controller = JGD
+	add_core = JGD
+	remove_core = PRB
+}
+3178.1.1 = {
+	religion = jainism
+}
+3245.1.1 = {
+	owner = KAT
+	controller = KAT
+	add_core = KAT
+	remove_core = JGD
+}
+3288.1.1 = {
+	religion = hinduism
+}
 3568.1.1 = {
 	owner = GUJ
 	controller = GUJ
 	add_core = GUJ
 }
-3596.1.1 = { discovered_by = POR }
+3596.1.1 = {
+	discovered_by = POR
+}
 3638.1.1 = {
 	owner = NVR
 	controller = NVR
 	remove_core = GUJ
-} # Kathiawar independent while Ahmad Shahis are busy with internal conflicts
+}
 3671.6.1 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Conquered by Akbar
+}
 3720.3.1 = {
 	controller = REB
-	revolt = { 
-	type = pretender_rebels 
-	size = 0 
-	name = "Khurrams Faction" 
-	leader = "Shah Jahan Timurid"
-	} 
-} #Should be named Khurram at this point
-3720.7.1 = { controller = MUG revolt = { } } #Retaken by Jahangir and Nur Jahan
+	revolt = {
+		type = pretender_rebels
+		size = 0
+		name = "Khurrams Faction"
+		leader = "Shah Jahan Timurid"
+	}
+
+}
+3720.7.1 = {
+	controller = MUG
+	revolt = {
+	}
+
+}
 3738.1.1 = {
 	owner = RJK
 	controller = RJK
 }
-3823.1.1 = { #Set up vassalage
+3823.1.1 = {
 	owner = BDA
 	controller = BDA
 	add_core = BDA
-	remove_core = MUG	
+	remove_core = MUG
 }
 3900.1.1 = {
 	owner = RJK
 	controller = RJK
-	remove_core = BDA	
+	remove_core = BDA
+}
+4023.1.1 = {
+	base_manpower = 2
+}
+4028.1.1 = {
+	add_core = INI
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+}
+4048.1.1 = {
+	base_tax = 3
+}
+4073.1.1 = {
+	base_production = 3
+}
+4098.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
 }
 
-4023.1.1 = { base_manpower = 2 }
-4028.1.1  = { add_core = INI }
-4045.8.15 = { owner = INI controller = INI }
-4048.1.1 = { base_tax = 3 }
-4073.1.1 = { base_production = 3 }
-4098.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 }
+
+### Modified 1/26/2025 8:46:43 AM ###

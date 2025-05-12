@@ -16,7 +16,6 @@ JHC_ITA_development_branch = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	
 	has_country_shield = yes
@@ -241,7 +240,6 @@ JHC_ITA_gallia_branch = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	
 	has_country_shield = yes
@@ -280,9 +278,9 @@ JHC_ITA_gallia_branch = {
 				option_1 = "
 					if = {
 						limit = {
-							NOT = { government_rank = 10 } 
+							NOT = { government_rank = 3 } 
 						}
-						set_government_rank = 10
+						set_government_rank = 3
 						custom_tooltip = \" \"
 					}
 					add_country_modifier = {
@@ -558,7 +556,6 @@ JHC_ITA_war_branch = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	
 	has_country_shield = yes
@@ -855,7 +852,6 @@ JHC_ITA_unification_branch = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	
 	has_country_shield = yes
@@ -1065,7 +1061,6 @@ JHC_ITA_overseas_branch = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	
 	JHC_ITA_spagna_tarraconense = {
@@ -1311,7 +1306,7 @@ JHC_ITA_overseas_branch = {
 			}
 			else_if = {
 				limit = {
-					any_country = {
+					any_known_country = {
 						capital_scope = {
 							region = horn_of_africa_region
 						}
@@ -1331,6 +1326,9 @@ JHC_ITA_overseas_branch = {
 					area = central_ethiopia_area
 					area = southern_ethiopia_area
 					area = tigray_area
+					area = damot_area
+					area = hadiya_area
+					area = shewa_area
 				}
 			}
 		}
@@ -1338,7 +1336,7 @@ JHC_ITA_overseas_branch = {
 			if = {
 				limit = {
 					OR = {
-						any_country = {
+						any_known_country = {
 							capital_scope = {
 								region = horn_of_africa_region
 							}
@@ -1359,14 +1357,14 @@ JHC_ITA_overseas_branch = {
 					}
 					if = {
 						limit = {
-							any_country = {
+							any_known_country = {
 								capital_scope = {
 									region = horn_of_africa_region
 								}
 								religion_group = christian
 							}
 						}
-						any_country = {
+						any_ally = {
 							custom_trigger_tooltip = {
 								tooltip = emp_ita_befriend_ethiopia_capital_tt
 								capital_scope = {
@@ -1374,7 +1372,6 @@ JHC_ITA_overseas_branch = {
 								}
 							}
 							religion_group = christian
-							alliance_with = ROOT
 						}
 					}
 					else = {
@@ -1389,11 +1386,49 @@ JHC_ITA_overseas_branch = {
 							type = all
 							country_or_non_sovereign_subject_holds = ROOT
 						}
+						damot_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
 						tigray_area = {
 							type = all
 							country_or_non_sovereign_subject_holds = ROOT
 						}
+						shewa_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						hadiya_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
 					}
+				}
+			}
+			else = {
+				central_ethiopia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				southern_ethiopia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				damot_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				tigray_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				shewa_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				hadiya_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
 				}
 			}
 		}
@@ -1462,7 +1497,6 @@ ITA_non_conquest_1 = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -1696,7 +1730,6 @@ ITA_trade_branching_1 = {
 				has_country_flag = ITA_genoa_missions
 			}
 		}
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -1747,7 +1780,6 @@ ITA_genoa_1 = {
 		}
 		NOT = { map_setup = map_setup_random }
 		has_country_flag = ITA_genoa_missions
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 
@@ -1867,7 +1899,6 @@ ITA_venice_1 = {
 		}
 		NOT = { map_setup = map_setup_random }
 		has_country_flag = ITA_venice_missions
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2035,7 +2066,6 @@ ITA_non_conquest_2 = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2275,7 +2305,6 @@ ITA_trade_branching_2 = {
 				has_country_flag = ITA_genoa_missions
 			}
 		}
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2312,7 +2341,6 @@ ITA_genoa_2 = {
 		}
 		NOT = { map_setup = map_setup_random }
 		has_country_flag = ITA_genoa_missions
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2396,7 +2424,6 @@ ITA_venice_2 = {
 		}
 		NOT = { map_setup = map_setup_random }
 		has_country_flag = ITA_venice_missions
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2500,7 +2527,6 @@ ITA_non_conquest_2_cont = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2604,7 +2630,6 @@ ITA_non_conquest_3 = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -2946,7 +2971,6 @@ ITA_non_conquest_4 = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	
@@ -3425,7 +3449,6 @@ ITA_non_conquest_5 = {
 			}
 		}
 		NOT = { map_setup = map_setup_random }
-		started_in = 2592.1.1	#MMETR added to separate from Odoacer tree
 	}
 	has_country_shield = yes
 	

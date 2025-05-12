@@ -14,7 +14,6 @@ emp_bav_prestige_branch = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -66,7 +65,7 @@ emp_bav_prestige_branch = {
 		trigger = {
 			if = {
 				limit = { has_dlc = "Common Sense" }
-				government_rank = 8
+				government_rank = 2
 			}
 			else = { total_development = 300 }
 			is_subject = no
@@ -93,13 +92,13 @@ emp_bav_prestige_branch = {
 			if = {
 				limit = {
 					NOT = { has_dlc = "Common Sense" }
-					NOT = { government_rank = 8 }
+					NOT = { government_rank = 2 }
 					OR = {
 						is_elector = yes
 						is_part_of_hre = no
 					}
 				}
-				set_government_rank = 8
+				set_government_rank = 2
 			}
 		}
 	}
@@ -187,7 +186,6 @@ emp_bav_missions_conquest = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -465,7 +463,6 @@ emp_bav_missions_conquest_2 = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -518,7 +515,6 @@ emp_bav_missions_military = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -593,7 +589,6 @@ emp_bav_cultural_dominance_branch = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -671,7 +666,6 @@ emp_bav_missions_religious = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -805,7 +799,6 @@ emp_bav_missions_illuminati = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1013,7 +1006,6 @@ emp_bav_missions_conquer_austria = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1188,7 +1180,6 @@ emp_bav_missions_conquer_italy = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1264,7 +1255,6 @@ emp_bav_missions_netherlands = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}

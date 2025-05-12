@@ -1,47 +1,97 @@
-#2636 - Ecab
-
-culture = yucatec
+# Ecab
+# 2652 Ecab - 1/26/2025 8:46:43 AM 
+ 
+add_core = ITZ
 owner = ITZ
 controller = ITZ
-add_core = ITZ
-is_city = yes
-religion = mesoamerican_religion
-capital = "Coba"
-trade_goods = fish
-hre = no
-discovered_by = mesoamerican
 base_tax = 3
 base_production = 3
 base_manpower = 1
+
+trade_goods = fish
+
+culture = yucatec
+religion = mesoamerican_religion
+capital = "Coba"
+
+is_city = yes
 add_local_autonomy = 25
 native_size = 5
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 2
 
-2979.1.1 = { owner = TLT controller = TLT add_core = TLT }
-3068.1.1 = { owner = ITZ controller = ITZ add_core = ITZ remove_core = TLT capital = "Ecab" }
-3085.1.1 = { owner = MAY controller = MAY add_core = MAY remove_core = ITZ }
-3539.1.1 = { owner = COC controller = COC add_core = COC }
+discovered_by = mesoamerican
 
-3615.1.1 = { discovered_by = SPA }
+
+
+
+2979.1.1 = {
+	owner = TLT
+	controller = TLT
+	add_core = TLT
+}
+3068.1.1 = {
+	owner = ITZ
+	controller = ITZ
+	add_core = ITZ
+	remove_core = TLT
+	capital = "Ecab"
+}
+3085.1.1 = {
+	owner = MAY
+	controller = MAY
+	add_core = MAY
+	remove_core = ITZ
+}
+3539.1.1 = {
+	owner = COC
+	controller = COC
+	add_core = COC
+}
+3615.1.1 = {
+	discovered_by = SPA
+}
 3645.1.1 = {
-	owner = SPA 
+	owner = SPA
 	controller = SPA
 	add_core = SPA
 	unrest = 5
-} # final defeat of eastern Yucatan alliance
-3670.1.1 = { 
-	unrest = 0
-	religion = catholic 
 }
-3908.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+3670.1.1 = {
+	unrest = 0
+	religion = catholic
+}
+3908.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = SPA
+}
+3919.9.27 = {
+	controller = MEX
+	remove_core = SPA
+}
+3939.3.16 = {
+	owner = YUC
+	controller = YUC
+	add_core = YUC
+}
+3946.7.14 = {
+	owner = MEX
+	controller = MEX
+	remove_core = YUC
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4068.4.20 = {
+	capital = "Cancún"
+}
 
-3919.9.27  = { controller = MEX remove_core = SPA }
-3939.3.16  = { owner = YUC controller = YUC add_core = YUC }
-3946.7.14  = { owner = MEX controller = MEX remove_core = YUC }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4008.1.1 = { discovered_by = western }
-4068.4.20  = { capital = "Cancún" }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

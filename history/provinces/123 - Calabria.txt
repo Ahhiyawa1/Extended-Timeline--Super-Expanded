@@ -1,10 +1,21 @@
-#123 - Calabria
-
+# Calabria
+# 123 Calabria - 1/26/2025 8:46:43 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = fish
+
 culture = griko
-religion = hellenism 
-hre = no 
+religion = hellenism
+capital = "Rhegium"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,60 +23,158 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-trade_goods = fish
-base_manpower = 2
-capital = "Rhegium"
-is_city = yes 
-add_core = ROM
-
-2478.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2634.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = OST }
-2945.1.1 = { owner = BAE controller = BAE add_core = BAE }
-2965.1.1 = { religion = catholic }
-2969.1.1 = { owner = BYZ controller = BYZ remove_core = BAE }
-3158.1.1 = { owner = SIC controller = SIC add_core = SIC remove_core = BYZ capital = "Reggio di Calabria" culture = sicilian }
-3380.1.1 = { owner = NAP controller = NAP add_core = NAP remove_core = SIC }
-
-3592.1.1  = { add_core = FRA } # Angevine claims
-3593.2.22 = { controller = FRA } # Charles VIII invades Naples
-3593.7.7  = { controller = NAP } # Charles VIII leaves Italy
-3600.1.1  = { owner = FRA controller = FRA } # France and Aragon partitions Naples
-3601.6.1  = { owner = ARA controller = ARA add_core = ARA } # France forced to withdraw
-3602.1.31 = { remove_core = FRA } # Treaty of Lyon
-3614.1.23 = {	owner = SPA
-		controller = SPA
-		add_core = SPA
-	    	remove_core = ARA
-	    } # Unification of Spain
-3812.3.7  = {	owner = HAB
-		controller = HAB
-		add_core = HAB
-		remove_core = SPA
-	    }
-3832.6.2  = { owner = NAP controller = NAP remove_core = HAB }
-3849.1.1 = { base_production = 3 }
-3873.1.1 = { base_tax = 3 }
-
-3899.1.1 = { base_tax = 4 }
-3923.1.1 = { base_production = 4 }
-3949.1.1 = { base_manpower = 3 }
-3959.2.12 = { owner = SPI controller = SPI add_core = SPI }
-3959.3.17 = { owner = ITA controller = ITA add_core = ITA remove_core = SPI remove_core = NAP }
-3973.1.1 = { base_tax = 5 }
-3999.1.1 = { base_manpower = 4 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_tax = 6 }
-4041.9.3  = { controller = GBR }
-4041.9.8  = { controller = ITA }
-4049.1.1 = { base_manpower = 5 }
-4073.1.1 = { base_production = 5 }
-4098.1.1 = { base_production = 6 }
 
 
 
+
+2478.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2574.9.4 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2578.1.1 = {
+	remove_core = ROW
+}
+2587.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ITA
+}
+2634.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = OST
+}
+2945.1.1 = {
+	owner = BAE
+	controller = BAE
+	add_core = BAE
+}
+2965.1.1 = {
+	religion = catholic
+}
+2969.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	remove_core = BAE
+}
+3158.1.1 = {
+	owner = SIC
+	controller = SIC
+	add_core = SIC
+	remove_core = BYZ
+	capital = "Reggio di Calabria"
+	culture = sicilian
+}
+3380.1.1 = {
+	owner = NAP
+	controller = NAP
+	add_core = NAP
+	remove_core = SIC
+}
+3592.1.1 = {
+	add_core = FRA
+}
+3593.2.22 = {
+	controller = FRA
+}
+3593.7.7 = {
+	controller = NAP
+}
+3600.1.1 = {
+	owner = FRA
+	controller = FRA
+}
+3601.6.1 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+}
+3602.1.31 = {
+	remove_core = FRA
+}
+3614.1.23 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = ARA
+}
+3812.3.7 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = SPA
+}
+3832.6.2 = {
+	owner = NAP
+	controller = NAP
+	remove_core = HAB
+}
+3849.1.1 = {
+	base_production = 3
+}
+3873.1.1 = {
+	base_tax = 3
+}
+3899.1.1 = {
+	base_tax = 4
+}
+3923.1.1 = {
+	base_production = 4
+}
+3949.1.1 = {
+	base_manpower = 3
+}
+3959.2.12 = {
+	owner = SPI
+	controller = SPI
+	add_core = SPI
+}
+3959.3.17 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	remove_core = SPI
+	remove_core = NAP
+}
+3973.1.1 = {
+	base_tax = 5
+}
+3999.1.1 = {
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4023.1.1 = {
+	base_tax = 6
+}
+4041.9.3 = {
+	controller = GBR
+}
+4041.9.8 = {
+	controller = ITA
+}
+4049.1.1 = {
+	base_manpower = 5
+}
+4073.1.1 = {
+	base_production = 5
+}
+4098.1.1 = {
+	base_production = 6
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###

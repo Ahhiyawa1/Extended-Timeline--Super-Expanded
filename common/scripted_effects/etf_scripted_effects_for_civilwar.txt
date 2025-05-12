@@ -1,99 +1,99 @@
-turn_troops_into_rebels = {
-	if = {
-		limit = {
-			num_of_units_in_province = { who = owner amount = 10 } # Atleast 10
-		}
-		custom_tooltip = turn_troops_into_rebels_tt # Army in [This.Province] revolts.
-	}
-	hidden_effect = {
-		if = {
-			limit = { num_of_units_in_province = { who = owner amount = 120 } }
-			kill_units = { who = owner }
-			$type$ = 12
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 110 } }
-			kill_units = { who = owner }
-			$type$ = 11
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 100 } }
-			kill_units = { who = owner }
-			$type$ = 10
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 90 } }
-			kill_units = { who = owner }
-			$type$ = 9
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 80 } }
-			kill_units = { who = owner }
-			$type$ = 8
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 70 } }
-			kill_units = { who = owner }
-			$type$ = 7
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 60 } }
-			kill_units = { who = owner }
-			$type$ = 6
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 50 } }
-			kill_units = { who = owner }
-			$type$ = 5
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 40 } }
-			kill_units = { who = owner }
-			$type$ = 4
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 30 } }
-			kill_units = { who = owner }
-			$type$ = 3
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 20 } }
-			kill_units = { who = owner }
-			$type$ = 2
-		}
-		else_if = {
-			limit = { num_of_units_in_province = { who = owner amount = 10 } }
-			kill_units = { who = owner }
-			$type$ = 1
-		}
-	}
-}
+# turn_troops_into_rebels = {
+	# if = {
+		# limit = {
+			# num_of_units_in_province = { who = owner amount = 10 } # Atleast 10
+		# }
+		# custom_tooltip = turn_troops_into_rebels_tt # Army in [This.Province] revolts.
+	# }
+	# hidden_effect = {
+		# if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 120 } }
+			# kill_units = { who = owner }
+			# $type$ = 12
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 110 } }
+			# kill_units = { who = owner }
+			# $type$ = 11
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 100 } }
+			# kill_units = { who = owner }
+			# $type$ = 10
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 90 } }
+			# kill_units = { who = owner }
+			# $type$ = 9
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 80 } }
+			# kill_units = { who = owner }
+			# $type$ = 8
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 70 } }
+			# kill_units = { who = owner }
+			# $type$ = 7
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 60 } }
+			# kill_units = { who = owner }
+			# $type$ = 6
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 50 } }
+			# kill_units = { who = owner }
+			# $type$ = 5
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 40 } }
+			# kill_units = { who = owner }
+			# $type$ = 4
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 30 } }
+			# kill_units = { who = owner }
+			# $type$ = 3
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 20 } }
+			# kill_units = { who = owner }
+			# $type$ = 2
+		# }
+		# else_if = {
+			# limit = { num_of_units_in_province = { who = owner amount = 10 } }
+			# kill_units = { who = owner }
+			# $type$ = 1
+		# }
+	# }
+# }
 
-spawn_rebels_in_area = {
-	$area$ = {
-		spawn_rebels = {
-			[[type]
-				type = $type$
-			]
-			[[size]
-				size = $size$
-			]
-			win = yes
-		}
-		hidden_effect = { # All provinces in area become occupied, but only one rebel-stack remains.
-			if = {
-				limit = {
-					NOT = {
-						highest_supply_limit_in_area = yes
-					}
-				}
-				kill_units = {
-					who = REB
-				}
-			}
-		}
-	}
-}
+# spawn_rebels_in_area = {
+	# $area$ = {
+		# spawn_rebels = {
+			# [[type]
+				# type = $type$
+			# ]
+			# [[size]
+				# size = $size$
+			# ]
+			# win = yes
+		# }
+		# hidden_effect = { # All provinces in area become occupied, but only one rebel-stack remains.
+			# if = {
+				# limit = {
+					# NOT = {
+						# highest_supply_limit_in_area = yes
+					# }
+				# }
+				# kill_units = {
+					# who = REB
+				# }
+			# }
+		# }
+	# }
+# }
 
 start_civil_war = {
 	tooltip = {

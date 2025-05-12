@@ -23,7 +23,6 @@ country_decisions = {
 			}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
-			NOT = { tag = NIG }
 			primary_culture = hausa
 			is_colonial_nation = no
 			OR = {
@@ -66,8 +65,8 @@ country_decisions = {
 			change_tag = HAU
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			set_capital = 1155
 			add_country_modifier = {
@@ -94,6 +93,7 @@ country_decisions = {
 				limit = { has_dlc = "Origins" }
 				swap_non_generic_missions = yes
 			}
+			on_change_tag_effect = yes
 		}
 		ai_will_do = {
 			factor = 1

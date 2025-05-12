@@ -6,41 +6,36 @@
 
 namespace = aow_events
 
-# The Plight of [Province]
 province_event = {
 	id = aow_events.1
 	title = "aow_events.1.t"
 	desc = "aow_events.1.d"
 	picture = FAMINE_eventPicture
 	goto = root
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
+		NOT = { has_province_modifier = famine_refused_aid }
 		is_looted = yes
 		owner = { is_at_war = yes }
-		NOT = { has_province_modifier = famine_refused_aid }
 	}
 
 	mean_time_to_happen = {
-		months = 240
+		months = 550
 		modifier = {
 			factor = 1.5
 			owner = {
-				any_owned_province = {
-					has_province_modifier = famine_refused_aid
-				}
+				any_owned_province = { has_province_modifier = famine_refused_aid }
 			}
 		}
 	}
 
-	# Send aid
 	option = {
 		name = "aow_events.1.a"
 		owner = { add_years_of_income = -0.1 }
 	}
 
-	# Refuse aid
 	option = {
 		name = "aow_events.1.b"
 		add_province_modifier = {

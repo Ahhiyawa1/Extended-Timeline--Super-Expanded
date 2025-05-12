@@ -1,12 +1,21 @@
-#12110 - Damoh
-
+# Damoh
+# 12110 Damoh - 1/26/2025 8:46:45 AM 
+ 
+add_core = GDW
 owner = GDW
 controller = GDW
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = grain
+
 culture = vindhyan
 religion = jainism
 capital = "Damoh"
-trade_goods = grain
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,64 +27,139 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 1
-base_production = 1
-base_manpower = 2
-is_city = yes
-add_core = GDW
 
-2458.1.1 = { owner = BND controller = BND add_core = BND remove_core = GDW }
-2608.1.1 = { owner = MLW controller = MLW add_core = MLW remove_core = BND }
-2708.1.1 = { owner = GUJ controller = GUJ add_core = GUJ }
-2718.1.1 = { religion = hinduism }
-2843.1.1 = { owner = GRP controller = GRP add_core = GRP remove_core = GUJ }
-2878.1.1 = { owner = RSH controller = RSH add_core = RSH remove_core = GRP }
-2913.1.1 = { owner = MLW controller = MLW add_core = MLW remove_core = RSH }
-3249.1.1 = { owner = GUJ controller = GUJ }
-3258.1.1 = { owner = MLW controller = MLW }
-3403.1.1 = { owner = DLH controller = DLH add_core = DLH }
-3438.1.1 = { owner = GDW controller = GDW add_core = GDW remove_core = DLH }
 
-3537.1.1 = { controller = MLW }
-3539.1.1 = { controller = GDW }
+
+
+2458.1.1 = {
+	owner = BND
+	controller = BND
+	add_core = BND
+	remove_core = GDW
+}
+2608.1.1 = {
+	owner = MLW
+	controller = MLW
+	add_core = MLW
+	remove_core = BND
+}
+2708.1.1 = {
+	owner = GUJ
+	controller = GUJ
+	add_core = GUJ
+}
+2718.1.1 = {
+	religion = hinduism
+}
+2843.1.1 = {
+	owner = GRP
+	controller = GRP
+	add_core = GRP
+	remove_core = GUJ
+}
+2878.1.1 = {
+	owner = RSH
+	controller = RSH
+	add_core = RSH
+	remove_core = GRP
+}
+2913.1.1 = {
+	owner = MLW
+	controller = MLW
+	add_core = MLW
+	remove_core = RSH
+}
+3249.1.1 = {
+	owner = GUJ
+	controller = GUJ
+}
+3258.1.1 = {
+	owner = MLW
+	controller = MLW
+}
+3403.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+}
+3438.1.1 = {
+	owner = GDW
+	controller = GDW
+	add_core = GDW
+	remove_core = DLH
+}
+3537.1.1 = {
+	controller = MLW
+}
+3539.1.1 = {
+	controller = GDW
+}
 3565.1.1 = {
 	owner = BAH
 	controller = BAH
 	add_core = BAH
-} # Invaded by Bahmanis
+}
 3566.1.1 = {
 	owner = MLW
 	controller = MLW
 	add_core = MLW
 	remove_core = BAH
-} # Invaded by Malwa
-3596.1.1 = { discovered_by = POR }
+}
+3596.1.1 = {
+	discovered_by = POR
+}
 3630.1.1 = {
 	owner = GDW
 	controller = GDW
-} # Malwa conquered by Ahmad Shahis
-3662.2.1 = { controller = MUG } #Conquered by Mughals
+}
+3662.2.1 = {
+	controller = MUG
+}
 3662.7.1 = {
 	owner = MUG
 	add_core = MUG
-} #Annexed by Mughals
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
 3822.1.1 = {
 	owner = NAG
 	controller = NAG
 	add_core = NAG
 	remove_core = MUG
-}	#Forms kingdom of Nagpur
+}
 3916.6.3 = {
 	owner = GBR
 	controller = GBR
 	add_core = GBR
 	remove_core = NAG
 }
+3973.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+3999.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+4023.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = MLW
+	remove_core = GUJ
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3973.1.1 = { base_tax = 2 base_production = 2 }
-3999.1.1 = { base_tax = 3 base_production = 3 }
-4023.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 }
-4028.1.1  = { add_core = INI remove_core = MLW remove_core = GUJ }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:46:45 AM ###

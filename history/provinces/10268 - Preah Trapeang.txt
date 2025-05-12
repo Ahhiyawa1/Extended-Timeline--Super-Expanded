@@ -1,64 +1,145 @@
-#10268 - Preah Trapeang
-
+# Preah Trapeang
+# 10268 Preah Trapeang - 1/26/2025 8:46:44 AM 
+ 
+add_core = FUN
 owner = FUN
 controller = FUN
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = grain
+
 culture = khmer
 religion = hinduism
 capital = "Preah Trapeang"
-trade_goods = grain
-hre = no
+
+is_city = yes
+
 discovered_by = indian
 discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = FUN
 
-2100.1.1   = {
-		add_permanent_province_modifier = {
-			name = mekong_estuary_modifier
-			duration = -1
-		}
+
+
+add_permanent_province_modifier = {
+	name = mekong_estuary_modifier
+	duration = -1
 }
 
-2698.1.1 = { base_tax = 2 base_production = 2 }
-2725.1.1 = { owner = CNA controller = CNA add_core = CNA remove_core = FUN }
-2798.1.1 = { base_manpower = 2 discovered_by = muslim discovered_by = ottoman }
-2900.1.1 = { owner = CMB controller = CMB add_core = CMB remove_core = CNA }
-2998.1.1 = { base_tax = 3 base_production = 3 }
-3098.1.1 = { base_manpower = 3 }
-3529.1.1 = { owner = KHM controller = KHM add_core = KHM remove_core = CMB }
+2100.1.1 = {
+	add_permanent_province_modifier = {
+		name = mekong_estuary_modifier
+		duration = -1
+	}
 
-3633.1.1 = { discovered_by = POR }
-
-3867.1.1 = { unrest = 6 } # Tai Son revolt
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2725.1.1 = {
+	owner = CNA
+	controller = CNA
+	add_core = CNA
+	remove_core = FUN
+}
+2798.1.1 = {
+	base_manpower = 2
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+2900.1.1 = {
+	owner = CMB
+	controller = CMB
+	add_core = CMB
+	remove_core = CNA
+}
+2998.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3098.1.1 = {
+	base_manpower = 3
+}
+3529.1.1 = {
+	owner = KHM
+	controller = KHM
+	add_core = KHM
+	remove_core = CMB
+}
+3633.1.1 = {
+	discovered_by = POR
+}
+3867.1.1 = {
+	unrest = 6
+}
 3886.9.1 = {
 	unrest = 0
 	owner = ANN
 	controller = ANN
 	add_core = ANN
 	remove_core = KHM
-} # Nguyen recovered the land
+}
+3960.6.5 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+}
+3968.9.4 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	remove_core = FRA
+}
+3973.1.1 = {
+	base_production = 4
+}
+3984.4.1 = {
+	add_core = VTN
+	remove_core = DAI
+}
+3998.1.1 = {
+	capital = "Tra Vinh"
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 4
+}
+4039.7.1 = {
+	controller = JAP
+}
+4043.3.11 = {
+	owner = VTN
+	controller = VTN
+	add_core = VTN
+}
+4043.8.23 = {
+	owner = FR2
+	controller = FR2
+	add_core = SVI
+}
+4047.6.4 = {
+	owner = SVI
+	controller = SVI
+	remove_core = FR2
+}
+4058.1.1 = {
+	culture = vietnamese
+}
+4074.7.2 = {
+	owner = VTN
+	controller = VTN
+	remove_core = SVI
+}
+4098.1.1 = {
+	base_manpower = 4
+}
 
-3960.6.5   = { owner = FRA controller = FRA add_core = FRA }
-3968.9.4   = {  owner = FR2
-		controller = FR2
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-3973.1.1 = { base_production = 4 }
-3984.4.1   = { add_core = VTN remove_core = DAI }
-3998.1.1   = { capital = "Tra Vinh" }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 4 }
-4039.7.1   = { controller = JAP }
-4043.3.11  = { owner = VTN controller = VTN add_core = VTN } # Empire of Vietnam, Japanese puppet
-4043.8.23  = { owner = FR2 controller = FR2 add_core = SVI }
-4047.6.4   = { owner = SVI controller = SVI remove_core = FR2 }
-4058.1.1   = { culture = vietnamese }
-4074.7.2   = { owner = VTN controller = VTN remove_core = SVI }
-4098.1.1 = { base_manpower = 4 }
+
+### Modified 1/26/2025 8:46:44 AM ###

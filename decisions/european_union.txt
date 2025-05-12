@@ -19,26 +19,16 @@ country_decisions = {
 			dip_tech = 88
 			stability = 2
 			OR = {
-				85 = { owned_by = ROOT }
-				92 = { owned_by = ROOT }
-				94 = { owned_by = ROOT }
-				97 = { owned_by = ROOT }
+				85  = { owned_by = ROOT }
+				92  = { owned_by = ROOT }
+				94  = { owned_by = ROOT }
+				97  = { owned_by = ROOT }
 				118 = { owned_by = ROOT }
 				183 = { owned_by = ROOT }
 			}
-			OR = {
-				has_reform = parliamentary_republic
-				has_reform = presidental_republic
-				has_reform = parliamentary_monarchy
-				has_reform = constitutional_monarchy
-				has_reform = constitutional_republic
-				has_reform = multi_party_system
-				has_reform = democracy_reform
-			}
+			has_reform = democracy_reform
 		}
 		effect = {
-			every_owned_province = { set_in_empire = yes }
-			elector = yes
 			add_country_modifier = {
 				name = european_union
 				duration = -1
@@ -50,28 +40,24 @@ country_decisions = {
 			every_ally = {
 				limit = {
 					ai = yes
-					OR = {
-						has_reform = parliamentary_republic
-						has_reform = presidental_republic
-						has_reform = parliamentary_monarchy
-						has_reform = constitutional_monarchy
-						has_reform = constitutional_republic
-						has_reform = multi_party_system
-						has_reform = democracy_reform
-					}
 					capital_scope = { continent = europe }
+					has_reform = democracy_reform
 				}
 				add_country_modifier = {
 					name = european_union
 					duration = -1
 				}
-				every_owned_province = { set_in_empire = yes }
 			}
-			every_country = {
-				limit = { ai = no }
-				country_event = { id = european_union.12 }
+			hidden_effect = {
+				every_country = {
+					limit = {
+						ai = no
+					}
+					country_event = { id = european_union.12 }
+				}
+				elector = yes
+				internal_hre_cb = no
 			}
-			internal_hre_cb = no
 		}
 		ai_will_do = {
 			factor = 1
@@ -89,18 +75,12 @@ country_decisions = {
 		}
 		allow = {
 			is_at_war = no
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			adm_power = 150
 			dip_power = 150
 			mil_power = 150
 			stability = 1
-			OR = {
-				has_reform = parliamentary_republic
-				has_reform = presidental_republic
-				has_reform = parliamentary_monarchy
-				has_reform = multi_party_system
-				has_reform = democracy_reform
-			}
+			has_reform = democracy_reform
 		}
 		effect = {
 			add_adm_power = -150
@@ -111,11 +91,10 @@ country_decisions = {
 				duration = -1
 			}
 			hidden_effect = {
-				every_owned_province = { set_in_empire = yes }
 				every_country = {
 					limit = {
 						ai = no 
-						has_country_modifier = european_union	#Changed to reduce spam
+						has_country_modifier = european_union
 					}
 					country_event = { id = european_union.3 }
 				}
@@ -125,8 +104,13 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				tag = SWI
+				is_or_was_tag = { tag = SWI }
 				NOT = { inflation = 1 }
+			}
+			modifier = {
+				factor = 0
+				is_or_was_tag = { tag = GBR }
+				started_in = 4114.6.23 # Brexit Referendum
 			}
 			modifier = {
 				factor = 0
@@ -149,7 +133,7 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0
-				is_neighbor_of = SOV
+				is_subject_of = SOV
 			}
 		}
 		ai_importance = 400
@@ -173,27 +157,22 @@ country_decisions = {
 		effect = {
 			add_stability = -1
 			remove_country_modifier = european_union
-			hidden_effect = {
-				every_owned_province = {
-					limit = { is_core = ROOT }
-					set_in_empire = no
-				}
-			}
-			set_government_rank = 2
 		}
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0
-				is_subject = no
-				OR = {
-					has_reform = parliamentary_republic
-					has_reform = presidental_republic
-					has_reform = parliamentary_monarchy
-					has_reform = constitutional_monarchy
-					has_reform = constitutional_republic
-					has_reform = multi_party_system
-					has_reform = democracy_reform
+				has_reform = democracy_reform
+			}
+			modifier = {
+				factor = 0
+				NOT = { # Surrounded by EU, lacking non-EU neighbors.
+					calc_true_if = {
+						all_neighbor_country = {
+							NOT = { has_country_modifier = european_union }
+						}
+						amount = 2
+					}
 				}
 			}
 		}
@@ -202,26 +181,107 @@ country_decisions = {
 	dismantle_european_union = {
 		major = yes
 		potential = {
-			any_country = { has_country_modifier = european_union }
+			OR = {
+				any_neighbor_country = {
+					has_country_modifier = european_union
+				}
+				any_war_enemy_country = {
+					has_country_modifier = european_union
+				}
+			}
 			NOT = { has_country_modifier = european_union }
 		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 85
+				province_id = 92
+				province_id = 94
+				province_id = 97
+				province_id = 118
+				province_id = 183
+				AND = {
+					is_capital = yes
+					owner = { has_country_modifier = european_leader }
+				}
+			}
+			owner = { has_country_modifier = european_union }
+			NOT = { controlled_by = ROOT }
+		}
 		allow = {
-			85 = { controlled_by = ROOT }
-			92 = { controlled_by = ROOT }
-			94 = { controlled_by = ROOT }
-			97 = { controlled_by = ROOT }
-			118 = { controlled_by = ROOT }
-			183 = { controlled_by = ROOT }
+			85 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			92 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			94 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			97 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			118 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			183 = {
+				if = {
+					limit = {
+						owner = { has_country_modifier = european_union }
+					}
+					controlled_by = ROOT
+				}
+			}
+			any_country = {
+				has_country_modifier = european_leader
+				capital_scope = {
+					controlled_by = ROOT
+				}
+			}
 		}
 		effect = {
 			add_prestige = 100
 			set_global_flag = eu_dismantled
-			EUR = { release_all_subjects = yes }
-			every_country = { remove_country_modifier = european_union }
-			hidden_effect = {
-				3148 = { 
-					cede_province = XXX
-					remove_core = EUR
+			every_country_including_inactive = {
+				limit = {
+					capital_scope = {}
+					has_country_modifier = european_union
+				}
+				remove_country_modifier = european_union
+				hidden_effect = {
+					remove_country_modifier = european_leader
+				}
+			}
+			if = {
+				limit = {
+					exists = EUR
+				}
+				EUR = {
+					country_event = { id = etf_dismantle.100 } # Dismantle Event
 				}
 			}
 		}
@@ -252,12 +312,15 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				tag = DAN
-				NOT = { inflation = 1 }
-			}
-			modifier = {
-				factor = 0
-				tag = GBR
+				OR = {
+					is_or_was_tag = { tag = CZE }
+					is_or_was_tag = { tag = DAN }
+					is_or_was_tag = { tag = GBR }
+					is_or_was_tag = { tag = HUN }
+					is_or_was_tag = { tag = POL }
+					is_or_was_tag = { tag = RMN }
+					is_or_was_tag = { tag = SWE }
+				}
 				NOT = { inflation = 1 }
 			}
 		}

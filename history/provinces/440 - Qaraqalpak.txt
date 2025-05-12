@@ -1,58 +1,157 @@
-#440 - Qaraqalpak
-
+# Qaraqalpak
+# 440 Qaraqalpak - 1/26/2025 8:46:43 AM 
+ 
+add_core = KHW
 owner = KHW
 controller = KHW
-add_core = KHW
-is_city = yes
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = wool
+
 culture = khwarezmian
 religion = zoroastrian
 capital = "Kath"
-trade_goods = wool
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 2
-
-2898.1.1 = { religion = sunni }
-3098.1.1 = { base_tax = 3 base_production = 3 }
-3139.1.1 = { owner = OGH controller = OGH add_core = OGH }
-3140.1.1 = { owner = SEL controller = SEL add_core = SEL remove_core = OGH }
-3236.1.1 = { owner = KHW controller = KHW add_core = KHW }
-3251.1.1 = { remove_core = SEL }
-3298.1.1 = { base_manpower = 3 }
-3319.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KHW culture = uzbehk } # Mongols razed the city and massacred the population
-3358.1.1 = { owner = CGT controller = CGT add_core = CGT remove_core = KHA }
-3445.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = CGT }
-3458.1.1 = { owner = CHG controller = CHG add_core = CHG }
-3461.1.1 = { owner = TRS controller = TRS add_core = TRS remove_core = CHG }
-3468.1.1 = { owner = TIM controller = TIM add_core = TIM capital = "Chimbay" remove_core = GLH }
-3507.5.13 = { owner = TRS controller = TRS add_core = TRS }#Ulugh Beg is made Governor of Samarkand
-3526.1.1 = { owner = SHY controller = SHY add_core = SHY remove_core = TIM }
-
-3600.1.1 = { 
-	owner = BUK 
-	add_core = BUK 
-	controller = BUK 
-	remove_core = SHY 
-	remove_core = KHI # was TIM
-} # The Uzbek Shaybanids brings an end to the Timurid dynasty
-3609.1.1 = { owner = KHI controller = KHI remove_core = BUK } # Khiva separates from Uzbeks
-3618.1.1 = { culture = khazak }
-3815.1.1 = { discovered_by = RUS }
-
-#3971.8.12 Russian protectorate
-4008.1.1 = { discovered_by = asian }
-4018.2.2   = { owner = RUS controller = RUS add_core = RUS }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4022.10.27 = { add_core = UZB remove_core = KHI remove_core = SHY }
-4030.1.1   = { capital = "Nukus" }
-4089.12.8  = { owner = UZB controller = UZB remove_core = SOV remove_core = RUS }
 
 
 
+
+2631.1.1 = {
+	religion = manichaeism
+}
+2898.1.1 = {
+	religion = sunni
+}
+3098.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3139.1.1 = {
+	owner = OGH
+	controller = OGH
+	add_core = OGH
+}
+3140.1.1 = {
+	owner = SEL
+	controller = SEL
+	add_core = SEL
+	remove_core = OGH
+}
+3236.1.1 = {
+	owner = KHW
+	controller = KHW
+	add_core = KHW
+}
+3251.1.1 = {
+	remove_core = SEL
+}
+3298.1.1 = {
+	base_manpower = 3
+}
+3319.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	remove_core = KHW
+	culture = uzbehk
+}
+3358.1.1 = {
+	owner = CGT
+	controller = CGT
+	add_core = CGT
+	remove_core = KHA
+}
+3445.1.1 = {
+	owner = TRS
+	controller = TRS
+	add_core = TRS
+	remove_core = CGT
+}
+3458.1.1 = {
+	owner = CHG
+	controller = CHG
+	add_core = CHG
+}
+3461.1.1 = {
+	owner = TRS
+	controller = TRS
+	add_core = TRS
+	remove_core = CHG
+}
+3468.1.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+	capital = "Chimbay"
+	remove_core = GLH
+}
+3507.5.13 = {
+	owner = TRS
+	controller = TRS
+	add_core = TRS
+}
+3526.1.1 = {
+	owner = SHY
+	controller = SHY
+	add_core = SHY
+	remove_core = TIM
+}
+3600.1.1 = {
+	owner = BUK
+	add_core = BUK
+	controller = BUK
+	remove_core = SHY
+	remove_core = KHI
+}
+3609.1.1 = {
+	owner = KHI
+	controller = KHI
+	remove_core = BUK
+}
+3618.1.1 = {
+	culture = khazak
+}
+3815.1.1 = {
+	discovered_by = RUS
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4018.2.2 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4022.10.27 = {
+	add_core = UZB
+	remove_core = KHI
+	remove_core = SHY
+}
+4030.1.1 = {
+	capital = "Nukus"
+}
+4089.12.8 = {
+	owner = UZB
+	controller = UZB
+	remove_core = SOV
+	remove_core = RUS
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###

@@ -1,11 +1,21 @@
-# 13026 - Bielsky
+# Bielsky
+# 13026 Bielsky - 1/26/2025 8:46:45 AM 
+ 
+add_core = SRT
 owner = SRT
 controller = SRT
-add_core = SRT
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = iron
+
 culture = sarmatian
 religion = heptadic
-hre = no
+capital = "Bielsky"
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -16,128 +26,204 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-trade_goods = iron
-base_manpower = 1
-capital = "Bielsky"
-2468.1.1 = { 
-    owner = HNS
-    controller = HNS
-    add_core = HNS
-    remove_core = SRT
-    culture = hunnic
+
+
+
+
+2468.1.1 = {
+	owner = HNS
+	controller = HNS
+	add_core = HNS
+	remove_core = SRT
+	culture = hunnic
+}
+2518.1.1 = {
+	add_core = ONG
+	culture = bulgar
+}
+2567.1.1 = {
+	owner = ONG
+	controller = ONG
+	remove_core = HNS
+}
+2730.1.1 = {
+	owner = BUL
+	controller = BUL
+	add_core = BUL
+	remove_core = ONG
+}
+2818.1.1 = {
+	owner = HUN
+	controller = HUN
+	add_core = HUN
+	remove_core = BUL
+	culture = hungarian
+}
+2938.1.1 = {
+	owner = KHZ
+	controller = KHZ
+	add_core = KHZ
+	remove_core = HUN
+	culture = khazar
+}
+3067.1.1 = {
+	owner = PEC
+	controller = PEC
+	add_core = PEC
+	remove_core = KHZ
+	culture = pecheneg
+}
+3098.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+3158.1.1 = {
+	owner = CUM
+	controller = CUM
+	add_core = CUM
+	remove_core = PEC
+	culture = cuman
+}
+3328.1.1 = {
+	religion = sunni
+}
+3339.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	add_core = ZAZ
+	remove_core = CUM
+	culture = mishary
+}
+3358.1.1 = {
+	owner = WHH
+	controller = WHH
+	add_core = WHH
+	remove_core = KHA
+}
+3470.1.1 = {
+	owner = BHO
+	controller = BHO
+	add_core = BHO
+}
+3472.1.1 = {
+	owner = WHH
+	controller = WHH
+	remove_core = BHO
+}
+3476.1.1 = {
+	owner = GLH
+	controller = GLH
+	add_core = GLH
+}
+3540.1.1 = {
+	owner = GOL
+	controller = GOL
+	add_core = GOL
+	remove_core = GLH
+}
+3600.6.1 = {
+	owner = CRI
+	controller = CRI
+	add_core = CRI
+	remove_core = GOL
+}
+3670.1.1 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = CRI
+}
+3768.3.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Stepan Razin"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3769.4.14 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3871.9.13 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Yemelyan Pugachev"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3873.2.1 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3948.1.1 = {
+	remove_core = CRI
+}
+3978.1.1 = {
+	religion = orthodox
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4016.1.22 = {
+	owner = UKR
+	controller = UKR
+	add_core = UKR
+}
+4019.3.18 = {
+	owner = RUS
+	controller = RUS
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4033.11.5 = {
+	capital = "Starobilsk"
+}
+4040.7.14 = {
+	controller = GER
+}
+4041.2.14 = {
+	controller = SOV
+}
+4078.1.1 = {
+	culture = russian
+}
+4089.8.24 = {
+	owner = UKR
+	controller = UKR
+	add_core = UKR
+	remove_core = SOV
+}
+4112.4.7 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4120.2.24 = {
+	revolt = {
+		controller = RUS
+	}
+
 }
 
-2518.1.1 = { add_core = ONG culture = bulgar } 
-2567.1.1 = { owner = ONG controller = ONG remove_core = HNS } 
-2730.1.1 = { 
-    owner = BUL
-    controller = BUL
-    add_core = BUL
-    remove_core = ONG
-}
 
-2818.1.1 = { 
-    owner = HUN
-    controller = HUN
-    add_core = HUN
-    remove_core = BUL
-    culture = hungarian
-}
-
-2938.1.1 = { 
-    owner = KHZ
-    controller = KHZ
-    add_core = KHZ
-    remove_core = HUN
-    culture = khazar
-}
-
-3067.1.1 = { 
-    owner = PEC
-    controller = PEC
-    add_core = PEC
-    remove_core = KHZ
-    culture = pecheneg
-}
-
-3098.1.1 = { base_tax = 2 base_production = 2 } 
-3158.1.1 = { 
-    owner = CUM
-    controller = CUM
-    add_core = CUM
-    remove_core = PEC
-    culture = cuman
-}
-
-3328.1.1 = { religion = sunni } 
-3339.1.1 = { 
-    owner = KHA
-    controller = KHA
-    add_core = KHA
-    add_core = ZAZ
-    remove_core = CUM
-    culture = mishary
-}
-
-3358.1.1 = { 
-    owner = WHH
-    controller = WHH
-    add_core = WHH
-    remove_core = KHA
-}
-
-3470.1.1 = { owner = BHO controller = BHO add_core = BHO } 
-3472.1.1 = { owner = WHH controller = WHH remove_core = BHO } 
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH } 
-3540.1.1 = { 
-    owner = GOL
-    controller = GOL
-    add_core = GOL
-    remove_core = GLH
-}
-
-3600.6.1 = { 
-    owner = CRI
-    controller = CRI
-    add_core = CRI
-    remove_core = GOL
-} # Golden Horde destroyed by Crimea
-
-3670.1.1 = { 
-    owner = RUS
-    controller = RUS
-    add_core = RUS
-    remove_core = CRI
-} # Battle of Molodi
-
-3768.3.1 = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
-3769.4.14 = { revolt = { } controller = RUS unrest = 0 } # Razin captured
-3871.9.13 = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
-3873.2.1 = { revolt = { } controller = RUS unrest = 0 } # Pugachev is captured
-3948.1.1 = { remove_core = CRI } 
-3978.1.1 = { religion = orthodox } 
-4008.1.1 = { discovered_by = asian } 
-4016.1.22 = { owner = UKR controller = UKR add_core = UKR } 
-4019.3.18 = { owner = RUS controller = RUS } 
-4020.12.30 = { 
-    owner = SOV
-    controller = SOV
-    add_core = SOV
-    remove_core = RUS
-}
-
-4033.11.5 = { capital = "Starobilsk" } 
-4040.7.14 = { controller = GER } 
-4041.2.14 = { controller = SOV } 
-4078.1.1 = { culture = russian } 
-4089.8.24 = { 
-    owner = UKR
-    controller = UKR
-    add_core = UKR
-    remove_core = SOV
-}
-
-4112.4.7 = { revolt = { type = nationalist_rebels size = 1 } controller = REB } 
-4120.2.24 = { revolt = { } controller = RUS } 
+### Modified 1/26/2025 8:46:45 AM ###

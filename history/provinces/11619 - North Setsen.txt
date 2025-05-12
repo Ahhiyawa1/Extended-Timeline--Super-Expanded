@@ -1,46 +1,143 @@
+# Bayan-Uul
+# 11619 Bayan-Uul - 1/26/2025 8:46:44 AM 
+ 
+add_core = XIO
 owner = XIO
 controller = XIO
+base_tax = 1
+base_production = 1
+base_manpower = 2
+
+trade_goods = livestock
+
 culture = mongol
 religion = tengri_pagan_reformed
 capital = "Bayan-Uul"
-trade_goods = livestock
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 1
-base_production = 1
-base_manpower = 2
-is_city = yes
-add_core = XIO
 
-2187.1.1 = { owner = XIB controller = XIB add_core = XIB remove_core = XIO }
-2428.1.1 = { owner = ROU controller = ROU add_core = ROU remove_core = XIB }
-2653.1.1 = { owner = GOK controller = GOK add_core = GOK remove_core = ROU }
-2725.1.1 = { owner = XUE controller = XUE add_core = XUE }
-2744.10.1 = { owner = UIG controller = UIG add_core = UIG remove_core = XUE }
-2779.1.1 = { owner = GOK controller = GOK add_core = GOK }
-2842.1.1 = { owner = UIG controller = UIG add_core = UIG remove_core = GOK }
-2946.1.1 = { owner = KMO controller = KMO add_core = KMO remove_core = UIG }
-3304.1.1 = { owner = KHA controller = KHA add_core = KHA remove_core = KMO }
-3369.1.1 = { owner = YUA controller = YUA add_core = YUA remove_core = KHA }
-3466.1.23 = { owner = KHA controller = KHA add_core = KHA remove_core = YUA }
 
-3641.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Fighting broke out between the Mongols
-3650.1.1 = { revolt = {} controller = KHA } # The Oirads are defeated & Mongolia is reunited under Altan Khan
-3684.1.1 = { religion = vajrayana } # State religion
-3780.1.1 = { discovered_by = SPA } #Ferdinand Verbiest
-3786.1.1 = {	owner = ZUN
-		controller = ZUN
-		}
-3794.1.1 = {	owner = QNG
-		controller = QNG
-		add_core = QNG
-	   } # Kangxi leads Qing army pushing Zunghars back
-3807.1.1 = { discovered_by = SPA }
 
-3938.1.1   = { add_core = KHA }
-4008.1.1 = { discovered_by = western discovered_by = muslim discovered_by = ottoman }
-4009.12.29 = { owner = KHA controller = KHA add_core = KHA remove_core = QNG }
+
+2187.1.1 = {
+	owner = XIB
+	controller = XIB
+	add_core = XIB
+	remove_core = XIO
+}
+2428.1.1 = {
+	owner = ROU
+	controller = ROU
+	add_core = ROU
+	remove_core = XIB
+}
+2631.1.1 = {
+	religion = manichaeism
+}
+2653.1.1 = {
+	owner = GOK
+	controller = GOK
+	add_core = GOK
+	remove_core = ROU
+}
+2725.1.1 = {
+	owner = XUE
+	controller = XUE
+	add_core = XUE
+}
+2744.10.1 = {
+	owner = UIG
+	controller = UIG
+	add_core = UIG
+	remove_core = XUE
+}
+2779.1.1 = {
+	owner = GOK
+	controller = GOK
+	add_core = GOK
+}
+2842.1.1 = {
+	owner = UIG
+	controller = UIG
+	add_core = UIG
+	remove_core = GOK
+}
+2946.1.1 = {
+	owner = KMO
+	controller = KMO
+	add_core = KMO
+	remove_core = UIG
+}
+3304.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	remove_core = KMO
+}
+3369.1.1 = {
+	owner = YUA
+	controller = YUA
+	add_core = YUA
+	remove_core = KHA
+}
+3466.1.23 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	remove_core = YUA
+}
+3641.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3650.1.1 = {
+	revolt = {
+	}
+
+	controller = KHA
+}
+3684.1.1 = {
+	religion = vajrayana
+}
+3780.1.1 = {
+	discovered_by = SPA
+}
+3786.1.1 = {
+	owner = ZUN
+	controller = ZUN
+}
+3794.1.1 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}
+3807.1.1 = {
+	discovered_by = SPA
+}
+3938.1.1 = {
+	add_core = KHA
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4009.12.29 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	remove_core = QNG
+}
+
+
+### Modified 1/26/2025 8:46:44 AM ###

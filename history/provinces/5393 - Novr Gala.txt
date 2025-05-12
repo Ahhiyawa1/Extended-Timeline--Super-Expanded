@@ -1,13 +1,21 @@
-# 5393 - Novr Gala
+# Novr Gala
+# 5393 Novr Gala - 1/26/2025 8:46:43 AM 
+ 
+add_core = ALN
 owner = ALN
 controller = ALN
-add_core = ALN
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = wool
+
 culture = alan
 religion = heptadic
 capital = "Novr G'ala"
-trade_goods = wool
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -16,53 +24,81 @@ discovered_by = eastern
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 1
-base_production = 1
-base_manpower = 1
-3030.1.1 = { religion = orthodox } 
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA } 
-3358.1.1 = { 
-    owner = WHH
-    controller = WHH
-    add_core = WHH
-    remove_core = KHA
+
+
+
+
+3030.1.1 = {
+	religion = orthodox
+}
+3334.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+}
+3358.1.1 = {
+	owner = WHH
+	controller = WHH
+	add_core = WHH
+	remove_core = KHA
+}
+3412.1.1 = {
+	owner = ALN
+	controller = ALN
+	add_core = ALN
+	remove_core = WHH
+}
+3872.1.1 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	capital = "Naurskaya"
+}
+3898.1.1 = {
+	base_tax = 2
+}
+3926.1.1 = {
+	add_core = CCS
+	remove_core = GAZ
+}
+3935.1.1 = {
+	base_tax = 3
+}
+3973.1.1 = {
+	base_production = 2
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4010.1.1 = {
+	base_production = 3
+}
+4015.3.6 = {
+	owner = CCS
+	controller = CCS
+}
+4019.1.1 = {
+	owner = RUS
+	controller = RUS
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = GEO
+}
+4049.1.1 = {
+	base_tax = 4
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
+}
+4098.1.1 = {
+	base_manpower = 3
 }
 
-3412.1.1 = { 
-    owner = ALN
-    controller = ALN
-    add_core = ALN
-    remove_core = WHH
-}
 
-3872.1.1 = { 
-    owner = RUS
-    controller = RUS
-    add_core = RUS
-    capital = "Naurskaya"
-} # North Ossetia came to be dominated by Russia
-
-3898.1.1 = { base_tax = 2 } 
-3926.1.1 = { add_core = CCS remove_core = GAZ } 
-3935.1.1 = { base_tax = 3 } 
-3973.1.1 = { base_production = 2 } 
-4008.1.1 = { discovered_by = asian } 
-4010.1.1 = { base_production = 3 } 
-4015.3.6 = { owner = CCS controller = CCS } 
-4019.1.1 = { owner = RUS controller = RUS } 
-4020.12.30 = { 
-    owner = SOV
-    controller = SOV
-    add_core = SOV
-    remove_core = GEO
-}
-
-4049.1.1 = { base_tax = 4 } 
-4089.12.25 = { 
-    owner = RUS
-    controller = RUS
-    add_core = RUS
-    remove_core = SOV
-}
-
-4098.1.1 = { base_manpower = 3 } 
+### Modified 1/26/2025 8:46:43 AM ###

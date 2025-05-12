@@ -1,43 +1,91 @@
-# No previous file for Ipai
+# Ipai
+# 7706 Ipai - 1/26/2025 8:46:44 AM 
+ 
+base_tax = 3
+base_production = 2
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = piman
 religion = totemism
 capital = "Ipai"
-trade_goods = unknown
-hre = no
-base_tax = 3
-base_production = 2
-base_manpower = 1
+
 native_size = 5
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 2
-
-
 
 discovered_by = north_american
 
-3631.1.1 = { discovered_by = SPA }
-3867.7.16  = {
+
+
+
+3631.1.1 = {
+	discovered_by = SPA
+}
+3867.7.16 = {
 	owner = SPA
 	controller = SPA
 	add_core = SPA
 	is_city = yes
 	culture = castillian
-	religion = catholic	
+	religion = catholic
 	trade_goods = grain
 	capital = "El Centro"
-} # Colonists began to arrive
-3868.1.1   = { culture = mexican }
-3873.1.1   = { unrest = 4 } # The natives rebelled
-3874.1.1   = { unrest = 0 }
-3908.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+}
+3868.1.1 = {
+	culture = mexican
+}
+3873.1.1 = {
+	unrest = 4
+}
+3874.1.1 = {
+	unrest = 0
+}
+3908.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = SPA
+}
+3919.9.27 = {
+	controller = MEX
+	remove_core = SPA
+}
+3944.8.13 = {
+	controller = USA
+}
+3946.2.2 = {
+	owner = USA
+	add_core = USA
+	remove_core = MEX
+}
+3958.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3979.1.1 = {
+	base_tax = 5
+	base_production = 10
+	base_manpower = 7
+}
+3998.1.1 = {
+	base_tax = 6
+	base_production = 15
+	base_manpower = 11
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4018.1.1 = {
+	culture = british_californian
+}
 
-3919.9.27  = { controller = MEX remove_core = SPA }
-3944.8.13  = { controller = USA }
-3946.2.2   = { owner = USA add_core = USA remove_core = MEX } # Treaty of Guadalupe Hidalgo
-3958.1.1   = { base_tax = 4 base_production = 4 base_manpower = 3 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3979.1.1   = { base_tax = 5 base_production = 10 base_manpower = 7 }
-3998.1.1   = { base_tax = 6 base_production = 15 base_manpower = 11 }
-4008.1.1 = { discovered_by = western }
-4018.1.1   = { culture = british_californian }
+
+### Modified 1/26/2025 8:46:44 AM ###

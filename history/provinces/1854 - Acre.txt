@@ -1,11 +1,15 @@
-# 2151 - Acre
+# Acre
+# 1854 Acre - 1/26/2025 8:46:43 AM 
 owner = JUD
 controller = JUD
+base_tax = 5
+base_production = 5
+base_manpower = 3
+trade_goods = grain
 culture = israeli
 religion = canaanite_religion
 capital = "Tell en-Nasbeh"
-trade_goods = grain
-hre = no
+is_city = yes
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -20,155 +24,206 @@ discovered_by = eastern
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 5
-base_production = 5
-base_manpower = 3
-is_city = yes
-add_core = JUD
 add_province_triggered_modifier = jerusalem_held
 add_province_triggered_modifier = promised_land_modifier
-2104.1.1 = { owner = ROM controller = ROM add_core = ROM } 
-2162.1.1 = { unrest = 4 } # Persecution of Jews and Christians
-2164.1.1 = { revolt = { type = jewish_rebels size = 5 leader = "Simon Bar Giora" } controller = REB } # Jewish revolt
-2168.1.1 = { } # Second temple destroyed
-2171.1.1 = { revolt = { } controller = ROM } 
-2188.1.1 = { unrest = 6 } # Heavier persecutions
-2213.1.1 = { revolt = { type = jewish_rebels size = 5 } } # Kitos war
-2215.1.1 = { revolt = { } } 
-2228.1.1 = { capital = "Aelia Capitolina" } # Hadrian rebuilds and renames the city
-2230.1.1 = { revolt = { type = jewish_rebels size = 6 leader = "Simon Bar Kokhba" } controller = REB } # Jewish revolt
-2233.1.1 = { revolt = { } controller = ROM } 
-2234.1.1 = { } # Temple to Venus built
-2236.1.1 = { unrest = 4 religion = chalcedonism } # Restrictions over Christian presence in the city are relaxed
+2104.1.1 = { 
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+}
+2164.1.1 = { 
+	controller = REB
+	revolt = { type = jewish_rebels size = 5 leader = "Simon Bar Giora" }
+}
+2171.1.1 = { 
+	controller = ROM
+	revolt = { size = 1 }
+}
+2213.1.1 = { 
+	revolt = { type = jewish_rebels size = 5 }
+}
+2215.1.1 = { 
+	revolt = { size = 1 }
+}
+2228.1.1 = { 
+	capital = "Aelia Capitolina"
+}
+2230.1.1 = { 
+	controller = REB
+	revolt = { type = jewish_rebels size = 6 leader = "Simon Bar Kokhba" }
+}
+2233.1.1 = { 
+	controller = ROM
+	revolt = { size = 1 }
+}
+2236.1.1 = { 
+	religion = chalcedonism
+}
 2367.1.1 = { 
-    add_core = PLM
-    revolt = { type = nationalist_rebels size = 1 } 
-    controller = REB
-    culture = aramaic
+	add_core = PLM
+	controller = REB
+	culture = aramaic
+	revolt = { type = nationalist_rebels size = 1 }
 }
-
 2370.1.1 = { 
-    controller = ROM
-    remove_core = PLM
-    revolt = { } 
-    culture = israeli
+	controller = ROM
+	remove_core = PLM
+	culture = israeli
+	revolt = { size = 1 }
 }
-
-2411.1.1 = { unrest = 0 } # Christianity legalized
-2422.1.1 = { capital = "Jerusalem" } 
-2424.1.1 = { } # Temple of Venus destroyed
-2431.1.1 = { } # First Church of the Holy Sepulchre built
+2422.1.1 = { 
+	capital = "Jerusalem"
+}
 2493.1.17 = { 
-    controller = BYZ
-    owner = BYZ
-    add_core = BYZ
-    remove_core = ROM
-} # Final division of the empire
-
-2708.1.1 = { revolt = { type = jewish_rebels size = 4 } controller = REB } # Jewish revolt
-2711.1.1 = { revolt = { } controller = BYZ } 
-2712.5.1 = { controller = ERS } # Conquered by Sassanid Persia, The Church of the Holy Sepulchre is burned
-2726.1.1 = { controller = BYZ } # Byzantine Emperor Heraclius retakes Jerusalem
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+	remove_core = ROM
+}
+2708.1.1 = { 
+	controller = REB
+	revolt = { type = jewish_rebels size = 4 }
+}
+2711.1.1 = { 
+	controller = BYZ
+	revolt = { size = 1 }
+}
+2712.5.1 = { 
+	controller = ERS
+}
+2726.1.1 = { 
+	controller = BYZ
+}
 2735.1.1 = { 
-    owner = RSD
-    controller = RSD
-    add_core = RSD
-    remove_core = BYZ
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = BYZ
 }
-
 2759.7.28 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    remove_core = RSD
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
 }
-
-2789.1.1 = { } # The Dome of the Rock
-2818.1.1 = { culture = palestinian } 
+2818.1.1 = { 
+	culture = palestinian
+}
 2848.8.6 = { 
-    owner = ABA
-    controller = ABA
-    add_core = ABA
-    remove_core = UMA
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
 }
-
-2965.1.1 = { religion = catholic } 
+2965.1.1 = { 
+	religion = catholic
+}
 2966.9.15 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    remove_core = ABA
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = ABA
 }
-
-3003.1.10 = { owner = ABA controller = ABA add_core = ABA } 
+3003.1.10 = { 
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+}
 3033.8.26 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    remove_core = ABA
+	owner = EGY
+	controller = EGY
+	remove_core = ABA
 }
-
 3068.3.1 = { 
-    owner = FAT
-    controller = FAT
-    add_core = FAT
-    remove_core = EGY
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+	remove_core = EGY
 }
-
 3197.7.1 = { 
-    owner = KOJ
-    controller = KOJ
-    add_core = KOJ
-    remove_core = FAT
+	owner = KOJ
+	controller = KOJ
+	add_core = KOJ
+	remove_core = FAT
 }
-
-3228.1.1 = { religion = catholic } 
-3285.10.2 = { owner = EGY controller = EGY add_core = EGY } 
-3327.1.1 = { owner = KOJ controller = KOJ } 
-3342.1.1 = { owner = EGY controller = EGY } 
+3228.1.1 = { 
+	religion = catholic
+}
+3285.10.2 = { 
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+}
+3327.1.1 = { 
+	owner = KOJ
+	controller = KOJ
+}
+3342.1.1 = { 
+	owner = EGY
+	controller = EGY
+}
 3348.5.2 = { 
-    owner = MAM
-    controller = MAM
-    add_core = MAM
-    remove_core = EGY
+	owner = MAM
+	controller = MAM
+	add_core = MAM
+	remove_core = EGY
 }
-
-3389.1.1 = { remove_core = KOJ } 
-3398.1.1 = { religion = sunni } 
-3475.1.1 = { revolt = { type = pretender_rebels size = 5 } controller = REB } 
-3480.1.1 = { revolt = { } controller = MAM } 
-3615.1.1 = { owner = TUR controller = TUR add_core = TUR } # Part of the Ottoman empire
-3848.1.1 = { add_core = SYR } 
+3389.1.1 = { 
+	remove_core = KOJ
+}
+3398.1.1 = { 
+	religion = sunni
+}
+3475.1.1 = { 
+	controller = REB
+	revolt = { type = pretender_rebels size = 5 }
+}
+3480.1.1 = { 
+	controller = MAM
+	revolt = { size = 1 }
+}
+3615.1.1 = { 
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+3848.1.1 = { 
+	add_core = SYR
+}
 3931.5.6 = { 
-    owner = EGY
-    controller = EGY
-    add_core = EGY
-    remove_core = MAM
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = MAM
 }
-
 3939.2.1 = { 
-    owner = TUR
-    controller = TUR
-    add_core = TUR
-    remove_core = EGY
+	owner = TUR
+	controller = TUR
+	remove_core = EGY
 }
-
-4018.3.8 = { owner = SYR controller = SYR add_core = SYR } 
+4018.3.8 = { 
+	owner = SYR
+	controller = SYR
+}
 4018.7.24 = { 
-    owner = GBR
-    controller = GBR
-    add_core = GBR
-    add_core = ISR
-    remove_core = SYR
-    remove_core = TUR
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	add_core = ISR
+	remove_core = SYR
+	remove_core = TUR
 }
-
-4046.5.14 = { owner = ISR controller = ISR remove_core = GBR } 
+4046.5.14 = { 
+	owner = ISR
+	controller = ISR
+	remove_core = GBR
+}
 4086.11.15 = { 
-    owner = PLS
-    controller = PLS
-    add_core = PLS
-    capital = "Ramallah"
+	owner = PLS
+	controller = PLS
+	add_core = PLS
+	capital = "Ramallah"
 }
-
-4121.10.7 = { controller = ISR } 
+4121.10.7 = { 
+	controller = ISR
+}

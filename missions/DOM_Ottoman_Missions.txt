@@ -1161,7 +1161,6 @@ tur_african_conquest = {
 		completed_by = 3553.1.1
 		trigger = {
 			has_mil_advisor_2 = yes
-			mil_tech = 49
 		}
 		effect = {
 			if = {
@@ -2045,9 +2044,45 @@ tur_egyptian_conquest = {
 	}
 	has_country_shield = yes
 	
+	tur_aftermath_of_varna = {
+		icon = mission_battle_of_varna
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			army_size = 30
+			num_of_generals = 2
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = tur_aftermath_of_varna_ct
+					has_country_flag = tur_had_varna_event
+				}
+				is_year = 3548
+			}
+		}
+		effect = {
+			add_permanent_claim_province = { province = 151 }
+			add_permanent_claim_province = { province = 146 }
+			add_permanent_claim_province = { province = 4701 }
+			add_permanent_claim_province = { province = 145 }
+			add_permanent_claim_province = { province = 1773 }
+			add_permanent_claim_province = { province = 4699 }
+			add_permanent_claim_province = { province = 4698 }
+			add_permanent_claim_province = { province = 1764 }
+			add_prestige = 5
+		}
+
+		ai_weight = {
+			factor = 250
+		}
+	}
+	
 	tur_city_of_worlds_desire = {
 		icon = mission_fall_of_constantinople
 		required_missions = {
+			tur_guns_of_urban
+			tur_aftermath_of_varna
 		}
 		position = 3
 		provinces_to_highlight = {
@@ -2317,47 +2352,50 @@ tur_egyptian_conquest = {
 				}
 				add_permanent_claim = ROOT
 			}
-			bahrain_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+			custom_tooltip = tur_defeat_the_mamluks_tt
+			hidden_effect = {
+				bahrain_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			tabuk_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				tabuk_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			nafud_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				nafud_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			qasim_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				qasim_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			medina_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				medina_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			mecca_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				mecca_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 		}
 

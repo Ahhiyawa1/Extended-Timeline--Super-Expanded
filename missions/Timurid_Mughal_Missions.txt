@@ -47,7 +47,6 @@ tim_reconquest_persia = {
 			else_if = {
 				limit = {
 					tag = QOM
-					exists = TIM
 				}
 				NOT = {
 					all_subject_country = {
@@ -87,10 +86,6 @@ tim_reconquest_persia = {
 							tag = QOM
 						}
 					}
-					OR = {
-						exists = TIM
-						is_subject = yes
-					}
 				}
 				OR = {
 					war_with = TIM
@@ -99,7 +94,9 @@ tim_reconquest_persia = {
 			}
 			else_if = {
 				limit = {
-					always = yes
+					NOT = {
+						exists = TIM
+					}
 				}
 				army_size_percentage = 1
 			}

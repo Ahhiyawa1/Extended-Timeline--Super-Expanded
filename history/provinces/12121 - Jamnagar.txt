@@ -1,12 +1,21 @@
-#12121 - Jamnagar
-
+# Jamnagar
+# 12121 Jamnagar - 1/26/2025 8:46:45 AM 
+ 
+add_core = WSA
 owner = WSA
 controller = WSA
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = gems
+
 culture = gujarati
 religion = hinduism
 capital = "Jamnagar"
-trade_goods = gems
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,38 +27,71 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = WSA
 
-2503.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = WSA }
-2573.1.1 = { owner = GUJ controller = GUJ add_core = GUJ remove_core = GUP }
-2832.1.1 = { owner = PRB controller = PRB add_core = PRB remove_core = GUJ }
-3018.1.1 = { owner = JGD controller = JGD add_core = JGD remove_core = PRB }
-3245.1.1 = { owner = KAT controller = KAT add_core = KAT remove_core = JGD }
 
+
+
+2503.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = WSA
+}
+2573.1.1 = {
+	owner = GUJ
+	controller = GUJ
+	add_core = GUJ
+	remove_core = GUP
+}
+2832.1.1 = {
+	owner = PRB
+	controller = PRB
+	add_core = PRB
+	remove_core = GUJ
+}
+3018.1.1 = {
+	owner = JGD
+	controller = JGD
+	add_core = JGD
+	remove_core = PRB
+}
+3245.1.1 = {
+	owner = KAT
+	controller = KAT
+	add_core = KAT
+	remove_core = JGD
+}
 3568.1.1 = {
 	owner = GUJ
 	controller = GUJ
 }
-3596.1.1 = { discovered_by = POR }
+3596.1.1 = {
+	discovered_by = POR
+}
 3638.1.1 = {
 	owner = NVR
 	controller = NVR
-} # Kathiawar independent while Ahmad Shahis are busy with internal conflicts
+}
 3690.1.1 = {
 	owner = MUG
 	add_core = MUG
 	controller = MUG
-} # Conquered by Mughals
+}
 3823.1.1 = {
 	owner = NVR
 	controller = NVR
 	remove_core = MUG
-} # Vassal of Gaikwads
+}
+3998.1.1 = {
+	base_manpower = 2
+}
+4028.1.1 = {
+	add_core = INI
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+}
 
-3998.1.1 = { base_manpower = 2 }
-4028.1.1  = { add_core = INI }
-4045.8.15 = { owner = INI controller = INI }
+
+### Modified 1/26/2025 8:46:45 AM ###

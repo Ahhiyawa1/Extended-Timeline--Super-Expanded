@@ -28,7 +28,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			NOT = { is_year = 3598 }
 			owns_core_province = 717
@@ -51,11 +51,12 @@ country_decisions = {
 			}
 			add_prestige = 25
 			change_tag = KHA
+			on_change_tag_effect = yes
 			add_adm_power = 100
 			add_dip_power = 100
 			add_mil_power = 100
 			add_treasury = 1000
-			set_government_rank = 3
+			set_government_rank = 10
 		}
 		ai_will_do = {
 			factor = 1
@@ -66,6 +67,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_norway_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -91,7 +93,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 17
 			owns_core_province = 24
@@ -119,11 +121,12 @@ country_decisions = {
 				add_permanent_claim = NOR
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = NOR
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -133,6 +136,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			swap_non_generic_missions = yes
+			set_country_flag = formed_norway_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -143,6 +147,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_sweden_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -169,7 +174,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 1
 			owns_core_province = 4
@@ -198,11 +203,12 @@ country_decisions = {
 				add_permanent_claim = SWE
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = SWE
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -212,6 +218,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			swap_non_generic_missions = yes
+			set_country_flag = formed_sweden_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -222,6 +229,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_denmark_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -246,7 +254,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 12
 			owns_core_province = 14
@@ -273,11 +281,12 @@ country_decisions = {
 				add_permanent_claim = DAN
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = DAN
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -287,6 +296,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			swap_non_generic_missions = yes
+			set_country_flag = formed_denmark_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -324,7 +334,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 172
 			owns_core_province = 171
@@ -334,6 +344,7 @@ country_decisions = {
 		effect = {
 			add_prestige = 25
 			change_tag = BRI
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -357,6 +368,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_japan_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -384,7 +396,7 @@ country_decisions = {
 		}
 		allow = {
 			all_countries_including_self = { NOT = { has_reform = shogunate } }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 1020
 			owns_core_province = 1021
@@ -402,11 +414,12 @@ country_decisions = {
 				add_permanent_claim = JAP
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = JAP
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			if = {
 				limit = { has_custom_ideas = no }
@@ -422,11 +435,13 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_korea_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = JOE }
+			NOT = { exists = KOE }
 			NOT = { tag = KOR }
 			NOT = { tag = GOR }
 			primary_culture = korean
@@ -445,7 +460,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 1013
 			owns_core_province = 735
@@ -461,11 +476,12 @@ country_decisions = {
 				add_permanent_claim = JOE
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = JOE
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -474,6 +490,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_korea_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -489,6 +506,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = SIA }
+			NOT = { exists = THL }
 			OR = { 
 				primary_culture = central_thai 
 				primary_culture = northern_thai 
@@ -509,7 +527,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 600
 			owns_core_province = 601
@@ -537,11 +555,12 @@ country_decisions = {
 				add_permanent_claim = SIA
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = SIA
+			on_change_tag_effect = yes
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
@@ -556,6 +575,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_burma_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -579,7 +599,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 586
 			owns_core_province = 1815
@@ -595,15 +615,17 @@ country_decisions = {
 				add_permanent_claim = BRM
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = BRM
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			set_country_flag = formed_burma_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -619,6 +641,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = CMB }
+			NOT = { tag = KHM }
 			primary_culture = khmer
 		}
 		provinces_to_highlight = {
@@ -634,7 +657,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 604
 			owns_core_province = 609
@@ -648,11 +671,12 @@ country_decisions = {
 				add_permanent_claim = CMB
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = CMB
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -671,6 +695,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_vietnam_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -692,7 +717,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 616
 			owns_core_province = 2372
@@ -713,11 +738,12 @@ country_decisions = {
 				add_permanent_claim = VTN
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = VTN
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -726,6 +752,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_vietnam_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -758,7 +785,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 614
 			owns_core_province = 615
@@ -766,12 +793,12 @@ country_decisions = {
 			owns_core_province = 611
 		}
 		effect = {
-			south_laos_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = LAO
-			}
+			#south_laos_area = {
+			#	limit = {
+			#		NOT = { owned_by = ROOT }
+			#	}
+			#	add_permanent_claim = LAO
+			#}
 			north_laos_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -779,11 +806,12 @@ country_decisions = {
 				add_permanent_claim = LAO
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = LAO
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -806,7 +834,15 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = CHN }
+			NOT = {
+				OR = {
+					exists = CHN
+					AND = {
+						has_saved_global_event_target = _CHN
+						event_target:_CHN = { exists = yes }
+					}
+				}
+			}
 			culture_group = east_asian
 			NOT = { government = monarchy }
 		}
@@ -824,14 +860,13 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = CHN }
 			OR = {
 				is_emperor_of_china = yes
 				NOT = { any_country = { is_emperor_of_china = yes } }
 			}
 			adm_tech = 65
 			NOT = { government = monarchy }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 1816
 			owns_core_province = 695
@@ -847,86 +882,89 @@ country_decisions = {
 			}
 			add_prestige = 25
 			change_tag = CHN
+			on_change_tag_effect = yes
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	form_turkey = {
-		major = yes
-		potential = {
-			normal_or_historical_nations = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			NOT = { exists = TKY }
-			NOT = { tag = EUR }
-			is_emperor_of_china = no
-			primary_culture = turkish
-			is_colonial_nation = no
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 151		# Constantinople
-				province_id = 316		# Iznik
-				province_id = 323		# Konya
-				province_id = 326		# Ankara
-				province_id = 329		# Sivas
-				province_id = 331		# Erzurum
-				province_id = 2301		# Kayseri
-				province_id = 4312		# Eskeshehir
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		allow = {
-			OR = {
-				government = republic
-				adm_tech = 82
-			}
-			is_subject = no
-			is_at_war = no
-			owns_core_province = 151		# Constantinople
-			owns_core_province = 316		# Iznik
-			owns_core_province = 323		# Konya
-			owns_core_province = 326		# Ankara
-			owns_core_province = 329		# Sivas
-			owns_core_province = 331		# Erzurum
-			owns_core_province = 2301		# Kayseri
-			owns_core_province = 4312		# Eskeshehir
-		}
-		effect = {
-			random_owned_province = {
-				limit = { culture = turkish }
-				add_base_tax = 1
-			}
-			add_prestige = 25
-			change_tag = TKY
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				government = monarchy
-				NOT = { has_reform = parliamentary_monarchy }
-				NOT = { has_reform = constitutional_monarchy }
-				NOT = { has_reform = multi_party_system }
-			}
-		}
-	}
+	# form_turkey = {
+		# major = yes
+		# potential = {
+			# normal_or_historical_nations = yes
+			# OR = {
+				# ai = no
+				# is_playing_custom_nation = no
+			# }
+			# NOT = { exists = TKY }
+			# NOT = { tag = EUR }
+			# is_emperor_of_china = no
+			# primary_culture = turkish
+			# is_colonial_nation = no
+		# }
+		# provinces_to_highlight = {
+			# OR = {
+				# province_id = 151		# Constantinople
+				# province_id = 316		# Iznik
+				# province_id = 323		# Konya
+				# province_id = 326		# Ankara
+				# province_id = 329		# Sivas
+				# province_id = 331		# Erzurum
+				# province_id = 2301		# Kayseri
+				# province_id = 4312		# Eskeshehir
+			# }
+			# OR = {
+				# NOT = { owned_by = ROOT }
+				# NOT = { is_core = ROOT }
+			# }
+		# }
+		# allow = {
+			# OR = {
+				# government = republic
+				# adm_tech = 82
+			# }
+			# is_subject = no
+			# is_at_war = no
+			# owns_core_province = 151		# Constantinople
+			# owns_core_province = 316		# Iznik
+			# owns_core_province = 323		# Konya
+			# owns_core_province = 326		# Ankara
+			# owns_core_province = 329		# Sivas
+			# owns_core_province = 331		# Erzurum
+			# owns_core_province = 2301		# Kayseri
+			# owns_core_province = 4312		# Eskeshehir
+		# }
+		# effect = {
+			# random_owned_province = {
+				# limit = { culture = turkish }
+				# add_base_tax = 1
+			# }
+			# add_prestige = 25
+			# change_tag = TKY
+			# on_change_tag_effect = yes
+			# if = {
+				# limit = { has_custom_ideas = no }
+				# country_event = { id = ideagroups.1 } #Swap Ideas
+			# }
+		# }
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# government = monarchy
+				# NOT = { has_reform = parliamentary_monarchy }
+				# NOT = { has_reform = constitutional_monarchy }
+				# NOT = { has_reform = multi_party_system }
+			# }
+		# }
+	# }
 
 	form_belgium = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_belgium_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -957,7 +995,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 76
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 92
 			owns_core_province = 90
@@ -970,11 +1008,12 @@ country_decisions = {
 				add_base_tax = 1
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = BEL
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -983,6 +1022,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_belgium_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -993,6 +1033,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_yugoslavia_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -1024,7 +1065,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 76
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 141
 			owns_core_province = 1827
@@ -1044,11 +1085,12 @@ country_decisions = {
 				add_base_tax = 1
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = YUG
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1057,6 +1099,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_yugoslavia_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -1092,7 +1135,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 437
 			owns_core_province = 2350
@@ -1104,11 +1147,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = TRK
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1152,7 +1196,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 441
 			owns_core_province = 1973
@@ -1164,11 +1208,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = UZB
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1212,7 +1257,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 2364
 			owns_core_province = 2125
@@ -1224,11 +1269,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = KYR
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1254,6 +1300,7 @@ country_decisions = {
 			NOT = { exists = KZK }
 			NOT = { tag = MUG }
 			primary_culture = khazak
+			NOT = { has_country_flag = formed_kazakh_flag }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1272,7 +1319,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 456
 			owns_core_province = 1969
@@ -1284,11 +1331,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = KZK
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1297,6 +1345,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_kazakh_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -1328,7 +1377,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 78
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 2127
 			owns_core_province = 1967
@@ -1336,11 +1385,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = TJK
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1386,6 +1436,7 @@ country_decisions = {
 		}
         effect = {
             change_tag = USA
+			on_change_tag_effect = yes
             add_prestige = 100
             952 = { add_base_tax = 1 }
         }
@@ -1395,6 +1446,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_belarus_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -1421,7 +1473,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 74
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 275
 			owns_core_province = 276
@@ -1432,11 +1484,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = BLR
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1445,6 +1498,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			set_country_flag = formed_belarus_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -1482,7 +1536,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 74
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 266
 			owns_core_province = 265
@@ -1493,11 +1547,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = CZS
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1538,7 +1593,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 1193
 			owns_core_province = 4022
@@ -1573,11 +1628,12 @@ country_decisions = {
 				add_permanent_claim = MDG
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = MDG
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1596,6 +1652,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_finland_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -1622,7 +1679,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 27
 			owns_core_province = 28
@@ -1645,15 +1702,17 @@ country_decisions = {
 				add_permanent_claim = FIN
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = FIN
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			set_country_flag = formed_finland_flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -1694,7 +1753,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 358
 			owns_core_province = 361
@@ -1712,11 +1771,12 @@ country_decisions = {
 				add_permanent_claim = EGP
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = EGP
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1759,7 +1819,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 418
 			owns_core_province = 4293
@@ -1769,11 +1829,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = KRD
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -1810,7 +1871,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			NOT = { exists = GRB }
 			owns_core_province = 445
@@ -1819,11 +1880,12 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 50
 			change_tag = GRB
+			on_change_tag_effect = yes
 			450 = { move_capital_effect = yes }
 			add_country_modifier = {
 				name = "centralization_modifier"
@@ -1907,7 +1969,7 @@ country_decisions = {
 				}
 				is_emperor_of_china = yes
 				else = {
-					government_rank = 3
+					government_rank = 10
 				}
 			}
 		}
@@ -1920,6 +1982,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = LIO
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			north_china_region  = {
 				limit = {
@@ -2019,10 +2082,11 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = SRI
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			north_sumatra_area  = {
 				limit = {
@@ -2151,6 +2215,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = LXA
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
@@ -2159,8 +2224,8 @@ country_decisions = {
 				add_government_reform = mandala_reform
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			north_laos_area  = {
 				limit = {
@@ -2246,12 +2311,13 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = CNA
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			change_government = monarchy
 			add_government_reform = mandala_reform
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			angkor_area  = {
 				limit = {
@@ -2341,6 +2407,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = LNA
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { government = tribal }
@@ -2383,6 +2450,7 @@ country_decisions = {
 			if = {
 				limit = { tag = LCH }
 				change_tag = CNA
+				on_change_tag_effect = yes
 			}
 			if = {
 				limit = { has_country_flag = is_water_chenla }
@@ -2390,8 +2458,8 @@ country_decisions = {
 				restore_country_name = yes
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			angkor_area  = {
 				limit = {
@@ -2444,6 +2512,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = HLR
+			on_change_tag_effect = yes
 			every_province = {
 				limit = { 
 					is_part_of_hre = yes 
@@ -2452,7 +2521,7 @@ country_decisions = {
 				add_core = HLR
 			}
 			dismantle_hre = yes
-			set_government_rank = 3
+			set_government_rank = 10
 			add_prestige = 20
 			if = {
 				limit = { has_custom_ideas = no }
@@ -2485,6 +2554,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = FRK
+			on_change_tag_effect = yes
 			add_prestige = 20
 			add_country_modifier = {
 				name = "centralization_modifier"
@@ -2521,7 +2591,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 252
 			owns_core_province = 251
@@ -2542,11 +2612,12 @@ country_decisions = {
 				add_permanent_claim = PCT
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = PCT
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -2585,7 +2656,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 236
 			owns_core_province = 246
@@ -2644,11 +2715,12 @@ country_decisions = {
 				add_permanent_claim = RBR
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			change_tag = RBR
+			on_change_tag_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -2687,7 +2759,7 @@ country_decisions = {
 		allow = {
 			NOT = { exists = SOM }
 			adm_tech = 45
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			is_nomad = no
 			owns_core_province = 1205
@@ -2699,6 +2771,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = SOM
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			majarteen_area = {
 				limit = {
@@ -2743,8 +2816,8 @@ country_decisions = {
 				add_permanent_claim = SOM
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -2791,7 +2864,7 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = PYU }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			is_nomad = no
 			owns_core_province = 4396
@@ -2802,6 +2875,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PYU
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			upper_burma_area = {
 				limit = {
@@ -2822,8 +2896,8 @@ country_decisions = {
 				add_permanent_claim = PYU
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -2869,7 +2943,7 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = BUL }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 2447
 			owns_core_province = 286
@@ -2878,6 +2952,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = BUL
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			zaporizhia_area = {
 				limit = {
@@ -2898,8 +2973,8 @@ country_decisions = {
 				add_permanent_claim = BUL
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -2931,7 +3006,7 @@ country_decisions = {
 			}
 			NOT = { tag = CCS }
 			OR = {
-				culture_group = caucasian
+				#culture_group = caucasian
 				primary_culture = avar
 				primary_culture = alan
 			}
@@ -2952,7 +3027,7 @@ country_decisions = {
 		allow = {
 			NOT = { exists = CCS }
 			adm_tech = 55
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			is_nomad = no
 			owns_core_province = 463
@@ -2963,6 +3038,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = CCS
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			caucasia_region = {
 				limit = {
@@ -2971,8 +3047,8 @@ country_decisions = {
 				add_permanent_claim = CCS
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -3024,7 +3100,7 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = SAR }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 127
 			owns_core_province = 4735
@@ -3032,9 +3108,10 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = SAR
+			on_change_tag_effect = yes
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -3076,7 +3153,7 @@ country_decisions = {
 		allow = {
 			adm_tech = 78
 			NOT = { exists = TKS }
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 461
 			owns_core_province = 458
@@ -3087,6 +3164,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = TKS
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			central_asia_region = {
 				limit = {
@@ -3095,8 +3173,8 @@ country_decisions = {
 				add_permanent_claim = TKS
 			}
 			if = {
-				limit = { NOT = { government_rank = 2 } }
-				set_government_rank = 2
+				limit = { NOT = { government_rank = 8 } }
+				set_government_rank = 8
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -3144,13 +3222,14 @@ country_decisions = {
 				tag = GEW
 				NOT = { exists = GEW }
 			}
-			is_subject = no
+			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			owns_core_province = 2
 			owns_core_province = 7
 		}
 		effect = {
 			change_tag = GTL
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			gotaland_area = {
 				limit = {
@@ -3225,6 +3304,9 @@ east_francia_nation = {
 					ai = no
 				}
 			}
+			NOT = { has_country_flag = formed_east_francia_flag }
+			NOT = { has_country_flag = formed_germany_flag }
+			NOT = { started_in = 2938.6.21 } # FRE exists in history
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -3365,12 +3447,12 @@ east_francia_nation = {
 			}
 		}
 		effect = {
-			on_change_tag_effect = yes
-			hidden_effect = {
-				restore_country_name = yes
-				restore_country_color = yes
-			}
+			# hidden_effect = {
+				# restore_country_name = yes
+				# restore_country_color = yes
+			# }
 			change_tag = FRE
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					OR = {
@@ -3391,9 +3473,9 @@ east_francia_nation = {
 			}
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

@@ -1,12 +1,20 @@
-# Marcus Antonius's Domain
-owner = M10
-controller = M10
-add_core = M10
+# Modified 1/26/2025 8:54:54 AM ###
+# Troad
+# 9222 Troad - 1/26/2025 8:54:54 AM
+add_core = ROM
+add_core = ROM
+add_core = ROM
+owner = ROM
+controller = ROM
+base_tax = 3
+base_production = 3
+base_manpower = 2
+trade_goods = naval_supplies
 culture = aeolic
 religion = hellenism
 capital = "Dardanellia"
-trade_goods = naval_supplies
-hre = no
+is_city = yes
+fort_15th = yes
 discovered_by = nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
@@ -16,16 +24,27 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 3
-base_production = 3
-base_manpower = 2
-is_city = yes
-add_core = M10
+2055.1.1 = { 
+    owner = M10
+    controller = M10
+    remove_core = ROM
+    add_core = M10
+    remove_core = ROM
+    add_core = M10
+}
+
+2057.1.1 = { 
+    owner = ROM
+    controller = ROM
+    remove_core = M10
+    add_core = ROM
+    remove_core = M10
+    add_core = ROM
+}
+
 2086.11.1 = { 
     owner = ROM
     controller = ROM
-    add_core = ROM
-    remove_core = M10
     add_core = ROM
     remove_core = M10
     add_core = ROM
@@ -39,7 +58,7 @@ add_core = M10
     owner = BYZ
     add_core = BYZ
     remove_core = ROM
-} # Final division of the empire
+}
 
 2965.1.1 = { religion = orthodox culture = greek } 
 2965.1.1 = { culture = greek } 
@@ -57,22 +76,22 @@ add_core = M10
 }
 
 3438.1.1 = { religion = sunni culture = turkish remove_core = BYZ } 
-3500.1.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Interregnum
+3500.1.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } 
 3502.1.1 = { revolt = { } controller = TUR } 
-3560.1.1 = { fort_15th = yes } # Kala-i Sultaniye was completed
-3580.7.26 = { revolt = { } controller = TUR } # Jem escapes to Rhodes
-3607.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+3560.1.1 = { fort_15th = yes } 
+3580.7.26 = { revolt = { } controller = TUR } 
+3607.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } 
 3611.1.1 = { revolt = { } controller = TUR } 
-3649.1.1 = { fort_15th = no fort_16th = yes } # Repairs and enlargement.
-3721.1.1 = { unrest = 8 } # The empire fell into anarchy, Janissaries stormed the palace
-3723.1.1 = { unrest = 0 } # Murad tries to quell the corruption
-3788.1.1 = { base_tax = 2 base_production = 2 } # The Decentralizing Effect of the Provincial System
-3816.1.1 = { unrest = 3 } # Lale Devri (the tulip age), not appreciated by everyone
+3649.1.1 = { fort_15th = no fort_16th = yes } 
+3721.1.1 = { unrest = 8 } 
+3723.1.1 = { unrest = 0 } 
+3788.1.1 = { base_tax = 2 base_production = 2 } 
+3816.1.1 = { unrest = 3 } 
 3818.1.1 = { unrest = 0 } 
 3853.1.1 = { base_production = 3 } 
 3883.1.1 = { base_tax = 3 } 
-3893.1.1 = { unrest = 6 } # Reforms by Sultan Selim III, tried to replace the Janissary corps
-3906.1.1 = { fort_16th = no fort_18th = yes } # Various fortifications updated.
+3893.1.1 = { unrest = 6 } 
+3906.1.1 = { fort_16th = no fort_18th = yes } 
 3913.1.1 = { base_manpower = 4 } 
 3973.1.1 = { base_tax = 4 } 
 4003.1.1 = { base_tax = 5 } 

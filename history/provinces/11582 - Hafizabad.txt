@@ -1,12 +1,21 @@
-#11582 - Hafizabad
-
+# Hafizabad
+# 11582 Hafizabad - 1/26/2025 8:46:44 AM 
+ 
+add_core = IGR
 owner = IGR
 controller = IGR
+base_tax = 4
+base_production = 4
+base_manpower = 2
+
+trade_goods = salt
+
 culture = bactrian
 religion = mahayana
 capital = "Hafizabad"
-trade_goods = salt
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,32 +27,95 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 4
-base_production = 4
-base_manpower = 2
-is_city = yes
-add_core = IGR
 
-2108.1.1 = { owner = NST controller = NST add_core = NST remove_core = IGR }
-2158.1.1 = { culture = panjabi }
-2218.1.1 = { owner = KUS controller = KUS add_core = KUS remove_core = NST }
-2473.1.1 = { owner = KDT controller = KDT add_core = KDT remove_core = KUS }
-2558.1.1 = { owner = KAP controller = KAP add_core = KAP remove_core = KDT }
-2628.1.1 = { owner = GND controller = GND add_core = GND remove_core = KAP }
-2648.1.1 = { religion = hinduism }
-2768.1.1 = { owner = KSH controller = KSH add_core = KSH remove_core = GND }
-2898.1.1 = { trade_goods = paper }
-2958.1.1 = { owner = SHH controller = SHH add_core = SHH remove_core = KSH }
-3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = SHH }
-3285.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
-3308.1.1 = { owner = MUL controller = MUL add_core = MUL remove_core = GHU }
-3326.1.1 = { owner = DLH controller = DLH add_core = DLH add_core = PUN remove_core = MUL }
-3529.1.1 = { owner = SRH controller = SRH add_core = SRH }
 
+
+
+2108.1.1 = {
+	owner = NST
+	controller = NST
+	add_core = NST
+	remove_core = IGR
+}
+2158.1.1 = {
+	culture = panjabi
+}
+2218.1.1 = {
+	owner = KUS
+	controller = KUS
+	add_core = KUS
+	remove_core = NST
+}
+2473.1.1 = {
+	owner = KDT
+	controller = KDT
+	add_core = KDT
+	remove_core = KUS
+}
+2558.1.1 = {
+	owner = KAP
+	controller = KAP
+	add_core = KAP
+	remove_core = KDT
+}
+2628.1.1 = {
+	owner = GND
+	controller = GND
+	add_core = GND
+	remove_core = KAP
+}
+2648.1.1 = {
+	religion = hinduism
+}
+2768.1.1 = {
+	owner = KSH
+	controller = KSH
+	add_core = KSH
+	remove_core = GND
+}
+2898.1.1 = {
+	trade_goods = paper
+}
+2958.1.1 = {
+	owner = SHH
+	controller = SHH
+	add_core = SHH
+	remove_core = KSH
+}
+3100.1.1 = {
+	owner = GHZ
+	controller = GHZ
+	add_core = GHZ
+	remove_core = SHH
+}
+3285.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = GHZ
+}
+3308.1.1 = {
+	owner = MUL
+	controller = MUL
+	add_core = MUL
+	remove_core = GHU
+}
+3326.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	add_core = PUN
+	remove_core = MUL
+}
+3529.1.1 = {
+	owner = SRH
+	controller = SRH
+	add_core = SRH
+}
 3549.4.20 = {
 	controller = DLH
 	owner = DLH
-} #Bahlul Lodi takes power in Delhi
+}
 3620.1.1 = {
 	controller = REB
 	revolt = {
@@ -51,64 +123,107 @@ add_core = IGR
 		size = 0
 		leader = "Dalaut Khan Lodi"
 	}
-} #Daulat Kahn Lodi revolt
+
+}
 3623.1.1 = {
-	controller = TIM owner = TIM add_core = TIM
-	revolt = { }
-} #Defects to Babur
+	controller = TIM
+	owner = TIM
+	add_core = TIM
+	revolt = {
+	}
+
+}
 3624.4.21 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
 	remove_core = DLH
-} # Battle of Panipat
+}
 3638.1.1 = {
 	religion = sikhism
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} #Conquered by Sher Shah Suri
-3643.1.1 = { fort_15th = yes } #Rohtas Fort
+}
+3643.1.1 = {
+	fort_15th = yes
+}
 3651.1.1 = {
 	owner = SRH
 	controller = SRH
 	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
-3652.7.1 = { controller = MUG } #Humayun invades
-3652.12.1 = { owner = MUG } #Aftermath of the battle of Sirhind
-3788.1.1 = { discovered_by = ENG }
+}
+3652.7.1 = {
+	controller = MUG
+}
+3652.12.1 = {
+	owner = MUG
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
 3798.1.1 = {
 	controller = REB
-	revolt = { type = sikhism_rebels size = 1 }
+	revolt = {
+		type = sikhism_rebels
+		size = 1
+	}
+
 }
-3805.5.12 = { discovered_by = GBR }
+3805.5.12 = {
+	discovered_by = GBR
+}
 3813.1.1 = {
 	controller = MUG
-	revolt = { }
+	revolt = {
+	}
+
 }
 3818.1.1 = {
 	controller = REB
-	revolt = { type = sikhism_rebels size = 2 }
+	revolt = {
+		type = sikhism_rebels
+		size = 2
+	}
+
 }
 3850.1.1 = {
 	owner = AFG
 	controller = AFG
 	add_core = AFG
 	remove_core = MUG
-	revolt = { }
+	revolt = {
+	}
+
 }
 3856.1.1 = {
 	controller = MAR
 	add_core = GWA
-} # Held by the Peshawas
-3858.1.1 = { controller = AFG }
+}
+3858.1.1 = {
+	controller = AFG
+}
 3860.1.1 = {
 	owner = PUN
 	controller = PUN
 }
+3947.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+4023.1.1 = {
+	base_manpower = 3
+}
+4028.12.29 = {
+	add_core = PAK
+	remove_core = PUN
+}
+4045.8.14 = {
+	owner = PAK
+	controller = PAK
+	remove_core = GBR
+}
 
-3947.1.1   = { owner = GBR controller = GBR add_core = GBR }
-4023.1.1 = { base_manpower = 3 }
-4028.12.29 = { add_core = PAK remove_core = PUN }
-4045.8.14  = { owner = PAK controller = PAK remove_core = GBR }
 
+### Modified 1/26/2025 8:46:44 AM ###

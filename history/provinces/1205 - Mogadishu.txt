@@ -1,51 +1,97 @@
-# 1205 - Mogadishu
+# Mogadishu
+# 1205 Mogadishu - 1/26/2025 8:46:43 AM 
+ 
+add_core = MDI
 owner = MDI
 controller = MDI
-add_core = MDI
-is_city = yes
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+center_of_trade = 2
+trade_goods = ivory
+
 culture = somali
 religion = waaqism
 capital = "Maqdishu"
-base_manpower = 1
-trade_goods = ivory
-hre = no
-base_tax = 3
-base_production = 3
+
+is_city = yes
+
 discovered_by = east_african
 discovered_by = middle_eastern
-center_of_trade = 2
-2778.1.1 = { religion = sunni } 
-2948.1.1 = { 
-    discovered_by = muslim
-    discovered_by = ottoman
-    discovered_by = indian
-    discovered_by = asian
-    religion = sunni
+
+
+
+
+2778.1.1 = {
+	religion = sunni
+}
+2948.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = indian
+	discovered_by = asian
+	religion = sunni
+}
+3597.1.1 = {
+	discovered_by = POR
+}
+3597.1.1 = {
+	unrest = 3
+}
+3602.1.1 = {
+	unrest = 0
+}
+3648.1.1 = {
+	discovered_by = TUR
+}
+3653.1.1 = {
+	owner = AJU
+	controller = AJU
+	add_core = AJU
+}
+3710.1.1 = {
+	unrest = 8
+}
+3713.1.1 = {
+	unrest = 0
+}
+3718.1.1 = {
+	owner = MDI
+	controller = MDI
+	remove_core = AJU
+}
+3987.1.7 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	capital = "Mogadishu"
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4058.7.1 = {
+	owner = SOM
+	controller = SOM
+	add_core = SOM
+	remove_core = ITA
+	remove_core = MDI
+}
+4104.7.11 = {
+	revolt = {
+		type = fanatic_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+4105.1.6 = {
+	revolt = {
+		controller = SOM
+	}
+
 }
 
-3597.1.1 = { discovered_by = POR } 
-3597.1.1 = { unrest = 3 } # Portuguese bombard Mogadishu, do not seize it
-3602.1.1 = { unrest = 0 } 
-3648.1.1 = { discovered_by = TUR } 
-3653.1.1 = { owner = AJU controller = AJU add_core = AJU } 
-3710.1.1 = { unrest = 8 } # Somail migrations greatly disrupt region
-3713.1.1 = { unrest = 0 } 
-3718.1.1 = { owner = MDI controller = MDI remove_core = AJU } 
-3987.1.7 = { 
-    owner = ITA
-    controller = ITA
-    add_core = ITA
-    capital = "Mogadishu"
-}
 
-4008.1.1 = { discovered_by = western discovered_by = eastern } 
-4058.7.1 = { 
-    owner = SOM
-    controller = SOM
-    add_core = SOM
-    remove_core = ITA
-    remove_core = MDI
-}
-
-4104.7.11 = { revolt = { type = fanatic_rebels size = 2 } controller = REB } # Al-Shabaab
-4105.1.6 = { revolt = { } controller = SOM } 
+### Modified 1/26/2025 8:46:43 AM ###

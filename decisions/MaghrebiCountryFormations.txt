@@ -5,23 +5,65 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_morocco_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
 			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
+				AND = {
+					religion_group = african_pagan
+					NOT = { exists = MOO }
+				}
+				AND = {
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					}
+					NOT = { exists = MRN }
+				}
+				AND = {
+					religion_group = muslim
+					NOT = { exists = MOR }
+					NOT = { exists = MR6 }
+					NOT = { exists = MR7 }
+					NOT = { exists = MR8 }
+				}
 			}
-			NOT = { tag = MOR }
 			NOT = { tag = TUN }
+			NOT = { tag = AF1 }
+			NOT = { tag = TLC }
+			NOT = { tag = ATV }
 			NOT = { tag = ALG }
+			NOT = { tag = CE1 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
+			NOT = { tag = AMH }		#New added in MMETR, prevents Almohads forming Morocco in a cycle for free prestige
 			OR = {
 				primary_culture = moroccan
-				primary_culture = berber
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = northern_morocco_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = fez_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = southern_morocco_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = marrekesh_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = sus_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = tafilalt_area }
+				}
 			}
 			OR = {
 				ai = no
@@ -58,15 +100,11 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = MOR }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 343 	#Fez
-			owns_core_province = 344 	#Marrekech
-			344 = {						#Marrekech
-				is_state = yes
-			}
+			owns_core_province = 343 #Fez
+			owns_core_province = 344 #Marrekech
 			OR = {
 				owns_core_province = 348 #Sus
 				owns_core_province = 346 #Tafilalt
@@ -76,64 +114,75 @@ country_decisions = {
 			344 = {
 				move_capital_effect = yes
 			}
-			change_tag = MOR
-			swap_non_generic_missions = yes
+			if = {
+				limit = { religion_group = african_pagan }
+				change_tag = MOO
+			}
+			if = {
+				limit = { 
+					OR = {
+						religion_group = christian
+						religion_group = hellenic
+					} 
+				}
+				change_tag = MRN
+			}
+			if = {
+				limit = { religion_group = muslim }
+				change_tag = MOR
+			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			tafilalt_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			sus_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			marrekesh_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			western_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			southern_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			northern_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MOR
+				add_permanent_claim = ROOT
 			}
 			add_prestige = 25
 			if = {
 				limit = { NOT = { has_reform = celestial_empire } }
-				change_government_to_monarchy = yes #Desert tribes settling down, theocracies become monarchies.
-				#set_legacy_government = despotic_monarchy
+				change_government = monarchy #Desert tribes settling down, theocracies become monarchies.
+				set_legacy_government = despotic_monarchy
 			}
 			change_primary_culture = moroccan
-			set_country_flag = formed_morocco_flag
 			if = {
-				limit = { 
-					has_custom_ideas = no
-					NOT = { has_idea_group = MOR_ideas }
-				}
+				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
@@ -153,14 +202,18 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { tag = MOR }
+			NOT = { tag = MR6 }
+			NOT = { tag = MR7 }
+			NOT = { tag = MR8 }
+			NOT = { tag = MOO }
+			NOT = { tag = MRN }
 			NOT = { tag = TUN }
+			NOT = { tag = AF1 }
 			NOT = { tag = TLC }
+			NOT = { tag = ATV }
 			NOT = { tag = ALG }
+			NOT = { tag = CE1 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			OR = {
@@ -184,6 +237,12 @@ country_decisions = {
 				AND = {
 					primary_culture = berber
 					capital_scope = { area = north_saharan_area }
+				}
+			}
+			NOT = {
+				OR = {
+					religion_group = christian
+					religion_group = hellenic
 				}
 			}
 			OR = {
@@ -223,14 +282,12 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = ALG }
+			NOT = { AND = { tag = KBA dynasty = "Hammadid" } }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 2461 	#Dahra
-			owns_core_province = 338 	#Algiers
-			338 = {						#Algiers
-				is_state = yes
-			}
+			owns_core_province = 338 #Algiers
+			owns_core_province = 2461 #Dahra
 			OR = {
 				owns_core_province = 336 #Tlemcen
 				owns_core_province = 339 #Kabylia
@@ -244,9 +301,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			change_primary_culture = algerian
 			algiers_area = {
@@ -289,10 +346,7 @@ country_decisions = {
 			add_prestige = 25
 			set_country_flag = formed_algiers_flag
 			if = {
-				limit = {
-					has_custom_ideas = no
-					NOT = { has_idea_group = berber_ideas }
-				}
+				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
@@ -312,13 +366,18 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { tag = MOR }
+			NOT = { tag = MR6 }
+			NOT = { tag = MR7 }
+			NOT = { tag = MR8 }
+			NOT = { tag = MOO }
+			NOT = { tag = MRN }
 			NOT = { tag = TUN }
+			NOT = { tag = AF1 }
+			NOT = { tag = TLC }
+			NOT = { tag = ATV }
 			NOT = { tag = ALG }
+			NOT = { tag = CE1 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			OR = {
@@ -329,6 +388,7 @@ country_decisions = {
 				ai = no
 				AND = {
 					NOT = { exists = TUN }
+					NOT = { exists = AF1 }
 					ai = yes
 					num_of_cities = 5
 				}
@@ -362,14 +422,12 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = TUN }
+			NOT = { exists = AF1 }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 2473	#Souss
-			owns_core_province = 341 	#Tunis
-			341 = {						#Tunis
-				is_state = yes
-			}
+			owns_core_province = 341 #Tunis
+			owns_core_province = 2473 #Souss
 			OR = {
 				owns_core_province = 2454 #Kef
 				owns_core_province = 354 #Tripoli
@@ -384,9 +442,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			change_primary_culture = tunisian
 			tunisia_area = {
@@ -405,10 +463,7 @@ country_decisions = {
 			add_prestige = 25
 			set_country_flag = formed_tunisia_flag
 			if = {
-				limit = {
-					has_custom_ideas = no
-					NOT = { has_idea_group = TUN_ideas }
-				}
+				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
@@ -428,18 +483,24 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
 			NOT = { tag = MOR }
+			NOT = { tag = MR6 }
+			NOT = { tag = MR7 }
+			NOT = { tag = MR8 }
+			NOT = { tag = MOO }
+			NOT = { tag = MRN }
 			NOT = { tag = TUN }
+			NOT = { tag = AF1 }
 			NOT = { tag = TLC }
+			NOT = { tag = ATV }
 			NOT = { tag = ALG }
+			NOT = { tag = CE1 }
 			NOT = { tag = TRP }
+			NOT = { tag = LBY }
+			NOT = { tag = LAG }
+			NOT = { tag = TR2 }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = LBY }
 			OR = {
 				primary_culture = tunisian
 				primary_culture = berber
@@ -482,11 +543,8 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 2451 	#Thubaqt
-			owns_core_province = 354	#Tripoli
-			354 = {						#Tripoli
-				is_state = yes
-			}
+			owns_core_province = 354 #Tripoli
+			owns_core_province = 2451 #Thubaqt
 			OR = {
 				owns_core_province = 355 #Sirt
 				owns_core_province = 353 #Djerba
@@ -500,9 +558,9 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 8 }
 				}
-				set_government_rank = 2
+				set_government_rank = 8
 			}
 			change_primary_culture = tunisian
 			tripolitania_area = {
@@ -521,10 +579,7 @@ country_decisions = {
 			add_prestige = 25
 			set_country_flag = formed_tripoli_flag
 			if = {
-				limit = {
-					has_custom_ideas = no
-					NOT = { has_idea_group = berber_ideas }
-				}
+				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}

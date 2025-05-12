@@ -1,10 +1,21 @@
-#120 - Abruzzi
-
+# Abruzzi
+# 120 Abruzzi - 1/26/2025 8:46:43 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = wine
+
 culture = umbrian
 religion = hellenism
-hre = no 
+capital = "Interamnaes"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,56 +23,152 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-trade_goods = wine 
-base_manpower = 1
-capital = "Interamnaes" 
-is_city = yes
-add_core = ROM
-
-2478.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2636.1.1 = { controller = BYZ }
-2652.1.1 = { owner = BYZ add_core = BYZ remove_core = OST }
-2667.6.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST capital = "Ortona" }
-2668.1.1 = { owner = SPL controller = SPL add_core = SPL remove_core = LOM remove_core = BYZ }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2965.1.1 = { religion = catholic }
-2998.1.1 = { base_manpower = 3 }
-3060.2.2 = { hre = yes }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3151.1.1 = { owner = SIC controller = SIC add_core = SIC culture = neapolitan hre = no }
-3198.1.1 = { base_tax = 5 base_production = 5 }
-3352.1.1 = { capital = "L'Aquia" }
-3380.3.30 = { owner = NAP controller = NAP add_core = NAP remove_core = SIC }
-
-3592.1.1  = { add_core = FRA } # Angevine claims
-3593.2.22 = { controller = FRA } # Charles VIII invades Naples
-3593.7.7  = { controller = NAP } # Charles VIII leaves Italy
-3600.1.1  = { owner = FRA controller = FRA } # France and Aragon partitions Naples
-3601.6.1  = { owner = ARA controller = ARA add_core = ARA } # France forced to withdraw
-3602.1.31 = { remove_core = FRA } # The Treaty of Lyon in 1504
-3614.1.23 = {	owner = SPA
-		controller = SPA
-		add_core = SPA
-	    	remove_core = ARA
-	    } # Unification of Spain
-3812.3.7  = {	owner = HAB
-		controller = HAB
-		add_core = HAB
-		remove_core = SPA
-	    }
-3832.6.2  = { owner = NAP controller = NAP remove_core = HAB }
-
-3923.1.1 = { base_production = 6 }
-3959.2.12 = { owner = SPI controller = SPI add_core = SPI }
-3959.3.17 = { owner = ITA controller = ITA add_core = ITA remove_core = SPI remove_core = NAP }
-4008.1.1 = { discovered_by = asian }
-4098.1.1 = { base_tax = 6 base_manpower = 4 }
 
 
 
+
+2478.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2574.9.4 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2578.1.1 = {
+	remove_core = ROW
+}
+2587.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ITA
+}
+2636.1.1 = {
+	controller = BYZ
+}
+2652.1.1 = {
+	owner = BYZ
+	add_core = BYZ
+	remove_core = OST
+}
+2667.6.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = OST
+	capital = "Ortona"
+}
+2668.1.1 = {
+	owner = SPL
+	controller = SPL
+	add_core = SPL
+	remove_core = LOM
+	remove_core = BYZ
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2965.1.1 = {
+	religion = catholic
+}
+2998.1.1 = {
+	base_manpower = 3
+}
+3060.2.2 = {
+	hre = yes
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3151.1.1 = {
+	owner = SIC
+	controller = SIC
+	add_core = SIC
+	culture = neapolitan
+	hre = no
+}
+3198.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3352.1.1 = {
+	capital = "L'Aquia"
+}
+3380.3.30 = {
+	owner = NAP
+	controller = NAP
+	add_core = NAP
+	remove_core = SIC
+}
+3592.1.1 = {
+	add_core = FRA
+}
+3593.2.22 = {
+	controller = FRA
+}
+3593.7.7 = {
+	controller = NAP
+}
+3600.1.1 = {
+	owner = FRA
+	controller = FRA
+}
+3601.6.1 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+}
+3602.1.31 = {
+	remove_core = FRA
+}
+3614.1.23 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = ARA
+}
+3812.3.7 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = SPA
+}
+3832.6.2 = {
+	owner = NAP
+	controller = NAP
+	remove_core = HAB
+}
+3923.1.1 = {
+	base_production = 6
+}
+3959.2.12 = {
+	owner = SPI
+	controller = SPI
+	add_core = SPI
+}
+3959.3.17 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	remove_core = SPI
+	remove_core = NAP
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4098.1.1 = {
+	base_tax = 6
+	base_manpower = 4
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###

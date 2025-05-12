@@ -20,11 +20,11 @@ Code
 
 
 static const float3 LIGHT_DIFFUSE				= float3( 1.0f, 1.0f, 1.0f );
-static const float  LIGHT_INTENSITY   			= 1.1f;
+static const float  LIGHT_INTENSITY   			= 1.0f;
 static const float  AMBIENT						= 0.2f;
 static const float3 MAP_LIGHT_DIFFUSE			= float3( 1.0f, 1.0f, 1.0f );
-static const float  MAP_LIGHT_INTENSITY   		= 1.25f;
-static const float  MAP_AMBIENT					= 0.0f;
+static const float  MAP_LIGHT_INTENSITY   		= 1.1f;
+static const float  MAP_AMBIENT					= 0.85f; // illusionary flat map
 static const float	LIGHT_HDR_RANGE 			= 0.8f;
 
 // LIGHT_DIRECTION_X = -1.0						defines.lua   (reload defines)
@@ -42,7 +42,7 @@ static const float 	TERRAIN_TILE_FREQ 			= 128.0f;
 // SEVERE_WINTER_VALUE = ###,					defines.lua   (reload defines)
 
 
-static const float 	BORDER_TILE					= 0.4f;
+static const float 	BORDER_TILE					= 0.26f;
 // BORDER_WIDTH		= ###						defines.lua   (reload defines)
 
 

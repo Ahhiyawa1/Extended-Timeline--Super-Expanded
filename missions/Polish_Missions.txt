@@ -2,16 +2,16 @@ polish_missions_main_slot = {
 	slot = 1
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		OR = {
 			tag = POL
 			tag = PLC
 		}
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	
@@ -204,13 +204,13 @@ plc_missions_1 = {
 	slot = 1
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		tag = PLC
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	
@@ -302,16 +302,16 @@ polish_missions_branch_slot = {
 	slot = 2
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		OR = {
 			tag = POL
 			tag = PLC
 		}
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	
@@ -369,16 +369,16 @@ polish_missions_slot_3 = {
 	slot = 3
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		OR = {
 			tag = POL
 			tag = PLC
 		}
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	annex_mazovia = {
@@ -677,13 +677,13 @@ polish_missions_slot_4 = {
 	slot = 4
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		tag = PLC
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	
@@ -741,16 +741,16 @@ polish_missions_slot_5 = {
 	slot = 5
 	generic = no
 	ai = yes
+	potential_on_load = { 
+		NOT = { has_dlc = "Lions of the North" }
+	}
 	potential = {
 		OR = {
 			tag = POL
 			tag = PLC
 		}
 		NOT = { map_setup = map_setup_random }
-		OR = {
-			NOT = { has_dlc = "Lions of the North" }
-			NOT = { started_in = 3542.11.11 }
-		}
+		NOT = { has_dlc = "Lions of the North" }
 	}
 	has_country_shield = yes
 	
@@ -763,7 +763,10 @@ polish_missions_slot_5 = {
 					region = russia_region
 				}
 				total_development = 100
-				culture_group = east_slavic
+				OR = {
+					culture_group = east_slavic
+					culture_group = slavic
+				}
 				is_subject = no
 			}
 		}
@@ -777,7 +780,10 @@ polish_missions_slot_5 = {
 							region = russia_region
 						}
 						total_development = 100
-						culture_group = east_slavic
+						OR = {
+							culture_group = east_slavic
+							culture_group = slavic
+						}
 						is_subject = no
 					}
 				}

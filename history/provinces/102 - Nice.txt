@@ -1,11 +1,21 @@
-#102 - Nice
-
+# Nice
+# 102 Nice - 1/26/2025 8:46:43 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-add_core = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = fish
+
 culture = ligurian
 religion = hellenism
-hre = no
+capital = "Nicaea"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -13,84 +23,220 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 2
-base_production = 2
-trade_goods = fish
-base_manpower = 1
-capital = "Nicaea"
-is_city = yes
 
-2478.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2498.1.1 = { base_tax = 3 base_production = 3 }
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2651.1.1 = { owner = LOM controller = LOM add_core = LOM }
-2739.1.1 = { owner = NEU controller = NEU add_core = NEU add_core = FRK capital = "Nice" remove_core = OST remove_core = LOM }
-2777.12.23 = { owner = FRK controller = FRK }
-2938.6.21 = { owner = FRD controller = FRD add_core = FRD remove_core = FRK }
-2953.9.30 = { owner = PRO controller = PRO add_core = PRO remove_core = FRD }
-2961.1.24 = { owner = ITA controller = ITA add_core = ITA }
-2965.1.1 = { religion = catholic }
-2977.1.1  = { owner = PRO controller = PRO remove_core = ITA }
-2985.12.19 = { owner = ITA controller = ITA add_core = ITA }
-2985.12.26 = { owner = PRO controller = PRO remove_core = ITA }
-2988.1.1 = { remove_core = BUR }
-3048.1.1 = { base_manpower = 2 }
-3031.1.1  = { owner = BUR controller = BUR add_core = BUR }
-3059.1.1  = { owner = PRO controller = PRO remove_core = BUR }
-3098.1.1 = { owner = NIC controller = NIC add_core = NIC remove_core = BUR hre = yes }
-3198.1.1 = { base_tax = 4 base_production = 4 }
-3486.1.1 = { owner = SAV controller = SAV add_core = SAV }
 
-3804.1.1 = { controller = FRA } # Louis XIV occupied the city
+
+
+2478.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2498.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2574.9.4 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2578.1.1 = {
+	remove_core = ROW
+}
+2587.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ITA
+}
+2651.1.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+}
+2739.1.1 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+	add_core = FRK
+	capital = "Nice"
+	remove_core = OST
+	remove_core = LOM
+}
+2777.12.23 = {
+	owner = FRK
+	controller = FRK
+}
+2938.6.21 = {
+	owner = FRD
+	controller = FRD
+	add_core = FRD
+	remove_core = FRK
+}
+2953.9.30 = {
+	owner = PRO
+	controller = PRO
+	add_core = PRO
+	remove_core = FRD
+}
+2961.1.24 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2965.1.1 = {
+	religion = catholic
+}
+2977.1.1 = {
+	owner = PRO
+	controller = PRO
+	remove_core = ITA
+}
+2985.12.19 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2985.12.26 = {
+	owner = PRO
+	controller = PRO
+	remove_core = ITA
+}
+2988.1.1 = {
+	remove_core = BUR
+}
+3048.1.1 = {
+	base_manpower = 2
+}
+3031.1.1 = {
+	owner = BUR
+	controller = BUR
+	add_core = BUR
+}
+3059.1.1 = {
+	owner = PRO
+	controller = PRO
+	remove_core = BUR
+}
+3098.1.1 = {
+	owner = NIC
+	controller = NIC
+	add_core = NIC
+	remove_core = BUR
+	hre = yes
+}
+3198.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3486.1.1 = {
+	owner = SAV
+	controller = SAV
+	add_core = SAV
+}
+3804.1.1 = {
+	controller = FRA
+}
 3811.4.12 = {
 	owner = SIC
 	controller = SIC
 	add_core = SIC
-} # Treaty of Utrecht(2) gave Sicily to House of Savoy 
+}
 3818.1.1 = {
 	owner = SPI
 	controller = SPI
 	add_core = SPI
 	remove_core = SIC
-} # Kingdom of Piedmont-Sardinia
-3849.1.1 = { base_production = 5 }
-3873.1.1 = { base_tax = 5 base_manpower = 3 }
-3890.4.20 = { controller = FRA } # Conquered by the French
-3895.10.17 = { owner = FRA add_core = FRA } # Treaty of Campo Formio
-3899.1.1 = { base_tax = 6 base_production = 6 }
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+}
+3849.1.1 = {
+	base_production = 5
+}
+3873.1.1 = {
+	base_tax = 5
+	base_manpower = 3
+}
+3890.4.20 = {
+	controller = FRA
+}
+3895.10.17 = {
+	owner = FRA
+	add_core = FRA
+}
+3899.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3904.7.12 = {
+	hre = no
+}
 3912.4.11 = {
 	owner = SPI
 	controller = SPI
 	remove_core = FRA
-} # Treaty of Fontainebleau, Napoleon abdicates unconditionally
+}
+3923.1.1 = {
+	base_manpower = 5
+}
+3948.1.1 = {
+	base_tax = 7
+	base_manpower = 6
+}
+3958.3.24 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = SPI
+	remove_core = SAV
+}
+3968.9.4 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	remove_core = FRA
+}
+3973.1.1 = {
+	base_production = 7
+	base_manpower = 7
+}
+3978.1.1 = {
+	culture = cosmopolitan_french
+}
+3998.1.1 = {
+	base_tax = 8
+	base_production = 8
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4023.1.1 = {
+	base_tax = 9
+	base_manpower = 8
+}
+4038.6.10 = {
+	controller = ITA
+}
+4038.6.14 = {
+	owner = ITA
+	add_core = FRV
+}
+4041.9.8 = {
+	owner = FRV
+	controller = FRV
+}
+4042.8.25 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+4048.1.1 = {
+	base_tax = 10
+	base_production = 9
+}
 
-3923.1.1 = { base_manpower = 5 }
-3948.1.1 = { base_tax = 7 base_manpower = 6 }
-3958.3.24  = {	owner = FRA
-		controller = FRA
-		add_core = FRA
-		remove_core = SPI
-		remove_core = SAV
-	     } # Treaty of Turin
-3968.9.4   = {  owner = FR2
-		controller = FR2
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-3973.1.1 = { base_production = 7 base_manpower = 7 }
-3978.1.1   = { culture = cosmopolitan_french }
-3998.1.1 = { base_tax = 8 base_production = 8 }
-4008.1.1 = { discovered_by = asian }
-4023.1.1 = { base_tax = 9 base_manpower = 8 }
-4038.6.10 = { controller = ITA }
-4038.6.14 = { owner = ITA add_core = FRV }
-4041.9.8  = { owner = FRV controller = FRV }
-4042.8.25 = { owner = FR2 controller = FR2 remove_core = FRV } # France liberated by allied forces
-4048.1.1 = { base_tax = 10 base_production = 9 }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

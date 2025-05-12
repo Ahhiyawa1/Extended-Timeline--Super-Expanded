@@ -1,11 +1,18 @@
-# Marcus Antonius's Domain
-owner = M10
-controller = M10
-add_core = M10
+# Usak
+# 9223 Usak - 1/26/2025 8:46:44 AM
+add_core = ROM
+add_core = ROM
+add_core = ROM
+owner = ROM
+controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+trade_goods = cloth
 culture = lydian
 religion = hellenism
 capital = "Ousakeion"
-trade_goods = cloth
+is_city = yes
 discovered_by = nomad_group
 discovered_by = western_nomad_group
 discovered_by = ottoman
@@ -15,16 +22,21 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = M10
+2055.1.1 = { 
+	owner = M10
+	controller = M10
+	remove_core = ROM
+	add_core = M10
+}
+2057.1.1 = { 
+	owner = ROM
+	controller = ROM
+	remove_core = M10
+	add_core = ROM
+}
 2086.11.1 = { 
 	owner = ROM
 	controller = ROM
-	add_core = ROM
-	remove_core = M10
 }
 2438.1.1 = { religion = chalcedonism }
 2491.1.1 = { culture = greek }
@@ -45,7 +57,9 @@ add_core = M10
 	add_core = RUM
 	capital = "Usak"
 }
+3302.4.13 = { owner = NCA controller = NCA add_core = NCA }
 3318.1.1 = { religion = sunni culture = turkish remove_core = BYZ }
+3372.4.13 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = NCA }
 3398.1.1 = { 
 	owner = GRM
 	controller = GRM
@@ -72,6 +86,5 @@ add_core = M10
 4008.1.1 = { discovered_by = asian }
 4018.4.24 = { owner = TKY controller = TKY add_core = TKY }
 4020.11.1 = { remove_core = TUR }
-4030.6.15  = { 
-	remove_core = GRM
-}
+4030.6.15 = { remove_core = GRM }
+fort_15th = yes

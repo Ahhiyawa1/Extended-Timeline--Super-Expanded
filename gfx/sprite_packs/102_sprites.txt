@@ -1,7 +1,10 @@
 dlc102_bos_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
-		culture_group = south_slavic
+		OR = {
+			culture_group = south_slavic
+			primary_culture = dalmatian
+		}
 	}
 
 	sprite_infantry = {
@@ -57,19 +60,10 @@ dlc102_ser_sprite_pack = {
 	}
 }
 
-dlc102_hun_sprite_pack = {		#Edited to work with ET
+dlc102_hun_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
-		OR = {
-			#culture_group = carpathian
-			#carpathian group does not exist in ET
-			
-			tag = HUN
-			primary_culture = hungarian		#added, since not part of a Carpathian group in ET
-		
-			primary_culture = slovak		#cultures in vanilla carpathian group
-			primary_culture = romanian		#in ET, romanian and transylvanian in vanilla are combined into just romanian
-		}
+		culture_group = carpathian
 	}
 
 	sprite_infantry = {

@@ -1,12 +1,16 @@
-#138 - Zeta
-
+# Zeta
+# 138 Zeta - 1/26/2025 8:46:43 AM
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 1
+base_production = 1
+base_manpower = 1
+trade_goods = livestock
 culture = illyrian
 religion = hellenism
 capital = "Doclea"
-trade_goods = livestock
-hre = no
+is_city = yes
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,19 +18,31 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 1
-base_production = 1
-base_manpower = 1
-is_city = yes
-add_core = ROM
-
-2493.1.17 = { controller = BYZ owner = BYZ add_core = BYZ remove_core = ROM } # Final division of the empire
+2055.1.1 = { owner = M10 controller = M10 remove_core = ROM add_core = M10 }
+2057.1.1 = { owner = ROM controller = ROM remove_core = M10 add_core = ROM }
+2493.1.17 = { 
+	controller = BYZ
+	owner = BYZ
+	add_core = BYZ
+	remove_core = ROM
+}
 2498.1.1 = { religion = chalcedonism }
 2708.1.1 = { add_core = DOC culture = serbian religion = slavic }
-2866.1.1 = { owner = SER controller = SER add_core = SER remove_core = BYZ capital = "Zabljak" }
+2866.1.1 = { 
+	owner = SER
+	controller = SER
+	add_core = SER
+	remove_core = BYZ
+	capital = "Zabljak"
+}
 2958.1.1 = { religion = chalcedonism }
 2965.1.1 = { religion = orthodox }
-3067.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = SER }
+3067.1.1 = { 
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+	remove_core = SER
+}
 3074.1.1 = { owner = BUL controller = BUL add_core = BUL }
 3098.1.1 = { base_tax = 2 base_production = 2 }
 3112.1.1 = { owner = BYZ controller = BYZ remove_core = BUL }
@@ -34,28 +50,25 @@ add_core = ROM
 3264.1.1 = { controller = SER add_core = SER }
 3284.1.1 = { owner = SER add_core = MON remove_core = DOC }
 3460.1.1 = { owner = MON controller = MON }
-
-3519.1.1 = { owner = SER controller = SER add_core = SER } # Annexed to Serbia
+3519.1.1 = { owner = SER controller = SER }
 3549.1.1 = { owner = MON controller = MON remove_core = SER }
-3576.1.1 = { add_core = TUR } # Conquered Zabljak, but never fully conquered Zeta
+3576.1.1 = { add_core = TUR }
 3580.1.1 = { capital = "Cetinje" }
 3597.1.1 = { owner = TUR controller = TUR }
-3613.1.1 = { owner = MON controller = MON remove_core = TUR } # Prince-bishops of Cetinje
-3807.1.1 = { unrest = 5 } # Montenegro's Muslim converts were massacred at Vladika Danilo's order
-3810.1.1 = { unrest = 2 } # Cetinje sacked again as a response
-
+3613.1.1 = { owner = MON controller = MON remove_core = TUR }
 4008.1.1 = { discovered_by = asian }
-4013.12.1  = { controller = HAB }
+4013.12.1 = { controller = HAB }
 4016.11.28 = { owner = SER controller = SER add_core = SER }
-4016.12.1  = { owner = YUG controller = YUG add_core = YUG remove_core = SER }
-4039.4.6   = { owner = ITA controller = ITA }
-4041.9.8   = { owner = GER controller = GER }
+4016.12.1 = { 
+	add_core = YUG
+	remove_core = SER
+}
+4039.4.6 = { owner = ITA controller = ITA }
+4041.9.8 = { owner = GER controller = GER }
 4042.12.19 = { controller = SOV }
-4043.5.8   = { owner = YUG controller = YUG }
-4044.7.13  = { capital = "Titograd" }
-4089.4.2   = { capital = "Podgorica" }
-4104.6.3   = { owner = MON controller = MON remove_core = YUG }
-
-
-
-
+4044.7.13 = { capital = "Titograd" }
+4089.4.2 = { capital = "Podgorica" }
+4104.6.3 = { owner = MON controller = MON remove_core = YUG }
+2716.10.1 = { 
+	remove_core = DOC
+}

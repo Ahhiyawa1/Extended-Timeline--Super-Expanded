@@ -201,7 +201,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -336,7 +336,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -451,7 +451,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -502,7 +502,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -567,7 +567,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -866,7 +866,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -972,7 +972,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -1023,7 +1023,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -1111,7 +1111,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1271,7 +1271,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1318,7 +1318,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1400,7 +1400,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -1586,7 +1586,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1745,7 +1745,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1901,7 +1901,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -1958,7 +1958,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -1982,7 +1982,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -2047,6 +2047,24 @@ update_dynamic_country_name = {
 		}
 	}
 	
+	# Equatorial Guinea / Equatoguinean
+	else_if = {
+		limit = {
+			country_is = { tag = EQG }
+		}
+		dynamic_country_name = {
+			name = EQG_SPA_subject # Spanish Guinea / Spanish Guinean
+			definite = no
+			
+			trigger = "
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					tag = event_target:_SPA
+				}
+			"
+		}
+	}
+	
 	# Estonia / Estonian
 	else_if = {
 		limit = {
@@ -2073,6 +2091,14 @@ update_dynamic_country_name = {
 				overlord = {
 					tag = event_target:_SWE
 				}
+			"
+		}
+		dynamic_country_name = {
+			name = EST_french_culture_group # Revachol / Revacholian
+			definite = no
+			
+			trigger = "
+				culture_group = french
 			"
 		}
 	}
@@ -2111,7 +2137,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -2295,7 +2321,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -2335,7 +2361,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -2367,7 +2393,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -2464,7 +2490,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -2496,6 +2522,24 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				primary_culture = swedish
+			"
+		}
+	}
+	
+	# Ghana / Ghanaian
+	else_if = {
+		limit = {
+			country_is = { tag = GHA }
+		}
+		dynamic_country_name = {
+			name = GHA_GBR_subject # The Gold Coast / Ghanaian
+			definite = yes
+			
+			trigger = "
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					tag = event_target:_GBR
+				}
 			"
 		}
 	}
@@ -2643,6 +2687,24 @@ update_dynamic_country_name = {
 		}
 	}
 	
+	# Austria / Austrian
+	else_if = {
+		limit = {
+			country_is = { tag = HAB }
+		}
+		dynamic_country_name = {
+			name = HAB_NZG_subject # Ostmark / Austrian
+			definite = no
+			
+			trigger = "
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					tag = event_target:_NZG
+				}
+			"
+		}
+	}
+	
 	# Hadoti / Hadoti
 	else_if = {
 		limit = {
@@ -2698,7 +2760,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -2733,6 +2795,14 @@ update_dynamic_country_name = {
 	else_if = {
 		limit = {
 			country_is = { tag = HBC }
+		}
+		dynamic_country_name = {
+			name = HBC_communism # The Hudson Bay Commune / Hudson Bay
+			definite = yes
+			
+			trigger = "
+				is_communist = yes
+			"
 		}
 		dynamic_country_name = {
 			name = HBC_monarchy # Rupert's Land / Rupert's
@@ -2826,6 +2896,21 @@ update_dynamic_country_name = {
 		}
 	}
 	
+	# Hungary / Hungarian
+	else_if = {
+		limit = {
+			country_is = { tag = HUN }
+		}
+		dynamic_country_name = {
+			name = HUN_tribal # The Magyars / Magyar
+			definite = yes
+			
+			trigger = "
+				has_reform = tribe_mechanic
+			"
+		}
+	}
+	
 	# Hyderabad / Hyderabadi
 	else_if = {
 		limit = {
@@ -2852,7 +2937,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -2930,7 +3015,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -2958,7 +3043,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -3047,7 +3132,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -3063,7 +3148,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -3227,7 +3312,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -3549,7 +3634,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -3586,7 +3671,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -3925,6 +4010,21 @@ update_dynamic_country_name = {
 		}
 	}
 	
+	# Livonians / Livonian
+	else_if = {
+		limit = {
+			country_is = { tag = LIV }
+		}
+		dynamic_country_name = {
+			name = LIV_theocracy # The Livonian Order / Livonian
+			definite = yes
+			
+			trigger = "
+				has_reform = theocracy_mechanic
+			"
+		}
+	}
+	
 	# Liang / Liang
 	else_if = {
 		limit = {
@@ -4113,7 +4213,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -4162,7 +4262,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -4511,7 +4611,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -4591,7 +4691,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -4678,7 +4778,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -4702,7 +4802,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -4825,7 +4925,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -4849,7 +4949,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -4985,7 +5085,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -5024,7 +5124,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -5129,7 +5229,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -5219,7 +5319,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -5276,7 +5376,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -5358,7 +5458,7 @@ update_dynamic_country_name = {
 			definite = yes
 			
 			trigger = "
-				government_rank = 3
+				government_rank = 10
 				has_reform = monarchy_mechanic
 				NOT = { has_government_attribute = has_prime_minister }
 				dynasty = Pahlavi
@@ -5369,7 +5469,7 @@ update_dynamic_country_name = {
 			definite = yes
 			
 			trigger = "
-				government_rank = 3
+				government_rank = 10
 				has_reform = monarchy_mechanic
 				NOT = { has_government_attribute = has_prime_minister }
 				dynasty = Qajar
@@ -5380,7 +5480,7 @@ update_dynamic_country_name = {
 			definite = yes
 			
 			trigger = "
-				government_rank = 3
+				government_rank = 10
 				has_reform = monarchy_mechanic
 				NOT = { has_government_attribute = has_prime_minister }
 				dynasty = Safavid
@@ -5525,7 +5625,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -5578,7 +5678,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -5632,7 +5732,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -5704,7 +5804,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -5945,7 +6045,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -6004,7 +6104,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -6221,7 +6321,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -6271,7 +6371,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -6389,7 +6489,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -6420,7 +6520,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 				primary_culture = fulani
 			"
 		}
@@ -6430,7 +6530,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -6461,7 +6561,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -6697,7 +6797,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -6806,7 +6906,7 @@ update_dynamic_country_name = {
 		}
 	}
 	
-	# Teutonic Order / Teutonic
+	# Teutons / Teutonic
 	else_if = {
 		limit = {
 			country_is = { tag = TEU }
@@ -6817,6 +6917,14 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = republic_mechanic
+			"
+		}
+		dynamic_country_name = {
+			name = TEU_theocracy # The Teutonic Order / Teutonic
+			definite = yes
+			
+			trigger = "
+				has_reform = theocracy_mechanic
 			"
 		}
 	}
@@ -6909,7 +7017,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -7059,7 +7167,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -7206,7 +7314,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -7364,7 +7472,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -7593,6 +7701,14 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = theocracy_mechanic
+			"
+		}
+		dynamic_country_name = {
+			name = USA_tribal # The United Steppes / American
+			definite = yes
+			
+			trigger = "
+				has_reform = tribe_mechanic
 			"
 		}
 	}
@@ -7863,7 +7979,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 	}
@@ -7920,7 +8036,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -7982,6 +8098,17 @@ update_dynamic_country_name = {
 	else_if = {
 		limit = {
 			country_is = { tag = WSH }
+		}
+		dynamic_country_name = {
+			name = WSH_SPA_subject # Spanish Sahara / Spanish Saharan
+			definite = no
+			
+			trigger = "
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					tag = event_target:_SPA
+				}
+			"
 		}
 		dynamic_country_name = {
 			name = WSH_republic # The Sahrawi Republic / Sahrawi
@@ -8124,7 +8251,7 @@ update_dynamic_country_name = {
 			
 			trigger = "
 				has_reform = monarchy_mechanic
-				government_rank = 3
+				government_rank = 10
 			"
 		}
 		dynamic_country_name = {
@@ -8345,8 +8472,10 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = ENG_DAN_subject }
 	clear_country_name_with_flag = { name = ENG_fascism }
 	clear_country_name_with_flag = { name = ENG_communism }
+	clear_country_name_with_flag = { name = EQG_SPA_subject }
 	clear_country_name_with_flag = { name = EST_RUS_communism_subject }
 	clear_country_name_with_flag = { name = EST_SWE_subject }
+	clear_country_name_with_flag = { name = EST_french_culture_group }
 	clear_country_name_with_flag = { name = ETH_fascism }
 	clear_country_name_with_flag = { name = EUR_fascism }
 	clear_country_name_with_flag = { name = EUR_empire_monarchy }
@@ -8381,6 +8510,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = GER_theocracy }
 	clear_country_name_with_flag = { name = GER_tribal }
 	clear_country_name_with_flag = { name = GEW_swedish_culture }
+	clear_country_name_with_flag = { name = GHA_GBR_subject }
 	clear_country_name_with_flag = { name = GHR_republic }
 	clear_country_name_with_flag = { name = GIB_fascism }
 	clear_country_name_with_flag = { name = GRE_TUR_subject }
@@ -8392,12 +8522,14 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = GYA_GBR_subject }
 	clear_country_name_with_flag = { name = GYA_communism }
 	clear_country_name_with_flag = { name = GZI_GBR_subject }
+	clear_country_name_with_flag = { name = HAB_NZG_subject }
 	clear_country_name_with_flag = { name = HAD_GBR_subject }
 	clear_country_name_with_flag = { name = HAN_fascism }
 	clear_country_name_with_flag = { name = HAT_FRA_subject }
 	clear_country_name_with_flag = { name = HAT_empire_monarchy }
 	clear_country_name_with_flag = { name = HAU_GBR_subject }
 	clear_country_name_with_flag = { name = HAU_republic }
+	clear_country_name_with_flag = { name = HBC_communism }
 	clear_country_name_with_flag = { name = HBC_monarchy }
 	clear_country_name_with_flag = { name = HDR_Al_Kathiri_dynasty }
 	clear_country_name_with_flag = { name = HDR_Al_Qu'aiti_dynasty }
@@ -8406,6 +8538,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = HLR_communism }
 	clear_country_name_with_flag = { name = HLR_republic }
 	clear_country_name_with_flag = { name = HRZ_croatian_culture }
+	clear_country_name_with_flag = { name = HUN_tribal }
 	clear_country_name_with_flag = { name = HYD_republic }
 	clear_country_name_with_flag = { name = IBU_empire_monarchy }
 	clear_country_name_with_flag = { name = IBU_republic }
@@ -8484,6 +8617,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = LEB_monarchy }
 	clear_country_name_with_flag = { name = LES_GBR_subject }
 	clear_country_name_with_flag = { name = LIT_RUS_communism_subject }
+	clear_country_name_with_flag = { name = LIV_theocracy }
 	clear_country_name_with_flag = { name = LNG_republic }
 	clear_country_name_with_flag = { name = LOM_HAB_monarchy_subject }
 	clear_country_name_with_flag = { name = LOU_fascism }
@@ -8696,6 +8830,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = TCC_RUS_communism_subject }
 	clear_country_name_with_flag = { name = TCC_RUS_subject }
 	clear_country_name_with_flag = { name = TEU_republic }
+	clear_country_name_with_flag = { name = TEU_theocracy }
 	clear_country_name_with_flag = { name = TGG_SIA_subject }
 	clear_country_name_with_flag = { name = TGO_FRA_subject }
 	clear_country_name_with_flag = { name = TGO_GER_subject }
@@ -8754,6 +8889,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = USA_communism }
 	clear_country_name_with_flag = { name = USA_monarchy }
 	clear_country_name_with_flag = { name = USA_theocracy }
+	clear_country_name_with_flag = { name = USA_tribal }
 	clear_country_name_with_flag = { name = UZB_RUS_communism_subject }
 	clear_country_name_with_flag = { name = VAS_fascism }
 	clear_country_name_with_flag = { name = VAS_communism }
@@ -8782,6 +8918,7 @@ remove_dynamic_country_name = {
 	clear_country_name_with_flag = { name = WLS_fascism }
 	clear_country_name_with_flag = { name = WMA_monarchy }
 	clear_country_name_with_flag = { name = WRO_germanic_culture_group }
+	clear_country_name_with_flag = { name = WSH_SPA_subject }
 	clear_country_name_with_flag = { name = WSH_republic }
 	clear_country_name_with_flag = { name = WUA_CZS_subject }
 	clear_country_name_with_flag = { name = WUA_UKR_subject }

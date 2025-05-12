@@ -1,53 +1,161 @@
-#10140 - Negeri Sembilan
+# Negeri Sembilan
+# 10140 Negeri Sembilan - 1/26/2025 8:46:44 AM 
+ 
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = grain
 
 culture = malayan
 religion = mahayana
 capital = "Sening Ujong"
-trade_goods = grain
-hre = no
+
+native_size = 40
+native_ferocity =  1
+native_hostileness = 5
+
 discovered_by = indian
 discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 2
-base_production = 2
-base_manpower = 2
-native_size = 40
-native_ferocity = 1
-native_hostileness = 5
 
-2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
-2868.1.1 = { owner = SRI controller = SRI add_core = SRI is_city = yes trade_goods = spices }
-3281.1.1 = { owner = PAH controller = PAH add_core = PAH remove_core = SRI }
-3298.1.1 = { base_tax = 3 base_production = 3 }
-3498.1.1 = { owner = MLC controller = MLC add_core = MLC remove_core = PAH }
-3498.1.1 = { culture = minangkabau }
-3548.1.1 = { religion = sunni }
 
-3614.1.1 = { discovered_by = POR } # Godinho de Eredia
+
+
+2798.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+2868.1.1 = {
+	owner = SRI
+	controller = SRI
+	add_core = SRI
+	is_city = yes
+	trade_goods = spices
+}
+3281.1.1 = {
+	owner = PAH
+	controller = PAH
+	add_core = PAH
+	remove_core = SRI
+}
+3298.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3498.1.1 = {
+	owner = MLC
+	controller = MLC
+	add_core = MLC
+	remove_core = PAH
+}
+3498.1.1 = {
+	culture = minangkabau
+}
+3548.1.1 = {
+	religion = sunni
+}
+3614.1.1 = {
+	discovered_by = POR
+}
 3626.1.1 = {
-		owner = PRK
-		controller = PRK
-		add_core = PRK
+	owner = PRK
+	controller = PRK
+	add_core = PRK
+}
+3849.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
+}
+3871.1.1 = {
+	owner = NSN
+	controller = NSN
+	add_core = NSN
+	remove_core = MLC
+}
+3873.1.1 = {
+	base_tax = 6
+	base_production = 5
+	base_manpower = 4
+}
+3899.1.1 = {
+	base_tax = 7
+	base_production = 7
+	base_manpower = 5
+}
+3923.1.1 = {
+	base_tax = 9
+	base_production = 8
+	base_manpower = 6
+}
+3949.1.1 = {
+	base_tax = 10
+	base_production = 10
+	base_manpower = 7
+}
+3968.1.1 = {
+	capital = "Sungai Ujong"
+}
+3972.1.20 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+3973.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+3974.1.1 = {
+	base_tax = 12
+	base_production = 11
+	base_manpower = 8
+}
+3975.1.1 = {
+	revolt = {
+	}
+
+	controller = GBR
+}
+3997.1.1 = {
+	capital = "Seremban"
+}
+3999.1.1 = {
+	base_tax = 13
+	base_production = 13
+	base_manpower = 9
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4040.1.11 = {
+	controller = JAP
+}
+4043.8.15 = {
+	controller = GBR
+}
+4044.4.1 = {
+	add_core = MSA
+	remove_core = MLC
+}
+4055.8.31 = {
+	owner = MSA
+	controller = MSA
+	remove_core = GBR
+}
+4061.9.16 = {
+	owner = MLA
+	controller = MLA
+	add_core = MLA
+	remove_core = MSA
 }
 
-3849.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 }
-3871.1.1 = { owner = NSN controller = NSN add_core = NSN remove_core =  MLC }
-3873.1.1 = { base_tax = 6 base_production = 5 base_manpower = 4 }
-3899.1.1 = { base_tax = 7 base_production = 7 base_manpower = 5 }
-3923.1.1 = { base_tax = 9 base_production = 8 base_manpower = 6 }
-3949.1.1 = { base_tax = 10 base_production = 10 base_manpower = 7 }
-3968.1.1   = { capital = "Sungai Ujong" }
-3972.1.20  = { owner = GBR controller = GBR add_core = GBR } #Pangkor Treaty
-3973.1.1   = { revolt = { type = nationalist_rebels size = 1 } controller = REB } #Perak War
-3974.1.1 = { base_tax = 12 base_production = 11 base_manpower = 8 }
-3975.1.1   = { revolt = {} controller = GBR }
-3997.1.1   = { capital = "Seremban" }
-3999.1.1 = { base_tax = 13 base_production = 13 base_manpower = 9 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4040.1.11  = { controller = JAP }
-4043.8.15  = { controller = GBR }
-4044.4.1   = { add_core = MSA remove_core = MLC }
-4055.8.31  = { owner = MSA controller = MSA remove_core = GBR }
-4061.9.16  = { owner = MLA controller = MLA add_core = MLA remove_core = MSA }
+
+### Modified 1/26/2025 8:46:44 AM ###

@@ -1,89 +1,258 @@
-#2155 - Pomerelia
-
+# Pomerelia
+# 2997 Pomerelia - 1/26/2025 8:46:43 AM 
+ 
+add_core = GCR
 owner = GCR
 controller = GCR
-add_core = GCR
-is_city = yes
-capital = "Oxhöft"
-culture = gothic
-religion = germanic
-trade_goods = grain
-hre = no
-discovered_by = barbarian
-discovered_by = western
 base_tax = 1
 base_production = 1
 base_manpower = 1
 
-2238.1.1 = { owner = LEM controller = LEM add_core = LEM remove_core = GCR culture = pommeranian }
-2598.1.1 = { owner = PMR controller = PMR add_core = PMR remove_core = LEM culture = kashubian religion = romuva discovered_by = eastern }
-2698.1.1 = { base_manpower = 2 }
-2798.1.1 = { discovered_by = western }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-2978.1.1 = { religion = slavic }
-3063.1.1 = { owner = POL controller = POL add_core = POL } #Conquered by Mieszko, exact date unknown
-3098.1.1 = { base_manpower = 3 }
-3124.1.1 = { owner = PMR controller = PMR remove_core = POL } #Boleslaw the Brave dies; Dynastic crisis results in Pomerania seceding. Pagan reaction.
-3145.1.1 = { owner = POL controller = POL add_core = POL } #Casimir I the Restorer reconquers East Pomerania
-3158.1.1 = { owner = PMR controller = PMR remove_core = POL } #Boleslaw the Bold looses control over Pomerania. Again.
-3178.1.1 = { religion = catholic }
-3202.1.1 = { owner = POL controller = POL add_core = POL }
-#1150 East Pomerania becomes vassal of Poland
-3298.1.1 = { base_tax = 3 base_production = 4 discovered_by = muslim discovered_by = ottoman }
-#3325.1.1 The Gasawa Bloodbath. No more a polish vassal.
-3348.1.1 = { fort_15th = yes }
-3392.12.29 = { owner = POL controller = POL add_core = POL } #East Pomerania rejoins Poland
-3398.1.1 = { capital = "Skarszewy" }
-3406.11.13 = { owner = TEU controller = TEU add_core = TEU capital = "Schöneck" } #Teutonic takeover of Danzig
-3478.1.1 = { remove_core = POL }
+trade_goods = grain
 
-3552.2.10  = { add_core = POL revolt = { type = revolutionary_rebels size = 0 } controller = REB }  # Thirteen Years War
-3564.10.19 = {	revolt = {}
-		owner = POL
-		controller = POL
-		add_core = PRU
-		remove_core = TEU
-		capital = "Skarszewy"
-		} # Peace of Torun
-3621.1.25  = { unrest = 6 } # Iconoclast riots
-3623.1.1   = { unrest = 0 }
-3648.1.1   = { religion = protestant }
-3667.7.1  = {	owner = PLC
-		controller = PLC
-		add_core = PLC
-	    } # Union of Lublin, Polish administration
-3670.1.1 = { unrest = 6 } # Sigismund II dies
-3673.12.12 = { owner = HSA controller = HSA add_core = HSA } # Danzig rebels
-3675.12.16 = { owner = PLC controller = PLC } # Danzig War, retaken by Poland
-3686.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
-3687.1.1 = { revolt = {} controller = PLC unrest = 0 } # Coronation of Sigismund III
-3767.1.1 = { remove_core = HSA } # last Hanseatic conference
-3802.1.1 = { controller = SWE } # Under siege by Sweden
-3804.9.24 = { controller = PLC } # Treaty of Altranstadt
-3831.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The war of Polish succession
-3832.6.30 = { controller = RUS } # Russian siege of Danzig
-3833.10.3 = { revolt = {} controller = PLC } # War of Polish successio ends
-3870.2.17 = { owner = PRU controller = PRU add_core = PRU } # First partition of Poland
-3904.11.3  = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Polish uprising instigated by Napoleon
+culture = gothic
+religion = germanic
+capital = "Oxhöft"
+
+is_city = yes
+
+discovered_by = barbarian
+discovered_by = western
+
+
+
+
+2238.1.1 = {
+	owner = LEM
+	controller = LEM
+	add_core = LEM
+	remove_core = GCR
+	culture = pommeranian
+}
+2598.1.1 = {
+	owner = PMR
+	controller = PMR
+	add_core = PMR
+	remove_core = LEM
+	culture = kashubian
+	religion = romuva
+	discovered_by = eastern
+}
+2698.1.1 = {
+	base_manpower = 2
+}
+2798.1.1 = {
+	discovered_by = western
+}
+2898.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2978.1.1 = {
+	religion = slavic
+}
+3063.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+}
+3098.1.1 = {
+	base_manpower = 3
+}
+3124.1.1 = {
+	owner = PMR
+	controller = PMR
+	remove_core = POL
+}
+3145.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+}
+3158.1.1 = {
+	owner = PMR
+	controller = PMR
+	remove_core = POL
+}
+3178.1.1 = {
+	religion = catholic
+}
+3202.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+}
+3298.1.1 = {
+	base_tax = 3
+	base_production = 4
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3348.1.1 = {
+	fort_15th = yes
+}
+3392.12.29 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+}
+3398.1.1 = {
+	capital = "Skarszewy"
+}
+3406.11.13 = {
+	owner = TEU
+	controller = TEU
+	add_core = TEU
+	capital = "Schöneck"
+}
+3478.1.1 = {
+	remove_core = POL
+}
+3552.2.10 = {
+	add_core = POL
+	revolt = {
+		type = revolutionary_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3564.10.19 = {
+	revolt = {
+	}
+
+	owner = POL
+	controller = POL
+	add_core = PRU
+	remove_core = TEU
+	capital = "Skarszewy"
+}
+3621.1.25 = {
+	unrest = 6
+}
+3623.1.1 = {
+	unrest = 0
+}
+3648.1.1 = {
+	religion = protestant
+}
+3667.7.1 = {
+	owner = PLC
+	controller = PLC
+	add_core = PLC
+}
+3670.1.1 = {
+	unrest = 6
+}
+3673.12.12 = {
+	owner = HSA
+	controller = HSA
+	add_core = HSA
+}
+3675.12.16 = {
+	owner = PLC
+	controller = PLC
+}
+3686.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3687.1.1 = {
+	revolt = {
+	}
+
+	controller = PLC
+	unrest = 0
+}
+3767.1.1 = {
+	remove_core = HSA
+}
+3802.1.1 = {
+	controller = SWE
+}
+3804.9.24 = {
+	controller = PLC
+}
+3831.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 0
+	}
+
+	controller = REB
+}
+3832.6.30 = {
+	controller = RUS
+}
+3833.10.3 = {
+	revolt = {
+	}
+
+	controller = PLC
+}
+3870.2.17 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+}
+3904.11.3 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
 3905.7.9 = {
-	revolt = {}
+	revolt = {
+	}
+
 	owner = POL
 	controller = POL
 	remove_core = PRU
-} # The Duchy of Warsaw is established after the treaty of Tilsit, ruled by Frederick Augustus I of Saxony
-3911.3.17 = { controller = PRU }
+}
+3911.3.17 = {
+	controller = PRU
+}
 3912.4.11 = {
 	owner = PRU
 	add_core = PRU
-} # Actually returned to Prussia after the Congress of Vienna
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+	remove_core = PRU
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4017.6.28 = {
+	owner = POL
+	controller = POL
+	remove_core = GER
+	capital = "Gdynia"
+}
+4037.9.2 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+}
+4038.1.1 = {
+	religion = catholic
+}
+4043.3.30 = {
+	controller = SOV
+}
+4043.5.8 = {
+	owner = POL
+	controller = POL
+	remove_core = GER
+}
 
-3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU } # German unification
-4008.1.1 = { discovered_by = asian }
-4017.6.28  = { owner = POL controller = POL remove_core = GER capital = "Gdynia" }
-4037.9.2   = { owner = GER controller = GER add_core = GER }
-4038.1.1   = { religion = catholic }
-4043.3.30  = { controller = SOV }
-4043.5.8   = { owner = POL controller = POL remove_core = GER }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

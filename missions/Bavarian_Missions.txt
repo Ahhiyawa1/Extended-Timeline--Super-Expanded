@@ -8,7 +8,6 @@ bavarian_missions_main = {
 			tag = ING
 			tag = LBV
 			tag = UBV
-			tag = STB
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -54,16 +53,6 @@ bavarian_missions_main = {
 						}
 					}
 					owned_by = UBV
-				}
-				AND = {
-					ROOT = { NOT = { tag = STB } }
-					STB = {
-						OR = {
-							num_of_cities = 5
-							NOT = { is_subject_of = ROOT }
-						}
-					}
-					owned_by = STB
 				}
 				#make sure you are not benefitting from others' conquests
 				AND = {

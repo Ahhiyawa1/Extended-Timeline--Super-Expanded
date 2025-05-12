@@ -17,7 +17,11 @@ country_event = {
 		is_subject = no
 		is_at_war = no
 		NOT = { primary_culture = manchu_new }
-		NOT = { tag = CHN }
+		NOT = {
+			country_is = { tag = CHN }
+		}
+		NOT = { tag = TPG }
+		NOT = { has_elected_ruler = yes } # uses Prime Minister mechanic
 	}
 
 	option = {
@@ -40,6 +44,7 @@ country_event = {
 			capital_scope = { OR = { area = hunan_area area = huguang_area } }
 		}
 		change_tag = CHC
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -57,6 +62,7 @@ country_event = {
 			NOT = { exists = HND }
 		}
 		change_tag = HND
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -75,6 +81,7 @@ country_event = {
 			NOT = { exists = CJN }
 		}
 		change_tag = JIN
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -93,6 +100,7 @@ country_event = {
 			capital_scope = { OR = { area = gansu_area area = west_gansu_area } }
 		}
 		change_tag = LNG
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -111,6 +119,7 @@ country_event = {
 			primary_culture = miao
 		}
 		change_tag = CMI
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -129,6 +138,7 @@ country_event = {
 			primary_culture = chimin
 		}
 		change_tag = MIN
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -146,6 +156,7 @@ country_event = {
 			NOT = { exists = MNG }
 		}
 		change_tag = MNG
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -163,6 +174,7 @@ country_event = {
 			NOT = { exists = NNG }
 		}
 		change_tag = NNG
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -180,6 +192,7 @@ country_event = {
 			NOT = { exists = QIC }
 		}
 		change_tag = QIC
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -197,6 +210,7 @@ country_event = {
 			NOT = { exists = QIN }
 		}
 		change_tag = QIN
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -215,6 +229,7 @@ country_event = {
 			capital_scope = { OR = { area = sichuan_area area = chuanbei_area } }
 		}
 		change_tag = SHU
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -232,6 +247,7 @@ country_event = {
 			NOT = { exists = SNG }
 		}
 		change_tag = SNG
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -249,6 +265,7 @@ country_event = {
 			NOT = { exists = SUI }
 		}
 		change_tag = SUI
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -266,6 +283,7 @@ country_event = {
 			NOT = { exists = TNG }
 		}
 		change_tag = TNG
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -284,6 +302,7 @@ country_event = {
 			capital_scope = { OR = { area = north_henan_area area = henan_area } }
 		}
 		change_tag = WEI
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -302,6 +321,7 @@ country_event = {
 			primary_culture = wu
 		}
 		change_tag = WUU
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -319,6 +339,7 @@ country_event = {
 			NOT = { exists = XIA }
 		}
 		change_tag = XIA
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -336,6 +357,7 @@ country_event = {
 			NOT = { exists = XIN }
 		}
 		change_tag = XIN
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -354,6 +376,7 @@ country_event = {
 			capital_scope = { OR = { area = hebei_area area = liaoning_area } }
 		}
 		change_tag = YAN
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -372,6 +395,7 @@ country_event = {
 			capital_scope = { OR = { area = shanxi_area area = inner_mongolia_area } }
 		}
 		change_tag = ZAO
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {
@@ -389,6 +413,7 @@ country_event = {
 			NOT = { exists = CZH }
 		}
 		change_tag = CZH
+		on_change_tag_effect = yes
 		add_legitimacy = -30
 		add_stability = -1
 		add_country_modifier = {

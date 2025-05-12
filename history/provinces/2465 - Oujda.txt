@@ -1,11 +1,21 @@
-# 2011 - Oujda
+# Oujda
+# 2465 Oujda - 1/26/2025 8:46:43 AM 
+ 
+add_core = MRN
 owner = MRN
 controller = MRN
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = wool
+
 culture = berber
 religion = amanaiism
 capital = "Calaa"
-trade_goods = wool
-hre = no
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -13,104 +23,171 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = MRN
-2138.1.1 = { owner = ROM controller = ROM add_core = ROM } 
-2418.1.1 = { religion = chalcedonism } 
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2527.1.1 = { 
-    owner = ATV
-    controller = ATV
-    add_core = ATV
-    remove_core = ROW
+
+
+
+2138.1.1 = {
+	owner = ROM
+	controller = ROM
+	add_core = ROM
+}
+2418.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2527.1.1 = {
+	owner = ATV
+	controller = ATV
+	add_core = ATV
+	remove_core = ROW
+}
+2531.1.1 = {
+	religion = carthaginian_rite
+}
+2788.1.1 = {
+	religion = sunni
+}
+2806.1.1 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	capital = "Oujda"
+}
+2833.1.1 = {
+	religion = ibadi
+}
+2838.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+2841.1.1 = {
+	owner = TLC
+	controller = TLC
+	add_core = TLC
+	remove_core = UMA
+	revolt = {
+	}
+
+}
+2878.1.1 = {
+	owner = MZB
+	controller = MZB
+	add_core = MZB
+	remove_core = TLC
+}
+2888.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = MZB
+}
+2998.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3020.1.1 = {
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+}
+3023.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3025.1.1 = {
+	owner = FAT
+	controller = FAT
+}
+3035.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3048.1.1 = {
+	religion = ibadi
+}
+3072.1.1 = {
+	owner = TLC
+	controller = TLC
+	add_core = TLC
+	remove_core = MOR
+	remove_core = FAT
+}
+3164.10.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = TLC
+}
+3168.1.1 = {
+	religion = sunni
+}
+3245.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = MOR
+}
+3333.1.1 = {
+	owner = TLC
+	controller = TLC
+	add_core = TLC
+	remove_core = MOR
+}
+3370.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+}
+3411.1.1 = {
+	owner = TLC
+	controller = TLC
+}
+3435.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3446.1.1 = {
+	owner = TLC
+	controller = TLC
+}
+3450.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3457.1.1 = {
+	owner = TLC
+	controller = TLC
+	remove_core = MOR
+}
+3647.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+}
+3701.8.1 = {
+	unrest = 5
+}
+3736.1.1 = {
+	owner = ALG
+	controller = ALG
+}
+3790.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+4008.1.1 = {
+	discovered_by = asian
 }
 
-2531.1.1 = { religion = carthaginian_rite }
-2788.1.1 = { religion = sunni } 
-2806.1.1 = { 
-    owner = UMA
-    controller = UMA
-    add_core = UMA
-    capital = "Oujda"
-}
 
-2833.1.1 = { religion = ibadi } # Many Berbers become Kharijite
-2838.1.1 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Great Berber revolt
-2841.1.1 = { 
-    owner = TLC
-    controller = TLC
-    add_core = TLC
-    remove_core = UMA
-    revolt = { } 
-} # Caliphate loses control of the region
-
-2878.1.1 = { 
-    owner = MZB
-    controller = MZB
-    add_core = MZB
-    remove_core = TLC
-}
-
-2888.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = MZB
-}
-
-2998.1.1 = { base_tax = 3 base_production = 3 } 
-3020.1.1 = { owner = FAT controller = FAT add_core = FAT } 
-3023.1.1 = { owner = MOR controller = MOR } 
-3025.1.1 = { owner = FAT controller = FAT } 
-3035.1.1 = { owner = MOR controller = MOR } 
-3048.1.1 = { religion = ibadi } 
-3072.1.1 = { 
-    owner = TLC
-    controller = TLC
-    add_core = TLC
-    remove_core = MOR
-    remove_core = FAT
-}
-
-3164.10.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = TLC
-}
-
-3168.1.1 = { religion = sunni } 
-3245.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = MOR
-}
-
-3333.1.1 = { 
-    owner = TLC
-    controller = TLC
-    add_core = TLC
-    remove_core = MOR
-}
-
-3370.1.1 = { owner = MOR controller = MOR add_core = MOR } 
-3411.1.1 = { owner = TLC controller = TLC } 
-3435.1.1 = { owner = MOR controller = MOR } 
-3446.1.1 = { owner = TLC controller = TLC } 
-3450.1.1 = { owner = MOR controller = MOR } 
-3457.1.1 = { owner = TLC controller = TLC remove_core = MOR } 
-3647.1.1 = { owner = MOR controller = MOR add_core = MOR } # Conquered by the Saadians
-3701.8.1 = { unrest = 5 } # The death of the Saadita Ahmad I al-Mansur
-3736.1.1 = { owner = ALG controller = ALG } 
-3790.1.1 = { owner = MOR controller = MOR } 
-4008.1.1 = { discovered_by = asian } 
+### Modified 1/26/2025 8:46:43 AM ###

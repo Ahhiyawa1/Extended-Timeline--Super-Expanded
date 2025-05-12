@@ -1,12 +1,21 @@
-#12049 - Rohtak
-
+# Rohtak
+# 12049 Rohtak - 1/26/2025 8:46:45 AM 
+ 
+add_core = NST
 owner = NST
 controller = NST
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+trade_goods = livestock
+
 culture = panjabi
 religion = hinduism
 capital = "Rohtak"
-trade_goods = livestock
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,48 +27,109 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = NST
 
-2218.1.1 = { owner = KUS controller = KUS add_core = KUS remove_core = NST }
-2473.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = KUS }
-2596.1.1 = { owner = KAP controller = KAP add_core = HRS remove_core = GUP }
-2626.1.1 = { owner = MLW controller = MLW }
-2638.1.1 = { owner = HRS controller = HRS }
-2745.1.1 = { owner = TOM controller = TOM add_core = TOM remove_core = HRS }
-2838.1.1 = { owner = KSH controller = KSH add_core = KSH }
-2858.1.1 = { owner = TOM controller = TOM remove_core = KSH }
-2898.1.1 = { base_manpower = 2 }
-3098.1.1 = { base_tax = 3 }
-3100.1.1 = { owner = GHZ controller = GHZ add_core = GHZ remove_core = TOM }
-3285.1.1 = { owner = GHU controller = GHU add_core = GHU remove_core = GHZ }
-3304.1.1 = { owner = DLH controller = DLH add_core = DLH add_core = PUN remove_core = GHU }
 
-3624.2.1 = { controller = TIM } # Babur's invasion
+
+
+2218.1.1 = {
+	owner = KUS
+	controller = KUS
+	add_core = KUS
+	remove_core = NST
+}
+2473.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = KUS
+}
+2596.1.1 = {
+	owner = KAP
+	controller = KAP
+	add_core = HRS
+	remove_core = GUP
+}
+2626.1.1 = {
+	owner = MLW
+	controller = MLW
+}
+2638.1.1 = {
+	owner = HRS
+	controller = HRS
+}
+2745.1.1 = {
+	owner = TOM
+	controller = TOM
+	add_core = TOM
+	remove_core = HRS
+}
+2838.1.1 = {
+	owner = KSH
+	controller = KSH
+	add_core = KSH
+}
+2858.1.1 = {
+	owner = TOM
+	controller = TOM
+	remove_core = KSH
+}
+2898.1.1 = {
+	base_manpower = 2
+}
+3098.1.1 = {
+	base_tax = 3
+}
+3100.1.1 = {
+	owner = GHZ
+	controller = GHZ
+	add_core = GHZ
+	remove_core = TOM
+}
+3285.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+	remove_core = GHZ
+}
+3304.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	add_core = PUN
+	remove_core = GHU
+}
+3624.2.1 = {
+	controller = TIM
+}
 3624.4.21 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
 	remove_core = DLH
-} # Battle of Panipat
+}
 3638.1.1 = {
 	religion = sikhism
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} #Conquered by Sher Shah Suri
+}
 3651.1.1 = {
 	owner = SRH
 	controller = SRH
 	remove_core = BNG
-} #Death of Islam Shah Sur, Suri empire split
-3652.7.1 = { controller = MUG } #Humayun invades
-3652.12.1 = { owner = MUG } #Aftermath of the battle of Sirhind
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
+}
+3652.7.1 = {
+	controller = MUG
+}
+3652.12.1 = {
+	owner = MUG
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
 3858.1.1 = {
 	owner = JAN
 	controller = JAN
@@ -75,11 +145,32 @@ add_core = NST
 	controller = GBR
 	add_core = GBR
 }
+3923.1.1 = {
+	base_manpower = 3
+}
+3949.1.1 = {
+	base_production = 3
+}
+3973.1.1 = {
+	base_tax = 4
+}
+3999.1.1 = {
+	base_production = 4
+}
+4023.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 4
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = PUN
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3923.1.1 = { base_manpower = 3 }
-3949.1.1 = { base_production = 3 }
-3973.1.1 = { base_tax = 4 }
-3999.1.1 = { base_production = 4 }
-4023.1.1 = { base_tax = 5 base_production = 5 base_manpower = 4 }
-4028.1.1  = { add_core = INI remove_core = PUN }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:46:45 AM ###

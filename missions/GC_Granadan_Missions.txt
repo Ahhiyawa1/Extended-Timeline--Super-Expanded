@@ -10,11 +10,6 @@ granada_development_missions = {
 		OR = {
 			tag = GRA
 			tag = ADU
-			tag = MGA
-			tag = MUC
-			tag = AGC
-			tag = DEN
-			tag = TOL
 		}
 		NOT = { map_setup = map_setup_random }
 	}
@@ -201,11 +196,6 @@ granada_slot_2_missions = {
 		OR = {
 			tag = GRA
 			tag = ADU
-			tag = MGA
-			tag = MUC
-			tag = AGC
-			tag = DEN
-			tag = TOL
 		}
 		NOT = { map_setup = map_setup_random }
 		has_dlc = "Golden Century"
@@ -525,41 +515,19 @@ granada_slot_2_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
-			if = {
+			valencia_area = {
 				limit = {
-					218 = {
-						NOT = {
-							owned_by = ROOT
-						}
-					}
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
 				}
-				218 = {
-					add_permanent_claim = ROOT
-				}
+				add_permanent_claim = ROOT
 			}
-			if = {
+			extremadura_area = {
 				limit = {
-					1747 = {
-						NOT = {
-							owned_by = ROOT
-						}
-					}
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
 				}
-				1747 = {
-					add_permanent_claim = ROOT
-				}
-			}
-			if = {
-				limit = {
-					216 = {
-						NOT = {
-							owned_by = ROOT
-						}
-					}
-				}
-				216 = {
-					add_permanent_claim = ROOT
-				}
+				add_permanent_claim = ROOT
 			}
 		}
 		
@@ -868,11 +836,6 @@ granada_slot_3_missions = {
 		OR = {
 			tag = GRA
 			tag = ADU
-			tag = MGA
-			tag = MUC
-			tag = AGC
-			tag = DEN
-			tag = TOL
 		}
 		NOT = { map_setup = map_setup_random }
 		has_dlc = "Golden Century"
@@ -1053,7 +1016,6 @@ andalusia_slot_3_missions = {
 			if = {
 				limit = {
 					is_random_new_world = no
-					adm_tech = 50
 					ceara_area = {
 						NOT = {
 							has_discovered = ROOT
@@ -1179,11 +1141,6 @@ granada_slot_4_missions = {
 		OR = {
 			tag = GRA
 			tag = ADU
-			tag = MGA
-			tag = MUC
-			tag = AGC
-			tag = DEN
-			tag = TOL
 		}
 		NOT = { map_setup = map_setup_random }
 		has_dlc = "Golden Century"
@@ -1637,11 +1594,6 @@ granada_slot_5_missions = {
 		OR = {
 			tag = GRA
 			tag = ADU
-			tag = MGA
-			tag = MUC
-			tag = AGC
-			tag = DEN
-			tag = TOL
 		}
 		NOT = { map_setup = map_setup_random }
 		has_dlc = "Golden Century"
@@ -1659,7 +1611,7 @@ granada_slot_5_missions = {
 					tooltip = granadan_civil_war_over_tooltip
 					has_country_flag = granadan_civil_war_over
 				}
-				is_year = 3457
+				is_year = 3553
 			}
 		}
 		
@@ -1909,7 +1861,6 @@ andalusia_slot_5_missions = {
 			}
 			cyrenaica_area = {
 				limit = {
-					is_city = yes
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
@@ -1946,7 +1897,6 @@ andalusia_slot_5_missions = {
 		position = 6
 		
 		provinces_to_highlight = {
-			is_city = yes
 			OR = {
 				area = cyrenaica_area
 				area = delta_area
@@ -1961,10 +1911,7 @@ andalusia_slot_5_missions = {
 		trigger = {
 			cyrenaica_area = {
 				type = all
-				OR = {
-					owned_by = ROOT
-					is_city = no
-				}
+				owned_by = ROOT
 			}
 			delta_area = {
 				type = all

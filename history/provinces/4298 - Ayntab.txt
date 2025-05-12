@@ -1,10 +1,16 @@
-# 377 - Aleppo
+# Ayntab
+# 4298 Ayntab - 1/26/2025 8:46:43 AM
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 2
+base_production = 2
+base_manpower = 1
+trade_goods = wool
 culture = hurrian
 religion = ashurism
 capital = "Tell Bashir"
-trade_goods = wool
+is_city = yes
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -15,91 +21,100 @@ discovered_by = western
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = ROM
-2358.1.1 = { religion = chalcedonism }
-2367.1.1 = { add_core = PLM controller = REB revolt = { type = nationalist_rebels size = 1 } }
-2370.1.1 = { controller = ROM remove_core = PLM revolt = { size = 1 } }
-2473.1.1 = { religion = acacianism }
+2055.1.1 = { 
+    owner = M10
+    controller = M10
+    remove_core = ROM
+    add_core = M10
+    remove_core = ROM
+    add_core = M10
+}
+
+2057.1.1 = { 
+    owner = ROM
+    controller = ROM
+    remove_core = M10
+    add_core = ROM
+    remove_core = M10
+    add_core = ROM
+}
+
+2358.1.1 = { religion = chalcedonism } 
+2367.1.1 = { add_core = PLM controller = REB revolt = { type = nationalist_rebels size = 1 } } 
+2370.1.1 = { controller = ROM remove_core = PLM revolt = { size = 1 } } 
+2473.1.1 = { religion = acacianism } 
 2493.1.17 = { 
-	controller = BYZ
-	owner = BYZ
-	add_core = BYZ
-	remove_core = ROM
+    controller = BYZ
+    owner = BYZ
+    add_core = BYZ
+    remove_core = ROM
 }
-2610.11.16 = { culture = aramaic religion = coptic }
-2610.11.16 = { religion = coptic } # Syrian Orthodox Church
-2708.1.1 = { controller = REB revolt = { type = heretic_rebels size = 4 } }
-2711.1.1 = { controller = ERS revolt = { size = 1 } }
-2725.1.1 = { controller = BYZ }
-2735.1.1 = { owner = RSD controller = RSD add_core = RSD }
+
+2610.11.16 = { culture = aramaic religion = coptic } 
+2610.11.16 = { religion = coptic } 
+2708.1.1 = { controller = REB revolt = { type = heretic_rebels size = 4 } } 
+2711.1.1 = { controller = ERS revolt = { size = 1 } } 
+2725.1.1 = { controller = BYZ } 
+2735.1.1 = { owner = RSD controller = RSD add_core = RSD } 
 2759.7.28 = { 
-	owner = UMA
-	controller = UMA
-	add_core = UMA
-	remove_core = RSD
+    owner = UMA
+    controller = UMA
+    add_core = UMA
+    remove_core = RSD
 }
-2818.1.1 = { religion = sunni culture = al_suryah_arabic }
+
+2818.1.1 = { religion = sunni culture = al_suryah_arabic } 
 2848.8.6 = { 
-	owner = ABA
-	controller = ABA
-	add_core = ABA
-	remove_core = UMA
+    owner = ABA
+    controller = ABA
+    add_core = ABA
+    remove_core = UMA
 }
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY }
-3003.1.10 = { owner = ABA controller = ABA }
-3033.8.26 = { 
-	owner = EGY
-	controller = EGY
-	remove_core = ABA
-}
+
+2966.9.15 = { owner = EGY controller = EGY add_core = EGY } 
+3003.1.10 = { owner = ABA controller = ABA } 
+3033.8.26 = { owner = EGY controller = EGY remove_core = ABA } 
 3043.1.1 = { 
-	owner = SYR
-	controller = SYR
-	add_core = SYR
-	remove_core = EGY
+    owner = SYR
+    controller = SYR
+    add_core = SYR
+    remove_core = EGY
 }
-3067.1.1 = { owner = BYZ controller = BYZ }
-3169.8.26 = { owner = ANC controller = ANC add_core = ANC }
+
+3067.1.1 = { owner = BYZ controller = BYZ } 
+3169.8.26 = { owner = ANC controller = ANC add_core = ANC } 
 3196.1.1 = { 
-	owner = EDE
-	controller = EDE
-	add_core = EDE
-	remove_core = ANC
-	remove_core = BYZ
-	capital = "Turbessel"
+    owner = EDE
+    controller = EDE
+    add_core = EDE
+    remove_core = ANC
+    remove_core = BYZ
+    capital = "Turbessel"
 }
-3248.1.1 = { owner = BYZ controller = BYZ remove_core = EDE }
-3249.1.1 = { 
-	owner = SYR
-	controller = SYR
-	capital = "Ayntab"
-}
-3281.1.1 = { owner = EGY controller = EGY add_core = EGY }
+
+3248.1.1 = { owner = BYZ controller = BYZ remove_core = EDE } 
+3249.1.1 = { owner = SYR controller = SYR capital = "Ayntab" } 
+3281.1.1 = { owner = EGY controller = EGY add_core = EGY } 
 3356.1.1 = { 
-	owner = ARM
-	controller = ARM
-	add_core = ARM
-	remove_core = EGY
+    owner = ARM
+    controller = ARM
+    add_core = ARM
+    remove_core = EGY
 }
-3390.1.1 = { owner = MAM controller = MAM add_core = MAM }
-3397.1.1 = { owner = ARM controller = ARM }
-3402.1.1 = { owner = MAM controller = MAM remove_core = ARM }
-3418.1.1 = { culture = turkish }
+
+3390.1.1 = { owner = MAM controller = MAM add_core = MAM } 
+3397.1.1 = { owner = ARM controller = ARM } 
+3402.1.1 = { owner = MAM controller = MAM remove_core = ARM } 
+3418.1.1 = { culture = turkish } 
 3435.1.1 = { 
-	owner = DUL
-	controller = DUL
-	add_core = DUL
-	remove_core = MAM
+    owner = DUL
+    controller = DUL
+    add_core = DUL
+    remove_core = MAM
 }
-3612.8.23 = { owner = TUR controller = TUR add_core = TUR }
-4008.1.1 = { discovered_by = asian }
-4018.4.24 = { owner = TKY controller = TKY add_core = TKY }
-4020.11.1 = { remove_core = TUR }
-4030.6.15  = { 
-	remove_core = DUL
-	remove_core = SYR
-}
+
+3612.8.23 = { owner = TUR controller = TUR add_core = TUR } 
+4008.1.1 = { discovered_by = asian } 
+4018.4.24 = { owner = TKY controller = TKY add_core = TKY } 
+4020.11.1 = { remove_core = TUR } 
+4030.6.15 = { remove_core = DUL remove_core = SYR } 

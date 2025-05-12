@@ -1,12 +1,22 @@
-#12213 - Barasat
-
+# Barasat
+# 12213 Barasat - 1/26/2025 8:46:45 AM 
+ 
+add_core = VGA
 owner = VGA
 controller = VGA
+base_tax = 2
+base_production = 2
+base_manpower = 1
+
+center_of_trade = 1
+trade_goods = silk
+
 culture = bengali
 religion = mahayana
 capital = "Barasat"
-trade_goods = silk
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -15,45 +25,104 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 1
-is_city = yes
-add_core = VGA
-center_of_trade = 1
+
+
 
 add_permanent_province_modifier = {
 	name = ganges_estuary_modifier
 	duration = -1
 }
 
-2398.1.1 = { base_tax = 3 base_production = 3 }
-2453.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = SUH }
-2598.1.1 = { base_tax = 4 base_production = 4 }
-2623.1.1 = { owner = VGA controller = VGA add_core = VGA remove_core = GUP }
-2848.1.1 = { owner = PAA controller = PAA add_core = PAA remove_core = VGA }
-2898.1.1 = { discovered_by = nomad_group }
-2998.1.1 = { owner = SEA controller = SEA add_core = SEA remove_core = PAA }
-3098.1.1 = { base_manpower = 2 }
-3168.1.1 = { owner = NIZ controller = NIZ add_core = NIZ }
-3178.1.1 = { religion = hinduism }
-3298.1.1 = { base_tax = 5 base_production = 5 }
-3328.1.1 = { owner = HRK controller = HRK add_core = HRK remove_core = NIZ }
-3378.1.1 = { owner = DLH controller = DLH add_core = DLH add_core = BNG capital = "Howrah" }
-3385.1.1 = { owner = BNG controller = BNG remove_core = DLH }
-3422.1.1 = { owner = DLH controller = DLH add_core = DLH }
-3436.1.1 = { owner = BNG controller = BNG remove_core = DLH }
-
-3598.1.1 = { discovered_by = POR }
+2398.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2453.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = SUH
+}
+2598.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+2623.1.1 = {
+	owner = VGA
+	controller = VGA
+	add_core = VGA
+	remove_core = GUP
+}
+2848.1.1 = {
+	owner = PAA
+	controller = PAA
+	add_core = PAA
+	remove_core = VGA
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+2998.1.1 = {
+	owner = SEA
+	controller = SEA
+	add_core = SEA
+	remove_core = PAA
+}
+3098.1.1 = {
+	base_manpower = 2
+}
+3168.1.1 = {
+	owner = NIZ
+	controller = NIZ
+	add_core = NIZ
+}
+3178.1.1 = {
+	religion = hinduism
+}
+3298.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3328.1.1 = {
+	owner = HRK
+	controller = HRK
+	add_core = HRK
+	remove_core = NIZ
+}
+3378.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	add_core = BNG
+	capital = "Howrah"
+}
+3385.1.1 = {
+	owner = BNG
+	controller = BNG
+	remove_core = DLH
+}
+3422.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+}
+3436.1.1 = {
+	owner = BNG
+	controller = BNG
+	remove_core = DLH
+}
+3598.1.1 = {
+	discovered_by = POR
+}
 3674.7.12 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
 	unrest = 8
-} #Mughal takeover, but the land remains in the hand of Afghan and Hindu landowners with interests vested against the Mughal dynasty and a deep hatred for the Mughal state
+}
 3685.1.1 = {
 	unrest = 0
-} # Integrated into Mughal Empire
+}
 3720.10.1 = {
 	controller = REB
 	revolt = {
@@ -62,11 +131,14 @@ add_permanent_province_modifier = {
 		name = "Khurrams Faction"
 		leader = "Shah Jahan Timurid"
 	}
-} #With some aid from Golconda Khurrams rebelion against his father continues
+
+}
 3722.1.1 = {
 	controller = MUG
-	revolt = { }
-} #Khurram is defeated and is chased away by Mughal forces and rebelious Zamindars. Takes refuge in Ahmednagar and eventually surrenders on terms dictated by Nur Jahan
+	revolt = {
+	}
+
+}
 3755.9.14 = {
 	controller = REB
 	revolt = {
@@ -75,7 +147,8 @@ add_permanent_province_modifier = {
 		name = "Muhammed Shuja's Faction"
 		leader = "Muhammed Shuja Timurid"
 	}
-} # Shah Jahan falls ill, his sons starts civil war
+
+}
 3756.2.14 = {
 	revolt = {
 		type = pretender_rebels
@@ -83,11 +156,14 @@ add_permanent_province_modifier = {
 		name = "Muhammed Shuja's Faction"
 		leader = "Muhammed Shuja Timurid"
 	}
-} # Muhammed Shuja routed in surprise raid by Suleiman Shukoh and Raja Jai Singh outside Varanasi
+
+}
 3756.12.28 = {
 	controller = MUG
-	revolt = { }
-} # Muhammed Shuja defeated by Aurangzeb
+	revolt = {
+	}
+
+}
 3796.1.1 = {
 	owner = ENG
 	controller = ENG
@@ -96,8 +172,7 @@ add_permanent_province_modifier = {
 	capital = "Calcutta"
 	base_tax = 9
 	base_production = 11
-	
-} # The area is bought by the East India Company
+}
 3805.5.12 = {
 	owner = GBR
 	controller = GBR
@@ -107,35 +182,73 @@ add_permanent_province_modifier = {
 		investment = company_depot
 		investor = GBR
 	}
+
 	add_trade_company_investment = {
 		investment = military_administration
 		investor = GBR
 	}
+
 	add_trade_company_investment = {
 		investment = brokers_exchange
 		investor = GBR
 	}
+
 	add_trade_company_investment = {
 		investment = governor_general_mansion
 		investor = GBR
 	}
+
 	add_trade_company_investment = {
 		investment = officers_mess
 		investor = GBR
 	}
+
 	add_trade_company_investment = {
 		investment = admiralty
 		investor = GBR
 	}
-}
-3854.1.1 = { controller = BNG } # Captured by Siraj-ud-daullah
-3855.6.23 = { controller = GBR } # Battle of Plassey, a new Nawab is installed by the British
 
-3923.1.1 = { base_manpower = 4 }
-3949.1.1 = { base_tax = 10 base_manpower = 6 }
-3973.1.1 = { base_tax = 11 base_manpower = 8 }
-3999.1.1 = { base_tax = 12 base_production = 12 base_manpower = 10 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 15 base_production = 13 base_manpower = 12 }
-4028.1.1  = { add_core = INI remove_core = BNG }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+}
+3854.1.1 = {
+	controller = BNG
+}
+3855.6.23 = {
+	controller = GBR
+}
+3923.1.1 = {
+	base_manpower = 4
+}
+3949.1.1 = {
+	base_tax = 10
+	base_manpower = 6
+}
+3973.1.1 = {
+	base_tax = 11
+	base_manpower = 8
+}
+3999.1.1 = {
+	base_tax = 12
+	base_production = 12
+	base_manpower = 10
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 15
+	base_production = 13
+	base_manpower = 12
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = BNG
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
+
+
+### Modified 1/26/2025 8:46:45 AM ###

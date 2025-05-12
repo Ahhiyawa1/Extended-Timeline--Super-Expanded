@@ -1,6 +1,6 @@
 namespace = et_government_event
 
-# Fascist ruler dies
+# Fascist dictator dies
 country_event = {
 	id = et_government_event.1
 	title = et_government_event.1.t
@@ -10,68 +10,72 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_reform = fascist_government
-		has_reform = dictatorial_rule
-	}
-	
-	option = {
-		name = et_government_event.1.a
-		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 0
-				calc_true_if = {
-					all_country = {
-						has_reform = fascist_government
-					}
-					amount = 10
-				}
-			}
-			modifier = {
-				factor = 3
-				tag = SPA
-			}
-		}
-		change_government = monarchy
-		add_government_reform = autocracy_reform
-		add_government_reform = political_absolutism_reform
-		add_government_reform = authoritarian_rule
-		add_government_reform = oligarchic_reform
-		add_government_reform = royal_power
-		define_ruler = {
-			claim = 100
+		has_government_attribute = has_fascist_election
+		OR = {
+			has_reform = dictatorial_rule
+			has_reform = totalitarian_rule
 		}
 	}
 	
+	# An assembly takes power
 	option = {
 		name = et_government_event.1.b
 		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 0
-				calc_true_if = {
-					all_country = {
-						has_reform = fascist_government
-					}
-					amount = 10
-				}
-			}
+			factor = 50
 		}
 		add_government_reform = single_party_system
-		add_government_reform = democracy_reform
-		add_republican_tradition = -10
+		kill_ruler = yes
 	}
 	
+	# A new dictator rises
 	option = {
 		name = et_government_event.1.c
 		ai_chance = {
 			factor = 50
 		}
-		add_republican_tradition = 10
+		define_ruler = {}
+		set_ruler_flag = ruler_from_national_socialist_party
+	}
+	
+	# The monarchy is restored
+	option = {
+		name = et_government_event.1.a
+		trigger = {
+			have_had_reform = monarchy_mechanic
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				calc_true_if = {
+					all_country = {
+						has_reform = fascist_government
+					}
+					amount = 2
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = SPA
+				NOT = { is_year = 4068 }
+			}
+			modifier = {
+				factor = 10
+				tag = SPA
+				is_year = 4068
+			}
+		}
+		change_government = monarchy
+		hidden_effect = {
+			add_government_reform = autocracy_reform
+			add_government_reform = parliamentary_reform
+			add_government_reform = introduce_parliament
+		}
+		define_ruler = {}
 	}
 }
 
-# Communist ruler dies
+# Communist dictator dies
 country_event = {
 	id = et_government_event.2
 	title = et_government_event.1.t
@@ -81,41 +85,32 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_reform = communist_government
-		has_reform = dictatorial_rule
+		has_government_attribute = has_communist_election
+		OR = {
+			has_reform = dictatorial_rule
+			has_reform = totalitarian_rule
+		}
+		NOT = { has_states_general_mechanic = yes }
 	}
 	
-	option = {
-		name = et_government_event.1.a
-		ai_chance = {
-			factor = 0
-		}
-		change_government = monarchy
-		add_government_reform = autocracy_reform
-		add_government_reform = political_absolutism_reform
-		add_government_reform = authoritarian_rule
-		add_government_reform = oligarchic_reform
-		add_government_reform = royal_power
-		define_ruler = {
-			claim = 100
-		}
-	}
-	
+	# An assembly takes power
 	option = {
 		name = et_government_event.1.b
 		ai_chance = {
-			factor = 0
+			factor = 50
 		}
 		add_government_reform = single_party_system
-		add_republican_tradition = 10
+		kill_ruler = yes
 	}
 	
+	# A new dictator rises
 	option = {
 		name = et_government_event.1.c
 		ai_chance = {
-			factor = 100
+			factor = 50
 		}
-		add_republican_tradition = -10
+		define_ruler = {}
+		set_ruler_flag = ruler_from_communist_party
 	}
 }
 

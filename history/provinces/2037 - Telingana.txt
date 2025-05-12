@@ -1,12 +1,21 @@
-#542 - Warangal
-
+# Warangal
+# 2037 Warangal - 1/26/2025 8:46:43 AM 
+ 
+add_core = STV
 owner = STV
 controller = STV
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = cotton
+
 culture = telegu
 religion = mahayana
 capital = "Warangal"
-trade_goods = cotton
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -15,64 +24,136 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = STV
 
-2318.1.1 = { owner = YOR controller = YOR add_core = YOR remove_core = STV }
-2368.1.1 = { owner = VAK controller = VAK add_core = VAK remove_core = YOR }
-2358.1.1 = { religion = hinduism }
-2598.1.1 = { owner = YOR controller = YOR add_core = YOR remove_core = VAK }
-2714.1.1 = { owner = CLY controller = CLY add_core = CLY remove_core = YOR }
-2851.1.1 = { owner = TLG controller = TLG add_core = TLG remove_core = CLY }
-2898.1.1 = { discovered_by = nomad_group }
-3398.1.1 = { fort_15th = yes } #Warangal Fort
-3422.1.1 = { owner = DLH controller = DLH add_core = DLH }
-3434.1.1 = { owner = TLG controller = TLG remove_core = DLH }
-3468.1.1 = { owner = BAH controller = BAH add_core = BAH }
 
-3550.1.1 = { #Before 1454
+
+
+2318.1.1 = {
+	owner = YOR
+	controller = YOR
+	add_core = YOR
+	remove_core = STV
+}
+2368.1.1 = {
+	owner = VAK
+	controller = VAK
+	add_core = VAK
+	remove_core = YOR
+}
+2358.1.1 = {
+	religion = hinduism
+}
+2598.1.1 = {
+	owner = YOR
+	controller = YOR
+	add_core = YOR
+	remove_core = VAK
+}
+2714.1.1 = {
+	owner = CLY
+	controller = CLY
+	add_core = CLY
+	remove_core = YOR
+}
+2851.1.1 = {
+	owner = TLG
+	controller = TLG
+	add_core = TLG
+	remove_core = CLY
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+3398.1.1 = {
+	fort_15th = yes
+}
+3422.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+}
+3434.1.1 = {
+	owner = TLG
+	controller = TLG
+	remove_core = DLH
+}
+3468.1.1 = {
+	owner = BAH
+	controller = BAH
+	add_core = BAH
+}
+3550.1.1 = {
 	owner = ORI
 	add_core = ORI
 	controller = ORI
-}  # Conquered by Gajapatis with the help of local Velama lords.
+}
 3564.1.1 = {
 	controller = REB
 	revolt = {
 		size = 1
 		type = nationalist_rebels
 	}
-} # Gajapati gains lost during civil war
+
+}
 3566.1.1 = {
 	controller = BAH
 	owner = BAH
 	add_core = BAH
-	revolt = { }
-} #Given to/taken by Bahmanis due to involvement in Gajapati civil war
+	revolt = {
+	}
+
+}
 3588.1.1 = {
-	remove_core = BAH 
+	remove_core = BAH
 	owner = GOC
 	controller = GOC
 	add_local_autonomy = -50
-} # The Breakup of the Bahmani sultanate # Qutb Shahi dynasty
-3596.1.1 = { discovered_by = POR }
-3784.1.1 = { controller = MUG }
-3785.1.1 = { owner = MUG }
-3810.1.1 = { add_core = DEC }	#Viceroyalty of the Deccan
+}
+3596.1.1 = {
+	discovered_by = POR
+}
+3784.1.1 = {
+	controller = MUG
+}
+3785.1.1 = {
+	owner = MUG
+}
+3810.1.1 = {
+	add_core = DEC
+}
 3822.1.1 = {
 	owner = DEC
 	controller = DEC
-} # Asif Jah declared himself Nizam-al-Mulk
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 3
+}
+4028.1.1 = {
+	add_core = INI
+}
+4046.9.1 = {
+	owner = INI
+	controller = INI
+	remove_core = DEC
+}
+4049.1.1 = {
+	base_production = 3
+	base_manpower = 3
+}
+4073.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 4
+}
+4098.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 5
+}
 
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 3 }
-4028.1.1  = { add_core = INI }
-4046.9.1  = { owner = INI controller = INI remove_core = DEC }
-4049.1.1 = { base_production = 3 base_manpower = 3 }
-4073.1.1 = { base_tax = 4 base_production = 4 base_manpower = 4 }
-4098.1.1 = { base_tax = 5 base_production = 5 base_manpower = 5 }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

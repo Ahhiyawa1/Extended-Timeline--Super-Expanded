@@ -3,7 +3,13 @@ tib_slot_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		culture_group = tibetan_group
+		OR = {
+			tag = TIB
+			tag = GUG
+			tag = UTS
+			tag = KAM
+			tag = PHA
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -58,8 +64,8 @@ tib_slot_2 = {
 					tooltip = tib_steppe_alliance_tooltip_1
 					any_ally = {
 						OR = {
+							primary_culture = altaic_new 
 							culture_group = altaic
-							culture_group = mongolic
 						}
 						total_development = 100
 					}
@@ -67,8 +73,8 @@ tib_slot_2 = {
 				num_of_owned_provinces_with = {
 					value = 10
 					OR = {
+						culture = altaic_new 
 						culture_group = altaic
-						culture_group = mongolic
 					}
 				}
 			}
@@ -256,7 +262,13 @@ tib_slot_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		culture_group = tibetan_group
+		OR = {
+			tag = TIB
+			tag = GUG
+			tag = UTS
+			tag = KAM
+			tag = PHA
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -274,11 +286,9 @@ tib_slot_3 = {
 		trigger = {
 			tibet_region = {
 				type = all
-				OR = {
-					owned_by = ROOT
-					is_empty = yes
-				}
+				owned_by = ROOT	
 			}
+			has_institution = feudalism
 		}
 		effect = {
 			677 = {
@@ -295,28 +305,6 @@ tib_slot_3 = {
 						}						
 					}
 					add_center_of_trade_level = 1
-				}
-			}
-			if = {
-				limit = { 2129 = { is_empty = yes } }
-				2129 = {
-					create_colony = 200
-					set_permanent_province_flag = spice_island_colony_flag
-					add_permanent_province_modifier = {
-						name = spice_colony_province_modifier
-						duration = -1
-					}
-				}
-			}
-			if = {
-				limit = { 4522 = { is_empty = yes } }
-				4522 = {
-					create_colony = 200
-					set_permanent_province_flag = spice_island_colony_flag
-					add_permanent_province_modifier = {
-						name = spice_colony_province_modifier
-						duration = -1
-					}
 				}
 			}
 		}
@@ -400,10 +388,26 @@ tib_slot_3 = {
 				}
 			}
 			else = {
-				NOT = {
-					any_country = {
-						primary_culture = east_asian
-						num_of_cities = 50
+				OR = {
+					NOT = {
+						exists = MNG
+					}
+					MNG = {
+						exists = yes
+						NOT = {
+							num_of_cities = 50
+						}
+					}
+				}
+				OR = {
+					NOT = {
+						exists 	= QNG
+					}
+					QNG = {
+						exists = yes
+						NOT = {
+							num_of_cities = 50
+						}
 					}
 				}
 			}
@@ -418,7 +422,7 @@ tib_slot_3 = {
 					is_emperor_of_china = yes
 				}
 				add_meritocracy = 20
-				add_mandate = 20
+				add_mandate = 2118
 			}
 			add_country_modifier = {
 				name = "tibet_china_defeated"
@@ -437,10 +441,10 @@ tib_slot_3 = {
 			if = {
 				limit = {
 					NOT = {
-						government_rank = 10
+						government_rank = 3
 					}
 				}
-				set_government_rank = 4
+				set_government_rank = 3
 			}
 			add_adm_power = 100
 			add_dip_power = 100
@@ -454,7 +458,13 @@ tib_slot_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		culture_group = tibetan_group
+		OR = {
+			tag = TIB
+			tag = GUG
+			tag = UTS
+			tag = KAM
+			tag = PHA
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes

@@ -1,23 +1,36 @@
-#2641 - Chiapas
-
-culture = lacandon
+# Tzotzil
+# 4585 Tzotzil - 1/26/2025 8:46:43 AM 
+ 
+add_core = PLQ
 owner = PLQ
 controller = PLQ
-add_core = PLQ
-is_city = yes
-religion = mesoamerican_religion
-capital = "Tzotzil"
-trade_goods = cocoa
-hre = no
-discovered_by = mesoamerican
 base_tax = 2
 base_production = 2
 base_manpower = 1
+
+trade_goods = cocoa
+
+culture = lacandon
+religion = mesoamerican_religion
+capital = "Tzotzil"
+
+is_city = yes
 add_local_autonomy = 25
 
-2948.1.1 = { owner = LAC controller = LAC add_core = LAC remove_core = PLQ } #Palenque declines
+discovered_by = mesoamerican
 
-3615.1.1 = { discovered_by = SPA }
+
+
+
+2948.1.1 = {
+	owner = LAC
+	controller = LAC
+	add_core = LAC
+	remove_core = PLQ
+}
+3615.1.1 = {
+	discovered_by = SPA
+}
 3626.1.1 = {
 	owner = SPA
 	controller = SPA
@@ -25,11 +38,34 @@ add_local_autonomy = 25
 	religion = catholic
 	capital = "San Cristóbal de las Casas"
 }
-3651.1.1   = { add_core = SPA }
-3908.9.16  = { owner = MEX add_core = MEX controller = SPA } # Mexican War of Independence
+3651.1.1 = {
+	add_core = SPA
+}
+3908.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = SPA
+}
+3919.9.27 = {
+	controller = MEX
+	remove_core = SPA
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4092.1.1 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-3919.9.27  = { controller = MEX remove_core = SPA }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
+}
 
-4008.1.1 = { discovered_by = western }
-4092.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB add_core = LAC } #Zapatista Army
+
+### Modified 1/26/2025 8:46:43 AM ###

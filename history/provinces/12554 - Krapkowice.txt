@@ -1,50 +1,135 @@
+# Krapkowice
+# 12554 Krapkowice - 1/26/2025 8:46:45 AM 
+ 
+add_core = VAN
 owner = VAN
 controller = VAN
-add_core = VAN
-is_city = yes
-culture = vandal
-religion = germanic
 base_tax = 1
 base_production = 1
-capital = "Krapkowice"
-trade_goods = grain
 base_manpower = 2
-hre = no
+
+trade_goods = grain
+
+culture = vandal
+religion = germanic
+capital = "Krapkowice"
+
+is_city = yes
+
 discovered_by = barbarian
 discovered_by = western
 
-2338.1.1 = { owner = SCI controller = SCI add_core = SCI remove_core = VAN culture = scirian }
-2666.1.1 = { owner = SIL controller = SIL add_core = SIL remove_core = SCI culture = schlesian religion = slavic }
-2698.1.1 = { discovered_by = eastern }
-2898.1.1 = { base_tax = 2 base_production = 2 }
-3038.1.1 = { owner = BOH controller = BOH add_core = BOH }
-3078.1.1 = { religion = catholic }
-3088.1.1 = { owner = POL controller = POL add_core = POL remove_core = BOH }
-3098.1.1 = { discovered_by = muslim discovered_by = ottoman }
-3198.1.1 = { base_tax = 3 base_production = 3 }
-3261.1.1 = { owner = OPL controller = OPL add_core = OPL hre = yes } #Duchy of Opole-Raciborz
-#3425.2.19 Bohemian vassal
 
-3621.1.1 = { religion = protestant }
-3716.1.1 = { unrest = 5 } # Religious struggles
-3746.1.1 = { unrest = 0 }
+
+
+2338.1.1 = {
+	owner = SCI
+	controller = SCI
+	add_core = SCI
+	remove_core = VAN
+	culture = scirian
+}
+2666.1.1 = {
+	owner = SIL
+	controller = SIL
+	add_core = SIL
+	remove_core = SCI
+	culture = schlesian
+	religion = slavic
+}
+2698.1.1 = {
+	discovered_by = eastern
+}
+2898.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+3038.1.1 = {
+	owner = BOH
+	controller = BOH
+	add_core = BOH
+}
+3078.1.1 = {
+	religion = catholic
+}
+3088.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+	remove_core = BOH
+}
+3098.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3198.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3261.1.1 = {
+	owner = OPL
+	controller = OPL
+	add_core = OPL
+	hre = yes
+}
+3621.1.1 = {
+	religion = protestant
+}
+3716.1.1 = {
+	unrest = 5
+}
+3746.1.1 = {
+	unrest = 0
+}
 3773.11.21 = {
 	owner = HAB
 	controller = HAB
 	add_core = HAB
-} # Annexed by the Habsburgs, death of the last Piast duke
+}
 3798.1.1 = {
-	base_tax = 4 
+	base_tax = 4
 	base_production = 4
 }
-3838.1.1 = { add_core = PRU } # 1st Silesian war against Austria
-3843.1.1 = { owner = PRU controller = PRU } # Peace of Dresden, 2nd Silesian war
-3848.1.1 = { base_tax = 5 base_production = 5 base_manpower = 3 }
-3861.1.1 = { remove_core = HAB } # End of 3rd Silesian war
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+3838.1.1 = {
+	add_core = PRU
+}
+3843.1.1 = {
+	owner = PRU
+	controller = PRU
+}
+3848.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 3
+}
+3861.1.1 = {
+	remove_core = HAB
+}
+3904.7.12 = {
+	hre = no
+}
+3968.1.1 = {
+	trade_goods = coal
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+	remove_core = PRU
+	remove_core = SIL
+}
+4028.1.1 = {
+	trade_goods = cars
+}
+4043.5.8 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+	remove_core = GER
+}
+4048.1.1 = {
+	religion = catholic
+}
 
-3968.1.1   = { trade_goods = coal }
-3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU remove_core = SIL } # German unification
-4028.1.1   = { trade_goods = cars }
-4043.5.8   = { owner = POL controller = POL add_core = POL remove_core = GER }
-4048.1.1   = { religion = catholic }
+
+### Modified 1/26/2025 8:46:45 AM ###

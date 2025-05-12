@@ -33,7 +33,7 @@ arm_first_branch = {
 		}
 		
 		effect = {
-			persia_region = {
+			khorasan_region = {
 				discover_country = ROOT
 			}
 			custom_tooltip = arm_lose_ae_tt
@@ -76,12 +76,6 @@ arm_first_branch = {
 						value = -15
 						apply_calc = no
 					}
-				}
-				4172 = {
-					discover_country = ROOT
-				}
-				4170 = {
-					discover_country = ROOT
 				}
 			}
 		}
@@ -381,6 +375,7 @@ arm_second_branch = {
 		effect = {
 			set_country_flag = arm_capital_tigranakert
 			418 = {
+				change_province_name = "Tigranakert"
 				rename_capital = "Tigranakert"
 			}
 			418 = {
@@ -947,7 +942,7 @@ arm_third_branch = {
 	}
 	
 	arm_office_of_sparapet = {
-		icon = mission_late_ottoman_reforms
+		icon = shift_the_balance
 		required_missions = { arm_refine_the_nakharar }
 		position = 7
 		
@@ -1416,6 +1411,14 @@ arm_fifth_branch = {
 		}
 		
 		effect = {
+			country_event = { id = flavor_arm.1 }
+			custom_tooltip = arm_great_armenia_insight
+			tooltip = {
+				add_country_modifier = {
+					name = "arm_resurgent_armenia"
+					duration = 7300
+				}
+			}
 			dulkadir_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1488,25 +1491,33 @@ arm_fifth_branch = {
 			}
 			if = {
 				limit = {
-					is_great_power = yes
+					OR = {
+						has_dlc = "Emperor"
+						has_dlc = "Rights of Man"
+					}
 				}
-				custom_tooltip = arm_great_power_tt_yes
-				tooltip = {
-					add_splendor = 200
-				}
-			}
-			else = {
-				custom_tooltip = arm_great_power_tt_no
-				tooltip = {
-					add_splendor = 200
-				}
-			}
-			hidden_effect = {
 				if = {
 					limit = {
 						is_great_power = yes
 					}
-					add_splendor = 200
+					custom_tooltip = arm_great_power_tt_yes
+					tooltip = {
+						add_splendor = 200
+					}
+				}
+				else = {
+					custom_tooltip = arm_great_power_tt_no
+					tooltip = {
+						add_splendor = 200
+					}
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							is_great_power = yes
+						}
+						add_splendor = 200
+					}
 				}
 			}
 		}

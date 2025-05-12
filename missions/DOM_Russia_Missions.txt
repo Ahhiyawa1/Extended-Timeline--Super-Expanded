@@ -552,6 +552,25 @@ mos_rus_eastern_europe = {
 			}
 		}
 		effect = {
+			tooltip = {
+				add_accepted_culture = czech
+				add_accepted_culture = sorbian
+				add_accepted_culture = schlesian
+				add_accepted_culture = polish
+				add_accepted_culture = slovak
+			}
+			add_country_modifier = {
+				name = rus_west_slavic_union
+				duration = -1
+				desc = mos_rus_partition_poland_at
+			}
+			hidden_effect = {
+				add_accepted_culture = czech
+				add_accepted_culture = sorbian
+				add_accepted_culture = schlesian
+				add_accepted_culture = polish
+				add_accepted_culture = slovak
+			}
 			add_country_modifier = {
 				name = "rus_partition_poland_modifier"
 				duration = 7300
@@ -585,6 +604,21 @@ mos_rus_eastern_europe = {
 			}
 		}
 		effect = {
+			tooltip = {
+				add_accepted_culture = hungarian
+				add_accepted_culture = romanian
+				add_accepted_culture = transylvanian
+			}
+			add_country_modifier = {
+				name = rus_carpathian_union
+				duration = -1
+				desc = mos_rus_carpathian_conquest_at
+			}
+			hidden_effect = {
+				add_accepted_culture = hungarian
+				add_accepted_culture = romanian
+				add_accepted_culture = transylvanian
+			}
 			custom_tooltip = mos_rus_carpathian_conquest_ct
 			hidden_effect = {
 				balkan_region = {
@@ -624,6 +658,42 @@ mos_rus_eastern_europe = {
 			}
 		}
 		effect = {
+			custom_tooltip = mos_rus_protect_south_slavs_bt
+			hidden_effect = {
+				if = { limit = { accepted_culture = russian } remove_accepted_culture = russian }
+				if = { limit = { accepted_culture = czech } remove_accepted_culture = czech }
+				if = { limit = { accepted_culture = polish } remove_accepted_culture = polish }
+				if = { limit = { accepted_culture = schlesian } remove_accepted_culture = schlesian }
+				if = { limit = { accepted_culture = sorbian } remove_accepted_culture = sorbian }
+				if = { limit = { accepted_culture = slovak } remove_accepted_culture = slovak }
+				if = { limit = { accepted_culture = novgorodian } remove_accepted_culture = novgorodian }
+				if = { limit = { accepted_culture = ryazanian } remove_accepted_culture = ryazanian }
+				if = { limit = { accepted_culture = byelorussian } remove_accepted_culture = byelorussian }
+				if = { limit = { accepted_culture = ruthenian } remove_accepted_culture = ruthenian }
+				if = { limit = { accepted_culture = slovene } remove_accepted_culture = slovene }
+				if = { limit = { accepted_culture = bosnian } remove_accepted_culture = bosnian }
+				if = { limit = { accepted_culture = serbian } remove_accepted_culture = serbian }
+				if = { limit = { accepted_culture = bulgarian } remove_accepted_culture = bulgarian }
+				if = { limit = { accepted_culture = croatian } remove_accepted_culture = croatian }
+				create_new_culture_group = {
+					culture_group = slavic
+					culture = russian
+					culture2 = czech
+					culture3 = polish
+					culture4 = schlesian
+					culture5 = sorbian
+					culture6 = slovak
+					culture7 = novgorodian
+					culture8 = ryazanian
+					culture9 = byelorussian
+					culture10 = ruthenian
+					culture12 = slovene
+					culture13 = bosnian
+					culture14 = serbian
+					culture15 = bulgarian
+					culture16 = croatian
+				}
+			}
 			balkan_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -787,6 +857,8 @@ nov_rus_conquer_west = {
 				name = nov_rus_scandinavian_conquest
 				duration = -1
 			}
+			add_accepted_culture = finnish
+			add_accepted_culture = sapmi
 			add_country_modifier = {
 				name = "conquest_of_finland"
 				duration = 9125
@@ -825,6 +897,9 @@ nov_rus_conquer_west = {
 				name = nov_rus_scandinavian_dominance
 				duration = -1
 			}
+			add_accepted_culture = swedish
+			add_accepted_culture = norwegian
+			add_accepted_culture = danish
 			capital_scope = {
 				carolean_infantry = ROOT
 				carolean_infantry = ROOT
@@ -1096,6 +1171,25 @@ nov_rus_eastern_europe = {
 			}
 		}
 		effect = {
+			tooltip = {
+				add_accepted_culture = czech
+				add_accepted_culture = sorbian
+				add_accepted_culture = schlesian
+				add_accepted_culture = polish
+				add_accepted_culture = slovak
+			}
+			add_country_modifier = {
+				name = rus_west_slavic_union
+				duration = -1
+				desc = mos_rus_partition_poland_at
+			}
+			hidden_effect = {
+				add_accepted_culture = czech
+				add_accepted_culture = sorbian
+				add_accepted_culture = schlesian
+				add_accepted_culture = polish
+				add_accepted_culture = slovak
+			}
 			add_country_modifier = {
 				name = "rus_partition_poland_modifier"
 				duration = 7300
@@ -3170,13 +3264,13 @@ mos_rus_new_world = {
 					ROOT = {
 						NOT = {
 							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-								colonial_region = colonial_california
+								colonial_region = colonial_alaska
 								value = 20
 							}
 						}
 					}
 				}
-				colonial_region = colonial_california
+				colonial_region = colonial_alaska
 			}
 			else = {
 				province_id = 2613
@@ -3186,7 +3280,7 @@ mos_rus_new_world = {
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				colonial_region = colonial_california
+				colonial_region = colonial_alaska
 				value = 20
 			}
 			owns_or_non_sovereign_subject_of = 2613
@@ -3197,6 +3291,8 @@ mos_rus_new_world = {
 				duration = 7300
 			}
 			2613 = {
+				change_province_name = "Novo-Arkhangelsk"
+				rename_capital = "Novo-Arkhangelsk"
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 1
@@ -3277,7 +3373,10 @@ rus_russian_bureaucracy = {
 			274 = { num_of_times_improved = 3 }
 			310 = { num_of_times_improved = 3 }
 			if = {
-				NOT = { primary_culture = ruthenian }
+				limit = {
+					NOT = { primary_culture = ruthenian }
+					NOT = { primary_culture = ruthenian_new }
+				}
 				custom_trigger_tooltip = {
 					tooltip = rus_enact_the_sudebnik_ct
 					has_country_flag = rus_had_tysyatsky_event
@@ -3727,51 +3826,99 @@ rus_russian_streltsy = {
 		provinces_to_highlight = {
 		}
 		trigger = {
-			OR = {
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = rus_enacted_early_serfdom_tt	#Give serfdom related privilege
-						has_country_flag = rus_enacted_early_serfdom_flag
+			#Exception case if the player - somehow - crushes the peasants and liberates them at the same time and vice versa for nobles...
+			if = {
+				limit = { RUS_has_none_of_the_serfdom_privileges = yes }
+				RUS_has_none_of_the_serfdom_privileges = yes
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							has_country_flag = rus_crushed_boyars_revolt
+							OR = {
+								has_country_flag = rus_enacted_early_serfdom_flag
+								has_country_flag = enserfed_peasants
+							}
+						}
+						AND = {
+							has_country_flag = rus_crushed_peasant_revolt
+							OR = {
+								has_country_flag = liberated_peasants
+								has_country_flag = rus_enacted_early_disconnection_flag
+							}
+						}
 					}
-					custom_trigger_tooltip = {
-						tooltip = rus_solidify_serfdom_at
-						has_country_flag = rus_crushed_peasant_revolt
-					}
-					NOT = { has_spawned_rebels = anti_tax_rebels }
 				}
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = rus_enacted_early_disconnection_tt	#Give serfdom related privilege
-						has_country_flag = rus_enacted_early_disconnection_flag
+				NOT = { has_spawned_rebels = anti_tax_rebels }
+				NOT = { has_spawned_rebels = noble_rebels }
+				OR = {
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_at
+							has_country_flag = rus_crushed_peasant_revolt
+						}
 					}
-					custom_trigger_tooltip = {
-						tooltip = rus_solidify_serfdom_bt
-						has_country_flag = rus_crushed_boyars_revolt
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_bt
+							has_country_flag = rus_crushed_boyars_revolt
+						}
 					}
-					NOT = { has_spawned_rebels = noble_rebels }
+					NOT = { has_estate = estate_nobles }
 				}
-				NOT = { has_estate = estate_nobles }
+			}
+			else = {
+				OR = {
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_enacted_early_serfdom_tt	#Give serfdom related privilege
+							OR = {
+								has_country_flag = rus_enacted_early_serfdom_flag
+								has_country_flag = enserfed_peasants
+							}
+						}
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_at
+							has_country_flag = rus_crushed_peasant_revolt
+						}
+						NOT = { has_spawned_rebels = anti_tax_rebels }
+					}
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_enacted_early_disconnection_tt	#Give serfdom related privilege
+							OR = {
+								has_country_flag = liberated_peasants
+								has_country_flag = rus_enacted_early_disconnection_flag
+							}
+						}
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_bt
+							has_country_flag = rus_crushed_boyars_revolt
+						}
+						NOT = { has_spawned_rebels = noble_rebels }
+					}
+					NOT = { has_estate = estate_nobles }
+				}
 			}
 		}
 		effect = {
 			if = {
 				limit = { has_estate = estate_nobles }
-				simple_dynamic_effect = {
-					first_custom_tooltip = rus_solidify_serfdom_ct
-					first_limit = "has_estate_privilege = estate_nobles_early_serfdom has_country_flag = rus_crushed_peasant_revolt NOT = { has_spawned_rebels = anti_tax_rebels }"
-					first_effect = "custom_tooltip = rus_solidify_serfdom_dt set_country_flag = rus_buffed_serfdom_privileges"
-					second_custom_tooltip = rus_solidify_serfdom_et
-					second_limit = "has_estate_privilege = estate_nobles_increased_peasant_freedom has_country_flag = rus_crushed_boyars_revolt NOT = { has_spawned_rebels = noble_rebels }"
-					second_effect = "custom_tooltip = rus_solidify_serfdom_ft set_country_flag = rus_buffed_free_peasantry_privileges"
-				}
 				if = {
-					limit = {
-						NOT = { has_estate_privilege = estate_nobles_early_serfdom }
-						NOT = { has_estate_privilege = estate_nobles_increased_peasant_freedom }
-					}
+					limit = { RUS_has_none_of_the_serfdom_privileges = yes }
 					add_adm_power = 100
 					add_dip_power = 100
 					add_mil_power = 100
+					custom_tooltip = " "
+				}
+				simple_dynamic_effect = {
+					first_custom_tooltip = rus_solidify_serfdom_ct
+					first_limit = "RUS_rus_solidify_serfdom_serfdom = yes"
+					first_effect = "custom_tooltip = rus_solidify_serfdom_dt set_country_flag = rus_buffed_serfdom_privileges"
+					second_custom_tooltip = rus_solidify_serfdom_et
+					second_limit = "RUS_rus_solidify_serfdom_free_peasants = yes"
+					second_effect = "custom_tooltip = rus_solidify_serfdom_ft set_country_flag = rus_buffed_free_peasantry_privileges"
 				}
 			}
 			else = {

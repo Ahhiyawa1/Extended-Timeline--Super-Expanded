@@ -42,6 +42,77 @@ release_subject = {
 	]
 }
 
+# release_country_effect = {
+	# hidden_effect = {
+		# save_event_target_as = root_target
+		
+		# $tag$ = {
+			# every_core_province = {
+				# limit = {
+					# NOT = {
+						# [[trigger]
+							# $trigger$
+						# ]
+					# }
+				# }
+				# remove_core = PREV
+			# }
+			# every_province = {
+				# limit = {
+					# [[owned_by]
+						# owned_by = event_target:root_target
+					# ]
+					# [[country_or_non_sovereign_subject_holds]
+						# country_or_non_sovereign_subject_holds = event_target:root_target
+					# ]
+					# [[trigger]
+						# $trigger$
+					# ]
+				# }
+				# remove_core = owner
+				# add_core = PREV
+				# if = {
+					# limit = {
+						# NOT = { owned_by = event_target:root_target }
+					# }
+					# cede_province = event_target:root_target
+				# }
+			# }
+		# }
+		
+		# release = $tag$
+		# $tag$ = {
+			# add_years_of_income = 1
+			# add_yearly_manpower = 1
+			# [[government]
+				# change_government = $government$
+			# ]
+			# [[colony]
+				# change_primary_culture = event_target:root_target
+				# change_religion = event_target:root_target
+				# change_technology_group = event_target:root_target
+			# ]
+			# if = {
+				# limit = {
+					# owns_core_province = $set_capital$
+				# }
+				# set_capital = $set_capital$
+			# }
+			# define_ruler = {
+				# [[define_ruler]
+					# $define_ruler$
+				# ]
+			# }
+			# if = {
+				# limit = {
+					# has_heir = yes
+				# }
+				# remove_heir = {}
+			# }
+		# }
+	# }
+# }
+
 enable_subject_annexation = {
 	if = {
 		limit = {

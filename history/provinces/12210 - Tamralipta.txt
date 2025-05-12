@@ -1,12 +1,21 @@
-#12210 - Tamralipta
-
+# Tamralipta
+# 12210 Tamralipta - 1/26/2025 8:46:45 AM 
+ 
+add_core = SUH
 owner = SUH
 controller = SUH
+base_tax = 3
+base_production = 3
+base_manpower = 3
+
+trade_goods = spices
+
 culture = bengali
 religion = jainism
 capital = "Tamralipta"
-trade_goods = spices #Opium
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -15,42 +24,107 @@ discovered_by = middle_eastern
 discovered_by = muslim
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 3
-base_production = 3
-base_manpower = 3
-is_city = yes
-add_core = SUH
 
-2413.1.1 = { owner = MBL controller = MBL add_core = MBL }
-2453.1.1 = { owner = GUP controller = GUP add_core = GUP remove_core = MBL }
-2678.1.1 = { owner = NIZ controller = NIZ add_core = NIZ remove_core = GUP }
-2724.1.1 = { owner = HRS controller = HRS add_core = HRS remove_core = NIZ }
-2745.1.1 = { owner = SUH controller = SUH add_core = SUH remove_core = HRS }
-2878.1.1 = { owner = MBL controller = MBL add_core = MBL remove_core = SUH }
-2912.1.1 = { owner = PAA controller = PAA add_core = PAA remove_core = MBL }
-3048.1.1 = { owner = VGA controller = VGA add_core = VGA remove_core = PAA }
-3078.1.1 = { owner = SEA controller = SEA add_core = SEA remove_core = VGA }
-3098.1.1 = { base_tax = 4 base_production = 4 }
-3168.1.1 = { owner = NIZ controller = NIZ add_core = NIZ remove_core = VGA }
-3218.1.1 = { owner = KLI controller = KLI add_core = KLI remove_core = NIZ }
-3298.1.1 = { religion = hinduism }
-3532.1.1 = { owner = ORI controller = ORI add_core = ORI remove_core = KLI }
 
-3598.1.1 = { discovered_by = POR }
+
+
+2413.1.1 = {
+	owner = MBL
+	controller = MBL
+	add_core = MBL
+}
+2453.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+	remove_core = MBL
+}
+2678.1.1 = {
+	owner = NIZ
+	controller = NIZ
+	add_core = NIZ
+	remove_core = GUP
+}
+2724.1.1 = {
+	owner = HRS
+	controller = HRS
+	add_core = HRS
+	remove_core = NIZ
+}
+2745.1.1 = {
+	owner = SUH
+	controller = SUH
+	add_core = SUH
+	remove_core = HRS
+}
+2878.1.1 = {
+	owner = MBL
+	controller = MBL
+	add_core = MBL
+	remove_core = SUH
+}
+2912.1.1 = {
+	owner = PAA
+	controller = PAA
+	add_core = PAA
+	remove_core = MBL
+}
+3048.1.1 = {
+	owner = VGA
+	controller = VGA
+	add_core = VGA
+	remove_core = PAA
+}
+3078.1.1 = {
+	owner = SEA
+	controller = SEA
+	add_core = SEA
+	remove_core = VGA
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3168.1.1 = {
+	owner = NIZ
+	controller = NIZ
+	add_core = NIZ
+	remove_core = VGA
+}
+3218.1.1 = {
+	owner = KLI
+	controller = KLI
+	add_core = KLI
+	remove_core = NIZ
+}
+3298.1.1 = {
+	religion = hinduism
+}
+3532.1.1 = {
+	owner = ORI
+	controller = ORI
+	add_core = ORI
+	remove_core = KLI
+}
+3598.1.1 = {
+	discovered_by = POR
+}
 3666.1.1 = {
 	owner = BNG
 	controller = BNG
 	add_core = BNG
-} # Annexed to Bengal
+}
 3674.1.1 = {
 	owner = ORI
 	controller = ORI
-} # Orissa resurgent after Akbar's defeat of Bengal
-3689.1.1 = { controller = MUG } # The Mughal Empire
+}
+3689.1.1 = {
+	controller = MUG
+}
 3690.1.1 = {
 	owner = MUG
 	add_core = MUG
-} # The Mughal Empire
+}
 3720.10.1 = {
 	controller = REB
 	revolt = {
@@ -59,7 +133,8 @@ add_core = SUH
 		name = "Khurrams Faction"
 		leader = "Shah Jahan Timurid"
 	}
-} #With some aid from Golconda Khurrams rebelion against his father continues
+
+}
 3721.5.1 = {
 	revolt = {
 		type = pretender_rebels
@@ -67,11 +142,14 @@ add_core = SUH
 		name = "Khurrams Faction"
 		leader = "Shah Jahan Timurid"
 	}
-} #Defeated, retreats into Bengal
+
+}
 3722.1.1 = {
 	controller = MUG
-	revolt = { }
-} #Khurram is defeated and is chased away by Mughal forces and rebelious Zamindars. Takes refuge in Ahmednagar and eventually surrenders on terms dictated by Nur Jahan
+	revolt = {
+	}
+
+}
 3755.9.14 = {
 	controller = REB
 	revolt = {
@@ -80,11 +158,14 @@ add_core = SUH
 		name = "Muhammed Shuja's Faction"
 		leader = "Muhammed Shuja Timurid"
 	}
-} # Shah Jahan falls ill, his sons starts civil war
+
+}
 3756.12.28 = {
 	controller = MUG
-	revolt = { }
-} # Muhammed Shuja defeated by Aurangzeb
+	revolt = {
+	}
+
+}
 3805.3.15 = {
 	owner = BNG
 	controller = BNG
@@ -94,10 +175,28 @@ add_core = SUH
 	controller = GBR
 	add_core = GBR
 	remove_core = MUG
-} # Given to GBR by Mir Qasim
+}
+3999.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4023.1.1 = {
+	base_tax = 6
+	base_manpower = 4
+}
+4028.1.1 = {
+	add_core = INI
+	remove_core = BNG
+}
+4045.8.15 = {
+	owner = INI
+	controller = INI
+	remove_core = GBR
+}
 
-3999.1.1 = { base_tax = 5 base_production = 5 }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4023.1.1 = { base_tax = 6 base_manpower = 4 }
-4028.1.1  = { add_core = INI remove_core = BNG }
-4045.8.15 = { owner = INI controller = INI remove_core = GBR }
+
+### Modified 1/26/2025 8:46:45 AM ###

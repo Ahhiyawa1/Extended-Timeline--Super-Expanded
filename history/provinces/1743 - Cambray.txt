@@ -1,10 +1,21 @@
+# Cambray
+# 1743 Cambray - 1/26/2025 8:46:43 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-capital = "Bagacum"
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = grain
+
 culture = belgae
 religion = druidism
-hre = no
+capital = "Bagacum"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,139 +23,201 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 1
-base_production = 1
-trade_goods = grain
-base_manpower = 1
-add_core = ROM
-################################################################################
-# 1743 - Cambray
-################################################################################
-latent_trade_goods = { coal }
-2358.1.1 = { 
-    add_core = GLL
-    revolt = { type = nationalist_rebels size = 1 } 
-    controller = REB
-    culture = gallian
+
+
+
+latent_trade_goods = {
+   coal
 }
 
-2372.1.1 = { 
-    controller = ROM
-    remove_core = GLL
-    revolt = { } 
-    culture = belgae
+2358.1.1 = {
+	add_core = GLL
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
+
+	controller = REB
+	culture = gallian
+}
+2372.1.1 = {
+	controller = ROM
+	remove_core = GLL
+	revolt = {
+	}
+
+	culture = belgae
+}
+2458.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2554.1.1 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = ROW
+	capital = "Cambray"
+	culture = wallonian
+}
+2609.11.27 = {
+	owner = SOI
+	controller = SOI
+	add_core = SOI
+}
+2656.12.23 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2659.11.29 = {
+	owner = SOI
+	controller = SOI
+}
+2665.12.1 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+	remove_core = SOI
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2711.10.10 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = NEU
+}
+2732.1.1 = {
+	owner = NEU
+	controller = NEU
+}
+2777.12.23 = {
+	owner = FRK
+	controller = FRK
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2938.6.21 = {
+	owner = FRW
+	controller = FRW
+	add_core = FRW
+	remove_core = FRK
+}
+2965.1.1 = {
+	religion = catholic
+}
+3023.1.1 = {
+	owner = LOT
+	controller = LOT
+	add_core = LOT
+	remove_core = FRW
+}
+3046.1.1 = {
+	owner = CBR
+	controller = CBR
+	add_core = CBR
+	remove_core = LOT
+}
+3060.2.2 = {
+	hre = yes
+}
+3098.1.1 = {
+	base_manpower = 2
+}
+3298.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3398.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3447.1.1 = {
+	owner = BUR
+	controller = BUR
+	add_core = BUR
+	hre = no
+}
+3480.1.1 = {
+	owner = FLA
+	controller = FLA
+}
+3482.1.30 = {
+	owner = BUR
+	controller = BUR
+}
+3575.1.5 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = BUR
+}
+3641.1.1 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = FRA
+}
+3763.9.17 = {
+	add_claim = FRA
+}
+3775.4.19 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = SPA
+}
+3782.1.1 = {
+	culture = cosmopolitan_french
+}
+3887.5.5 = {
+	base_tax = 6
+	base_production = 6
+}
+3904.7.12 = {
+	hre = no
+}
+3968.9.4 = {
+	owner = FR2
+	controller = PRU
+	add_core = FR2
+	remove_core = FRA
+}
+3969.1.18 = {
+	controller = GER
+}
+3969.5.10 = {
+	controller = FR2
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4012.10.1 = {
+	controller = GER
+}
+4016.9.5 = {
+	controller = FR2
+}
+4038.5.27 = {
+	controller = GER
+}
+4038.6.14 = {
+	owner = GER
+}
+4042.9.2 = {
+	owner = FR2
+	controller = FR2
 }
 
-2458.1.1 = { religion = chalcedonism } 
-2493.1.17 = { 
-    controller = ROW
-    owner = ROW
-    add_core = ROW
-    remove_core = ROM
-} # Final division of the empire
 
-2554.1.1 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    remove_core = ROW
-    capital = "Cambray"
-    culture = wallonian
-}
-
-2609.11.27 = { owner = SOI controller = SOI add_core = SOI } 
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK } 
-2659.11.29 = { owner = SOI controller = SOI } 
-2665.12.1 = { 
-    owner = NEU
-    controller = NEU
-    add_core = NEU
-    remove_core = SOI
-}
-
-2698.1.1 = { base_tax = 2 base_production = 2 } 
-2711.10.10 = { 
-    owner = FRK
-    controller = FRK
-    add_core = FRK
-    remove_core = NEU
-}
-
-2732.1.1 = { owner = NEU controller = NEU } 
-2777.12.23 = { owner = FRK controller = FRK } 
-2898.1.1 = { base_tax = 3 base_production = 3 } 
-2938.6.21 = { 
-    owner = FRW
-    controller = FRW
-    add_core = FRW
-    remove_core = FRK
-}
-
-2965.1.1 = { religion = catholic } 
-3023.1.1 = { 
-    owner = LOT
-    controller = LOT
-    add_core = LOT
-    remove_core = FRW
-}
-
-3046.1.1 = { 
-    owner = CBR
-    controller = CBR
-    add_core = CBR
-    remove_core = LOT
-}
-
-3060.2.2 = { hre = yes } 
-3098.1.1 = { base_manpower = 2 } 
-3298.1.1 = { base_tax = 4 base_production = 4 } 
-3398.1.1 = { base_tax = 5 base_production = 5 } 
-3447.1.1 = { 
-    owner = BUR
-    controller = BUR
-    add_core = BUR
-    hre = no
-}
-
-3480.1.1 = { owner = FLA controller = FLA } 
-3482.1.30 = { owner = BUR controller = BUR } 
-3575.1.5 = { 
-    owner = FRA
-    controller = FRA
-    add_core = FRA
-    remove_core = BUR
-} # Charles the Bold dies and Louis XII takes Artois
-
-3641.1.1 = { 
-    owner = SPA
-    controller = SPA
-    add_core = SPA
-    remove_core = FRA
-} # Conquered by Charles V
-
-3763.9.17 = { add_claim = FRA } # Louis XIV's father-in-law, Philip IV of Spain, dies
-3775.4.19 = { 
-    owner = FRA
-    controller = FRA
-    add_core = FRA
-    remove_core = SPA
-} # Captured by Louis XIV
-
-3782.1.1 = { culture = cosmopolitan_french } 
-3887.5.5 = { base_tax = 6 base_production = 6 } # The General Estates
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
-3968.9.4 = { 
-    owner = FR2
-    controller = PRU
-    add_core = FR2
-    remove_core = FRA
-} # Republic proclaimed
-
-3969.1.18 = { controller = GER } 
-3969.5.10 = { controller = FR2 } 
-4008.1.1 = { discovered_by = asian } 
-4012.10.1 = { controller = GER } 
-4016.9.5 = { controller = FR2 } 
-4038.5.27 = { controller = GER } 
-4038.6.14 = { owner = GER } # France surrendered to Nazi Garmany
-4042.9.2 = { owner = FR2 controller = FR2 } 
+### Modified 1/26/2025 8:46:43 AM ###

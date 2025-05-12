@@ -1,35 +1,64 @@
-#5953 - Omsukchan
+# Omsukchan
+# 5953 Omsukchan - 1/26/2025 8:46:43 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = kamchatkan
 religion = shamanist
 capital = "Omsukchan"
-trade_goods = unknown
-hre = no
+
+native_size = 10
+native_ferocity =  1
+native_hostileness = 3
+
 discovered_by = KMC
 discovered_by = CHV
 discovered_by = CHU
 discovered_by = HOD
-base_tax = 1
-base_production = 1
-base_manpower = 1
-native_size = 10
-native_ferocity = 1
-native_hostileness = 3
-
-3745.1.1 = { discovered_by = RUS } # V. Atlasov
-3830.1.1 = {	owner = RUS
-		controller = RUS
-		citysize = 600
-	   	religion = orthodox
-	   	culture = russian
-		trade_goods = gold
-	   } # Conquered by Russia
-3855.1.1 = { add_core = RUS is_city = yes }
-3848.1.1   = { discovered_by = western }
-
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4018.1.1   = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
 
 
 
+
+3745.1.1 = {
+	discovered_by = RUS
+}
+3830.1.1 = {
+	owner = RUS
+	controller = RUS
+	citysize = 600
+	religion = orthodox
+	culture = russian
+	trade_goods = gold
+}
+3855.1.1 = {
+	add_core = RUS
+	is_city = yes
+}
+3848.1.1 = {
+	discovered_by = western
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4018.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###

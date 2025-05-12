@@ -1,12 +1,21 @@
-#2540 - Kinda
-
+# Beihan
+# 2345 Beihan - 1/26/2025 8:46:43 AM 
+ 
+add_core = QAT
 owner = QAT
 controller = QAT
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = livestock
+
 culture = yemeni_culture
 religion = south_arabian
 capital = "Beihan"
-trade_goods = livestock
-hre = no
+
+is_city = yes
+
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -14,55 +23,128 @@ discovered_by = early_indian
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = QAT
 
-2278.1.1 = { owner = HIM controller = HIM add_core = HIM }
-2318.1.1 = { owner = QAT controller = QAT }
-2378.1.1 = { owner = HIM controller = HIM add_core = HIM remove_core = QAT }
-2623.1.1 = { owner = YEM controller = YEM add_core = YEM remove_core = HIM }
-2726.1.1 = { owner = RSD controller = RSD add_core = RSD religion = islam }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2898.1.1 = { discovered_by = nomad_group religion = shiite }
-2945.1.1 = { owner = SA1 controller = SA1 add_core = SA1 remove_core = ABA }
-3095.1.1 = { owner = RAS controller = RAS add_core = RAS }
-3145.1.1 = { owner = SA1 controller = SA1 add_core = SA1 remove_core = RAS }
-3181.1.1 = { owner = ADE controller = ADE add_core = ADE remove_core = SA1 }
-3272.1.1 = { owner = EGY controller = EGY add_core = EGY }
-3327.1.1 = { owner = YEM controller = YEM add_core = YEM remove_core = EGY }
-3541.1.1 = { owner = ADE controller = ADE add_core = ADE }
 
-3613.1.1 = { discovered_by = POR }
-3552.1.1 = { #End of the Rasulids
-	owner = YEM #Tahirids
+
+
+2278.1.1 = {
+	owner = HIM
+	controller = HIM
+	add_core = HIM
+}
+2318.1.1 = {
+	owner = QAT
+	controller = QAT
+}
+2378.1.1 = {
+	owner = HIM
+	controller = HIM
+	add_core = HIM
+	remove_core = QAT
+}
+2623.1.1 = {
+	owner = YEM
 	controller = YEM
-	add_core = YEM 
+	add_core = YEM
+	remove_core = HIM
+}
+2726.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	religion = islam
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+	religion = sunni
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+	religion = shiite
+}
+2945.1.1 = {
+	owner = SA1
+	controller = SA1
+	add_core = SA1
+	remove_core = ABA
+}
+3095.1.1 = {
+	owner = RAS
+	controller = RAS
+	add_core = RAS
+}
+3145.1.1 = {
+	owner = SA1
+	controller = SA1
+	add_core = SA1
+	remove_core = RAS
+}
+3181.1.1 = {
+	owner = ADE
+	controller = ADE
+	add_core = ADE
+	remove_core = SA1
+}
+3272.1.1 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+}
+3327.1.1 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
+	remove_core = EGY
+}
+3541.1.1 = {
+	owner = ADE
+	controller = ADE
+	add_core = ADE
+}
+3613.1.1 = {
+	discovered_by = POR
+}
+3552.1.1 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
 }
 3614.1.1 = {
-	owner = MAM #Conquered by the Mamluks and Ottomans together in attempt to control the red sea and Indian ocea.
+	owner = MAM
 	controller = MAM
 	add_core = MAM
 }
-#De facto controlled by Ottoman Officers.
-3619.1.1 = { #After the fall of Egypt these lands are held by autonomous Ottoman Officers
-	#owner = ADE #Ottoman Officers
-	#controller = ADE #Ottoman Officers
-	#add_core = ADE #Ottoman Officers
-} # 
-3622.1.1 = { discovered_by = POR }
-3636.1.1 = { #Formally annexed by the Ottomans.
+3619.1.1 = {
+}
+3622.1.1 = {
+	discovered_by = POR
+}
+3636.1.1 = {
 	owner = TUR
 	controller = TUR
 	add_core = TUR
-} # Part of the Ottoman empire
-3665.1.1 = { unrest = 4 } # Revolt against the Ottomans
-3668.1.1 = { unrest = 0 }
-3695.9.1 = { unrest = 5 } # Revolt against the Ottomans
-3700.1.1 = { unrest = 0 }
+}
+3665.1.1 = {
+	unrest = 4
+}
+3668.1.1 = {
+	unrest = 0
+}
+3695.9.1 = {
+	unrest = 5
+}
+3700.1.1 = {
+	unrest = 0
+}
 3733.1.1 = {
 	owner = RAS
 	controller = RAS
@@ -74,12 +156,39 @@ add_core = QAT
 	controller = ADE
 	remove_core = RAS
 }
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4088.5.22 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
+	remove_core = ADE
+}
+4092.5.21 = {
+	add_core = ADE
+	revolt = {
+		type = nationalist_rebels
+		size = 1
+	}
 
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4088.5.22  = { owner = YEM controller = YEM add_core = YEM remove_core = ADE }
-4092.5.21  = { add_core = ADE revolt = { type = nationalist_rebels size = 1 } controller = REB }
-4092.7.7   = { remove_core = ADE revolt = {} controller = YEM }
-4113.2.6   = { revolt = { type = sunni_rebels size = 1 } controller = REB }
+	controller = REB
+}
+4092.7.7 = {
+	remove_core = ADE
+	revolt = {
+	}
+
+	controller = YEM
+}
+4113.2.6 = {
+	revolt = {
+		type = sunni_rebels
+		size = 1
+	}
+
+}
 
 
-
+### Modified 1/26/2025 8:46:43 AM ###

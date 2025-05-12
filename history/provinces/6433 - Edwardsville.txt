@@ -1,24 +1,29 @@
-#6433 - Edwardsville
+# Edwardsville
+# 6433 Edwardsville - 1/26/2025 8:46:44 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = illini
 religion = totemism
 capital = "Edwardsville"
-trade_goods = unknown
-hre = no
-base_tax = 1 
-base_production = 1
-base_manpower = 1
+
 native_size = 5
-native_ferocity = 1
+native_ferocity =  1
 native_hostileness = 2
 tribal_owner = KSK
-
-
 
 discovered_by = north_american
 
 
-3768.1.1  = { discovered_by = FRA } # Robert Cavelier de La Salle
+
+
+3768.1.1 = {
+	discovered_by = FRA
+}
 3801.1.1 = {
 	owner = FRA
 	controller = FRA
@@ -27,8 +32,10 @@ discovered_by = north_american
 	culture = cosmopolitan_french
 	religion = catholic
 	trade_goods = fur
-} #Kaskaskia
-3848.1.1  = { discovered_by = GBR }
+}
+3848.1.1 = {
+	discovered_by = GBR
+}
 3861.2.10 = {
 	discovered_by = GBR
 	owner = GBR
@@ -37,22 +44,55 @@ discovered_by = north_american
 	remove_core = FRA
 	culture = english
 	religion = protestant
-} # Treaty of Paris, France gave up its claim to New France.
-3861.3.1  = { unrest = 6 } # Native discontent with the British rule
-3861.5.1  = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pontiac's war
-3861.10.9 = { revolt = {} } # Royal proclamation, Britan recognize native lands (as protectorates)
+}
+3861.3.1 = {
+	unrest = 6
+}
+3861.5.1 = {
+	unrest = 0
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+	}
+
+	controller = REB
+}
+3861.10.9 = {
+	revolt = {
+	}
+
+}
 3876.7.4 = {
 	owner = USA
 	controller = USA
 	add_core = USA
 	remove_core = GBR
 	culture = american
-} # Americans capture Kaskaskia; Illinois country french join the revolt.
+}
+3923.1.1 = {
+	base_tax = 4
+	base_production = 3
+}
+3948.1.1 = {
+	base_production = 4
+}
+3973.1.1 = {
+	base_production = 5
+	base_manpower = 3
+}
+3978.1.1 = {
+	discovered_by = eastern
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+3998.1.1 = {
+	base_production = 6
+	base_manpower = 4
+}
+4008.1.1 = {
+	discovered_by = western
+}
 
-3923.1.1 = { base_tax = 4 base_production = 3 }
-3948.1.1 = { base_production = 4 }
-3973.1.1 = { base_production = 5 base_manpower = 3 }
-3978.1.1 = { discovered_by = eastern discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-3998.1.1 = { base_production = 6 base_manpower = 4 }
-4008.1.1 = { discovered_by = western }
 
+### Modified 1/26/2025 8:46:44 AM ###

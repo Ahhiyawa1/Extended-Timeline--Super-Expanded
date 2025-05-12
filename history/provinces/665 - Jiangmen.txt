@@ -1,12 +1,22 @@
-#665 - Shiuhing
-
+# Shiuhing
+# 665 Shiuhing - 1/26/2025 8:46:43 AM 
+ 
+add_core = HND
+add_core = WUU
 owner = HND
 controller = HND
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = chinaware
+
 culture = cantonese
 religion = confucianism
 capital = "Zhaoqing"
-trade_goods = chinaware
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = indian
@@ -14,78 +24,249 @@ discovered_by = early_indian
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = HND
-add_core = WUU
 
-2107.1.10 = { owner = XIN controller = XIN add_core = XIN }
-2121.10.5 = { owner = HND controller = HND remove_core = XIN }
-2287.9.28 = { owner = YUE controller = YUE add_core = YUE remove_core = HND }
-2318.1.1 = { owner = WUU controller = WUU add_core = WUU }
-2378.3.15 = { owner = JIN controller = JIN add_core = JIN remove_core = WUU }
-2518.1.1 = { owner = LSO controller = LSO add_core = LSO remove_core = JIN }
-2577.1.1 = { owner = QIC controller = QIC add_core = QIC remove_core = LSO }
-2600.1.1 = { owner = LNG controller = LNG add_core = LNG remove_core = QIC }
-2655.1.1 = { owner = CEN controller = CEN add_core = CEN remove_core = LNG }
-2687.3.4 = { owner = SUI controller = SUI add_core = SUI remove_core = CEN }
-2715.1.22 = { owner = CHC controller = CHC add_core = CHC remove_core = SUI }
-2720.12.1 = { owner = TNG controller = TNG add_core = TNG remove_core = CHC }
-2798.1.1 = { discovered_by = muslim discovered_by = ottoman }
-2799.1.1 = { base_tax = 3 base_production = 3 }
-2898.1.1 = { base_manpower = 3 }
-2998.1.1 = { base_tax = 4 base_production = 4 }
-3005.6.1 = { owner = HNX controller = HNX add_core = HNX remove_core = TNG }
-3070.1.18 = { owner = SNG controller = SNG add_core = SNG remove_core = HNX }
-3377.3.19 = { owner = YUA controller = YUA add_core = YUA add_core = CZH remove_core = SNG }
-3466.1.23 = { owner = KHA controller = KHA add_core = KHA remove_core = YUA }
-3466.4.18 = { owner = MNG controller = MNG add_core = MNG remove_core = KHA }
 
-3612.1.1 = { discovered_by = POR }
-3745.4.1 = {	owner = QNG
-		controller = QNG
-		add_core = QNG
-		}
-3746.4.15 = { 	controller = MNG 
-		owner = MNG
-		}
-3748.11.11 = {	owner = QNG
-		controller = QNG
-		}
-3757.1.1  = {	owner = QNG
-				controller = QNG
-				add_core = QNG
-			} # The Qing Conquest of China finishes
-3758.1.1 = {   }
-3760.4.1 = {	owner = CZH
-		controller = CZH
-		add_core = CZH
-		} # Three Feudatories
-3779.10.1 = {	owner = QNG
+
+
+2107.1.10 = {
+	owner = XIN
+	controller = XIN
+	add_core = XIN
+}
+2121.10.5 = {
+	owner = HND
+	controller = HND
+	remove_core = XIN
+}
+2287.9.28 = {
+	owner = YUE
+	controller = YUE
+	add_core = YUE
+	remove_core = HND
+}
+2318.1.1 = {
+	owner = WUU
+	controller = WUU
+	add_core = WUU
+}
+2378.3.15 = {
+	owner = JIN
+	controller = JIN
+	add_core = JIN
+	remove_core = WUU
+}
+2518.1.1 = {
+	owner = LSO
+	controller = LSO
+	add_core = LSO
+	remove_core = JIN
+}
+2577.1.1 = {
+	owner = QIC
+	controller = QIC
+	add_core = QIC
+	remove_core = LSO
+}
+2600.1.1 = {
+	owner = LNG
+	controller = LNG
+	add_core = LNG
+	remove_core = QIC
+}
+2655.1.1 = {
+	owner = CEN
+	controller = CEN
+	add_core = CEN
+	remove_core = LNG
+}
+2687.3.4 = {
+	owner = SUI
+	controller = SUI
+	add_core = SUI
+	remove_core = CEN
+}
+2715.1.22 = {
+	owner = CHC
+	controller = CHC
+	add_core = CHC
+	remove_core = SUI
+}
+2720.12.1 = {
+	owner = TNG
+	controller = TNG
+	add_core = TNG
+	remove_core = CHC
+}
+2798.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+2799.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2898.1.1 = {
+	base_manpower = 3
+}
+2998.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3005.6.1 = {
+	owner = HNX
+	controller = HNX
+	add_core = HNX
+	remove_core = TNG
+}
+3070.1.18 = {
+	owner = SNG
+	controller = SNG
+	add_core = SNG
+	remove_core = HNX
+}
+3377.3.19 = {
+	owner = YUA
+	controller = YUA
+	add_core = YUA
+	add_core = CZH
+	remove_core = SNG
+}
+3466.1.23 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	remove_core = YUA
+}
+3466.4.18 = {
+	owner = MNG
+	controller = MNG
+	add_core = MNG
+	remove_core = KHA
+}
+3612.1.1 = {
+	discovered_by = POR
+}
+3745.4.1 = {
+	owner = QNG
 	controller = QNG
 	add_core = QNG
 }
+3746.4.15 = {
+	controller = MNG
+	owner = MNG
+}
+3748.11.11 = {
+	owner = QNG
+	controller = QNG
+}
+3757.1.1 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}
+3758.1.1 = {
+}
+3760.4.1 = {
+	owner = CZH
+	controller = CZH
+	add_core = CZH
+}
+3779.10.1 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}
+3948.1.1 = {
+	base_tax = 5
+	base_production = 6
+	base_manpower = 4
+}
+3968.1.1 = {
+	base_tax = 6
+	base_production = 7
+	base_manpower = 6
+}
+3988.1.1 = {
+	base_production = 8
+	base_manpower = 10
+}
+4008.1.1 = {
+	discovered_by = western
+}
+4008.1.1 = {
+	base_tax = 8
+	base_production = 9
+	base_manpower = 11
+}
+4009.11.9 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
 
-3948.1.1 = { base_tax = 5 base_production = 6 base_manpower = 4 }
-3968.1.1 = { base_tax = 6 base_production = 7 base_manpower = 6 }
-3988.1.1 = { base_production = 8 base_manpower = 10 }
-4008.1.1 = { discovered_by = western }
-4008.1.1 = { base_tax = 8 base_production = 9 base_manpower = 11 }
-4009.11.9  = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-4010.2.12  = { revolt = {} owner = CHN controller = CHN add_core = CHN remove_core = QNG remove_core = CZH remove_core = YUE }
-4014.6.6   = { revolt = { type = revolutionary_rebels size = 1 } controller = REB }
-4025.4.18  = { revolt = {} controller = CHN }
-4028.1.1 = { base_tax = 9 base_production = 11 base_manpower = 12 }
-4042.3.1   = { controller = JAP }
-4043.7.1   = { controller = CHN }
-4048.1.1 = { base_tax = 11 base_production = 12 base_manpower = 14 }
-4058.1.1 = { base_tax = 12 base_manpower = 17 }
-4068.1.1 = { base_tax = 13 base_production = 13 base_manpower = 19 }
-4078.1.1 = { base_production = 16 base_manpower = 21 }
-4088.1.1 = { base_production = 20 }
-4108.1.1 = { base_tax = 21 base_production = 21 }
+	controller = REB
+}
+4010.2.12 = {
+	revolt = {
+	}
+
+	owner = CHN
+	controller = CHN
+	add_core = CHN
+	remove_core = QNG
+	remove_core = CZH
+	remove_core = YUE
+}
+4014.6.6 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4025.4.18 = {
+	revolt = {
+	}
+
+	controller = CHN
+}
+4028.1.1 = {
+	base_tax = 9
+	base_production = 11
+	base_manpower = 12
+}
+4042.3.1 = {
+	controller = JAP
+}
+4043.7.1 = {
+	controller = CHN
+}
+4048.1.1 = {
+	base_tax = 11
+	base_production = 12
+	base_manpower = 14
+}
+4058.1.1 = {
+	base_tax = 12
+	base_manpower = 17
+}
+4068.1.1 = {
+	base_tax = 13
+	base_production = 13
+	base_manpower = 19
+}
+4078.1.1 = {
+	base_production = 16
+	base_manpower = 21
+}
+4088.1.1 = {
+	base_production = 20
+}
+4108.1.1 = {
+	base_tax = 21
+	base_production = 21
+}
 
 
-
+### Modified 1/26/2025 8:46:43 AM ###

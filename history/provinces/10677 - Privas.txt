@@ -1,12 +1,21 @@
-# 10677 Privas
-
+# Privas
+# 10677 Privas - 1/26/2025 8:46:44 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
-capital = "Privatum"
-is_city = yes
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = wine
+
 culture = gallian
-religion = hellenism
-hre = no
+religion = druidism
+capital = "Privatum"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,72 +23,237 @@ discovered_by = barbarian
 discovered_by = western
 discovered_by = roman_group
 discovered_by = eastern
-base_tax = 1
-base_production = 1
-trade_goods = wine
-base_manpower = 1
-add_core = ROM
 
-2398.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2560.1.1 = { owner = GVI controller = GVI add_core = GVI remove_core = ROW }
-2640.4.1 = { owner = SOI controller = SOI add_core = SOI remove_core = GVI }
-2656.12.23 = { owner = FRK controller = FRK add_core = FRK remove_core = SOI capital = "Privas" }
-2659.11.29 = { owner = AUT controller = AUT add_core = AUT }
-2698.1.1 = { culture = occitain }
-2699.1.1 = { base_tax = 2 base_production = 2 }
-2711.10.10 = { owner = FRK controller = FRK add_core = FRK }
-2724.1.1 = { owner = AUT controller = AUT }
-2727.10.18 = { owner = FRK controller = FRK }
-2732.1.1 = { owner = NEU controller = NEU add_core = NEU }
-2777.12.23 = { owner = FRK controller = FRK }
-2798.1.1 = { base_tax = 3 base_production = 3 }
-2879.1.1 = { owner = AQT controller = AQT add_core = AQT }
-2898.1.1 = { base_manpower = 2 }
-2912.1.1 = { owner = FRK controller = FRK }
-2938.6.21 = { owner = FRW controller = FRW add_core = FRW remove_core = FRK }
-2964.1.1 = { owner = AQT controller = AQT add_core = AQT remove_core = FRW }
-2965.1.1 = { religion = catholic }
-2975.10.6 = { owner = FRW controller = FRW add_core = FRW remove_core = AQT }
-2998.1.1 = { base_tax = 4 base_production = 4 }
-3016.1.1 = { owner = TOU controller = TOU add_core = TOU }
-3085.7.3 = { add_core = FRA remove_core = FRW }
-3302.6.15 = { owner = ARA controller = ARA add_core = ARA }
-3329.1.1 = { owner = MJO controller = MJO add_core = MJO }
-3384.1.1 = { owner = ARA controller = ARA }
-3393.1.1 = { owner = MJO controller = MJO }
-3447.10.25 = { owner = FRA controller = FRA add_core = TOU remove_core = ARA }
 
-3658.1.1 = { religion = reformed }
-3663.1.1 = { unrest = 8 } # France is restless once again as ultra-catholic intentions become clear
-3666.9.1 = { unrest = 15 } # Catherine de Medici and Charles IX side with the Guise faction, religious intolerance peaks
-3668.8.8 = { unrest = 10 } # Edict of Saint-Germain: temporary pacification
-3671.9.1 = { unrest = 15 } # Saint Barthelew's Day Massacre: the consequences in the land
-3672.5.1 = { unrest = 7 } # Charles IX dies, situation cools a bit	
-3682.1.1 = { unrest = 12 } # Situation heats up again
-3686.12.1 = { unrest = 15 } # Henri de Guise assassinated at Blois, Ultra-Catholics into a frenzy
-3692.1.1 = { unrest = 10 } # 'Paris vaut bien une messe!', Henri converts to Catholicism
-3696.4.13 = { unrest = 3 } # Edict of Nantes, alot more freedom to the protestants
-3696.5.2 = { unrest = 0 } # Peace of Vervins, formal end to the Wars of Religion
-3733.1.1 = { unrest = 3 }
-3735.1.1 = { unrest = 0 }
-3737.1.1 = { unrest = 3 }
-3739.1.1 = { unrest = 0 }
-3742.1.1 = { unrest = 3 }
-3745.1.1 = { unrest = 0 }
-3748.1.14 = { unrest = 7 } # Mazarin arrests the Princes Condé, Conti & Longueville, the beginning of the Second Fronde
-3749.4.1 = { unrest = 4 } # An unstable peace is concluded
-3749.12.1 = { unrest = 7 } # Mazarin returns from exile, Condé sides with Spain, situation heats up again
-3750.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
-3783.10.18 = { unrest = 8 } # Edict of Nantes revoked by Louis XIV
-3784.1.17 = { religion = catholic } # Dragonnard campaign succesful: region reverts back to catholicism
-3787.1.1 = { unrest = 0 } # War of the Grand Alliance erupts: Louis XIV can't persue his religious policy anymore
 
-3968.9.4   = {  owner = FR2
-		controller = FR2
-		add_core = FR2
-		remove_core = FRA
-	     } # Republic proclaimed
-4008.1.1 = { discovered_by = asian }
-4038.6.14  = { owner = FRV controller = FRV add_core = FRV } # Vichy France
-4042.8.25  = { owner = FR2 controller = FR2 remove_core = FRV } # France liberated by allied forces
+
+2398.1.1 = {
+	religion = chalcedonism
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2560.1.1 = {
+	owner = GVI
+	controller = GVI
+	add_core = GVI
+	remove_core = ROW
+}
+2640.4.1 = {
+	owner = SOI
+	controller = SOI
+	add_core = SOI
+	remove_core = GVI
+}
+2656.12.23 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+	remove_core = SOI
+	capital = "Privas"
+}
+2659.11.29 = {
+	owner = AUT
+	controller = AUT
+	add_core = AUT
+}
+2698.1.1 = {
+	culture = occitain
+}
+2699.1.1 = {
+	base_tax = 2
+	base_production = 2
+}
+2711.10.10 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2724.1.1 = {
+	owner = AUT
+	controller = AUT
+}
+2727.10.18 = {
+	owner = FRK
+	controller = FRK
+}
+2732.1.1 = {
+	owner = NEU
+	controller = NEU
+	add_core = NEU
+}
+2777.12.23 = {
+	owner = FRK
+	controller = FRK
+}
+2798.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2879.1.1 = {
+	owner = AQT
+	controller = AQT
+	add_core = AQT
+}
+2898.1.1 = {
+	base_manpower = 2
+}
+2912.1.1 = {
+	owner = FRK
+	controller = FRK
+}
+2938.6.21 = {
+	owner = FRW
+	controller = FRW
+	add_core = FRW
+	remove_core = FRK
+}
+2964.1.1 = {
+	owner = AQT
+	controller = AQT
+	add_core = AQT
+	remove_core = FRW
+}
+2965.1.1 = {
+	religion = catholic
+}
+2975.10.6 = {
+	owner = FRW
+	controller = FRW
+	add_core = FRW
+	remove_core = AQT
+}
+2998.1.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3016.1.1 = {
+	owner = TOU
+	controller = TOU
+	add_core = TOU
+}
+3085.7.3 = {
+	add_core = FRA
+	remove_core = FRW
+}
+3302.6.15 = {
+	owner = ARA
+	controller = ARA
+	add_core = ARA
+}
+3329.1.1 = {
+	owner = MJO
+	controller = MJO
+	add_core = MJO
+}
+3384.1.1 = {
+	owner = ARA
+	controller = ARA
+}
+3393.1.1 = {
+	owner = MJO
+	controller = MJO
+}
+3447.10.25 = {
+	owner = FRA
+	controller = FRA
+	add_core = TOU
+	remove_core = ARA
+}
+3658.1.1 = {
+	religion = reformed
+}
+3663.1.1 = {
+	unrest = 8
+}
+3666.9.1 = {
+	unrest = 15
+}
+3668.8.8 = {
+	unrest = 10
+}
+3671.9.1 = {
+	unrest = 15
+}
+3672.5.1 = {
+	unrest = 7
+}
+3682.1.1 = {
+	unrest = 12
+}
+3686.12.1 = {
+	unrest = 15
+}
+3692.1.1 = {
+	unrest = 10
+}
+3696.4.13 = {
+	unrest = 3
+}
+3696.5.2 = {
+	unrest = 0
+}
+3733.1.1 = {
+	unrest = 3
+}
+3735.1.1 = {
+	unrest = 0
+}
+3737.1.1 = {
+	unrest = 3
+}
+3739.1.1 = {
+	unrest = 0
+}
+3742.1.1 = {
+	unrest = 3
+}
+3745.1.1 = {
+	unrest = 0
+}
+3748.1.14 = {
+	unrest = 7
+}
+3749.4.1 = {
+	unrest = 4
+}
+3749.12.1 = {
+	unrest = 7
+}
+3750.10.21 = {
+	unrest = 0
+}
+3783.10.18 = {
+	unrest = 8
+}
+3784.1.17 = {
+	religion = catholic
+}
+3787.1.1 = {
+	unrest = 0
+}
+3968.9.4 = {
+	owner = FR2
+	controller = FR2
+	add_core = FR2
+	remove_core = FRA
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4038.6.14 = {
+	owner = FRV
+	controller = FRV
+	add_core = FRV
+}
+4042.8.25 = {
+	owner = FR2
+	controller = FR2
+	remove_core = FRV
+}
+
+
+### Modified 1/26/2025 8:46:44 AM ###

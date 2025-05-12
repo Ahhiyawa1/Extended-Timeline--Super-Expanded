@@ -1,89 +1,150 @@
-# 347 - Ifni
+# Ifni
+# 347 Ifni - 1/26/2025 8:46:43 AM 
+ 
+add_core = SOS
 owner = SOS
 controller = SOS
-culture = atlas
-religion = amanaiism
-capital = "Sidi Ifni"
-trade_goods = fish
-hre = no
-discovered_by = ottoman
-discovered_by = middle_eastern
-discovered_by = muslim
 base_tax = 1
 base_production = 1
 base_manpower = 1
+
+trade_goods = fish
+
+culture = atlas
+religion = amanaiism
+capital = "Sidi Ifni"
+
 is_city = yes
-add_core = SOS
-2788.1.1 = { religion = sunni }
-2887.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SOS
+
+discovered_by = ottoman
+discovered_by = middle_eastern
+discovered_by = muslim
+
+
+
+
+2788.1.1 = {
+	religion = sunni
+}
+2887.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = SOS
+}
+2958.1.1 = {
+	religion = sunni
+	culture = moroccan
+}
+3020.1.1 = {
+	owner = FAT
+	controller = FAT
+}
+3023.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3025.1.1 = {
+	owner = FAT
+	controller = FAT
+}
+3035.1.1 = {
+	owner = MOR
+	controller = MOR
+}
+3072.1.1 = {
+	owner = SAN
+	controller = SAN
+	add_core = SAN
+	remove_core = MOR
+}
+3138.1.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = SAN
+}
+3222.1.1 = {
+	owner = SOS
+	controller = SOS
+	add_core = SOS
+}
+3245.4.1 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = SOS
+}
+3472.1.1 = {
+	owner = MRK
+	controller = MRK
+	add_core = MRK
+}
+3480.1.1 = {
+	owner = SOS
+	controller = SOS
+	add_core = SOS
+	remove_core = MRK
+}
+3563.1.1 = {
+	unrest = 5
+}
+3570.1.1 = {
+	unrest = 0
+}
+3574.1.1 = {
+	owner = CAS
+	controller = CAS
+	add_core = CAS
+}
+3598.1.1 = {
+	discovered_by = eastern
+}
+3614.1.23 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = CAS
+}
+3622.1.1 = {
+	owner = TFL
+	controller = TFL
+	add_core = TFL
+	remove_core = SPA
+}
+3647.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = TFL
+}
+3701.8.1 = {
+	unrest = 5
+}
+3711.1.1 = {
+	owner = SOS
+	controller = SOS
+	unrest = 0
+}
+3768.1.1 = {
+	owner = MOR
+	controller = MOR
+	remove_core = SOS
+}
+3982.1.1 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = asian
+}
+4073.11.14 = {
+	owner = MOR
+	controller = MOR
+	add_core = MOR
+	remove_core = SPA
 }
 
-2958.1.1 = { religion = sunni culture = moroccan } 
-3020.1.1 = { owner = FAT controller = FAT } 
-3023.1.1 = { owner = MOR controller = MOR } 
-3025.1.1 = { owner = FAT controller = FAT } 
-3035.1.1 = { owner = MOR controller = MOR } 
-3072.1.1 = { 
-    owner = SAN
-    controller = SAN
-    add_core = SAN
-    remove_core = MOR
-}
 
-3138.1.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SAN
-}
-
-3222.1.1 = { owner = SOS controller = SOS add_core = SOS } 
-3245.4.1 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SOS
-}
-
-3472.1.1 = { owner = MRK controller = MRK add_core = MRK } 
-3480.1.1 = { 
-    owner = SOS
-    controller = SOS
-    add_core = SOS
-    remove_core = MRK
-}
-
-3563.1.1 = { unrest = 5 } # Marinid Sultan killed by mob. Mohammed ibn Ali Amrani-Joutey (Idrisid) proclaims himself Sultan. Unrest in the entire country.
-3570.1.1 = { unrest = 0 } # Wattasids take control over Fez, nominal ruler over much of Morocco.
-3574.1.1 = { owner = CAS controller = CAS add_core = CAS } # Conquered by Spain
-3598.1.1 = { discovered_by = eastern } 
-3614.1.23 = { 
-    owner = SPA
-    controller = SPA
-    add_core = SPA
-    remove_core = CAS
-} # Ferdinand the Catholic dies, Charles inherits Aragon and becomes regent of Castille
-
-3622.1.1 = { 
-    owner = TFL
-    controller = TFL
-    add_core = TFL
-    remove_core = SPA
-} # Expelled by Berbers
-
-3647.1.1 = { owner = MOR controller = MOR remove_core = TFL } # Fall of Fez
-3701.8.1 = { unrest = 5 } # Death of al-Mansur, long period of instability follows
-3711.1.1 = { owner = SOS controller = SOS unrest = 0 } 
-3768.1.1 = { owner = MOR controller = MOR remove_core = SOS } 
-3982.1.1 = { owner = SPA controller = SPA add_core = SPA } 
-4008.1.1 = { discovered_by = western discovered_by = asian } 
-4073.11.14 = { 
-    owner = MOR
-    controller = MOR
-    add_core = MOR
-    remove_core = SPA
-} # Madrid Accords
+### Modified 1/26/2025 8:46:43 AM ###

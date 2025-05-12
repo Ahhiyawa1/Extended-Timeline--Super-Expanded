@@ -16,20 +16,6 @@ annex_tag = {
 				event_target:victim_scope = {
 					disband_all_units = yes
 				}
-				## Kills all army units, including ships out to sea.
-				#every_province = {
-				#	kill_units = { who = event_target:victim_scope }
-				#	if = {
-				#		limit = {
-				#			event_target:victim_scope = { navy_size = 1 }
-				#		}
-				#		sea_zone = {
-				#			region = {
-				#				kill_units = { who = event_target:victim_scope }
-				#			}
-				#		}
-				#	}
-				#}
 			}
 		]
 		event_target:annexer_scope = {
@@ -1757,203 +1743,6 @@ replace_culture_effect = {
 	}
 }
 
-# Political Party effects:
-#political_party_effects = {
-#	# Traits:
-#	# - radical_trait
-#	# - reformist_trait
-#	# - reactionary_trait
-#	# - laissez_faire_trait
-#	# - agrarian_trait
-#	# - isolationist_trait
-#	# - moralist_trait
-#	# - patriotic_trait
-#	# - militarist_trait
-#	# - jingoist_trait
-#	# - pacifist_trait
-#	# - anti_slavery_trait
-#	# - pro_slavery_trait
-#	[[add_trait]
-#		if = {
-#			limit = {
-#				NOT = { has_country_flag = $party$_$add_trait$ }
-#			}
-#			custom_tooltip = add_$add_trait$
-#			hidden_effect = {
-#				set_country_flag = $party$_$add_trait$
-#			}
-#		}
-#	]
-#	[[remove_trait]
-#		if = {
-#			limit = {
-#				has_country_flag = $party$_$remove_trait$
-#			}
-#			custom_tooltip = remove_$remove_trait$
-#			hidden_effect = {
-#				clr_country_flag = $party$_$remove_trait$
-#			}
-#		}
-#	]
-#}
-
-#conservative_party_scope = {
-#	custom_tooltip = conservative_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = conservative_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#liberal_party_scope = {
-#	custom_tooltip = liberal_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = liberal_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#nationalist_party_scope = {
-#	custom_tooltip = nationalist_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = nationalist_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#social_democratic_party_scope = {
-#	custom_tooltip = social_democratic_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = social_democratic_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#communist_party_scope = {
-#	custom_tooltip = communist_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = communist_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#national_socialist_party_scope = {
-#	custom_tooltip = national_socialist_party_scope_tt
-#	
-#	political_party_effects = {
-#		party = national_socialist_party
-#		
-#		[[add_trait]
-#			add_trait = $add_trait$
-#		]
-#		[[remove_trait]
-#			remove_trait = $remove_trait$
-#		]
-#	}
-#}
-
-#ruling_party_scope = {
-#	trigger_switch = {
-#		on_trigger = faction_in_power
-#		
-#		conservative_party = {
-#			conservative_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#		liberal_party = {
-#			liberal_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#		nationalist_party = {
-#			nationalist_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#		social_democratic_party = {
-#			social_democratic_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#		communist_party = {
-#			communist_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#		national_socialist_party = {
-#			national_socialist_party_scope = {
-#				[[add_trait]
-#					add_trait = $add_trait$
-#				]
-#				[[remove_trait]
-#					remove_trait = $remove_trait$
-#				]
-#			}
-#		}
-#	}
-#}
-
 # ==========================
 # Country State-type Effects
 # ==========================
@@ -2023,31 +1812,31 @@ become_recognized_effect = {
 }
 
 # Isolationism
-add_isolationism_effect = {
-	if = {
-		limit = {
-			NOT = { has_country_modifier = isolationist_state_modifier }
-		}
-		custom_tooltip = add_isolationism_effect_tt # Our nation will become an §YIsolationist State§!.\n§YThis will prevent alliances with other countries.§!
-		hidden_effect = {
-			add_country_modifier = {
-				name = isolationist_state_modifier
-				duration = -1
-			}
-		}
-	}
-}
-remove_isolationism_effect = {
-	if = {
-		limit = {
-			has_country_modifier = isolationist_state_modifier
-		}
-		custom_tooltip = remove_isolationism_effect_tt # Our nation will stop being an §YIsolationist State§!.\n§YThis will allow alliances with other countries.§!
-		hidden_effect = {
-			remove_country_modifier = isolationist_state_modifier
-		}
-	}
-}
+# add_isolationism_effect = {
+	# if = {
+		# limit = {
+			# NOT = { has_country_modifier = isolationist_state_modifier }
+		# }
+		# custom_tooltip = add_isolationism_effect_tt # Our nation will become an §YIsolationist State§!.\n§YThis will prevent alliances with other countries.§!
+		# hidden_effect = {
+			# add_country_modifier = {
+				# name = isolationist_state_modifier
+				# duration = -1
+			# }
+		# }
+	# }
+# }
+# remove_isolationism_effect = {
+	# if = {
+		# limit = {
+			# has_country_modifier = isolationist_state_modifier
+		# }
+		# custom_tooltip = remove_isolationism_effect_tt # Our nation will stop being an §YIsolationist State§!.\n§YThis will allow alliances with other countries.§!
+		# hidden_effect = {
+			# remove_country_modifier = isolationist_state_modifier
+		# }
+	# }
+# }
 
 # Civility
 become_uncivilized_effect = {
@@ -3524,261 +3313,261 @@ add_modifier_until = { # Adds a modifier ($name$), country or province ($type$),
 }
 
 
-found_big_alliance_effect = {
-	set_saved_name = {
-		key = big_alliance_name
-		type = simple
-		name = "$name$"
-	}
-	set_country_flag = big_alliance_name:$key$
+# found_big_alliance_effect = {
+	# set_saved_name = {
+		# key = big_alliance_name
+		# type = simple
+		# name = "$name$"
+	# }
+	# set_country_flag = big_alliance_name:$key$
 	
-	set_variable = {
-		which = big_alliance_member_var
-		value = 1
-	}
-	update_scaling_modifier = {
-		name = big_alliance_leader
-		type = country
-		duration = -1
-		which = big_alliance_member_var
-	}
-}
+	# set_variable = {
+		# which = big_alliance_member_var
+		# value = 1
+	# }
+	# update_scaling_modifier = {
+		# name = big_alliance_leader
+		# type = country
+		# duration = -1
+		# which = big_alliance_member_var
+	# }
+# }
 
-set_big_alliance_flags_effect = {
-	$leader$ = {
-		trigger_switch = {
-			on_trigger = has_country_flag
-			# Add ALL potential names here:
-			big_alliance_name:Entente = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Entente"
-					}
-					set_country_flag = big_alliance_name:Entente
-				}
-			}
-			big_alliance_name:Central_Powers = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Central Powers"
-					}
-					set_country_flag = big_alliance_name:Central_Powers
-				}
-			}
-			big_alliance_name:Allies = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Allies"
-					}
-					set_country_flag = big_alliance_name:Allies
-				}
-			}
-			big_alliance_name:Axis = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Axis"
-					}
-					set_country_flag = big_alliance_name:Axis
-				}
-			}
-			big_alliance_name:Rio_Pact = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Rio Pact"
-					}
-					set_country_flag = big_alliance_name:Rio_Pact
-				}
-			}
-			big_alliance_name:NATO = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "NATO"
-					}
-					set_country_flag = big_alliance_name:NATO
-				}
-			}
-			big_alliance_name:Warsaw_Pact = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "Warsaw Pact"
-					}
-					set_country_flag = big_alliance_name:Warsaw_Pact
-				}
-			}
-			big_alliance_name:CSTO = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "CSTO"
-					}
-					set_country_flag = big_alliance_name:CSTO
-				}
-			}
-			big_alliance_name:European_Alliance = {
-				PREV = {
-					set_saved_name = {
-						key = big_alliance_name
-						type = simple
-						name = "European Alliance"
-					}
-					set_country_flag = big_alliance_name:European_Alliance
-				}
-			}
-		}
-	}
-}
+# set_big_alliance_flags_effect = {
+	# $leader$ = {
+		# trigger_switch = {
+			# on_trigger = has_country_flag
+			# # Add ALL potential names here:
+			# big_alliance_name:Entente = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Entente"
+					# }
+					# set_country_flag = big_alliance_name:Entente
+				# }
+			# }
+			# big_alliance_name:Central_Powers = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Central Powers"
+					# }
+					# set_country_flag = big_alliance_name:Central_Powers
+				# }
+			# }
+			# big_alliance_name:Allies = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Allies"
+					# }
+					# set_country_flag = big_alliance_name:Allies
+				# }
+			# }
+			# big_alliance_name:Axis = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Axis"
+					# }
+					# set_country_flag = big_alliance_name:Axis
+				# }
+			# }
+			# big_alliance_name:Rio_Pact = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Rio Pact"
+					# }
+					# set_country_flag = big_alliance_name:Rio_Pact
+				# }
+			# }
+			# big_alliance_name:NATO = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "NATO"
+					# }
+					# set_country_flag = big_alliance_name:NATO
+				# }
+			# }
+			# big_alliance_name:Warsaw_Pact = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "Warsaw Pact"
+					# }
+					# set_country_flag = big_alliance_name:Warsaw_Pact
+				# }
+			# }
+			# big_alliance_name:CSTO = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "CSTO"
+					# }
+					# set_country_flag = big_alliance_name:CSTO
+				# }
+			# }
+			# big_alliance_name:European_Alliance = {
+				# PREV = {
+					# set_saved_name = {
+						# key = big_alliance_name
+						# type = simple
+						# name = "European Alliance"
+					# }
+					# set_country_flag = big_alliance_name:European_Alliance
+				# }
+			# }
+		# }
+	# }
+# }
 
-clr_big_alliance_flags_effect = {
-	set_saved_name = {
-		key = big_alliance_name
-		type = simple
-		name = "---"
-	}
-	# Add ALL potential names here:
-	clr_country_flag = big_alliance_name:Entente
-	clr_country_flag = big_alliance_name:Central_Powers
-	clr_country_flag = big_alliance_name:Allies
-	clr_country_flag = big_alliance_name:Axis
-	clr_country_flag = big_alliance_name:Rio_Pact
-	clr_country_flag = big_alliance_name:NATO
-	clr_country_flag = big_alliance_name:Warsaw_Pact
-	clr_country_flag = big_alliance_name:CSTO
-	clr_country_flag = big_alliance_name:European_Alliance
-}
+# clr_big_alliance_flags_effect = {
+	# set_saved_name = {
+		# key = big_alliance_name
+		# type = simple
+		# name = "---"
+	# }
+	# # Add ALL potential names here:
+	# clr_country_flag = big_alliance_name:Entente
+	# clr_country_flag = big_alliance_name:Central_Powers
+	# clr_country_flag = big_alliance_name:Allies
+	# clr_country_flag = big_alliance_name:Axis
+	# clr_country_flag = big_alliance_name:Rio_Pact
+	# clr_country_flag = big_alliance_name:NATO
+	# clr_country_flag = big_alliance_name:Warsaw_Pact
+	# clr_country_flag = big_alliance_name:CSTO
+	# clr_country_flag = big_alliance_name:European_Alliance
+# }
 
-enter_big_alliance_effect = {
-	if = {
-		limit = {
-			NOT = { has_country_modifier = big_alliance_member }
-			$leader$ = {
-				has_country_modifier = big_alliance_leader_tooltip
-			}
-		}
-		add_country_modifier = {
-			name = big_alliance_member
-			duration = -1
-		}
-		set_big_alliance_flags_effect = { leader = $leader$ }
-		$leader$ = {
-			change_variable = {
-				which = big_alliance_member_var
-				value = 1
-			}
-			update_scaling_modifier = {
-				name = big_alliance_leader
-				type = country
-				duration = -1
-				which = big_alliance_member_var
-			}
-		}
-	}
-}
+# enter_big_alliance_effect = {
+	# if = {
+		# limit = {
+			# NOT = { has_country_modifier = big_alliance_member }
+			# $leader$ = {
+				# has_country_modifier = big_alliance_leader_tooltip
+			# }
+		# }
+		# add_country_modifier = {
+			# name = big_alliance_member
+			# duration = -1
+		# }
+		# set_big_alliance_flags_effect = { leader = $leader$ }
+		# $leader$ = {
+			# change_variable = {
+				# which = big_alliance_member_var
+				# value = 1
+			# }
+			# update_scaling_modifier = {
+				# name = big_alliance_leader
+				# type = country
+				# duration = -1
+				# which = big_alliance_member_var
+			# }
+		# }
+	# }
+# }
 
-leave_big_alliance_effect = {
-	if = {
-		limit = {
-			has_country_modifier = big_alliance_member
-			$leader$ = {
-				has_country_modifier = big_alliance_leader_tooltip
-			}
-		}
-		remove_country_modifier = big_alliance_member
-		clr_big_alliance_flags_effect = yes
-		$leader$ = {
-			change_variable = {
-				which = big_alliance_member_var
-				value = -1
-			}
-			update_scaling_modifier = {
-				name = big_alliance_leader
-				type = country
-				duration = -1
-				which = big_alliance_member_var
-			}
-			if = {
-				limit = {
-					NOT = {
-						calc_true_if = {
-							all_ally = {
-								has_country_modifier = big_alliance_member
-							}
-							amount = 1
-						}
-					}
-				}
-				clr_big_alliance_flags_effect = yes
-			}
-		}
-	}
-}
+# leave_big_alliance_effect = {
+	# if = {
+		# limit = {
+			# has_country_modifier = big_alliance_member
+			# $leader$ = {
+				# has_country_modifier = big_alliance_leader_tooltip
+			# }
+		# }
+		# remove_country_modifier = big_alliance_member
+		# clr_big_alliance_flags_effect = yes
+		# $leader$ = {
+			# change_variable = {
+				# which = big_alliance_member_var
+				# value = -1
+			# }
+			# update_scaling_modifier = {
+				# name = big_alliance_leader
+				# type = country
+				# duration = -1
+				# which = big_alliance_member_var
+			# }
+			# if = {
+				# limit = {
+					# NOT = {
+						# calc_true_if = {
+							# all_ally = {
+								# has_country_modifier = big_alliance_member
+							# }
+							# amount = 1
+						# }
+					# }
+				# }
+				# clr_big_alliance_flags_effect = yes
+			# }
+		# }
+	# }
+# }
 
 
-get_province_trade_goods_produced_amount = {
-	hidden_effect = {
-		# Multipliers:
-		export_to_variable = { # province
-			which = trade_goods_size_modifier_var
-			value = modifier:trade_goods_size_modifier
-		}
-		export_to_variable = { # country
-			which = global_trade_goods_size_modifier_var
-			value = modifier:global_trade_goods_size_modifier
-			who = owner
-		}
-		change_variable = {
-			which = trade_goods_size_modifier_var
-			which = global_trade_goods_size_modifier_var
-		}
-		change_variable = {
-			which = trade_goods_size_modifier_var
-			value = 1
-		}
+# get_province_trade_goods_produced_amount = {
+	# hidden_effect = {
+		# # Multipliers:
+		# export_to_variable = { # province
+			# which = trade_goods_size_modifier_var
+			# value = modifier:trade_goods_size_modifier
+		# }
+		# export_to_variable = { # country
+			# which = global_trade_goods_size_modifier_var
+			# value = modifier:global_trade_goods_size_modifier
+			# who = owner
+		# }
+		# change_variable = {
+			# which = trade_goods_size_modifier_var
+			# which = global_trade_goods_size_modifier_var
+		# }
+		# change_variable = {
+			# which = trade_goods_size_modifier_var
+			# value = 1
+		# }
 		
-		# Constants:
-		export_to_variable = { # province
-			which = trade_goods_size_var
-			value = modifier:trade_goods_size
-		}
-		export_to_variable = { # country
-			which = global_trade_goods_size_var
-			value = modifier:global_trade_goods_size
-			who = owner
-		}
-		change_variable = {
-			which = trade_goods_size_var
-			which = global_trade_goods_size_var
-		}
-		multiply_variable = {
-			which = trade_goods_size_var
-			which = trade_goods_size_modifier_var
-		}
+		# # Constants:
+		# export_to_variable = { # province
+			# which = trade_goods_size_var
+			# value = modifier:trade_goods_size
+		# }
+		# export_to_variable = { # country
+			# which = global_trade_goods_size_var
+			# value = modifier:global_trade_goods_size
+			# who = owner
+		# }
+		# change_variable = {
+			# which = trade_goods_size_var
+			# which = global_trade_goods_size_var
+		# }
+		# multiply_variable = {
+			# which = trade_goods_size_var
+			# which = trade_goods_size_modifier_var
+		# }
 		
-		# Return final value:
-		set_variable = {
-			which = $variable$
-			value = 0
-		}
-		set_variable = {
-			which = $variable$
-			which = trade_goods_size_var
-		}
-	}
-}
+		# # Return final value:
+		# set_variable = {
+			# which = $variable$
+			# value = 0
+		# }
+		# set_variable = {
+			# which = $variable$
+			# which = trade_goods_size_var
+		# }
+	# }
+# }
 
 add_religious_estate_loyalty = {
 	if = {
@@ -3799,24 +3588,6 @@ add_religious_estate_loyalty = {
 			loyalty = $loyalty$
 		}
 	}
-	#if = { # not part of religious establishment?
-	#	limit = {
-	#		has_estate = estate_dhimmi
-	#	}
-	#	add_estate_loyalty = {
-	#		estate = estate_dhimmi
-	#		loyalty = $loyalty$
-	#	}
-	#}
-	#if = {
-	#	limit = {
-	#		has_estate = estate_jains
-	#	}
-	#	add_estate_loyalty = {
-	#		estate = estate_jains
-	#		loyalty = $loyalty$
-	#	}
-	#}
 	if = {
 		limit = {
 			has_estate = estate_holy_orders
@@ -3847,15 +3618,6 @@ add_wealthy_estate_loyalty = {
 			loyalty = $loyalty$
 		}
 	}
-	#if = {
-	#	limit = {
-	#		has_estate = estate_eunuchs
-	#	}
-	#	add_estate_loyalty = {
-	#		estate = estate_eunuchs
-	#		loyalty = $loyalty$
-	#	}
-	#}
 	if = {
 		limit = {
 			has_estate = estate_corporations
@@ -3886,15 +3648,6 @@ add_aristocratic_estate_loyalty = {
 			loyalty = $loyalty$
 		}
 	}
-	#if = {
-	#	limit = {
-	#		has_estate = estate_cossacks
-	#	}
-	#	add_estate_loyalty = {
-	#		estate = estate_cossacks
-	#		loyalty = $loyalty$
-	#	}
-	#}
 	if = {
 		limit = {
 			has_estate = estate_janissaries
@@ -3913,15 +3666,6 @@ add_aristocratic_estate_loyalty = {
 			loyalty = $loyalty$
 		}
 	}
-	#if = {
-	#	limit = {
-	#		has_estate = estate_military
-	#	}
-	#	add_estate_loyalty = {
-	#		estate = estate_military
-	#		loyalty = $loyalty$
-	#	}
-	#}
 }
 
 add_freedom_of_religion_effect = {
@@ -3998,62 +3742,62 @@ ruthenian_city_name_effect = {
 	}
 }
 
-german_city_name_effect = { # unused
-	trigger_switch = {
-		on_trigger = province_id
-		# Czechia:
-		265  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brünn" } } # Brno
-		266  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Prag" } } # Praha
-		267  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pilsen" } } # Plzen
-		1771 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Reichenberg" } } # Erz
-		2967 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Karlsbad" } } # Eger
-		2968 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Budweis" } } # Budejovice
-		2970 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Königgrätz" } } # Hradecko
-		4237 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Olmütz" } } # Olomouc
-		4724 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pardubitz" } } # Pardubice
-		4725 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neuhaus" } } # Jindrichuv Hradec
-		4726 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ostrava" } } # Ostrava
-		# Slovakia:
-		154  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neutra" } } # Érsekújvár
-		162  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Kaschau" } } # Zemplén
-		1318 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Deutschendorf" } } # Spis
-		1772 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pressburg" } } # Pozsony
-		4236 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trentschin" } } # Trencin
-		# Vojvodina:
-		1954 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Großbetschkerek" } } # Torontal
-		4126 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neusatz" } } # Bacs
-		4173 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sremska Mitrovica" } } # Syrmia
-		# Slovenia:
-		129  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Laibach" } } # Krain
-		1769 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Gafers" } } # Görz
-		4751 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Marburg" } } # Cilli
-		# Lombardy-Venetia:
-		104  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mailand" } } # Milan
-		107  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brescia" } } # Brescia
-		108  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Verona" } } # Verona
-		109  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mantua" } } # Mantua
-		110  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trient" } } # Trent
-		111  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Udine" } } # Friuli
-		112  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Venedig" } } # Venezia
-		113  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ferrara" } } # Ferrara
-		1774 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Treviso" } } # Treviso
-		1862 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Cremona" } } # Cremona
-		3141 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sünders" } } # Valtellina
-		4729 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Padua" } } # Padova
-		4738 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Triest" } } # Trieste
-		4739 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bergamo" } } # Bergamo
-		4758 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bozen" } } # Südtirol
-	}
-}
+# german_city_name_effect = { # unused
+	# trigger_switch = {
+		# on_trigger = province_id
+		# # Czechia:
+		# 265  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brünn" } } # Brno
+		# 266  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Prag" } } # Praha
+		# 267  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pilsen" } } # Plzen
+		# 1771 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Reichenberg" } } # Erz
+		# 2967 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Karlsbad" } } # Eger
+		# 2968 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Budweis" } } # Budejovice
+		# 2970 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Königgrätz" } } # Hradecko
+		# 4237 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Olmütz" } } # Olomouc
+		# 4724 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pardubitz" } } # Pardubice
+		# 4725 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neuhaus" } } # Jindrichuv Hradec
+		# 4726 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ostrava" } } # Ostrava
+		# # Slovakia:
+		# 154  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neutra" } } # Érsekújvár
+		# 162  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Kaschau" } } # Zemplén
+		# 1318 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Deutschendorf" } } # Spis
+		# 1772 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Pressburg" } } # Pozsony
+		# 4236 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trentschin" } } # Trencin
+		# # Vojvodina:
+		# 1954 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Großbetschkerek" } } # Torontal
+		# 4126 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Neusatz" } } # Bacs
+		# 4173 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sremska Mitrovica" } } # Syrmia
+		# # Slovenia:
+		# 129  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Laibach" } } # Krain
+		# 1769 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Gafers" } } # Görz
+		# 4751 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Marburg" } } # Cilli
+		# # Lombardy-Venetia:
+		# 104  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mailand" } } # Milan
+		# 107  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Brescia" } } # Brescia
+		# 108  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Verona" } } # Verona
+		# 109  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Mantua" } } # Mantua
+		# 110  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Trient" } } # Trent
+		# 111  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Udine" } } # Friuli
+		# 112  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Venedig" } } # Venezia
+		# 113  = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Ferrara" } } # Ferrara
+		# 1774 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Treviso" } } # Treviso
+		# 1862 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Cremona" } } # Cremona
+		# 3141 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Sünders" } } # Valtellina
+		# 4729 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Padua" } } # Padova
+		# 4738 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Triest" } } # Trieste
+		# 4739 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bergamo" } } # Bergamo
+		# 4758 = { if = { limit = { NOT = { has_province_flag = german_city_name } } clr_city_name_effect = yes set_province_flag = german_city_name rename_capital = "Bozen" } } # Südtirol
+	# }
+# }
 
 set_directly_ruled_colony_effect = {
 	# Thought this would disable formation of CN's via province history,
 	# didn't work :(
-	
-	#add_province_modifier = {
-	#	name = directly_ruled_colony_modifier
-	#	duration = -1
-	#}
+
+	# add_province_modifier = {
+		# name = directly_ruled_colony_modifier
+		# duration = -1
+	# }
 }
 
 clr_directly_ruled_colony_effect = {

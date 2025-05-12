@@ -1,12 +1,21 @@
-#2537 - Jazan
-
+# Jazan
+# 2346 Jazan - 1/26/2025 8:46:43 AM 
+ 
+add_core = MIE
 owner = MIE
 controller = MIE
+base_tax = 3
+base_production = 3
+base_manpower = 1
+
+trade_goods = fish
+
 culture = yemeni_culture
 religion = south_arabian
 capital = "Jazan"
-trade_goods = fish
-hre = no
+
+is_city = yes
+
 discovered_by = east_african
 discovered_by = indian
 discovered_by = asian
@@ -16,44 +25,120 @@ discovered_by = western
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 3
-base_production = 3
-base_manpower = 1
-is_city = yes
-add_core = MIE
 
-2318.1.1 = { owner = HIM controller = HIM add_core = HIM remove_core = MIE }
-2418.1.1 = { owner = AKS controller = AKS add_core = AKS }
-2478.1.1 = { owner = HIM controller = HIM add_core = HIM remove_core = AKS }
-2548.1.1 = { religion = jewish }
-2623.1.1 = { owner = AKS controller = AKS add_core = AKS remove_core = HIM }
-2658.1.1 = { owner = YEM controller = YEM add_core = YEM remove_core = AKS }
-2668.1.1 = { owner = NJR controller = NJR add_core = NJR remove_core = YEM }
-2726.1.1 = { owner = RSD controller = RSD add_core = RSD religion = islam }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2898.1.1 = { discovered_by = nomad_group }
-2964.1.1 = { owner = YEM controller = YEM add_core = YEM remove_core = ABA }
-3198.1.1 = { discovered_by = western }
-3272.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = YEM }
-3298.1.1 = { culture = hejazi_culture }
-3327.1.1 = { owner = YEM controller = YEM add_core = YEM remove_core = EGY }
-3448.1.1 = { owner = MFL controller = MFL add_core = MFL remove_core = YEM }
 
-3519.1.1 = { discovered_by = MNG }
-3551.1.1 = { discovered_by = western }
-3586.1.1 = { discovered_by = POR }
-3636.1.1 = { #Annexed by the Ottomans and put in the Abu Arish Sanjak.
+
+
+2318.1.1 = {
+	owner = HIM
+	controller = HIM
+	add_core = HIM
+	remove_core = MIE
+}
+2418.1.1 = {
+	owner = AKS
+	controller = AKS
+	add_core = AKS
+}
+2478.1.1 = {
+	owner = HIM
+	controller = HIM
+	add_core = HIM
+	remove_core = AKS
+}
+2548.1.1 = {
+	religion = jewish
+}
+2623.1.1 = {
+	owner = AKS
+	controller = AKS
+	add_core = AKS
+	remove_core = HIM
+}
+2658.1.1 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
+	remove_core = AKS
+}
+2668.1.1 = {
+	owner = NJR
+	controller = NJR
+	add_core = NJR
+	remove_core = YEM
+}
+2726.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	religion = islam
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+	religion = sunni
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2898.1.1 = {
+	discovered_by = nomad_group
+}
+2964.1.1 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
+	remove_core = ABA
+}
+3198.1.1 = {
+	discovered_by = western
+}
+3272.1.1 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = YEM
+}
+3298.1.1 = {
+	culture = hejazi_culture
+}
+3327.1.1 = {
+	owner = YEM
+	controller = YEM
+	add_core = YEM
+	remove_core = EGY
+}
+3448.1.1 = {
+	owner = MFL
+	controller = MFL
+	add_core = MFL
+	remove_core = YEM
+}
+3519.1.1 = {
+	discovered_by = MNG
+}
+3551.1.1 = {
+	discovered_by = western
+}
+3586.1.1 = {
+	discovered_by = POR
+}
+3636.1.1 = {
 	owner = TUR
 	controller = TUR
 	add_core = TUR
-} # Part of the Ottoman empire
-3725.1.1 = { #Zayidis
+}
+3725.1.1 = {
 	owner = RAS
 	controller = RAS
 	add_core = RAS
 }
-3826.1.1 = { #Mikhlaf - Dependency of the Zaidi Imams
+3826.1.1 = {
 	owner = MFL
 	controller = MFL
 	add_core = MFL
@@ -62,21 +147,41 @@ add_core = MIE
 	owner = NAJ
 	controller = NAJ
 	add_core = NAJ
-} # Incorporated into the First Saudi State
+}
 3901.1.1 = {
 	owner = MFL
 	controller = MFL
-} # Side with Ottomans/Egypt
+}
 3916.9.9 = {
 	owner = EGY
 	controller = EGY
 	add_core = EGY
 	add_core = TUR
 	remove_core = NAJ
-} # The end of the Saudi State
+}
+3939.2.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_core = EGY
+}
+4004.1.1 = {
+	owner = ASX
+	controller = ASX
+	add_core = ASX
+	remove_core = TUR
+}
+4008.1.1 = {
+	discovered_by = eastern
+}
+4032.5.1 = {
+	controller = SAU
+}
+4032.5.20 = {
+	owner = SAU
+	add_core = SAU
+	remove_core = ASX
+}
 
-3939.2.1   = { owner = TUR controller = TUR add_core = TUR remove_core = EGY }
-4004.1.1   = { owner = ASX controller = ASX add_core = ASX remove_core = TUR }
-4008.1.1 = { discovered_by = eastern }
-4032.5.1   = { controller = SAU }
-4032.5.20  = { owner = SAU add_core = SAU remove_core = ASX }
+
+### Modified 1/26/2025 8:46:43 AM ###

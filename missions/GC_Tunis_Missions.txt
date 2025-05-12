@@ -721,7 +721,6 @@ gc_tunis_5 = {
 			}
 			cyrenaica_area = {
 				limit = {
-					is_city = yes
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
@@ -738,7 +737,6 @@ gc_tunis_5 = {
 				area = cyrenaica_area
 				province_id = 358
 			}
-			is_city = yes
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
@@ -748,10 +746,7 @@ gc_tunis_5 = {
 			}
 			cyrenaica_area = {
 				type = all
-				OR = {
-					is_city = no
-					country_or_non_sovereign_subject_holds = ROOT
-				}
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {

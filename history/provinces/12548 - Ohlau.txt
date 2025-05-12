@@ -1,45 +1,135 @@
-#12548 - Ohlau (Breslau+Brieg+Öls+Wartenberg+Wohlau/Steinau)
-
+# Olawa
+# 12548 Olawa - 1/26/2025 8:46:45 AM 
+ 
+add_core = VAN
 owner = VAN
 controller = VAN
-add_core = VAN
-is_city = yes
-culture = vandal
-religion = germanic
-capital = "Ohlau"
-trade_goods = cloth
-hre = no
-discovered_by = barbarian
-discovered_by = western
 base_tax = 1
 base_production = 1
 base_manpower = 2
+
 center_of_trade = 1
+trade_goods = cloth
 
-2338.1.1 = { owner = SCI controller = SCI add_core = SCI remove_core = VAN culture = scirian }
-2448.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = SCI culture = langobardi }
-2552.1.1 = { owner = SIL controller = SIL add_core = SIL remove_core = LOM culture = schlesian religion = slavic }
-2698.1.1 = { base_tax = 2 base_production = 2 discovered_by = eastern }
-2898.1.1 = { base_tax = 3 base_production = 3 }
-2998.1.1 = { base_manpower = 3 }
-3038.1.1 = { owner = BOH controller = BOH add_core = BOH }
-3088.1.1 = { owner = POL controller = POL add_core = POL remove_core = BOH }
-3098.1.1 = { base_tax = 4 base_production = 4 discovered_by = muslim discovered_by = ottoman }
-3118.1.1 = { religion = catholic }
-3137.1.1 = { owner = BOH controller = BOH add_core = BOH }
-3152.1.1 = { owner = POL controller = POL }
-3261.1.1 = { owner = SIL controller = SIL add_core = SIL hre = yes }
-3298.1.1 = { base_tax = 5 base_production = 5 }
-3330.1.1 = { owner = POL controller = POL }
-3339.4.9 = { owner = WRO controller = WRO add_core = WRO remove_core = POL }
-3388.6.23 = { owner = LEG controller = LEG add_core = LEG }
-3409.1.1 = { owner = WRO controller = WRO remove_core = LEG }
-#3425.2.19 Bohemian vassal
-3433.11.24 = { owner = BOH controller = BOH add_core = BOH }
+culture = vandal
+religion = germanic
+capital = "Ohlau"
 
-3568.1.1 = { trade_goods = paper }
-3624.8.30 = { owner = HAB controller = HAB add_core = HAB }
-3716.5.23 = { # Defenestration of Prague
+is_city = yes
+
+discovered_by = barbarian
+discovered_by = western
+
+
+
+
+2338.1.1 = {
+	owner = SCI
+	controller = SCI
+	add_core = SCI
+	remove_core = VAN
+	culture = scirian
+}
+2448.1.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = SCI
+	culture = langobardi
+}
+2552.1.1 = {
+	owner = SIL
+	controller = SIL
+	add_core = SIL
+	remove_core = LOM
+	culture = schlesian
+	religion = slavic
+}
+2698.1.1 = {
+	base_tax = 2
+	base_production = 2
+	discovered_by = eastern
+}
+2898.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2998.1.1 = {
+	base_manpower = 3
+}
+3038.1.1 = {
+	owner = BOH
+	controller = BOH
+	add_core = BOH
+}
+3088.1.1 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+	remove_core = BOH
+}
+3098.1.1 = {
+	base_tax = 4
+	base_production = 4
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+3118.1.1 = {
+	religion = catholic
+}
+3137.1.1 = {
+	owner = BOH
+	controller = BOH
+	add_core = BOH
+}
+3152.1.1 = {
+	owner = POL
+	controller = POL
+}
+3261.1.1 = {
+	owner = SIL
+	controller = SIL
+	add_core = SIL
+	hre = yes
+}
+3298.1.1 = {
+	base_tax = 5
+	base_production = 5
+}
+3330.1.1 = {
+	owner = POL
+	controller = POL
+}
+3339.4.9 = {
+	owner = WRO
+	controller = WRO
+	add_core = WRO
+	remove_core = POL
+}
+3388.6.23 = {
+	owner = LEG
+	controller = LEG
+	add_core = LEG
+}
+3409.1.1 = {
+	owner = WRO
+	controller = WRO
+	remove_core = LEG
+}
+3433.11.24 = {
+	owner = BOH
+	controller = BOH
+	add_core = BOH
+}
+3568.1.1 = {
+	trade_goods = paper
+}
+3624.8.30 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+}
+3716.5.23 = {
 	owner = BOH
 	controller = BOH
 	add_core = BOH
@@ -47,19 +137,54 @@ center_of_trade = 1
 3718.11.8 = {
 	owner = HAB
 	controller = HAB
-	unrest = 5 # The beginning of religious struggles
+	unrest = 5
 	remove_core = BOH
-} # Tilly beats the Winterking. Deus Vult!
-3746.1.1 = { unrest = 0 }
- # Lost big part of its population during the Thirty years war
-3792.1.1 = { unrest = 4 } # Religious oppositions
-3840.1.1 = { owner = PRU controller = PRU add_core = PRU } # Peace of Breslau, 1 st Silesian war against Austria
-3848.1.1 = { base_tax = 6 base_production = 6 base_manpower = 8 }
-3861.1.1 = { remove_core = HAB } # End of 3rd Silesian war
-3904.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+}
+3746.1.1 = {
+	unrest = 0
+}
+3792.1.1 = {
+	unrest = 4
+}
+3840.1.1 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+}
+3848.1.1 = {
+	base_tax = 6
+	base_production = 6
+	base_manpower = 8
+}
+3861.1.1 = {
+	remove_core = HAB
+}
+3904.7.12 = {
+	hre = no
+}
+3969.1.18 = {
+	owner = GER
+	controller = GER
+	add_core = GER
+	remove_core = PRU
+	remove_core = SIL
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4043.5.6 = {
+	controller = SOV
+}
+4043.5.8 = {
+	owner = POL
+	controller = POL
+	add_core = POL
+	remove_core = GER
+	capital = "Olawa"
+}
+4048.1.1 = {
+	culture = polish
+}
 
-3969.1.18  = { owner = GER controller = GER add_core = GER remove_core = PRU remove_core = SIL } # German unification
-4008.1.1 = { discovered_by = asian }
-4043.5.6   = { controller = SOV }
-4043.5.8   = { owner = POL controller = POL add_core = POL remove_core = GER capital = "Olawa" }
-4048.1.1   = { culture = polish }
+
+### Modified 1/26/2025 8:46:45 AM ###

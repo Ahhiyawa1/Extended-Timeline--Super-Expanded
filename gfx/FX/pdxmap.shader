@@ -476,11 +476,17 @@ PixelShader =
     int DistanceToAnyBorder(float3 color, float2 pos, float dx, int maxDistance, in sampler2D IndirectionMap, float2 IndirectionMapSize, in sampler2D ColorMap, float2 ColorMapSize) {
       float widthToHeightRatio = 2.75f;
       float dy = dx * widthToHeightRatio;
+      float ddx = 0.70710678118654f * dx;
+      float ddy = 0.70710678118654f * dy;
       int d1 = DistanceToBorder(color, pos,   dx,    0, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
       int d2 = DistanceToBorder(color, pos,  -dx,    0, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
       int d3 = DistanceToBorder(color, pos,   0,    dy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
       int d4 = DistanceToBorder(color, pos,   0,   -dy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
-      int minDist = MyMin(d1, MyMin(d2, MyMin(d3, d4)));
+      int d5 = DistanceToBorder(color, pos,  ddx,  ddy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
+      int d6 = DistanceToBorder(color, pos,  ddx, -ddy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
+      int d7 = DistanceToBorder(color, pos, -ddx,  ddy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
+      int d8 = DistanceToBorder(color, pos, -ddx, -ddy, maxDistance, IndirectionMap, IndirectionMapSize, ColorMap, ColorMapSize);
+      int minDist = MyMin(d1, MyMin(d2, MyMin(d3, MyMin(d4, MyMin(d5, MyMin(d6, MyMin(d7, d8)))))));
       return minDist;
     }
 
@@ -611,7 +617,7 @@ PixelShader =
         vOut = lerp( terrain_color, vColorMapSample.rgb, color_ratio);
         vOut *= 0.95f;
         
-        int maxDistance = 4;
+        int maxDistance = 8;
         float softBorderSize = 0.00075f;
         float borderDistance = DistanceToAnyBorder(vColorMapSample.rgb, Input.uv, softBorderSize / maxDistance, maxDistance, IndirectionMap, ProvinceIndirectionMapSize, ProvinceColorMap, ProvinceColorMapSize);
         if (borderDistance <= maxDistance) {

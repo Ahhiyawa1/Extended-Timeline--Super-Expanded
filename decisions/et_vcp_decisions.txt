@@ -5,17 +5,11 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { exists = KRU }
-			NOT = { exists = RUS }
-			NOT = { tag = UKR }
-			NOT = { tag = PAP }
-			NOT = { tag = HLR }
-			NOT = { tag = SOV }
-			NOT = { tag = EUR }
 			OR = {
 				primary_culture = russian
 				primary_culture = ruthenian
@@ -36,6 +30,11 @@ country_decisions = {
 					ai = no
 				}
 			}
+			NOT = { tag = UKR }
+			NOT = {
+				alias_exists = { tag = RUS }
+			}
+			NOT = { exists = KRU }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -56,9 +55,9 @@ country_decisions = {
 			adm_tech = 28
 			is_subject = no
 			is_at_war = no
-			owns = 310			# Novgorod
-			owns = 280			# Kiev
-			owns = 276			# Minsk
+			owns = 310			    # Novgorod
+			owns = 280			    # Kiev
+			owns = 276			    # Minsk
 			is_core = 310			# Novgorod
 			is_core = 280			# Kiev
 			is_core = 276			# Minsk
@@ -86,6 +85,7 @@ country_decisions = {
 		effect = {
 			add_prestige = 25
 			change_tag = KRU
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			if = {
 				limit = { NOT = { government = monarchy } }

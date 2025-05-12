@@ -1,72 +1,147 @@
-#1202 - Mombasa
+# Mombasa
+# 1202 Mombasa - 1/26/2025 8:46:43 AM 
+ 
+base_tax = 4
+base_production = 4
+base_manpower = 2
+
+center_of_trade = 2
+trade_goods = unknown
 
 culture = masai
 religion = waaqism
 capital = "Mombasa"
-base_manpower = 2
-trade_goods = unknown
-hre = no
-base_tax = 4
-base_production = 4
+
 native_size = 40
 native_ferocity = 4.5
 native_hostileness = 9
+
 discovered_by = east_african
 discovered_by = central_african
-center_of_trade = 2
 
-2298.1.1 = { culture = swahili }
-2948.1.1 = { 
+
+
+
+2298.1.1 = {
+	culture = swahili
+}
+2948.1.1 = {
 	discovered_by = indian
 	discovered_by = asian
 	discovered_by = muslim
 	discovered_by = ottoman
-	owner = MBA 
-	controller = MBA 
-	add_core = MBA 
-	is_city = yes 
-	trade_goods = ivory 
+	owner = MBA
+	controller = MBA
+	add_core = MBA
+	is_city = yes
+	trade_goods = ivory
 	religion = sunni
 }
-
-3596.4.7 = { discovered_by = POR } # Vasco Da Gama
-3596.4.12 = { unrest = 3 } # Portuguese bombard Mombasa
-3626.1.1 = { unrest = 8 } # Portuguese attack Mombasa, occupy & level it, depart
-3683.1.1 = { unrest = 4 } # Mir Ali Bey's Raids destabilize region
-3684.1.1 = { unrest = 7 } # Portuguese reprisals in wake of support shown to Mir Ali Bey
-3687.6.1 = { owner = MLI controller = MLI add_core = MLI } #After punitive expeditions by the Portuguese, as well as attacks from the Zimba, Mombasa is conquered by their rival Malindi
+3596.4.7 = {
+	discovered_by = POR
+}
+3596.4.12 = {
+	unrest = 3
+}
+3626.1.1 = {
+	unrest = 8
+}
+3683.1.1 = {
+	unrest = 4
+}
+3684.1.1 = {
+	unrest = 7
+}
+3687.6.1 = {
+	owner = MLI
+	controller = MLI
+	add_core = MLI
+}
 3691.1.1 = {
 	owner = POR
 	controller = POR
-} # Permanent Portuguese outpost established
-3692.1.1 = { fort_15th = yes } # Completion of Fort Jesus
-3698.1.1 = { discovered_by = TUR }
-3716.1.1 = { add_core = POR }
-3729.8.15 = { revolt = { type = nationalist_rebels size = 2 leader = "Yusuf ibn Hasan" } controller = REB } # Mombasa elite led by Yusuf ibn Hasan revolt against Portuguese
-3730.8.5 = { revolt = {} controller = POR unrest = 5 } # Portuguese retake control of Mombasa
-3759.1.1 = { unrest = 8 } # Omani raids devastate region
+}
+3692.1.1 = {
+	fort_15th = yes
+}
+3698.1.1 = {
+	discovered_by = TUR
+}
+3716.1.1 = {
+	add_core = POR
+}
+3729.8.15 = {
+	revolt = {
+		type = nationalist_rebels
+		size = 2
+		leader = "Yusuf ibn Hasan"
+	}
+
+	controller = REB
+}
+3730.8.5 = {
+	revolt = {
+	}
+
+	controller = POR
+	unrest = 5
+}
+3759.1.1 = {
+	unrest = 8
+}
 3796.12.13 = {
 	owner = OMA
 	controller = OMA
 	add_core = OMA
 	remove_core = POR
-} #Omanis drive out by the Portuguese
-3825.1.1 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Omani garrison revolts
+}
+3825.1.1 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
+
+	controller = REB
+}
 3842.1.1 = {
-	revolt = {}
+	revolt = {
+	}
+
 	owner = MBA
 	controller = MBA
 	remove_core = OMA
-} # Al-Mazrui rebels against Omani rulers
-3857.1.1 = { unrest = 8 } # Omani attempt to restore authority fail
+}
+3857.1.1 = {
+	unrest = 8
+}
+3908.1.1 = {
+	base_manpower = 3
+}
+3918.1.1 = {
+	unrest = 0
+}
+3993.7.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = eastern
+}
+4018.1.1 = {
+	religion = protestant
+}
+4037.1.1 = {
+	base_tax = 5
+}
+4061.12.12 = {
+	owner = KEY
+	controller = KEY
+	add_core = KEY
+	remove_core = GBR
+	remove_core = MBA
+}
 
-3908.1.1 = { base_manpower = 3 }
-3918.1.1   = { unrest = 0 }
-3993.7.1   = { owner = GBR controller = GBR add_core = GBR }
-4008.1.1 = { discovered_by = western discovered_by = eastern }
-4018.1.1   = { religion = protestant }
-4037.1.1 = { base_tax = 5 }
-4061.12.12 = { owner = KEY controller = KEY add_core = KEY remove_core = GBR remove_core = MBA }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

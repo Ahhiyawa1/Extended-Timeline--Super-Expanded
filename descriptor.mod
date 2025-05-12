@@ -8,9 +8,6 @@ replace_path="history"
 replace_path="interface"
 replace_path="history/countries"
 replace_path="common/bookmarks"
-dependencies={
-	"Extended Timeline"
-}
 tags={
 	"Expansion"
 	"New Nations"

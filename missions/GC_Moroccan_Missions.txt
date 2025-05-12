@@ -164,7 +164,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -172,7 +171,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -180,7 +178,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -208,10 +205,7 @@ gc_morocco_1 = {
 			}
 			western_sahara_area = {
 				type = all
-				OR = {
-					country_or_non_sovereign_subject_holds = ROOT
-					is_city = no
-				}
+				country_or_non_sovereign_subject_holds = ROOT	
 			}
 			dendi_area = {
 				type = all
@@ -224,7 +218,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -232,7 +225,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -240,7 +232,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -248,7 +239,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -256,7 +246,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -264,7 +253,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -272,7 +260,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -280,7 +267,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -288,7 +274,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -296,7 +281,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -304,7 +288,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -312,7 +295,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}
@@ -320,7 +302,6 @@ gc_morocco_1 = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
-					is_city = yes
 				}
 				add_permanent_claim = ROOT
 			}			
@@ -619,7 +600,7 @@ gc_morocco_3 = {
 					tooltip = gc_mor_wattasid_tt
 					has_country_flag = wattasid_resolution
 				}
-				is_year = 3502
+				is_year = 3598
 			}
 		}
 		effect = {
@@ -756,6 +737,26 @@ gc_morocco_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			370 = {
+				if = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT	}
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+					discover_country = ROOT
+				}
+			}
+			371 = {
+				if = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT	}
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+					discover_country = ROOT
+				}
+			}
 		}
 	}
 	gc_mor_iceland = {
@@ -763,7 +764,10 @@ gc_morocco_3 = {
 		required_missions = { gc_mor_pirates }
 		
 		provinces_to_highlight = {
-			area = iceland_area
+			OR = {
+				province_id = 370
+				province_id = 371
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -777,9 +781,9 @@ gc_morocco_3 = {
 						war_with = ROOT
 					}
 				}
-				iceland_area = {
-					type = all
-					country_or_non_sovereign_subject_holds = ROOT
+				AND = {
+					owns_or_non_sovereign_subject_of = 370
+					owns_or_non_sovereign_subject_of = 371
 				}
 			}
 		}

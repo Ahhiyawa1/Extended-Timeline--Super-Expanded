@@ -74,49 +74,6 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	establish_europe = {
-		potential = {
-			OR = {
-				tag = BYZ
-				tag = ROM
-				tag = PQR
-				tag = ROW
-			}
-			NOT = {
-				has_country_modifier = byz_europe
-			}
-		}
-		allow = {
-			OR = {
-				advisor = diplomat
-				advisor = diplomat_2
-			}
-			is_at_war = yes
-			adm = 2
-			dip = 3
-			dip_power = 50
-			legitimacy = 90
-			stability = 1
-			treasury = 100
-		}
-		effect = {
-			add_prestige = -5
-			add_stability = -1
-			add_treasury = -100
-			add_dip_power = -50
-			add_country_modifier = {
-				name = "byz_europe"
-				duration = -1
-			}
-		}
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 0.5
-				adm_power = 600
-			}
-		}
-	}
 	establish_byzmirrors = {
 		potential = {
 			OR = {
@@ -149,45 +106,6 @@ country_decisions = {
 			add_adm_power = -50
 			add_country_modifier = {
 				name = "byz_mirrors"
-				duration = -1
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	establish_echinades = {
-		potential = {
-			OR = {
-				tag = BYZ
-				tag = ROM
-				tag = PQR
-				tag = ROW
-			}
-			NOT = {
-				has_country_modifier = byz_echinades
-			}
-		}
-		allow = {
-			OR = {
-				advisor = naval_reformer
-				advisor = naval_reformer_2
-			}
-			is_at_war = no
-			mil = 3
-			mil_power = 50
-			num_of_total_ports = 15
-			num_of_heavy_ship = 15
-			num_of_light_ship = 40
-			treasury = 150
-		}
-		effect = {
-			add_stability = 1
-			add_prestige = 15
-			add_treasury = -150
-			add_mil_power = -50
-			add_country_modifier = {
-				name = "byz_echinades"
 				duration = -1
 			}
 		}

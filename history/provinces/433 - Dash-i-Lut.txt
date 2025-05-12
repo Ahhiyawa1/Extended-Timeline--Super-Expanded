@@ -1,12 +1,22 @@
-#433 - Yazd
-
+# Yazd
+# 433 Yazd - 1/26/2025 8:46:43 AM 
+ 
+add_core = PRT
 owner = PRT
 controller = PRT
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+center_of_trade = 1
+trade_goods = wool
+
 culture = persian
 religion = zoroastrian
 capital = "Yazd"
-trade_goods = wool
-hre = no
+
+is_city = yes
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -16,35 +26,119 @@ discovered_by = early_indian
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = PRT
-center_of_trade = 1
 
-2322.4.24 = { owner = ERS controller = ERS add_core = ERS remove_core = PRT }
-2741.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = ERS }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2919.1.1 = { owner = KHO controller = KHO add_core = KHO }
-2959.1.1 = { remove_core = ABA }
-2971.1.1 = { owner = SIS controller = SIS add_core = SIS remove_core = KHO }
-2998.1.1 = { owner = BUK controller = BUK add_core = BUK remove_core = SIS }
-3031.1.1 = { owner = TAB controller = TAB add_core = TAB remove_core = BUK }
-3033.1.1 = { owner = QOM controller = QOM add_core = QOM remove_core = TAB }
-3127.1.1 = { owner = ISF controller = ISF add_core = ISF remove_core = QOM }
-3149.1.1 = { owner = SEL controller = SEL add_core = SEL }
-3251.1.1 = { owner = KHW controller = KHW add_core = KHW remove_core = SEL }
-3298.1.1 = { trade_goods = paper }
-3329.1.1 = { owner = KHA controller = KHA add_core = KHA add_core = PER remove_core = KHW }
-3358.1.1 = { owner = ILK controller = ILK add_core = ILK remove_core = KHA }
-3433.1.1 = { owner = YZD controller = YZD add_core = YZD remove_core = ILK }
-3455.1.1 = { owner = PER controller = PER add_core = PER }
-3478.1.1 = { add_core = TIM }
-3485.1.1 = { owner = TIM controller = TIM add_core = TIM }
 
-3545.3.13 = { #Shah Rokh dies in the field trying to put down the rebellion of Muhammad bin Baysonqor
+
+
+2322.4.24 = {
+	owner = ERS
+	controller = ERS
+	add_core = ERS
+	remove_core = PRT
+}
+2741.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = ERS
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2919.1.1 = {
+	owner = KHO
+	controller = KHO
+	add_core = KHO
+}
+2959.1.1 = {
+	remove_core = ABA
+}
+2971.1.1 = {
+	owner = SIS
+	controller = SIS
+	add_core = SIS
+	remove_core = KHO
+}
+2998.1.1 = {
+	owner = BUK
+	controller = BUK
+	add_core = BUK
+	remove_core = SIS
+}
+3031.1.1 = {
+	owner = TAB
+	controller = TAB
+	add_core = TAB
+	remove_core = BUK
+}
+3033.1.1 = {
+	owner = QOM
+	controller = QOM
+	add_core = QOM
+	remove_core = TAB
+}
+3127.1.1 = {
+	owner = ISF
+	controller = ISF
+	add_core = ISF
+	remove_core = QOM
+}
+3149.1.1 = {
+	owner = SEL
+	controller = SEL
+	add_core = SEL
+}
+3251.1.1 = {
+	owner = KHW
+	controller = KHW
+	add_core = KHW
+	remove_core = SEL
+}
+3298.1.1 = {
+	trade_goods = paper
+}
+3329.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+	add_core = PER
+	remove_core = KHW
+}
+3358.1.1 = {
+	owner = ILK
+	controller = ILK
+	add_core = ILK
+	remove_core = KHA
+}
+3433.1.1 = {
+	owner = YZD
+	controller = YZD
+	add_core = YZD
+	remove_core = ILK
+}
+3455.1.1 = {
+	owner = PER
+	controller = PER
+	add_core = PER
+}
+3478.1.1 = {
+	add_core = TIM
+}
+3485.1.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+}
+3545.3.13 = {
 	owner = QOM
 	controller = QOM
 	add_core = QOM
@@ -55,33 +149,95 @@ center_of_trade = 1
 	add_core = QAR
 	remove_core = QOM
 	remove_core = TIM
-} # Fars and surroundings to Qara Quyunlu
-3556.9.1 = { revolt = { type = pretender_rebels size = 0 name = "Hasan Ali's Faction" leader = "Hasan Ali" } controller = REB } # Civil war in Qara Quyunlu
-3556.12.1 = { revolt = {} controller = QAR }
-3566.6.1 = { controller = TIM } #Invasion of Abu Said
-3567.2.4 = { controller = AKK owner = AKK add_core = AKK remove_core = QAR } #Battle of Qarabagh
-3594.2.8 = { controller = REB revolt = { type = pretender_rebels size = 0 name = "Muhammad's Faction" leader = "Muhammad Ak Koyunlu" } } # Civil war in Ak Koyunlu
-3599.7.1 = { controller = AKK revolt = { } }
+}
+3556.9.1 = {
+	revolt = {
+		type = pretender_rebels
+		size = 0
+		name = "Hasan Ali's Faction"
+		leader = "Hasan Ali"
+	}
+
+	controller = REB
+}
+3556.12.1 = {
+	revolt = {
+	}
+
+	controller = QAR
+}
+3566.6.1 = {
+	controller = TIM
+}
+3567.2.4 = {
+	controller = AKK
+	owner = AKK
+	add_core = AKK
+	remove_core = QAR
+}
+3594.2.8 = {
+	controller = REB
+	revolt = {
+		type = pretender_rebels
+		size = 0
+		name = "Muhammad's Faction"
+		leader = "Muhammad Ak Koyunlu"
+	}
+
+}
+3599.7.1 = {
+	controller = AKK
+	revolt = {
+	}
+
+}
 3602.1.1 = {
 	owner = PER
 	controller = PER
 	add_core = PER
 	remove_core = AKK
 	religion = shiite
-} # The Safavids took over
-3648.1.1 = { discovered_by = TUR }
-3695.12.1 = { base_tax = 4 base_production = 4 } # The Reforms of Abbas the Great
-3771.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3845.1.1 = { unrest = 3 } # Shah Nadir is killed, local khanates emerged
-3846.1.1 = { unrest = 4 } # The empire began to decline
-3877.1.1 = { unrest = 0 } # With the Qajar dynasty the situation stabilized
+}
+3648.1.1 = {
+	discovered_by = TUR
+}
+3695.12.1 = {
+	base_tax = 4
+	base_production = 4
+}
+3771.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
+3845.1.1 = {
+	unrest = 3
+}
+3846.1.1 = {
+	unrest = 4
+}
+3877.1.1 = {
+	unrest = 0
+}
+3932.1.1 = {
+	base_manpower = 3
+}
+3986.1.1 = {
+	base_production = 5
+}
+4013.1.1 = {
+	base_tax = 5
+}
+4033.1.1 = {
+	owner = IRA
+	controller = IRA
+	add_core = IRA
+	remove_core = PER
+}
+4098.1.1 = {
+	base_manpower = 5
+}
 
-3932.1.1 = { base_manpower = 3 }
-3986.1.1 = { base_production = 5 }
-4013.1.1 = { base_tax = 5 }
-4033.1.1   = { owner = IRA controller = IRA add_core = IRA remove_core = PER }
-4098.1.1 = { base_manpower = 5 }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

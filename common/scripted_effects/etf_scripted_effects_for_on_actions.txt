@@ -254,7 +254,7 @@ etf_startup = {
 			}
 			if = {
 				limit = {
-					is_year = 3948
+					is_year = 3850
 					OR = {
 						AND = {
 							development = 15
@@ -292,8 +292,8 @@ etf_startup = {
 		# -------------------
 		if = {
 			limit = {
-				started_in = 3913.6.9
-				NOT = { is_year = 3998 }
+				started_in = 1815.6.9
+				NOT = { is_year = 3900 }
 			}
 			# Makes AI rulers more 'civil'
 			every_country = {
@@ -314,7 +314,7 @@ etf_startup = {
 		# --------------
 		if = {
 			limit = {
-				is_year = 3934
+				is_year = 3836
 			}
 			# General
 			every_country = {
@@ -342,7 +342,7 @@ etf_startup = {
 			# Troops
 			if = {
 				limit = {
-					NOT = { is_year = 3998 }
+					NOT = { is_year = 3900 }
 				}
 				GBR = { # (Make Britain look scarier)
 					234 = { # Hampshire
@@ -374,8 +374,8 @@ etf_startup = {
 		# --------------
 		if = {
 			limit = {
-				is_year = 4012
-				# NOT = { is_year = 4043 }
+				is_year = 3914
+				# NOT = { is_year = 3945 }
 			}
 			# Adds free military regiments to borders shared with enemy nations.
 			every_country = {
@@ -390,8 +390,8 @@ etf_startup = {
 		# --------------------
 		if = {
 			limit = {
-				is_year = 4034
-				NOT = { is_year = 4043 }
+				is_year = 3936
+				NOT = { is_year = 3945 }
 			}
 			every_country = {
 				limit = {
@@ -948,15 +948,15 @@ etf_startup = {
 				NOT = {
 					check_variable = {
 						which = etf_mod_version
-						value = 77
+						value = 78
 					}
 				}
 			}
 			set_variable = {
 				which = etf_mod_version
-				value = 77
+				value = 78
 			}
-			log = "Extended Flavor Mod: Version 77"
+			log = "Extended Flavor Mod: Version 78"
 		}
 	}
 }
@@ -1133,7 +1133,7 @@ doctrine_of_lapse_effect = {
 				is_master_of_india_trigger = yes
 			}
 			is_year = 3798
-			NOT = { started_in = 4034.1.1 }
+			NOT = { started_in = 1936.1.1 }
 		}
 		random = {
 			chance = 50
@@ -1531,7 +1531,7 @@ country_released_effect = {
 					event_target:original_country = {
 						primary_culture = russian
 					}
-					is_year = 4098
+					is_year = 2000
 				}
 				change_religion = sunni
 				add_government_reform = islamic_republic_reform

@@ -1,12 +1,17 @@
-#10322 - Sibenik
-
+# Sibenik
+# 10322 Sibenik - 1/26/2025 8:46:44 AM
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 3
+base_production = 3
+base_manpower = 2
+trade_goods = wool
 culture = dalmatian
 religion = hellenism
 capital = "Sebenicum"
-trade_goods = wool
-hre = no
+is_city = yes
+fort_15th = yes
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -14,71 +19,94 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 3
-base_production = 3
-base_manpower = 2
-is_city = yes
-fort_15th = yes
-add_core = ROM
+2055.1.1 = { owner = M10 controller = M10 remove_core = ROM add_core = M10 }
+2057.1.1 = { owner = ROM controller = ROM remove_core = M10 add_core = ROM }
+2398.1.1 = { religion = chalcedonism } 
+2493.1.17 = { 
+    controller = ROW
+    owner = ROW
+    add_core = ROW
+    remove_core = ROM
+}
 
-2398.1.1 = { religion = chalcedonism }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2578.1.1 = { owner = ITA controller = ITA add_core = ITA remove_core = ROW }
-2587.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2633.1.1 = { owner = BYZ controller = BYZ add_core = BYZ remove_core = OST }
-2698.1.1 = { base_tax = 4 }
-2728.1.1 = { add_core = CRO }
-2768.1.1 = { owner = CRO controller = CRO }
-2904.1.1 = { owner = FRK controller = FRK add_core = FRK }
-2910.1.1 = { owner = BYZ controller = BYZ remove_core = FRK }
-2965.1.1 = { religion = catholic }
-3023.1.1 = { add_core = CRO capital = "Sibenik" } #Inland parts taken by Croatia, Byzantine rule only in coastal cities
-3096.1.1 = { owner = VEN controller = VEN add_core = VEN } #Pietro II Orseolo
-3117.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
-3167.1.1 = { owner = CRO controller = CRO }
-3189.1.1 = { owner = BYZ controller = BYZ } #Croatian succession crisis, Imperial Theme restored
-3194.1.1 = { owner = VEN controller = VEN add_core = VEN } #Granted to Venice
-3203.1.1 = { owner = CRO controller = CRO } #Conquered
-3214.1.1 = { owner = VEN controller = VEN } #Re-conquered
-3215.1.1 = { owner = CRO controller = CRO } #Re-re-conquered
-3216.1.1 = { owner = VEN controller = VEN } #Re-re-re-conquered
-3222.1.1 = { owner = CRO controller = CRO } #Re-re-re-re-conquered
-3225.1.1 = { owner = VEN controller = VEN } #Re-re-re-re-re-conquered
-3239.1.1 = { owner = CRO controller = CRO } #Re-re-re-re-re-re-conquered
-3263.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
-3278.9.24 = { owner = DAL controller = DAL add_core = DAL } #Conquest by Hungary, remained loyal to the empire, but no imperial control
-3300.1.1 = { remove_core = BYZ } #Fourth Crusade, end of Byzantine claim
-3456.2.18 = { remove_core = VEN } #Treaty of Zadar
-3485.1.1 = { owner = BOS controller = BOS add_core = BOS }
-3489.1.1 = { owner = DAL controller = DAL add_core = CRO add_core = NAP remove_core = BOS } #Disputed between Hungary and Naples
-3507.7.31 = { add_core = VEN remove_core = NAP } #Naples sold their rights to Venice
-3518.1.1 = { owner = VEN controller = VEN } #Venice gradually gained control
+2578.1.1 = { 
+    owner = ITA
+    controller = ITA
+    add_core = ITA
+    remove_core = ROW
+}
 
-3638.10.2 = { owner = TUR controller = TUR add_core = TUR } # A large part of Dalmatia is incorporated into the Ottoman empire
-3797.1.26 = { owner = VEN controller = VEN remove_core = TUR } # Peace of Karlowitz, Dalmatian hinterland given to Venice
-3808.1.1 = { fort_15th = no fort_17th = yes }
-3895.10.17 = {
-	owner = HAB
-	controller = HAB
-	add_core = HAB
-} # Treaty of Campo Formio
-3903.12.26 = {
-	owner = FRA
-	controller = FRA
-	add_core = FRA
-	remove_core = HAB
-} # Treaty of Pressburg
-3911.9.20 = { controller = HAB } # Occupied by Austrian forces
-3912.4.6 = {
-	owner = HAB
-	add_core = HAB
-	remove_core = FRA
-} # Napoleon abdicates
+2587.1.1 = { 
+    owner = OST
+    controller = OST
+    add_core = OST
+    remove_core = ITA
+}
 
-3918.1.1   = { culture = croatian }
-4008.1.1 = { discovered_by = asian }
-4016.12.1  = { owner = YUG controller = YUG add_core = YUG remove_core = HAB }
-4039.4.6   = { owner = ITA controller = ITA }
-4041.9.8   = { owner = CRO controller = CRO }
-4043.5.8   = { owner = YUG controller = YUG }
-4089.6.25  = { owner = CRO controller = CRO remove_core = YUG }
+2633.1.1 = { 
+    owner = BYZ
+    controller = BYZ
+    add_core = BYZ
+    remove_core = OST
+}
+
+2698.1.1 = { base_tax = 4 } 
+2728.1.1 = { add_core = CRO } 
+2768.1.1 = { owner = CRO controller = CRO } 
+2904.1.1 = { owner = FRK controller = FRK add_core = FRK } 
+2910.1.1 = { owner = BYZ controller = BYZ remove_core = FRK } 
+2965.1.1 = { religion = catholic } 
+3023.1.1 = { add_core = CRO capital = "Sibenik" } 
+3096.1.1 = { owner = VEN controller = VEN add_core = VEN } 
+3117.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
+3167.1.1 = { owner = CRO controller = CRO } 
+3189.1.1 = { owner = BYZ controller = BYZ } 
+3194.1.1 = { owner = VEN controller = VEN add_core = VEN } 
+3203.1.1 = { owner = CRO controller = CRO } 
+3214.1.1 = { owner = VEN controller = VEN } 
+3215.1.1 = { owner = CRO controller = CRO } 
+3216.1.1 = { owner = VEN controller = VEN } 
+3222.1.1 = { owner = CRO controller = CRO } 
+3225.1.1 = { owner = VEN controller = VEN } 
+3239.1.1 = { owner = CRO controller = CRO } 
+3263.1.1 = { owner = BYZ controller = BYZ add_core = BYZ } 
+3278.9.24 = { owner = DAL controller = DAL add_core = DAL } 
+3300.1.1 = { remove_core = BYZ } 
+3456.2.18 = { remove_core = VEN } 
+3485.1.1 = { owner = BOS controller = BOS add_core = BOS } 
+3489.1.1 = { 
+    owner = DAL
+    controller = DAL
+    add_core = CRO
+    add_core = NAP
+    remove_core = BOS
+}
+
+3507.7.31 = { add_core = VEN remove_core = NAP } 
+3518.1.1 = { owner = VEN controller = VEN } 
+3638.10.2 = { owner = TUR controller = TUR add_core = TUR } 
+3797.1.26 = { owner = VEN controller = VEN remove_core = TUR } 
+3808.1.1 = { fort_15th = no fort_17th = yes } 
+3895.10.17 = { owner = HAB controller = HAB add_core = HAB } 
+3903.12.26 = { 
+    owner = FRA
+    controller = FRA
+    add_core = FRA
+    remove_core = HAB
+}
+
+3911.9.20 = { controller = HAB } 
+3912.4.6 = { owner = HAB add_core = HAB remove_core = FRA } 
+3918.1.1 = { culture = croatian } 
+4008.1.1 = { discovered_by = asian } 
+4016.12.1 = { 
+    owner = YUG
+    controller = YUG
+    add_core = YUG
+    remove_core = HAB
+}
+
+4039.4.6 = { owner = ITA controller = ITA } 
+4041.9.8 = { owner = CRO controller = CRO } 
+4043.5.8 = { owner = YUG controller = YUG } 
+4089.6.25 = { owner = CRO controller = CRO remove_core = YUG } 

@@ -1,12 +1,22 @@
-#384 - Medina
-
+# Medina
+# 384 Medina - 1/26/2025 8:46:43 AM 
+ 
+add_core = NAB
+add_core = LIH
 owner = NAB
 controller = NAB
+base_tax = 2
+base_production = 2
+base_manpower = 2
+
+trade_goods = cloth
+
 culture = hejazi_culture
 religion = south_arabian
 capital = "Yathrib"
-trade_goods = cloth
-hre = no
+
+is_city = yes
+
 discovered_by = east_african
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
@@ -21,63 +31,178 @@ discovered_by = western
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
-base_tax = 2
-base_production = 2
-base_manpower = 2
-is_city = yes
-add_core = NAB
-add_core = LIH
 
-2204.1.1 = { owner = LIH controller = LIH add_core = LIH remove_core = NAB }
-2278.1.1 = { religion = jewish }
-2318.1.1 = { owner = BNA controller = BNA add_core = BNA }
-2698.1.1 = { base_tax = 3 base_production = 3 }
-2720.1.1 = { owner = RSD controller = RSD add_core = RSD remove_core = BNA capital = "Medina" religion = islam }
-2759.7.28 = { owner = UMA controller = UMA add_core = UMA remove_core = RSD religion = sunni }
-2848.8.6 = { owner = ABA controller = ABA add_core = ABA remove_core = UMA }
-2898.1.1 = { discovered_by = western base_manpower = 3 }
-2966.9.15 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3003.1.10 = { owner = ABA controller = ABA add_core = ABA }
-3033.8.26 = { owner = EGY controller = EGY add_core = EGY remove_core = ABA }
-3068.3.1  = { owner = FAT controller = FAT add_core = FAT remove_core = EGY }
-3269.1.1 = { owner = EGY controller = EGY add_core = EGY remove_core = FAT }
-3328.1.1 = { owner = HED controller = HED add_core = HED remove_core = EGY }
-3525.10.1 = { owner = MDA controller = MDA add_core = MDA remove_core = HED }
 
-3580.6.1 = { #Mamluks place all Hejaz under Mecca
+
+
+2204.1.1 = {
+	owner = LIH
+	controller = LIH
+	add_core = LIH
+	remove_core = NAB
+}
+2278.1.1 = {
+	religion = jewish
+}
+2318.1.1 = {
+	owner = BNA
+	controller = BNA
+	add_core = BNA
+}
+2698.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+2720.1.1 = {
+	owner = RSD
+	controller = RSD
+	add_core = RSD
+	remove_core = BNA
+	capital = "Medina"
+	religion = islam
+}
+2759.7.28 = {
+	owner = UMA
+	controller = UMA
+	add_core = UMA
+	remove_core = RSD
+	religion = sunni
+}
+2848.8.6 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+	remove_core = UMA
+}
+2898.1.1 = {
+	discovered_by = western
+	base_manpower = 3
+}
+2966.9.15 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = ABA
+}
+3003.1.10 = {
+	owner = ABA
+	controller = ABA
+	add_core = ABA
+}
+3033.8.26 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = ABA
+}
+3068.3.1 = {
+	owner = FAT
+	controller = FAT
+	add_core = FAT
+	remove_core = EGY
+}
+3269.1.1 = {
+	owner = EGY
+	controller = EGY
+	add_core = EGY
+	remove_core = FAT
+}
+3328.1.1 = {
+	owner = HED
+	controller = HED
+	add_core = HED
+	remove_core = EGY
+}
+3525.10.1 = {
+	owner = MDA
+	controller = MDA
+	add_core = MDA
+	remove_core = HED
+}
+3580.6.1 = {
 	owner = HED
 	controller = HED
 	add_core = HED
 }
-3613.1.1 = { discovered_by = POR }
+3613.1.1 = {
+	discovered_by = POR
+}
 3868.1.1 = {
 	owner = MAM
 	controller = MAM
 	add_core = MAM
 	remove_core = TUR
-} # Ali Bey gained control of the Hijaz, reconstituting the Mamluk state
-3870.1.1 = { owner = HED controller = HED }
+}
+3870.1.1 = {
+	owner = HED
+	controller = HED
+}
 3900.1.1 = {
 	owner = NAJ
 	controller = NAJ
 	add_core = NAJ
-} # Incorporated into the First Saudi State
+}
 3916.9.9 = {
 	owner = EGY
 	add_core = EGY
 	add_core = TUR
 	remove_core = NAJ
-} # The end of the Saudi State
+}
+3923.1.1 = {
+	base_tax = 8
+}
+3939.2.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+	remove_core = EGY
+}
+3948.1.1 = {
+	base_tax = 10
+	base_manpower = 4
+}
+3973.1.1 = {
+	base_tax = 11
+	base_manpower = 6
+}
+3998.1.1 = {
+	base_tax = 12
+	base_manpower = 7
+}
+4014.6.10 = {
+	owner = HED
+	controller = HED
+	remove_core = TUR
+}
+4023.12.19 = {
+	owner = NAJ
+	controller = NAJ
+	add_core = NAJ
+}
+4024.1.1 = {
+	base_tax = 13
+	base_production = 8
+	base_manpower = 8
+}
+4030.9.23 = {
+	owner = SAU
+	controller = SAU
+	add_core = SAU
+	remove_core = HED
+	remove_core = NAJ
+}
+4048.1.1 = {
+	base_tax = 15
+	base_production = 9
+}
+4073.1.1 = {
+	base_production = 11
+	base_manpower = 9
+}
+4098.1.1 = {
+	base_production = 14
+	base_manpower = 12
+}
 
-3923.1.1 = { base_tax = 8 }
-3939.2.1   = { owner = TUR controller = TUR add_core = TUR remove_core = EGY }
-3948.1.1 = { base_tax = 10 base_manpower = 4 }
-3973.1.1 = { base_tax = 11 base_manpower = 6 }
-3998.1.1 = { base_tax = 12 base_manpower = 7 }
-4014.6.10  = { owner = HED controller = HED remove_core = TUR }
-4023.12.19 = { owner = NAJ controller = NAJ add_core = NAJ }
-4024.1.1 = { base_tax = 13 base_production = 8 base_manpower = 8 }
-4030.9.23  = { owner = SAU controller = SAU add_core = SAU remove_core = HED remove_core = NAJ }
-4048.1.1 = { base_tax = 15 base_production = 9 }
-4073.1.1 = { base_production = 11 base_manpower = 9 }
-4098.1.1 = { base_production = 14 base_manpower = 12 }
+
+### Modified 1/26/2025 8:46:43 AM ###

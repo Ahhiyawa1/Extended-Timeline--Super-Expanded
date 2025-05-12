@@ -1,8 +1,17 @@
-#5271 - Ozinki
+# Ozinki
+# 5271 Ozinki - 1/26/2025 8:46:43 AM 
+ 
+base_tax = 1
+base_production = 1
+base_manpower = 1
+
+trade_goods = unknown
 
 culture = bulgar
 religion = heptadic
-hre = no
+capital = "Chalykla"
+
+
 discovered_by = nomad_group
 discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
@@ -10,38 +19,153 @@ discovered_by = GLH
 discovered_by = NOG
 discovered_by = KAZ
 discovered_by = SIB
-base_tax = 1
-base_production = 1
-trade_goods = unknown    
-base_manpower = 1
-capital = "Chalykla"
 
-2758.1.1 = { owner = VBU controller = VBU add_core = VBU is_city = yes trade_goods = iron }
-2898.1.1 = { discovered_by = eastern }
-3020.1.1 = { religion = sunni }
-3198.1.1 = { base_manpower = 2 }
-3298.1.1 = { base_tax = 2 base_production = 2 discovered_by = western }
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA }
-3348.1.1 = { culture = astrakhani }
-3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA remove_core = VBU }
-3470.1.1 = { owner = BHO controller = BHO add_core = BHO }
-3472.1.1 = { owner = WHH controller = WHH remove_core = BHO }
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH add_core = AST }
-3398.1.1 = { base_manpower = 3 }
 
-3540.1.1  = { owner = GOL controller = GOL add_core = GOL remove_core = GLH }
-3600.6.1  = { owner = KAZ controller = KAZ add_core = KAZ remove_core = GOL } # Golden Horde destroyed by Crimea
-3654.6.2  = { owner = RUS controller = RUS add_core = RUS remove_core = KAZ } # Russians acquire Volga after fall of Astrakhan
-3698.1.1  = { culture = russian religion = orthodox capital = "Ozinki" }
-3768.3.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
-3769.4.14   = { revolt = { } controller = RUS unrest = 0 } # Razin captured
-3862.7.24 = { culture = hessian religion = catholic base_tax = 4 } #german colonists on Volga
-3871.9.13  = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 2 } # Pugachev rebellion
-3873.2.1 = { revolt = {} controller = RUS unrest = 0 } # Pugachev is captured
 
-4008.1.1 = { discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4023.1.1   = { culture = russian }
-4048.1.1   = { religion = orthodox }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
 
+2631.1.1 = {
+	religion = manichaeism
+}
+2758.1.1 = {
+	owner = VBU
+	controller = VBU
+	add_core = VBU
+	is_city = yes
+	trade_goods = iron
+}
+2898.1.1 = {
+	discovered_by = eastern
+}
+3020.1.1 = {
+	religion = sunni
+}
+3198.1.1 = {
+	base_manpower = 2
+}
+3298.1.1 = {
+	base_tax = 2
+	base_production = 2
+	discovered_by = western
+}
+3334.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+}
+3348.1.1 = {
+	culture = astrakhani
+}
+3358.1.1 = {
+	owner = WHH
+	controller = WHH
+	add_core = WHH
+	remove_core = KHA
+	remove_core = VBU
+}
+3398.1.1 = {
+	base_manpower = 3
+}
+3470.1.1 = {
+	owner = BHO
+	controller = BHO
+	add_core = BHO
+}
+3472.1.1 = {
+	owner = WHH
+	controller = WHH
+	remove_core = BHO
+}
+3476.1.1 = {
+	owner = GLH
+	controller = GLH
+	add_core = GLH
+	add_core = AST
+}
+3540.1.1 = {
+	owner = GOL
+	controller = GOL
+	add_core = GOL
+	remove_core = GLH
+}
+3600.6.1 = {
+	owner = KAZ
+	controller = KAZ
+	add_core = KAZ
+	remove_core = GOL
+}
+3654.6.2 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = KAZ
+}
+3698.1.1 = {
+	culture = russian
+	religion = orthodox
+	capital = "Ozinki"
+}
+3768.3.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Stepan Razin"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3769.4.14 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3862.7.24 = {
+	culture = hessian
+	religion = catholic
+	base_tax = 4
+}
+3871.9.13 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Yemelyan Pugachev"
+	}
+
+	controller = REB
+	unrest = 2
+}
+3873.2.1 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+4008.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4023.1.1 = {
+	culture = russian
+}
+4048.1.1 = {
+	religion = orthodox
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###

@@ -1,69 +1,213 @@
-#674 - Guiyang
-
-latent_trade_goods = {
-	aluminum
-}
-
+# Guiyang
+# 674 Guiyang - 1/26/2025 8:46:43 AM 
+ 
+add_core = CYI
 owner = CYI
 controller = CYI
-culture = yi
-religion = animism
-capital = "Guiyang"
-trade_goods = iron
-hre = no
-discovered_by = chinese
-discovered_by = asian
-discovered_by = early_chinese
 base_tax = 2
 base_production = 2
 base_manpower = 2
+
+trade_goods = iron
+
+culture = yi
+religion = animism
+capital = "Guiyang"
+
 is_city = yes
-add_core = CYI
 
-2158.1.1 = { owner = HND controller = HND add_core = HND add_core = WUU }
-2287.9.28 = { owner = SHU controller = SHU add_core = SHU remove_core = HND }
-2361.11.1 = { owner = WEI controller = WEI add_core = WEI remove_core = SHU }
-2364.2.4 = { owner = JIN controller = JIN add_core = JIN remove_core = WEI }
-2518.1.1 = { owner = LSO controller = LSO add_core = LSO remove_core = JIN }
-2577.1.1 = { owner = QIC controller = QIC add_core = QIC remove_core = LSO }
-2598.1.1 = { discovered_by = eastern_nomad_group discovered_by = nomad_group }
-2600.1.1 = { owner = LNG controller = LNG add_core = LNG remove_core = QIC }
-2655.1.1 = { owner = CEN controller = CEN add_core = CEN remove_core = LNG }
-2678.1.1 = { owner = MUE controller = MUE add_core = MUE remove_core = CEN remove_core = CYI }
-2698.1.1 = { base_tax = 3 base_production = 3 }
-3470.1.1 = { owner = MNG controller = MNG add_core = MNG }
+discovered_by = chinese
+discovered_by = asian
+discovered_by = early_chinese
 
-3753.1.1 = { discovered_by = SPA }#Novus Atlas Sinensis
-3756.4.1 = {	owner = QNG
-		controller = QNG
-		}
-3760.4.1 = {	owner = CZH
-		controller = CZH
-		} # Three Feudatories - Wu Sangui titled as Prince of Pingxi in Yunnan
-3778.1.1 = { controller = QNG }
-3779.10.1 = {	owner = QNG
+
+
+latent_trade_goods = {
+   aluminum
+}
+
+2158.1.1 = {
+	owner = HND
+	controller = HND
+	add_core = HND
+	add_core = WUU
+}
+2287.9.28 = {
+	owner = SHU
+	controller = SHU
+	add_core = SHU
+	remove_core = HND
+}
+2361.11.1 = {
+	owner = WEI
+	controller = WEI
+	add_core = WEI
+	remove_core = SHU
+}
+2364.2.4 = {
+	owner = JIN
+	controller = JIN
+	add_core = JIN
+	remove_core = WEI
+}
+2518.1.1 = {
+	owner = LSO
+	controller = LSO
+	add_core = LSO
+	remove_core = JIN
+}
+2577.1.1 = {
+	owner = QIC
+	controller = QIC
+	add_core = QIC
+	remove_core = LSO
+}
+2598.1.1 = {
+	discovered_by = eastern_nomad_group
+	discovered_by = nomad_group
+}
+2600.1.1 = {
+	owner = LNG
+	controller = LNG
+	add_core = LNG
+	remove_core = QIC
+}
+2655.1.1 = {
+	owner = CEN
+	controller = CEN
+	add_core = CEN
+	remove_core = LNG
+}
+2678.1.1 = {
+	owner = MUE
+	controller = MUE
+	add_core = MUE
+	remove_core = CEN
+	remove_core = CYI
+}
+2698.1.1 = {
+	base_tax = 3
+	base_production = 3
+}
+3470.1.1 = {
+	owner = MNG
+	controller = MNG
+	add_core = MNG
+}
+3753.1.1 = {
+	discovered_by = SPA
+}
+3756.4.1 = {
+	owner = QNG
+	controller = QNG
+}
+3760.4.1 = {
+	owner = CZH
+	controller = CZH
+}
+3778.1.1 = {
+	controller = QNG
+}
+3779.10.1 = {
+	owner = QNG
 	controller = QNG
 	add_core = QNG
 }
+3948.1.1 = {
+	base_production = 4
+	base_manpower = 4
+}
+3968.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 7
+}
+3988.1.1 = {
+	base_tax = 7
+	base_production = 9
+	base_manpower = 10
+}
+3998.1.1 = {
+	religion = confucianism
+}
+4008.1.1 = {
+	discovered_by = western
+	discovered_by = muslim
+	discovered_by = ottoman
+}
+4008.1.1 = {
+	base_tax = 9
+	base_production = 12
+	base_manpower = 14
+}
+4009.11.4 = {
+	revolt = {
+		type = revolutionary_rebels
+		size = 1
+	}
 
-3948.1.1 = { base_production = 4 base_manpower = 4 }
-3968.1.1 = { base_tax = 5 base_production = 5 base_manpower = 7 }
-3988.1.1 = { base_tax = 7 base_production = 9 base_manpower = 10 }
-3998.1.1   = { religion = confucianism }
-4008.1.1 = { discovered_by = western discovered_by = muslim discovered_by = ottoman }
-4008.1.1 = { base_tax = 9 base_production = 12 base_manpower = 14 }
-4009.11.4  = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Guizhou uprising
-4010.2.12  = { revolt = {} owner = CHN controller = CHN add_core = CHN remove_core = CXI remove_core = XIA }
-4014.6.6   = { revolt = { type = particularist_rebels size = 1 } controller = REB }
-4018.1.1   = { trade_goods = aluminum }
-4025.4.18  = { revolt = {} controller = CHN }
-4028.1.1 = { base_tax = 12 base_production = 14 base_manpower = 18 }
-4048.1.1 = { base_tax = 16 base_production = 15 base_manpower = 22 }
-4058.1.1 = { base_tax = 18 base_manpower = 29 }
-4068.1.1 = { base_tax = 20 base_production = 22 }
-4078.1.1 = { base_tax = 24 base_production = 26 base_manpower = 30 }
-4088.1.1 = { base_tax = 27 base_production = 29 base_manpower = 33 }
-4108.1.1 = { base_tax = 36 base_production = 36 base_manpower = 36 }
+	controller = REB
+}
+4010.2.12 = {
+	revolt = {
+	}
+
+	owner = CHN
+	controller = CHN
+	add_core = CHN
+	remove_core = CXI
+	remove_core = XIA
+}
+4014.6.6 = {
+	revolt = {
+		type = particularist_rebels
+		size = 1
+	}
+
+	controller = REB
+}
+4018.1.1 = {
+	trade_goods = aluminum
+}
+4025.4.18 = {
+	revolt = {
+	}
+
+	controller = CHN
+}
+4028.1.1 = {
+	base_tax = 12
+	base_production = 14
+	base_manpower = 18
+}
+4048.1.1 = {
+	base_tax = 16
+	base_production = 15
+	base_manpower = 22
+}
+4058.1.1 = {
+	base_tax = 18
+	base_manpower = 29
+}
+4068.1.1 = {
+	base_tax = 20
+	base_production = 22
+}
+4078.1.1 = {
+	base_tax = 24
+	base_production = 26
+	base_manpower = 30
+}
+4088.1.1 = {
+	base_tax = 27
+	base_production = 29
+	base_manpower = 33
+}
+4108.1.1 = {
+	base_tax = 36
+	base_production = 36
+	base_manpower = 36
+}
 
 
-
+### Modified 1/26/2025 8:46:43 AM ###

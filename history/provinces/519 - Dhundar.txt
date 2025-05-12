@@ -1,12 +1,22 @@
-#519 - Dhundar
-
+# Dhundar
+# 519 Dhundar - 1/26/2025 8:46:43 AM 
+ 
+add_core = NST
 owner = NST
 controller = NST
+base_tax = 3
+base_production = 3
+base_manpower = 2
+
+center_of_trade = 1
+trade_goods = copper
+
 culture = rajput
 religion = hinduism
 capital = "Dausa"
-trade_goods = copper
-hre = no
+
+is_city = yes
+
 discovered_by = chinese
 discovered_by = asian
 discovered_by = early_chinese
@@ -18,58 +28,142 @@ discovered_by = eastern_nomad_group
 discovered_by = western_nomad_group
 discovered_by = indian
 discovered_by = early_indian
-base_tax = 3
-base_production = 3
-base_manpower = 2
-is_city = yes
-add_core = NST
-center_of_trade = 1
 
-2218.1.1 = { owner = PDM controller = PDM add_core = PDM remove_core = NST }
-2458.1.1 = { owner = GUP controller = GUP add_core = GUP }
-2596.1.1 = { owner = KAP controller = KAP add_core = MLW remove_core = GUP }
-2626.1.1 = { owner = MLW controller = MLW add_core = GRP }
-2638.1.1 = { owner = HRS controller = HRS add_core = HRS remove_core = MLW }
-2745.1.1 = { owner = GRP controller = GRP add_core = GRP remove_core = HRS }
-3134.1.1 = { owner = CCH controller = CCH add_core = CCH remove_core = GRP }
-3244.1.1 = { capital = "Amber" }
-3258.1.1 = { owner = DHU controller = DHU add_core = DHU remove_core = CCH }
-3290.1.1 = { owner = GHU controller = GHU add_core = GHU }
-3304.1.1 = { owner = DLH controller = DLH add_core = DLH remove_core = GHU }
-3324.1.1 = { owner = DHU controller = DHU remove_core = DLH }
 
+
+
+2218.1.1 = {
+	owner = PDM
+	controller = PDM
+	add_core = PDM
+	remove_core = NST
+}
+2458.1.1 = {
+	owner = GUP
+	controller = GUP
+	add_core = GUP
+}
+2596.1.1 = {
+	owner = KAP
+	controller = KAP
+	add_core = MLW
+	remove_core = GUP
+}
+2626.1.1 = {
+	owner = MLW
+	controller = MLW
+	add_core = GRP
+}
+2638.1.1 = {
+	owner = HRS
+	controller = HRS
+	add_core = HRS
+	remove_core = MLW
+}
+2745.1.1 = {
+	owner = GRP
+	controller = GRP
+	add_core = GRP
+	remove_core = HRS
+}
+3134.1.1 = {
+	owner = CCH
+	controller = CCH
+	add_core = CCH
+	remove_core = GRP
+}
+3244.1.1 = {
+	capital = "Amber"
+}
+3258.1.1 = {
+	owner = DHU
+	controller = DHU
+	add_core = DHU
+	remove_core = CCH
+}
+3290.1.1 = {
+	owner = GHU
+	controller = GHU
+	add_core = GHU
+}
+3304.1.1 = {
+	owner = DLH
+	controller = DLH
+	add_core = DLH
+	remove_core = GHU
+}
+3324.1.1 = {
+	owner = DHU
+	controller = DHU
+	remove_core = DLH
+}
 3628.1.1 = {
 	owner = MUG
 	controller = MUG
 	add_core = MUG
-} # Mughal Conquest
+}
 3638.1.1 = {
 	owner = DHU
 	controller = DHU
 	remove_core = MUG
-} # Independent after Delhi's fall
+}
 3642.1.1 = {
 	owner = BNG
 	controller = BNG
-} # Sur expansion
+}
 3643.5.22 = {
 	owner = DHU
 	controller = DHU
-} # Independence regained after death of Sher Shah
-3788.1.1 = { discovered_by = ENG }
-3805.5.12 = { discovered_by = GBR }
-3825.1.1 = { capital = "Jaipur" } # Jaipur founded
+}
+3788.1.1 = {
+	discovered_by = ENG
+}
+3805.5.12 = {
+	discovered_by = GBR
+}
+3825.1.1 = {
+	capital = "Jaipur"
+}
+3923.1.1 = {
+	base_manpower = 3
+}
+3949.1.1 = {
+	base_tax = 4
+}
+3973.1.1 = {
+	base_production = 4
+}
+3999.1.1 = {
+	base_manpower = 4
+}
+4023.1.1 = {
+	base_tax = 5
+	base_production = 5
+	base_manpower = 5
+}
+4028.1.1 = {
+	add_core = INI
+}
+4046.1.1 = {
+	owner = INI
+	controller = INI
+	remove_core = DHU
+}
+4049.1.1 = {
+	base_tax = 6
+	base_production = 6
+	base_manpower = 6
+}
+4073.1.1 = {
+	base_tax = 7
+	base_production = 7
+	base_manpower = 7
+}
+4098.1.1 = {
+	base_tax = 9
+	base_production = 9
+	base_manpower = 9
+}
 
-3923.1.1 = { base_manpower = 3 }
-3949.1.1 = { base_tax = 4 }
-3973.1.1 = { base_production = 4 }
-3999.1.1 = { base_manpower = 4 }
-4023.1.1 = { base_tax = 5 base_production = 5 base_manpower = 5 }
-4028.1.1  = { add_core = INI }
-4046.1.1  = { owner = INI controller = INI remove_core = DHU }
-4049.1.1 = { base_tax = 6 base_production = 6 base_manpower = 6 }
-4073.1.1 = { base_tax = 7 base_production = 7 base_manpower = 7 }
-4098.1.1 = { base_tax = 9 base_production = 9 base_manpower = 9 }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

@@ -1,10 +1,21 @@
-#114 - Romagna
-
+# Ravenna
+# 114 Ravenna - 1/26/2025 8:46:43 AM 
+ 
+add_core = ROM
 owner = ROM
 controller = ROM
+base_tax = 4
+base_production = 5
+base_manpower = 2
+
+trade_goods = salt
+
 culture = etruscan
 religion = hellenism
-hre = no 
+capital = "Ravenna"
+
+is_city = yes
+
 discovered_by = ottoman
 discovered_by = middle_eastern
 discovered_by = muslim
@@ -12,36 +23,105 @@ discovered_by = roman_group
 discovered_by = eastern
 discovered_by = barbarian
 discovered_by = western
-base_tax = 4
-base_production = 5
-trade_goods = salt
-base_manpower = 2
-capital = "Ravenna" 
-is_city = yes
-add_core = ROM
 
-2348.1.1 = { culture = roman }
-2493.1.17 = { controller = ROW owner = ROW add_core = ROW remove_core = ROM } # Final division of the empire
-2518.1.1 = { religion = chalcedonism }
-2574.9.4 = { owner = ITA controller = ITA add_core = ITA }
-2578.1.1 = { remove_core = ROW }
-2591.1.1 = { owner = OST controller = OST add_core = OST remove_core = ITA }
-2638.1.1 = { owner = BYZ controller = BYZ add_core = BYZ }
-2825.1.1 = { owner = LOM controller = LOM add_core = LOM remove_core = OST culture = romagnan }
-2828.1.1 = { owner = BYZ controller = BYZ }
-2835.1.1 = { owner = LOM controller = LOM }
-2838.1.1 = { owner = BYZ controller = BYZ }
-2849.1.1 = { owner = LOM controller = LOM remove_core = BYZ }
-2872.1.1 = { owner = FRK controller = FRK add_core = FRK }
-2882.1.1 = { owner = PAP controller = PAP add_core = PAP remove_core = LOM remove_core = FRK }
-2965.1.1 = { religion = catholic }
-3316.1.1 = { owner = RAV controller = RAV add_core = RAV }
-3346.1.1 = { owner = PAP controller = PAP }
-3348.1.1 = { owner = RAV controller = RAV }
-3376.1.1 = { owner = PAP controller = PAP add_core = PAP remove_core = RAV }
-3539.1.1 = { owner = VEN controller = VEN add_core = VEN }
 
-3607.1.1 = { 
+
+
+2348.1.1 = {
+	culture = roman
+}
+2493.1.17 = {
+	controller = ROW
+	owner = ROW
+	add_core = ROW
+	remove_core = ROM
+}
+2518.1.1 = {
+	religion = chalcedonism
+}
+2574.9.4 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+}
+2578.1.1 = {
+	remove_core = ROW
+}
+2591.1.1 = {
+	owner = OST
+	controller = OST
+	add_core = OST
+	remove_core = ITA
+}
+2638.1.1 = {
+	owner = BYZ
+	controller = BYZ
+	add_core = BYZ
+}
+2825.1.1 = {
+	owner = LOM
+	controller = LOM
+	add_core = LOM
+	remove_core = OST
+	culture = romagnan
+}
+2828.1.1 = {
+	owner = BYZ
+	controller = BYZ
+}
+2835.1.1 = {
+	owner = LOM
+	controller = LOM
+}
+2838.1.1 = {
+	owner = BYZ
+	controller = BYZ
+}
+2849.1.1 = {
+	owner = LOM
+	controller = LOM
+	remove_core = BYZ
+}
+2872.1.1 = {
+	owner = FRK
+	controller = FRK
+	add_core = FRK
+}
+2882.1.1 = {
+	owner = PAP
+	controller = PAP
+	add_core = PAP
+	remove_core = LOM
+	remove_core = FRK
+}
+2965.1.1 = {
+	religion = catholic
+}
+3316.1.1 = {
+	owner = RAV
+	controller = RAV
+	add_core = RAV
+}
+3346.1.1 = {
+	owner = PAP
+	controller = PAP
+}
+3348.1.1 = {
+	owner = RAV
+	controller = RAV
+}
+3376.1.1 = {
+	owner = PAP
+	controller = PAP
+	add_core = PAP
+	remove_core = RAV
+}
+3539.1.1 = {
+	owner = VEN
+	controller = VEN
+	add_core = VEN
+}
+3607.1.1 = {
 	owner = PAP
 	controller = PAP
 	add_core = PAP
@@ -52,25 +132,56 @@ add_core = ROM
 	controller = ITA
 	add_core = ITA
 	remove_core = PAP
-} # Treaty of Pressburg
+}
 3912.4.11 = {
 	owner = PAP
 	controller = PAP
 	add_core = PAP
 	remove_core = ITA
-} # Treaty of Fontainebleau, Napoleon abdicates unconditionally
+}
+3932.1.1 = {
+	base_production = 6
+}
+3957.12.8 = {
+	owner = ITC
+	controller = ITC
+	add_core = ITC
+}
+3958.3.22 = {
+	owner = SPI
+	controller = SPI
+	add_core = SPI
+	remove_core = ITC
+}
+3959.3.17 = {
+	owner = ITA
+	controller = ITA
+	add_core = ITA
+	remove_core = SPI
+	remove_core = PAP
+}
+3960.1.1 = {
+	base_manpower = 3
+}
+3986.1.1 = {
+	base_production = 7
+}
+4008.1.1 = {
+	discovered_by = asian
+}
+4013.1.1 = {
+	base_manpower = 4
+}
+4041.1.1 = {
+	base_manpower = 5
+}
+4068.1.1 = {
+	base_tax = 7
+}
+4098.1.1 = {
+	base_tax = 8
+	base_production = 8
+}
 
-3932.1.1 = { base_production = 6 }
-3957.12.8 = { owner = ITC controller = ITC add_core = ITC }
-3958.3.22 = { owner = SPI controller = SPI add_core = SPI remove_core = ITC }
-3959.3.17 = { owner = ITA controller = ITA add_core = ITA remove_core = SPI remove_core = PAP }
-3960.1.1 = { base_manpower = 3 }
-3986.1.1 = { base_production = 7 }
-4008.1.1 = { discovered_by = asian }
-4013.1.1 = { base_manpower = 4 }
-4041.1.1 = { base_manpower = 5 }
-4068.1.1 = { base_tax = 7 }
-4098.1.1 = { base_tax = 8 base_production = 8 }
 
-
-
+### Modified 1/26/2025 8:46:43 AM ###

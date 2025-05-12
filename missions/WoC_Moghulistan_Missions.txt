@@ -8,9 +8,9 @@ woc_moghulistan_1 = {
 	}
 	potential = { 
 		OR = {
-			is_monghulistan_nation = yes 
+			is_moghulistan_nation = yes 
 			AND = {
-				was_monghulistan_nation = yes
+				was_moghulistan_nation = yes
 				OR = {
 					is_mongol_nation = yes
 					is_tatar_nation = yes
@@ -132,7 +132,7 @@ woc_moghulistan_1 = {
 						}
 					}
 					owner = {
-						add_legitimacy_equivalent = { amount = 2 }
+						add_legitimacy_equivalent = { amount = 2 republican_tradition = 2 }
 					}
 				}
 			}
@@ -165,28 +165,37 @@ woc_moghulistan_1 = {
 			}
 		}
 
-		effect = {  
-			custom_tooltip = TATARS_RAZING_CHURCHES_NOW_GRANTS_DUCATS
-			set_country_flag = tatars_curch_raze_flag
-			
-			custom_tooltip = SEPERATOR_TOOLTIP
-			
-			complex_dynamic_effect = {
-				first_custom_tooltip = TATARS_IF_CAIRO_AND_BAGHDAD_HAVE_BEEN_RAZED
-				first_limit = "
-					410 = {
-						has_province_modifier = province_razed
-					}
-					361 = {
-						has_province_modifier = province_razed
-					}
-				"
-				first_effect = "
-					change_innovativeness = 5
-					add_adm_power = 50
-					add_dip_power = 50
-					add_mil_power = 50
-				"
+		effect = {
+			if = {
+				limit = {
+					has_government_attribute = raze_province
+				}
+				custom_tooltip = TATARS_RAZING_CHURCHES_NOW_GRANTS_DUCATS
+				set_country_flag = tatars_curch_raze_flag
+				
+				custom_tooltip = SEPERATOR_TOOLTIP
+				
+				complex_dynamic_effect = {
+					first_custom_tooltip = TATARS_IF_CAIRO_AND_BAGHDAD_HAVE_BEEN_RAZED
+					first_limit = "
+						410 = {
+							has_province_modifier = province_razed
+						}
+						361 = {
+							has_province_modifier = province_razed
+						}
+					"
+					first_effect = "
+						change_innovativeness = 5
+						add_adm_power = 50
+						add_dip_power = 50
+						add_mil_power = 50
+					"
+				}
+			}
+			else = {
+				add_mil_power = 100
+				add_prestige_or_monarch_power = { amount = 20 }
 			}
 		} 
 	}
@@ -310,7 +319,7 @@ woc_moghulistan_1 = {
 				duration = 5475
 			}
 			
-			add_legitimacy_equivalent = { amount = 10 }
+			add_legitimacy_equivalent = { amount = 10 republican_tradition = 5 }
 		} 
 	}
 }
@@ -325,9 +334,9 @@ woc_moghulistan_2 = {
 	}
 	potential = { 
 		OR = {
-			is_monghulistan_nation = yes 
+			is_moghulistan_nation = yes 
 			AND = {
-				was_monghulistan_nation = yes
+				was_moghulistan_nation = yes
 				OR = {
 					is_mongol_nation = yes
 					is_tatar_nation = yes
@@ -439,6 +448,10 @@ woc_moghulistan_2 = {
 			custom_tooltip = SEPERATOR_TOOLTIP
 			
 			change_government_reform_progress = 50
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			give_claims = { region = persia_region }
 		}
 	}
 
@@ -606,9 +619,9 @@ woc_moghulistan_3 = {
 	}
 	potential = { 
 		OR = {
-			is_monghulistan_nation = yes 
+			is_moghulistan_nation = yes 
 			AND = {
-				was_monghulistan_nation = yes
+				was_moghulistan_nation = yes
 				OR = {
 					is_mongol_nation = yes
 					is_tatar_nation = yes
@@ -688,8 +701,7 @@ woc_moghulistan_3 = {
 				limit = {
 					tag = CHG
 				}
-				change_tag = CGT
-				#override_country_name = CHAGATAI
+				override_country_name = CHAGATAI
 				set_country_flag = chagatai_formed_flag
 				set_country_flag = is_CHAGATAI_flag
 			}
@@ -935,9 +947,9 @@ woc_moghulistan_4 = {
 	}
 	potential = { 
 		OR = {
-			is_monghulistan_nation = yes 
+			is_moghulistan_nation = yes 
 			AND = {
-				was_monghulistan_nation = yes
+				was_moghulistan_nation = yes
 				OR = {
 					is_mongol_nation = yes
 					is_tatar_nation = yes
@@ -1038,11 +1050,12 @@ woc_moghulistan_4 = {
 				value = 6
 			}
 			698 = {
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 
 		effect = {  
+			give_claims = { region = korea_region }
 			country_event_with_effect_insight = {
 				id = horde_mission_events.8
 				effect = "
@@ -1089,6 +1102,7 @@ woc_moghulistan_4 = {
 		effect = {
 			give_claims = { region = south_china_region }
 			give_claims = { region = xinan_region }
+			give_claims = { region = tibet_region }
 			
 			custom_tooltip = SEPERATOR_TOOLTIP
 		
@@ -1149,7 +1163,7 @@ woc_moghulistan_4 = {
 				age = age_of_reformation
 			}
 			
-			add_legitimacy_equivalent = { amount = 15 }
+			add_legitimacy_equivalent = { amount = 15 republican_tradition = 10 }
 			
 			custom_tooltip = SEPERATOR_TOOLTIP
 			
@@ -1209,9 +1223,9 @@ woc_moghulistan_5 = {
 	}
 	potential = { 
 		OR = {
-			is_monghulistan_nation = yes 
+			is_moghulistan_nation = yes 
 			AND = {
-				was_monghulistan_nation = yes
+				was_moghulistan_nation = yes
 				OR = {
 					is_mongol_nation = yes
 					is_tatar_nation = yes
@@ -1316,7 +1330,11 @@ woc_moghulistan_5 = {
 			
 			custom_tooltip = SEPERATOR_TOOLTIP
 			
-			add_legitimacy_equivalent = { amount = 10 }
+			add_legitimacy_equivalent = { amount = 10 republican_tradition = 5 }
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			give_claims = { region = japan_region }
 		}
 	}
 

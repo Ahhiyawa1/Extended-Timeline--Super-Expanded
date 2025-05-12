@@ -1,49 +1,185 @@
-#5195 - Kama Tamagy
-
-capital = "Kama Tamagy"
-culture = bulgar
-religion = tengri_pagan_reformed
-trade_goods = unknown
-hre = no
+# Kama Tamagy
+# 5195 Kama Tamagy - 1/26/2025 8:46:43 AM 
+ 
 base_tax = 1
 base_production = 1
 base_manpower = 1
-native_hostileness = 2
-native_size = 4
-native_ferocity = 3
+
 center_of_trade = 2
+trade_goods = unknown
 
-2698.1.1 = { discovered_by = western_nomad_group discovered_by = nomad_group }
-2758.1.1 = { owner = VBU controller = VBU add_core = VBU is_city = yes trade_goods = grain }
-2998.1.1 = { base_tax = 2 base_production = 2 discovered_by = eastern }
-3098.1.1 = { base_manpower = 2 }
-3198.1.1 = { base_tax = 3 base_production = 3 religion = sunni }
-3298.1.1 = { base_tax = 4 base_production = 4 base_manpower = 3 discovered_by = western }
-3334.1.1 = { owner = KHA controller = KHA add_core = KHA }
-3348.1.1 = { add_core = KAZ remove_core = VBU fort_15th = yes culture = kazani }
-3358.1.1 = { owner = WHH controller = WHH add_core = WHH remove_core = KHA }
-3398.1.1 = { base_tax = 6 base_production = 6 }
-3470.1.1 = { owner = BHO controller = BHO add_core = BHO }
-3472.1.1 = { owner = WHH controller = WHH remove_core = BHO }
-3476.1.1 = { owner = GLH controller = GLH add_core = GLH }
+culture = bulgar
+religion = tengri_pagan_reformed
+capital = "Kama Tamagy"
 
-3536.1.1  = { owner = KAZ controller = KAZ add_core = KAZ remove_core = GLH } # Khanate of Kazan
-3650.10.2  = { owner = RUS controller = RUS add_core = RUS remove_core = KAZ } # Russian conquest of Kazan
-3651.1.1 = { religion = orthodox } # Most Tatars were christianized or killed
-3768.3.1   = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
-3769.4.14   = { revolt = { } controller = RUS unrest = 0 } # Razin captured
-3871.9.13  = { revolt = { type = anti_tax_rebels size = 2 name = "Yemelyan Pugachev" } controller = REB unrest = 6 } # Pugachev rebellion
-3873.2.1 = { revolt = {} controller = RUS unrest = 0 } # Pugachev is captured
-3888.1.1  = { capital = "Kamskoye Ustye" }
+native_size = 4
+native_ferocity =  3
+native_hostileness = 2
 
-3948.1.1 = { base_tax = 7 base_manpower = 7 }
-3998.1.1 = { base_production = 7 }
-4008.1.1 = { discovered_by = muslim discovered_by = ottoman discovered_by = asian }
-4020.12.30 = { owner = SOV controller = SOV add_core = SOV remove_core = RUS }
-4018.1.1 = { base_manpower = 8 }
-4038.1.1 = { base_production = 8 }
-4046.1.1   = { trade_goods = oil } #Romashkino field
-4058.1.1 = { base_tax = 8 }
-4073.1.1 = { base_production = 9 }
-4089.12.25 = { owner = RUS controller = RUS add_core = RUS remove_core = SOV }
-4098.1.1 = { base_tax = 9 }
+
+
+
+
+2698.1.1 = {
+	discovered_by = western_nomad_group
+	discovered_by = nomad_group
+}
+2758.1.1 = {
+	owner = VBU
+	controller = VBU
+	add_core = VBU
+	is_city = yes
+	trade_goods = grain
+}
+2998.1.1 = {
+	base_tax = 2
+	base_production = 2
+	discovered_by = eastern
+}
+3098.1.1 = {
+	base_manpower = 2
+}
+3198.1.1 = {
+	base_tax = 3
+	base_production = 3
+	religion = sunni
+}
+3298.1.1 = {
+	base_tax = 4
+	base_production = 4
+	base_manpower = 3
+	discovered_by = western
+}
+3334.1.1 = {
+	owner = KHA
+	controller = KHA
+	add_core = KHA
+}
+3348.1.1 = {
+	add_core = KAZ
+	remove_core = VBU
+	fort_15th = yes
+	culture = kazani
+}
+3358.1.1 = {
+	owner = WHH
+	controller = WHH
+	add_core = WHH
+	remove_core = KHA
+}
+3398.1.1 = {
+	base_tax = 6
+	base_production = 6
+}
+3470.1.1 = {
+	owner = BHO
+	controller = BHO
+	add_core = BHO
+}
+3472.1.1 = {
+	owner = WHH
+	controller = WHH
+	remove_core = BHO
+}
+3476.1.1 = {
+	owner = GLH
+	controller = GLH
+	add_core = GLH
+}
+3536.1.1 = {
+	owner = KAZ
+	controller = KAZ
+	add_core = KAZ
+	remove_core = GLH
+}
+3650.10.2 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = KAZ
+}
+3651.1.1 = {
+	religion = orthodox
+}
+3768.3.1 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Stepan Razin"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3769.4.14 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3871.9.13 = {
+	revolt = {
+		type = anti_tax_rebels
+		size = 2
+		name = "Yemelyan Pugachev"
+	}
+
+	controller = REB
+	unrest = 6
+}
+3873.2.1 = {
+	revolt = {
+	}
+
+	controller = RUS
+	unrest = 0
+}
+3888.1.1 = {
+	capital = "Kamskoye Ustye"
+}
+3948.1.1 = {
+	base_tax = 7
+	base_manpower = 7
+}
+3998.1.1 = {
+	base_production = 7
+}
+4008.1.1 = {
+	discovered_by = muslim
+	discovered_by = ottoman
+	discovered_by = asian
+}
+4020.12.30 = {
+	owner = SOV
+	controller = SOV
+	add_core = SOV
+	remove_core = RUS
+}
+4018.1.1 = {
+	base_manpower = 8
+}
+4038.1.1 = {
+	base_production = 8
+}
+4046.1.1 = {
+	trade_goods = oil
+}
+4058.1.1 = {
+	base_tax = 8
+}
+4073.1.1 = {
+	base_production = 9
+}
+4089.12.25 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = SOV
+}
+4098.1.1 = {
+	base_tax = 9
+}
+
+
+### Modified 1/26/2025 8:46:43 AM ###
