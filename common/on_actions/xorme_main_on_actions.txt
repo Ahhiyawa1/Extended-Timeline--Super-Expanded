@@ -1,0 +1,21 @@
+on_startup = {
+	country_event = {
+		id = xorme_search_for_players.1
+		days = 1
+	}
+	country_event = {
+		id = xorme_ai_initialization.1
+		days = 2
+	}
+}
+
+on_new_monarch = {
+	if = {
+		limit = {
+			NOT = {
+				ruler_has_personality = xorme_ai_personality
+			}
+		}
+		add_ruler_personality = xorme_ai_personality
+	}
+}

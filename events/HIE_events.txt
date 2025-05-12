@@ -1,0 +1,116 @@
+namespace = HIE_Events
+
+# Lusitanian Empire
+country_event = {
+	id = HIE_Events.1
+	title = HIE_Events.1.T
+	desc = HIE_Events.1.D
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = HIE_Events.1.OPT1
+		ai_chance = { factor = 0 }
+
+		override_country_name = HIE_SPA_POR_LUSITANIA
+		change_country_color = {
+			color = { 40 110 140 }
+		}
+		add_prestige_or_monarch_power = { amount = 25 }
+		set_government_rank_force = 3
+	}
+
+	option = {
+		name = HIE_Events.1.OPT2
+		ai_chance = { factor = 100 }
+
+		add_prestige_or_monarch_power = { amount = 25 }
+		set_government_rank_force = 3
+	}
+}
+
+# The Kingdom of God on Earth
+country_event = {
+	id = HIE_Events.2
+	title = HIE_Events.2.T
+	desc = HIE_Events.2.D
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = HIE_Events.2.OPT1
+		ai_chance = { factor = 1 }
+
+		swap_free_idea_group = yes
+		add_prestige_or_monarch_power = { amount = 25 }
+		set_government_rank_force = 3
+	}
+
+	option = {
+		name = HIE_Events.2.OPT2
+		ai_chance = { factor = 0 }
+
+		add_prestige_or_monarch_power = { amount = 25 }
+		set_government_rank_force = 3
+	}
+}
+
+# Accepting Christianity
+country_event = {
+	id = HIE_Events.3
+	title = HIE_Events.3.T
+	desc = HIE_Events.3.D
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					any_neighbor_country = {
+						NOT = { same_continent = ROOT }
+						religion_group = christian
+					}
+				}
+				save_event_target_as = hie_christianity_coloniser
+			}
+		}
+	}
+
+	option = {
+		name = HIE_Events.3.OPT1
+		ai_chance = { factor = 50 }
+
+		add_stability = 1
+	}
+
+	option = {
+		name = HIE_Events.3.OPT2
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+		ai_chance = { factor = 50 }
+
+		if = {
+			limit = { has_saved_event_target = hie_christianity_coloniser }
+			change_religion = event_target:hie_christianity_coloniser
+			capital_scope = {
+				change_religion = event_target:hie_christianity_coloniser
+				add_or_upgrade_tax_building = yes
+			}
+		}
+		else = {
+			change_religion = catholic
+			capital_scope = {
+				change_religion = catholic
+				add_or_upgrade_tax_building = yes
+			}
+		}
+	}
+}

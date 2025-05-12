@@ -1,0 +1,63 @@
+# country_decisions = {
+# 	hie_swap_ideas = {
+# 		color = { 97  209  251 }
+# 		major = yes
+# 		potential = {
+# 			ai = no
+# 			country_has_both_hie_vanilla_ideas = yes
+# 			OR = {
+# 				NOT = { has_country_flag = hie_swap_ideas_@ROOT }
+# 				NOT = {
+# 					check_variable = {
+# 						which = HIE_swapped_ideas
+# 						value = 2
+# 					}
+# 				}
+# 			}
+# 		}
+# 		allow = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = HIE_SWAP_IDEAS_TT
+# 				OR = {
+# 					NOT = { has_country_flag = hie_swap_ideas_@ROOT }
+# 					NOT = {
+# 						check_variable = {
+# 							which = HIE_swapped_ideas
+# 							value = 2
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			hidden_effect = {
+# 				if = {
+# 					limit = {
+# 						has_country_flag = hie_swap_ideas_@ROOT
+# 					}
+# 					change_variable = {
+# 						which = HIE_swapped_ideas
+# 						value = 1
+# 					}
+# 				}
+# 				else = {
+# 					set_country_flag = hie_swap_ideas_@ROOT
+# 					set_variable = {
+# 						which = HIE_swapped_ideas
+# 						value = 1
+# 					}
+# 				}
+# 			}
+# 			if = {
+# 				limit = { has_country_flag = hie_use_vanilla_ideas }
+# 				clr_country_flag = hie_use_vanilla_ideas
+# 				custom_tooltip = HIE_RECEIVE_MODDED_IDEAS_TT
+# 			}
+# 			else = {
+# 				set_country_flag = hie_use_vanilla_ideas
+# 				custom_tooltip = HIE_RECEIVE_VANILLA_IDEAS_TT
+# 			}
+# 			swap_free_idea_group = yes
+# 		}
+# 	}
+# }

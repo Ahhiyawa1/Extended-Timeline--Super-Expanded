@@ -1,0 +1,5627 @@
+# ========
+# Subjects
+# ========
+gov_princely_state_hindu = {
+	rank = {
+		1 = PRINCELY_STATE
+		2 = PRINCELY_STATE
+		3 = PRINCELY_STATE
+		4 = PRINCELY_STATE
+		5 = PRINCELY_STATE
+		6 = PRINCELY_STATE
+		7 = PRINCELY_STATE
+		8 = PRINCELY_STATE
+		9 = PRINCELY_STATE
+		10 = PRINCELY_STATE
+	}
+
+	ruler_male = {
+		1 = RAJA
+		2 = RAJA
+		3 = RAJA
+		4 = RAJA
+		5 = RAJA
+		6 = RAJA
+		7 = MAHARAJA
+		8 = MAHARAJA
+		9 = MAHARAJA
+		10 = CHHATRAPATI
+	}
+
+	ruler_female = {
+		1 = RANI
+		2 = RANI
+		3 = RANI
+		4 = RANI
+		5 = RANI
+		6 = RANI
+		7 = MAHARANI
+		8 = MAHARANI
+		9 = MAHARANI
+		10 = CHHATRAPATI
+	}
+	
+	trigger = {
+		is_princely_state_trigger = yes
+		religion = hinduism
+		NOT = { has_government_attribute = has_prime_minister }
+	}
+}
+
+gov_princely_state_muslim = {
+	rank = {
+		1 = PRINCELY_STATE
+		2 = PRINCELY_STATE
+		3 = PRINCELY_STATE
+		4 = PRINCELY_STATE
+		5 = PRINCELY_STATE
+		6 = PRINCELY_STATE
+		7 = PRINCELY_STATE
+		8 = PRINCELY_STATE
+		9 = PRINCELY_STATE
+		10 = PRINCELY_STATE
+	}
+
+	ruler_male = {
+		1 = NAWAB
+		2 = NAWAB
+		3 = NAWAB
+		4 = NAWAB
+		5 = NAWAB
+		6 = NAWAB
+		7 = SULTAN
+		8 = SULTAN
+		9 = SULTAN
+		10 = PADISHAH
+	}
+
+	ruler_female = {
+		1 = NAWAB_BEGUM
+		2 = NAWAB_BEGUM
+		3 = NAWAB_BEGUM
+		4 = NAWAB_BEGUM
+		5 = NAWAB_BEGUM
+		6 = NAWAB_BEGUM
+		7 = SULTANA
+		8 = SULTANA
+		9 = SULTANA
+		10 = PADISHAH
+	}
+	
+	trigger = {
+		is_princely_state_trigger = yes
+		religion_group = muslim
+		NOT = { has_government_attribute = has_prime_minister }
+	}
+}
+
+gov_princely_state_prime_minister = {
+	rank = {
+		1 = PRINCELY_STATE
+		2 = PRINCELY_STATE
+		3 = PRINCELY_STATE
+		4 = PRINCELY_STATE
+		5 = PRINCELY_STATE
+		6 = PRINCELY_STATE
+		7 = PRINCELY_STATE
+		8 = PRINCELY_STATE
+		9 = PRINCELY_STATE
+		10 = PRINCELY_STATE
+	}
+
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+
+	ruler_female = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+	
+	trigger = {
+		is_princely_state_trigger = yes
+		has_government_attribute = has_prime_minister
+	}
+}
+
+gov_princely_state = {
+	rank = {
+		1 = PRINCELY_STATE
+		2 = PRINCELY_STATE
+		3 = PRINCELY_STATE
+		4 = PRINCELY_STATE
+		5 = PRINCELY_STATE
+		6 = PRINCELY_STATE
+		7 = PRINCELY_STATE
+		8 = PRINCELY_STATE
+		9 = PRINCELY_STATE
+		10 = PRINCELY_STATE
+	}
+
+	ruler_male = {
+		1 = PRINCE
+		2 = PRINCE
+		3 = PRINCE
+		4 = PRINCE
+		5 = PRINCE
+		6 = PRINCE
+		7 = PRINCE
+		8 = PRINCE
+		9 = PRINCE
+		10 = PRINCE
+	}
+
+	ruler_female = {
+		1 = PRINCEESS
+		2 = PRINCEESS
+		3 = PRINCEESS
+		4 = PRINCEESS
+		5 = PRINCEESS
+		6 = PRINCEESS
+		7 = PRINCEESS
+		8 = PRINCEESS
+		9 = PRINCEESS
+		10 = PRINCEESS
+	}
+	
+	trigger = {
+		is_princely_state_trigger = yes
+	}
+}
+
+gov_soviet_socialist_republic = {
+	rank = {
+		1 = SOVIET_SOCIALIST_REPUBLIC
+	}
+	ruler_male = {
+		1 = FIRST_SECRETARY
+	}
+	ruler_female = {
+		1 = FIRST_SECRETARY_fem
+	}
+	
+	trigger = {
+		OR = {
+			country_is = { tag = ARM }
+			country_is = { tag = AZE }
+			country_is = { tag = BLR }
+			country_is = { tag = EST }
+			country_is = { tag = FIN }
+			country_is = { tag = GEO }
+			country_is = { tag = KRY }
+			country_is = { tag = KYR }
+			country_is = { tag = KZK }
+			country_is = { tag = LIT }
+			country_is = { tag = LTV }
+			country_is = { tag = MDV }
+			country_is = { tag = TJK }
+			country_is = { tag = TRK }
+			country_is = { tag = UKR }
+			country_is = { tag = UZB }
+		}
+		is_communist = yes
+		NOT = { government_rank = 8 }
+		
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			country_is = { tag = RUS }
+			is_communist = yes
+		}
+	}
+}
+
+gov_autonomous_soviet_socialist_republic = {
+	rank = {
+		1 = AUTONOMOUS_SOVIET_SOCIALIST_REPUBLIC
+	}
+	ruler_male = {
+		1 = FIRST_SECRETARY
+	}
+	ruler_female = {
+		1 = FIRST_SECRETARY_fem
+	}
+	
+	trigger = {
+		OR = {
+			country_is = { tag = ABK }
+			country_is = { tag = ALN }
+			country_is = { tag = BRT }
+			country_is = { tag = BSH }
+			country_is = { tag = CCS }
+			country_is = { tag = CEH }
+			country_is = { tag = CRI }
+			country_is = { tag = DAG }
+			country_is = { tag = KKP }
+			country_is = { tag = KLM }
+			country_is = { tag = KRL }
+			country_is = { tag = MA0 }
+			country_is = { tag = NKC }
+			country_is = { tag = TAT }
+			country_is = { tag = TKS }
+			country_is = { tag = UDM }
+			country_is = { tag = VLG }
+			country_is = { tag = YKU }
+		}
+		is_communist = yes
+		NOT = { government_rank = 8 }
+		
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			country_is = { tag = RUS }
+			is_communist = yes
+		}
+	}
+}
+
+gov_special_administrative_region = {
+	rank = {
+		1 = SPECIAL_ADMINISTRATIVE_REGION
+	}
+	ruler_male = {
+		1 = CHIEF_EXECUTIVE
+	}
+	ruler_female = {
+		1 = CHIEF_EXECUTIVE_fem
+	}
+	
+	trigger = {
+		government = republic
+		NOT = { government_rank = 8 }
+		NOT = { has_reform = chinese_warlord_clique }
+		
+		OR = {
+			is_subject_of_type = associated_state
+			is_subject_of_type = puppet_state
+			is_subject_of_type = substate_subject
+		}
+		overlord = {
+			country_is = { tag = CHN }
+			government = republic
+		}
+	}
+}
+
+gov_substate = {
+	rank = {
+		1 = SELF_GOVERNING_STATE
+		2 = SELF_GOVERNING_REGION
+		3 = SELF_GOVERNING_SUBCONTINENT
+	}
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR_GENERAL
+		3 = VICEROY
+	}
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS_GENERAL
+		3 = VICEREINE
+	}
+	
+	trigger = {
+		government = republic
+		is_subject_of_type = substate_subject
+	}
+}
+
+gov_governorate = {
+	rank = {
+		1 = GOVERNORATE
+		2 = GOVERNORATE
+		3 = GOVERNORATE
+		4 = GOVERNORATE
+		5 = GOVERNORATE
+		6 = GOVERNORATE
+		7 = GOVERNORATE
+		8 = GOVERNORATE
+		9 = GOVERNORATE
+		10 = GOVERNORATE
+	}
+
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR_GENERAL
+		7 = GOVERNOR_GENERAL
+		8 = GOVERNOR_GENERAL
+		9 = GOVERNOR_GENERAL
+		10 = VICEROY
+	}
+
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS_GENERAL
+		7 = GOVERNESS_GENERAL
+		8 = GOVERNESS_GENERAL
+		9 = GOVERNESS_GENERAL
+		10 = VICEREINE
+	}
+	
+	trigger = {
+		is_subject_of_type = governorate_subject
+		NOT = { has_reform = grand_duchy_title_reform } # Finland
+	}
+}
+
+gov_indian_agency = {
+	rank = {
+		1 = AGENCY
+		2 = AGENCY
+		3 = AGENCY
+		4 = AGENCY
+		5 = AGENCY
+		6 = AGENCY
+		7 = AGENCY
+		8 = AGENCY
+		9 = AGENCY
+		10 = AGENCY
+	}
+
+	ruler_male = {
+		1 = COLONIAL_AGENT
+		2 = COLONIAL_AGENT
+		3 = COLONIAL_AGENT
+		4 = COLONIAL_AGENT
+		5 = COLONIAL_AGENT
+		6 = COLONIAL_AGENT
+		7 = COLONIAL_AGENT
+		8 = COLONIAL_AGENT
+		9 = COLONIAL_AGENT
+		10 = COLONIAL_AGENT
+	}
+
+	ruler_female = {
+		1 = COLONIAL_AGENT_fem
+		2 = COLONIAL_AGENT_fem
+		3 = COLONIAL_AGENT_fem
+		4 = COLONIAL_AGENT_fem
+		5 = COLONIAL_AGENT_fem
+		6 = COLONIAL_AGENT_fem
+		7 = COLONIAL_AGENT_fem
+		8 = COLONIAL_AGENT_fem
+		9 = COLONIAL_AGENT_fem
+		10 = COLONIAL_AGENT_fem
+	}
+	
+	trigger = {
+		OR = {
+			tag = BAL
+			tag = DEC
+			tag = GWA
+			tag = RJP
+		}
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+		}
+	}
+}
+
+gov_indian_presidency = {
+	rank = {
+		1 = PRESIDENCY
+		2 = PRESIDENCY
+		3 = PRESIDENCY
+		4 = PRESIDENCY
+		5 = PRESIDENCY
+		6 = PRESIDENCY
+		7 = PRESIDENCY
+		8 = PRESIDENCY
+		9 = PRESIDENCY
+		10 = PRESIDENCY
+	}
+
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+	
+	trigger = {
+		OR = {
+			tag = BBP
+			tag = BGP
+			tag = MDP
+		}
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+		}
+	}
+}
+
+gov_philippine_commonwealth = {
+	rank = {
+		1 = COMMONWEALTH
+		2 = COMMONWEALTH
+		3 = COMMONWEALTH
+		4 = COMMONWEALTH
+		5 = COMMONWEALTH
+		6 = COMMONWEALTH
+		7 = COMMONWEALTH
+		8 = COMMONWEALTH
+		9 = COMMONWEALTH
+		10 = COMMONWEALTH
+	}
+
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		country_is = { tag = PHI }
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+		}
+	}
+}
+
+gov_federated_malay_states = {
+	rank = {
+		1 = FEDERATED_STATES
+		2 = FEDERATED_STATES
+		3 = FEDERATED_STATES
+		4 = FEDERATED_STATES
+		5 = FEDERATED_STATES
+		6 = FEDERATED_STATES
+		7 = FEDERATED_STATES
+		8 = FEDERATED_STATES
+		9 = FEDERATED_STATES
+		10 = FEDERATED_STATES
+	}
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR_GENERAL
+		7 = GOVERNOR_GENERAL
+		8 = GOVERNOR_GENERAL
+		9 = GOVERNOR_GENERAL
+		10 = VICEROY
+	}
+
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS_GENERAL
+		7 = GOVERNESS_GENERAL
+		8 = GOVERNESS_GENERAL
+		9 = GOVERNESS_GENERAL
+		10 = VICEREINE
+	}
+	
+	trigger = {
+		tag = MSA
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+		}
+	}
+}
+
+gov_canadian_province = {
+	rank = {
+		1 = PROVINCE
+		2 = PROVINCE
+		3 = PROVINCE
+		4 = PROVINCE
+		5 = PROVINCE
+		6 = PROVINCE
+		7 = PROVINCE
+		8 = PROVINCE
+		9 = PROVINCE
+		10 = PROVINCE
+	}
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR_GENERAL
+		7 = GOVERNOR_GENERAL
+		8 = GOVERNOR_GENERAL
+		9 = GOVERNOR_GENERAL
+		10 = VICEROY
+	}
+
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS_GENERAL
+		7 = GOVERNESS_GENERAL
+		8 = GOVERNESS_GENERAL
+		9 = GOVERNESS_GENERAL
+		10 = VICEREINE
+	}
+	
+	trigger = {
+		OR = {
+			tag = CUL
+			tag = LCA
+			tag = NBR
+			tag = NFL
+			tag = NSC
+			tag = PEI
+			tag = QUE
+			tag = UCA
+		}
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+			AND = {
+				government = republic
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					country_is = { tag = CAN }
+				}
+			}
+		}
+	}
+}
+
+gov_american_state = {
+	rank = {
+		1 = STATE
+		2 = STATE
+		3 = STATE
+		4 = STATE
+		5 = STATE
+		6 = STATE
+		7 = STATE
+		8 = STATE
+		9 = STATE
+		10 = STATE
+	}
+
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR
+		7 = GOVERNOR
+		8 = GOVERNOR
+		9 = GOVERNOR
+		10 = GOVERNOR
+	}
+
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS
+		7 = GOVERNESS
+		8 = GOVERNESS
+		9 = GOVERNESS
+		10 = GOVERNESS
+	}
+	
+	trigger = {
+		OR = {
+			# tag = ALA
+			tag = CAL
+			tag = DSR
+			tag = FLO
+			tag = LOU
+			tag = OKL
+			tag = TEX
+			tag = UHW
+			tag = VRM
+		}
+		OR = {
+			primary_culture = american
+			primary_culture = british_louisianan
+			primary_culture = british_californian
+			primary_culture = afro_american
+			primary_culture = texan
+		}
+		government = republic
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			country_is = { tag = USA }
+		}
+	}
+}
+
+gov_colonial_company = {
+	rank = {
+		1 = COMPANY
+		2 = COMPANY
+		3 = COMPANY
+		4 = COMPANY
+		5 = COMPANY
+		6 = COMPANY
+		7 = COMPANY
+		8 = COMPANY
+		9 = COMPANY
+		10 = COMPANY
+	}
+
+	ruler_male = {
+		1 = DIRECTOR
+		2 = DIRECTOR
+		3 = DIRECTOR
+		4 = DIRECTOR
+		5 = DIRECTOR
+		6 = DIRECTOR
+		7 = DIRECTOR
+		8 = DIRECTOR
+		9 = DIRECTOR
+		10 = DIRECTOR
+	}
+
+	ruler_female = {
+		1 = DIRECTOR_fem
+		2 = DIRECTOR_fem
+		3 = DIRECTOR_fem
+		4 = DIRECTOR_fem
+		5 = DIRECTOR_fem
+		6 = DIRECTOR_fem
+		7 = DIRECTOR_fem
+		8 = DIRECTOR_fem
+		9 = DIRECTOR_fem
+		10 = DIRECTOR_fem
+	}
+	
+	trigger = {
+		has_reform = trade_company_government
+	}
+}
+
+gov_colonial_dependency = {
+	rank = {
+		1 = COLONY
+		2 = COLONY
+		3 = COLONY
+		4 = COLONY
+		5 = COLONY
+		6 = COLONY
+		7 = COLONY
+		8 = COLONY
+		9 = COLONY
+		10 = COLONY
+	}
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR_GENERAL
+		7 = GOVERNOR_GENERAL
+		8 = GOVERNOR_GENERAL
+		9 = GOVERNOR_GENERAL
+		10 = VICEROY
+	}
+
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS_GENERAL
+		7 = GOVERNESS_GENERAL
+		8 = GOVERNESS_GENERAL
+		9 = GOVERNESS_GENERAL
+		10 = VICEREINE
+	}
+	
+	trigger = {
+		OR = {
+			has_reform = colonial_oligarchy_reform
+			has_reform = responsible_government_reform
+		}
+	}
+}
+
+gov_reichskommissariat = {
+	rank = {
+		1 = REICHSKOMMISSARIAT
+		2 = REICHSKOMMISSARIAT
+		3 = REICHSKOMMISSARIAT
+		4 = REICHSKOMMISSARIAT
+		5 = REICHSKOMMISSARIAT
+		6 = REICHSKOMMISSARIAT
+		7 = REICHSKOMMISSARIAT
+		8 = REICHSKOMMISSARIAT
+		9 = REICHSKOMMISSARIAT
+		10 = REICHSKOMMISSARIAT
+	}
+
+	ruler_male = {
+		1 = REICHSKOMMISSAR
+		2 = REICHSKOMMISSAR
+		3 = REICHSKOMMISSAR
+		4 = REICHSKOMMISSAR
+		5 = REICHSKOMMISSAR
+		6 = REICHSKOMMISSAR
+		7 = REICHSKOMMISSAR
+		8 = REICHSKOMMISSAR
+		9 = REICHSKOMMISSAR
+		10 = REICHSKOMMISSAR
+	}
+
+	ruler_female = {
+		1 = REICHSKOMMISSAR_fem
+		2 = REICHSKOMMISSAR_fem
+		3 = REICHSKOMMISSAR_fem
+		4 = REICHSKOMMISSAR_fem
+		5 = REICHSKOMMISSAR_fem
+		6 = REICHSKOMMISSAR_fem
+		7 = REICHSKOMMISSAR_fem
+		8 = REICHSKOMMISSAR_fem
+		9 = REICHSKOMMISSAR_fem
+		10 = REICHSKOMMISSAR_fem
+	}
+	
+	trigger = {
+		OR = {
+			is_subject_of_type = client_vassal
+			is_subject_of_type = client_march
+			country_is = { tag = NOR }
+			country_is = { tag = NED }
+			country_is = { tag = BEL }
+			country_is = { tag = BLP }
+			country_is = { tag = BLR }
+			country_is = { tag = UKR }
+			country_is = { tag = MOS }
+			country_is = { tag = TCC }
+			country_is = { tag = TKS }
+		}
+		OR = {
+			government = republic
+			has_government_attribute = has_prime_minister
+		}
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			country_is = { tag = GER }
+			is_fascist = yes
+		}
+	}
+}
+
+gov_volkskommissariat = {
+	rank = {
+		1 = VOLKSKOMMISSARIAT
+		2 = VOLKSKOMMISSARIAT
+		3 = VOLKSKOMMISSARIAT
+		4 = VOLKSKOMMISSARIAT
+		5 = VOLKSKOMMISSARIAT
+		6 = VOLKSKOMMISSARIAT
+		7 = VOLKSKOMMISSARIAT
+		8 = VOLKSKOMMISSARIAT
+		9 = VOLKSKOMMISSARIAT
+		10 = VOLKSKOMMISSARIAT
+	}
+
+	ruler_male = {
+		1 = VOLKSKOMMISSARIAT
+		2 = VOLKSKOMMISSARIAT
+		3 = VOLKSKOMMISSARIAT
+		4 = VOLKSKOMMISSARIAT
+		5 = VOLKSKOMMISSARIAT
+		6 = VOLKSKOMMISSARIAT
+		7 = VOLKSKOMMISSARIAT
+		8 = VOLKSKOMMISSARIAT
+		9 = VOLKSKOMMISSARIAT
+		10 = VOLKSKOMMISSARIAT
+	}
+
+	ruler_female = {
+		1 = VOLKSKOMMISSAR_fem
+		2 = VOLKSKOMMISSAR_fem
+		3 = VOLKSKOMMISSAR_fem
+		4 = VOLKSKOMMISSAR_fem
+		5 = VOLKSKOMMISSAR_fem
+		6 = VOLKSKOMMISSAR_fem
+		7 = VOLKSKOMMISSAR_fem
+		8 = VOLKSKOMMISSAR_fem
+		9 = VOLKSKOMMISSAR_fem
+		10 = VOLKSKOMMISSAR_fem
+	}
+	
+	trigger = {
+		OR = {
+			is_subject_of_type = client_vassal
+			is_subject_of_type = client_march
+			country_is = { tag = NOR }
+			country_is = { tag = NED }
+			country_is = { tag = BEL }
+			country_is = { tag = BLP }
+			country_is = { tag = BLR }
+			country_is = { tag = UKR }
+			country_is = { tag = MOS }
+			country_is = { tag = TCC }
+			country_is = { tag = TKS }
+		}
+		OR = {
+			government = republic
+			# has_government_attribute = has_prime_minister
+		}
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			country_is = { tag = GER }
+			is_communist = yes
+		}
+	}
+}
+
+# =============
+# Dictatorships
+# =============
+
+# Specific
+MEX_centralist_dictatorship = {
+	rank = {
+		1 = CENTRALIST_REPUBLIC
+		2 = CENTRALIST_REPUBLIC
+		3 = CENTRALIST_REPUBLIC
+		4 = CENTRALIST_REPUBLIC
+		5 = CENTRALIST_REPUBLIC
+		6 = CENTRALIST_REPUBLIC
+		7 = CENTRALIST_REPUBLIC
+		8 = CENTRALIST_REPUBLIC
+		9 = CENTRALIST_REPUBLIC
+		10 = CENTRALIST_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = CAUDILLO
+		2 = CAUDILLO
+		3 = CAUDILLO
+		4 = CAUDILLO
+		5 = CAUDILLO
+		6 = CAUDILLO
+		7 = CAUDILLO
+		8 = CAUDILLO
+		9 = CAUDILLO
+		10 = CAUDILLO
+	}
+
+	ruler_female = {
+		1 = CAUDILLO_fem
+		2 = CAUDILLO_fem
+		3 = CAUDILLO_fem
+		4 = CAUDILLO_fem
+		5 = CAUDILLO_fem
+		6 = CAUDILLO_fem
+		7 = CAUDILLO_fem
+		8 = CAUDILLO_fem
+		9 = CAUDILLO_fem
+		10 = CAUDILLO_fem
+	}
+
+	trigger = {
+		has_country_flag = mexico_pursues_centralization
+		OR = {
+			is_dictatorship = yes
+			# has_reform = ministrial_dictatorship
+		}
+		NOT = { has_reform = communist_government }
+	}
+}
+
+PRG_de_francia_dictatorship = {
+	rank = {
+		1 = DICTATORSHIP
+		2 = DICTATORSHIP
+		3 = DICTATORSHIP
+		4 = DICTATORSHIP
+		5 = DICTATORSHIP
+		6 = DICTATORSHIP
+		7 = DICTATORSHIP
+		8 = DICTATORSHIP
+		9 = DICTATORSHIP
+		10 = DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = PERPETUAL_DICTATOR
+		2 = PERPETUAL_DICTATOR
+		3 = PERPETUAL_DICTATOR
+		4 = PERPETUAL_DICTATOR
+		5 = PERPETUAL_DICTATOR
+		6 = PERPETUAL_DICTATOR
+		7 = PERPETUAL_DICTATOR
+		8 = PERPETUAL_DICTATOR
+		9 = PERPETUAL_DICTATOR
+		10 = PERPETUAL_DICTATOR
+	}
+
+	ruler_female = {
+		1 = LEADER_fem
+		2 = LEADER_fem
+		3 = LEADER_fem
+		4 = LEADER_fem
+		5 = LEADER_fem
+		6 = LEADER_fem
+		7 = LEADER_fem
+		8 = LEADER_fem
+		9 = LEADER_fem
+		10 = LEADER_fem
+	}
+
+	trigger = {
+		tag = PRG
+		has_ruler = "Rodriguez de Francia"
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+}
+
+# Militarism
+gov_shogunate_junta = {
+	rank = {
+		1 = SHOGUNATE
+		2 = SHOGUNATE
+		3 = SHOGUNATE
+		4 = SHOGUNATE
+		5 = SHOGUNATE
+		6 = SHOGUNATE
+		7 = SHOGUNATE
+		8 = SHOGUNATE
+		9 = SHOGUNATE
+		10 = SHOGUNATE
+	}
+
+	ruler_male = {
+		1 = SHOGUN
+		2 = SHOGUN
+		3 = SHOGUN
+		4 = SHOGUN
+		5 = SHOGUN
+		6 = SHOGUN
+		7 = SHOGUN
+		8 = SHOGUN
+		9 = SHOGUN
+		10 = SHOGUN
+	}
+
+	ruler_female = {
+		1 = SHOGUNESS
+		2 = SHOGUNESS
+		3 = SHOGUNESS
+		4 = SHOGUNESS
+		5 = SHOGUNESS
+		6 = SHOGUNESS
+		7 = SHOGUNESS
+		8 = SHOGUNESS
+		9 = SHOGUNESS
+		10 = SHOGUNESS
+	}
+
+	trigger = {
+		OR = {
+			AND = {
+				culture_group = japanese_g
+				government = republic
+				has_reform = military_government
+				# have_had_reform = shogunate
+				NOT = { has_country_flag = communist_junta_flag }
+			}
+			AND = {
+				has_reform = shogunate
+				has_government_attribute = has_prime_minister
+			}
+		}
+	}
+}
+
+gov_chinese_warlord_clique = {
+	rank = {
+		1 = CLIQUE_TITLE
+		2 = CLIQUE_TITLE
+	}
+	ruler_male = {
+		1 = GENERAL
+		2 = GENERAL
+	}
+	ruler_female = {
+		1 = GENERAL_fem
+		2 = GENERAL_fem
+	}
+	
+	trigger = {
+		OR = {
+			AND = {
+				has_reform = military_government
+				culture_group = east_asian # Chinese
+			}
+			has_reform = chinese_warlord_clique
+		}
+		NOT = { government_rank = 10 }
+	}
+}
+
+# gov_nationalist_junta = {
+	# rank = {
+		# 1 = NATIONALIST_JUNTA
+		# 2 = NATIONALIST_JUNTA
+		# 3 = NATIONALIST_JUNTA
+	# }
+	# ruler_male = {
+		# 1 = GENERAL
+		# 2 = GENERAL
+		# 3 = GENERAL
+	# }
+	# ruler_female = {
+		# 1 = GENERAL_fem
+		# 2 = GENERAL_fem
+		# 3 = GENERAL_fem
+	# }
+	
+	# trigger = {
+		# has_reform = military_government
+		# has_country_flag = nationalist_junta_flag
+	# }
+# }
+
+# gov_communist_junta = {
+	# rank = {
+		# 1 = COMMUNIST_JUNTA
+		# 2 = COMMUNIST_JUNTA
+		# 3 = COMMUNIST_JUNTA
+	# }
+	# ruler_male = {
+		# 1 = CHAIRMAN
+		# 2 = CHAIRMAN
+		# 3 = CHAIRMAN
+	# }
+	# ruler_female = {
+		# 1 = CHAIRWOMAN
+		# 2 = CHAIRWOMAN
+		# 3 = CHAIRWOMAN
+	# }
+	
+	# trigger = {
+		# has_reform = military_government
+		# has_country_flag = communist_junta_flag
+	# }
+# }
+
+# gov_fascist_junta = {
+	# rank = {
+		# 1 = FASCIST_JUNTA
+		# 2 = FASCIST_JUNTA
+		# 3 = FASCIST_JUNTA
+	# }
+	# ruler_male = {
+		# 1 = LEADER
+		# 2 = LEADER
+		# 3 = LEADER
+	# }
+	# ruler_female = {
+		# 1 = LEADER_fem
+		# 2 = LEADER_fem
+		# 3 = LEADER_fem
+	# }
+	
+	# trigger = {
+		# has_reform = military_government
+		# has_country_flag = fascist_junta_flag
+	# }
+# }
+
+gov_military_dictatorship_commander_in_chief = {
+	rank = {
+		1 = MILITARY_DICTATORSHIP
+		2 = MILITARY_DICTATORSHIP
+		3 = MILITARY_DICTATORSHIP
+		4 = MILITARY_DICTATORSHIP
+		5 = MILITARY_DICTATORSHIP
+		6 = MILITARY_DICTATORSHIP
+		7 = MILITARY_DICTATORSHIP
+		8 = MILITARY_DICTATORSHIP
+		9 = MILITARY_DICTATORSHIP
+		10 = MILITARY_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = COMMANDER_IN_CHIEF
+		2 = COMMANDER_IN_CHIEF
+		3 = COMMANDER_IN_CHIEF
+		4 = COMMANDER_IN_CHIEF
+		5 = COMMANDER_IN_CHIEF
+		6 = COMMANDER_IN_CHIEF
+		7 = COMMANDER_IN_CHIEF
+		8 = COMMANDER_IN_CHIEF
+		9 = COMMANDER_IN_CHIEF
+		10 = COMMANDER_IN_CHIEF
+	}
+
+	ruler_female = {
+		1 = COMMANDER_IN_CHIEF_fem
+		2 = COMMANDER_IN_CHIEF_fem
+		3 = COMMANDER_IN_CHIEF_fem
+		4 = COMMANDER_IN_CHIEF_fem
+		5 = COMMANDER_IN_CHIEF_fem
+		6 = COMMANDER_IN_CHIEF_fem
+		7 = COMMANDER_IN_CHIEF_fem
+		8 = COMMANDER_IN_CHIEF_fem
+		9 = COMMANDER_IN_CHIEF_fem
+		10 = COMMANDER_IN_CHIEF_fem
+	}
+	
+	trigger = {
+		has_reform = military_government
+		NOT = { has_government_attribute = has_term_election }
+		is_monarch_leader = yes
+	}
+}
+
+gov_military_dictatorship = {
+	rank = {
+		1 = MILITARY_DICTATORSHIP
+		2 = MILITARY_DICTATORSHIP
+		3 = MILITARY_DICTATORSHIP
+		4 = MILITARY_DICTATORSHIP
+		5 = MILITARY_DICTATORSHIP
+		6 = MILITARY_DICTATORSHIP
+		7 = MILITARY_DICTATORSHIP
+		8 = MILITARY_DICTATORSHIP
+		9 = MILITARY_DICTATORSHIP
+		10 = MILITARY_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = GENERAL
+		2 = GENERAL
+		3 = GENERAL
+		4 = GENERAL
+		5 = GENERAL
+		6 = GENERAL
+		7 = GENERAL
+		8 = GENERAL
+		9 = GENERAL
+		10 = GENERAL
+	}
+
+	ruler_female = {
+		1 = GENERAL_fem
+		2 = GENERAL_fem
+		3 = GENERAL_fem
+		4 = GENERAL_fem
+		5 = GENERAL_fem
+		6 = GENERAL_fem
+		7 = GENERAL_fem
+		8 = GENERAL_fem
+		9 = GENERAL_fem
+		10 = GENERAL_fem
+	}
+	
+	trigger = {
+		has_reform = military_government
+		NOT = { has_government_attribute = has_term_election }
+	}
+}
+
+gov_military_junta_commander_in_chief = {
+	rank = {
+		1 = MILITARY_JUNTA
+		2 = MILITARY_JUNTA
+		3 = MILITARY_JUNTA
+		4 = MILITARY_JUNTA
+		5 = MILITARY_JUNTA
+		6 = MILITARY_JUNTA
+		7 = MILITARY_JUNTA
+		8 = MILITARY_JUNTA
+		9 = MILITARY_JUNTA
+		10 = MILITARY_JUNTA
+	}
+
+	ruler_male = {
+		1 = COMMANDER_IN_CHIEF
+		2 = COMMANDER_IN_CHIEF
+		3 = COMMANDER_IN_CHIEF
+		4 = COMMANDER_IN_CHIEF
+		5 = COMMANDER_IN_CHIEF
+		6 = COMMANDER_IN_CHIEF
+		7 = COMMANDER_IN_CHIEF
+		8 = COMMANDER_IN_CHIEF
+		9 = COMMANDER_IN_CHIEF
+		10 = COMMANDER_IN_CHIEF
+	}
+
+	ruler_female = {
+		1 = COMMANDER_IN_CHIEF_fem
+		2 = COMMANDER_IN_CHIEF_fem
+		3 = COMMANDER_IN_CHIEF_fem
+		4 = COMMANDER_IN_CHIEF_fem
+		5 = COMMANDER_IN_CHIEF_fem
+		6 = COMMANDER_IN_CHIEF_fem
+		7 = COMMANDER_IN_CHIEF_fem
+		8 = COMMANDER_IN_CHIEF_fem
+		9 = COMMANDER_IN_CHIEF_fem
+		10 = COMMANDER_IN_CHIEF_fem
+	}
+	
+	trigger = {
+		has_reform = military_government
+		is_monarch_leader = yes
+	}
+}
+
+gov_military_junta_ = {
+	rank = {
+		1 = MILITARY_JUNTA
+		2 = MILITARY_JUNTA
+		3 = MILITARY_JUNTA
+		4 = MILITARY_JUNTA
+		5 = MILITARY_JUNTA
+		6 = MILITARY_JUNTA
+		7 = MILITARY_JUNTA
+		8 = MILITARY_JUNTA
+		9 = MILITARY_JUNTA
+		10 = MILITARY_JUNTA
+	}
+
+	ruler_male = {
+		1 = GENERAL
+		2 = GENERAL
+		3 = GENERAL
+		4 = GENERAL
+		5 = GENERAL
+		6 = GENERAL
+		7 = GENERAL
+		8 = GENERAL
+		9 = GENERAL
+		10 = GENERAL
+	}
+
+	ruler_female = {
+		1 = GENERAL_fem
+		2 = GENERAL_fem
+		3 = GENERAL_fem
+		4 = GENERAL_fem
+		5 = GENERAL_fem
+		6 = GENERAL_fem
+		7 = GENERAL_fem
+		8 = GENERAL_fem
+		9 = GENERAL_fem
+		10 = GENERAL_fem
+	}
+	
+	trigger = {
+		has_reform = military_government
+	}
+}
+
+# Communism
+swedish_communism = {
+	rank = {
+		1 = SOCIALIST_STATE
+		2 = SOCIALIST_STATE
+		3 = SOCIALIST_STATE
+		4 = SOCIALIST_STATE
+		5 = SOCIALIST_STATE
+		6 = SOCIALIST_STATE
+		7 = SOCIALIST_STATE
+		8 = SOCIALIST_STATE
+		9 = SOCIALIST_STATE
+		10 = SOCIALIST_STATE
+	}
+
+	ruler_male = {
+		1 = LANDSFADER
+		2 = LANDSFADER
+		3 = LANDSFADER
+		4 = LANDSFADER
+		5 = LANDSFADER
+		6 = LANDSFADER
+		7 = LANDSFADER
+		8 = LANDSFADER
+		9 = LANDSFADER
+		10 = LANDSFADER
+	}
+
+	ruler_female = {
+		1 = LANDSMODER
+		2 = LANDSMODER
+		3 = LANDSMODER
+		4 = LANDSMODER
+		5 = LANDSMODER
+		6 = LANDSMODER
+		7 = LANDSMODER
+		8 = LANDSMODER
+		9 = LANDSMODER
+		10 = LANDSMODER
+	}
+
+	trigger = {
+		primary_culture = swedish
+		has_reform = communist_government
+		NOT = { has_reform = direct_democracy_system }
+	}
+}
+
+arab_communism = {
+	rank = {
+		1 = BAATHIST_STATE
+		2 = BAATHIST_STATE
+		3 = BAATHIST_STATE
+		4 = BAATHIST_STATE
+		5 = BAATHIST_STATE
+		6 = BAATHIST_STATE
+		7 = BAATHIST_STATE
+		8 = BAATHIST_STATE
+		9 = BAATHIST_STATE
+		10 = BAATHIST_STATE
+	}
+
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		is_arab_culture_trigger = yes
+		has_reform = communist_government
+		NOT = { has_reform = direct_democracy_system }
+	}
+}
+
+gov_peoples_republic = {
+	rank = {
+		1 = PEOPLES_REPUBLIC
+		2 = PEOPLES_REPUBLIC
+		3 = PEOPLES_REPUBLIC
+		4 = PEOPLES_REPUBLIC
+		5 = PEOPLES_REPUBLIC
+		6 = PEOPLES_REPUBLIC
+		7 = PEOPLES_REPUBLIC
+		8 = PEOPLES_REPUBLIC
+		9 = PEOPLES_REPUBLIC
+		10 = PEOPLES_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = GENERAL_SECRETARY
+		2 = GENERAL_SECRETARY
+		3 = GENERAL_SECRETARY
+		4 = GENERAL_SECRETARY
+		5 = GENERAL_SECRETARY
+		6 = GENERAL_SECRETARY
+		7 = GENERAL_SECRETARY
+		8 = GENERAL_SECRETARY
+		9 = GENERAL_SECRETARY
+		10 = GENERAL_SECRETARY
+	}
+
+	ruler_female = {
+		1 = GENERAL_SECRETARY_fem
+		2 = GENERAL_SECRETARY_fem
+		3 = GENERAL_SECRETARY_fem
+		4 = GENERAL_SECRETARY_fem
+		5 = GENERAL_SECRETARY_fem
+		6 = GENERAL_SECRETARY_fem
+		7 = GENERAL_SECRETARY_fem
+		8 = GENERAL_SECRETARY_fem
+		9 = GENERAL_SECRETARY_fem
+		10 = GENERAL_SECRETARY_fem
+	}
+
+	trigger = {
+		OR = {
+			# Current
+			tag = LAO
+			tag = PRC
+			# Former
+			tag = AGL
+			tag = ALB
+			tag = BEN
+			tag = BUK
+			tag = BUL
+			tag = CMB
+			tag = CNG
+			tag = ETH
+			tag = HUN
+			tag = KHA
+			tag = MZM
+			tag = POL
+			tag = RMN
+			tag = SYE
+			tag = TTU
+			# Soviet Puppets
+			AND = {
+				is_subject_other_than_tributary_trigger = yes
+				overlord = {
+					tag = SOV
+				}
+			}
+		}
+		has_reform = communist_government
+		NOT = { has_reform = direct_democracy_system }
+	}
+}
+
+gov_communist_dictatorship = {
+	rank = {
+		1 = SOCIALIST_STATE
+		2 = SOCIALIST_STATE
+		3 = SOCIALIST_STATE
+		4 = SOCIALIST_STATE
+		5 = SOCIALIST_STATE
+		6 = SOCIALIST_STATE
+		7 = SOCIALIST_STATE
+		8 = SOCIALIST_STATE
+		9 = SOCIALIST_STATE
+		10 = SOCIALIST_STATE
+	}
+
+	ruler_male = {
+		1 = CHAIRMAN
+		2 = CHAIRMAN
+		3 = CHAIRMAN
+		4 = CHAIRMAN
+		5 = CHAIRMAN
+		6 = CHAIRMAN
+		7 = CHAIRMAN
+		8 = CHAIRMAN
+		9 = CHAIRMAN
+		10 = CHAIRMAN
+	}
+
+	ruler_female = {
+		1 = CHAIRMAN
+		2 = CHAIRMAN
+		3 = CHAIRMAN
+		4 = CHAIRMAN
+		5 = CHAIRMAN
+		6 = CHAIRMAN
+		7 = CHAIRMAN
+		8 = CHAIRMAN
+		9 = CHAIRMAN
+		10 = CHAIRMAN
+	}
+
+	trigger = {
+		has_reform = communist_government
+		NOT = { has_reform = direct_democracy_system }
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+}
+
+gov_socialist_republic = {
+	rank = {
+		1 = SOCIALIST_REPUBLIC
+		2 = SOCIALIST_REPUBLIC
+		3 = SOCIALIST_REPUBLIC
+	}
+	ruler_male = {
+		3 = SOCIALIST_REPUBLIC
+		4 = SOCIALIST_REPUBLIC
+		5 = SOCIALIST_REPUBLIC
+		6 = SOCIALIST_REPUBLIC
+		7 = SOCIALIST_REPUBLIC
+		8 = SOCIALIST_REPUBLIC
+		9 = SOCIALIST_REPUBLIC
+		10 = SOCIALIST_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+
+	trigger = {
+		has_reform = communist_government
+		NOT = { has_reform = direct_democracy_system }
+	}
+}
+
+# Fascism
+american_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = CHIEF
+		5 = CHIEF
+		6 = CHIEF
+		7 = CHIEF
+		8 = CHIEF
+		9 = CHIEF
+		10 = CHIEF
+	}
+
+	ruler_female = {
+		1 = CHIEF
+		2 = CHIEF
+		3 = CHIEF
+		4 = CHIEF
+		5 = CHIEF
+		6 = CHIEF
+		7 = CHIEF
+		8 = CHIEF
+		9 = CHIEF
+		10 = CHIEF
+	}
+
+	trigger = {
+		primary_culture = american
+		has_reform = fascist_government
+	}
+}
+
+french_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = MARECHAL
+		2 = MARECHAL
+		3 = MARECHAL
+		4 = MARECHAL
+		5 = MARECHAL
+		6 = MARECHAL
+		7 = MARECHAL
+		8 = MARECHAL
+		9 = MARECHAL
+		10 = MARECHAL
+	}
+
+	ruler_female = {
+		1 = MARECHAL
+		2 = MARECHAL
+		3 = MARECHAL
+		4 = MARECHAL
+		5 = MARECHAL
+		6 = MARECHAL
+		7 = MARECHAL
+		8 = MARECHAL
+		9 = MARECHAL
+		10 = MARECHAL
+	}
+
+	trigger = {
+		culture_group = french
+		has_reform = fascist_government
+	}
+}
+
+dutch_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = LEIDER
+		2 = LEIDER
+		3 = LEIDER
+		4 = LEIDER
+		5 = LEIDER
+		6 = LEIDER
+		7 = LEIDER
+		8 = LEIDER
+		9 = LEIDER
+		10 = LEIDER
+	}
+
+	ruler_female = {
+		1 = LEIDER_fem
+		2 = LEIDER_fem
+		3 = LEIDER_fem
+		4 = LEIDER_fem
+		5 = LEIDER_fem
+		6 = LEIDER_fem
+		7 = LEIDER_fem
+		8 = LEIDER_fem
+		9 = LEIDER_fem
+		10 = LEIDER_fem
+	}
+
+	trigger = {
+		OR = {
+			primary_culture = frisian
+			primary_culture = dutch
+			primary_culture = flemish
+		}
+		has_reform = fascist_government
+	}
+}
+
+swedish_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = RIKSLEDARE
+		2 = RIKSLEDARE
+		3 = RIKSLEDARE
+		4 = RIKSLEDARE
+		5 = RIKSLEDARE
+		6 = RIKSLEDARE
+		7 = RIKSLEDARE
+		8 = RIKSLEDARE
+		9 = RIKSLEDARE
+		10 = RIKSLEDARE
+	}
+
+	ruler_female = {
+		1 = RIKSLEDARE_fem
+		2 = RIKSLEDARE_fem
+		3 = RIKSLEDARE_fem
+		4 = RIKSLEDARE_fem
+		5 = RIKSLEDARE_fem
+		6 = RIKSLEDARE_fem
+		7 = RIKSLEDARE_fem
+		8 = RIKSLEDARE_fem
+		9 = RIKSLEDARE_fem
+		10 = RIKSLEDARE_fem
+	}
+
+	trigger = {
+		primary_culture = swedish
+		has_reform = fascist_government
+	}
+}
+
+norwegian_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = FORER
+		2 = FORER
+		3 = FORER
+		4 = FORER
+		5 = FORER
+		6 = FORER
+		7 = FORER
+		8 = FORER
+		9 = FORER
+		10 = FORER
+	}
+
+	ruler_female = {
+		1 = FORER_fem
+		2 = FORER_fem
+		3 = FORER_fem
+		4 = FORER_fem
+		5 = FORER_fem
+		6 = FORER_fem
+		7 = FORER_fem
+		8 = FORER_fem
+		9 = FORER_fem
+		10 = FORER_fem
+	}
+
+	trigger = {
+		OR = {
+			primary_culture = norwegian
+			primary_culture = danish # Same meaning
+		}
+		has_reform = fascist_government
+	}
+}
+
+austrian_fascism = {
+	rank = {
+		1 = FEDERAL_STATE
+		2 = FEDERAL_STATE
+		3 = FEDERAL_STATE
+		4 = FEDERAL_STATE
+		5 = FEDERAL_STATE
+		6 = FEDERAL_STATE
+		7 = FEDERAL_STATE
+		8 = FEDERAL_STATE
+		9 = FEDERAL_STATE
+		10 = FEDERAL_STATE
+	}
+
+	ruler_male = {
+		1 = BUNDESFUHRER
+		2 = BUNDESFUHRER
+		3 = BUNDESFUHRER
+		4 = BUNDESFUHRER
+		5 = BUNDESFUHRER
+		6 = BUNDESFUHRER
+		7 = BUNDESFUHRER
+		8 = BUNDESFUHRER
+		9 = BUNDESFUHRER
+		10 = BUNDESFUHRER
+	}
+
+	ruler_female = {
+		1 = BUNDESFUHRER_fem
+		2 = BUNDESFUHRER_fem
+		3 = BUNDESFUHRER_fem
+		4 = BUNDESFUHRER_fem
+		5 = BUNDESFUHRER_fem
+		6 = BUNDESFUHRER_fem
+		7 = BUNDESFUHRER_fem
+		8 = BUNDESFUHRER_fem
+		9 = BUNDESFUHRER_fem
+		10 = BUNDESFUHRER_fem
+	}
+
+	trigger = {
+		primary_culture = austrian
+		has_reform = fascist_government
+	}
+}
+
+slovakian_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = VODCA
+		2 = VODCA
+		3 = VODCA
+		4 = VODCA
+		5 = VODCA
+		6 = VODCA
+		7 = VODCA
+		8 = VODCA
+		9 = VODCA
+		10 = VODCA
+	}
+
+	ruler_female = {
+		1 = VODCA_fem
+		2 = VODCA_fem
+		3 = VODCA_fem
+		4 = VODCA_fem
+		5 = VODCA_fem
+		6 = VODCA_fem
+		7 = VODCA_fem
+		8 = VODCA_fem
+		9 = VODCA_fem
+		10 = VODCA_fem
+	}
+
+	trigger = {
+		primary_culture = slovak
+		has_reform = fascist_government
+	}
+}
+
+croatian_fascism = {
+	rank = {
+		3 = INDEPENDENT_STATE
+		4 = INDEPENDENT_STATE
+		5 = INDEPENDENT_STATE
+		6 = INDEPENDENT_STATE
+		7 = INDEPENDENT_STATE
+		8 = INDEPENDENT_STATE
+		9 = INDEPENDENT_STATE
+		10 = INDEPENDENT_STATE
+	}
+
+	ruler_male = {
+		1 = POGLAVNIK
+		2 = POGLAVNIK
+		3 = POGLAVNIK
+		4 = POGLAVNIK
+		5 = POGLAVNIK
+		6 = POGLAVNIK
+		7 = POGLAVNIK
+		8 = POGLAVNIK
+		9 = POGLAVNIK
+		10 = POGLAVNIK
+	}
+
+	ruler_female = {
+		1 = POGLAVNIK_fem
+		2 = POGLAVNIK_fem
+		3 = POGLAVNIK_fem
+		4 = POGLAVNIK_fem
+		5 = POGLAVNIK_fem
+		6 = POGLAVNIK_fem
+		7 = POGLAVNIK_fem
+		8 = POGLAVNIK_fem
+		9 = POGLAVNIK_fem
+		10 = POGLAVNIK_fem
+	}
+
+	trigger = {
+		primary_culture = croatian
+		has_reform = fascist_government
+	}
+}
+
+serbian_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = VODJA
+		2 = VODJA
+		3 = VODJA
+		4 = VODJA
+		5 = VODJA
+		6 = VODJA
+		7 = VODJA
+		8 = VODJA
+		9 = VODJA
+		10 = VODJA
+	}
+
+	ruler_female = {
+		1 = VODJA_fem
+		2 = VODJA_fem
+		3 = VODJA_fem
+		4 = VODJA_fem
+		5 = VODJA_fem
+		6 = VODJA_fem
+		7 = VODJA_fem
+		8 = VODJA_fem
+		9 = VODJA_fem
+		10 = VODJA_fem
+	}
+
+	trigger = {
+		primary_culture = serbian
+		has_reform = fascist_government
+	}
+}
+
+greek_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = ARHIGOS
+		2 = ARHIGOS
+		3 = ARHIGOS
+		4 = ARHIGOS
+		5 = ARHIGOS
+		6 = ARHIGOS
+		7 = ARHIGOS
+		8 = ARHIGOS
+		9 = ARHIGOS
+		10 = ARHIGOS
+	}
+
+	ruler_female = {
+		1 = ARHIGOS_fem
+		2 = ARHIGOS_fem
+		3 = ARHIGOS_fem
+		4 = ARHIGOS_fem
+		5 = ARHIGOS_fem
+		6 = ARHIGOS_fem
+		7 = ARHIGOS_fem
+		8 = ARHIGOS_fem
+		9 = ARHIGOS_fem
+		10 = ARHIGOS_fem
+	}
+
+	trigger = {
+		primary_culture = greek
+		has_reform = fascist_government
+	}
+}
+
+russian_fascism = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = VOZHD
+		2 = VOZHD
+		3 = VOZHD
+		4 = VOZHD
+		5 = VOZHD
+		6 = VOZHD
+		7 = VOZHD
+		8 = VOZHD
+		9 = VOZHD
+		10 = VOZHD
+	}
+
+	ruler_female = {
+		1 = VOZHD_fem
+		2 = VOZHD_fem
+		3 = VOZHD_fem
+		4 = VOZHD_fem
+		5 = VOZHD_fem
+		6 = VOZHD_fem
+		7 = VOZHD_fem
+		8 = VOZHD_fem
+		9 = VOZHD_fem
+		10 = VOZHD_fem
+	}
+
+	trigger = {
+		primary_culture = russian
+		has_reform = fascist_government
+	}
+}
+
+burmese_fascism = {
+	rank = {
+		1 = STATE		
+		2 = STATE		
+		3 = STATE
+		4 = STATE
+		5 = STATE
+		6 = STATE
+		7 = STATE
+		8 = STATE
+		9 = STATE
+		10 = STATE
+	}
+	ruler_male = {
+		1 = ADIPATI
+		2 = ADIPATI
+		3 = ADIPATI
+		4 = ADIPATI
+		5 = ADIPATI
+		6 = ADIPATI
+		7 = ADIPATI
+		8 = ADIPATI
+		9 = ADIPATI
+		10 = ADIPATI
+	}
+
+	ruler_female = {
+		1 = LEADER_fem
+		2 = LEADER_fem
+		3 = LEADER_fem
+		4 = LEADER_fem
+		5 = LEADER_fem
+		6 = LEADER_fem
+		7 = LEADER_fem
+		8 = LEADER_fem
+		9 = LEADER_fem
+		10 = LEADER_fem
+	}
+
+	trigger = {
+		primary_culture = burmese
+		has_reform = fascist_government
+	}
+}
+
+gov_fascist_dictatorship = {
+	rank = {
+		1 = FASCIST_DICTATORSHIP
+		2 = FASCIST_DICTATORSHIP
+		3 = FASCIST_DICTATORSHIP
+		4 = FASCIST_DICTATORSHIP
+		5 = FASCIST_DICTATORSHIP
+		6 = FASCIST_DICTATORSHIP
+		7 = FASCIST_DICTATORSHIP
+		8 = FASCIST_DICTATORSHIP
+		9 = FASCIST_DICTATORSHIP
+		10 = FASCIST_DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = SUPREME_LEADER
+		2 = SUPREME_LEADER
+		3 = SUPREME_LEADER
+		4 = SUPREME_LEADER
+		5 = SUPREME_LEADER
+		6 = SUPREME_LEADER
+		7 = SUPREME_LEADER
+		8 = SUPREME_LEADER
+		9 = SUPREME_LEADER
+		10 = SUPREME_LEADER
+	}
+
+	ruler_female = {
+		1 = SUPREME_LEADER_fem
+		2 = SUPREME_LEADER_fem
+		3 = SUPREME_LEADER_fem
+		4 = SUPREME_LEADER_fem
+		5 = SUPREME_LEADER_fem
+		6 = SUPREME_LEADER_fem
+		7 = SUPREME_LEADER_fem
+		8 = SUPREME_LEADER_fem
+		9 = SUPREME_LEADER_fem
+		10 = SUPREME_LEADER_fem
+	}
+
+	trigger = {
+		has_reform = fascist_government
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+}
+
+gov_fascist_state = {
+	rank = {
+		1 = FASCIST_STATE		
+		2 = FASCIST_STATE		
+		3 = FASCIST_STATE
+		4 = FASCIST_STATE
+		5 = FASCIST_STATE
+		6 = FASCIST_STATE
+		7 = FASCIST_STATE
+		8 = FASCIST_STATE
+		9 = FASCIST_STATE
+		10 = FASCIST_STATE
+	}
+
+	ruler_male = {
+		1 = LEADER
+		2 = LEADER
+		3 = LEADER
+		4 = LEADER
+		5 = LEADER
+		6 = LEADER
+		7 = LEADER
+		8 = LEADER
+		9 = LEADER
+		10 = LEADER
+	}
+
+	ruler_female = {
+		1 = LEADER_fem
+		2 = LEADER_fem
+		3 = LEADER_fem
+		4 = LEADER_fem
+		5 = LEADER_fem
+		6 = LEADER_fem
+		7 = LEADER_fem
+		8 = LEADER_fem
+		9 = LEADER_fem
+		10 = LEADER_fem
+	}
+
+	trigger = {
+		has_reform = fascist_government
+	}
+}
+
+# Generic Dictatorships
+iberian_dictatorship = {
+	rank = {
+		1 = DICTATORSHIP		
+		2 = DICTATORSHIP		
+		3 = DICTATORSHIP
+		4 = DICTATORSHIP
+		5 = DICTATORSHIP
+		6 = DICTATORSHIP
+		7 = DICTATORSHIP
+		8 = DICTATORSHIP
+		9 = DICTATORSHIP
+		10 = DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = CAUDILLO
+		2 = CAUDILLO
+		3 = CAUDILLO
+		4 = CAUDILLO
+		5 = CAUDILLO
+		6 = CAUDILLO
+		7 = CAUDILLO
+		8 = CAUDILLO
+		9 = CAUDILLO
+		10 = CAUDILLO
+	}
+
+	ruler_female = {
+		1 = CAUDILLO_fem
+		2 = CAUDILLO_fem
+		3 = CAUDILLO_fem
+		4 = CAUDILLO_fem
+		5 = CAUDILLO_fem
+		6 = CAUDILLO_fem
+		7 = CAUDILLO_fem
+		8 = CAUDILLO_fem
+		9 = CAUDILLO_fem
+		10 = CAUDILLO_fem
+	}
+
+	trigger = {
+		culture_group = iberian
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+}
+
+gov_generic_dictatorship = {
+	rank = {
+		1 = DICTATORSHIP		
+		2 = DICTATORSHIP		
+		3 = DICTATORSHIP
+		4 = DICTATORSHIP
+		5 = DICTATORSHIP
+		6 = DICTATORSHIP
+		7 = DICTATORSHIP
+		8 = DICTATORSHIP
+		9 = DICTATORSHIP
+		10 = DICTATORSHIP
+	}
+
+	ruler_male = {
+		1 = LEADER
+		2 = LEADER
+		3 = LEADER
+		4 = LEADER
+		5 = LEADER
+		6 = LEADER
+		7 = LEADER
+		8 = LEADER
+		9 = LEADER
+		10 = LEADER
+	}
+
+	ruler_female = {
+		1 = LEADER_fem
+		2 = LEADER_fem
+		3 = LEADER_fem
+		4 = LEADER_fem
+		5 = LEADER_fem
+		6 = LEADER_fem
+		7 = LEADER_fem
+		8 = LEADER_fem
+		9 = LEADER_fem
+		10 = LEADER_fem
+	}
+
+	trigger = {
+		OR = {
+			is_dictatorship = yes
+			has_reform = ministrial_dictatorship
+		}
+	}
+}
+
+# =========
+# Dominions
+# =========
+gov_union_dominion = {
+	rank = {
+		1 = UNION		
+		2 = UNION		
+		3 = UNION
+		4 = UNION
+		5 = UNION
+		6 = UNION
+		7 = UNION
+		8 = UNION
+		9 = UNION
+		10 = UNION
+	}
+
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+
+	ruler_female = {
+		1 = PRIME_MINISTER_fem
+		2 = PRIME_MINISTER_fem
+		3 = PRIME_MINISTER_fem
+		4 = PRIME_MINISTER_fem
+		5 = PRIME_MINISTER_fem
+		6 = PRIME_MINISTER_fem
+		7 = PRIME_MINISTER_fem
+		8 = PRIME_MINISTER_fem
+		9 = PRIME_MINISTER_fem
+		10 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		OR = {
+			country_is = { tag = RSA }
+			country_is = { tag = INI }
+		}
+		has_reform = dominion_reform
+	}
+}
+
+IRE_free_state = {
+	rank = {
+		1 = FREE_STATE		
+		2 = FREE_STATE		
+		3 = FREE_STATE
+		4 = FREE_STATE
+		5 = FREE_STATE
+		6 = FREE_STATE
+		7 = FREE_STATE
+		8 = FREE_STATE
+		9 = FREE_STATE
+		10 = FREE_STATE
+	}
+
+	ruler_male = {
+		1 = TAOISEACH
+		2 = TAOISEACH
+		3 = TAOISEACH
+		4 = TAOISEACH
+		5 = TAOISEACH
+		6 = TAOISEACH
+		7 = TAOISEACH
+		8 = TAOISEACH
+		9 = TAOISEACH
+		10 = TAOISEACH
+	}
+
+	ruler_female = {
+		1 = TAOISEACH_fem
+		2 = TAOISEACH_fem
+		3 = TAOISEACH_fem
+		4 = TAOISEACH_fem
+		5 = TAOISEACH_fem
+		6 = TAOISEACH_fem
+		7 = TAOISEACH_fem
+		8 = TAOISEACH_fem
+		9 = TAOISEACH_fem
+		10 = TAOISEACH_fem
+	}
+
+	trigger = {
+		country_is = { tag = IRE }
+		has_reform = dominion_reform
+	}
+}
+
+AUS_commonwealth = {
+	rank = {
+		1 = COMMONWEALTH		
+		2 = COMMONWEALTH		
+		3 = COMMONWEALTH
+		4 = COMMONWEALTH
+		5 = COMMONWEALTH
+		6 = COMMONWEALTH
+		7 = COMMONWEALTH
+		8 = COMMONWEALTH
+		9 = COMMONWEALTH
+		10 = COMMONWEALTH
+	}
+
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+
+	ruler_female = {
+		1 = PRIME_MINISTER_fem
+		2 = PRIME_MINISTER_fem
+		3 = PRIME_MINISTER_fem
+		4 = PRIME_MINISTER_fem
+		5 = PRIME_MINISTER_fem
+		6 = PRIME_MINISTER_fem
+		7 = PRIME_MINISTER_fem
+		8 = PRIME_MINISTER_fem
+		9 = PRIME_MINISTER_fem
+		10 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		country_is = { tag = AUS }
+		has_reform = dominion_reform
+	}
+}
+
+gov_commonwealth_dominion = {
+	rank = {
+		1 = COMMONWEALTH_REALM		
+		2 = COMMONWEALTH_REALM		
+		3 = COMMONWEALTH_REALM
+		4 = COMMONWEALTH_REALM
+		5 = COMMONWEALTH_REALM
+		6 = COMMONWEALTH_REALM
+		7 = COMMONWEALTH_REALM
+		8 = COMMONWEALTH_REALM
+		9 = COMMONWEALTH_REALM
+		10 = COMMONWEALTH_REALM
+	}
+
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+
+	ruler_female = {
+		1 = PRIME_MINISTER_fem
+		2 = PRIME_MINISTER_fem
+		3 = PRIME_MINISTER_fem
+		4 = PRIME_MINISTER_fem
+		5 = PRIME_MINISTER_fem
+		6 = PRIME_MINISTER_fem
+		7 = PRIME_MINISTER_fem
+		8 = PRIME_MINISTER_fem
+		9 = PRIME_MINISTER_fem
+		10 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		OR = {
+			has_country_flag = dominion_of_GBR
+			has_country_flag = dominion_of_UKI
+		}
+		NOT = { is_subject_of_type = dominion }
+		has_reform = dominion_reform
+	}
+}
+
+gov_dominion = {
+	rank = {
+		1 = DOMINION		
+		2 = DOMINION		
+		3 = DOMINION
+		4 = DOMINION
+		5 = DOMINION
+		6 = DOMINION
+		7 = DOMINION
+		8 = DOMINION
+		9 = DOMINION
+		10 = DOMINION
+	}
+
+	ruler_male = {
+		1 = PRIME_MINISTER
+		2 = PRIME_MINISTER
+		3 = PRIME_MINISTER
+		4 = PRIME_MINISTER
+		5 = PRIME_MINISTER
+		6 = PRIME_MINISTER
+		7 = PRIME_MINISTER
+		8 = PRIME_MINISTER
+		9 = PRIME_MINISTER
+		10 = PRIME_MINISTER
+	}
+
+	ruler_female = {
+		1 = PRIME_MINISTER_fem
+		2 = PRIME_MINISTER_fem
+		3 = PRIME_MINISTER_fem
+		4 = PRIME_MINISTER_fem
+		5 = PRIME_MINISTER_fem
+		6 = PRIME_MINISTER_fem
+		7 = PRIME_MINISTER_fem
+		8 = PRIME_MINISTER_fem
+		9 = PRIME_MINISTER_fem
+		10 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		has_reform = dominion_reform
+	}
+}
+
+# ==========
+# Monarchies
+# ==========
+gov_principality_ceremonial_monarchy = {
+	rank = {
+		5 = PRINCIPALITY
+	}
+	ruler_male = {
+		5 = PRIME_MINISTER
+	}
+	ruler_female = {
+		5 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = principality_title_reform
+		has_government_attribute = has_prime_minister
+	}
+}
+
+gov_principality = {
+	rank = {
+		5 = PRINCIPALITY
+	}
+	ruler_male = {
+		5 = PRINCE
+	}
+	ruler_female = {
+		5 = PRINCESS
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = principality_title_reform
+	}
+}
+
+gov_grand_duchy_ceremonial_monarchy = {
+	rank = {
+		6 = GRAND_DUCHY
+	}
+	ruler_male = {
+		6 = PRIME_MINISTER
+	}
+	ruler_female = {
+		6 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = grand_duchy_title_reform
+		has_government_attribute = has_prime_minister
+	}
+}
+
+gov_grand_duchy = {
+	rank = {
+		6 = GRAND_DUCHY
+	}
+	ruler_male = {
+		6 = GRAND_DUKE
+	}
+	ruler_female = {
+		6 = GRAND_DUCHESS
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = grand_duchy_title_reform
+	}
+}
+
+gov_heavenly_kingdom_ceremonial_monarchy = {
+	rank = {
+		8 = HEAVENLY_KINGDOM
+	}
+	ruler_male = {
+		8 = PRIME_MINISTER
+	}
+	ruler_female = {
+		8 = PRIME_MINISTER_fem
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = heavenly_kingdom_reform
+		has_government_attribute = has_prime_minister
+	}
+}
+
+gov_heavenly_kingdom = {
+	rank = {
+		3 = HEAVENLY_KINGDOM
+	}
+	ruler_male = {
+		8 = HEAVENLY_KING
+	}
+	ruler_female = {
+		8 = HEAVENLY_QUEEN
+	}
+	heir_male = {
+		8 = JUNIOR_LORD
+	}
+	heir_female = {
+		8 = JUNIOR_LADY
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = heavenly_kingdom_reform
+	}
+}
+
+AUH_dual_monarchy_ceremonial_monarchy = {
+	rank = {
+		1 = DUAL_MONARCHY		
+		2 = DUAL_MONARCHY		
+		3 = DUAL_MONARCHY
+		4 = DUAL_MONARCHY
+		5 = DUAL_MONARCHY
+		6 = DUAL_MONARCHY
+		7 = DUAL_MONARCHY
+		8 = DUAL_MONARCHY
+		9 = DUAL_MONARCHY
+		10 = DUAL_MONARCHY
+	}
+
+	ruler_male = {
+		1 = MINISTER_PRESIDENT
+		2 = MINISTER_PRESIDENT
+		3 = MINISTER_PRESIDENT
+		4 = MINISTER_PRESIDENT
+		5 = MINISTER_PRESIDENT
+		6 = MINISTER_PRESIDENT
+		7 = MINISTER_PRESIDENT
+		8 = MINISTER_PRESIDENT
+		9 = MINISTER_PRESIDENT
+		10 = MINISTER_PRESIDENT
+	}
+
+	ruler_female = {
+		1 = MINISTER_PRESIDENT_fem
+		2 = MINISTER_PRESIDENT_fem
+		3 = MINISTER_PRESIDENT_fem
+		4 = MINISTER_PRESIDENT_fem
+		5 = MINISTER_PRESIDENT_fem
+		6 = MINISTER_PRESIDENT_fem
+		7 = MINISTER_PRESIDENT_fem
+		8 = MINISTER_PRESIDENT_fem
+		9 = MINISTER_PRESIDENT_fem
+		10 = MINISTER_PRESIDENT_fem
+	}
+
+	trigger = {
+		tag = AUH
+		government = monarchy
+		has_government_attribute = has_prime_minister
+	}
+}
+
+AUH_dual_monarchy = {
+	rank = {
+		1 = DUAL_MONARCHY
+		2 = DUAL_MONARCHY
+		3 = DUAL_MONARCHY
+	}
+	ruler_male = {
+		1 = ARCHDUKE
+		2 = KING
+		3 = EMPEROR
+	}
+	ruler_female = {
+		1 = ARCHDUCHESS
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	trigger = {
+		tag = AUH
+		government = monarchy
+	}
+}
+
+GER_ceremonial_monarchy = {
+	rank = {
+		1 = HERZOGTUM		
+		2 = HERZOGTUM		
+		3 = HERZOGTUM
+		4 = HERZOGTUM
+		5 = HERZOGTUM
+		6 = HERZOGTUM
+		7 = KONINGREICH
+		8 = KONINGREICH
+		9 = KONINGREICH
+		10 = KAISERREICH
+	}
+
+	ruler_male = {
+		1 = KANZLER		
+		2 = KANZLER		
+		3 = KANZLER
+		4 = KANZLER
+		5 = KANZLER
+		6 = KANZLER
+		7 = BUNDESKANZLER
+		8 = BUNDESKANZLER
+		9 = BUNDESKANZLER
+		10 = REICHSKANZLER
+	}
+
+	ruler_female = {
+		1 = KANZLER_fem
+		2 = KANZLER_fem
+		3 = KANZLER_fem
+		4 = KANZLER_fem
+		5 = KANZLER_fem
+		6 = KANZLER_fem
+		7 = BUNDESKANZLER_fem
+		8 = BUNDESKANZLER_fem
+		9 = BUNDESKANZLER_fem
+		10 = REICHSKANZLER_fem
+	}
+
+	trigger = {
+		OR = {
+			tag = HLR
+			tag = GER
+		}
+		government = monarchy
+		has_government_attribute = has_prime_minister
+	}
+}
+
+SWN_united_kingdom_ceremonial_monarchy = {
+	rank = {
+		1 = UNITED_DUCHY		
+		2 = UNITED_DUCHY		
+		3 = UNITED_DUCHY
+		4 = UNITED_DUCHY
+		5 = UNITED_DUCHY
+		6 = UNITED_DUCHY
+		7 = UNITED_KINGDOM
+		8 = UNITED_KINGDOM
+		9 = UNITED_KINGDOM
+		10 = UNITED_EMPIRE
+	}
+
+	ruler_male = {
+		1 = STATE_MINISTER		
+		2 = STATE_MINISTER		
+		3 = STATE_MINISTER
+		4 = STATE_MINISTER
+		5 = STATE_MINISTER
+		6 = STATE_MINISTER
+		7 = STATE_MINISTER
+		8 = STATE_MINISTER
+		9 = STATE_MINISTER
+		10 = STATE_MINISTER
+	}
+
+	ruler_female = {
+		1 = STATE_MINISTER_fem
+		2 = STATE_MINISTER_fem
+		3 = STATE_MINISTER_fem
+		4 = STATE_MINISTER_fem
+		5 = STATE_MINISTER_fem
+		6 = STATE_MINISTER_fem
+		7 = STATE_MINISTER_fem
+		8 = STATE_MINISTER_fem
+		9 = STATE_MINISTER_fem
+		10 = STATE_MINISTER_fem
+	}
+
+	trigger = {
+		tag = SWN
+		government = monarchy
+		has_government_attribute = has_prime_minister
+	}
+}
+
+SWN_united_kingdom = {
+	rank = {
+		1 = UNITED_DUCHY		
+		2 = UNITED_DUCHY		
+		3 = UNITED_DUCHY
+		4 = UNITED_DUCHY
+		5 = UNITED_DUCHY
+		6 = UNITED_DUCHY
+		7 = UNITED_KINGDOM
+		8 = UNITED_KINGDOM
+		9 = UNITED_KINGDOM
+		10 = UNITED_EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE		
+		2 = DUKE		
+		3 = DUKE
+		4 = DUKE
+		5 = DUKE
+		6 = DUKE
+		7 = DUKE
+		8 = KING
+		9 = KING
+		10 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = DUCHESS
+		3 = DUCHESS
+		4 = DUCHESS
+		5 = DUCHESS
+		6 = DUCHESS
+		7 = DUCHESS
+		8 = QUEEN
+		9 = QUEEN
+		10 = EMPRESS
+	}
+
+	trigger = {
+		tag = SWN
+		government = monarchy
+	}
+}
+
+JER_bailiwick_of_jersey_ceremonial_monarchy = {
+	rank = {
+		1 = BAILIWICK
+	}
+	ruler_male = {
+		1 = CHIEF_MINISTER
+	}
+	ruler_female = {
+		1 = CHIEF_MINISTER_fem
+	}
+
+	trigger = {
+		tag = JER
+		government = monarchy
+		NOT = { government_rank = 8 }
+		has_government_attribute = has_prime_minister
+	}
+}
+
+JER_bailiwick_of_jersey = {
+	rank = {
+		1 = BAILIWICK
+	}
+	ruler_male = {
+		1 = DUKE
+	}
+	ruler_female = {
+		1 = DUCHESS
+	}
+
+	trigger = {
+		tag = JER
+		government = monarchy
+		NOT = { government_rank = 8 }
+	}
+}
+
+KOI_lordship_of_mann_ceremonial_monarchy = {
+	rank = {
+		1 = LORDSHIP
+	}
+	ruler_male = {
+		1 = CHIEF_MINISTER
+	}
+	ruler_female = {
+		1 = CHIEF_MINISTER_fem
+	}
+
+	trigger = {
+		primary_culture = highland_scottish
+		government = monarchy
+		NOT = { government_rank = 8 }
+		has_government_attribute = has_prime_minister
+	}
+}
+
+SPA_ceremonial_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+	}
+
+	trigger = {
+		country_is = { tag = SPA }
+		government = monarchy
+		has_government_attribute = has_prime_minister
+	}
+}
+
+NED_ceremonial_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = DUCHY
+		3 = DUCHY
+		4 = DUCHY
+		5 = DUCHY
+		6 = DUCHY
+		7 = DUCHY
+		8 = KINGDOM
+		9 = KINGDOM
+		10 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = MINISTER_PRESIDENT
+		2 = MINISTER_PRESIDENT
+		3 = MINISTER_PRESIDENT
+		4 = MINISTER_PRESIDENT
+		5 = MINISTER_PRESIDENT
+		6 = MINISTER_PRESIDENT
+		7 = MINISTER_PRESIDENT
+		8 = MINISTER_PRESIDENT
+		9 = MINISTER_PRESIDENT
+		10 = MINISTER_PRESIDENT
+	}
+
+	ruler_female = {
+		1 = MINISTER_PRESIDENT_fem
+		2 = MINISTER_PRESIDENT_fem
+		3 = MINISTER_PRESIDENT_fem
+		4 = MINISTER_PRESIDENT_fem
+		5 = MINISTER_PRESIDENT_fem
+		6 = MINISTER_PRESIDENT_fem
+		7 = MINISTER_PRESIDENT_fem
+		8 = MINISTER_PRESIDENT_fem
+		9 = MINISTER_PRESIDENT_fem
+		10 = MINISTER_PRESIDENT_fem
+	}
+
+	trigger = {
+		country_is = { tag = NED }
+		government = monarchy
+		has_government_attribute = has_prime_minister
+	}
+}
+
+
+gov_hashemite_kingdom_prime_minister = {
+    rank = {
+        1 = HASHEMITE_PRINCEDOM
+        2 = HASHEMITE_PRINCEDOM
+        3 = HASHEMITE_PRINCEDOM
+        4 = HASHEMITE_PRINCEDOM
+        5 = HASHEMITE_PRINCEDOM
+        6 = HASHEMITE_PRINCEDOM
+        7 = HASHEMITE_PRINCEDOM
+        8 = HASHEMITE_KINGDOM
+        9 = HASHEMITE_KINGDOM
+        10 = HASHEMITE_EMPIRE
+    }
+    ruler_male = {
+        1 = PRIME_MINISTER
+        2 = PRIME_MINISTER
+        3 = PRIME_MINISTER
+        4 = PRIME_MINISTER
+        5 = PRIME_MINISTER
+        6 = PRIME_MINISTER
+        7 = PRIME_MINISTER
+        8 = PRIME_MINISTER
+        9 = PRIME_MINISTER
+        10 = PRIME_MINISTER
+    }
+    ruler_female = {
+        1 = PRIME_MINISTER_fem
+        2 = PRIME_MINISTER_fem
+        3 = PRIME_MINISTER_fem
+        4 = PRIME_MINISTER_fem
+        5 = PRIME_MINISTER_fem
+        6 = PRIME_MINISTER_fem
+        7 = PRIME_MINISTER_fem
+        8 = PRIME_MINISTER_fem
+        9 = PRIME_MINISTER_fem
+        10 = PRIME_MINISTER_fem
+    }
+    
+    trigger = {
+        has_reform = muslim_kingdom_reform
+        has_country_flag = hashemite_dynasty_flag
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+gov_hashemite_kingdom = {
+    rank = {
+        1 = HASHEMITE_PRINCEDOM
+        2 = HASHEMITE_PRINCEDOM
+        3 = HASHEMITE_PRINCEDOM
+        4 = HASHEMITE_PRINCEDOM
+        5 = HASHEMITE_PRINCEDOM
+        6 = HASHEMITE_PRINCEDOM
+        7 = HASHEMITE_PRINCEDOM
+        8 = HASHEMITE_KINGDOM
+        9 = HASHEMITE_KINGDOM
+        10 = HASHEMITE_EMPIRE
+    }
+    ruler_male = {
+        1 = PRINCE
+        2 = PRINCE
+        3 = PRINCE
+        4 = PRINCE
+        5 = PRINCE
+        6 = PRINCE
+        7 = PRINCE
+        8 = KING
+        9 = KING
+        10 = EMPEROR
+    }
+    ruler_female = {
+        1 = PRINCESS
+        2 = PRINCESS
+        3 = PRINCESS
+        4 = PRINCESS
+        5 = PRINCESS
+        6 = PRINCESS
+        7 = PRINCESS
+        8 = QUEEN
+        9 = QUEEN
+        10 = EMPRESS
+    }
+
+    trigger = {
+        has_reform = muslim_kingdom_reform
+        dynasty = "Hashemite"
+    }
+}
+
+
+gov_muslim_kingdom = {
+    rank = {
+        1 = PRINCEDOM
+        2 = PRINCEDOM
+        3 = PRINCEDOM
+        4 = PRINCEDOM
+        5 = PRINCEDOM
+        6 = PRINCEDOM
+        7 = PRINCEDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = PRINCE
+        2 = PRINCE
+        3 = PRINCE
+        4 = PRINCE
+        5 = PRINCE
+        6 = PRINCE
+        7 = PRINCE
+        8 = KING
+        9 = KING
+        10 = EMPEROR
+    }
+    ruler_female = {
+        1 = PRINCESS
+        2 = PRINCESS
+        3 = PRINCESS
+        4 = PRINCESS
+        5 = PRINCESS
+        6 = PRINCESS
+        7 = PRINCESS
+        8 = QUEEN
+        9 = QUEEN
+        10 = EMPRESS
+    }
+
+    trigger = {
+        has_reform = muslim_kingdom_reform
+        NOT = { has_government_attribute = has_prime_minister }
+    }
+}
+
+gov_state_ceremonial_monarchy = {
+    rank = {
+        1 = STATE
+        2 = STATE
+        3 = STATE
+        4 = STATE
+        5 = STATE
+        6 = STATE
+        7 = STATE
+        8 = STATE
+        9 = STATE
+        10 = IMPERIAL_STATE
+    }
+    ruler_male = {
+        1 = PRIME_MINISTER
+        2 = PRIME_MINISTER
+        3 = PRIME_MINISTER
+        4 = PRIME_MINISTER
+        5 = PRIME_MINISTER
+        6 = PRIME_MINISTER
+        7 = PRIME_MINISTER
+        8 = PRIME_MINISTER
+        9 = PRIME_MINISTER
+        10 = PRIME_MINISTER
+    }
+    ruler_female = {
+        1 = PRIME_MINISTER_fem
+        2 = PRIME_MINISTER_fem
+        3 = PRIME_MINISTER_fem
+        4 = PRIME_MINISTER_fem
+        5 = PRIME_MINISTER_fem
+        6 = PRIME_MINISTER_fem
+        7 = PRIME_MINISTER_fem
+        8 = PRIME_MINISTER_fem
+        9 = PRIME_MINISTER_fem
+        10 = PRIME_MINISTER_fem
+    }
+
+    trigger = {
+        OR = {
+            AND = {
+                country_is = { tag = IRA }
+                government_rank = 10
+            }
+            AND = {
+                OR = {
+                    tag = SRW
+                    AND = {
+                        was_tag = SRW
+                        NOT = { exists = SRW }
+                    }
+                }
+                primary_culture = english
+            }
+            AND = {
+                OR = {
+                    tag = KUW
+                    tag = BHR
+                    tag = QTR
+                }
+                NOT = { government_rank = 8 }
+            }
+        }
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+IRA_imperial_state = {
+	rank = {
+		10 = IMPERIAL_STATE
+	}
+	ruler_male = {
+		10 = SHAH
+	}
+	ruler_female = {
+		10 = SHAH
+	}
+
+	trigger = {
+		country_is = { tag = IRA }
+		government = monarchy
+		government_rank = 10
+	}
+}
+
+SRW_english_state = {
+    rank = {
+        1 = STATE
+        2 = STATE
+        3 = STATE
+        4 = STATE
+        5 = STATE
+        6 = STATE
+        7 = STATE
+        8 = STATE
+        9 = STATE
+        10 = IMPERIAL_STATE
+    }
+    ruler_male = {
+        1 = RAJAH
+        2 = RAJAH
+        3 = RAJAH
+        4 = RAJAH
+        5 = RAJAH
+        6 = RAJAH
+        7 = RAJAH
+        8 = RAJAH
+        9 = RAJAH
+        10 = RAJAH
+    }
+    ruler_female = {
+        1 = RANEE
+        2 = RANEE
+        3 = RANEE
+        4 = RANEE
+        5 = RANEE
+        6 = RANEE
+        7 = RANEE
+        8 = RANEE
+        9 = RANEE
+        10 = RANEE
+    }
+
+    trigger = {
+        OR = {
+            tag = SRW
+            AND = {
+                was_tag = SRW
+                NOT = { exists = SRW }
+            }
+        }
+        government = monarchy
+        primary_culture = english
+    }
+}
+
+
+gov_arab_gulf_state = {
+	rank = {
+		1 = STATE
+	}
+	ruler_male = {
+		1 = EMIR
+	}
+	ruler_female = {
+		1 = EMIRA
+	}
+
+	trigger = {
+		OR = {
+			tag = KUW
+			tag = BHR
+			tag = QTR
+		}
+		government = monarchy
+		has_reform = royal_power
+		NOT = { government_rank = 8 }
+	}
+}
+
+PUN_federal_ceremonial_monarchy = {
+    rank = {
+        1 = FEDERAL_DUCHY
+        2 = FEDERAL_DUCHY
+        3 = FEDERAL_DUCHY
+        4 = FEDERAL_DUCHY
+        5 = FEDERAL_DUCHY
+        6 = FEDERAL_DUCHY
+        7 = FEDERAL_DUCHY
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+    ruler_male = {
+        1 = WAZIR
+        2 = WAZIR
+        3 = WAZIR
+        4 = WAZIR
+        5 = WAZIR
+        6 = WAZIR
+        7 = WAZIR
+        8 = WAZIR
+        9 = WAZIR
+        10 = WAZIR
+    }
+    ruler_female = {
+        1 = WAZIR_fem
+        2 = WAZIR_fem
+        3 = WAZIR_fem
+        4 = WAZIR_fem
+        5 = WAZIR_fem
+        6 = WAZIR_fem
+        7 = WAZIR_fem
+        8 = WAZIR_fem
+        9 = WAZIR_fem
+        10 = WAZIR_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = PUN
+            AND = {
+                was_tag = PUN
+                NOT = { exists = PUN }
+            }
+        }
+        government = monarchy
+        has_reform = misl_confederacy_reform
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+PUN_federal_monarchy = {
+    rank = {
+        1 = FEDERAL_DUCHY
+        2 = FEDERAL_DUCHY
+        3 = FEDERAL_DUCHY
+        4 = FEDERAL_DUCHY
+        5 = FEDERAL_DUCHY
+        6 = FEDERAL_DUCHY
+        7 = FEDERAL_DUCHY
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+    ruler_male = {
+        1 = RAJA
+        2 = RAJA
+        3 = RAJA
+        4 = RAJA
+        5 = RAJA
+        6 = RAJA
+        7 = RAJA
+        8 = MAHARAJA
+        9 = MAHARAJA
+        10 = MAHARAJA
+    }
+    ruler_female = {
+        1 = RANI
+        2 = RANI
+        3 = RANI
+        4 = RANI
+        5 = RANI
+        6 = RANI
+        7 = RANI
+        8 = MAHARANI
+        9 = MAHARANI
+        10 = MAHARANI
+    }
+
+    trigger = {
+        OR = {
+            tag = PUN
+            AND = {
+                was_tag = PUN
+                NOT = { exists = PUN }
+            }
+        }
+        government = monarchy
+        has_reform = misl_confederacy_reform
+    }
+}
+
+
+UAE_federal_ceremonial_monarchy = {
+    rank = {
+        1 = FEDERAL_DUCHY
+        2 = FEDERAL_DUCHY
+        3 = FEDERAL_DUCHY
+        4 = FEDERAL_DUCHY
+        5 = FEDERAL_DUCHY
+        6 = FEDERAL_DUCHY
+        7 = FEDERAL_DUCHY
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+    ruler_male = {
+        1 = PRIME_MINISTER
+        2 = PRIME_MINISTER
+        3 = PRIME_MINISTER
+        4 = PRIME_MINISTER
+        5 = PRIME_MINISTER
+        6 = PRIME_MINISTER
+        7 = PRIME_MINISTER
+        8 = PRIME_MINISTER
+        9 = PRIME_MINISTER
+        10 = PRIME_MINISTER
+    }
+    ruler_female = {
+        1 = PRIME_MINISTER_fem
+        2 = PRIME_MINISTER_fem
+        3 = PRIME_MINISTER_fem
+        4 = PRIME_MINISTER_fem
+        5 = PRIME_MINISTER_fem
+        6 = PRIME_MINISTER_fem
+        7 = PRIME_MINISTER_fem
+        8 = PRIME_MINISTER_fem
+        9 = PRIME_MINISTER_fem
+        10 = PRIME_MINISTER_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = UAE
+            AND = {
+                was_tag = UAE
+                NOT = { exists = UAE }
+            }
+        }
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+UAE_federal_monarchy = {
+    rank = {
+        1 = FEDERAL_DUCHY
+        2 = FEDERAL_DUCHY
+        3 = FEDERAL_KINGDOM
+        4 = FEDERAL_KINGDOM
+        5 = FEDERAL_KINGDOM
+        6 = FEDERAL_KINGDOM
+        7 = FEDERAL_KINGDOM
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+
+    ruler_male = {
+        1 = RAIS
+        2 = RAIS
+        3 = RAIS
+        4 = RAIS
+        5 = RAIS
+        6 = RAIS
+        7 = RAIS
+        8 = RAIS
+        9 = RAIS
+        10 = RAIS
+    }
+
+    ruler_female = {
+        1 = PRESIDENT
+        2 = PRESIDENT
+        3 = PRESIDENT
+        4 = PRESIDENT
+        5 = PRESIDENT
+        6 = PRESIDENT
+        7 = PRESIDENT
+        8 = PRESIDENT
+        9 = PRESIDENT
+        10 = PRESIDENT
+    }
+
+    trigger = {
+        OR = {
+            tag = UAE
+            AND = {
+                was_tag = UAE
+                NOT = { exists = UAE }
+            }
+        }
+        government = monarchy
+    }
+}
+
+gov_german_confederation_ceremonial_monarchy = {
+    rank = {
+        1 = CONFEDERATION
+        2 = CONFEDERATION
+        3 = CONFEDERATION
+        4 = CONFEDERATION
+        5 = CONFEDERATION
+        6 = CONFEDERATION
+        7 = CONFEDERATION
+        8 = CONFEDERATION
+        9 = CONFEDERATION
+        10 = IMPERIAL_CONFEDERATION
+    }
+
+    ruler_male = {
+        1 = KANZLER
+        2 = KANZLER
+        3 = KANZLER
+        4 = KANZLER
+        5 = BUNDESKANZLER
+        6 = BUNDESKANZLER
+        7 = BUNDESKANZLER
+        8 = BUNDESKANZLER
+        9 = BUNDESKANZLER
+        10 = REICHSKANZLER
+    }
+
+    ruler_female = {
+        1 = KANZLER_fem
+        2 = KANZLER_fem
+        3 = KANZLER_fem
+        4 = KANZLER_fem
+        5 = BUNDESKANZLER_fem
+        6 = BUNDESKANZLER_fem
+        7 = BUNDESKANZLER_fem
+        8 = BUNDESKANZLER_fem
+        9 = BUNDESKANZLER_fem
+        10 = REICHSKANZLER_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = NGC
+            tag = SGC
+            tag = GCF
+        }
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+gov_german_confederation = {
+    rank = {
+        1 = CONFEDERATION
+        2 = CONFEDERATION
+        3 = CONFEDERATION
+        4 = CONFEDERATION
+        5 = CONFEDERATION
+        6 = CONFEDERATION
+        7 = CONFEDERATION
+        8 = CONFEDERATION
+        9 = CONFEDERATION
+        10 = IMPERIAL_CONFEDERATION
+    }
+
+    ruler_male = {
+        1 = DUKE
+        2 = DUKE
+        3 = KING
+        4 = KING
+        5 = KING
+        6 = KING
+        7 = KING
+        8 = KING
+        9 = KING
+        10 = KAISER
+    }
+
+    ruler_female = {
+        1 = DUCHESS
+        2 = DUCHESS
+        3 = QUEEN
+        4 = QUEEN
+        5 = QUEEN
+        6 = QUEEN
+        7 = QUEEN
+        8 = QUEEN
+        9 = QUEEN
+        10 = KAISERIN
+    }
+
+    trigger = {
+        OR = {
+            tag = NGC
+            tag = SGC
+            tag = GCF
+        }
+        government = monarchy
+    }
+}
+
+
+CCI_clunies-ross_dynasty = {
+    rank = {
+        1 = PRIVATE_ISLAND
+        2 = PRIVATE_ISLAND
+        3 = PRIVATE_ISLAND
+        4 = PRIVATE_ISLAND
+        5 = PRIVATE_COMPANY
+        6 = PRIVATE_COMPANY
+        7 = PRIVATE_COMPANY
+        8 = PRIVATE_COMPANY
+        9 = PRIVATE_COMPANY
+        10 = PRIVATE_THALASSOCRACY
+    }
+
+    ruler_male = {
+        1 = GOVERNOR
+        2 = GOVERNOR
+        3 = GOVERNOR
+        4 = GOVERNOR
+        5 = GOVERNOR_GENERAL
+        6 = GOVERNOR_GENERAL
+        7 = GOVERNOR_GENERAL
+        8 = GOVERNOR_GENERAL
+        9 = GOVERNOR_GENERAL
+        10 = VICEROY
+    }
+
+    ruler_female = {
+        1 = GOVERNESS
+        2 = GOVERNESS
+        3 = GOVERNESS
+        4 = GOVERNESS
+        5 = GOVERNESS_GENERAL
+        6 = GOVERNESS_GENERAL
+        7 = GOVERNESS_GENERAL
+        8 = GOVERNESS_GENERAL
+        9 = GOVERNESS_GENERAL
+        10 = VICEREINE
+    }
+
+    trigger = {
+        OR = {
+            tag = CCI
+            AND = {
+                was_tag = CCI
+                NOT = { exists = CCI }
+            }
+        }
+        government = monarchy
+        dynasty = "Clunies-Ross"
+        NOT = { has_government_attribute = has_prime_minister }
+    }
+}
+
+
+gov_darussalam_ceremonial_monarchy = {
+    rank = {
+        1 = DARUSSALAM
+        2 = DARUSSALAM
+        3 = DARUSSALAM
+        4 = DARUSSALAM
+        5 = DARUSSALAM
+        6 = DARUSSALAM
+        7 = DARUSSALAM
+        8 = DARUSSALAM
+        9 = DARUSSALAM
+        10 = DARUSSALAM
+    }
+
+    ruler_male = {
+        1 = PRIME_MINISTER
+        2 = PRIME_MINISTER
+        3 = PRIME_MINISTER
+        4 = PRIME_MINISTER
+        5 = PRIME_MINISTER
+        6 = PRIME_MINISTER
+        7 = PRIME_MINISTER
+        8 = PRIME_MINISTER
+        9 = PRIME_MINISTER
+        10 = PRIME_MINISTER
+    }
+
+    ruler_female = {
+        1 = PRIME_MINISTER_fem
+        2 = PRIME_MINISTER_fem
+        3 = PRIME_MINISTER_fem
+        4 = PRIME_MINISTER_fem
+        5 = PRIME_MINISTER_fem
+        6 = PRIME_MINISTER_fem
+        7 = PRIME_MINISTER_fem
+        8 = PRIME_MINISTER_fem
+        9 = PRIME_MINISTER_fem
+        10 = PRIME_MINISTER_fem
+    }
+
+    trigger = {
+        OR = {
+            # Brunei
+            tag = BEI
+            AND = {
+                was_tag = BEI
+                NOT = { exists = BEI }
+            }
+            # Aceh
+            tag = ATJ
+            AND = {
+                was_tag = ATJ
+                NOT = { exists = ATJ }
+            }
+        }
+        religion_group = muslim
+        has_institution = enlightenment
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+gov_darussalam = {
+    rank = {
+        1 = DARUSSALAM
+        2 = DARUSSALAM
+        3 = DARUSSALAM
+        4 = DARUSSALAM
+        5 = DARUSSALAM
+        6 = DARUSSALAM
+        7 = DARUSSALAM
+        8 = DARUSSALAM
+        9 = DARUSSALAM
+        10 = DARUSSALAM
+    }
+
+    ruler_male = {
+        1 = EMIR
+        2 = EMIR
+        3 = EMIR
+        4 = EMIR
+        5 = SULTAN
+        6 = SULTAN
+        7 = SULTAN
+        8 = SULTAN
+        9 = SULTAN
+        10 = GREAT_SULTAN
+    }
+
+    ruler_female = {
+        1 = EMIRA
+        2 = EMIRA
+        3 = EMIRA
+        4 = EMIRA
+        5 = SULTANA
+        6 = SULTANA
+        7 = SULTANA
+        8 = SULTANA
+        9 = SULTANA
+        10 = GREAT_SULTANA
+    }
+
+    trigger = {
+        OR = {
+            # Brunei
+            tag = BEI
+            AND = {
+                was_tag = BEI
+                NOT = { exists = BEI }
+            }
+            # Aceh
+            tag = ATJ
+            AND = {
+                was_tag = ATJ
+                NOT = { exists = ATJ }
+            }
+        }
+        religion_group = muslim
+        has_institution = enlightenment
+        government = monarchy
+    }
+}
+
+
+gov_malaysian_ceremonial_monarchy = {
+    rank = {
+        1 = SULTANATE
+        2 = SULTANATE
+        3 = SULTANATE
+        4 = SULTANATE
+        5 = SULTANATE
+        6 = SULTANATE
+        7 = FEDERAL_KINGDOM
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+
+    ruler_male = {
+        1 = MENTERI_BESAR
+        2 = MENTERI_BESAR
+        3 = MENTERI_BESAR
+        4 = MENTERI_BESAR
+        5 = MENTERI_BESAR
+        6 = MENTERI_BESAR
+        7 = PERDANA_MENTERI
+        8 = PERDANA_MENTERI
+        9 = PERDANA_MENTERI
+        10 = PERDANA_MENTERI
+    }
+
+    ruler_female = {
+        1 = MENTERI_BESAR_fem
+        2 = MENTERI_BESAR_fem
+        3 = MENTERI_BESAR_fem
+        4 = MENTERI_BESAR_fem
+        5 = MENTERI_BESAR_fem
+        6 = MENTERI_BESAR_fem
+        7 = PERDANA_MENTERI_fem
+        8 = PERDANA_MENTERI_fem
+        9 = PERDANA_MENTERI_fem
+        10 = PERDANA_MENTERI_fem
+    }
+
+    trigger = {
+        OR = {
+            # Malaysia
+            tag = MLA
+            AND = {
+                was_tag = MLA
+                NOT = { exists = MLA }
+            }
+            # Malaysian Subject
+            AND = {
+                is_subject_other_than_tributary_trigger = yes
+                overlord = {
+                    OR = {
+                        tag = MLA
+                        AND = {
+                            was_tag = MLA
+                            NOT = { exists = MLA }
+                        }
+                    }
+                }
+                NOT = { government_rank = 8 }
+            }
+        }
+        primary_culture = malayan
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+gov_malaysian_monarchy = { # Federation of smaller Sultanates, ruled by "Yang di-Pertuan Agong"
+    rank = {
+        1 = SULTANATE
+        2 = SULTANATE
+        3 = SULTANATE
+        4 = SULTANATE
+        5 = SULTANATE
+        6 = SULTANATE
+        7 = FEDERAL_KINGDOM
+        8 = FEDERAL_KINGDOM
+        9 = FEDERAL_KINGDOM
+        10 = FEDERAL_EMPIRE
+    }
+
+    ruler_male = {
+        1 = SULTAN
+        2 = SULTAN
+        3 = SULTAN
+        4 = SULTAN
+        5 = SULTAN
+        6 = SULTAN
+        7 = AGONG
+        8 = AGONG
+        9 = AGONG
+        10 = EMPEROR
+    }
+
+    ruler_female = {
+        1 = SULTANA
+        2 = SULTANA
+        3 = SULTANA
+        4 = SULTANA
+        5 = SULTANA
+        6 = SULTANA
+        7 = AGONG
+        8 = AGONG
+        9 = AGONG
+        10 = EMPRESS
+    }
+
+    trigger = {
+        OR = {
+            # Malaysia
+            tag = MLA
+            AND = {
+                was_tag = MLA
+                NOT = { exists = MLA }
+            }
+            # Malaysian Subject
+            AND = {
+                is_subject_other_than_tributary_trigger = yes
+                overlord = {
+                    OR = {
+                        tag = MLA
+                        AND = {
+                            was_tag = MLA
+                            NOT = { exists = MLA }
+                        }
+                    }
+                }
+                NOT = { government_rank = 8 }
+            }
+        }
+        primary_culture = malayan
+        government = monarchy
+    }
+}
+
+
+gov_british_constituent_country_ceremonial_monarchy = {
+	rank = {
+		1 = KINGDOM
+	}
+	ruler_male = {
+		1 = FIRST_MINISTER
+	}
+	ruler_female = {
+		1 = FIRST_MINISTER_fem
+	}
+
+	trigger = {
+		OR = {
+			# Northern Ireland
+			tag = NIR
+			AND = {
+				was_tag = NIR
+				NOT = { exists = NIR }
+			}
+			# Scotland
+			tag = SCO
+			AND = {
+				was_tag = SCO
+				NOT = { exists = SCO }
+			}
+			# Wales
+			tag = WLS
+			AND = {
+				was_tag = WLS
+				NOT = { exists = WLS }
+			}
+		}
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			OR = {
+				tag = GBR
+				AND = {
+					was_tag = GBR
+					NOT = { exists = GBR }
+				}
+			}
+		}
+		government = monarchy
+		has_government_attribute = has_prime_minister
+		NOT = { government_rank = 8 }
+	}
+}
+
+gov_british_constituent_country = {
+	rank = {
+		1 = KINGDOM
+	}
+	ruler_male = {
+		1 = KING
+	}
+	ruler_female = {
+		1 = QUEEN
+	}
+
+	trigger = {
+		OR = {
+			# Northern Ireland
+			tag = NIR
+			AND = {
+				was_tag = NIR
+				NOT = { exists = NIR }
+			}
+			# Scotland
+			tag = SCO
+			AND = {
+				was_tag = SCO
+				NOT = { exists = SCO }
+			}
+			# Wales
+			tag = WLS
+			AND = {
+				was_tag = WLS
+				NOT = { exists = WLS }
+			}
+		}
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			OR = {
+				tag = GBR
+				AND = {
+					was_tag = GBR
+					NOT = { exists = GBR }
+				}
+			}
+		}
+		government = monarchy
+		NOT = { government_rank = 8 }
+	}
+}
+
+HES_ceremonial_electorate = {
+    rank = {
+        1 = ELECTORATE_DUCHY # Kurfuerstentum
+        2 = ELECTORATE_DUCHY
+        3 = ELECTORATE_DUCHY
+        4 = ELECTORATE_DUCHY
+        5 = ELECTORATE_DUCHY
+        6 = ELECTORATE_DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = CHANCELOR
+        2 = CHANCELOR
+        3 = CHANCELOR
+        4 = CHANCELOR
+        5 = CHANCELOR
+        6 = CHANCELOR
+        7 = CHANCELOR
+        8 = CHANCELOR
+        9 = CHANCELOR
+        10 = CHANCELOR
+    }
+    ruler_female = {
+        1 = CHANCELOR_fem
+        2 = CHANCELOR_fem
+        3 = CHANCELOR_fem
+        4 = CHANCELOR_fem
+        5 = CHANCELOR_fem
+        6 = CHANCELOR_fem
+        7 = CHANCELOR_fem
+        8 = CHANCELOR_fem
+        9 = CHANCELOR_fem
+        10 = CHANCELOR_fem
+    }
+
+    trigger = {
+        tag = HES
+        government = monarchy
+        has_government_attribute = has_prime_minister
+        started_in = 4904.7.12 # Kept the title, despite HRE's end.
+    }
+}
+
+HES_electorate = {
+    rank = {
+        1 = ELECTORATE_DUCHY # Kurfuerstentum
+        2 = ELECTORATE_DUCHY
+        3 = ELECTORATE_DUCHY
+        4 = ELECTORATE_DUCHY
+        5 = ELECTORATE_DUCHY
+        6 = ELECTORATE_DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = PRINCE_ELECTOR
+        2 = PRINCE_ELECTOR
+        3 = PRINCE_ELECTOR
+        4 = PRINCE_ELECTOR
+        5 = PRINCE_ELECTOR
+        6 = PRINCE_ELECTOR
+        7 = KING_ELECTOR
+        8 = KING_ELECTOR
+        9 = KING_ELECTOR
+        10 = EMPEROR
+    }
+    ruler_female = {
+        1 = PRINCESS_ELECTOR
+        2 = PRINCESS_ELECTOR
+        3 = PRINCESS_ELECTOR
+        4 = PRINCESS_ELECTOR
+        5 = PRINCESS_ELECTOR
+        6 = PRINCESS_ELECTOR
+        7 = QUEEN_ELECTOR
+        8 = QUEEN_ELECTOR
+        9 = QUEEN_ELECTOR
+        10 = EMPRESS
+    }
+
+    trigger = {
+        tag = HES
+        government = monarchy
+        started_in = 1806.7.12 # Kept the title, despite HRE's end.
+    }
+}
+
+
+german_ceremonial_monarchy = {
+    rank = {
+        1 = DUCHY
+        2 = DUCHY
+        3 = DUCHY
+        4 = DUCHY
+        5 = DUCHY
+        6 = DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = CHANCELOR
+        2 = CHANCELOR
+        3 = CHANCELOR
+        4 = CHANCELOR
+        5 = CHANCELOR
+        6 = CHANCELOR
+        7 = CHANCELOR
+        8 = CHANCELOR
+        9 = CHANCELOR
+        10 = CHANCELOR
+    }
+    ruler_female = {
+        1 = CHANCELOR_fem
+        2 = CHANCELOR_fem
+        3 = CHANCELOR_fem
+        4 = CHANCELOR_fem
+        5 = CHANCELOR_fem
+        6 = CHANCELOR_fem
+        7 = CHANCELOR_fem
+        8 = CHANCELOR_fem
+        9 = CHANCELOR_fem
+        10 = CHANCELOR_fem
+    }
+
+    trigger = {
+        is_german_culture_trigger = yes
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+irish_ceremonial_monarchy = {
+    rank = {
+        1 = DUCHY
+        2 = DUCHY
+        3 = DUCHY
+        4 = DUCHY
+        5 = DUCHY
+        6 = DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = TAOISEACH
+        2 = TAOISEACH
+        3 = TAOISEACH
+        4 = TAOISEACH
+        5 = TAOISEACH
+        6 = TAOISEACH
+        7 = TAOISEACH
+        8 = TAOISEACH
+        9 = TAOISEACH
+        10 = TAOISEACH
+    }
+    ruler_female = {
+        1 = TAOISEACH_fem
+        2 = TAOISEACH_fem
+        3 = TAOISEACH_fem
+        4 = TAOISEACH_fem
+        5 = TAOISEACH_fem
+        6 = TAOISEACH_fem
+        7 = TAOISEACH_fem
+        8 = TAOISEACH_fem
+        9 = TAOISEACH_fem
+        10 = TAOISEACH_fem
+    }
+
+    trigger = {
+        primary_culture = irish
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+scandinavian_ceremonial_monarchy = {
+    rank = {
+        1 = DUCHY
+        2 = DUCHY
+        3 = DUCHY
+        4 = DUCHY
+        5 = DUCHY
+        6 = DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = STATE_MINISTER
+        2 = STATE_MINISTER
+        3 = STATE_MINISTER
+        4 = STATE_MINISTER
+        5 = STATE_MINISTER
+        6 = STATE_MINISTER
+        7 = STATE_MINISTER
+        8 = STATE_MINISTER
+        9 = STATE_MINISTER
+        10 = STATE_MINISTER
+    }
+    ruler_female = {
+        1 = STATE_MINISTER_fem
+        2 = STATE_MINISTER_fem
+        3 = STATE_MINISTER_fem
+        4 = STATE_MINISTER_fem
+        5 = STATE_MINISTER_fem
+        6 = STATE_MINISTER_fem
+        7 = STATE_MINISTER_fem
+        8 = STATE_MINISTER_fem
+        9 = STATE_MINISTER_fem
+        10 = STATE_MINISTER_fem
+    }
+
+    trigger = {
+        culture_group = scandinavian
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+gov_ceremonial_monarchy = {
+    rank = {
+        1 = DUCHY
+        2 = DUCHY
+        3 = DUCHY
+        4 = DUCHY
+        5 = DUCHY
+        6 = DUCHY
+        7 = KINGDOM
+        8 = KINGDOM
+        9 = KINGDOM
+        10 = EMPIRE
+    }
+    ruler_male = {
+        1 = PRIME_MINISTER
+        2 = PRIME_MINISTER
+        3 = PRIME_MINISTER
+        4 = PRIME_MINISTER
+        5 = PRIME_MINISTER
+        6 = PRIME_MINISTER
+        7 = PRIME_MINISTER
+        8 = PRIME_MINISTER
+        9 = PRIME_MINISTER
+        10 = PRIME_MINISTER
+    }
+    ruler_female = {
+        1 = PRIME_MINISTER_fem
+        2 = PRIME_MINISTER_fem
+        3 = PRIME_MINISTER_fem
+        4 = PRIME_MINISTER_fem
+        5 = PRIME_MINISTER_fem
+        6 = PRIME_MINISTER_fem
+        7 = PRIME_MINISTER_fem
+        8 = PRIME_MINISTER_fem
+        9 = PRIME_MINISTER_fem
+        10 = PRIME_MINISTER_fem
+    }
+
+    trigger = {
+        government = monarchy
+        has_government_attribute = has_prime_minister
+    }
+}
+
+
+gov_sunanate = {
+	rank = {
+		1 = SUNANATE
+	}
+	ruler_male = {
+		1 = SUSUHUNAN
+	}
+	ruler_female = {
+		1 = SULTANA
+	}
+	
+	trigger = {
+		government = monarchy
+		NOT = { has_reform = steppe_horde }
+		religion_group = muslim
+		NOT = { has_reform = feudal_theocracy }
+		
+		tag = SKT # Surakarta
+		NOT = { government_rank = 8 }
+	}
+}
+
+gov_minor_sultanate = {
+	rank = {
+		1 = SULTANATE
+	}
+	ruler_male = {
+		1 = SULTAN
+	}
+	ruler_female = {
+		1 = SULTANA
+	}
+	
+	trigger = {
+		government = monarchy
+		NOT = { has_reform = steppe_horde }
+		religion_group = muslim
+		NOT = { has_reform = feudal_theocracy }
+		
+		OR = {
+			culture_group = malay
+			primary_culture = papuan
+		}
+		NOT = { government_rank = 8 }
+	}
+}
+
+# =========
+# Republics
+# =========
+RJA_socialist_confederation = {
+    rank = {
+        1 = SOCIALIST_CONFEDERATION
+        2 = SOCIALIST_CONFEDERATION
+        3 = SOCIALIST_CONFEDERATION
+        4 = SOCIALIST_CONFEDERATION
+        5 = SOCIALIST_CONFEDERATION
+        6 = SOCIALIST_CONFEDERATION
+        7 = SOCIALIST_CONFEDERATION
+        8 = SOCIALIST_CONFEDERATION
+        9 = SOCIALIST_CONFEDERATION
+        10 = GREAT_SOCIALIST_CONFEDERATION
+    }
+    ruler_male = {
+        1 = CO-PRESIDENT
+        2 = CO-PRESIDENT
+        3 = CO-PRESIDENT
+        4 = CO-PRESIDENT
+        5 = CO-PRESIDENT
+        6 = CO-PRESIDENT
+        7 = CO-PRESIDENT
+        8 = CO-PRESIDENT
+        9 = CO-PRESIDENT
+        10 = CO-PRESIDENT
+    }
+    ruler_female = {
+        1 = CO-PRESIDENT_fem
+        2 = CO-PRESIDENT_fem
+        3 = CO-PRESIDENT_fem
+        4 = CO-PRESIDENT_fem
+        5 = CO-PRESIDENT_fem
+        6 = CO-PRESIDENT_fem
+        7 = CO-PRESIDENT_fem
+        8 = CO-PRESIDENT_fem
+        9 = CO-PRESIDENT_fem
+        10 = CO-PRESIDENT_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = RJA
+            AND = {
+                was_tag = RJA
+                NOT = { exists = RJA }
+            }
+        }
+        has_reform = direct_democracy_system
+        OR = {
+            has_reform = communist_government
+            has_reform = anarchist_society
+        }
+    }
+}
+
+
+ZPA_socialist_confederation = {
+    rank = {
+        1 = SOCIALIST_CONFEDERATION
+        2 = SOCIALIST_CONFEDERATION
+        3 = SOCIALIST_CONFEDERATION
+        4 = SOCIALIST_CONFEDERATION
+        5 = SOCIALIST_CONFEDERATION
+        6 = SOCIALIST_CONFEDERATION
+        7 = SOCIALIST_CONFEDERATION
+        8 = SOCIALIST_CONFEDERATION
+        9 = SOCIALIST_CONFEDERATION
+        10 = GREAT_SOCIALIST_CONFEDERATION
+    }
+    ruler_male = {
+        1 = SPOKESPERSON
+        2 = SPOKESPERSON
+        3 = SPOKESPERSON
+        4 = SPOKESPERSON
+        5 = SPOKESPERSON
+        6 = SPOKESPERSON
+        7 = SPOKESPERSON
+        8 = SPOKESPERSON
+        9 = SPOKESPERSON
+        10 = SPOKESPERSON
+    }
+    ruler_female = {
+        1 = SPOKESPERSON_fem
+        2 = SPOKESPERSON_fem
+        3 = SPOKESPERSON_fem
+        4 = SPOKESPERSON_fem
+        5 = SPOKESPERSON_fem
+        6 = SPOKESPERSON_fem
+        7 = SPOKESPERSON_fem
+        8 = SPOKESPERSON_fem
+        9 = SPOKESPERSON_fem
+        10 = SPOKESPERSON_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = ZPA
+            AND = {
+                was_tag = ZPA
+                NOT = { exists = ZPA }
+            }
+        }
+        has_reform = direct_democracy_system
+        OR = {
+            has_reform = communist_government
+            has_reform = anarchist_society
+        }
+    }
+}
+
+
+gov_ukrainian_free_territory = {
+    rank = {
+        1 = FREE_TERRITORY
+        2 = FREE_TERRITORY
+        3 = FREE_TERRITORY
+        4 = FREE_TERRITORY
+        5 = FREE_TERRITORY
+        6 = FREE_TERRITORY
+        7 = FREE_TERRITORY
+        8 = FREE_TERRITORY
+        9 = FREE_TERRITORY
+        10 = FREE_TERRITORY
+    }
+    ruler_male = {
+        1 = ATAMAN
+        2 = ATAMAN
+        3 = HETMAN
+        4 = HETMAN
+        5 = HETMAN
+        6 = HETMAN
+        7 = HETMAN
+        8 = HETMAN
+        9 = HETMAN
+        10 = GREAT_HETMAN
+    }
+    ruler_female = {
+        1 = ATAMAN_fem
+        2 = ATAMAN_fem
+        3 = HETMAN_fem
+        4 = HETMAN_fem
+        5 = HETMAN_fem
+        6 = HETMAN_fem
+        7 = HETMAN_fem
+        8 = HETMAN_fem
+        9 = HETMAN_fem
+        10 = GREAT_HETMAN_fem
+    }
+
+    trigger = {
+        primary_culture = ruthenian
+        has_reform = direct_democracy_system
+        OR = {
+            has_reform = communist_government
+            has_reform = anarchist_society
+        }
+    }
+}
+
+
+gov_anarchist_nation = {
+    rank = {
+        1 = ANARCHO_COMMUNE
+        2 = ANARCHO_COMMUNE
+        3 = ANARCHO_COMMUNE
+        4 = ANARCHO_COMMUNE
+        5 = ANARCHO_COMMUNE
+        6 = ANARCHO_COMMUNE
+        7 = ANARCHO_COMMUNE
+        8 = ANARCHO_COLLECTIVE
+        9 = ANARCHO_COLLECTIVE
+        10 = ANARCHO_CONFEDERATION
+    }
+    ruler_male = {
+        1 = BLANK
+        2 = BLANK
+        3 = BLANK
+        4 = BLANK
+        5 = BLANK
+        6 = BLANK
+        7 = BLANK
+        8 = BLANK
+        9 = BLANK
+        10 = BLANK
+    }
+    ruler_female = {
+        1 = BLANK
+        2 = BLANK
+        3 = BLANK
+        4 = BLANK
+        5 = BLANK
+        6 = BLANK
+        7 = BLANK
+        8 = BLANK
+        9 = BLANK
+        10 = BLANK
+    }
+
+    trigger = {
+        has_reform = direct_democracy_system
+        OR = {
+            has_reform = communist_government
+            has_reform = anarchist_society
+        }
+    }
+}
+
+
+GYA_co-operative_republic = {
+    rank = {
+        1 = CO-OPERATIVE_REPUBLIC
+        2 = CO-OPERATIVE_REPUBLIC
+        3 = CO-OPERATIVE_REPUBLIC
+        4 = CO-OPERATIVE_REPUBLIC
+        5 = CO-OPERATIVE_REPUBLIC
+        6 = CO-OPERATIVE_REPUBLIC
+        7 = CO-OPERATIVE_REPUBLIC
+        8 = CO-OPERATIVE_REPUBLIC
+        9 = CO-OPERATIVE_REPUBLIC
+        10 = CO-OPERATIVE_REPUBLIC
+    }
+    ruler_male = {
+        1 = PRESIDENT
+        2 = PRESIDENT
+        3 = PRESIDENT
+        4 = PRESIDENT
+        5 = PRESIDENT
+        6 = PRESIDENT
+        7 = PRESIDENT
+        8 = PRESIDENT
+        9 = PRESIDENT
+        10 = PRESIDENT
+    }
+    ruler_female = {
+        1 = PRESIDENT_fem
+        2 = PRESIDENT_fem
+        3 = PRESIDENT_fem
+        4 = PRESIDENT_fem
+        5 = PRESIDENT_fem
+        6 = PRESIDENT_fem
+        7 = PRESIDENT_fem
+        8 = PRESIDENT_fem
+        9 = PRESIDENT_fem
+        10 = PRESIDENT_fem
+    }
+
+    trigger = {
+        OR = {
+            tag = GYA
+            AND = {
+                was_tag = GYA
+                NOT = { exists = GYA }
+            }
+        }
+        government = republic
+    }
+}
+
+
+BRZ_federative_republic = {
+	rank = {
+		10 = FEDERATIVE_REPUBLIC
+	}
+	ruler_male = {
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			tag = BRZ
+			AND = {
+				was_tag = BRZ
+				NOT = { exists = BRZ }
+			}
+		}
+		government = republic
+		government_rank = 10
+	}
+}
+
+BOL_plurinational_state = {
+	rank = {
+		1 = PLURINATIONAL_STATE
+		2 = PLURINATIONAL_STATE
+		3 = PLURINATIONAL_STATE
+		4 = PLURINATIONAL_STATE
+		5 = PLURINATIONAL_STATE
+		6 = PLURINATIONAL_STATE
+		7 = PLURINATIONAL_STATE
+		8 = PLURINATIONAL_STATE
+		9 = PLURINATIONAL_STATE
+		10 = GRAND_PLURINATIONAL_STATE
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			tag = BOL
+			AND = {
+				was_tag = BOL
+				NOT = { exists = BOL }
+			}
+		}
+		calc_true_if = {
+			# At least two native groups accepted:
+			amount = 2
+			OR = {
+				accepted_culture = inca # Quechua
+				accepted_culture = aimara
+				accepted_culture = diaguita
+				accepted_culture = chimuan
+				accepted_culture = chacoan
+				accepted_culture = maipurean
+			}
+		}
+		government = republic
+		NOT = {
+			OR = {
+				AND = {
+					is_dictatorship = yes
+					is_communist = no
+				}
+				is_fascist = yes
+			}
+		}
+	}
+}
+
+gov_democratic_republic = { # "Democratic", it's in the name!
+	rank = {
+		1 = DEMOCRATIC_REPUBLIC
+		2 = DEMOCRATIC_REPUBLIC
+		3 = DEMOCRATIC_REPUBLIC
+		4 = DEMOCRATIC_REPUBLIC
+		5 = DEMOCRATIC_REPUBLIC
+		6 = DEMOCRATIC_REPUBLIC
+		7 = DEMOCRATIC_REPUBLIC
+		8 = DEMOCRATIC_REPUBLIC
+		9 = DEMOCRATIC_REPUBLIC
+		10 = FEDERAL_DEMOCRATIC_REPUBLIC
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			# Congo-Kinshasa
+			tag = DRC
+			AND = {
+				was_tag = DRC
+				NOT = { exists = DRC }
+			}
+			# East Timor/Timor-Leste
+			tag = ETI
+			AND = {
+				was_tag = ETI
+				NOT = { exists = ETI }
+			}
+			# Ethiopia
+			tag = ETH
+			AND = {
+				was_tag = ETH
+				NOT = { exists = ETH }
+			}
+			# Nepal
+			tag = NPL
+			AND = {
+				was_tag = NPL
+				NOT = { exists = NPL }
+			}
+			# Sao Tome and Principe
+			tag = STP
+			AND = {
+				was_tag = STP
+				NOT = { exists = STP }
+			}
+		}
+		government = republic
+		has_reform = parliamentary_reform
+	}
+}
+
+
+gov_arab_republic = {
+	rank = {
+		1 = ARAB_REPUBLIC
+		2 = ARAB_REPUBLIC
+		3 = ARAB_REPUBLIC
+		4 = ARAB_REPUBLIC
+		5 = ARAB_REPUBLIC
+		6 = ARAB_REPUBLIC
+		7 = ARAB_REPUBLIC
+		8 = ARAB_REPUBLIC
+		9 = ARAB_REPUBLIC
+		10 = GRAND_ARAB_REPUBLIC
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			tag = EGY
+			tag = SYR
+		}
+		is_arab_culture_trigger = yes
+		government = republic
+	}
+}
+
+LBY_gaddafi = {
+	rank = {
+		1 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		2 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		3 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		4 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		5 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		6 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		7 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		8 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		9 = SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+		10 = GREAT_SOCIALIST_PEOPLES_LIBYAN_ARAB_JAMAHIRIYA
+	}
+	ruler_male = {
+		1 = BROTHERLY_LEADER
+		2 = BROTHERLY_LEADER
+		3 = BROTHERLY_LEADER
+		4 = BROTHERLY_LEADER
+		5 = BROTHERLY_LEADER
+		6 = BROTHERLY_LEADER
+		7 = BROTHERLY_LEADER
+		8 = BROTHERLY_LEADER
+		9 = BROTHERLY_LEADER
+		10 = BROTHERLY_LEADER
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			tag = LBY
+			AND = {
+				was_tag = LBY
+				NOT = { exists = LBY }
+			}
+		}
+		has_ruler = "Muammar Gaddafi"
+		government = republic
+	}
+}
+
+gov_state_republic = {
+	rank = {
+		1 = STATE
+		2 = STATE
+		3 = STATE
+		4 = STATE
+		5 = STATE
+		6 = STATE
+		7 = STATE
+		8 = STATE
+		9 = STATE
+		10 = GRAND_STATE
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			# Libya
+			tag = LBY
+			AND = {
+				was_tag = LBY
+				NOT = { exists = LBY }
+			}
+			# Israel
+			tag = ISR
+			AND = {
+				was_tag = ISR
+				NOT = { exists = ISR }
+			}
+			# Palestine
+			tag = PLS
+			AND = {
+				was_tag = PLS
+				NOT = { exists = PLS }
+			}
+			# Eritrea
+			tag = ERT
+			AND = {
+				was_tag = ERT
+				NOT = { exists = ERT }
+			}
+		}
+		government = republic
+	}
+}
+
+gov_union_republic = {
+	rank = {
+		1 = UNION
+		2 = UNION
+		3 = UNION
+		4 = UNION
+		5 = UNION
+		6 = UNION
+		7 = UNION
+		8 = UNION
+		9 = UNION
+		10 = GRAND_UNION
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			# The Comoros
+			tag = CMO
+			AND = {
+				was_tag = CMO
+				NOT = { exists = CMO }
+			}
+			# Burma
+			tag = BRM
+			AND = {
+				was_tag = BRM
+				NOT = { exists = BRM }
+			}
+			# Myanmar
+			tag = MNM
+			AND = {
+				was_tag = MNM
+				NOT = { exists = MNM }
+			}
+		}
+		government = republic
+	}
+}
+
+gov_russian_puppet_republic = {
+	rank = {
+		1 = PEOPLES_REPUBLIC
+		2 = PEOPLES_REPUBLIC
+		3 = PEOPLES_REPUBLIC
+		4 = PEOPLES_REPUBLIC
+		5 = PEOPLES_REPUBLIC
+		6 = PEOPLES_REPUBLIC
+		7 = PEOPLES_REPUBLIC
+		8 = PEOPLES_REPUBLIC
+		9 = PEOPLES_REPUBLIC
+		10 = GRAND_PEOPLES_REPUBLIC
+	}
+	ruler_male = {
+		1 = HEAD_OF_STATE
+		2 = HEAD_OF_STATE
+		3 = HEAD_OF_STATE
+		4 = HEAD_OF_STATE
+		5 = HEAD_OF_STATE
+		6 = HEAD_OF_STATE
+		7 = HEAD_OF_STATE
+		8 = HEAD_OF_STATE
+		9 = HEAD_OF_STATE
+		10 = HEAD_OF_STATE
+	}
+	ruler_female = {
+		1 = HEAD_OF_STATE_fem
+		2 = HEAD_OF_STATE_fem
+		3 = HEAD_OF_STATE_fem
+		4 = HEAD_OF_STATE_fem
+		5 = HEAD_OF_STATE_fem
+		6 = HEAD_OF_STATE_fem
+		7 = HEAD_OF_STATE_fem
+		8 = HEAD_OF_STATE_fem
+		9 = HEAD_OF_STATE_fem
+		10 = HEAD_OF_STATE_fem
+	}
+
+	trigger = {
+		primary_culture = russian
+		capital_scope = {
+			is_core = UKR
+		}
+		is_subject_other_than_tributary_trigger = yes
+		overlord = {
+			OR = {
+				tag = RUS
+				AND = {
+					was_tag = RUS
+					NOT = { exists = RUS }
+				}
+			}
+			government = republic
+		}
+		government = republic
+		NOT = { government_rank = 8 }
+	}
+}
+
+
+AFG_islamic_emirate = {
+	rank = {
+		1 = SHEIKHDOM
+		2 = SHEIKHDOM
+		3 = SHEIKHDOM
+		4 = SHEIKHDOM
+		5 = SHEIKHDOM
+		6 = SHEIKHDOM
+		7 = SHEIKHDOM
+		8 = EMIRATE
+		9 = EMIRATE
+		10 = GREAT_EMIRATE
+	}
+	ruler_male = {
+		1 = SHEIKH
+		2 = SHEIKH
+		3 = SHEIKH
+		4 = SHEIKH
+		5 = SHEIKH
+		6 = SHEIKH
+		7 = SHEIKH
+		8 = EMIR
+		9 = EMIR
+		10 = GREAT_EMIR
+	}
+	ruler_female = {
+		1 = SHEIKHA
+		2 = SHEIKHA
+		3 = SHEIKHA
+		4 = SHEIKHA
+		5 = SHEIKHA
+		6 = SHEIKHA
+		7 = SHEIKHA
+		8 = EMIRA
+		9 = EMIRA
+		10 = GREAT_EMIRA
+	}
+
+	trigger = {
+		country_is = { tag = AFG }
+		OR = {
+			has_reform = islamic_republic_reform
+			AND = {
+				government = republic
+				has_reform = islamist_government
+			}
+			AND = {
+				government = theocracy
+				religion_group = muslim
+			}
+		}
+	}
+}
+
+gov_islamic_republic = {
+	rank = {
+		1 = ISLAMIC_REPUBLIC
+		2 = ISLAMIC_REPUBLIC
+		3 = ISLAMIC_REPUBLIC
+		4 = ISLAMIC_REPUBLIC
+		5 = ISLAMIC_REPUBLIC
+		6 = ISLAMIC_REPUBLIC
+		7 = ISLAMIC_REPUBLIC
+		8 = ISLAMIC_REPUBLIC
+		9 = ISLAMIC_REPUBLIC
+		10 = GRAND_ISLAMIC_REPUBLIC
+	}
+	ruler_male = {
+		1 = CHANCELOR
+		2 = CHANCELOR
+		3 = CHANCELOR
+		4 = CHANCELOR
+		5 = CHANCELOR
+		6 = CHANCELOR
+		7 = CHANCELOR
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = CHANCELOR_fem
+		2 = CHANCELOR_fem
+		3 = CHANCELOR_fem
+		4 = CHANCELOR_fem
+		5 = CHANCELOR_fem
+		6 = CHANCELOR_fem
+		7 = CHANCELOR_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+
+	trigger = {
+		OR = {
+			has_reform = islamic_republic_reform
+			AND = {
+				government = republic
+				has_reform = islamist_government
+			}
+		}
+	}
+}
+
+gov_hanseatic_free_city = {
+	rank = {
+		1 = FREE_HANSEATIC_CITY
+		2 = FREE_HANSEATIC_CITY
+		3 = FREE_HANSEATIC_CITY
+		4 = FREE_HANSEATIC_CITY
+		5 = FREE_HANSEATIC_CITY
+		6 = FREE_HANSEATIC_CITY
+		7 = FREE_HANSEATIC_CITY
+		8 = FREE_HANSEATIC_CITY
+		9 = FREE_HANSEATIC_CITY
+		10 = FREE_HANSEATIC_CITY
+	}
+	ruler_male = {
+		1 = BURGMEISTER
+		2 = BURGMEISTER
+		3 = BURGMEISTER
+		4 = BURGMEISTER
+		5 = BURGMEISTER
+		6 = BURGMEISTER
+		7 = BURGMEISTER
+		8 = BURGMEISTER
+		9 = BURGMEISTER
+		10 = BURGMEISTER
+	}
+	ruler_female = {
+		1 = BURGMEISTER_fem
+		2 = BURGMEISTER_fem
+		3 = BURGMEISTER_fem
+		4 = BURGMEISTER_fem
+		5 = BURGMEISTER_fem
+		6 = BURGMEISTER_fem
+		7 = BURGMEISTER_fem
+		8 = BURGMEISTER_fem
+		9 = BURGMEISTER_fem
+		10 = BURGMEISTER_fem
+	}
+	
+	trigger = {
+		OR = {
+			tag = BRE
+			tag = HAM
+			tag = HSA
+		}
+		culture_group = germanic
+		has_reform = city_state_reform
+	}
+}
+
+gov_german_free_city = {
+	rank = {
+		1 = FREE_CITY
+		2 = FREE_CITY
+		3 = FREE_CITY
+		4 = FREE_CITY
+		5 = FREE_CITY
+		6 = FREE_CITY
+		7 = FREE_CITY
+		8 = FREE_CITY
+		9 = FREE_CITY
+		10 = FREE_CITY
+	}
+	ruler_male = {
+		1 = BURGMEISTER
+		2 = BURGMEISTER
+		3 = BURGMEISTER
+		4 = BURGMEISTER
+		5 = BURGMEISTER
+		6 = BURGMEISTER
+		7 = BURGMEISTER
+		8 = BURGMEISTER
+		9 = BURGMEISTER
+		10 = BURGMEISTER
+	}
+	ruler_female = {
+		1 = BURGMEISTER_fem
+		2 = BURGMEISTER_fem
+		3 = BURGMEISTER_fem
+		4 = BURGMEISTER_fem
+		5 = BURGMEISTER_fem
+		6 = BURGMEISTER_fem
+		7 = BURGMEISTER_fem
+		8 = BURGMEISTER_fem
+		9 = BURGMEISTER_fem
+		10 = BURGMEISTER_fem
+	}
+	
+	trigger = {
+		OR = {
+			tag = DNZ
+			tag = FRN
+		}
+		culture_group = germanic
+		has_reform = city_state_reform
+	}
+}
+
+
+KRA_free_city = {
+	rank = {
+		1 = FREE_CITY
+		2 = FREE_CITY
+		3 = FREE_CITY
+		4 = FREE_CITY
+		5 = FREE_CITY
+		6 = FREE_CITY
+		7 = FREE_CITY
+		8 = FREE_CITY
+		9 = FREE_CITY
+		10 = GRAND_FREE_CITY
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+	
+	trigger = {
+		tag = KRA
+		has_reform = city_state_reform
+	}
+}
+
+TST_free_territory = {
+	rank = {
+		1 = FREE_TERRITORY
+		2 = FREE_TERRITORY
+		3 = FREE_TERRITORY
+		4 = FREE_TERRITORY
+		5 = FREE_TERRITORY
+		6 = FREE_TERRITORY
+		7 = FREE_TERRITORY
+		8 = FREE_TERRITORY
+		9 = FREE_TERRITORY
+		10 = FREE_TERRITORY
+	}
+	ruler_male = {
+		1 = GOVERNOR
+		2 = GOVERNOR
+		3 = GOVERNOR
+		4 = GOVERNOR
+		5 = GOVERNOR
+		6 = GOVERNOR
+		7 = GOVERNOR
+		8 = GOVERNOR
+		9 = GOVERNOR
+		10 = GOVERNOR
+	}
+	ruler_female = {
+		1 = GOVERNESS
+		2 = GOVERNESS
+		3 = GOVERNESS
+		4 = GOVERNESS
+		5 = GOVERNESS
+		6 = GOVERNESS
+		7 = GOVERNESS
+		8 = GOVERNESS
+		9 = GOVERNESS
+		10 = GOVERNESS
+	}
+	
+	trigger = {
+		tag = TST
+		has_reform = city_state_reform
+	}
+}
+
+gov_city_state = {
+	rank = {
+		1 = CITY_STATE
+		2 = CITY_STATE
+		3 = CITY_STATE
+		4 = CITY_STATE
+		5 = CITY_STATE
+		6 = CITY_STATE
+		7 = CITY_STATE
+		8 = CITY_STATE
+		9 = CITY_STATE
+		10 = CITY_STATE
+	}
+	ruler_male = {
+		1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+		4 = PRESIDENT
+		5 = PRESIDENT
+		6 = PRESIDENT
+		7 = PRESIDENT
+		8 = PRESIDENT
+		9 = PRESIDENT
+		10 = PRESIDENT
+	}
+	ruler_female = {
+		1 = PRESIDENT_fem
+		2 = PRESIDENT_fem
+		3 = PRESIDENT_fem
+		4 = PRESIDENT_fem
+		5 = PRESIDENT_fem
+		6 = PRESIDENT_fem
+		7 = PRESIDENT_fem
+		8 = PRESIDENT_fem
+		9 = PRESIDENT_fem
+		10 = PRESIDENT_fem
+	}
+	
+	trigger = {
+		has_reform = city_state_reform
+	}
+}
+
+
+gov_swiss_confederation = {
+    rank = {
+        1 = CANTON
+        2 = CANTON
+        3 = CONFEDERATION
+        4 = CONFEDERATION
+        5 = CONFEDERATION
+        6 = CONFEDERATION
+        7 = CONFEDERATION
+        8 = CONFEDERATION
+        9 = CONFEDERATION
+        10 = CONFEDERATION
+    }
+    ruler_male = {
+        1 = PRESIDENT
+        2 = PRESIDENT
+        3 = PRESIDENT
+        4 = PRESIDENT
+        5 = PRESIDENT
+        6 = PRESIDENT
+        7 = PRESIDENT
+        8 = PRESIDENT
+        9 = PRESIDENT
+        10 = PRESIDENT
+    }
+    ruler_female = {
+        1 = PRESIDENT_fem
+        2 = PRESIDENT_fem
+        3 = PRESIDENT_fem
+        4 = PRESIDENT_fem
+        5 = PRESIDENT_fem
+        6 = PRESIDENT_fem
+        7 = PRESIDENT_fem
+        8 = PRESIDENT_fem
+        9 = PRESIDENT_fem
+        10 = PRESIDENT_fem
+    }
+    trigger = {
+        government = republic
+        has_reform = united_cantons_reform
+        NOT = {
+            AND = {
+                tag = SWI
+                NOT = { government_rank = 8 }
+            }
+        }
+    }
+}
+
+
+ION_united_states = {
+	rank = {
+		1 = UNITED_STATES
+		2 = UNITED_STATES
+		3 = UNITED_STATES
+	}
+	ruler_male = {
+		1 = COMMISSIONER
+		2 = COMMISSIONER
+		3 = COMMISSIONER
+	}
+	ruler_female = {
+		1 = COMMISSIONER_fem
+		2 = COMMISSIONER_fem
+		3 = COMMISSIONER_fem
+	}
+
+	trigger = {
+		tag = ION
+		government = republic
+		NOT = {
+			country_name_is = { name = ION_republic } # "United States of the Septinsular Republic", bleh.
+		}
+	}
+}
+
+# ===========
+# Theocracies
+# ===========
+gov_prince_bishopric = {
+	rank = {
+		1 = PRINCE_BISHOPRIC
+	}
+	ruler_male = {
+		1 = PRINCE_BISHOP
+	}
+	ruler_female = {
+		1 = PRINCE_BISHOP_fem
+	}
+
+	trigger = {
+		government = theocracy
+		has_reform = prince_bishopric_reform
+		NOT = { government_rank = 8 }
+	}
+}
+
+# Prevents norulertitle/nogovernmentname errors
+ottoman_vassals = {
+	rank = {
+		1 = BEYLIK
+	}
+	ruler_male = {
+		1 = BEY
+	}
+	ruler_female = {
+		1 = HATUN
+	}
+	heir_male = {
+		1 = BEYSADE
+	}
+	heir_female = {
+		1 = BEYSADI
+	}
+	consort_male = {
+		1 = BEY
+	}
+	consort_female = {
+		1 = HATUN
+	}
+
+	trigger = {
+		government = monarchy
+		religion_group = muslim
+		NOT = { is_march = yes }
+		is_subject_of_type = vassal
+		NOT = { has_reform = eyalet_government }
+		NOT = { has_reform = barbary_eyalet_government }
+		overlord = {
+			primary_culture = turkish
+		}
+		
+		is_subject_other_than_tributary_trigger = yes
+		NOT = { government_rank = 8 }
+		NOT = {
+			AND = {
+				OR = {
+					has_reform = enlightened_despotism
+					has_reform = letat_cest_moi_reform
+					has_reform = regional_representation_reform
+				}
+				primary_culture = al_misr_arabic #Egyptian
+				religion_group = muslim
+			}
+		}
+	}
+}

@@ -1,0 +1,321 @@
+######napoleonicgfx
+
+entity = {
+	name = "FRAarti_INFANTRY_4"
+	pdxmesh = "xangelo_FRA_artillery_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "western_musket_2" 
+	}
+}
+
+entity = {
+	name = "FRA_ARTILLERY_4"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "FRAarti_INFANTRY_4" 
+		cannon_node = "westerngfx_ARTILLERY_4_cannon" 
+	}
+}
+
+entity = {
+	name = "FRA_INFANTRY_4"
+	pdxmesh = "xangelo_FRA_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Napoleon_musket_04" 
+	}
+}
+
+entity = {
+	name = "AfricaFRA_INFANTRY_4"
+	pdxmesh = "xangelo_AfricaFRA_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "western_musket_2" 
+	}
+}
+
+entity = {
+	name = "AfricaFRAarti_INFANTRY_4"
+	pdxmesh = "xangelo_AfricaFRA_artillery_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "evmajup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "AfricaFRA_ARTILLERY_4"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AfricaFRAarti_INFANTRY_4" 
+		cannon_node = "westerngfx_ARTILLERY_4_cannon" 
+	}
+}
+
+
+
+
+
+entity = {
+	name = "AsiaFRAarti_INFANTRY_4"
+	pdxmesh = "xangelo_AsiaFRA_artillery_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "evmajup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "AsiaFRA_ARTILLERY_4"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AsiaFRAarti_INFANTRY_4" 
+		cannon_node = "westerngfx_ARTILLERY_4_cannon" 
+	}
+}
+
+
+entity = {
+	name = "AsiaFRA_INFANTRY_4"
+	pdxmesh = "xangelo_AsiaFRA_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Napoleon_musket_04" 
+	}
+}
+
+
+entity = {
+	name = "OceaniaFRA_INFANTRY_4"
+	pdxmesh = "xangelo_OceaniaFRA_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "evmajup_rifle_04_entity" 
+	}
+}
+
+        ###################################################################################################################
+	#####                                            napoleonic  CAVALRY                                          #####
+	###################################################################################################################
+
+entity = {
+	name = "FRA_CAVALRY_4_rider"
+	pdxmesh = "xangelo_FRA_cavalry_04_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "napoleonic_cavalry_saber" 
+	}
+}
+
+entity = {
+	name = "FRA_CAVALRY_4"
+	pdxmesh = "napoleonic_cavalry_horse_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "FRA_CAVALRY_4_rider" 
+	}
+}
+
+
+entity = {
+	name = "AfricaFRA_CAVALRY_4_rider"
+	pdxmesh = "xangelo_AfricaFRA_cavalry_04_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "napoleonic_cavalry_saber" 
+	}
+}
+
+entity = {
+	name = "AfricaFRA_CAVALRY_4"
+	pdxmesh = "napoleonic_cavalry_horse_02_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AfricaFRA_CAVALRY_4_rider" 
+	}
+}
+
+entity = {
+	name = "AsiaFRA_CAVALRY_4_rider"
+	pdxmesh = "xangelo_AsiaFRA_cavalry_04_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "napoleonic_cavalry_saber" 
+	}
+}
+
+entity = {
+	name = "AsiaFRA_CAVALRY_4"
+	pdxmesh = "evmajup_cavalry_horse_002_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AsiaFRA_CAVALRY_4_rider" 
+	}
+}
+
+
+entity = { clone = "AfricaFRA_INFANTRY_4"        name = "africa_FRA_INFANTRY_4" version = 10  }
+entity = { clone = "AfricaFRA_ARTILLERY_4"       name = "africa_FRA_ARTILLERY_4" version = 10 }
+entity = { clone = "AfricaFRA_CAVALRY_4"	 name = "africa_FRA_CAVALRY_4"  version = 10  }
+
+entity = { clone = "AsiaFRA_INFANTRY_4"        name = "asia_FRA_INFANTRY_4" version = 10   }
+entity = { clone = "AsiaFRA_ARTILLERY_4"       name = "asia_FRA_ARTILLERY_4" version = 10  }
+entity = { clone = "AsiaFRA_CAVALRY_4"	       name = "asia_FRA_CAVALRY_4"  version = 10   }
+
+entity = { clone = "OceaniaFRA_INFANTRY_4"        name = "oceania_FRA_INFANTRY_4" version = 10 }
+entity = { clone = "AfricaFRA_ARTILLERY_4"       name = "oceania_FRA_ARTILLERY_4" version = 10 }
+entity = { clone = "AfricaFRA_CAVALRY_4"	 name = "oceania_FRA_CAVALRY_4"   version = 10 }
+

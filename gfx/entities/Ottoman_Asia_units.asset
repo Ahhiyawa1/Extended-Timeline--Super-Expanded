@@ -1,0 +1,383 @@
+######Ottomangfx
+
+entity = {
+	name = "asia_TUR_INFANTRY_1"
+	pdxmesh = "xangelo_AsiaTUR_infantry_01_mesh"
+        version = 10
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "Turkish_halberd"  
+	}
+}
+
+entity = {
+	name = "AsiaTURarti_INFANTRY_1"
+	pdxmesh = "xangelo_AsiaTUR_artillery_01_mesh"
+        version = 10
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "Ottoman_sword" 
+		Left_hand_node = "Turkish_round_shield_02" 
+	}
+}
+
+
+entity = {
+	name = "asia_TUR_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AsiaTURarti_INFANTRY_1" 
+		cannon_node = "muslimgfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_INFANTRY_2"
+	pdxmesh = "xangelo_AsiaTUR_infantry_02_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Turkish_musket_02" 
+	}
+}
+
+entity = {
+	name = "AsiaTURarti_INFANTRY_2"
+	pdxmesh = "xangelo_AsiaTUR_artillery_02_mesh"
+        version = 10
+
+        state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "Ottoman_sword" 
+		Left_hand_node = "Turkish_round_shield_02" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_ARTILLERY_2"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AsiaTURarti_INFANTRY_2" 
+		cannon_node = "muslimgfx_ARTILLERY_2_cannon" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_INFANTRY_3"
+	pdxmesh = "xangelo_AsiaTUR_infantry_03_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Turkish_musket_03" 
+	}
+}
+
+entity = {
+	name = "AsiaTURarti_INFANTRY_3"
+	pdxmesh = "xangelo_AsiaTUR_artillery_03_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "Turkish_mace" 
+		Left_hand_node = "Turkish_round_shield_01" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_ARTILLERY_3"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AsiaTURarti_INFANTRY_3" 
+		cannon_node = "muslimgfx_ARTILLERY_3_cannon" 
+	}
+}
+
+
+entity = {
+	name = "asia_TUR_INFANTRY_4"
+	pdxmesh = "xangelo_AsiaTUR_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Turkish_musket_04" 
+	}
+}
+
+entity = {
+	name = "AsiaTURarti_INFANTRY_4"
+	pdxmesh = "xangelo_AsiaTUR_artillery_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Turkish_musket_04" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_ARTILLERY_4"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "AsiaTURarti_INFANTRY_4" 
+		cannon_node = "muslimgfx_ARTILLERY_4_cannon" 
+	}
+}
+
+
+        ###################################################################################################################
+	#####                                            Ottoman  CAVALRY                                             #####
+	###################################################################################################################
+
+
+
+entity = {
+	name = "AsiaTUR_CAVALRY_1_rider"
+	pdxmesh = "xangelo_AsiaTUR_cavalry_01_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "Turkish_lance_01" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_CAVALRY_1"
+	pdxmesh = "Turkish_cavalry_horse_01_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AsiaTUR_CAVALRY_1_rider" 
+	}
+}
+
+
+entity = {
+	name = "AsiaTUR_CAVALRY_2_rider"
+	pdxmesh = "xangelo_AsiaTUR_cavalry_02_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "Turkish_lance_01" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_CAVALRY_2"
+	pdxmesh = "Turkish_cavalry_horse_01_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AsiaTUR_CAVALRY_2_rider" 
+	}
+}
+
+entity = {
+	name = "AsiaTUR_CAVALRY_3_rider"
+	pdxmesh = "xangelo_AsiaTUR_cavalry_03_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "Turkish_lance_02" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_CAVALRY_3"
+	pdxmesh = "Turkish_cavalry_horse_02_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AsiaTUR_CAVALRY_3_rider" 
+	}
+}
+
+entity = {
+	name = "AsiaTUR_CAVALRY_4_rider"
+	pdxmesh = "xangelo_AsiaTUR_cavalry_04_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "Turkish_lance_02" 
+	}
+}
+
+entity = {
+	name = "asia_TUR_CAVALRY_4"
+	pdxmesh = "Turkish_cavalry_horse_03_mesh"
+	version = 10
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AsiaTUR_CAVALRY_4_rider" 
+	}
+}
+

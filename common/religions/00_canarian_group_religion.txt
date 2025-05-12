@@ -1,0 +1,43 @@
+# CPBM - BEST TO COMPARE PREV ET TO NEW ET AND REFLECT CHANGES
+# Added religions and changing icon IDs
+# Shifts: dreamtime to pacific_pagan in et_religion
+# Added religions: Baptist, Mandaenism, Ahmadiyya, Mutazila, Shaivism, Shaktism
+# Added MMETR sections (Find)
+
+# If you add religions, and use those tags, do not change them without changing everywhere they are used.
+
+# Uses all 'modifiers' possible thats exported as a Modifier.
+
+
+canarian_faiths = {
+	defender_of_faith = no
+	can_form_personal_unions = yes
+
+	center_of_religion = 4565 # Tenerife
+
+	achamanism = {
+		color = { 125 140 139 }
+		icon = 135
+		country = {
+			tolerance_own = 2
+			advisor_pool = 3
+			infantry_cost = -0.07
+			discipline = 0.4
+			prestige_decay = -0.10	
+		}
+
+		province = {
+			local_missionary_strength = -0.07
+		}
+		
+		heretic = { BEAR_SPIRIT }
+		
+		holy_sites = { 4565 }
+
+
+		declare_war_in_regency = yes
+		ancestors = yes
+	}
+	
+	crusade_name = HOLY_WAR
+}

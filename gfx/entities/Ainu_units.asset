@@ -1,0 +1,75 @@
+######Eastasiagfx
+
+entity = {
+	name = "ANU_INFANTRY_1"
+	pdxmesh = "xangelo_ANU_infantry_01_mesh"
+        version = 10
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "Tibetan_spear" 
+	}
+}
+
+entity = {
+	name = "ANU_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+	version = 10	 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "ANU_INFANTRY_1" 
+		cannon_node = "asiangfx_ARTILLERY_1_cannon" 
+	}
+}
+
+entity = {
+	name = "ANU_INFANTRY_3"
+	pdxmesh = "xangelo_ANU_infantry_03_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Iaponia_musket_02" 
+	}
+}
+
+
+entity = {
+	name = "ANU_INFANTRY_4"
+	pdxmesh = "xangelo_ANU_infantry_04_mesh"
+	version = 10
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Left_hand_node = "Chinese_musket_04" 
+	}
+}

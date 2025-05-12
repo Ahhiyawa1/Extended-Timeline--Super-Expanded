@@ -1,0 +1,27 @@
+hie_spa_gal_asiento_system_update = {
+	if = {
+		limit = {
+			overlord = { has_idea = hie_spa_gal_asiento_system }
+			is_colonial_nation = yes
+		}
+		add_country_modifier = {
+			name = hie_spa_gal_asiento_system_modifier
+			duration = -1
+		}
+	}
+	else = { remove_country_modifier = hie_spa_gal_asiento_system_modifier }
+}
+
+hie_eic_residency_update = {
+	if = {
+		limit = {
+			has_idea = hie_eic_e_i_c_residency
+			is_free_or_tributary_trigger = yes
+		}
+		add_country_modifier = {
+			name = hie_eic_residency_modifier
+			duration = -1
+		}
+	}
+	else = { remove_country_modifier = hie_eic_residency_modifier }
+}

@@ -1,0 +1,63 @@
+
+custom_button = {
+	name = hie_swap_national_ideas_open_button
+	potential = {
+		ai = no
+		ai = no
+		country_has_both_hie_vanilla_ideas = yes
+		OR = {
+			NOT = { has_country_flag = hie_swap_ideas_@ROOT }
+			NOT = {
+				check_variable = {
+					which = historical_idea_expanded_swapped_ideas
+					value = 2
+				}
+			}
+		}
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = HIE_SWAP_IDEAS_TT
+			OR = {
+				NOT = { has_country_flag = hie_swap_ideas_@ROOT }
+				NOT = {
+					check_variable = {
+						which = historical_idea_expanded_swapped_ideas
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = hie_swap_ideas_@ROOT }
+				change_variable = {
+					which = historical_idea_expanded_swapped_ideas
+					value = 1
+				}
+			}
+			else = {
+				set_country_flag = hie_swap_ideas_@ROOT
+				set_variable = {
+					which = historical_idea_expanded_swapped_ideas
+					value = 1
+				}
+			}
+		}
+		hie_fix_broken_pdx_shit_removed_effect = yes
+		if = {
+			limit = { has_country_flag = hie_use_vanilla_ideas }
+			clr_country_flag = hie_use_vanilla_ideas
+			custom_tooltip = HIE_RECEIVE_MODDED_IDEAS_TT
+		}
+		else = {
+			set_country_flag = hie_use_vanilla_ideas
+			custom_tooltip = HIE_RECEIVE_VANILLA_IDEAS_TT
+		}
+		swap_free_idea_group = yes
+		hie_fix_broken_pdx_shit_effect = yes
+	}
+	tooltip = HIE_SWAP_NATIONAL_IDEAS_OPEN_BUTTON_TT
+}

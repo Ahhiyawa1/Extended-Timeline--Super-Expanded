@@ -1,0 +1,153 @@
+######eastafricangfx
+
+entity = {
+	name = "Southafricagfx_INFANTRY_1"
+	pdxmesh = "xangelo_Southafricagfx_infantry_01_mesh"
+        
+
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+	state = { name = "retreat"		animation = "retreat" }
+	#state = { name = "death"		animation = "death" }
+	#state = { name = "extra_state_1"		animation = "extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "extra_state_3" }
+
+	attach = { 
+		Right_hand_node = "southafrican_spear" 
+		Left_hand_node = "southafrican_shield" 
+	}
+}
+
+entity = {
+	name = "Southafricagfx_ARTILLERY_1"
+	pdxmesh = "artillery_base_mesh"
+		 	
+	state = { name = "attack"		animation = "artillery_base_attack" }
+	state = { name = "idle" 		animation = "artillery_base_idle" }
+	#state = { name = "death" 		animation = "artillery_base_idle" }
+	state = { name = "walk" 		animation = "artillery_base_moving" }	state = { name = "retreat" 		animation = "artillery_base_moving" }
+	
+	attach = { 
+		name = "gunman"
+		infantry_node = "Southafricagfx_INFANTRY_1" 
+		cannon_node = "_ARTILLERY_1_cannon" 
+	}
+}
+
+        ###################################################################################################################
+	#####                                            South africa  CAVALRY                                        #####
+	###################################################################################################################
+
+
+
+entity = {
+	name = "Southafricagfx_CAVALRY_1_rider"
+	pdxmesh = "xangelo_Southafricagfx_cavalry_01_mesh"
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = { 
+		name = "rider_weapon"
+		Right_hand_node = "eastafrican_lance_01" 
+	}
+}
+
+entity = {
+	name = "Southafricagfx_CAVALRY_1"
+	pdxmesh = "eastafrican_cavalry_horse_01_mesh"
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+	state = { name = "retreat"		animation = "horse_retreat" }
+	#state = { name = "death"		animation = "horse_death" }
+	#state = { name = "extra_state_1"		animation = "horse_extra_state_1" }
+	#state = { name = "extra_state_2"		animation = "horse_extra_state_2" }
+	#state = { name = "extra_state_3"		animation = "horse_extra_state_3" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "Southafricagfx_CAVALRY_1_rider" 
+	}
+}
+
+        ###################################################################################################################
+	#####                                            South african Unit clones                                    #####
+	###################################################################################################################
+
+#Mutapa
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "ZIM_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "ZIM_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "ZIM_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "ZIM_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "ZIM_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "ZIM_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "ZIM_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "ZIM_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "ZIM_ARTILLERY_3"  }
+
+#Butua
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "RZW_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "RZW_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "RZW_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "RZW_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "RZW_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "RZW_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "RZW_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "RZW_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "RZW_ARTILLERY_3"  }
+
+#Lundu
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "LDU_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "LDU_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "LDU_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "LDU_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "LDU_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "LDU_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "LDU_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "LDU_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "LDU_ARTILLERY_3"  }
+
+#Makua
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MKU_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MKU_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MKU_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MKU_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MKU_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MKU_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MKU_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MKU_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MKU_ARTILLERY_3"  }
+
+#Maravi
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MRA_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MRA_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MRA_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MRA_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MRA_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MRA_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "MRA_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "MRA_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "MRA_ARTILLERY_3"  }
+
+#Tumbuka
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "TBK_INFANTRY_1" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "TBK_CAVALRY_1"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "TBK_ARTILLERY_1"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "TBK_INFANTRY_2" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "TBK_CAVALRY_2"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "TBK_ARTILLERY_2"  }
+entity = { clone = "Southafricagfx_INFANTRY_1"        name = "TBK_INFANTRY_3" }
+entity = { clone = "Southafricagfx_CAVALRY_1"	      name = "TBK_CAVALRY_3"  }
+entity = { clone = "Southafricagfx_ARTILLERY_1"       name = "TBK_ARTILLERY_3"  }
+
+

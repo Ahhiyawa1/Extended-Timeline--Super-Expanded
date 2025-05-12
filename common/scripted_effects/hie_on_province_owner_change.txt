@@ -1,0 +1,430 @@
+hie_build_cost_reduction_in_jungle_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_coc_sajtaj_u_juntulil_u_kaab }
+			has_terrain = jungle
+		}
+		add_province_modifier = {
+			name = hie_build_cost_reduction_in_jungle
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_build_cost_reduction_in_jungle }
+}
+
+hie_colonial_growth_in_colombian_provs_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_tus_thornton_expedition }
+			colonial_region = colonial_colombia
+		}
+		add_province_modifier = {
+			name = hie_colonial_growth_in_colombian_provs
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_colonial_growth_in_colombian_provs }
+}
+hie_colonial_growth_in_mexican_provs_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_cht_kajbak_ojer }
+			colonial_region = colonial_mexico
+			is_colony = yes
+		}
+		add_province_modifier = {
+			name = hie_colonial_growth_in_mexican_provs
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_colonial_growth_in_mexican_provs }
+}
+
+hie_dev_cost_reduction_in_arctic_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_prm_urbanizing_the_uralic_tundra }
+			has_climate = arctic
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_arctic
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_arctic }
+}
+hie_dev_cost_reduction_in_desert_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_maw_cattle_economy }
+			has_terrain = desert
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_desert
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_desert }
+}
+hie_dev_cost_reduction_in_dryland_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_kat_dry_development }
+			has_terrain = drylands
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_dryland
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_dryland }
+}
+hie_dev_cost_reduction_in_jungle_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_knd_survival_in_secrecy }
+			has_terrain = jungle
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_jungle
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_jungle }
+}
+hie_dev_cost_reduction_in_jungle_strong_update = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					has_idea = hie_ctm_u_kaabeetik_u_tzucubil
+					has_idea = hie_mis_jungle_familiarity
+				}
+			}
+			has_terrain = jungle
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_jungle_strong
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_jungle_strong }
+}
+hie_dev_cost_reduction_in_highlands_hills_mountains_update = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					has_idea = hie_lac_k_antunale
+					has_idea = hie_yok_ku_ja_ayl_kanal
+					has_idea = hie_dng_longhouses
+					has_idea = hie_jml_the_hidden_valleys
+					has_idea = hie_ktu_highland_urbanisation
+				}
+			}
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+				has_terrain = mountain
+			}
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_highlands_hills_mountains
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_highlands_hills_mountains }
+}
+hie_dev_cost_reduction_in_metal_provs_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_hst_xolon_maj }
+			has_metal_goods = yes
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_metal_provs
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_metal_provs }
+}
+hie_dev_cost_reduction_in_tropic_update = {
+	if = {
+		limit = {
+			owner = {
+				has_idea = hie_tnj_the_ancient_chola_capital
+				has_idea = hie_ass_tai_ahom
+			}
+			has_climate = tropical
+		}
+		add_province_modifier = {
+			name = hie_dev_cost_reduction_in_tropic
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_dev_cost_reduction_in_tropic }
+}
+
+hie_enemy_movement_speed_in_owned_provs_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_ctm_u_luumil_kaay }
+		}
+		add_province_modifier = {
+			name = hie_enemy_movement_speed_in_owned_provs
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_enemy_movement_speed_in_owned_provs }
+}
+
+hie_gov_cost_reduction_primary_culture_update = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					has_idea = hie_coc_u_kanalil_ti_bakab
+					has_idea = hie_may_coc_u_k_analil_ti_bak_ab
+					has_idea = hie_naw_administering_the_empire
+				}
+			}
+			has_owner_culture = yes
+		}
+		add_province_modifier = {
+			name = hie_gov_cost_reduction_primary_culture
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_gov_cost_reduction_primary_culture }
+}
+hie_gov_cost_reduction_prussia_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_pru_schooling_system }
+			culture = prussian
+		}
+		add_province_modifier = {
+			name = hie_gov_cost_reduction_prussia
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_gov_cost_reduction_prussia }
+}
+
+hie_trade_power_in_highlands_hills_mountains_update = {
+	if = {
+		limit = {
+			owner = {
+				has_idea = hie_ldk_treatorus_paths
+			}
+			OR = {
+				has_terrain = highlands
+				has_terrain = hills
+				has_terrain = mountain
+			}
+		}
+		add_province_modifier = {
+			name = hie_trade_power_in_highlands_hills_mountains_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_trade_power_in_highlands_hills_mountains_modifier }
+}
+hie_trade_value_in_hill_update = {
+	if = {
+		limit = {
+			owner = {
+				has_idea = hie_klp_quartz_mines
+			}
+			has_terrain = hills
+		}
+		add_province_modifier = {
+			name = hie_trade_value_in_hill_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_trade_value_in_hill_modifier }
+}
+
+hie_unrest_build_cost_primary_culture_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_guj_jamat_bandi }
+			has_owner_culture = yes
+		}
+		add_province_modifier = {
+			name = hie_unrest_build_cost_primary_culture
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_unrest_build_cost_primary_culture }
+}
+
+hie_no_slaves_update = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					has_idea = hie_rag_abolition_slavery
+					has_idea = hie_jaj_our_lost_people
+				}
+			}
+			trade_goods = slaves
+		}
+		change_trade_goods = random
+		remove_building = tradecompany
+		remove_province_modifier = slave_entrepot
+	}
+}
+
+hie_dgl_the_cowrie_trade_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_dgl_the_cowrie_trade }
+			sea_zone = { superregion = east_african_sea_superregion }
+		}
+		add_province_modifier = {
+			name = hie_cowrie_trade_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_cowrie_trade_modifier }
+}
+hie_ita_culla_rinascimento_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_ita_culla_rinascimento }
+			region = italy_region
+		}
+		add_province_modifier = {
+			name = hie_ita_culla_rinascimento_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_ita_culla_rinascimento_modifier }
+}
+hie_ita_sar_statute_sabaudiae_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_ita_sar_statute_sabaudiae }
+			culture_group = latin
+		}
+		add_province_modifier = {
+			name = hie_ita_sar_statute_sabaudiae_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_ita_sar_statute_sabaudiae_modifier }
+}
+hie_rajput_clan_system_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_jan_the_clan_system }
+			culture = rajput
+		}
+		add_province_modifier = {
+			name = hie_rajput_clan_system_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_rajput_clan_system_modifier }
+}
+hie_revived_visigothic_codes_modifier_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_spa_and_fuero_juzgo }
+			culture_group = ROOT
+		}
+		add_province_modifier = {
+			name = hie_revived_visigothic_codes_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_revived_visigothic_codes_modifier }
+}
+hie_spa_ara_union_of_crowns_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_spa_ara_union_of_crowns }
+		}
+		if = {
+			limit = { region = italy_region }
+			add_province_modifier = {
+				name = hie_spa_ara_union_of_crowns_italy_modifier
+				duration = -1
+			}
+		}
+		if = {
+			limit = { region = iberia_region }
+			add_province_modifier = {
+				name = hie_spa_ara_union_of_crowns_iberia_modifier
+				duration = -1
+			}
+		}
+	}
+	else = {
+		remove_province_modifier = hie_spa_ara_union_of_crowns_italy_modifier
+		remove_province_modifier = hie_spa_ara_union_of_crowns_iberia_modifier
+	}
+}
+hie_spa_bas_basque_shipyard_demand_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_spa_bas_revitalize_the_cantabrian_shipyards }
+			trade_goods = naval_supplies
+			region = iberia_region
+		}
+		add_province_modifier = {
+			name = hie_spa_bas_basque_shipyard_demand
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_spa_bas_basque_shipyard_demand }
+}
+hie_spa_gal_modernized_camino_real_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_spa_gal_modernized_camino_real }
+			num_of_times_expanded_infrastructure = 1
+		}
+		add_province_modifier = {
+			name = hie_spa_gal_modernized_camino_real_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_spa_gal_modernized_camino_real_modifier }
+}
+hie_parliament_seat_dev_governing_cost_update = {
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					has_idea = hie_spa_leo_reinforce_the_cortes
+					has_idea = hie_ita_sic_parramentu_sicilianu
+				}
+			}
+			has_seat_in_parliament = yes
+		}
+		add_province_modifier = {
+			name = hie_parliament_seat_dev_governing_cost
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_parliament_seat_dev_governing_cost }
+}
+hie_gwa_land_of_the_ancients_update = {
+	if = {
+		limit = {
+			owner = { has_idea = hie_gwa_land_of_the_ancients }
+			OR = {
+				province_id = 525
+				area_for_scope_province = { province_id = 525 }
+			}
+		}
+		add_province_modifier = {
+			name = hie_gwa_land_of_the_ancients_modifier
+			duration = -1
+		}
+	}
+	else = { remove_province_modifier = hie_gwa_land_of_the_ancients_modifier }
+}

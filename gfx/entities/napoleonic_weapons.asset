@@ -1,0 +1,28 @@
+######napoleonicgfx
+
+
+
+entity = {
+	name = "napoleonic_cavalry_saber"
+	pdxmesh = "napoleonic_cavalry_saber"
+}
+
+entity = {
+	name = "napoleonic_cavalry_horse_mesh"
+	pdxmesh = "napoleonic_cavalry_horse_mesh"
+}
+
+entity = {
+	name = "napoleonic_cavalry_horse_02_mesh"
+	pdxmesh = "napoleonic_cavalry_horse_02_mesh"
+}
+
+entity = {
+	name = "Napoleon_musket_04"
+	pdxmesh = "Napoleon_musket_04"
+	state = { name = "attack"
+		event = { time = 0.90	node = "muzzle"		particle = "musket_muzzle" }
+		event = { time = 0.90	node = "muzzle"		particle = "musket_smoke_residue" }	  
+		event = { time = 0.90	node = "trigger"	particle = "musket_trigger_smoke" }			
+	}
+}
