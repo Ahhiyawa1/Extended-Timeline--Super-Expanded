@@ -20,8 +20,35 @@ historical_idea_groups = {
 	defensive_ideas
 	aristocracy_ideas
 	quality_ideas
+	early_religious_ideas
+	early_trade_ideas
+	early_mil_ideas
+	early_adm_ideas
+	diplomatic_ideas
+	humanist_ideas
+	trade_ideas
+	offensive_ideas
+	administrative_ideas
+	defensive_ideas
+	aristocracy_ideas
+	quality_ideas
 }
 historical_units = {
+	bardiche_infantry
+	eastern_knights
+	slavic_stradioti
+	eastern_militia
+	hungarian_hussar
+	polish_musketeer
+	polish_hussar
+	polish_tercio
+	polish_winged_hussar
+	russian_lancer
+	russian_cuirassier
+	eastern_skirmisher
+	eastern_uhlan
+	eastern_carabinier
+	russian_mass
 	bardiche_infantry
 	eastern_knights
 	slavic_stradioti
@@ -40,53 +67,105 @@ historical_units = {
 }
 leader_names = {
 
-	Arciszewski 
-	Benyowski Bidzinski Bielinski Boner Branicki Brzostowski Buczacki Butler 
-	Cetner Chlewicki Chodecki Chometowski Czapski Czarniecki Czarnkowski 
-	Dambski Denhoff Drzewicki Dunin Dzialynski Dzieduszycki 
-	Firlej Fredro 
-	Gembicki Górka Gosiewski Grabowski Grodzicki Grudzinski Grzymultowski Gurowski 
-	Herburt Houwaldt Hylzen 
-	Jablonowski Jaroslawski Jazlowiecki Jordan Judycki 
-	Kalinowski Kamieniecki Karnkowski Kazanowski Kmita Komorowski Koniecpolski Korycki Krasicki Krasinski Kurozwecki Kwilecki 
-	Lacki Lanckoronski Latalski Leszczynski Ligeza Lipski Lisowski Lubomirski Lubranski 
-	Malachowski Malski Matczynski Melsztynski Mielecki Mielzynski Mlodziejowski Mniszech Morsztyn Mycielski 
-	Nalecz Niesiolowski 
-	Odrowaz Olesnicki Opacki Oporowski Ossolinski Ostroróg Ostrowski Ozarowski 
-	Paniewski Piaseczynski Pilecki Pociej Poniatowski Poninski Potocki Prazmowski Przebendowski Przyjemski Pulaski 
-	Raczynski Radziejowski Rej Rytwianski Rzewuski 
-	Scibor Siemienowicz Sieniawski Sierakowski Skarbek Sobieski Soltyk Stadnicki Sulkowski Szafraniec Szembek Szydlowiecki 
-	Tarlo Tarnowski Teczynski Tomicki Tyzenhaus 
-	Uchanski 
-	Walewski Weyher Wielopolski Wierzbowski Wodzicki Wolski Wyhowski 
-	Zacwilchowski Zaluski Zamoyski Zborowski Zebrzydowski 
+	Arciszewski Arciszewski 
+	Benyowski Benyowski Bidzinski Bidzinski Bielinski Bielinski Boner Boner Branicki Branicki Brzostowski Brzostowski Buczacki Buczacki Butler Butler 
+	Cetner Cetner Chlewicki Chlewicki Chodecki Chodecki Chometowski Chometowski Czapski Czapski Czarniecki Czarniecki Czarnkowski Czarnkowski 
+	Dambski Dambski Denhoff Denhoff Drzewicki Drzewicki Dunin Dunin Dzialynski Dzialynski Dzieduszycki Dzieduszycki 
+	Firlej Firlej Fredro Fredro 
+	Gembicki Gembicki Górka Górka Gosiewski Gosiewski Grabowski Grabowski Grodzicki Grodzicki Grudzinski Grudzinski Grzymultowski Grzymultowski Gurowski Gurowski 
+	Herburt Herburt Houwaldt Houwaldt Hylzen Hylzen 
+	Jablonowski Jablonowski Jaroslawski Jaroslawski Jazlowiecki Jazlowiecki Jordan Jordan Judycki Judycki 
+	Kalinowski Kalinowski Kamieniecki Kamieniecki Karnkowski Karnkowski Kazanowski Kazanowski Kmita Kmita Komorowski Komorowski Koniecpolski Koniecpolski Korycki Korycki Krasicki Krasicki Krasinski Krasinski Kurozwecki Kurozwecki Kwilecki Kwilecki 
+	Lacki Lacki Lanckoronski Lanckoronski Latalski Latalski Leszczynski Leszczynski Ligeza Ligeza Lipski Lipski Lisowski Lisowski Lubomirski Lubomirski Lubranski Lubranski 
+	Malachowski Malachowski Malski Malski Matczynski Matczynski Melsztynski Melsztynski Mielecki Mielecki Mielzynski Mielzynski Mlodziejowski Mlodziejowski Mniszech Mniszech Morsztyn Morsztyn Mycielski Mycielski 
+	Nalecz Nalecz Niesiolowski Niesiolowski 
+	Odrowaz Odrowaz Olesnicki Olesnicki Opacki Opacki Oporowski Oporowski Ossolinski Ossolinski Ostroróg Ostroróg Ostrowski Ostrowski Ozarowski Ozarowski 
+	Paniewski Paniewski Piaseczynski Piaseczynski Pilecki Pilecki Pociej Pociej Poniatowski Poniatowski Poninski Poninski Potocki Potocki Prazmowski Prazmowski Przebendowski Przebendowski Przyjemski Przyjemski Pulaski Pulaski 
+	Raczynski Raczynski Radziejowski Radziejowski Rej Rej Rytwianski Rytwianski Rzewuski Rzewuski 
+	Scibor Scibor Siemienowicz Siemienowicz Sieniawski Sieniawski Sierakowski Sierakowski Skarbek Skarbek Sobieski Sobieski Soltyk Soltyk Stadnicki Stadnicki Sulkowski Sulkowski Szafraniec Szafraniec Szembek Szembek Szydlowiecki Szydlowiecki 
+	Tarlo Tarlo Tarnowski Tarnowski Teczynski Teczynski Tomicki Tomicki Tyzenhaus Tyzenhaus 
+	Uchanski Uchanski 
+	Walewski Walewski Weyher Weyher Wielopolski Wielopolski Wierzbowski Wierzbowski Wodzicki Wodzicki Wolski Wolski Wyhowski Wyhowski 
+	Zacwilchowski Zacwilchowski Zaluski Zaluski Zamoyski Zamoyski Zborowski Zborowski Zebrzydowski Zebrzydowski 
 }
 army_names = {
 
-	"Armia z $PROVINCE$" 
+	"Armia z $PROVINCE$" "Armia z $PROVINCE$" 
 }
 fleet_names = {
 
 }
 ship_names = {
 
-	"Arka Noego" 
-	Belzkie "Bialy Lew" "Bialy Orzel" Braclawskie Brzesko-Kujawskie Burza 
-	Charitas Chelminskie "Czarny Kruk" "Czarny Orzel" Czernichowskie 
-	Fortuna 
-	Gnieznienskie Gryf Gwiazda 
-	Inowroclawskie 
-	Kaliskie Kijowskie Kraków Krakowskie "Król Dawid" 
-	"Latajacy Jelen" Leczyckie Lubelskie Lublin Lwów 
-	Malborskie "Maly Bialy Orzel" Mazowieckie 
-	Niewrazliwy "Nowy Czarny Orzel" 
-	"Panna Wodna" Plockie Plomien Podlaskie Podolskie Poznanskie "Prorok Samuel" 
-	Rawskie Ruskie "Rycerz Swiety Jerzy" 
-	Sandomierskie Sieradzkie Strzelec Suwerenny "Swiety Kazimierz" "Swiety Piotr" 
-	Warminskie Warszawa "Wielkie Slonce" Wodnik Wolynskie 
-	"Zólty Lew" Zwyciestwo 
+	"Arka Noego" "Arka Noego" 
+	Belzkie Belzkie "Bialy Lew" "Bialy Lew" "Bialy Orzel" "Bialy Orzel" Braclawskie Braclawskie Brzesko-Kujawskie Brzesko-Kujawskie Burza Burza 
+	Charitas Charitas Chelminskie Chelminskie "Czarny Kruk" "Czarny Kruk" "Czarny Orzel" "Czarny Orzel" Czernichowskie Czernichowskie 
+	Fortuna Fortuna 
+	Gnieznienskie Gnieznienskie Gryf Gryf Gwiazda Gwiazda 
+	Inowroclawskie Inowroclawskie 
+	Kaliskie Kaliskie Kijowskie Kijowskie Kraków Kraków Krakowskie Krakowskie "Król Dawid" "Król Dawid" 
+	"Latajacy Jelen" "Latajacy Jelen" Leczyckie Leczyckie Lubelskie Lubelskie Lublin Lublin Lwów Lwów 
+	Malborskie Malborskie "Maly Bialy Orzel" "Maly Bialy Orzel" Mazowieckie Mazowieckie 
+	Niewrazliwy Niewrazliwy "Nowy Czarny Orzel" "Nowy Czarny Orzel" 
+	"Panna Wodna" "Panna Wodna" Plockie Plockie Plomien Plomien Podlaskie Podlaskie Podolskie Podolskie Poznanskie Poznanskie "Prorok Samuel" "Prorok Samuel" 
+	Rawskie Rawskie Ruskie Ruskie "Rycerz Swiety Jerzy" "Rycerz Swiety Jerzy" 
+	Sandomierskie Sandomierskie Sieradzkie Sieradzkie Strzelec Strzelec Suwerenny Suwerenny "Swiety Kazimierz" "Swiety Kazimierz" "Swiety Piotr" "Swiety Piotr" 
+	Warminskie Warminskie Warszawa Warszawa "Wielkie Slonce" "Wielkie Slonce" Wodnik Wodnik Wolynskie Wolynskie 
+	"Zólty Lew" "Zólty Lew" Zwyciestwo Zwyciestwo 
 }
 monarch_names = {
+	"August #1" = 60
+	"Wladyslaw #3" = 60
+	"Stanislaw #0" = 40
+	"Kazimierz #3" = 20
+	"Aleksander #0" = 20
+	"Henryk #0" = 20
+	"Jan #0" = 20
+	"Jan #0 Olbracht" = 20
+	"Jan #0 Kazimierz" = 20
+	"Michal #0" = 20
+	"Stefan #0" = 20
+	"Zygmunt #0" = 20
+	"Zygmunt #0 August" = 20
+	"Aleksander #0 Karol" = 15
+	"Zygmunt #0 Kazimierz" = 15
+	"Krzysztof #0" = 10
+	"Fryderyk #0" = 10
+	"Jan #0 Zygmunt" = 10
+	"Karol #0 Ferdynand" = 10
+	"Olbracht #0" = 10
+	"Albert #0" = 0
+	"Aleksy #0" = 0
+	"Andrzej #0" = 0
+	"Bartlomiej #0" = 0
+	"Bogumil #0" = 0
+	"Bronislaw #0" = 0
+	"Dawid #0" = 0
+	"Dominik #0" = 0
+	"Emil #0" = 0
+	"Eugeniusz #0" = 0
+	"Ferdynand #0" = 0
+	"Gustaw #0" = 0
+	"Igor #0" = 0
+	"Iwan #0" = 0
+	"Krystian #0" = 0
+	"Lech #0" = 0
+	"Lucjusz #0" = 0
+	"Ludwik #0" = 0
+	"Lukasz #0" = 0
+	"Maksym #0" = 0
+	"Mariusz #0" = 0
+	"Mieszko #3" = 0
+	"Miroslaw #0" = 0
+	"Oskar #0" = 0
+	"Patryk #0" = 0
+	"Rafal #0" = 0
+	"Sylwester #0" = 0
+	"Szymon #0" = 0
+	"Zygfryd #0" = 0
+	"Jadwiga #1" = -1
+	"Anna #0" = -1
+	"Katarzyna #0" = -1
 	"August #1" = 60
 	"Wladyslaw #3" = 60
 	"Stanislaw #0" = 40
@@ -159,8 +238,35 @@ historical_idea_groups = {
 	defensive_ideas
 	aristocracy_ideas
 	quality_ideas
+	early_religious_ideas
+	early_trade_ideas
+	early_mil_ideas
+	early_adm_ideas
+	diplomatic_ideas
+	humanist_ideas
+	trade_ideas
+	offensive_ideas
+	administrative_ideas
+	defensive_ideas
+	aristocracy_ideas
+	quality_ideas
 }
 historical_units = {
+	bardiche_infantry
+	eastern_knights
+	slavic_stradioti
+	eastern_militia
+	hungarian_hussar
+	polish_musketeer
+	polish_hussar
+	polish_tercio
+	polish_winged_hussar
+	russian_lancer
+	russian_cuirassier
+	eastern_skirmisher
+	eastern_uhlan
+	eastern_carabinier
+	russian_mass
 	bardiche_infantry
 	eastern_knights
 	slavic_stradioti
@@ -179,51 +285,51 @@ historical_units = {
 }
 leader_names = {
 
-	Arciszewski 
-	Benyowski Bidzinski Bielinski Boner Branicki Brzostowski Buczacki Butler 
-	Cetner Chlewicki Chodecki Chometowski Czapski Czarniecki Czarnkowski 
-	Dambski Denhoff Drzewicki Dunin Dzialynski Dzieduszycki 
-	Firlej Fredro 
-	Gembicki Górka Gosiewski Grabowski Grodzicki Grudzinski Grzymultowski Gurowski 
-	Herburt Houwaldt Hylzen 
-	Jablonowski Jaroslawski Jazlowiecki Jordan Judycki 
-	Kalinowski Kamieniecki Karnkowski Kazanowski Kmita Komorowski Koniecpolski Korycki Krasicki Krasinski Kurozwecki Kwilecki 
-	Lacki Lanckoronski Latalski Leszczynski Ligeza Lipski Lisowski Lubomirski Lubranski 
-	Malachowski Malski Matczynski Melsztynski Mielecki Mielzynski Mlodziejowski Mniszech Morsztyn Mycielski 
-	Nalecz Niesiolowski 
-	Odrowaz Olesnicki Opacki Oporowski Ossolinski Ostroróg Ostrowski Ozarowski 
-	Paniewski Piaseczynski Pilecki Pociej Poniatowski Poninski Potocki Prazmowski Przebendowski Przyjemski Pulaski 
-	Raczynski Radziejowski Rej Rytwianski Rzewuski 
-	Scibor Siemienowicz Sieniawski Sierakowski Skarbek Sobieski Soltyk Stadnicki Sulkowski Szafraniec Szembek Szydlowiecki 
-	Tarlo Tarnowski Teczynski Tomicki Tyzenhaus 
-	Uchanski 
-	Walewski Weyher Wielopolski Wierzbowski Wodzicki Wolski Wyhowski 
-	Zacwilchowski Zaluski Zamoyski Zborowski Zebrzydowski 
+	Arciszewski Arciszewski 
+	Benyowski Benyowski Bidzinski Bidzinski Bielinski Bielinski Boner Boner Branicki Branicki Brzostowski Brzostowski Buczacki Buczacki Butler Butler 
+	Cetner Cetner Chlewicki Chlewicki Chodecki Chodecki Chometowski Chometowski Czapski Czapski Czarniecki Czarniecki Czarnkowski Czarnkowski 
+	Dambski Dambski Denhoff Denhoff Drzewicki Drzewicki Dunin Dunin Dzialynski Dzialynski Dzieduszycki Dzieduszycki 
+	Firlej Firlej Fredro Fredro 
+	Gembicki Gembicki Górka Górka Gosiewski Gosiewski Grabowski Grabowski Grodzicki Grodzicki Grudzinski Grudzinski Grzymultowski Grzymultowski Gurowski Gurowski 
+	Herburt Herburt Houwaldt Houwaldt Hylzen Hylzen 
+	Jablonowski Jablonowski Jaroslawski Jaroslawski Jazlowiecki Jazlowiecki Jordan Jordan Judycki Judycki 
+	Kalinowski Kalinowski Kamieniecki Kamieniecki Karnkowski Karnkowski Kazanowski Kazanowski Kmita Kmita Komorowski Komorowski Koniecpolski Koniecpolski Korycki Korycki Krasicki Krasicki Krasinski Krasinski Kurozwecki Kurozwecki Kwilecki Kwilecki 
+	Lacki Lacki Lanckoronski Lanckoronski Latalski Latalski Leszczynski Leszczynski Ligeza Ligeza Lipski Lipski Lisowski Lisowski Lubomirski Lubomirski Lubranski Lubranski 
+	Malachowski Malachowski Malski Malski Matczynski Matczynski Melsztynski Melsztynski Mielecki Mielecki Mielzynski Mielzynski Mlodziejowski Mlodziejowski Mniszech Mniszech Morsztyn Morsztyn Mycielski Mycielski 
+	Nalecz Nalecz Niesiolowski Niesiolowski 
+	Odrowaz Odrowaz Olesnicki Olesnicki Opacki Opacki Oporowski Oporowski Ossolinski Ossolinski Ostroróg Ostroróg Ostrowski Ostrowski Ozarowski Ozarowski 
+	Paniewski Paniewski Piaseczynski Piaseczynski Pilecki Pilecki Pociej Pociej Poniatowski Poniatowski Poninski Poninski Potocki Potocki Prazmowski Prazmowski Przebendowski Przebendowski Przyjemski Przyjemski Pulaski Pulaski 
+	Raczynski Raczynski Radziejowski Radziejowski Rej Rej Rytwianski Rytwianski Rzewuski Rzewuski 
+	Scibor Scibor Siemienowicz Siemienowicz Sieniawski Sieniawski Sierakowski Sierakowski Skarbek Skarbek Sobieski Sobieski Soltyk Soltyk Stadnicki Stadnicki Sulkowski Sulkowski Szafraniec Szafraniec Szembek Szembek Szydlowiecki Szydlowiecki 
+	Tarlo Tarlo Tarnowski Tarnowski Teczynski Teczynski Tomicki Tomicki Tyzenhaus Tyzenhaus 
+	Uchanski Uchanski 
+	Walewski Walewski Weyher Weyher Wielopolski Wielopolski Wierzbowski Wierzbowski Wodzicki Wodzicki Wolski Wolski Wyhowski Wyhowski 
+	Zacwilchowski Zacwilchowski Zaluski Zaluski Zamoyski Zamoyski Zborowski Zborowski Zebrzydowski Zebrzydowski 
 }
 army_names = {
 
-	"Armia z $PROVINCE$" 
+	"Armia z $PROVINCE$" "Armia z $PROVINCE$" 
 }
 fleet_names = {
 
 }
 ship_names = {
 
-	"Arka Noego" 
-	Belzkie "Bialy Lew" "Bialy Orzel" Braclawskie Brzesko-Kujawskie Burza 
-	Charitas Chelminskie "Czarny Kruk" "Czarny Orzel" Czernichowskie 
-	Fortuna 
-	Gnieznienskie Gryf Gwiazda 
-	Inowroclawskie 
-	Kaliskie Kijowskie Kraków Krakowskie "Król Dawid" 
-	"Latajacy Jelen" Leczyckie Lubelskie Lublin Lwów 
-	Malborskie "Maly Bialy Orzel" Mazowieckie 
-	Niewrazliwy "Nowy Czarny Orzel" 
-	"Panna Wodna" Plockie Plomien Podlaskie Podolskie Poznanskie "Prorok Samuel" 
-	Rawskie Ruskie "Rycerz Swiety Jerzy" 
-	Sandomierskie Sieradzkie Strzelec Suwerenny "Swiety Kazimierz" "Swiety Piotr" 
-	Warminskie Warszawa "Wielkie Slonce" Wodnik Wolynskie 
-	"Zólty Lew" Zwyciestwo 
+	"Arka Noego" "Arka Noego" 
+	Belzkie Belzkie "Bialy Lew" "Bialy Lew" "Bialy Orzel" "Bialy Orzel" Braclawskie Braclawskie Brzesko-Kujawskie Brzesko-Kujawskie Burza Burza 
+	Charitas Charitas Chelminskie Chelminskie "Czarny Kruk" "Czarny Kruk" "Czarny Orzel" "Czarny Orzel" Czernichowskie Czernichowskie 
+	Fortuna Fortuna 
+	Gnieznienskie Gnieznienskie Gryf Gryf Gwiazda Gwiazda 
+	Inowroclawskie Inowroclawskie 
+	Kaliskie Kaliskie Kijowskie Kijowskie Kraków Kraków Krakowskie Krakowskie "Król Dawid" "Król Dawid" 
+	"Latajacy Jelen" "Latajacy Jelen" Leczyckie Leczyckie Lubelskie Lubelskie Lublin Lublin Lwów Lwów 
+	Malborskie Malborskie "Maly Bialy Orzel" "Maly Bialy Orzel" Mazowieckie Mazowieckie 
+	Niewrazliwy Niewrazliwy "Nowy Czarny Orzel" "Nowy Czarny Orzel" 
+	"Panna Wodna" "Panna Wodna" Plockie Plockie Plomien Plomien Podlaskie Podlaskie Podolskie Podolskie Poznanskie Poznanskie "Prorok Samuel" "Prorok Samuel" 
+	Rawskie Rawskie Ruskie Ruskie "Rycerz Swiety Jerzy" "Rycerz Swiety Jerzy" 
+	Sandomierskie Sandomierskie Sieradzkie Sieradzkie Strzelec Strzelec Suwerenny Suwerenny "Swiety Kazimierz" "Swiety Kazimierz" "Swiety Piotr" "Swiety Piotr" 
+	Warminskie Warminskie Warszawa Warszawa "Wielkie Slonce" "Wielkie Slonce" Wodnik Wodnik Wolynskie Wolynskie 
+	"Zólty Lew" "Zólty Lew" Zwyciestwo Zwyciestwo 
 }
 monarch_names = {
 	"August #1" = 60
@@ -278,7 +384,59 @@ monarch_names = {
 	"Jadwiga #1" = -1
 	"Anna #0" = -1
 	"Katarzyna #0" = -1
+	"August #1" = 60
+	"Wladyslaw #3" = 60
+	"Stanislaw #0" = 40
+	"Kazimierz #3" = 20
+	"Aleksander #0" = 20
+	"Henryk #0" = 20
+	"Jan #0" = 20
+	"Jan #0 Olbracht" = 20
+	"Jan #0 Kazimierz" = 20
+	"Michal #0" = 20
+	"Stefan #0" = 20
+	"Zygmunt #0" = 20
+	"Zygmunt #0 August" = 20
+	"Aleksander #0 Karol" = 15
+	"Zygmunt #0 Kazimierz" = 15
+	"Krzysztof #0" = 10
+	"Fryderyk #0" = 10
+	"Jan #0 Zygmunt" = 10
+	"Karol #0 Ferdynand" = 10
+	"Olbracht #0" = 10
+	"Albert #0" = 0
+	"Aleksy #0" = 0
+	"Andrzej #0" = 0
+	"Bartlomiej #0" = 0
+	"Bogumil #0" = 0
+	"Bronislaw #0" = 0
+	"Dawid #0" = 0
+	"Dominik #0" = 0
+	"Emil #0" = 0
+	"Eugeniusz #0" = 0
+	"Ferdynand #0" = 0
+	"Gustaw #0" = 0
+	"Igor #0" = 0
+	"Iwan #0" = 0
+	"Krystian #0" = 0
+	"Lech #0" = 0
+	"Lucjusz #0" = 0
+	"Ludwik #0" = 0
+	"Lukasz #0" = 0
+	"Maksym #0" = 0
+	"Mariusz #0" = 0
+	"Mieszko #3" = 0
+	"Miroslaw #0" = 0
+	"Oskar #0" = 0
+	"Patryk #0" = 0
+	"Rafal #0" = 0
+	"Sylwester #0" = 0
+	"Szymon #0" = 0
+	"Zygfryd #0" = 0
+	"Jadwiga #1" = -1
+	"Anna #0" = -1
+	"Katarzyna #0" = -1
 }
 
-### Modified 7/25/2025 7:14:40 PM ###
+### Modified 7/26/2025 2:15:40 PM ###
 

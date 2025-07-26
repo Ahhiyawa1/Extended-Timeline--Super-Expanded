@@ -21,8 +21,34 @@ historical_idea_groups = {
 	diplomatic_ideas
 	offensive_ideas
 	spy_ideas
+	early_religious_ideas
+	early_trade_ideas
+	early_mil_ideas
+	early_adm_ideas
+	defensive_ideas
+	religious_ideas
+	trade_ideas
+	economic_ideas
+	plutocracy_ideas
+	diplomatic_ideas
+	offensive_ideas
+	spy_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	irish_charge
+	anglofrench_line
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	western_medieval_knights
 	western_longbow
@@ -40,26 +66,26 @@ historical_units = {
 }
 leader_names = {
 
-	Allsopp Amherst Auldjo 
-	Baby Barnes Beasley Bédard Bégin Bell Bernier Berthelot Black Boileau Boisseau Booth Bouc Boucher Boudreau Bowen Brock Brodeur Bronson Browne By 
-	Caldwell Campbell Carleton Cartier Chartier Cherrier Coffin Cornwall Craig Craigie Cuthbert 
-	D'Arcy Dalhousie Dambourgés Dartigny "de Bonne" "de Lavaltrie" "de Lorimier" "de Lotbinière" "de Rocheblave" "de Rouville" "de Salaberry" "de Tonnancour" Digé Dorion Dorland Ducharme Duchesnay Dufour Dumas Dumont Dunière Dunn Duplessis Dupré Durocher Duvernay 
-	Éthier 
-	Fairfield Fisher Foucher Fraser French Frobisher 
-	Godefroy Gouin Grant Gray Guerout Guy 
-	Hardison Hart Harwood Hébert Henry Hertel Huot 
-	Ingersoll Irvine 
-	Jessup Jodoin Jones Jordan 
-	Lacroix Lafontaine Larocque "le Comte" Lebreton Lee Lees Lester Lynd 
-	Macnider Macomb Malhiot Marcoux Martineau McBeath McCrae McDonell McGill McGillivray McKee McLeod Menut Millet Monk Montour Moore Mure Murray 
-	Nelson 
-	Panet Papineau Paquet Pawling Périnault Perrault Pettit Pierreville Planté Prescott Prévost 
-	Raby Richardson Richmond Riel Rivard Robinson Rogers Roy 
-	Saint-Martin Secord Sewell Shaw Sherbrooke Sirois Smith Spencer Stanley Street Stuart Swayze 
-	Taché Taschereau Terry Thompson Tod 
-	"Van Alstine" Vanier Viger 
-	Walker White Wilkinson 
-	Young 
+	Allsopp Allsopp Amherst Amherst Auldjo Auldjo 
+	Baby Baby Barnes Barnes Beasley Beasley Bédard Bédard Bégin Bégin Bell Bell Bernier Bernier Berthelot Berthelot Black Black Boileau Boileau Boisseau Boisseau Booth Booth Bouc Bouc Boucher Boucher Boudreau Boudreau Bowen Bowen Brock Brock Brodeur Brodeur Bronson Bronson Browne Browne By By 
+	Caldwell Caldwell Campbell Campbell Carleton Carleton Cartier Cartier Chartier Chartier Cherrier Cherrier Coffin Coffin Cornwall Cornwall Craig Craig Craigie Craigie Cuthbert Cuthbert 
+	D'Arcy D'Arcy Dalhousie Dalhousie Dambourgés Dambourgés Dartigny Dartigny "de Bonne" "de Bonne" "de Lavaltrie" "de Lavaltrie" "de Lorimier" "de Lorimier" "de Lotbinière" "de Lotbinière" "de Rocheblave" "de Rocheblave" "de Rouville" "de Rouville" "de Salaberry" "de Salaberry" "de Tonnancour" "de Tonnancour" Digé Digé Dorion Dorion Dorland Dorland Ducharme Ducharme Duchesnay Duchesnay Dufour Dufour Dumas Dumas Dumont Dumont Dunière Dunière Dunn Dunn Duplessis Duplessis Dupré Dupré Durocher Durocher Duvernay Duvernay 
+	Éthier Éthier 
+	Fairfield Fairfield Fisher Fisher Foucher Foucher Fraser Fraser French French Frobisher Frobisher 
+	Godefroy Godefroy Gouin Gouin Grant Grant Gray Gray Guerout Guerout Guy Guy 
+	Hardison Hardison Hart Hart Harwood Harwood Hébert Hébert Henry Henry Hertel Hertel Huot Huot 
+	Ingersoll Ingersoll Irvine Irvine 
+	Jessup Jessup Jodoin Jodoin Jones Jones Jordan Jordan 
+	Lacroix Lacroix Lafontaine Lafontaine Larocque Larocque "le Comte" "le Comte" Lebreton Lebreton Lee Lee Lees Lees Lester Lester Lynd Lynd 
+	Macnider Macnider Macomb Macomb Malhiot Malhiot Marcoux Marcoux Martineau Martineau McBeath McBeath McCrae McCrae McDonell McDonell McGill McGill McGillivray McGillivray McKee McKee McLeod McLeod Menut Menut Millet Millet Monk Monk Montour Montour Moore Moore Mure Mure Murray Murray 
+	Nelson Nelson 
+	Panet Panet Papineau Papineau Paquet Paquet Pawling Pawling Périnault Périnault Perrault Perrault Pettit Pettit Pierreville Pierreville Planté Planté Prescott Prescott Prévost Prévost 
+	Raby Raby Richardson Richardson Richmond Richmond Riel Riel Rivard Rivard Robinson Robinson Rogers Rogers Roy Roy 
+	Saint-Martin Saint-Martin Secord Secord Sewell Sewell Shaw Shaw Sherbrooke Sherbrooke Sirois Sirois Smith Smith Spencer Spencer Stanley Stanley Street Street Stuart Stuart Swayze Swayze 
+	Taché Taché Taschereau Taschereau Terry Terry Thompson Thompson Tod Tod 
+	"Van Alstine" "Van Alstine" Vanier Vanier Viger Viger 
+	Walker Walker White White Wilkinson Wilkinson 
+	Young Young 
 }
 army_names = {
 
@@ -69,28 +95,90 @@ fleet_names = {
 }
 ship_names = {
 
-	Cabot "Cape Breton" Caribou Cartier Cayuga Chaleur Champlain Chaudière Chignecto Cormorant 
-	Acadia Algonquin Ambler Anticosti Athabaskan 
-	Hochelaga Huron Husky 
-	Saguenay Saskatchewan Sioux "St. Croix" "St. Francis" "St. Laurent" "St. Maurice" Stadacona 
-	Labrador Laurentian Loon Lynx 
-	Qu'Appelle Québec Quinte 
-	Ojibwa Onondaga Ontario Ottawa Otter Outarde 
-	Iroquois 
-	Magdalen Mallard Manitoulin Margaree Memphrémagog Micmac Miramichi Miscou Moose 
-	Raccoon Reindeer Renard Restigouche Richelieu 
-	Gaspe Gatineau Grizzly 
-	Niagara Nipigon 
-	Badger Baffin Beaver "Blue Heron" Bonaventure "Bras d'Or" 
-	Fortune Fundy 
-	Thunder 
-	Ungava 
-	Preserver Protecteur 
-	Wolf 
-	Vison 
-	Elk 
+	Cabot Cabot "Cape Breton" "Cape Breton" Caribou Caribou Cartier Cartier Cayuga Cayuga Chaleur Chaleur Champlain Champlain Chaudière Chaudière Chignecto Chignecto Cormorant Cormorant 
+	Acadia Acadia Algonquin Algonquin Ambler Ambler Anticosti Anticosti Athabaskan Athabaskan 
+	Hochelaga Hochelaga Huron Huron Husky Husky 
+	Saguenay Saguenay Saskatchewan Saskatchewan Sioux Sioux "St. Croix" "St. Croix" "St. Francis" "St. Francis" "St. Laurent" "St. Laurent" "St. Maurice" "St. Maurice" Stadacona Stadacona 
+	Labrador Labrador Laurentian Laurentian Loon Loon Lynx Lynx 
+	Qu'Appelle Qu'Appelle Québec Québec Quinte Quinte 
+	Ojibwa Ojibwa Onondaga Onondaga Ontario Ontario Ottawa Ottawa Otter Otter Outarde Outarde 
+	Iroquois Iroquois 
+	Magdalen Magdalen Mallard Mallard Manitoulin Manitoulin Margaree Margaree Memphrémagog Memphrémagog Micmac Micmac Miramichi Miramichi Miscou Miscou Moose Moose 
+	Raccoon Raccoon Reindeer Reindeer Renard Renard Restigouche Restigouche Richelieu Richelieu 
+	Gaspe Gaspe Gatineau Gatineau Grizzly Grizzly 
+	Niagara Niagara Nipigon Nipigon 
+	Badger Badger Baffin Baffin Beaver Beaver "Blue Heron" "Blue Heron" Bonaventure Bonaventure "Bras d'Or" "Bras d'Or" 
+	Fortune Fortune Fundy Fundy 
+	Thunder Thunder 
+	Ungava Ungava 
+	Preserver Preserver Protecteur Protecteur 
+	Wolf Wolf 
+	Vison Vison 
+	Elk Elk 
 }
 monarch_names = {
+	"Jeffery #0" = 5
+	"Samuel #0" = 40
+	"James #0" = 5
+	"Guy #0" = 20
+	"Frederick #0" = 20
+	"Robert #0" = 20
+	"Thomas #0" = 20
+	"George #0" = 20
+	"Charles #0" = 40
+	"Louis #0" = 20
+	"Jean #0" = 5
+	"Pierre #0" = 5
+	"Daniel #0" = 20
+	"Augustin #0" = 5
+	"Joseph #0" = 5
+	"Jacques #0" = 5
+	"Philippe #0" = 5
+	"Roland #0" = 5
+	"Michel #0" = 5
+	"Gordon #0" = 5
+	"Alexander #0" = 0
+	"Amable #0" = 0
+	"Antoine #0" = 0
+	"Benjamin #0" = 0
+	"Christopher #0" = 0
+	"David #0" = 0
+	"David William #0" = 0
+	"Edward #0" = 0
+	"Ephraim #0" = 0
+	"François #0" = 0
+	"Gabriel #0" = 0
+	"Guillaume #0" = 0
+	"Hubert #0" = 0
+	"Hugh #0" = 0
+	"Hyacinthe #0" = 0
+	"Ignace #0" = 0
+	"Isaac #0" = 0
+	"Jacob #0" = 0
+	"Jean-Baptiste #0" = 0
+	"Charles-Michel #0" = 0
+	"Jeremiah #0" = 0
+	"John #0" = 0
+	"Louis-Joseph #0" = 0
+	"Louis-Hippolyte #0" = 0
+	"Mathew #0" = 0
+	"Nathaniel #0" = 0
+	"Nicolas #0" = 0
+	"Parshall #0" = 0
+	"Peter #0" = 0
+	"Philip #0" = 0
+	"Pierre-Louis #0" = 0
+	"Richard #0" = 0
+	"René #0" = 0
+	"Solomon #0" = 0
+	"Timothy #0" = 0
+	"William #0" = 0
+	"Laura #0" = -1
+	"Maria #0" = -1
+	"Victoria #0" = -1
+	"Charlotte #0" = -1
+	"Adrienne #0" = -1
+	"Marguerite #0" = -1
 	"Jeffery #0" = 5
 	"Samuel #0" = 40
 	"James #0" = 5
@@ -174,8 +262,34 @@ historical_idea_groups = {
 	diplomatic_ideas
 	offensive_ideas
 	spy_ideas
+	early_religious_ideas
+	early_trade_ideas
+	early_mil_ideas
+	early_adm_ideas
+	defensive_ideas
+	religious_ideas
+	trade_ideas
+	economic_ideas
+	plutocracy_ideas
+	diplomatic_ideas
+	offensive_ideas
+	spy_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	irish_charge
+	anglofrench_line
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	western_medieval_knights
 	western_longbow
@@ -193,26 +307,26 @@ historical_units = {
 }
 leader_names = {
 
-	Allsopp Amherst Auldjo 
-	Baby Barnes Beasley Bédard Bégin Bell Bernier Berthelot Black Boileau Boisseau Booth Bouc Boucher Boudreau Bowen Brock Brodeur Bronson Browne By 
-	Caldwell Campbell Carleton Cartier Chartier Cherrier Coffin Cornwall Craig Craigie Cuthbert 
-	D'Arcy Dalhousie Dambourgés Dartigny "de Bonne" "de Lavaltrie" "de Lorimier" "de Lotbinière" "de Rocheblave" "de Rouville" "de Salaberry" "de Tonnancour" Digé Dorion Dorland Ducharme Duchesnay Dufour Dumas Dumont Dunière Dunn Duplessis Dupré Durocher Duvernay 
-	Éthier 
-	Fairfield Fisher Foucher Fraser French Frobisher 
-	Godefroy Gouin Grant Gray Guerout Guy 
-	Hardison Hart Harwood Hébert Henry Hertel Huot 
-	Ingersoll Irvine 
-	Jessup Jodoin Jones Jordan 
-	Lacroix Lafontaine Larocque "le Comte" Lebreton Lee Lees Lester Lynd 
-	Macnider Macomb Malhiot Marcoux Martineau McBeath McCrae McDonell McGill McGillivray McKee McLeod Menut Millet Monk Montour Moore Mure Murray 
-	Nelson 
-	Panet Papineau Paquet Pawling Périnault Perrault Pettit Pierreville Planté Prescott Prévost 
-	Raby Richardson Richmond Riel Rivard Robinson Rogers Roy 
-	Saint-Martin Secord Sewell Shaw Sherbrooke Sirois Smith Spencer Stanley Street Stuart Swayze 
-	Taché Taschereau Terry Thompson Tod 
-	"Van Alstine" Vanier Viger 
-	Walker White Wilkinson 
-	Young 
+	Allsopp Allsopp Amherst Amherst Auldjo Auldjo 
+	Baby Baby Barnes Barnes Beasley Beasley Bédard Bédard Bégin Bégin Bell Bell Bernier Bernier Berthelot Berthelot Black Black Boileau Boileau Boisseau Boisseau Booth Booth Bouc Bouc Boucher Boucher Boudreau Boudreau Bowen Bowen Brock Brock Brodeur Brodeur Bronson Bronson Browne Browne By By 
+	Caldwell Caldwell Campbell Campbell Carleton Carleton Cartier Cartier Chartier Chartier Cherrier Cherrier Coffin Coffin Cornwall Cornwall Craig Craig Craigie Craigie Cuthbert Cuthbert 
+	D'Arcy D'Arcy Dalhousie Dalhousie Dambourgés Dambourgés Dartigny Dartigny "de Bonne" "de Bonne" "de Lavaltrie" "de Lavaltrie" "de Lorimier" "de Lorimier" "de Lotbinière" "de Lotbinière" "de Rocheblave" "de Rocheblave" "de Rouville" "de Rouville" "de Salaberry" "de Salaberry" "de Tonnancour" "de Tonnancour" Digé Digé Dorion Dorion Dorland Dorland Ducharme Ducharme Duchesnay Duchesnay Dufour Dufour Dumas Dumas Dumont Dumont Dunière Dunière Dunn Dunn Duplessis Duplessis Dupré Dupré Durocher Durocher Duvernay Duvernay 
+	Éthier Éthier 
+	Fairfield Fairfield Fisher Fisher Foucher Foucher Fraser Fraser French French Frobisher Frobisher 
+	Godefroy Godefroy Gouin Gouin Grant Grant Gray Gray Guerout Guerout Guy Guy 
+	Hardison Hardison Hart Hart Harwood Harwood Hébert Hébert Henry Henry Hertel Hertel Huot Huot 
+	Ingersoll Ingersoll Irvine Irvine 
+	Jessup Jessup Jodoin Jodoin Jones Jones Jordan Jordan 
+	Lacroix Lacroix Lafontaine Lafontaine Larocque Larocque "le Comte" "le Comte" Lebreton Lebreton Lee Lee Lees Lees Lester Lester Lynd Lynd 
+	Macnider Macnider Macomb Macomb Malhiot Malhiot Marcoux Marcoux Martineau Martineau McBeath McBeath McCrae McCrae McDonell McDonell McGill McGill McGillivray McGillivray McKee McKee McLeod McLeod Menut Menut Millet Millet Monk Monk Montour Montour Moore Moore Mure Mure Murray Murray 
+	Nelson Nelson 
+	Panet Panet Papineau Papineau Paquet Paquet Pawling Pawling Périnault Périnault Perrault Perrault Pettit Pettit Pierreville Pierreville Planté Planté Prescott Prescott Prévost Prévost 
+	Raby Raby Richardson Richardson Richmond Richmond Riel Riel Rivard Rivard Robinson Robinson Rogers Rogers Roy Roy 
+	Saint-Martin Saint-Martin Secord Secord Sewell Sewell Shaw Shaw Sherbrooke Sherbrooke Sirois Sirois Smith Smith Spencer Spencer Stanley Stanley Street Street Stuart Stuart Swayze Swayze 
+	Taché Taché Taschereau Taschereau Terry Terry Thompson Thompson Tod Tod 
+	"Van Alstine" "Van Alstine" Vanier Vanier Viger Viger 
+	Walker Walker White White Wilkinson Wilkinson 
+	Young Young 
 }
 army_names = {
 
@@ -222,26 +336,26 @@ fleet_names = {
 }
 ship_names = {
 
-	Cabot "Cape Breton" Caribou Cartier Cayuga Chaleur Champlain Chaudière Chignecto Cormorant 
-	Acadia Algonquin Ambler Anticosti Athabaskan 
-	Hochelaga Huron Husky 
-	Saguenay Saskatchewan Sioux "St. Croix" "St. Francis" "St. Laurent" "St. Maurice" Stadacona 
-	Labrador Laurentian Loon Lynx 
-	Qu'Appelle Québec Quinte 
-	Ojibwa Onondaga Ontario Ottawa Otter Outarde 
-	Iroquois 
-	Magdalen Mallard Manitoulin Margaree Memphrémagog Micmac Miramichi Miscou Moose 
-	Raccoon Reindeer Renard Restigouche Richelieu 
-	Gaspe Gatineau Grizzly 
-	Niagara Nipigon 
-	Badger Baffin Beaver "Blue Heron" Bonaventure "Bras d'Or" 
-	Fortune Fundy 
-	Thunder 
-	Ungava 
-	Preserver Protecteur 
-	Wolf 
-	Vison 
-	Elk 
+	Cabot Cabot "Cape Breton" "Cape Breton" Caribou Caribou Cartier Cartier Cayuga Cayuga Chaleur Chaleur Champlain Champlain Chaudière Chaudière Chignecto Chignecto Cormorant Cormorant 
+	Acadia Acadia Algonquin Algonquin Ambler Ambler Anticosti Anticosti Athabaskan Athabaskan 
+	Hochelaga Hochelaga Huron Huron Husky Husky 
+	Saguenay Saguenay Saskatchewan Saskatchewan Sioux Sioux "St. Croix" "St. Croix" "St. Francis" "St. Francis" "St. Laurent" "St. Laurent" "St. Maurice" "St. Maurice" Stadacona Stadacona 
+	Labrador Labrador Laurentian Laurentian Loon Loon Lynx Lynx 
+	Qu'Appelle Qu'Appelle Québec Québec Quinte Quinte 
+	Ojibwa Ojibwa Onondaga Onondaga Ontario Ontario Ottawa Ottawa Otter Otter Outarde Outarde 
+	Iroquois Iroquois 
+	Magdalen Magdalen Mallard Mallard Manitoulin Manitoulin Margaree Margaree Memphrémagog Memphrémagog Micmac Micmac Miramichi Miramichi Miscou Miscou Moose Moose 
+	Raccoon Raccoon Reindeer Reindeer Renard Renard Restigouche Restigouche Richelieu Richelieu 
+	Gaspe Gaspe Gatineau Gatineau Grizzly Grizzly 
+	Niagara Niagara Nipigon Nipigon 
+	Badger Badger Baffin Baffin Beaver Beaver "Blue Heron" "Blue Heron" Bonaventure Bonaventure "Bras d'Or" "Bras d'Or" 
+	Fortune Fortune Fundy Fundy 
+	Thunder Thunder 
+	Ungava Ungava 
+	Preserver Preserver Protecteur Protecteur 
+	Wolf Wolf 
+	Vison Vison 
+	Elk Elk 
 }
 monarch_names = {
 	"Jeffery #0" = 5
@@ -306,7 +420,69 @@ monarch_names = {
 	"Charlotte #0" = -1
 	"Adrienne #0" = -1
 	"Marguerite #0" = -1
+	"Jeffery #0" = 5
+	"Samuel #0" = 40
+	"James #0" = 5
+	"Guy #0" = 20
+	"Frederick #0" = 20
+	"Robert #0" = 20
+	"Thomas #0" = 20
+	"George #0" = 20
+	"Charles #0" = 40
+	"Louis #0" = 20
+	"Jean #0" = 5
+	"Pierre #0" = 5
+	"Daniel #0" = 20
+	"Augustin #0" = 5
+	"Joseph #0" = 5
+	"Jacques #0" = 5
+	"Philippe #0" = 5
+	"Roland #0" = 5
+	"Michel #0" = 5
+	"Gordon #0" = 5
+	"Alexander #0" = 0
+	"Amable #0" = 0
+	"Antoine #0" = 0
+	"Benjamin #0" = 0
+	"Christopher #0" = 0
+	"David #0" = 0
+	"David William #0" = 0
+	"Edward #0" = 0
+	"Ephraim #0" = 0
+	"François #0" = 0
+	"Gabriel #0" = 0
+	"Guillaume #0" = 0
+	"Hubert #0" = 0
+	"Hugh #0" = 0
+	"Hyacinthe #0" = 0
+	"Ignace #0" = 0
+	"Isaac #0" = 0
+	"Jacob #0" = 0
+	"Jean-Baptiste #0" = 0
+	"Charles-Michel #0" = 0
+	"Jeremiah #0" = 0
+	"John #0" = 0
+	"Louis-Joseph #0" = 0
+	"Louis-Hippolyte #0" = 0
+	"Mathew #0" = 0
+	"Nathaniel #0" = 0
+	"Nicolas #0" = 0
+	"Parshall #0" = 0
+	"Peter #0" = 0
+	"Philip #0" = 0
+	"Pierre-Louis #0" = 0
+	"Richard #0" = 0
+	"René #0" = 0
+	"Solomon #0" = 0
+	"Timothy #0" = 0
+	"William #0" = 0
+	"Laura #0" = -1
+	"Maria #0" = -1
+	"Victoria #0" = -1
+	"Charlotte #0" = -1
+	"Adrienne #0" = -1
+	"Marguerite #0" = -1
 }
 
-### Modified 7/25/2025 7:14:40 PM ###
+### Modified 7/26/2025 2:15:40 PM ###
 

@@ -21,8 +21,36 @@ historical_idea_groups = {
 	administrative_ideas
 	offensive_ideas
 	quantity_ideas
+	early_adm_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_religious_ideas
+	plutocracy_ideas
+	trade_ideas
+	economic_ideas
+	defensive_ideas
+	maritime_ideas
+	administrative_ideas
+	offensive_ideas
+	quantity_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	chevauchee
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	french_caracolle
+	irish_charge
+	anglofrench_line
+	french_dragoon
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	chevauchee
 	western_longbow
@@ -42,23 +70,23 @@ historical_units = {
 }
 leader_names = {
 
-	Adams Arkeith Arnott Ashton Atworth 
-	Boyd Burr 
-	Caddock Clinton 
-	Jay Jefferson 
-	Harrison 
-	Kempton Kendrick Kennedy King 
-	Lane Langdon Lindon Lyle 
-	Madison Merrick Monroe 
-	Pickney 
-	Richardson Rutledge 
-	Sheldon Spencer Starbuck Steed Stetson Stover Stryder Sutcliffe Swaggert 
-	Dalton Dellwin Douglas Drummond Dylan 
-	Thompson Thorley Trevin 
-	Vaughan 
-	Unwin 
-	Walden Ward Winston 
-	Floyd 
+	Adams Adams Arkeith Arkeith Arnott Arnott Ashton Ashton Atworth Atworth 
+	Boyd Boyd Burr Burr 
+	Caddock Caddock Clinton Clinton 
+	Jay Jay Jefferson Jefferson 
+	Harrison Harrison 
+	Kempton Kempton Kendrick Kendrick Kennedy Kennedy King King 
+	Lane Lane Langdon Langdon Lindon Lindon Lyle Lyle 
+	Madison Madison Merrick Merrick Monroe Monroe 
+	Pickney Pickney 
+	Richardson Richardson Rutledge Rutledge 
+	Sheldon Sheldon Spencer Spencer Starbuck Starbuck Steed Steed Stetson Stetson Stover Stover Stryder Stryder Sutcliffe Sutcliffe Swaggert Swaggert 
+	Dalton Dalton Dellwin Dellwin Douglas Douglas Drummond Drummond Dylan Dylan 
+	Thompson Thompson Thorley Thorley Trevin Trevin 
+	Vaughan Vaughan 
+	Unwin Unwin 
+	Walden Walden Ward Ward Winston Winston 
+	Floyd Floyd 
 }
 army_names = {
 
@@ -68,31 +96,76 @@ fleet_names = {
 }
 ship_names = {
 
-	Abigail Achilles Active Adams Addition Adventure Albany Alfred Alliance Alston America "American Fabius" "American Revenue" Amphitrite Annapolis Argo Ariel Arnold Astrea Aurora 
-	Bachelor "Black Prince" "Bonhomme Richard" Boston Bourbon Brandywine Bricole Bruke Bulldog Bulloch "Bunker Hill" 
-	Ganges "General Gadsen" "General Gates" "General Greene" "General Mifflin" "General Montgomery" "General Washington" Greyhound Griffon Guilford 
-	Hague Hammond Hampden Hancock Hannah Hannibal "Happy Return" Harlequin Hawke Hazard Henry Hero Hibernia Hudson Hunter 
-	Macedonia Manly Marblehead Massachusetts Merrimack Middletown Mifflin Minerva Monmouth Montezuma "Morning Star" Morris Mosquito 
-	"New Haven" "New York" "Norfolk Revenge" "North Carolina" Northampton 
-	"Queen of France" 
-	Sabine Safeguard Saratoga Scorpion Shark "South Carolina" "South Edisto" Spitfire Spy "St. Lawrence" "St. Louis" Surprise Swift 
-	Tartar Tempest "True Blue" Trumbull Tyrannicide 
-	"United States" 
-	Wabash Warren Washington Wasp "White Oak" Wilkes 
-	Cabot Camden Caswell Chatham Chesapeake Columbus Comet Commerce Concord Confederacy Confiance Congress Connecticut Constellation Constitution Cyane 
-	Deane Defence Delaware Dickenson Dilligent Disdain Dolphin Dragon 
-	Eagle Effingham Endeavour Enterprise Essex Experiment 
-	Fairfield Fox Franklin Friendship Frolic 
-	Impertinent Independence Insurgent 
-	Jamestown Java 
-	Katy 
-	Lee Lewis Lexington Liberty Lincoln Lynch 
-	Ohio 
-	Page Patapsco Peacock Pennsylvania Philadephia Pilgrim Pompey Portsmouth Potomac President Prosper Protector Providence Putnam 
-	Raleigh Randolph Ranger Rattlesnake Reprisal Republic Repulse Resistance Resolution Retrieve Rhodes Richard 
-	Vengeance Vermont Viper Virginia 
+	Abigail Abigail Achilles Achilles Active Active Adams Adams Addition Addition Adventure Adventure Albany Albany Alfred Alfred Alliance Alliance Alston Alston America America "American Fabius" "American Fabius" "American Revenue" "American Revenue" Amphitrite Amphitrite Annapolis Annapolis Argo Argo Ariel Ariel Arnold Arnold Astrea Astrea Aurora Aurora 
+	Bachelor Bachelor "Black Prince" "Black Prince" "Bonhomme Richard" "Bonhomme Richard" Boston Boston Bourbon Bourbon Brandywine Brandywine Bricole Bricole Bruke Bruke Bulldog Bulldog Bulloch Bulloch "Bunker Hill" "Bunker Hill" 
+	Ganges Ganges "General Gadsen" "General Gadsen" "General Gates" "General Gates" "General Greene" "General Greene" "General Mifflin" "General Mifflin" "General Montgomery" "General Montgomery" "General Washington" "General Washington" Greyhound Greyhound Griffon Griffon Guilford Guilford 
+	Hague Hague Hammond Hammond Hampden Hampden Hancock Hancock Hannah Hannah Hannibal Hannibal "Happy Return" "Happy Return" Harlequin Harlequin Hawke Hawke Hazard Hazard Henry Henry Hero Hero Hibernia Hibernia Hudson Hudson Hunter Hunter 
+	Macedonia Macedonia Manly Manly Marblehead Marblehead Massachusetts Massachusetts Merrimack Merrimack Middletown Middletown Mifflin Mifflin Minerva Minerva Monmouth Monmouth Montezuma Montezuma "Morning Star" "Morning Star" Morris Morris Mosquito Mosquito 
+	"New Haven" "New Haven" "New York" "New York" "Norfolk Revenge" "Norfolk Revenge" "North Carolina" "North Carolina" Northampton Northampton 
+	"Queen of France" "Queen of France" 
+	Sabine Sabine Safeguard Safeguard Saratoga Saratoga Scorpion Scorpion Shark Shark "South Carolina" "South Carolina" "South Edisto" "South Edisto" Spitfire Spitfire Spy Spy "St. Lawrence" "St. Lawrence" "St. Louis" "St. Louis" Surprise Surprise Swift Swift 
+	Tartar Tartar Tempest Tempest "True Blue" "True Blue" Trumbull Trumbull Tyrannicide Tyrannicide 
+	"United States" "United States" 
+	Wabash Wabash Warren Warren Washington Washington Wasp Wasp "White Oak" "White Oak" Wilkes Wilkes 
+	Cabot Cabot Camden Camden Caswell Caswell Chatham Chatham Chesapeake Chesapeake Columbus Columbus Comet Comet Commerce Commerce Concord Concord Confederacy Confederacy Confiance Confiance Congress Congress Connecticut Connecticut Constellation Constellation Constitution Constitution Cyane Cyane 
+	Deane Deane Defence Defence Delaware Delaware Dickenson Dickenson Dilligent Dilligent Disdain Disdain Dolphin Dolphin Dragon Dragon 
+	Eagle Eagle Effingham Effingham Endeavour Endeavour Enterprise Enterprise Essex Essex Experiment Experiment 
+	Fairfield Fairfield Fox Fox Franklin Franklin Friendship Friendship Frolic Frolic 
+	Impertinent Impertinent Independence Independence Insurgent Insurgent 
+	Jamestown Jamestown Java Java 
+	Katy Katy 
+	Lee Lee Lewis Lewis Lexington Lexington Liberty Liberty Lincoln Lincoln Lynch Lynch 
+	Ohio Ohio 
+	Page Page Patapsco Patapsco Peacock Peacock Pennsylvania Pennsylvania Philadephia Philadephia Pilgrim Pilgrim Pompey Pompey Portsmouth Portsmouth Potomac Potomac President President Prosper Prosper Protector Protector Providence Providence Putnam Putnam 
+	Raleigh Raleigh Randolph Randolph Ranger Ranger Rattlesnake Rattlesnake Reprisal Reprisal Republic Republic Repulse Repulse Resistance Resistance Resolution Resolution Retrieve Retrieve Rhodes Rhodes Richard Richard 
+	Vengeance Vengeance Vermont Vermont Viper Viper Virginia Virginia 
 }
 monarch_names = {
+	"George #0" = 20
+	"James #0" = 20
+	"John #0" = 20
+	"Thomas #0" = 20
+	"Charles #0" = 15
+	"Daniel #0" = 15
+	"Henry #0" = 15
+	"Samuel #0" = 15
+	"Arthur #0" = 10
+	"Cyrus #0" = 10
+	"David #0" = 10
+	"Elias #0" = 10
+	"Frederick Augustus #0" = 10
+	"Nathaniel #0" = 10
+	"Peyton #0" = 10
+	"Richard #0" = 10
+	"Aaron #0" = 0
+	"Angus #0" = 0
+	"August #0" = 0
+	"Benjamin #0" = 0
+	"Calvin #0" = 0
+	"Darren #0" = 0
+	"Elbridge #0" = 0
+	"Eric #0" = 0
+	"Francis #0" = 0
+	"Frederick #0" = 0
+	"Isaac #0" = 0
+	"Jonathan #0" = 0
+	"Joseph #0" = 0
+	"Kyran #0" = 0
+	"Luke #0" = 0
+	"Milton #0" = 0
+	"Patrick #0" = 0
+	"Paul #0" = 0
+	"Philip #0" = 0
+	"Randolf #0" = 0
+	"Silvester #0" = 0
+	"Timothy #0" = 0
+	"Wilbur #0" = 0
+	"William #0" = 0
+	"Alexander #0" = 0
+	"Stephen #0" = 0
+	"Deborah #0" = -1
+	"Sarah #0" = -1
+	"Anne #0" = -1
 	"George #0" = 20
 	"James #0" = 20
 	"John #0" = 20
@@ -159,8 +232,36 @@ historical_idea_groups = {
 	administrative_ideas
 	offensive_ideas
 	quantity_ideas
+	early_adm_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_religious_ideas
+	plutocracy_ideas
+	trade_ideas
+	economic_ideas
+	defensive_ideas
+	maritime_ideas
+	administrative_ideas
+	offensive_ideas
+	quantity_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	chevauchee
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	french_caracolle
+	irish_charge
+	anglofrench_line
+	french_dragoon
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	chevauchee
 	western_longbow
@@ -180,23 +281,23 @@ historical_units = {
 }
 leader_names = {
 
-	Adams Arkeith Arnott Ashton Atworth 
-	Boyd Burr 
-	Caddock Clinton 
-	Jay Jefferson 
-	Harrison 
-	Kempton Kendrick Kennedy King 
-	Lane Langdon Lindon Lyle 
-	Madison Merrick Monroe 
-	Pickney 
-	Richardson Rutledge 
-	Sheldon Spencer Starbuck Steed Stetson Stover Stryder Sutcliffe Swaggert 
-	Dalton Dellwin Douglas Drummond Dylan 
-	Thompson Thorley Trevin 
-	Vaughan 
-	Unwin 
-	Walden Ward Winston 
-	Floyd 
+	Adams Adams Arkeith Arkeith Arnott Arnott Ashton Ashton Atworth Atworth 
+	Boyd Boyd Burr Burr 
+	Caddock Caddock Clinton Clinton 
+	Jay Jay Jefferson Jefferson 
+	Harrison Harrison 
+	Kempton Kempton Kendrick Kendrick Kennedy Kennedy King King 
+	Lane Lane Langdon Langdon Lindon Lindon Lyle Lyle 
+	Madison Madison Merrick Merrick Monroe Monroe 
+	Pickney Pickney 
+	Richardson Richardson Rutledge Rutledge 
+	Sheldon Sheldon Spencer Spencer Starbuck Starbuck Steed Steed Stetson Stetson Stover Stover Stryder Stryder Sutcliffe Sutcliffe Swaggert Swaggert 
+	Dalton Dalton Dellwin Dellwin Douglas Douglas Drummond Drummond Dylan Dylan 
+	Thompson Thompson Thorley Thorley Trevin Trevin 
+	Vaughan Vaughan 
+	Unwin Unwin 
+	Walden Walden Ward Ward Winston Winston 
+	Floyd Floyd 
 }
 army_names = {
 
@@ -206,29 +307,29 @@ fleet_names = {
 }
 ship_names = {
 
-	Abigail Achilles Active Adams Addition Adventure Albany Alfred Alliance Alston America "American Fabius" "American Revenue" Amphitrite Annapolis Argo Ariel Arnold Astrea Aurora 
-	Bachelor "Black Prince" "Bonhomme Richard" Boston Bourbon Brandywine Bricole Bruke Bulldog Bulloch "Bunker Hill" 
-	Ganges "General Gadsen" "General Gates" "General Greene" "General Mifflin" "General Montgomery" "General Washington" Greyhound Griffon Guilford 
-	Hague Hammond Hampden Hancock Hannah Hannibal "Happy Return" Harlequin Hawke Hazard Henry Hero Hibernia Hudson Hunter 
-	Macedonia Manly Marblehead Massachusetts Merrimack Middletown Mifflin Minerva Monmouth Montezuma "Morning Star" Morris Mosquito 
-	"New Haven" "New York" "Norfolk Revenge" "North Carolina" Northampton 
-	"Queen of France" 
-	Sabine Safeguard Saratoga Scorpion Shark "South Carolina" "South Edisto" Spitfire Spy "St. Lawrence" "St. Louis" Surprise Swift 
-	Tartar Tempest "True Blue" Trumbull Tyrannicide 
-	"United States" 
-	Wabash Warren Washington Wasp "White Oak" Wilkes 
-	Cabot Camden Caswell Chatham Chesapeake Columbus Comet Commerce Concord Confederacy Confiance Congress Connecticut Constellation Constitution Cyane 
-	Deane Defence Delaware Dickenson Dilligent Disdain Dolphin Dragon 
-	Eagle Effingham Endeavour Enterprise Essex Experiment 
-	Fairfield Fox Franklin Friendship Frolic 
-	Impertinent Independence Insurgent 
-	Jamestown Java 
-	Katy 
-	Lee Lewis Lexington Liberty Lincoln Lynch 
-	Ohio 
-	Page Patapsco Peacock Pennsylvania Philadephia Pilgrim Pompey Portsmouth Potomac President Prosper Protector Providence Putnam 
-	Raleigh Randolph Ranger Rattlesnake Reprisal Republic Repulse Resistance Resolution Retrieve Rhodes Richard 
-	Vengeance Vermont Viper Virginia 
+	Abigail Abigail Achilles Achilles Active Active Adams Adams Addition Addition Adventure Adventure Albany Albany Alfred Alfred Alliance Alliance Alston Alston America America "American Fabius" "American Fabius" "American Revenue" "American Revenue" Amphitrite Amphitrite Annapolis Annapolis Argo Argo Ariel Ariel Arnold Arnold Astrea Astrea Aurora Aurora 
+	Bachelor Bachelor "Black Prince" "Black Prince" "Bonhomme Richard" "Bonhomme Richard" Boston Boston Bourbon Bourbon Brandywine Brandywine Bricole Bricole Bruke Bruke Bulldog Bulldog Bulloch Bulloch "Bunker Hill" "Bunker Hill" 
+	Ganges Ganges "General Gadsen" "General Gadsen" "General Gates" "General Gates" "General Greene" "General Greene" "General Mifflin" "General Mifflin" "General Montgomery" "General Montgomery" "General Washington" "General Washington" Greyhound Greyhound Griffon Griffon Guilford Guilford 
+	Hague Hague Hammond Hammond Hampden Hampden Hancock Hancock Hannah Hannah Hannibal Hannibal "Happy Return" "Happy Return" Harlequin Harlequin Hawke Hawke Hazard Hazard Henry Henry Hero Hero Hibernia Hibernia Hudson Hudson Hunter Hunter 
+	Macedonia Macedonia Manly Manly Marblehead Marblehead Massachusetts Massachusetts Merrimack Merrimack Middletown Middletown Mifflin Mifflin Minerva Minerva Monmouth Monmouth Montezuma Montezuma "Morning Star" "Morning Star" Morris Morris Mosquito Mosquito 
+	"New Haven" "New Haven" "New York" "New York" "Norfolk Revenge" "Norfolk Revenge" "North Carolina" "North Carolina" Northampton Northampton 
+	"Queen of France" "Queen of France" 
+	Sabine Sabine Safeguard Safeguard Saratoga Saratoga Scorpion Scorpion Shark Shark "South Carolina" "South Carolina" "South Edisto" "South Edisto" Spitfire Spitfire Spy Spy "St. Lawrence" "St. Lawrence" "St. Louis" "St. Louis" Surprise Surprise Swift Swift 
+	Tartar Tartar Tempest Tempest "True Blue" "True Blue" Trumbull Trumbull Tyrannicide Tyrannicide 
+	"United States" "United States" 
+	Wabash Wabash Warren Warren Washington Washington Wasp Wasp "White Oak" "White Oak" Wilkes Wilkes 
+	Cabot Cabot Camden Camden Caswell Caswell Chatham Chatham Chesapeake Chesapeake Columbus Columbus Comet Comet Commerce Commerce Concord Concord Confederacy Confederacy Confiance Confiance Congress Congress Connecticut Connecticut Constellation Constellation Constitution Constitution Cyane Cyane 
+	Deane Deane Defence Defence Delaware Delaware Dickenson Dickenson Dilligent Dilligent Disdain Disdain Dolphin Dolphin Dragon Dragon 
+	Eagle Eagle Effingham Effingham Endeavour Endeavour Enterprise Enterprise Essex Essex Experiment Experiment 
+	Fairfield Fairfield Fox Fox Franklin Franklin Friendship Friendship Frolic Frolic 
+	Impertinent Impertinent Independence Independence Insurgent Insurgent 
+	Jamestown Jamestown Java Java 
+	Katy Katy 
+	Lee Lee Lewis Lewis Lexington Lexington Liberty Liberty Lincoln Lincoln Lynch Lynch 
+	Ohio Ohio 
+	Page Page Patapsco Patapsco Peacock Peacock Pennsylvania Pennsylvania Philadephia Philadephia Pilgrim Pilgrim Pompey Pompey Portsmouth Portsmouth Potomac Potomac President President Prosper Prosper Protector Protector Providence Providence Putnam Putnam 
+	Raleigh Raleigh Randolph Randolph Ranger Ranger Rattlesnake Rattlesnake Reprisal Reprisal Republic Republic Repulse Repulse Resistance Resistance Resolution Resolution Retrieve Retrieve Rhodes Rhodes Richard Richard 
+	Vengeance Vengeance Vermont Vermont Viper Viper Virginia Virginia 
 }
 monarch_names = {
 	"George #0" = 20
@@ -276,7 +377,52 @@ monarch_names = {
 	"Deborah #0" = -1
 	"Sarah #0" = -1
 	"Anne #0" = -1
+	"George #0" = 20
+	"James #0" = 20
+	"John #0" = 20
+	"Thomas #0" = 20
+	"Charles #0" = 15
+	"Daniel #0" = 15
+	"Henry #0" = 15
+	"Samuel #0" = 15
+	"Arthur #0" = 10
+	"Cyrus #0" = 10
+	"David #0" = 10
+	"Elias #0" = 10
+	"Frederick Augustus #0" = 10
+	"Nathaniel #0" = 10
+	"Peyton #0" = 10
+	"Richard #0" = 10
+	"Aaron #0" = 0
+	"Angus #0" = 0
+	"August #0" = 0
+	"Benjamin #0" = 0
+	"Calvin #0" = 0
+	"Darren #0" = 0
+	"Elbridge #0" = 0
+	"Eric #0" = 0
+	"Francis #0" = 0
+	"Frederick #0" = 0
+	"Isaac #0" = 0
+	"Jonathan #0" = 0
+	"Joseph #0" = 0
+	"Kyran #0" = 0
+	"Luke #0" = 0
+	"Milton #0" = 0
+	"Patrick #0" = 0
+	"Paul #0" = 0
+	"Philip #0" = 0
+	"Randolf #0" = 0
+	"Silvester #0" = 0
+	"Timothy #0" = 0
+	"Wilbur #0" = 0
+	"William #0" = 0
+	"Alexander #0" = 0
+	"Stephen #0" = 0
+	"Deborah #0" = -1
+	"Sarah #0" = -1
+	"Anne #0" = -1
 }
 
-### Modified 7/25/2025 7:14:40 PM ###
+### Modified 7/26/2025 2:15:40 PM ###
 

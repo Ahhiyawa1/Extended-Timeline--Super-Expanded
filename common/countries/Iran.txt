@@ -20,8 +20,27 @@ historical_idea_groups = {
 	religious_ideas
 	diplomatic_ideas
 	spy_ideas
+	early_religious_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_adm_ideas
+	defensive_ideas
+	offensive_ideas
+	administrative_ideas
+	economic_ideas
+	trade_ideas
+	religious_ideas
+	diplomatic_ideas
+	spy_ideas
 }
 historical_units = {
+	mamluk_archer
+	muslim_cavalry_archers
+	mamluk_duel
+	mamluk_musket_charge
+	muslim_mass_infantry
+	muslim_dragoon
+	ali_bey_reformed_infantry
 	mamluk_archer
 	muslim_cavalry_archers
 	mamluk_duel
@@ -32,16 +51,16 @@ historical_units = {
 }
 leader_names = {
 
-	Daei Dalwand Djaout Djebar 
-	Fatemi Feraoun 
-	Hmida 
-	Kelkal 
-	Madani Malek Merah Mimouni Mostaghanemi 
-	Sabet Sabiri Sadi Shahy 
-	Zeroual 
-	Jalili 
-	Ahrari Ansari Azizi 
-	Qazai 
+	Daei Daei Dalwand Dalwand Djaout Djaout Djebar Djebar 
+	Fatemi Fatemi Feraoun Feraoun 
+	Hmida Hmida 
+	Kelkal Kelkal 
+	Madani Madani Malek Malek Merah Merah Mimouni Mimouni Mostaghanemi Mostaghanemi 
+	Sabet Sabet Sabiri Sabiri Sadi Sadi Shahy Shahy 
+	Zeroual Zeroual 
+	Jalili Jalili 
+	Ahrari Ahrari Ansari Ansari Azizi Azizi 
+	Qazai Qazai 
 }
 army_names = {
 
@@ -51,28 +70,68 @@ fleet_names = {
 }
 ship_names = {
 
-	Abathur "Adamn Kasia" "Aesma Daeva" Agas Ahaka Ahriman Ahura "Ahura Mazda" Ahurani Airyaman "Aka Manah" Aladdin Allatum Amashaspan Ameratat "Amesha Spentas" Anahita "Angra Mainyu" Anjuman Apam-natat Apaosa Aredvi Arishtat Armaiti Arsaces "Asha vahista" Asman "Asto Vidatu" Astvat-Ereta Atar "Azi Dahaka" 
-	Baga Bahram Burijas Bushyasta Buyasta 
-	Camros 
-	Daena Daevas Dahhak Dena Dev Diwe Drug Drvaspa 
-	Frashegird Fravashis 
-	Gandarewa Gao-kerena Gayomard Gayomart Geus-Tasan Geus-Urvan 
-	Haoma Haurvatat Humay Hvar Hvarekhshaeta 
-	Indar Indra Izha 
-	Jamshid Jeh 
-	Karshipta Kavi Khara "Khshathra vairya" Kundrav 
-	Mah Mahre Mahrianag Manu Manuchihir Mao Mashyane Mashye Menog Mithra 
-	Nairyosangha Nanghaithya Neriosang 
-	Ormazd 
-	Peris Peshdadians 
-	Rapithwin Rashnu Rustam 
-	Saurva Simurgh "Spenta Mainyu" Sraosa Srosh 
-	Tawrich Thunaupa Tistrya Tushnamatay 
-	Vanant Vata Verethragna "Vohu Manah" Vouruskasha 
-	Yam Yasht Yazata Yezidi Yima 
-	Zal Zam Zam-Armatay Zarathustra Zarich Zend-Avesta Zurvan 
+	Abathur Abathur "Adamn Kasia" "Adamn Kasia" "Aesma Daeva" "Aesma Daeva" Agas Agas Ahaka Ahaka Ahriman Ahriman Ahura Ahura "Ahura Mazda" "Ahura Mazda" Ahurani Ahurani Airyaman Airyaman "Aka Manah" "Aka Manah" Aladdin Aladdin Allatum Allatum Amashaspan Amashaspan Ameratat Ameratat "Amesha Spentas" "Amesha Spentas" Anahita Anahita "Angra Mainyu" "Angra Mainyu" Anjuman Anjuman Apam-natat Apam-natat Apaosa Apaosa Aredvi Aredvi Arishtat Arishtat Armaiti Armaiti Arsaces Arsaces "Asha vahista" "Asha vahista" Asman Asman "Asto Vidatu" "Asto Vidatu" Astvat-Ereta Astvat-Ereta Atar Atar "Azi Dahaka" "Azi Dahaka" 
+	Baga Baga Bahram Bahram Burijas Burijas Bushyasta Bushyasta Buyasta Buyasta 
+	Camros Camros 
+	Daena Daena Daevas Daevas Dahhak Dahhak Dena Dena Dev Dev Diwe Diwe Drug Drug Drvaspa Drvaspa 
+	Frashegird Frashegird Fravashis Fravashis 
+	Gandarewa Gandarewa Gao-kerena Gao-kerena Gayomard Gayomard Gayomart Gayomart Geus-Tasan Geus-Tasan Geus-Urvan Geus-Urvan 
+	Haoma Haoma Haurvatat Haurvatat Humay Humay Hvar Hvar Hvarekhshaeta Hvarekhshaeta 
+	Indar Indar Indra Indra Izha Izha 
+	Jamshid Jamshid Jeh Jeh 
+	Karshipta Karshipta Kavi Kavi Khara Khara "Khshathra vairya" "Khshathra vairya" Kundrav Kundrav 
+	Mah Mah Mahre Mahre Mahrianag Mahrianag Manu Manu Manuchihir Manuchihir Mao Mao Mashyane Mashyane Mashye Mashye Menog Menog Mithra Mithra 
+	Nairyosangha Nairyosangha Nanghaithya Nanghaithya Neriosang Neriosang 
+	Ormazd Ormazd 
+	Peris Peris Peshdadians Peshdadians 
+	Rapithwin Rapithwin Rashnu Rashnu Rustam Rustam 
+	Saurva Saurva Simurgh Simurgh "Spenta Mainyu" "Spenta Mainyu" Sraosa Sraosa Srosh Srosh 
+	Tawrich Tawrich Thunaupa Thunaupa Tistrya Tistrya Tushnamatay Tushnamatay 
+	Vanant Vanant Vata Vata Verethragna Verethragna "Vohu Manah" "Vohu Manah" Vouruskasha Vouruskasha 
+	Yam Yam Yasht Yasht Yazata Yazata Yezidi Yezidi Yima Yima 
+	Zal Zal Zam Zam Zam-Armatay Zam-Armatay Zarathustra Zarathustra Zarich Zarich Zend-Avesta Zend-Avesta Zurvan Zurvan 
 }
 monarch_names = {
+	"Mohammed #0" = 30
+	"Mohamed #0" = 30
+	"Ali #0" = 10
+	"Ahmed #0" = 10
+	"Husayn #0" = 10
+	"Ibrahim #0" = 10
+	"Mustafa #0" = 10
+	"Abdullah #0" = 20
+	"Abdul #0" = 10
+	"Selim #0" = 10
+	"Abdelkader #0" = 10
+	"Ahlam #0" = 10
+	"Barakat #0" = 10
+	"Basir #0" = 10
+	"Dawud #0" = 10
+	"Faris #0" = 10
+	"Haidar #0" = 10
+	"Hasan #0" = 10
+	"Hashim #0" = 10
+	"Hosni #0" = 10
+	"Jabbar #0" = 10
+	"Jamal #0" = 10
+	"Junayd #0" = 10
+	"Kateb #0" = 10
+	"Lakhdar #0" = 10
+	"Mahfoud #0" = 10
+	"Malek #0" = 10
+	"Miloud #0" = 10
+	"Moufdi #0" = 10
+	"Najib #0" = 10
+	"Qasim #0" = 10
+	"Rachid #0" = 10
+	"Rahim #0" = 10
+	"Rashîd #0" = 10
+	"Safi #0" = 10
+	"Sakhr #0" = 10
+	"Tahar #0" = 10
+	"Wahid #0" = 10
+	"Zahir #0" = 10
+	"Farah #0" = -10
 	"Mohammed #0" = 30
 	"Mohamed #0" = 30
 	"Ali #0" = 10
@@ -133,8 +192,27 @@ historical_idea_groups = {
 	religious_ideas
 	diplomatic_ideas
 	spy_ideas
+	early_religious_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_adm_ideas
+	defensive_ideas
+	offensive_ideas
+	administrative_ideas
+	economic_ideas
+	trade_ideas
+	religious_ideas
+	diplomatic_ideas
+	spy_ideas
 }
 historical_units = {
+	mamluk_archer
+	muslim_cavalry_archers
+	mamluk_duel
+	mamluk_musket_charge
+	muslim_mass_infantry
+	muslim_dragoon
+	ali_bey_reformed_infantry
 	mamluk_archer
 	muslim_cavalry_archers
 	mamluk_duel
@@ -145,16 +223,16 @@ historical_units = {
 }
 leader_names = {
 
-	Daei Dalwand Djaout Djebar 
-	Fatemi Feraoun 
-	Hmida 
-	Kelkal 
-	Madani Malek Merah Mimouni Mostaghanemi 
-	Sabet Sabiri Sadi Shahy 
-	Zeroual 
-	Jalili 
-	Ahrari Ansari Azizi 
-	Qazai 
+	Daei Daei Dalwand Dalwand Djaout Djaout Djebar Djebar 
+	Fatemi Fatemi Feraoun Feraoun 
+	Hmida Hmida 
+	Kelkal Kelkal 
+	Madani Madani Malek Malek Merah Merah Mimouni Mimouni Mostaghanemi Mostaghanemi 
+	Sabet Sabet Sabiri Sabiri Sadi Sadi Shahy Shahy 
+	Zeroual Zeroual 
+	Jalili Jalili 
+	Ahrari Ahrari Ansari Ansari Azizi Azizi 
+	Qazai Qazai 
 }
 army_names = {
 
@@ -164,26 +242,26 @@ fleet_names = {
 }
 ship_names = {
 
-	Abathur "Adamn Kasia" "Aesma Daeva" Agas Ahaka Ahriman Ahura "Ahura Mazda" Ahurani Airyaman "Aka Manah" Aladdin Allatum Amashaspan Ameratat "Amesha Spentas" Anahita "Angra Mainyu" Anjuman Apam-natat Apaosa Aredvi Arishtat Armaiti Arsaces "Asha vahista" Asman "Asto Vidatu" Astvat-Ereta Atar "Azi Dahaka" 
-	Baga Bahram Burijas Bushyasta Buyasta 
-	Camros 
-	Daena Daevas Dahhak Dena Dev Diwe Drug Drvaspa 
-	Frashegird Fravashis 
-	Gandarewa Gao-kerena Gayomard Gayomart Geus-Tasan Geus-Urvan 
-	Haoma Haurvatat Humay Hvar Hvarekhshaeta 
-	Indar Indra Izha 
-	Jamshid Jeh 
-	Karshipta Kavi Khara "Khshathra vairya" Kundrav 
-	Mah Mahre Mahrianag Manu Manuchihir Mao Mashyane Mashye Menog Mithra 
-	Nairyosangha Nanghaithya Neriosang 
-	Ormazd 
-	Peris Peshdadians 
-	Rapithwin Rashnu Rustam 
-	Saurva Simurgh "Spenta Mainyu" Sraosa Srosh 
-	Tawrich Thunaupa Tistrya Tushnamatay 
-	Vanant Vata Verethragna "Vohu Manah" Vouruskasha 
-	Yam Yasht Yazata Yezidi Yima 
-	Zal Zam Zam-Armatay Zarathustra Zarich Zend-Avesta Zurvan 
+	Abathur Abathur "Adamn Kasia" "Adamn Kasia" "Aesma Daeva" "Aesma Daeva" Agas Agas Ahaka Ahaka Ahriman Ahriman Ahura Ahura "Ahura Mazda" "Ahura Mazda" Ahurani Ahurani Airyaman Airyaman "Aka Manah" "Aka Manah" Aladdin Aladdin Allatum Allatum Amashaspan Amashaspan Ameratat Ameratat "Amesha Spentas" "Amesha Spentas" Anahita Anahita "Angra Mainyu" "Angra Mainyu" Anjuman Anjuman Apam-natat Apam-natat Apaosa Apaosa Aredvi Aredvi Arishtat Arishtat Armaiti Armaiti Arsaces Arsaces "Asha vahista" "Asha vahista" Asman Asman "Asto Vidatu" "Asto Vidatu" Astvat-Ereta Astvat-Ereta Atar Atar "Azi Dahaka" "Azi Dahaka" 
+	Baga Baga Bahram Bahram Burijas Burijas Bushyasta Bushyasta Buyasta Buyasta 
+	Camros Camros 
+	Daena Daena Daevas Daevas Dahhak Dahhak Dena Dena Dev Dev Diwe Diwe Drug Drug Drvaspa Drvaspa 
+	Frashegird Frashegird Fravashis Fravashis 
+	Gandarewa Gandarewa Gao-kerena Gao-kerena Gayomard Gayomard Gayomart Gayomart Geus-Tasan Geus-Tasan Geus-Urvan Geus-Urvan 
+	Haoma Haoma Haurvatat Haurvatat Humay Humay Hvar Hvar Hvarekhshaeta Hvarekhshaeta 
+	Indar Indar Indra Indra Izha Izha 
+	Jamshid Jamshid Jeh Jeh 
+	Karshipta Karshipta Kavi Kavi Khara Khara "Khshathra vairya" "Khshathra vairya" Kundrav Kundrav 
+	Mah Mah Mahre Mahre Mahrianag Mahrianag Manu Manu Manuchihir Manuchihir Mao Mao Mashyane Mashyane Mashye Mashye Menog Menog Mithra Mithra 
+	Nairyosangha Nairyosangha Nanghaithya Nanghaithya Neriosang Neriosang 
+	Ormazd Ormazd 
+	Peris Peris Peshdadians Peshdadians 
+	Rapithwin Rapithwin Rashnu Rashnu Rustam Rustam 
+	Saurva Saurva Simurgh Simurgh "Spenta Mainyu" "Spenta Mainyu" Sraosa Sraosa Srosh Srosh 
+	Tawrich Tawrich Thunaupa Thunaupa Tistrya Tistrya Tushnamatay Tushnamatay 
+	Vanant Vanant Vata Vata Verethragna Verethragna "Vohu Manah" "Vohu Manah" Vouruskasha Vouruskasha 
+	Yam Yam Yasht Yasht Yazata Yazata Yezidi Yezidi Yima Yima 
+	Zal Zal Zam Zam Zam-Armatay Zam-Armatay Zarathustra Zarathustra Zarich Zarich Zend-Avesta Zend-Avesta Zurvan Zurvan 
 }
 monarch_names = {
 	"Mohammed #0" = 30
@@ -226,7 +304,47 @@ monarch_names = {
 	"Wahid #0" = 10
 	"Zahir #0" = 10
 	"Farah #0" = -10
+	"Mohammed #0" = 30
+	"Mohamed #0" = 30
+	"Ali #0" = 10
+	"Ahmed #0" = 10
+	"Husayn #0" = 10
+	"Ibrahim #0" = 10
+	"Mustafa #0" = 10
+	"Abdullah #0" = 20
+	"Abdul #0" = 10
+	"Selim #0" = 10
+	"Abdelkader #0" = 10
+	"Ahlam #0" = 10
+	"Barakat #0" = 10
+	"Basir #0" = 10
+	"Dawud #0" = 10
+	"Faris #0" = 10
+	"Haidar #0" = 10
+	"Hasan #0" = 10
+	"Hashim #0" = 10
+	"Hosni #0" = 10
+	"Jabbar #0" = 10
+	"Jamal #0" = 10
+	"Junayd #0" = 10
+	"Kateb #0" = 10
+	"Lakhdar #0" = 10
+	"Mahfoud #0" = 10
+	"Malek #0" = 10
+	"Miloud #0" = 10
+	"Moufdi #0" = 10
+	"Najib #0" = 10
+	"Qasim #0" = 10
+	"Rachid #0" = 10
+	"Rahim #0" = 10
+	"Rashîd #0" = 10
+	"Safi #0" = 10
+	"Sakhr #0" = 10
+	"Tahar #0" = 10
+	"Wahid #0" = 10
+	"Zahir #0" = 10
+	"Farah #0" = -10
 }
 
-### Modified 7/25/2025 7:14:40 PM ###
+### Modified 7/26/2025 2:15:41 PM ###
 

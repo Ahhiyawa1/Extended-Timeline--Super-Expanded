@@ -22,8 +22,36 @@ historical_idea_groups = {
 	quality_ideas
 	trade_ideas
 	economic_ideas
+	early_adm_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_religious_ideas
+	administrative_ideas
+	exploration_ideas
+	defensive_ideas
+	maritime_ideas
+	innovativeness_ideas
+	quality_ideas
+	trade_ideas
+	economic_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	swiss_landsknechten
+	dutch_maurician
+	french_caracolle
+	swedish_gallop
+	austrian_tercio
+	austrian_grenzer
+	french_bluecoat
+	french_dragoon
+	french_impulse
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	western_medieval_knights
 	western_men_at_arms
@@ -43,59 +71,111 @@ historical_units = {
 }
 leader_names = {
 
-	"Van Assendelft" "Van Brederode" "Van Bronkhorst" "Van Culemborg" "Van der Aa" "Van der Does" "Van der Werff" "Van Diemen" "Van Duivenvoorde" "Van Egmont" "Van Galen" "Van Haren" "Van Heemskerck" "Van Huchtenbroek" "Van Ilpendam" "Van Keppel" "Van Marnix" "Van Nieuwenaar" "Van Noort" "Van Pallandt" "Van Raephorst" "Van Rechteren" "Van Renesse" "Van Riebeeck" "Van Rossum" "Van Swieten" "Van Troyen" "Van Utenhove" "Van Voorst" "Van Walbeeck" "Van Wassenaer" "Van Wesembeke" "Van Wijngaarden" "Van Wingle" Vliechop 
-	Batenburg Bentinck Brandt Brouwer 
-	Coehoorn Coen Crijnssen 
-	Daendels "De Grouwe" "De Houtman" "De Moor" "De Rijk" "De Winter" 
-	Evertzen 
-	Kater Kortenaer 
-	Martena 
-	Nachtegaal 
-	Reijersen 
-	Schenk Schouten Spiegel Steltman Stuyvesant 
-	Tasman 
+	"Van Assendelft" "Van Assendelft" "Van Brederode" "Van Brederode" "Van Bronkhorst" "Van Bronkhorst" "Van Culemborg" "Van Culemborg" "Van der Aa" "Van der Aa" "Van der Does" "Van der Does" "Van der Werff" "Van der Werff" "Van Diemen" "Van Diemen" "Van Duivenvoorde" "Van Duivenvoorde" "Van Egmont" "Van Egmont" "Van Galen" "Van Galen" "Van Haren" "Van Haren" "Van Heemskerck" "Van Heemskerck" "Van Huchtenbroek" "Van Huchtenbroek" "Van Ilpendam" "Van Ilpendam" "Van Keppel" "Van Keppel" "Van Marnix" "Van Marnix" "Van Nieuwenaar" "Van Nieuwenaar" "Van Noort" "Van Noort" "Van Pallandt" "Van Pallandt" "Van Raephorst" "Van Raephorst" "Van Rechteren" "Van Rechteren" "Van Renesse" "Van Renesse" "Van Riebeeck" "Van Riebeeck" "Van Rossum" "Van Rossum" "Van Swieten" "Van Swieten" "Van Troyen" "Van Troyen" "Van Utenhove" "Van Utenhove" "Van Voorst" "Van Voorst" "Van Walbeeck" "Van Walbeeck" "Van Wassenaer" "Van Wassenaer" "Van Wesembeke" "Van Wesembeke" "Van Wijngaarden" "Van Wijngaarden" "Van Wingle" "Van Wingle" Vliechop Vliechop 
+	Batenburg Batenburg Bentinck Bentinck Brandt Brandt Brouwer Brouwer 
+	Coehoorn Coehoorn Coen Coen Crijnssen Crijnssen 
+	Daendels Daendels "De Grouwe" "De Grouwe" "De Houtman" "De Houtman" "De Moor" "De Moor" "De Rijk" "De Rijk" "De Winter" "De Winter" 
+	Evertzen Evertzen 
+	Kater Kater Kortenaer Kortenaer 
+	Martena Martena 
+	Nachtegaal Nachtegaal 
+	Reijersen Reijersen 
+	Schenk Schenk Schouten Schouten Spiegel Spiegel Steltman Steltman Stuyvesant Stuyvesant 
+	Tasman Tasman 
 }
 army_names = {
 
-	"Staatse Leger" 
-	"Prinselijk Leger" 
-	"Leger van $PROVINCE$" 
+	"Staatse Leger" "Staatse Leger" 
+	"Prinselijk Leger" "Prinselijk Leger" 
+	"Leger van $PROVINCE$" "Leger van $PROVINCE$" 
 }
 fleet_names = {
 
-	"Staatse Vloot" 
-	Noordzeevloot 
-	Oost-Indiëvloot Oostzeevloot 
-	West-Indiëvloot 
-	"Middellandse Zeevloot" 
-	"Vloot van $PROVINCE$" 
+	"Staatse Vloot" "Staatse Vloot" 
+	Noordzeevloot Noordzeevloot 
+	Oost-Indiëvloot Oost-Indiëvloot Oostzeevloot Oostzeevloot 
+	West-Indiëvloot West-Indiëvloot 
+	"Middellandse Zeevloot" "Middellandse Zeevloot" 
+	"Vloot van $PROVINCE$" "Vloot van $PROVINCE$" 
 }
 ship_names = {
 
-	"Aartsengel Michael" "Admiraal Generaal" Aemilia Agatha Ajax Akerboom Alida Alkmaar Alliantie Alphen Amalia Amazoon Amphitrite Amsterdam Arend Argo Arnhem Assendelft 
-	Banier Barbestein Batavia Batavier Beekvliet Beemster Beemsterlust Beliona Beschermer "Beurs van Amsterdam" "Blauwe Reiger" "Bloys van Treslong" Boekenrode Boetzelaar Bommel Braave Brakel Breda Brederode Brielle Broederschap Brutus Buis Bul "Burcht van Leiden" Burgvliet 
-	Caleb Callantsoog Castricum Catharina Cerberus "Commercie van Amsterdam" Convertine Curacao 
-	d'Unij Dalem Damiaten Dankbaarheid "David's Drie Helden" Delfland Delft Deutekom Deventer Diepenheim Dieren Doesburg Doggersbank Dolfijn "Dom van Utrecht" Dordrecht Draak Drakestein Drente "Drie Gebroeders" "Drie Koningen" Drielst Duinveld Duivenvoorde 
-	Echo Edam Eendracht Eenhoorn "Elf Steden" Elswoud Engel "Engel Gabriel" Erfprins 
-	Fortuin "Frederik Hendrik" Friesland 
-	Galei Gelderland Geloof "Gewapenden Ruijter" Gideon Glindhorst Goes Gouda "Gouden Dolfijn" "Gouden Leeuw" "Gouden Maan" Gouderak "Graaf Willem" "Groot Hollandia" "Groote Liefde" 
-	Haarlem Haarlemmerhout "Halve Maan" Hardenbroek Harderwijk Havik Hector Heemstede Hersteller Het Hilverbeek Hilversum "Hof Sint Janskerken" "Hof van Rheenen" "Hof van Souburg" "Hof van Zeeland" Hollandia "Hollandsche Tuin" Hoop "Huijs te Zwieten" "Huis te Jaarsveld" "Huis te Kruiningen" "Huis te Oostewijk" "Huis te Zwieten" "Huis Tijdverdrijf" "Huis van Groeningen" "Huis van Nassau" "Huis van Raaphorst" 
-	Kalandsoog Kameel Kampen Kampveere "Kasteel van Medemblik" "Katwijk aan Zee" Kennemerland "Keurvorst van Brandenburg" "Keurvorst van Saksen" "Keurvorstin van Brandenburg" "Klein Frisia" "Klein Hollandia" "Klein Zutphen" "Kleine Harder" Koevorden Komeet "Koning William" Kooge 
-	Landman Landskroon Leeuwarden Leeuwenhorst Liefde Loo Loosdregt "Louisa Hendrika" Luipaard Lynx 
-	"Maagd van Enkhuizen" Maan Maarseveen Maas "Marcus Curtius" Margarethe Mars Matenes Medusa Meermin Mercuur Middelbare Middelburg Morgenstar Moriaanshoofd 
-	Pacificatie Parel Pelikaan Pijl Post "Postiljon van Smyrna" Prins "Prins Friso" "Prins Hendrik" "Prins Hendrik Casimir" "Prins Maurits" "Prins te Paard" "Prins van Portugal" "Prins Willem" "Prinses Aemilia" "Prinses Albertina" "Prinses Maria" "Prinses Roijael Maria" "Provincie Utrecht" "Provincie van Holland" 
-	"Raadhuis van Haarlem" Raaf Ramhorst Reebok Reigersberg Rijnland "Roode Leeuw" Rosenkranz 
-	Salamander "Salomons Oordeel" "Schager Roos" Schieland Schonauwen "Sint Andries" "Sint Jacob" "Sint Laurens" "Sint Maria" "Sint Matheeus" "Sint Pieter" Souterwoude Spiegel Spion "Stad en Lande" "Stad Gouda" "Stad Haarlem" "Stad Utrecht" Starrenburg Stavoren Susanna 
-	"Ter Goes" "Ter Veere" Tholen Tijdverdrijf Tijger Triton Tromp 
-	Valk Veere Velsen "Verenigde Provinciën" "Vergulden Draeck" Vlaming "Vliegende Vis" Vlissingen "Vogel Phesant" "Vogel Struis" Voorzichtigheid Vrede Vrijheid 
-	Waag Waakzamheid "Wakende Boei" "Wakende Kraan" Walcheren "Wapen van Edam" "Wapen van Haarlem" "Wapen van Holland" "Wapen van Leijden" "Wapen van Nassau" "Wapen van Utrecht" "Wapen van Zeeland" Wassenaer Westergo Westfriesland Weststellingwerft "Willem van Nieuhoff" Windhond "Witte Lam" Wolf Wolfswinkel Wreker 
-	Zeelandia Zeepaard Zephier Zierikzee Zon Zuiderhuis Zuileveld Zutphen Zwaan Zwaluw Zwanenburg "Zwarte Arend" "Zwarte Bul" Zwieten 
-	Jaarsveld Jonas Jozua Jupiter 
-	Naerden Neptunus Noorderkwartier 
-	Olifant Omlandia Oostergo Oosterwijk Oranjeboom Oudshoorn Overijssel Overwinnaer 
-	Unie Utrecht 
+	"Aartsengel Michael" "Aartsengel Michael" "Admiraal Generaal" "Admiraal Generaal" Aemilia Aemilia Agatha Agatha Ajax Ajax Akerboom Akerboom Alida Alida Alkmaar Alkmaar Alliantie Alliantie Alphen Alphen Amalia Amalia Amazoon Amazoon Amphitrite Amphitrite Amsterdam Amsterdam Arend Arend Argo Argo Arnhem Arnhem Assendelft Assendelft 
+	Banier Banier Barbestein Barbestein Batavia Batavia Batavier Batavier Beekvliet Beekvliet Beemster Beemster Beemsterlust Beemsterlust Beliona Beliona Beschermer Beschermer "Beurs van Amsterdam" "Beurs van Amsterdam" "Blauwe Reiger" "Blauwe Reiger" "Bloys van Treslong" "Bloys van Treslong" Boekenrode Boekenrode Boetzelaar Boetzelaar Bommel Bommel Braave Braave Brakel Brakel Breda Breda Brederode Brederode Brielle Brielle Broederschap Broederschap Brutus Brutus Buis Buis Bul Bul "Burcht van Leiden" "Burcht van Leiden" Burgvliet Burgvliet 
+	Caleb Caleb Callantsoog Callantsoog Castricum Castricum Catharina Catharina Cerberus Cerberus "Commercie van Amsterdam" "Commercie van Amsterdam" Convertine Convertine Curacao Curacao 
+	d'Unij d'Unij Dalem Dalem Damiaten Damiaten Dankbaarheid Dankbaarheid "David's Drie Helden" "David's Drie Helden" Delfland Delfland Delft Delft Deutekom Deutekom Deventer Deventer Diepenheim Diepenheim Dieren Dieren Doesburg Doesburg Doggersbank Doggersbank Dolfijn Dolfijn "Dom van Utrecht" "Dom van Utrecht" Dordrecht Dordrecht Draak Draak Drakestein Drakestein Drente Drente "Drie Gebroeders" "Drie Gebroeders" "Drie Koningen" "Drie Koningen" Drielst Drielst Duinveld Duinveld Duivenvoorde Duivenvoorde 
+	Echo Echo Edam Edam Eendracht Eendracht Eenhoorn Eenhoorn "Elf Steden" "Elf Steden" Elswoud Elswoud Engel Engel "Engel Gabriel" "Engel Gabriel" Erfprins Erfprins 
+	Fortuin Fortuin "Frederik Hendrik" "Frederik Hendrik" Friesland Friesland 
+	Galei Galei Gelderland Gelderland Geloof Geloof "Gewapenden Ruijter" "Gewapenden Ruijter" Gideon Gideon Glindhorst Glindhorst Goes Goes Gouda Gouda "Gouden Dolfijn" "Gouden Dolfijn" "Gouden Leeuw" "Gouden Leeuw" "Gouden Maan" "Gouden Maan" Gouderak Gouderak "Graaf Willem" "Graaf Willem" "Groot Hollandia" "Groot Hollandia" "Groote Liefde" "Groote Liefde" 
+	Haarlem Haarlem Haarlemmerhout Haarlemmerhout "Halve Maan" "Halve Maan" Hardenbroek Hardenbroek Harderwijk Harderwijk Havik Havik Hector Hector Heemstede Heemstede Hersteller Hersteller Het Het Hilverbeek Hilverbeek Hilversum Hilversum "Hof Sint Janskerken" "Hof Sint Janskerken" "Hof van Rheenen" "Hof van Rheenen" "Hof van Souburg" "Hof van Souburg" "Hof van Zeeland" "Hof van Zeeland" Hollandia Hollandia "Hollandsche Tuin" "Hollandsche Tuin" Hoop Hoop "Huijs te Zwieten" "Huijs te Zwieten" "Huis te Jaarsveld" "Huis te Jaarsveld" "Huis te Kruiningen" "Huis te Kruiningen" "Huis te Oostewijk" "Huis te Oostewijk" "Huis te Zwieten" "Huis te Zwieten" "Huis Tijdverdrijf" "Huis Tijdverdrijf" "Huis van Groeningen" "Huis van Groeningen" "Huis van Nassau" "Huis van Nassau" "Huis van Raaphorst" "Huis van Raaphorst" 
+	Kalandsoog Kalandsoog Kameel Kameel Kampen Kampen Kampveere Kampveere "Kasteel van Medemblik" "Kasteel van Medemblik" "Katwijk aan Zee" "Katwijk aan Zee" Kennemerland Kennemerland "Keurvorst van Brandenburg" "Keurvorst van Brandenburg" "Keurvorst van Saksen" "Keurvorst van Saksen" "Keurvorstin van Brandenburg" "Keurvorstin van Brandenburg" "Klein Frisia" "Klein Frisia" "Klein Hollandia" "Klein Hollandia" "Klein Zutphen" "Klein Zutphen" "Kleine Harder" "Kleine Harder" Koevorden Koevorden Komeet Komeet "Koning William" "Koning William" Kooge Kooge 
+	Landman Landman Landskroon Landskroon Leeuwarden Leeuwarden Leeuwenhorst Leeuwenhorst Liefde Liefde Loo Loo Loosdregt Loosdregt "Louisa Hendrika" "Louisa Hendrika" Luipaard Luipaard Lynx Lynx 
+	"Maagd van Enkhuizen" "Maagd van Enkhuizen" Maan Maan Maarseveen Maarseveen Maas Maas "Marcus Curtius" "Marcus Curtius" Margarethe Margarethe Mars Mars Matenes Matenes Medusa Medusa Meermin Meermin Mercuur Mercuur Middelbare Middelbare Middelburg Middelburg Morgenstar Morgenstar Moriaanshoofd Moriaanshoofd 
+	Pacificatie Pacificatie Parel Parel Pelikaan Pelikaan Pijl Pijl Post Post "Postiljon van Smyrna" "Postiljon van Smyrna" Prins Prins "Prins Friso" "Prins Friso" "Prins Hendrik" "Prins Hendrik" "Prins Hendrik Casimir" "Prins Hendrik Casimir" "Prins Maurits" "Prins Maurits" "Prins te Paard" "Prins te Paard" "Prins van Portugal" "Prins van Portugal" "Prins Willem" "Prins Willem" "Prinses Aemilia" "Prinses Aemilia" "Prinses Albertina" "Prinses Albertina" "Prinses Maria" "Prinses Maria" "Prinses Roijael Maria" "Prinses Roijael Maria" "Provincie Utrecht" "Provincie Utrecht" "Provincie van Holland" "Provincie van Holland" 
+	"Raadhuis van Haarlem" "Raadhuis van Haarlem" Raaf Raaf Ramhorst Ramhorst Reebok Reebok Reigersberg Reigersberg Rijnland Rijnland "Roode Leeuw" "Roode Leeuw" Rosenkranz Rosenkranz 
+	Salamander Salamander "Salomons Oordeel" "Salomons Oordeel" "Schager Roos" "Schager Roos" Schieland Schieland Schonauwen Schonauwen "Sint Andries" "Sint Andries" "Sint Jacob" "Sint Jacob" "Sint Laurens" "Sint Laurens" "Sint Maria" "Sint Maria" "Sint Matheeus" "Sint Matheeus" "Sint Pieter" "Sint Pieter" Souterwoude Souterwoude Spiegel Spiegel Spion Spion "Stad en Lande" "Stad en Lande" "Stad Gouda" "Stad Gouda" "Stad Haarlem" "Stad Haarlem" "Stad Utrecht" "Stad Utrecht" Starrenburg Starrenburg Stavoren Stavoren Susanna Susanna 
+	"Ter Goes" "Ter Goes" "Ter Veere" "Ter Veere" Tholen Tholen Tijdverdrijf Tijdverdrijf Tijger Tijger Triton Triton Tromp Tromp 
+	Valk Valk Veere Veere Velsen Velsen "Verenigde Provinciën" "Verenigde Provinciën" "Vergulden Draeck" "Vergulden Draeck" Vlaming Vlaming "Vliegende Vis" "Vliegende Vis" Vlissingen Vlissingen "Vogel Phesant" "Vogel Phesant" "Vogel Struis" "Vogel Struis" Voorzichtigheid Voorzichtigheid Vrede Vrede Vrijheid Vrijheid 
+	Waag Waag Waakzamheid Waakzamheid "Wakende Boei" "Wakende Boei" "Wakende Kraan" "Wakende Kraan" Walcheren Walcheren "Wapen van Edam" "Wapen van Edam" "Wapen van Haarlem" "Wapen van Haarlem" "Wapen van Holland" "Wapen van Holland" "Wapen van Leijden" "Wapen van Leijden" "Wapen van Nassau" "Wapen van Nassau" "Wapen van Utrecht" "Wapen van Utrecht" "Wapen van Zeeland" "Wapen van Zeeland" Wassenaer Wassenaer Westergo Westergo Westfriesland Westfriesland Weststellingwerft Weststellingwerft "Willem van Nieuhoff" "Willem van Nieuhoff" Windhond Windhond "Witte Lam" "Witte Lam" Wolf Wolf Wolfswinkel Wolfswinkel Wreker Wreker 
+	Zeelandia Zeelandia Zeepaard Zeepaard Zephier Zephier Zierikzee Zierikzee Zon Zon Zuiderhuis Zuiderhuis Zuileveld Zuileveld Zutphen Zutphen Zwaan Zwaan Zwaluw Zwaluw Zwanenburg Zwanenburg "Zwarte Arend" "Zwarte Arend" "Zwarte Bul" "Zwarte Bul" Zwieten Zwieten 
+	Jaarsveld Jaarsveld Jonas Jonas Jozua Jozua Jupiter Jupiter 
+	Naerden Naerden Neptunus Neptunus Noorderkwartier Noorderkwartier 
+	Olifant Olifant Omlandia Omlandia Oostergo Oostergo Oosterwijk Oosterwijk Oranjeboom Oranjeboom Oudshoorn Oudshoorn Overijssel Overijssel Overwinnaer Overwinnaer 
+	Unie Unie Utrecht Utrecht 
 }
 monarch_names = {
+	"Willem #0" = 100
+	"Lodewijk #0" = 40
+	"Frederik Hendrik #0" = 20
+	"Maurits #0" = 20
+	"Filips Willem #0" = 15
+	"Hendrik Lodewijk #0" = 15
+	"Karel #0 Lodewijk" = 15
+	"Lodewijk #0 Karel" = 15
+	"Adriaan #0" = 10
+	"Andries #0" = 10
+	"Antonius #0" = 10
+	"Frederik #0" = 10
+	"Gaspar #0" = 10
+	"Isaac #0" = 10
+	"Jacob #0" = 10
+	"Johan #0" = 10
+	"Laurens #0" = 10
+	"Paul #0" = 10
+	"Pieter #0" = 10
+	"Simon #0" = 10
+	"Abraham #0" = 0
+	"Antoon #0" = 0
+	"Barthout #0" = 0
+	"Christiaan #0" = 0
+	"Christoffel #0" = 0
+	"Constantijn #0" = 0
+	"Cornelis #0" = 0
+	"Daniel #0" = 0
+	"David #0" = 0
+	"Filips #0" = 0
+	"Dirk #0" = 0
+	"Eise #0" = 0
+	"Frans #0" = 0
+	"Gabriel #0" = 0
+	"Gerard #0" = 0
+	"Gerben #0" = 0
+	"Godfried #0" = 0
+	"Hans #0" = 0
+	"Jeroen #0" = 0
+	"Hugo #0" = 0
+	"Jan #0" = 0
+	"Joost #0" = 0
+	"Nicolaas #0" = 0
+	"Roeland #0" = 0
+	"Rogier #0" = 0
+	"Rutger #0" = 0
+	"Thomas #0" = 0
+	"Vincent #0" = 0
+	"Zacharias #0" = 0
+	"Margaretha #0" = -1
+	"Rosanne #0" = -1
+	"Tamara #0" = -1
 	"Willem #0" = 100
 	"Lodewijk #0" = 40
 	"Frederik Hendrik #0" = 20
@@ -170,8 +250,36 @@ historical_idea_groups = {
 	quality_ideas
 	trade_ideas
 	economic_ideas
+	early_adm_ideas
+	early_mil_ideas
+	early_trade_ideas
+	early_religious_ideas
+	administrative_ideas
+	exploration_ideas
+	defensive_ideas
+	maritime_ideas
+	innovativeness_ideas
+	quality_ideas
+	trade_ideas
+	economic_ideas
 }
 historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	swiss_landsknechten
+	dutch_maurician
+	french_caracolle
+	swedish_gallop
+	austrian_tercio
+	austrian_grenzer
+	french_bluecoat
+	french_dragoon
+	french_impulse
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 	western_medieval_infantry
 	western_medieval_knights
 	western_men_at_arms
@@ -191,57 +299,57 @@ historical_units = {
 }
 leader_names = {
 
-	"Van Assendelft" "Van Brederode" "Van Bronkhorst" "Van Culemborg" "Van der Aa" "Van der Does" "Van der Werff" "Van Diemen" "Van Duivenvoorde" "Van Egmont" "Van Galen" "Van Haren" "Van Heemskerck" "Van Huchtenbroek" "Van Ilpendam" "Van Keppel" "Van Marnix" "Van Nieuwenaar" "Van Noort" "Van Pallandt" "Van Raephorst" "Van Rechteren" "Van Renesse" "Van Riebeeck" "Van Rossum" "Van Swieten" "Van Troyen" "Van Utenhove" "Van Voorst" "Van Walbeeck" "Van Wassenaer" "Van Wesembeke" "Van Wijngaarden" "Van Wingle" Vliechop 
-	Batenburg Bentinck Brandt Brouwer 
-	Coehoorn Coen Crijnssen 
-	Daendels "De Grouwe" "De Houtman" "De Moor" "De Rijk" "De Winter" 
-	Evertzen 
-	Kater Kortenaer 
-	Martena 
-	Nachtegaal 
-	Reijersen 
-	Schenk Schouten Spiegel Steltman Stuyvesant 
-	Tasman 
+	"Van Assendelft" "Van Assendelft" "Van Brederode" "Van Brederode" "Van Bronkhorst" "Van Bronkhorst" "Van Culemborg" "Van Culemborg" "Van der Aa" "Van der Aa" "Van der Does" "Van der Does" "Van der Werff" "Van der Werff" "Van Diemen" "Van Diemen" "Van Duivenvoorde" "Van Duivenvoorde" "Van Egmont" "Van Egmont" "Van Galen" "Van Galen" "Van Haren" "Van Haren" "Van Heemskerck" "Van Heemskerck" "Van Huchtenbroek" "Van Huchtenbroek" "Van Ilpendam" "Van Ilpendam" "Van Keppel" "Van Keppel" "Van Marnix" "Van Marnix" "Van Nieuwenaar" "Van Nieuwenaar" "Van Noort" "Van Noort" "Van Pallandt" "Van Pallandt" "Van Raephorst" "Van Raephorst" "Van Rechteren" "Van Rechteren" "Van Renesse" "Van Renesse" "Van Riebeeck" "Van Riebeeck" "Van Rossum" "Van Rossum" "Van Swieten" "Van Swieten" "Van Troyen" "Van Troyen" "Van Utenhove" "Van Utenhove" "Van Voorst" "Van Voorst" "Van Walbeeck" "Van Walbeeck" "Van Wassenaer" "Van Wassenaer" "Van Wesembeke" "Van Wesembeke" "Van Wijngaarden" "Van Wijngaarden" "Van Wingle" "Van Wingle" Vliechop Vliechop 
+	Batenburg Batenburg Bentinck Bentinck Brandt Brandt Brouwer Brouwer 
+	Coehoorn Coehoorn Coen Coen Crijnssen Crijnssen 
+	Daendels Daendels "De Grouwe" "De Grouwe" "De Houtman" "De Houtman" "De Moor" "De Moor" "De Rijk" "De Rijk" "De Winter" "De Winter" 
+	Evertzen Evertzen 
+	Kater Kater Kortenaer Kortenaer 
+	Martena Martena 
+	Nachtegaal Nachtegaal 
+	Reijersen Reijersen 
+	Schenk Schenk Schouten Schouten Spiegel Spiegel Steltman Steltman Stuyvesant Stuyvesant 
+	Tasman Tasman 
 }
 army_names = {
 
-	"Staatse Leger" 
-	"Prinselijk Leger" 
-	"Leger van $PROVINCE$" 
+	"Staatse Leger" "Staatse Leger" 
+	"Prinselijk Leger" "Prinselijk Leger" 
+	"Leger van $PROVINCE$" "Leger van $PROVINCE$" 
 }
 fleet_names = {
 
-	"Staatse Vloot" 
-	Noordzeevloot 
-	Oost-Indiëvloot Oostzeevloot 
-	West-Indiëvloot 
-	"Middellandse Zeevloot" 
-	"Vloot van $PROVINCE$" 
+	"Staatse Vloot" "Staatse Vloot" 
+	Noordzeevloot Noordzeevloot 
+	Oost-Indiëvloot Oost-Indiëvloot Oostzeevloot Oostzeevloot 
+	West-Indiëvloot West-Indiëvloot 
+	"Middellandse Zeevloot" "Middellandse Zeevloot" 
+	"Vloot van $PROVINCE$" "Vloot van $PROVINCE$" 
 }
 ship_names = {
 
-	"Aartsengel Michael" "Admiraal Generaal" Aemilia Agatha Ajax Akerboom Alida Alkmaar Alliantie Alphen Amalia Amazoon Amphitrite Amsterdam Arend Argo Arnhem Assendelft 
-	Banier Barbestein Batavia Batavier Beekvliet Beemster Beemsterlust Beliona Beschermer "Beurs van Amsterdam" "Blauwe Reiger" "Bloys van Treslong" Boekenrode Boetzelaar Bommel Braave Brakel Breda Brederode Brielle Broederschap Brutus Buis Bul "Burcht van Leiden" Burgvliet 
-	Caleb Callantsoog Castricum Catharina Cerberus "Commercie van Amsterdam" Convertine Curacao 
-	d'Unij Dalem Damiaten Dankbaarheid "David's Drie Helden" Delfland Delft Deutekom Deventer Diepenheim Dieren Doesburg Doggersbank Dolfijn "Dom van Utrecht" Dordrecht Draak Drakestein Drente "Drie Gebroeders" "Drie Koningen" Drielst Duinveld Duivenvoorde 
-	Echo Edam Eendracht Eenhoorn "Elf Steden" Elswoud Engel "Engel Gabriel" Erfprins 
-	Fortuin "Frederik Hendrik" Friesland 
-	Galei Gelderland Geloof "Gewapenden Ruijter" Gideon Glindhorst Goes Gouda "Gouden Dolfijn" "Gouden Leeuw" "Gouden Maan" Gouderak "Graaf Willem" "Groot Hollandia" "Groote Liefde" 
-	Haarlem Haarlemmerhout "Halve Maan" Hardenbroek Harderwijk Havik Hector Heemstede Hersteller Het Hilverbeek Hilversum "Hof Sint Janskerken" "Hof van Rheenen" "Hof van Souburg" "Hof van Zeeland" Hollandia "Hollandsche Tuin" Hoop "Huijs te Zwieten" "Huis te Jaarsveld" "Huis te Kruiningen" "Huis te Oostewijk" "Huis te Zwieten" "Huis Tijdverdrijf" "Huis van Groeningen" "Huis van Nassau" "Huis van Raaphorst" 
-	Kalandsoog Kameel Kampen Kampveere "Kasteel van Medemblik" "Katwijk aan Zee" Kennemerland "Keurvorst van Brandenburg" "Keurvorst van Saksen" "Keurvorstin van Brandenburg" "Klein Frisia" "Klein Hollandia" "Klein Zutphen" "Kleine Harder" Koevorden Komeet "Koning William" Kooge 
-	Landman Landskroon Leeuwarden Leeuwenhorst Liefde Loo Loosdregt "Louisa Hendrika" Luipaard Lynx 
-	"Maagd van Enkhuizen" Maan Maarseveen Maas "Marcus Curtius" Margarethe Mars Matenes Medusa Meermin Mercuur Middelbare Middelburg Morgenstar Moriaanshoofd 
-	Pacificatie Parel Pelikaan Pijl Post "Postiljon van Smyrna" Prins "Prins Friso" "Prins Hendrik" "Prins Hendrik Casimir" "Prins Maurits" "Prins te Paard" "Prins van Portugal" "Prins Willem" "Prinses Aemilia" "Prinses Albertina" "Prinses Maria" "Prinses Roijael Maria" "Provincie Utrecht" "Provincie van Holland" 
-	"Raadhuis van Haarlem" Raaf Ramhorst Reebok Reigersberg Rijnland "Roode Leeuw" Rosenkranz 
-	Salamander "Salomons Oordeel" "Schager Roos" Schieland Schonauwen "Sint Andries" "Sint Jacob" "Sint Laurens" "Sint Maria" "Sint Matheeus" "Sint Pieter" Souterwoude Spiegel Spion "Stad en Lande" "Stad Gouda" "Stad Haarlem" "Stad Utrecht" Starrenburg Stavoren Susanna 
-	"Ter Goes" "Ter Veere" Tholen Tijdverdrijf Tijger Triton Tromp 
-	Valk Veere Velsen "Verenigde Provinciën" "Vergulden Draeck" Vlaming "Vliegende Vis" Vlissingen "Vogel Phesant" "Vogel Struis" Voorzichtigheid Vrede Vrijheid 
-	Waag Waakzamheid "Wakende Boei" "Wakende Kraan" Walcheren "Wapen van Edam" "Wapen van Haarlem" "Wapen van Holland" "Wapen van Leijden" "Wapen van Nassau" "Wapen van Utrecht" "Wapen van Zeeland" Wassenaer Westergo Westfriesland Weststellingwerft "Willem van Nieuhoff" Windhond "Witte Lam" Wolf Wolfswinkel Wreker 
-	Zeelandia Zeepaard Zephier Zierikzee Zon Zuiderhuis Zuileveld Zutphen Zwaan Zwaluw Zwanenburg "Zwarte Arend" "Zwarte Bul" Zwieten 
-	Jaarsveld Jonas Jozua Jupiter 
-	Naerden Neptunus Noorderkwartier 
-	Olifant Omlandia Oostergo Oosterwijk Oranjeboom Oudshoorn Overijssel Overwinnaer 
-	Unie Utrecht 
+	"Aartsengel Michael" "Aartsengel Michael" "Admiraal Generaal" "Admiraal Generaal" Aemilia Aemilia Agatha Agatha Ajax Ajax Akerboom Akerboom Alida Alida Alkmaar Alkmaar Alliantie Alliantie Alphen Alphen Amalia Amalia Amazoon Amazoon Amphitrite Amphitrite Amsterdam Amsterdam Arend Arend Argo Argo Arnhem Arnhem Assendelft Assendelft 
+	Banier Banier Barbestein Barbestein Batavia Batavia Batavier Batavier Beekvliet Beekvliet Beemster Beemster Beemsterlust Beemsterlust Beliona Beliona Beschermer Beschermer "Beurs van Amsterdam" "Beurs van Amsterdam" "Blauwe Reiger" "Blauwe Reiger" "Bloys van Treslong" "Bloys van Treslong" Boekenrode Boekenrode Boetzelaar Boetzelaar Bommel Bommel Braave Braave Brakel Brakel Breda Breda Brederode Brederode Brielle Brielle Broederschap Broederschap Brutus Brutus Buis Buis Bul Bul "Burcht van Leiden" "Burcht van Leiden" Burgvliet Burgvliet 
+	Caleb Caleb Callantsoog Callantsoog Castricum Castricum Catharina Catharina Cerberus Cerberus "Commercie van Amsterdam" "Commercie van Amsterdam" Convertine Convertine Curacao Curacao 
+	d'Unij d'Unij Dalem Dalem Damiaten Damiaten Dankbaarheid Dankbaarheid "David's Drie Helden" "David's Drie Helden" Delfland Delfland Delft Delft Deutekom Deutekom Deventer Deventer Diepenheim Diepenheim Dieren Dieren Doesburg Doesburg Doggersbank Doggersbank Dolfijn Dolfijn "Dom van Utrecht" "Dom van Utrecht" Dordrecht Dordrecht Draak Draak Drakestein Drakestein Drente Drente "Drie Gebroeders" "Drie Gebroeders" "Drie Koningen" "Drie Koningen" Drielst Drielst Duinveld Duinveld Duivenvoorde Duivenvoorde 
+	Echo Echo Edam Edam Eendracht Eendracht Eenhoorn Eenhoorn "Elf Steden" "Elf Steden" Elswoud Elswoud Engel Engel "Engel Gabriel" "Engel Gabriel" Erfprins Erfprins 
+	Fortuin Fortuin "Frederik Hendrik" "Frederik Hendrik" Friesland Friesland 
+	Galei Galei Gelderland Gelderland Geloof Geloof "Gewapenden Ruijter" "Gewapenden Ruijter" Gideon Gideon Glindhorst Glindhorst Goes Goes Gouda Gouda "Gouden Dolfijn" "Gouden Dolfijn" "Gouden Leeuw" "Gouden Leeuw" "Gouden Maan" "Gouden Maan" Gouderak Gouderak "Graaf Willem" "Graaf Willem" "Groot Hollandia" "Groot Hollandia" "Groote Liefde" "Groote Liefde" 
+	Haarlem Haarlem Haarlemmerhout Haarlemmerhout "Halve Maan" "Halve Maan" Hardenbroek Hardenbroek Harderwijk Harderwijk Havik Havik Hector Hector Heemstede Heemstede Hersteller Hersteller Het Het Hilverbeek Hilverbeek Hilversum Hilversum "Hof Sint Janskerken" "Hof Sint Janskerken" "Hof van Rheenen" "Hof van Rheenen" "Hof van Souburg" "Hof van Souburg" "Hof van Zeeland" "Hof van Zeeland" Hollandia Hollandia "Hollandsche Tuin" "Hollandsche Tuin" Hoop Hoop "Huijs te Zwieten" "Huijs te Zwieten" "Huis te Jaarsveld" "Huis te Jaarsveld" "Huis te Kruiningen" "Huis te Kruiningen" "Huis te Oostewijk" "Huis te Oostewijk" "Huis te Zwieten" "Huis te Zwieten" "Huis Tijdverdrijf" "Huis Tijdverdrijf" "Huis van Groeningen" "Huis van Groeningen" "Huis van Nassau" "Huis van Nassau" "Huis van Raaphorst" "Huis van Raaphorst" 
+	Kalandsoog Kalandsoog Kameel Kameel Kampen Kampen Kampveere Kampveere "Kasteel van Medemblik" "Kasteel van Medemblik" "Katwijk aan Zee" "Katwijk aan Zee" Kennemerland Kennemerland "Keurvorst van Brandenburg" "Keurvorst van Brandenburg" "Keurvorst van Saksen" "Keurvorst van Saksen" "Keurvorstin van Brandenburg" "Keurvorstin van Brandenburg" "Klein Frisia" "Klein Frisia" "Klein Hollandia" "Klein Hollandia" "Klein Zutphen" "Klein Zutphen" "Kleine Harder" "Kleine Harder" Koevorden Koevorden Komeet Komeet "Koning William" "Koning William" Kooge Kooge 
+	Landman Landman Landskroon Landskroon Leeuwarden Leeuwarden Leeuwenhorst Leeuwenhorst Liefde Liefde Loo Loo Loosdregt Loosdregt "Louisa Hendrika" "Louisa Hendrika" Luipaard Luipaard Lynx Lynx 
+	"Maagd van Enkhuizen" "Maagd van Enkhuizen" Maan Maan Maarseveen Maarseveen Maas Maas "Marcus Curtius" "Marcus Curtius" Margarethe Margarethe Mars Mars Matenes Matenes Medusa Medusa Meermin Meermin Mercuur Mercuur Middelbare Middelbare Middelburg Middelburg Morgenstar Morgenstar Moriaanshoofd Moriaanshoofd 
+	Pacificatie Pacificatie Parel Parel Pelikaan Pelikaan Pijl Pijl Post Post "Postiljon van Smyrna" "Postiljon van Smyrna" Prins Prins "Prins Friso" "Prins Friso" "Prins Hendrik" "Prins Hendrik" "Prins Hendrik Casimir" "Prins Hendrik Casimir" "Prins Maurits" "Prins Maurits" "Prins te Paard" "Prins te Paard" "Prins van Portugal" "Prins van Portugal" "Prins Willem" "Prins Willem" "Prinses Aemilia" "Prinses Aemilia" "Prinses Albertina" "Prinses Albertina" "Prinses Maria" "Prinses Maria" "Prinses Roijael Maria" "Prinses Roijael Maria" "Provincie Utrecht" "Provincie Utrecht" "Provincie van Holland" "Provincie van Holland" 
+	"Raadhuis van Haarlem" "Raadhuis van Haarlem" Raaf Raaf Ramhorst Ramhorst Reebok Reebok Reigersberg Reigersberg Rijnland Rijnland "Roode Leeuw" "Roode Leeuw" Rosenkranz Rosenkranz 
+	Salamander Salamander "Salomons Oordeel" "Salomons Oordeel" "Schager Roos" "Schager Roos" Schieland Schieland Schonauwen Schonauwen "Sint Andries" "Sint Andries" "Sint Jacob" "Sint Jacob" "Sint Laurens" "Sint Laurens" "Sint Maria" "Sint Maria" "Sint Matheeus" "Sint Matheeus" "Sint Pieter" "Sint Pieter" Souterwoude Souterwoude Spiegel Spiegel Spion Spion "Stad en Lande" "Stad en Lande" "Stad Gouda" "Stad Gouda" "Stad Haarlem" "Stad Haarlem" "Stad Utrecht" "Stad Utrecht" Starrenburg Starrenburg Stavoren Stavoren Susanna Susanna 
+	"Ter Goes" "Ter Goes" "Ter Veere" "Ter Veere" Tholen Tholen Tijdverdrijf Tijdverdrijf Tijger Tijger Triton Triton Tromp Tromp 
+	Valk Valk Veere Veere Velsen Velsen "Verenigde Provinciën" "Verenigde Provinciën" "Vergulden Draeck" "Vergulden Draeck" Vlaming Vlaming "Vliegende Vis" "Vliegende Vis" Vlissingen Vlissingen "Vogel Phesant" "Vogel Phesant" "Vogel Struis" "Vogel Struis" Voorzichtigheid Voorzichtigheid Vrede Vrede Vrijheid Vrijheid 
+	Waag Waag Waakzamheid Waakzamheid "Wakende Boei" "Wakende Boei" "Wakende Kraan" "Wakende Kraan" Walcheren Walcheren "Wapen van Edam" "Wapen van Edam" "Wapen van Haarlem" "Wapen van Haarlem" "Wapen van Holland" "Wapen van Holland" "Wapen van Leijden" "Wapen van Leijden" "Wapen van Nassau" "Wapen van Nassau" "Wapen van Utrecht" "Wapen van Utrecht" "Wapen van Zeeland" "Wapen van Zeeland" Wassenaer Wassenaer Westergo Westergo Westfriesland Westfriesland Weststellingwerft Weststellingwerft "Willem van Nieuhoff" "Willem van Nieuhoff" Windhond Windhond "Witte Lam" "Witte Lam" Wolf Wolf Wolfswinkel Wolfswinkel Wreker Wreker 
+	Zeelandia Zeelandia Zeepaard Zeepaard Zephier Zephier Zierikzee Zierikzee Zon Zon Zuiderhuis Zuiderhuis Zuileveld Zuileveld Zutphen Zutphen Zwaan Zwaan Zwaluw Zwaluw Zwanenburg Zwanenburg "Zwarte Arend" "Zwarte Arend" "Zwarte Bul" "Zwarte Bul" Zwieten Zwieten 
+	Jaarsveld Jaarsveld Jonas Jonas Jozua Jozua Jupiter Jupiter 
+	Naerden Naerden Neptunus Neptunus Noorderkwartier Noorderkwartier 
+	Olifant Olifant Omlandia Omlandia Oostergo Oostergo Oosterwijk Oosterwijk Oranjeboom Oranjeboom Oudshoorn Oudshoorn Overijssel Overijssel Overwinnaer Overwinnaer 
+	Unie Unie Utrecht Utrecht 
 }
 monarch_names = {
 	"Willem #0" = 100
@@ -296,7 +404,59 @@ monarch_names = {
 	"Margaretha #0" = -1
 	"Rosanne #0" = -1
 	"Tamara #0" = -1
+	"Willem #0" = 100
+	"Lodewijk #0" = 40
+	"Frederik Hendrik #0" = 20
+	"Maurits #0" = 20
+	"Filips Willem #0" = 15
+	"Hendrik Lodewijk #0" = 15
+	"Karel #0 Lodewijk" = 15
+	"Lodewijk #0 Karel" = 15
+	"Adriaan #0" = 10
+	"Andries #0" = 10
+	"Antonius #0" = 10
+	"Frederik #0" = 10
+	"Gaspar #0" = 10
+	"Isaac #0" = 10
+	"Jacob #0" = 10
+	"Johan #0" = 10
+	"Laurens #0" = 10
+	"Paul #0" = 10
+	"Pieter #0" = 10
+	"Simon #0" = 10
+	"Abraham #0" = 0
+	"Antoon #0" = 0
+	"Barthout #0" = 0
+	"Christiaan #0" = 0
+	"Christoffel #0" = 0
+	"Constantijn #0" = 0
+	"Cornelis #0" = 0
+	"Daniel #0" = 0
+	"David #0" = 0
+	"Filips #0" = 0
+	"Dirk #0" = 0
+	"Eise #0" = 0
+	"Frans #0" = 0
+	"Gabriel #0" = 0
+	"Gerard #0" = 0
+	"Gerben #0" = 0
+	"Godfried #0" = 0
+	"Hans #0" = 0
+	"Jeroen #0" = 0
+	"Hugo #0" = 0
+	"Jan #0" = 0
+	"Joost #0" = 0
+	"Nicolaas #0" = 0
+	"Roeland #0" = 0
+	"Rogier #0" = 0
+	"Rutger #0" = 0
+	"Thomas #0" = 0
+	"Vincent #0" = 0
+	"Zacharias #0" = 0
+	"Margaretha #0" = -1
+	"Rosanne #0" = -1
+	"Tamara #0" = -1
 }
 
-### Modified 7/25/2025 7:14:40 PM ###
+### Modified 7/26/2025 2:15:40 PM ###
 
