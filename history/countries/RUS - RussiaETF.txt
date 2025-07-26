@@ -1,65 +1,65 @@
-3819.10.22 = {
-	government = monarchy
-	add_government_reform = russian_empire_reform
-	add_government_reform = royal_decree_reform
-	add_government_reform = letat_cest_moi_reform
-	add_government_reform = political_absolutism_reform
-	add_government_reform = authoritarian_rule
-}
-
-3913.6.9 = {
-	historical_friend = SER
-	if = {
-		limit = {
-			has_dlc = "Third Rome"
-			NOT = { has_dlc = "Domination" }
-		}
-		complete_mission = rus_partition_poland_mission
-		complete_mission = tr_russia_partitions_poland_new
-		complete_mission = tr_conquer_finland
-	}
-}
-
-4012.9.1 = { decision = rus_rename_st_petersburg }
-
-4089.9.6 = { decision = rus_restore_st_petersburg }
-
-4089.12.25 = { # Boris Yeltsin
-	government = republic
-	add_government_reform = oligarchy_reform
-	add_government_reform = parliamentary_reform
-	add_government_reform = universal_suffrage_reform
-	add_government_reform = reinforce_republican_values_reform
-	add_government_reform = multi_party_system
-	add_government_reform = democracy_reform
-	add_government_reform = ceremonial_president
-	add_country_modifier = {
-		name = nuclear_state
-		duration = -1
-	}
-	set_variable = {
-		which = num_of_nuclear_weapons
-		value = 1
-	}
-	
-	clear_scripted_personalities = yes # He sure was an interesting fellow.
-	add_ruler_personality = drunkard_personality
-	add_ruler_personality = babbling_buffoon_personality
-	add_ruler_personality = embezzler_personality
-}
-
-4097.12.31 = { # Vladimir Putin
-	add_government_reform = presidential_reform
-	add_government_reform = bureaucratic_aparatus_reform
-	add_government_reform = strengthen_executive_powers_reform
-	add_government_reform = single_party_system
-	add_government_reform = oligarchic_reform
-	add_government_reform = powerful_head_of_state
-	
-	clear_scripted_personalities = yes
-	add_ruler_personality = despotic_personality
-}
-
-4112.2.23 = { # Revolution of Dignity
-	historical_rival = UKR
+3819.10.22 = {
+	government = monarchy
+	add_government_reform = russian_empire_reform
+	add_government_reform = royal_decree_reform
+	add_government_reform = letat_cest_moi_reform
+	add_government_reform = political_absolutism_reform
+	add_government_reform = authoritarian_rule
+}
+
+3913.6.9 = {
+	historical_friend = SER
+	if = {
+		limit = {
+			has_dlc = "Third Rome"
+			NOT = { has_dlc = "Domination" }
+		}
+		complete_mission = rus_partition_poland_mission
+		complete_mission = tr_russia_partitions_poland_new
+		complete_mission = tr_conquer_finland
+	}
+}
+
+4012.9.1 = { decision = rus_rename_st_petersburg }
+
+4089.9.6 = { decision = rus_restore_st_petersburg }
+
+4089.12.25 = { # Boris Yeltsin
+	government = republic
+	add_government_reform = oligarchy_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = universal_suffrage_reform
+	add_government_reform = reinforce_republican_values_reform
+	add_government_reform = multi_party_system
+	add_government_reform = democracy_reform
+	add_government_reform = ceremonial_president
+	add_country_modifier = {
+		name = nuclear_state
+		duration = -1
+	}
+	set_variable = {
+		which = num_of_nuclear_weapons
+		value = 1
+	}
+	
+	clear_scripted_personalities = yes # He sure was an interesting fellow.
+	add_ruler_personality = drunkard_personality
+	add_ruler_personality = babbling_buffoon_personality
+	add_ruler_personality = embezzler_personality
+}
+
+4097.12.31 = { # Vladimir Putin
+	add_government_reform = presidential_reform
+	add_government_reform = bureaucratic_aparatus_reform
+	add_government_reform = strengthen_executive_powers_reform
+	add_government_reform = single_party_system
+	add_government_reform = oligarchic_reform
+	add_government_reform = powerful_head_of_state
+	
+	clear_scripted_personalities = yes
+	add_ruler_personality = despotic_personality
+}
+
+4112.2.23 = { # Revolution of Dignity
+	historical_rival = UKR
 }

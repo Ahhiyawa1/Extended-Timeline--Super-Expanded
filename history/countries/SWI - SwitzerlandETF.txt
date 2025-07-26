@@ -1,54 +1,54 @@
-set_country_flag = formed_switzerland_flag
-
-3913.6.9 = {
-	if = {
-		limit = {
-			has_dlc = "Emperor"
-		}
-		complete_mission = emp_swi_vaud_wallis
-		complete_mission = emp_swi_geneva
-		complete_mission = emp_swi_start
-		complete_mission = emp_swi_three_leagues
-		complete_mission = emp_swi_confederacy
-		complete_mission = emp_swi_imperial_status
-		complete_mission = emp_swi_swiss_guard
-		complete_mission = emp_swi_mercenaries
-		complete_mission = emp_swi_mountain_forts
-		complete_mission = emp_swi_protect_against_austria
-		complete_mission = emp_swi_reformation
-		complete_mission = emp_swi_convert
-		complete_mission = emp_swi_evangelize
-		if = {
-			limit = {
-				exists = SWI
-			}
-			add_country_modifier = {
-				name = "reorganzied_swiss_confederacy"
-				duration = -1
-			}
-			add_country_modifier = {
-				name = "swiss_mountains_modifier"
-				duration = -1
-			}
-		}
-	}
-}
-
-3913.8.7 = { # Swiss Restoration
-	primary_culture = german_swiss
-	add_accepted_culture = french_swiss
-	add_accepted_culture = italian_swiss
-	add_accepted_culture = romansh
-	decision = swi_proclaim_neutrality
-}
-
-3946.9.12 = { # Federal Constitution
-	government = republic
-	add_government_reform = united_cantons_reform
-	add_government_reform = parliamentary_reform
-	add_government_reform = universal_suffrage_reform
-	add_government_reform = reinforce_republican_values_reform
-	add_government_reform = multi_party_system
-	add_government_reform = democracy_reform
-	add_government_reform = ceremonial_president
+set_country_flag = formed_switzerland_flag
+
+3913.6.9 = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		complete_mission = emp_swi_vaud_wallis
+		complete_mission = emp_swi_geneva
+		complete_mission = emp_swi_start
+		complete_mission = emp_swi_three_leagues
+		complete_mission = emp_swi_confederacy
+		complete_mission = emp_swi_imperial_status
+		complete_mission = emp_swi_swiss_guard
+		complete_mission = emp_swi_mercenaries
+		complete_mission = emp_swi_mountain_forts
+		complete_mission = emp_swi_protect_against_austria
+		complete_mission = emp_swi_reformation
+		complete_mission = emp_swi_convert
+		complete_mission = emp_swi_evangelize
+		if = {
+			limit = {
+				exists = SWI
+			}
+			add_country_modifier = {
+				name = "reorganzied_swiss_confederacy"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "swiss_mountains_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+3913.8.7 = { # Swiss Restoration
+	primary_culture = german_swiss
+	add_accepted_culture = french_swiss
+	add_accepted_culture = italian_swiss
+	add_accepted_culture = romansh
+	decision = swi_proclaim_neutrality
+}
+
+3946.9.12 = { # Federal Constitution
+	government = republic
+	add_government_reform = united_cantons_reform
+	add_government_reform = parliamentary_reform
+	add_government_reform = universal_suffrage_reform
+	add_government_reform = reinforce_republican_values_reform
+	add_government_reform = multi_party_system
+	add_government_reform = democracy_reform
+	add_government_reform = ceremonial_president
 }
