@@ -1,35 +1,32 @@
 incident_neo_confucianism = {
+    frame = 1
+    variable_initial = 0
 
-	frame = 1
-	variable_initial = 0
+    potential = {
+        has_dlc = "Mandate of Heaven"
+        religion = shinto
+        NOT = { has_country_flag = had_incident_neo_confucianism }
+    }
 
-	potential = {
-		has_dlc = "Mandate of Heaven"
-		religion = shinto
-		NOT = { has_country_flag = had_incident_neo_confucianism }
-	}
+    trigger = {
+        NOT = { is_incident_active = yes }
+        has_country_flag = shinto_incident_recent
+        NOT = {
+            had_country_flag = { flag = shinto_incident_recent days = 10950 }
+        }
+    }
 
-	trigger = {
-		custom_trigger_tooltip = {
-			tooltip = shinto_incident_recent_tooltip
-			NOT = { is_incident_active = yes }
-			OR = {
-				NOT = { has_country_flag = shinto_incident_recent }
-				had_country_flag = { flag = shinto_incident_recent days = 10950 }
-			}
-		}
-	}
+    mean_time_to_happen = {
+        months = 300
+    }
 
-	mean_time_to_happen = {
-		months = 200
-	}
-
-	immediate_effect = {
-		country_event = { id = shinto_events.19 }
-		set_country_flag = active_incident_flag
-		set_country_flag = had_incident_neo_confucianism
-	}
+    immediate_effect = {
+        country_event = { id = shinto_events.19 }
+        set_country_flag = active_incident_flag
+        set_country_flag = had_incident_neo_confucianism
+    }
 }
+
 
 incident_nanban = {
 
