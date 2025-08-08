@@ -177,7 +177,7 @@ PixelShader =
 			float TI = GetTI( vFoWColor );
 			clip( 0.99f - TI );
 			float4 vColor = tex2D( BorderDiffuse, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) )*1.1f; //added *1.1f to make borders more prominent
-			float4 vData = tex2D( BorderData, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) )*1.15; //increases country border brightness
+			float4 vData = tex2D( BorderData, float2( Input.uv.y * BORDER_TILE, Input.uv.x ) )*1.2; //increases country border brightness
 			vColor.rgb += lerp( 
 				vData.r * COLOR_TINT[0] + vData.g * COLOR_TINT[1] + vData.b * COLOR_TINT[2], 
 				vData.r * COLOR_TINT[3] + vData.g * COLOR_TINT[4] + vData.b * COLOR_TINT[5], vData.a ).rgb;
